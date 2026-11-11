@@ -10,6 +10,9 @@ and then runs the same sequence main.py runs for a deletion turn:
 
 Usage: python test_deletion_scenarios.py
 """
+import testsafe  # refuses to run against anything but a scratch database
+testsafe.require_scratch_db()
+
 import contextlib
 import io
 import sys

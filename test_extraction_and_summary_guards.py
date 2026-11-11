@@ -1,5 +1,8 @@
 """Mocked tests: (1b) extraction never uses assistant text,
 (1a) summary rewrite uses the original request + semantic verification."""
+import testsafe  # refuses to run against anything but a scratch database
+testsafe.require_scratch_db()
+
 import contextlib, io
 from unittest import mock
 

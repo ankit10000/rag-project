@@ -136,16 +136,32 @@ def _parse_json_memories(response: str, valid_ids: set):
         if not text:
             continue
 
-        try:
-            source_id = int(item.get("source_message_id"))
-        except (TypeError, ValueError):
-            source_id = None
+        raw_ids = []
+        if item.get("source_message_id") is not None:
+            raw_ids.append(item.get("source_message_id"))
 
-        if source_id not in valid_ids:
-            source_id = None
+        listed = item.get("source_message_ids")
+        if isinstance(listed, list):
+            raw_ids.extend(listed)
+        elif listed is not None:
+            raw_ids.append(listed)
+
+        # Keep only ids that are real user messages of this batch.
+        source_ids = []
+        for raw in raw_ids:
+            try:
+                value = int(raw)
+            except (TypeError, ValueError):
+                continue
+            if value in valid_ids and value not in source_ids:
+                source_ids.append(value)
 
         memories.append(
-            {"memory": text, "source_message_id": source_id}
+            {
+                "memory": text,
+                "source_message_id": source_ids[0] if source_ids else None,
+                "source_message_ids": source_ids,
+            }
         )
 
     return memories
@@ -218,8 +234,9 @@ Rules:
 - Only extract facts supported by the conversation.
 - Do not invent or infer facts.
 - Keep each memory concise and self-contained.
-- For each memory, set source_message_id to the [id=N] of the
-  user message that states the fact.
+- For each memory, set source_message_ids to the [id=N] of EVERY
+  user message that states or contributes to the fact (a list,
+  even when there is only one).
 - If no useful memory exists, return exactly: []
 
 USER MESSAGES:
@@ -228,7 +245,7 @@ USER MESSAGES:
 IMPORTANT:
 Return ONLY a JSON array, for example:
 [
-  {{"memory": "User prefers simple Hinglish explanations.", "source_message_id": 12}}
+  {{"memory": "User prefers simple Hinglish explanations.", "source_message_ids": [12, 14]}}
 ]
 """
 
@@ -245,7 +262,7 @@ Return ONLY a JSON array, for example:
         print("Memory extraction: JSON parsing failed, using bullet fallback.")
 
         memories = [
-            {"memory": text, "source_message_id": None}
+            {"memory": text, "source_message_id": None, "source_message_ids": []}
             for text in _parse_bullet_memories(response)
         ]
 
@@ -288,6 +305,7 @@ def extract_and_save_memories(
         memory = item["memory"]
 
         # Per-memory ID when known; otherwise the fallback above.
+        memory_source_ids = list(item.get("source_message_ids") or [])
         memory_source_id = item.get("source_message_id")
 
         if memory_source_id is None:
@@ -297,6 +315,7 @@ def extract_and_save_memories(
             conversation_id=conversation_id,
             new_memory=memory,
             source_message_id=memory_source_id,
+            source_message_ids=memory_source_ids,
             allow_new=True,
             delete_only=False,
         )

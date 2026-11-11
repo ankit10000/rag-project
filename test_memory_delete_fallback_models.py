@@ -8,6 +8,9 @@ fallback list, so the answer really comes from that model.
 
 Usage: python test_memory_delete_fallback_models.py [runs_per_case]
 """
+import testsafe  # refuses to run against anything but a scratch database
+testsafe.require_scratch_db()
+
 import contextlib
 import io
 import sys

@@ -1,3 +1,6 @@
+import testsafe  # refuses to run against anything but a scratch database
+testsafe.require_scratch_db()
+
 from services.conversation_service import create_conversation
 from services.memory_storage_service import (
     save_memory,

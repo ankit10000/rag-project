@@ -1,4 +1,7 @@
 """Standalone tests for eval/answer_scoring.py and eval/answer_cases.py."""
+import testsafe  # refuses to run against anything but a scratch database
+testsafe.require_scratch_db()
+
 import os
 import sys
 

@@ -46,6 +46,28 @@ DEFAULT_QUOTA_WAIT_SECONDS = 5
 
 _quota_cooldown_until = {}
 
+# Passive token accounting (observability only; never affects behaviour).
+# Each successful call appends {"model", "prompt", "output", "total"}.
+usage_log = []
+_USAGE_LOG_LIMIT = 5000
+
+
+def _record_usage(model, response):
+    meta = getattr(response, "usage_metadata", None)
+
+    if meta is None:
+        return
+
+    usage_log.append({
+        "model": model,
+        "prompt": getattr(meta, "prompt_token_count", None) or 0,
+        "output": getattr(meta, "candidates_token_count", None) or 0,
+        "total": getattr(meta, "total_token_count", None) or 0,
+    })
+
+    if len(usage_log) > _USAGE_LOG_LIMIT:
+        del usage_log[: len(usage_log) - _USAGE_LOG_LIMIT]
+
 
 def _model_order() -> list[str]:
     models = [MODEL_NAME] + [
@@ -72,6 +94,11 @@ def _generate_with_model(model: str, prompt: str, **retry_options) -> str:
         ),
         **retry_options
     )
+
+    try:
+        _record_usage(model, response)
+    except Exception:
+        pass
 
     text = getattr(response, "text", None)
 

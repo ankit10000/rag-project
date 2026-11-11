@@ -2,6 +2,9 @@
 
 No Gemini, no network, no database. Run: .venv\\Scripts\\python.exe test_answer_phase3.py
 """
+import testsafe  # refuses to run against anything but a scratch database
+testsafe.require_scratch_db()
+
 import io
 import os
 import re

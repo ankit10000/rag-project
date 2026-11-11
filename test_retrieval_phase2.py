@@ -1,9 +1,10 @@
 """
-Phase 2 retrieval regression suite. Uses an isolated scratch database
-(rag_phase2_test); it never reads or writes rag_db.
-
-    .venv\\Scripts\\python.exe test_retrieval_phase2.py
+Phase 2 retrieval regression suite. Uses the scratch database named by
+DATABASE_URL (run it through run_tests.py); it never reads or writes rag_db.
 """
+import testsafe  # refuses to run against anything but a scratch database
+testsafe.require_scratch_db()
+
 import os
 import subprocess
 import sys
@@ -13,7 +14,7 @@ from unittest import mock
 
 from eval import harness
 
-harness.use_scratch_database("rag_phase2_test")
+harness.use_current_scratch_database()
 
 import pymupdf  # noqa: E402
 
@@ -313,6 +314,7 @@ check("15 RAG: retrieved context placed in the prompt",
 check("15 RAG: answer text keeps its [S1] marker for traceability", "[S1]" in out["answer"], out["answer"])
 
 with mock.patch.object(rag, "generate_answer", side_effect=lambda p: "MEMORY" if "Classify" in p else "[MEMORY] ok"), \
+        mock.patch.object(rag, "rewrite_query", side_effect=lambda query, history, memory_summary: query), \
         mock.patch.object(rag, "hybrid_search") as spy:
     rag.ask_question("What did I tell you about my project?", memory_summary="x")
 check("15 RAG: memory questions still skip document retrieval", not spy.called)

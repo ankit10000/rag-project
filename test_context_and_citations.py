@@ -1,4 +1,7 @@
 """Standalone tests for context assembly and citations (no DB, no LLM)."""
+import testsafe  # refuses to run against anything but a scratch database
+testsafe.require_scratch_db()
+
 import copy
 import sys
 

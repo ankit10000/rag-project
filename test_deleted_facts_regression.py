@@ -5,6 +5,9 @@ Real Gemini + real DB, driven through main.main() with scripted input.
 Note: the long-term SUMMARY is injected directly (a real one needs 16+
 messages); everything else goes through the normal app flow.
 """
+import testsafe  # refuses to run against anything but a scratch database
+testsafe.require_scratch_db()
+
 import contextlib
 import io
 import re

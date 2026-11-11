@@ -1,4 +1,7 @@
 """Live-Gemini classifier test (read-only: no DB access)."""
+import testsafe  # refuses to run against anything but a scratch database
+testsafe.require_scratch_db()
+
 import contextlib, io, sys
 from services.memory_decision_service import decide_memories_to_delete
 

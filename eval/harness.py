@@ -21,10 +21,18 @@ def _admin_url(url: str) -> str:
     return url.rsplit("/", 1)[0] + "/postgres"
 
 
+_ALLOWED_SCRATCH = re.compile(r"rag_[a-z0-9_]*(?:test|eval|scale|emb|scratch)[a-z0-9_]*")
+
+
+def _check_scratch_name(name: str) -> None:
+    """Allow-list (not just a block-list): only rag_*{test,eval,scale,emb,scratch}* names."""
+    if name in PROTECTED_DBS or not _ALLOWED_SCRATCH.fullmatch(name or ""):
+        raise RuntimeError(f"refusing database name {name!r}: not an allowed scratch name")
+
+
 def use_scratch_database(name: str = SCRATCH_DB) -> str:
     """Create (if needed) the scratch DB and point DATABASE_URL at it."""
-    if name in PROTECTED_DBS:
-        raise RuntimeError(f"refusing to use protected database {name!r}")
+    _check_scratch_name(name)
 
     from dotenv import load_dotenv
     load_dotenv()
@@ -58,9 +66,39 @@ def use_scratch_database(name: str = SCRATCH_DB) -> str:
     return url
 
 
+def use_current_scratch_database() -> str:
+    """
+    Use the scratch database already named by DATABASE_URL (set by
+    run_tests.py). Never creates or drops a database and never contacts the
+    maintenance 'postgres' database; refuses anything that is not rag_*test*.
+    """
+    import testsafe
+
+    url = os.environ.get("DATABASE_URL", "")
+    testsafe.check_conninfo(url)
+    testsafe.install_connect_guard()
+
+    with psycopg.connect(url, autocommit=True) as conn:
+        conn.execute("CREATE EXTENSION IF NOT EXISTS vector")
+        conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS document_chunks (
+                id bigserial PRIMARY KEY,
+                document_name text NOT NULL,
+                page_number integer NOT NULL,
+                chunk_id integer NOT NULL,
+                content text NOT NULL,
+                embedding vector(384) NOT NULL,
+                UNIQUE (document_name, page_number, chunk_id)
+            )
+            """
+        )
+
+    return url
+
+
 def drop_scratch_database(name: str = SCRATCH_DB):
-    if name in PROTECTED_DBS:
-        raise RuntimeError(f"refusing to drop protected database {name!r}")
+    _check_scratch_name(name)
 
     from dotenv import load_dotenv
     load_dotenv()
@@ -73,8 +111,10 @@ def drop_scratch_database(name: str = SCRATCH_DB):
 def assert_scratch():
     from services import database
     name = database.DATABASE_URL.rsplit("/", 1)[1]
-    if name in PROTECTED_DBS:
-        raise RuntimeError(f"harness is pointed at {name!r}; aborting")
+    try:
+        _check_scratch_name(name)
+    except RuntimeError:
+        raise RuntimeError(f"harness is pointed at {name!r}; aborting") from None
 
 
 def load_corpus(docs: dict, chunk_fn, embed_fn, dedupe=True) -> int:

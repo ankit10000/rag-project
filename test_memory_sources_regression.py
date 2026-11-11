@@ -1,4 +1,7 @@
 """Isolated PostgreSQL regressions for deterministic memory attribution."""
+import testsafe  # refuses to run against anything but a scratch database
+testsafe.require_scratch_db()
+
 import contextlib
 import io
 import uuid
