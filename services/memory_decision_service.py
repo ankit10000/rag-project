@@ -72,7 +72,24 @@ For UPDATE, provide the memory ID and complete replacement memory.
 For DELETE, provide the memory ID and set updated_memory to null.
 """
 
-    response = generate_answer(prompt)
+    uncertain = {
+        "action": "UNCERTAIN",
+        "memory_id": None,
+        "updated_memory": None,
+    }
+
+    # D3: an LLM failure (quota, network, timeout, ...) must never escape and
+    # must never become a positive action. Only the exception type is logged:
+    # no prompt, response text, memory text or credentials.
+    try:
+        response = generate_answer(prompt)
+    except Exception as error:
+        print(f"Memory decision LLM call failed ({type(error).__name__}).")
+        return dict(uncertain)
+
+    if not isinstance(response, str):
+        print("Memory decision parsing failed.")
+        return dict(uncertain)
 
     try:
         response = re.sub(
@@ -100,11 +117,8 @@ For DELETE, provide the memory ID and set updated_memory to null.
     except (json.JSONDecodeError, ValueError, AttributeError):
         print("Memory decision parsing failed.")
 
-        return {
-            "action": "UNCERTAIN",
-            "memory_id": None,
-            "updated_memory": None,
-        }
+        return dict(uncertain)
+
 
 def decide_memories_to_delete(user_request, existing_memories):
     """
@@ -219,7 +233,22 @@ JSON format:
 If status is NO_MATCH or UNCERTAIN, memory_ids MUST be [].
 """
 
-    response = generate_answer(prompt)
+    uncertain = {
+        "status": "UNCERTAIN",
+        "memory_ids": [],
+    }
+
+    # D4: an LLM failure must never escape and must never authorise deletion.
+    # Only the exception type is logged (no prompt, memory text, message or key).
+    try:
+        response = generate_answer(prompt)
+    except Exception as error:
+        print(f"Memory deletion decision LLM call failed ({type(error).__name__}).")
+        return dict(uncertain, memory_ids=[])
+
+    if not isinstance(response, str):
+        print("Memory deletion decision parsing failed.")
+        return dict(uncertain, memory_ids=[])
 
     try:
         response = re.sub(
@@ -265,6 +294,13 @@ If status is NO_MATCH or UNCERTAIN, memory_ids MUST be [].
         selected_ids = []
 
         for memory_id in memory_ids:
+            # D5: validate the raw JSON value before any conversion.
+            # Only genuine integers and numeric strings (existing contract)
+            # are accepted; bool/float/None/list/dict are never coerced
+            # into another memory's id.
+            if isinstance(memory_id, bool) or not isinstance(memory_id, (int, str)):
+                continue
+
             try:
                 memory_id = int(memory_id)
             except (TypeError, ValueError):

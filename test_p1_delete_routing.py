@@ -41,7 +41,7 @@ PATCHED = [
 for _name in PATCHED:
     assert hasattr(main, _name), f"main has no attribute {_name}"
 
-QUERY = "Forget my RAG project"
+QUERY = "Forget my cricket habit"
 UNCERTAIN_TEXT = ("I'm not sure which memories you want me to forget. "
                   "Could you specify the topic or information?")
 SKIPPED_TEXT = "There are no stored memories in this conversation, so nothing was deleted."
@@ -115,6 +115,12 @@ NON_DELETE_FLOW = ["ask_question", "get_conversation_history", "get_conversation
                    "update_memory_extraction_checkpoint", "update_long_term_memory", "process_memory"]
 
 
+def last(mock_obj):
+    """Last call of a mock; an empty call (never raises) when it was not called, so a
+    wrong routing decision fails an assertion instead of crashing the script."""
+    return mock_obj.call_args if mock_obj.call_args is not None else mock.call()
+
+
 def none_called(mocks, names):
     return all(mocks[n].call_count == 0 for n in names)
 
@@ -130,9 +136,12 @@ for text in ("EXIT", "  exit  ", "Exit"):
     check(f"[R2] {text!r} exits", err is None and "Goodbye!" in out and m["_inputs_used"] == 2)
 
 out, m, err = run_main(["abc", "What is RAG?", "exit"])
+check("[R3] ordinary question 'What is RAG?' takes the RAG path, deletion flow never entered",
+      err is None and m["ask_question"].call_count == 1 and m["delete_matching_memories"].call_count == 0
+      and m["apply_deletion_cleanup"].call_count == 0)
 check("[R3] resume: create_conversation not called", err is None and m["create_conversation"].call_count == 0)
 check("[R3] resume: conversation id used in later calls",
-      m["conversation_exists"].call_args.args == ("abc",) and m["get_conversation_history"].call_args.args[0] == "abc")
+      last(m["conversation_exists"]).args == ("abc",) and last(m["get_conversation_history"]).args[:1] == ("abc",))
 out, m, err = run_main(["abc"], conversation_exists=dict(return_value=False))
 check("[R3] not found -> message and return", err is None and "Conversation not found!" in out and m["_inputs_used"] == 1)
 out, m, err = run_main(["abc"], conversation_exists=dict(side_effect=ValueError("bad uuid")))
@@ -188,7 +197,7 @@ print("NOTE | D9: cleanup follows deleted_count > 0, not status (inconsistent re
 
 def d10_extra(out, m):
     check("[D10] missing deleted_memories key -> cleanup receives []",
-          m["apply_deletion_cleanup"].call_args.kwargs["deleted_memories"] == [])
+          last(m["apply_deletion_cleanup"]).kwargs.get("deleted_memories") == [])
 
 
 delete_case("D10", {"status": "DELETED", "deleted_count": 1}, "Deleted 1 matching memory/memories.", True, d10_extra)
@@ -246,8 +255,8 @@ check("[N1] history/summary/memory search called with expected args",
       and m["get_conversation_summary"].call_args == mock.call("conv-test")
       and m["search_memories"].call_args == mock.call(conversation_id="conv-test", query="What is RAG?", top_k=5))
 check("[N1] ask_question called once", m["ask_question"].call_count == 1
-      and m["ask_question"].call_args.kwargs["query"] == "What is RAG?"
-      and m["ask_question"].call_args.kwargs["history"] == [])
+      and last(m["ask_question"]).kwargs.get("query") == "What is RAG?"
+      and last(m["ask_question"]).kwargs.get("history") == [])
 check("[N1] user then assistant saved", m["save_message"].call_args_list ==
       [mock.call("conv-test", "user", "What is RAG?"), mock.call("conv-test", "assistant", "RAG ANSWER")])
 check("[N1] extraction lookup and summary update called",
@@ -260,7 +269,7 @@ for label, summary, found, expected in (
         ("neither", "", [], "")):
     out, m, err = run_main(["", "What is RAG?", "exit"], get_conversation_summary=dict(return_value=summary),
                            search_memories=dict(return_value=found))
-    check(f"[N2] memory_summary composition: {label}", m["ask_question"].call_args.kwargs["memory_summary"] == expected)
+    check(f"[N2] memory_summary composition: {label}", last(m["ask_question"]).kwargs.get("memory_summary") == expected)
 
 out, m, err = run_main(["", "What is RAG?", "exit"],
                        get_messages_for_memory_extraction=dict(return_value=[{"id": 1}, {"id": 2}, {"id": 3}]))
@@ -294,9 +303,9 @@ for tag, result in (("UNCERTAIN", {"status": "UNCERTAIN"}), ("DELETED", {"status
 out, m, err = run_main(["", "What is RAG?", "exit"])
 check("[N5] normal path: process_memory not called", m["process_memory"].call_count == 0)
 
-out, m, err = run_main(["", "  FORGET MY RAG project  ", "exit"])
+out, m, err = run_main(["", "  FORGET MY cricket habit  ", "exit"])
 check("[N6] query stripped, case preserved", m["delete_matching_memories"].call_args ==
-      mock.call(conversation_id="conv-test", user_request="FORGET MY RAG project"))
+      mock.call(conversation_id="conv-test", user_request="FORGET MY cricket habit"))
 
 out, m, err = run_main(["", "hello", "exit"], detector=lambda q: True)
 check("[N7] detector True for 'hello' -> delete branch", m["delete_matching_memories"].call_count == 1
@@ -309,16 +318,25 @@ out, m, err = run_main(["", QUERY, "What is RAG?", "exit"],
                        delete_matching_memories=dict(return_value={"status": "DELETED", "deleted_count": 1, "deleted_memories": []}))
 check("[N8] four messages saved, mixed session", m["save_message"].call_count == 4)
 check("[N8] cleanup extra_message_ids only the deletion pair",
-      m["apply_deletion_cleanup"].call_args.kwargs["extra_message_ids"] == [101, 102])
+      last(m["apply_deletion_cleanup"]).kwargs.get("extra_message_ids") == [101, 102])
 
-# ------------------------------ Probes ------------------------------
-for text in ("How do I clear memory in Python?", "remove the memory leak", "Forget all the tests I wrote"):
+# ------------------------------ D1: detector -> routing (real detector) ------------------------------
+for text in ("How do I clear memory in Python?", "remove the memory leak", "Forget all the tests I wrote",
+             "Please remove the memory leak in my code.", "Delete memory from the cache.",
+             "Don't save it as a PDF.", "Why do you stop remembering things?",
+             "Remove this memory variable from my React component.", "How can I clear browser memory?"):
     out, m, err = run_main(["", text, "exit"], delete_matching_memories=dict(return_value={"status": "NO_MATCH"}))
-    if m["delete_matching_memories"].call_count:
-        finding(f"routing false positive: {text!r}",
-                f"entered deletion flow; RAG skipped; user received: {NO_MATCH_TEXT!r}; messages persisted: {m['save_message'].call_count}")
-    else:
-        print(f"PROBE-OK | {text!r} took the RAG path")
+    check(f"[D1] {text!r} takes the RAG path, deletion flow never entered",
+          err is None and m["delete_matching_memories"].call_count == 0
+          and m["apply_deletion_cleanup"].call_count == 0 and m["ask_question"].call_count == 1)
+
+for text in ("Forget what you remember about me.", "Delete my saved memories.", "Forget my previous job details.",
+             "Remove the memory about my old project.", "Clear all memories you have stored about me.",
+             "Please forget the personal details I shared earlier."):
+    out, m, err = run_main(["", text, "exit"], delete_matching_memories=dict(return_value={"status": "UNCERTAIN"}))
+    check(f"[D1] {text!r} reaches delete_matching_memories, RAG skipped",
+          err is None and m["delete_matching_memories"].call_args_list == [mock.call(conversation_id="conv-test", user_request=text)]
+          and m["ask_question"].call_count == 0)
 
 out, m, err = run_main(["", EOFError()])
 print(f"INFO | EOFError at prompt propagates out of main(): {type(err).__name__ if err else 'no'}")

@@ -1,4 +1,6 @@
 
+import re
+
 from services.database import get_connection
 from services.embedding_service import generate_embeddings
 from pgvector import Vector
@@ -268,10 +270,53 @@ def confirm_memory(
     return True
 
 
+_BIGINT_MIN = -(2 ** 63)
+_BIGINT_MAX = 2 ** 63 - 1
+_NUMERIC_STRING = re.compile(r"\s*[+-]?[0-9]+\s*", re.ASCII)
+
+
+def _valid_memory_id(memory_id):
+    """Return memory_id as an int if it is a usable memory id, otherwise None.
+
+    Accepted: genuine ints (not bool) and ASCII integer strings such as "2",
+    " 2 ", "+2" (these already worked because PostgreSQL cast them). Rejected:
+    bool, float (even 2.0), None, list, dict, bytes, other strings, and ints
+    outside the bigint range. Zero and negative ints are valid integers; they
+    simply match no row.
+    """
+    if isinstance(memory_id, bool):
+        return None
+
+    if isinstance(memory_id, str):
+        if not _NUMERIC_STRING.fullmatch(memory_id):
+            return None
+        memory_id = int(memory_id)
+
+    if not isinstance(memory_id, int):
+        return None
+
+    if not (_BIGINT_MIN <= memory_id <= _BIGINT_MAX):
+        return None
+
+    return memory_id
+
+
 def delete_memory(
     conversation_id: str,
     memory_id: int,
 ) -> bool:
+
+    # D7: validate the raw id before any SQL; invalid ids never reach the database.
+    valid_id = _valid_memory_id(memory_id)
+
+    if valid_id is None:
+        print(
+            "Memory deletion refused: invalid memory ID "
+            f"(type {type(memory_id).__name__})."
+        )
+        return False
+
+    memory_id = valid_id
 
     print("\n--- Memory deletion diagnostics ---")
     print(f"Requested memory ID: {memory_id}")

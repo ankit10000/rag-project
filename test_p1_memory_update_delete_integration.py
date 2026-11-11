@@ -207,13 +207,12 @@ def run():
     check("[d2] nonexistent id -> False", quiet(storage.delete_memory, fx.conv, 2_000_000_000) is False)
     check("[d3] other-conversation id -> False, row intact (ownership)",
           quiet(storage.delete_memory, fx.conv, oid) is False and state(fx) == before)
+    # D7: invalid ids are refused before SQL (full matrix in test_p1_d7_storage_id_validation.py)
     try:
         res = quiet(storage.delete_memory, fx.conv, "abc")
-        print(f"INFO | delete_memory with non-int id returned {res!r}")
-    except Exception as error:
-        print(f"INFO | delete_memory with non-int id 'abc' raised {type(error).__name__}")
-        if type(error).__module__.startswith("psycopg"):
-            finding("delete_memory non-int id raises raw DB error", f"{type(error).__name__} (unclassified, no input validation)")
+    except Exception as error:  # noqa: BLE001
+        res = error
+    check("[d4] non-int id 'abc' -> False, no exception (no raw DB error)", res is False)
     check("[d4] state unchanged after non-int id attempt", state(fx) == before)
 
     # ------------------------------ get_memory_details ------------------------------
