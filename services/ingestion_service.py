@@ -1,6 +1,10 @@
 
 from services.pdf_parser import extract_text
-from services.chunker import chunk_text
+import hashlib
+import re
+
+from services import retrieval_config as cfg
+from services.chunker import chunk_page
 from services.embedding_service import generate_embeddings
 from services.database import get_connection
 
@@ -16,19 +20,32 @@ def ingest_pdf(pdf_path: str):
 
     # Step 2: Generate chunks
     all_chunks = []
+    seen_chunks = set()
 
     for page in pages:
 
         if len(page["text"].split()) < 10:
             continue
 
-        chunks = chunk_text(
+        chunks = chunk_page(
             page["text"],
-            chunk_size=100,
-            overlap=20
+            cfg.CHUNK_SIZE,
+            cfg.CHUNK_OVERLAP,
+            cfg.CHUNK_STRATEGY,
         )
 
         for index, content in enumerate(chunks, start=1):
+
+            # Duplicate prevention: identical text inside one document
+            # (repeated headers/footers, re-ingested pages) is stored once.
+            digest = hashlib.sha1(
+                re.sub(r"\s+", " ", content).lower().encode("utf-8")
+            ).hexdigest()
+
+            if digest in seen_chunks:
+                continue
+
+            seen_chunks.add(digest)
 
             all_chunks.append({
                 "document_name": document_name,
@@ -49,6 +66,13 @@ def ingest_pdf(pdf_path: str):
     ]
 
     embeddings = generate_embeddings(texts)
+
+    # Never write vectors that do not match the column definition.
+    if embeddings.shape[1] != cfg.EMBEDDING_DIM:
+        raise ValueError(
+            f"Embedding dimension {embeddings.shape[1]} does not match "
+            f"EMBEDDING_DIM={cfg.EMBEDDING_DIM}"
+        )
 
     # Step 4: Store in PostgreSQL
     with get_connection() as conn:

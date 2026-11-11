@@ -1,0 +1,354 @@
+{
+  "main": [
+    {
+      "config": "A vector",
+      "queries": 38,
+      "recall": 0.8421052631578947,
+      "precision": 0.18947368421052632,
+      "mrr": 0.7850877192982456,
+      "ndcg": 0.7762183937258773,
+      "hit1": 0.7368421052631579,
+      "latency_ms_median": 100.09252501185983,
+      "latency_ms_p95": 157.9822499770671,
+      "stage_ms_median": {
+        "vector": 99.51429997454397,
+        "fusion": 0.45112500083632767
+      },
+      "recall_by_kind": {
+        "semantic": 0.875,
+        "keyword": 0.75,
+        "abbrev": 0.75,
+        "multi": 1.0,
+        "metadata": 1.0,
+        "short": 0.75
+      },
+      "failures": [
+        "What happens to old row versions after an update in the database?",
+        "POL-HR-031",
+        "INC-2057",
+        "What is HNSW?",
+        "What is the MTTR for the quarter?",
+        "HNSW"
+      ]
+    },
+    {
+      "config": "B bm25",
+      "queries": 38,
+      "recall": 0.9210526315789473,
+      "precision": 0.20526315789473687,
+      "mrr": 0.9078947368421053,
+      "ndcg": 0.8877484066958007,
+      "hit1": 0.8947368421052632,
+      "latency_ms_median": 88.91312498599291,
+      "latency_ms_p95": 159.65294995112345,
+      "stage_ms_median": {
+        "keyword": 88.59882500837557,
+        "fusion": 0.26697502471506596
+      },
+      "recall_by_kind": {
+        "semantic": 0.75,
+        "keyword": 1.0,
+        "abbrev": 1.0,
+        "multi": 1.0,
+        "metadata": 0.75,
+        "short": 1.0
+      },
+      "failures": [
+        "What happens to old row versions after an update in the database?",
+        "What should I do to be sure a callback request really came from the platform?",
+        "When is the interview?"
+      ]
+    },
+    {
+      "config": "C vector+bm25 (interleave)",
+      "queries": 38,
+      "recall": 0.9736842105263158,
+      "precision": 0.21578947368421056,
+      "mrr": 0.9219298245614035,
+      "ndcg": 0.9143178143772873,
+      "hit1": 0.8947368421052632,
+      "latency_ms_median": 213.40105001581833,
+      "latency_ms_p95": 339.57630005897954,
+      "stage_ms_median": {
+        "vector": 130.78187499195337,
+        "keyword": 94.01425000396557,
+        "fusion": 0.03165000816807151
+      },
+      "recall_by_kind": {
+        "semantic": 0.875,
+        "keyword": 1.0,
+        "abbrev": 1.0,
+        "multi": 1.0,
+        "metadata": 1.0,
+        "short": 1.0
+      },
+      "failures": [
+        "What happens to old row versions after an update in the database?"
+      ]
+    },
+    {
+      "config": "D vector+bm25+RRF",
+      "queries": 38,
+      "recall": 0.9736842105263158,
+      "precision": 0.21578947368421056,
+      "mrr": 0.8890350877192982,
+      "ndcg": 0.8896232436310992,
+      "hit1": 0.8421052631578947,
+      "latency_ms_median": 219.94932496454567,
+      "latency_ms_p95": 354.93804997531697,
+      "stage_ms_median": {
+        "vector": 131.31964998319745,
+        "keyword": 104.89389998838305,
+        "fusion": 0.4340499872341752
+      },
+      "recall_by_kind": {
+        "semantic": 0.875,
+        "keyword": 1.0,
+        "abbrev": 1.0,
+        "multi": 1.0,
+        "metadata": 1.0,
+        "short": 1.0
+      },
+      "failures": [
+        "What happens to old row versions after an update in the database?"
+      ]
+    },
+    {
+      "config": "E vector+bm25+RRF+rerank",
+      "queries": 38,
+      "recall": 0.9473684210526315,
+      "precision": 0.21052631578947367,
+      "mrr": 0.9263157894736843,
+      "ndcg": 0.9108722945464595,
+      "hit1": 0.9210526315789473,
+      "latency_ms_median": 562.0343000337016,
+      "latency_ms_p95": 674.8469999874942,
+      "stage_ms_median": {
+        "vector": 146.17759999237023,
+        "keyword": 84.69252500799485,
+        "fusion": 0.45315001625567675,
+        "rerank": 315.9973750007339
+      },
+      "recall_by_kind": {
+        "semantic": 0.75,
+        "keyword": 1.0,
+        "abbrev": 1.0,
+        "multi": 1.0,
+        "metadata": 1.0,
+        "short": 1.0
+      },
+      "failures": [
+        "What happens to old row versions after an update in the database?",
+        "What should I do to be sure a callback request really came from the platform?"
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "config": "B2 postgres FTS",
+      "queries": 38,
+      "recall": 0.8026315789473685,
+      "precision": 0.17894736842105266,
+      "mrr": 0.7342105263157894,
+      "ndcg": 0.7243665165714607,
+      "hit1": 0.6842105263157895,
+      "latency_ms_median": 235.08787498576567,
+      "latency_ms_p95": 337.4681500135921,
+      "stage_ms_median": {
+        "keyword": 234.87414998817258,
+        "fusion": 0.34787502954714
+      },
+      "recall_by_kind": {
+        "semantic": 0.75,
+        "keyword": 0.5,
+        "abbrev": 0.875,
+        "multi": 0.9166666666666666,
+        "metadata": 1.0,
+        "short": 1.0
+      },
+      "failures": [
+        "What happens to old row versions after an update in the database?",
+        "What should I do to be sure a callback request really came from the platform?",
+        "ERR-4096",
+        "POL-HR-031",
+        "INC-2057",
+        "What is the phone number of the admissions office?",
+        "What is the MTTR for the quarter?",
+        "Compare HNSW and IVFFlat indexes and explain what pg_dump is used for."
+      ]
+    },
+    {
+      "config": "D2 RRF with FTS",
+      "queries": 38,
+      "recall": 0.868421052631579,
+      "precision": 0.19473684210526318,
+      "mrr": 0.831140350877193,
+      "ndcg": 0.8199202879895872,
+      "hit1": 0.8157894736842105,
+      "latency_ms_median": 296.2141250318382,
+      "latency_ms_p95": 414.3129999865778,
+      "stage_ms_median": {
+        "vector": 126.83540003490634,
+        "keyword": 167.01572501915507,
+        "fusion": 0.4020249762106687
+      },
+      "recall_by_kind": {
+        "semantic": 0.75,
+        "keyword": 0.75,
+        "abbrev": 0.875,
+        "multi": 1.0,
+        "metadata": 1.0,
+        "short": 1.0
+      },
+      "failures": [
+        "What happens to old row versions after an update in the database?",
+        "What should I do to be sure a callback request really came from the platform?",
+        "POL-HR-031",
+        "INC-2057",
+        "What is the MTTR for the quarter?"
+      ]
+    },
+    {
+      "config": "E2 RRF(FTS)+rerank",
+      "queries": 38,
+      "recall": 0.8947368421052632,
+      "precision": 0.2,
+      "mrr": 0.8947368421052632,
+      "ndcg": 0.8743761680402874,
+      "hit1": 0.8947368421052632,
+      "latency_ms_median": 702.6236000237986,
+      "latency_ms_p95": 1005.7642499450594,
+      "stage_ms_median": {
+        "vector": 146.19680002215318,
+        "keyword": 212.9418250406161,
+        "fusion": 0.5102999857626855,
+        "rerank": 362.90297500090674
+      },
+      "recall_by_kind": {
+        "semantic": 0.875,
+        "keyword": 0.75,
+        "abbrev": 0.875,
+        "multi": 1.0,
+        "metadata": 1.0,
+        "short": 1.0
+      },
+      "failures": [
+        "What should I do to be sure a callback request really came from the platform?",
+        "POL-HR-031",
+        "INC-2057",
+        "What is the MTTR for the quarter?"
+      ]
+    },
+    {
+      "config": "D k=10",
+      "queries": 38,
+      "recall": 0.9736842105263158,
+      "precision": 0.21578947368421056,
+      "mrr": 0.8890350877192982,
+      "ndcg": 0.8896232436310992,
+      "hit1": 0.8421052631578947,
+      "latency_ms_median": 223.63697498803958,
+      "latency_ms_p95": 287.14415000285953,
+      "stage_ms_median": {
+        "vector": 109.98707500402816,
+        "keyword": 110.20824997103773,
+        "fusion": 0.4248000041116029
+      },
+      "recall_by_kind": {
+        "semantic": 0.875,
+        "keyword": 1.0,
+        "abbrev": 1.0,
+        "multi": 1.0,
+        "metadata": 1.0,
+        "short": 1.0
+      },
+      "failures": [
+        "What happens to old row versions after an update in the database?"
+      ]
+    },
+    {
+      "config": "D k=30",
+      "queries": 38,
+      "recall": 0.9736842105263158,
+      "precision": 0.21578947368421056,
+      "mrr": 0.8890350877192982,
+      "ndcg": 0.8896232436310992,
+      "hit1": 0.8421052631578947,
+      "latency_ms_median": 239.49632499716245,
+      "latency_ms_p95": 300.06049998337403,
+      "stage_ms_median": {
+        "vector": 125.39377497159876,
+        "keyword": 113.94425001344644,
+        "fusion": 0.40922497282736003
+      },
+      "recall_by_kind": {
+        "semantic": 0.875,
+        "keyword": 1.0,
+        "abbrev": 1.0,
+        "multi": 1.0,
+        "metadata": 1.0,
+        "short": 1.0
+      },
+      "failures": [
+        "What happens to old row versions after an update in the database?"
+      ]
+    },
+    {
+      "config": "E pool=5",
+      "queries": 38,
+      "recall": 0.9736842105263158,
+      "precision": 0.21578947368421056,
+      "mrr": 0.9385964912280701,
+      "ndcg": 0.9270077469876558,
+      "hit1": 0.9210526315789473,
+      "latency_ms_median": 385.5303750024177,
+      "latency_ms_p95": 486.7074500070885,
+      "stage_ms_median": {
+        "vector": 116.55505001544952,
+        "keyword": 101.21667504427023,
+        "fusion": 0.5019750387873501,
+        "rerank": 148.5572000092361
+      },
+      "recall_by_kind": {
+        "semantic": 0.875,
+        "keyword": 1.0,
+        "abbrev": 1.0,
+        "multi": 1.0,
+        "metadata": 1.0,
+        "short": 1.0
+      },
+      "failures": [
+        "What happens to old row versions after an update in the database?"
+      ]
+    },
+    {
+      "config": "E pool=20",
+      "queries": 38,
+      "recall": 0.9473684210526315,
+      "precision": 0.21052631578947367,
+      "mrr": 0.9473684210526315,
+      "ndcg": 0.9270077469876558,
+      "hit1": 0.9473684210526315,
+      "latency_ms_median": 1130.6413999991491,
+      "latency_ms_p95": 1688.826599973254,
+      "stage_ms_median": {
+        "vector": 179.2111500108149,
+        "keyword": 146.3687249342911,
+        "fusion": 1.0813749977387488,
+        "rerank": 789.7971749480348
+      },
+      "recall_by_kind": {
+        "semantic": 0.875,
+        "keyword": 0.875,
+        "abbrev": 1.0,
+        "multi": 1.0,
+        "metadata": 1.0,
+        "short": 1.0
+      },
+      "failures": [
+        "What should I do to be sure a callback request really came from the platform?",
+        "POL-HR-031"
+      ]
+    }
+  ]
+}

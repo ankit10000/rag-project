@@ -256,9 +256,13 @@ def main():
 
                 for source in sources:
 
+                    page = source.get("page")
+                    ref = source.get("ref")
+
                     print(
-                        f"- {source['document']} | "
-                        f"Page {source['page']}"
+                        (f"[{ref}] " if ref else "- ")
+                        + f"{source.get('document') or 'Unknown document'} | "
+                        + (f"Page {page}" if page else "Page unknown")
                     )
 
             # ==============================================

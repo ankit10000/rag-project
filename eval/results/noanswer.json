@@ -1,0 +1,12 @@
+{
+  "vector_similarity": {
+    "threshold": 0.21006001770138671,
+    "answerable_kept": 0.9736842105263158,
+    "noanswer_rejected": 1.0
+  },
+  "rerank_score": {
+    "threshold": -7.955151557922363,
+    "answerable_kept": 1.0,
+    "noanswer_rejected": 1.0
+  }
+}

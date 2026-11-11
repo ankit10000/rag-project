@@ -1,0 +1,449 @@
+[
+  {
+    "config": "words 100/20 (current) [D] chunks=744",
+    "queries": 38,
+    "recall": 0.9736842105263158,
+    "precision": 0.21578947368421056,
+    "mrr": 0.8890350877192982,
+    "ndcg": 0.8896232436310992,
+    "hit1": 0.8421052631578947,
+    "latency_ms_median": 373.39597500977106,
+    "latency_ms_p95": 667.9892499814741,
+    "stage_ms_median": {
+      "vector": 230.01482500694692,
+      "keyword": 136.9366500293836,
+      "fusion": 0.8114250376820564
+    },
+    "recall_by_kind": {
+      "semantic": 0.875,
+      "keyword": 1.0,
+      "abbrev": 1.0,
+      "multi": 1.0,
+      "metadata": 1.0,
+      "short": 1.0
+    },
+    "failures": [
+      "What happens to old row versions after an update in the database?"
+    ]
+  },
+  {
+    "config": "words 100/20 (current) [E] chunks=744",
+    "queries": 38,
+    "recall": 0.9473684210526315,
+    "precision": 0.21052631578947367,
+    "mrr": 0.9263157894736843,
+    "ndcg": 0.9108722945464595,
+    "hit1": 0.9210526315789473,
+    "latency_ms_median": 1184.734575013863,
+    "latency_ms_p95": 2991.0058500245214,
+    "stage_ms_median": {
+      "vector": 222.4402749852743,
+      "keyword": 144.9394250230398,
+      "fusion": 0.8620749867986888,
+      "rerank": 745.088575000409
+    },
+    "recall_by_kind": {
+      "semantic": 0.75,
+      "keyword": 1.0,
+      "abbrev": 1.0,
+      "multi": 1.0,
+      "metadata": 1.0,
+      "short": 1.0
+    },
+    "failures": [
+      "What happens to old row versions after an update in the database?",
+      "What should I do to be sure a callback request really came from the platform?"
+    ]
+  },
+  {
+    "config": "words 50/10 [D] chunks=1272",
+    "queries": 38,
+    "recall": 1.0,
+    "precision": 0.23157894736842108,
+    "mrr": 0.886842105263158,
+    "ndcg": 0.9102850973324823,
+    "hit1": 0.8421052631578947,
+    "latency_ms_median": 345.30525002628565,
+    "latency_ms_p95": 464.4795499625616,
+    "stage_ms_median": {
+      "vector": 197.41365002118982,
+      "keyword": 134.7160500008613,
+      "fusion": 0.5465500289574265
+    },
+    "recall_by_kind": {
+      "semantic": 1.0,
+      "keyword": 1.0,
+      "abbrev": 1.0,
+      "multi": 1.0,
+      "metadata": 1.0,
+      "short": 1.0
+    },
+    "failures": []
+  },
+  {
+    "config": "words 50/10 [E] chunks=1272",
+    "queries": 38,
+    "recall": 0.9605263157894737,
+    "precision": 0.21578947368421056,
+    "mrr": 0.9407894736842105,
+    "ndcg": 0.9265163549032619,
+    "hit1": 0.9210526315789473,
+    "latency_ms_median": 808.7830749864224,
+    "latency_ms_p95": 2815.7308499794453,
+    "stage_ms_median": {
+      "vector": 219.9148750223685,
+      "keyword": 147.66952500212938,
+      "fusion": 0.6117750308476388,
+      "rerank": 433.21009995997883
+    },
+    "recall_by_kind": {
+      "semantic": 0.875,
+      "keyword": 1.0,
+      "abbrev": 1.0,
+      "multi": 0.9166666666666666,
+      "metadata": 1.0,
+      "short": 1.0
+    },
+    "failures": [
+      "What should I do to be sure a callback request really came from the platform?",
+      "Explain BM25 and also how cross encoders differ from bi encoders."
+    ]
+  },
+  {
+    "config": "words 60/0 (no overlap) [D] chunks=1094",
+    "queries": 38,
+    "recall": 0.9605263157894737,
+    "precision": 0.21578947368421056,
+    "mrr": 0.8912280701754386,
+    "ndcg": 0.8914475447344309,
+    "hit1": 0.8421052631578947,
+    "latency_ms_median": 333.543999993708,
+    "latency_ms_p95": 476.3639000011608,
+    "stage_ms_median": {
+      "vector": 189.31847502244636,
+      "keyword": 133.6164250096772,
+      "fusion": 0.5913499917369336
+    },
+    "recall_by_kind": {
+      "semantic": 0.875,
+      "keyword": 1.0,
+      "abbrev": 1.0,
+      "multi": 0.9166666666666666,
+      "metadata": 1.0,
+      "short": 1.0
+    },
+    "failures": [
+      "What happens to old row versions after an update in the database?",
+      "Explain BM25 and also how cross encoders differ from bi encoders."
+    ]
+  },
+  {
+    "config": "words 60/0 (no overlap) [E] chunks=1094",
+    "queries": 38,
+    "recall": 0.9736842105263158,
+    "precision": 0.21578947368421056,
+    "mrr": 0.9539473684210527,
+    "ndcg": 0.9383413406211659,
+    "hit1": 0.9473684210526315,
+    "latency_ms_median": 782.3593750072177,
+    "latency_ms_p95": 1006.8948499974795,
+    "stage_ms_median": {
+      "vector": 180.57739999494515,
+      "keyword": 138.43495002947748,
+      "fusion": 0.7000499754212797,
+      "rerank": 425.7847750268411
+    },
+    "recall_by_kind": {
+      "semantic": 0.875,
+      "keyword": 1.0,
+      "abbrev": 1.0,
+      "multi": 1.0,
+      "metadata": 1.0,
+      "short": 1.0
+    },
+    "failures": [
+      "What should I do to be sure a callback request really came from the platform?"
+    ]
+  },
+  {
+    "config": "words 150/30 [D] chunks=384",
+    "queries": 38,
+    "recall": 0.9736842105263158,
+    "precision": 0.21578947368421056,
+    "mrr": 0.9043859649122807,
+    "ndcg": 0.9011599196404452,
+    "hit1": 0.868421052631579,
+    "latency_ms_median": 306.681425019633,
+    "latency_ms_p95": 400.4749499144964,
+    "stage_ms_median": {
+      "vector": 177.9355750477407,
+      "keyword": 127.02134999562986,
+      "fusion": 0.9344499849248677
+    },
+    "recall_by_kind": {
+      "semantic": 0.875,
+      "keyword": 1.0,
+      "abbrev": 1.0,
+      "multi": 1.0,
+      "metadata": 1.0,
+      "short": 1.0
+    },
+    "failures": [
+      "What happens to old row versions after an update in the database?"
+    ]
+  },
+  {
+    "config": "words 150/30 [E] chunks=384",
+    "queries": 38,
+    "recall": 0.9473684210526315,
+    "precision": 0.21052631578947367,
+    "mrr": 0.9473684210526315,
+    "ndcg": 0.9270077469876558,
+    "hit1": 0.9473684210526315,
+    "latency_ms_median": 998.0110500182491,
+    "latency_ms_p95": 1227.9822999844328,
+    "stage_ms_median": {
+      "vector": 177.95949999708682,
+      "keyword": 129.80052502825856,
+      "fusion": 0.9331500041298568,
+      "rerank": 652.0611249725334
+    },
+    "recall_by_kind": {
+      "semantic": 0.875,
+      "keyword": 0.875,
+      "abbrev": 1.0,
+      "multi": 1.0,
+      "metadata": 1.0,
+      "short": 1.0
+    },
+    "failures": [
+      "What should I do to be sure a callback request really came from the platform?",
+      "POL-HR-031"
+    ]
+  },
+  {
+    "config": "words 200/40 [D] chunks=384",
+    "queries": 38,
+    "recall": 0.9736842105263158,
+    "precision": 0.21578947368421056,
+    "mrr": 0.9043859649122807,
+    "ndcg": 0.9011599196404452,
+    "hit1": 0.868421052631579,
+    "latency_ms_median": 322.77155001065694,
+    "latency_ms_p95": 400.2965000108816,
+    "stage_ms_median": {
+      "vector": 164.23077500076033,
+      "keyword": 136.81244998588227,
+      "fusion": 0.9258750069420785
+    },
+    "recall_by_kind": {
+      "semantic": 0.875,
+      "keyword": 1.0,
+      "abbrev": 1.0,
+      "multi": 1.0,
+      "metadata": 1.0,
+      "short": 1.0
+    },
+    "failures": [
+      "What happens to old row versions after an update in the database?"
+    ]
+  },
+  {
+    "config": "words 200/40 [E] chunks=384",
+    "queries": 38,
+    "recall": 0.9473684210526315,
+    "precision": 0.21052631578947367,
+    "mrr": 0.9276315789473685,
+    "ndcg": 0.9120255511474817,
+    "hit1": 0.9210526315789473,
+    "latency_ms_median": 1051.7143250035588,
+    "latency_ms_p95": 1651.312300004065,
+    "stage_ms_median": {
+      "vector": 176.27627498586662,
+      "keyword": 154.134200012777,
+      "fusion": 0.8748499967623502,
+      "rerank": 697.621875006007
+    },
+    "recall_by_kind": {
+      "semantic": 0.875,
+      "keyword": 0.875,
+      "abbrev": 1.0,
+      "multi": 1.0,
+      "metadata": 1.0,
+      "short": 1.0
+    },
+    "failures": [
+      "What should I do to be sure a callback request really came from the platform?",
+      "POL-HR-031"
+    ]
+  },
+  {
+    "config": "sentences 60/15 [D] chunks=1144",
+    "queries": 38,
+    "recall": 0.9473684210526315,
+    "precision": 0.21578947368421056,
+    "mrr": 0.8780701754385966,
+    "ndcg": 0.8850244671992489,
+    "hit1": 0.8421052631578947,
+    "latency_ms_median": 302.3019749962259,
+    "latency_ms_p95": 404.8660499975085,
+    "stage_ms_median": {
+      "vector": 165.76430000714026,
+      "keyword": 124.615350010572,
+      "fusion": 0.5753749865107238
+    },
+    "recall_by_kind": {
+      "semantic": 0.75,
+      "keyword": 1.0,
+      "abbrev": 1.0,
+      "multi": 1.0,
+      "metadata": 1.0,
+      "short": 1.0
+    },
+    "failures": [
+      "What happens to old row versions after an update in the database?",
+      "What should I do to be sure a callback request really came from the platform?"
+    ]
+  },
+  {
+    "config": "sentences 60/15 [E] chunks=1144",
+    "queries": 38,
+    "recall": 0.9473684210526315,
+    "precision": 0.21052631578947367,
+    "mrr": 0.9298245614035089,
+    "ndcg": 0.9138498522508137,
+    "hit1": 0.9210526315789473,
+    "latency_ms_median": 695.8568999834824,
+    "latency_ms_p95": 886.2615000107326,
+    "stage_ms_median": {
+      "vector": 189.4610000308603,
+      "keyword": 133.4668499766849,
+      "fusion": 0.6054500117897987,
+      "rerank": 351.18970001349226
+    },
+    "recall_by_kind": {
+      "semantic": 0.75,
+      "keyword": 1.0,
+      "abbrev": 1.0,
+      "multi": 1.0,
+      "metadata": 1.0,
+      "short": 1.0
+    },
+    "failures": [
+      "What happens to old row versions after an update in the database?",
+      "What should I do to be sure a callback request really came from the platform?"
+    ]
+  },
+  {
+    "config": "sentences 100/20 [D] chunks=744",
+    "queries": 38,
+    "recall": 0.9736842105263158,
+    "precision": 0.21578947368421056,
+    "mrr": 0.8890350877192982,
+    "ndcg": 0.8896232436310992,
+    "hit1": 0.8421052631578947,
+    "latency_ms_median": 315.5085750040598,
+    "latency_ms_p95": 382.43484997656196,
+    "stage_ms_median": {
+      "vector": 166.05925001204014,
+      "keyword": 122.68252499052323,
+      "fusion": 0.6695250049233437
+    },
+    "recall_by_kind": {
+      "semantic": 0.875,
+      "keyword": 1.0,
+      "abbrev": 1.0,
+      "multi": 1.0,
+      "metadata": 1.0,
+      "short": 1.0
+    },
+    "failures": [
+      "What happens to old row versions after an update in the database?"
+    ]
+  },
+  {
+    "config": "sentences 100/20 [E] chunks=744",
+    "queries": 38,
+    "recall": 0.9473684210526315,
+    "precision": 0.21052631578947367,
+    "mrr": 0.9263157894736843,
+    "ndcg": 0.9108722945464595,
+    "hit1": 0.9210526315789473,
+    "latency_ms_median": 848.6492999945767,
+    "latency_ms_p95": 1172.3919499781914,
+    "stage_ms_median": {
+      "vector": 180.9965999564156,
+      "keyword": 135.36227503209375,
+      "fusion": 0.8608500065747648,
+      "rerank": 504.59850003244355
+    },
+    "recall_by_kind": {
+      "semantic": 0.75,
+      "keyword": 1.0,
+      "abbrev": 1.0,
+      "multi": 1.0,
+      "metadata": 1.0,
+      "short": 1.0
+    },
+    "failures": [
+      "What happens to old row versions after an update in the database?",
+      "What should I do to be sure a callback request really came from the platform?"
+    ]
+  },
+  {
+    "config": "sentences 150/30 [D] chunks=384",
+    "queries": 38,
+    "recall": 0.9736842105263158,
+    "precision": 0.21578947368421056,
+    "mrr": 0.9043859649122807,
+    "ndcg": 0.9011599196404452,
+    "hit1": 0.868421052631579,
+    "latency_ms_median": 331.72175000072457,
+    "latency_ms_p95": 437.03164998441935,
+    "stage_ms_median": {
+      "vector": 183.31687507452443,
+      "keyword": 126.9502250070218,
+      "fusion": 0.9687749843578786
+    },
+    "recall_by_kind": {
+      "semantic": 0.875,
+      "keyword": 1.0,
+      "abbrev": 1.0,
+      "multi": 1.0,
+      "metadata": 1.0,
+      "short": 1.0
+    },
+    "failures": [
+      "What happens to old row versions after an update in the database?"
+    ]
+  },
+  {
+    "config": "sentences 150/30 [E] chunks=384",
+    "queries": 38,
+    "recall": 0.9473684210526315,
+    "precision": 0.21052631578947367,
+    "mrr": 0.9473684210526315,
+    "ndcg": 0.9270077469876558,
+    "hit1": 0.9473684210526315,
+    "latency_ms_median": 910.937799984822,
+    "latency_ms_p95": 1195.2440000022762,
+    "stage_ms_median": {
+      "vector": 160.33737501129508,
+      "keyword": 124.45752500207163,
+      "fusion": 0.877675018273294,
+      "rerank": 614.2957999836653
+    },
+    "recall_by_kind": {
+      "semantic": 0.875,
+      "keyword": 0.875,
+      "abbrev": 1.0,
+      "multi": 1.0,
+      "metadata": 1.0,
+      "short": 1.0
+    },
+    "failures": [
+      "What should I do to be sure a callback request really came from the platform?",
+      "POL-HR-031"
+    ]
+  }
+]
