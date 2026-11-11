@@ -1,3 +1,6 @@
+import testsafe  # refuses to run against anything but a scratch database
+testsafe.require_scratch_db()
+
 from services.memory_service import extract_memories
 
 

@@ -1,3 +1,6 @@
+import testsafe  # refuses to run against anything but a scratch database
+testsafe.require_scratch_db()
+
 from services.memory_storage_service import update_memory
 
 conversation_id = "991c4838-a604-4090-8e18-cc04307ce2d4"

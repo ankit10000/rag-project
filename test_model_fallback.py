@@ -1,4 +1,7 @@
 """Model fallback tests (Gemini client mocked; no API calls)."""
+import testsafe  # refuses to run against anything but a scratch database
+testsafe.require_scratch_db()
+
 from unittest import mock
 
 from google.genai import errors

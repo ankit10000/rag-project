@@ -5,6 +5,8 @@ from services.memory_storage_service import (
     update_memory,
     delete_memory,
     get_memory_details,
+    confirm_memory,
+    normalize_source_ids,
 )
 from services.memory_decision_service import (
     decide_memory_action,
@@ -72,6 +74,7 @@ def process_memory(
     allow_new: bool = True,
     delete_only: bool = False,
     allow_delete: bool = False,
+    source_message_ids: list[int] | None = None,
 ) -> str:
 
     if candidate_memories is None:
@@ -108,11 +111,12 @@ def process_memory(
             conversation_id=conversation_id,
             memory_text=new_memory,
             source_message_id=source_message_id,
+            source_message_ids=source_message_ids,
         )
 
         return "SAVED" if saved else "SKIPPED"
 
-    decision = decide_memory_action(
+    decision =decide_memory_action(
         new_memory=new_memory,
         existing_memories=existing_memories,
     )
@@ -156,11 +160,25 @@ def process_memory(
             conversation_id=conversation_id,
             memory_text=new_memory,
             source_message_id=source_message_id,
+            source_message_ids=source_message_ids,
         )
 
         return "SAVED" if saved else "SKIPPED"
 
     elif action == "DUPLICATE":
+
+        # The restating message becomes supporting evidence of the existing
+        # memory. Without a valid memory id nothing is linked (no guessing).
+        if memory_id in valid_ids:
+            confirm_memory(
+                conversation_id=conversation_id,
+                memory_id=memory_id,
+                source_message_ids=normalize_source_ids(
+                    source_message_id, source_message_ids
+                ),
+            )
+        else:
+            print("Duplicate without a valid memory id: not linked.")
 
         print("Duplicate memory skipped.")
         return "SKIPPED"
@@ -180,6 +198,7 @@ def process_memory(
             memory_id=memory_id,
             new_memory_text=str(updated_memory).strip(),
             source_message_id=source_message_id,
+            source_message_ids=source_message_ids,
         )
 
         return "UPDATED" if updated else "SKIPPED"
