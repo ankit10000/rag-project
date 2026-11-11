@@ -273,6 +273,11 @@ def delete_matching_memories(
         existing_memories=existing_memories,
     )
 
+    # Fail-safe: anything that is not a well-formed classifier answer is
+    # treated as UNCERTAIN and can never lead to a deletion.
+    if not isinstance(decision, dict):
+        decision = {}
+
     decision_status = decision.get(
         "status",
         "UNCERTAIN",
@@ -283,21 +288,40 @@ def delete_matching_memories(
         [],
     )
 
+    if not isinstance(selected_ids, list):
+        selected_ids = []
+
     valid_ids = {
         memory_id
         for memory_id, _ in existing_memories
     }
 
+    # Only genuine integer ids that belong to this conversation survive
+    # (bool is an int subclass and unhashable values are rejected).
     selected_ids = [
         memory_id
         for memory_id in selected_ids
-        if memory_id in valid_ids
+        if isinstance(memory_id, int)
+        and not isinstance(memory_id, bool)
+        and memory_id in valid_ids
     ]
 
     print("\nGemini deletion decision:", decision)
 
     # Ambiguous request: do not delete anything.
     if decision_status == "UNCERTAIN":
+        return {
+            "status": "UNCERTAIN",
+            "deleted_ids": [],
+            "deleted_count": 0,
+            "skipped_ids": list(valid_ids),
+            "failed_ids": [],
+        }
+
+    # Only an explicit DELETE may proceed. Unknown, missing or malformed
+    # statuses (e.g. "MAYBE", None, a list) are treated as UNCERTAIN.
+    if decision_status not in ("DELETE", "NO_MATCH"):
+        print(f"Unrecognised classifier status {decision_status!r}: nothing deleted.")
         return {
             "status": "UNCERTAIN",
             "deleted_ids": [],

@@ -510,12 +510,13 @@ def part_b():
     # Probes
     fx = Fixture()
     ids = fx.seed(["Seed A", "Seed B"])
-    result, _ = dm(fx, {"status": "MAYBE", "memory_ids": [ids[0]]})
-    deleted = ids[0] not in [r[0] for r in rows(fx.conv)]
-    print(f"observed unknown-status result: {result['status']}")
-    if deleted:
-        finding("delete_matching_memories unknown status deletes",
-                "classifier status 'MAYBE' with a valid id deleted the memory (status not validated; real classifier normalises, so latent only)")
+    # D2 (fixed): only an explicit DELETE may delete. Full matrix in test_p1_d2_classifier_status.py.
+    before = state(fx)
+    with spy("delete_memory") as dele:
+        result, _ = dm(fx, {"status": "MAYBE", "memory_ids": [ids[0]]})
+    check("[D2] unknown status 'MAYBE' with a valid id -> UNCERTAIN, nothing deleted",
+          result["status"] == "UNCERTAIN" and result["deleted_count"] == 0
+          and dele.call_count == 0 and state(fx) == before)
     fx = Fixture()
     ids = fx.seed(["Seed A"])
     result, _ = dm(fx, {"status": "DELETE", "memory_ids": [str(ids[0])]})

@@ -132,19 +132,13 @@ r, *_ = act('{"action": "NEW", "action": "DELETE", "extra": 1, "memory_id": 2}')
 check("duplicate keys: last wins, extra keys ignored",
       r == {"action": "DELETE", "memory_id": 2, "updated_memory": None})
 
-# probes
-def _none_resp():
-    r, *_ = act(None)
-    return (r != UNC), f"returned {r}"
-probe("decide_memory_action generate_answer returns None", _none_resp)
-
-
-def _raises():
-    with mock.patch.object(mds, "generate_answer", side_effect=RuntimeError("quota")):
-        with contextlib.redirect_stdout(io.StringIO()):
-            r = mds.decide_memory_action("x", EXIST)
-    return False, f"returned {r}"
-probe("decide_memory_action generate_answer raises RuntimeError", _raises)
+# D3: LLM failures in decide_memory_action are now assertions
+r, *_ = act(None)
+check("decide_memory_action generate_answer returns None -> UNCERTAIN", r == UNC)
+with mock.patch.object(mds, "generate_answer", side_effect=RuntimeError("quota")):
+    with contextlib.redirect_stdout(io.StringIO()):
+        r = mds.decide_memory_action("x", EXIST)
+check("decide_memory_action generate_answer raises RuntimeError -> UNCERTAIN", r == UNC)
 
 # ---------------- 2b decide_memories_to_delete ----------------
 DEX = [(1, "A"), (2, "B"), (3, "C")]
@@ -225,23 +219,17 @@ check("generate_answer returns None -> UNCERTAIN (TypeError caught)", r == UNCD)
 r, *_ = dele(js(status="DELETE", memory_ids=[1]), [("x", "A")])
 check("non-numeric existing id -> UNCERTAIN", r == UNCD)
 
-# probes
-def _coerce(val):
-    def f():
-        r, *_ = dele(js(status="DELETE", memory_ids=[val]))
-        return r["status"] == "DELETE", f"{val!r} -> {r}"
-    return f
-probe("bool True coerced to id 1", _coerce(True))
-probe("float 2.7 coerced to id 2", _coerce(2.7))
-probe("string '3.0' coerced", _coerce("3.0"))
+# D5: unsafe id coercion is now asserted (full matrix in test_p1_d5_delete_ids.py)
+for label, val in (("bool True", True), ("float 2.7", 2.7), ("string '3.0'", "3.0")):
+    r, *_ = dele(js(status="DELETE", memory_ids=[val]))
+    check(f"{label} is not coerced into a memory id -> NO_MATCH", r == NOM)
 
 
-def _del_raises():
-    with mock.patch.object(mds, "generate_answer", side_effect=RuntimeError("quota")):
-        with contextlib.redirect_stdout(io.StringIO()):
-            r = mds.decide_memories_to_delete("x", DEX)
-    return False, f"returned {r}"
-probe("decide_memories_to_delete generate_answer raises RuntimeError", _del_raises)
+# D4: LLM failure in decide_memories_to_delete is now an assertion
+with mock.patch.object(mds, "generate_answer", side_effect=RuntimeError("quota")):
+    with contextlib.redirect_stdout(io.StringIO()):
+        r = mds.decide_memories_to_delete("x", DEX)
+check("decide_memories_to_delete generate_answer raises RuntimeError -> UNCERTAIN", r == UNCD)
 
 if FAILURES:
     print("FAILED CHECKS: " + " ## ".join(FAILURES))

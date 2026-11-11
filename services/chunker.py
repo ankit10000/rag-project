@@ -79,6 +79,11 @@ def chunk_text_sentences(
             for start in range(0, len(words), step):
                 units.append(words[start:start + chunk_size])
 
+                # Stop once a window reaches the end; a further window would only
+                # repeat words already covered (same rule as chunk_text) (P2-02).
+                if start + chunk_size >= len(words):
+                    break
+
     chunks, current = [], []
 
     for unit in units:
@@ -86,9 +91,13 @@ def chunk_text_sentences(
         if current and len(current) + len(unit) > chunk_size:
             chunks.append(" ".join(current))
 
+            # The overlap carried into the next chunk must never push that chunk
+            # past chunk_size once the incoming unit is added (P2-02).
+            carry_limit = min(overlap, chunk_size - len(unit))
+
             carry = []
             for previous in reversed(current_units):
-                if len(carry) + len(previous) > overlap:
+                if len(carry) + len(previous) > carry_limit:
                     break
                 carry = previous + carry
 
