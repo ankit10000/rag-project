@@ -1,0 +1,156 @@
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 1673.13it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+cached sentence-transformers/all-MiniLM-L6-v2
+cached sentence-transformers/multi-qa-MiniLM-L6-cos-v1
+cached BAAI/bge-small-en-v1.5
+cached intfloat/e5-small-v2
+cached sentence-transformers/all-MiniLM-L12-v2
+=== thenlper/gte-small
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  87%|########6 | 173/199 [00:00<00:00, 1658.16it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 1673.06it/s]
+  [16:01:36] corpus embedded (744 chunks); evaluating
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|##########| 105/105 [00:00<00:00, 1587.11it/s]
+done thenlper/gte-small
+=== latency sentence-transformers/all-MiniLM-L6-v2
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 1454.28it/s]
+latency done sentence-transformers/all-MiniLM-L6-v2
+=== latency sentence-transformers/multi-qa-MiniLM-L6-cos-v1
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 1106.03it/s]
+latency done sentence-transformers/multi-qa-MiniLM-L6-cos-v1
+=== latency BAAI/bge-small-en-v1.5
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  48%|####7     | 95/199 [00:00<00:00, 948.81it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 1339.21it/s]
+latency done BAAI/bge-small-en-v1.5
+=== latency intfloat/e5-small-v2
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  37%|###7      | 74/199 [00:00<00:00, 711.62it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 1412.42it/s]
+latency done intfloat/e5-small-v2
+=== latency sentence-transformers/all-MiniLM-L12-v2
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  13%|#3        | 26/199 [00:00<00:00, 223.90it/s]Loading weights:  45%|####4     | 89/199 [00:00<00:00, 431.37it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 807.63it/s]
+latency done sentence-transformers/all-MiniLM-L12-v2
+=== latency thenlper/gte-small
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  51%|#####     | 101/199 [00:00<00:00, 973.31it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 957.51it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 958.38it/s]
+latency done thenlper/gte-small
+
+## Model facts
+| Model | dim | max_seq | raw norm min-max | chunks | chunk tokens median/max | chunks > max_seq | corpus encode s | embed+load s | cache MB (repo) | weights MB | query embed ms (med of 30) | pgvector search ms |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| all-MiniLM-L6-v2 | 384 | 256 | 1.000-1.000 | 744 | 80/141 | 0 | 27.3 | 29.3 | 92 | 91 | 15.5 | 155.00 |
+| multi-qa-MiniLM-L6-cos-v1 | 384 | 512 | 1.000-1.000 | 744 | 80/141 | 0 | 25.7 | 38.6 | 92 | 91 | 16.2 | 88.66 |
+| bge-small-en-v1.5 | 384 | 512 | 1.000-1.000 | 744 | 80/141 | 0 | 72.4 | 72.3 | 135 | 133 | 21.4 | 71.14 |
+| e5-small-v2 | 384 | 512 | 1.000-1.000 | 744 | 82/143 | 0 | 82.8 | 102.4 | 134 | 133 | 25.9 | 76.31 |
+| all-MiniLM-L12-v2 | 384 | 128 | 1.000-1.000 | 744 | 80/141 | 32 | 70.2 | 99.6 | 134 | 133 | 30.0 | 87.57 |
+| gte-small | 384 | 512 | 1.000-1.000 | 744 | 80/141 | 0 | 42.8 | 43.1 | 68 | 67 | 32.3 | 88.60 |
+
+## vector (38 answerable queries, K=5)
+| Model | Recall@5 | Precision@5 | MRR | nDCG@5 | semantic | keyword | abbrev | multi | metadata | short |
+|---|---|---|---|---|---|---|---|---|---|---|
+| all-MiniLM-L6-v2 | 0.842 | 0.189 | 0.785 | 0.776 | 0.88 | 0.75 | 0.75 | 1.00 | 1.00 | 0.75 |
+| multi-qa-MiniLM-L6-cos-v1 | 0.776 | 0.174 | 0.708 | 0.702 | 0.88 | 0.62 | 0.62 | 0.92 | 1.00 | 0.75 |
+| bge-small-en-v1.5 | 0.816 | 0.179 | 0.794 | 0.765 | 0.62 | 0.75 | 1.00 | 0.83 | 1.00 | 0.75 |
+| e5-small-v2 | 0.895 | 0.200 | 0.868 | 0.855 | 0.62 | 0.88 | 1.00 | 1.00 | 1.00 | 1.00 |
+| all-MiniLM-L12-v2 | 0.816 | 0.179 | 0.741 | 0.727 | 1.00 | 0.75 | 0.75 | 0.83 | 1.00 | 0.50 |
+| gte-small | 0.895 | 0.200 | 0.830 | 0.826 | 0.88 | 0.75 | 1.00 | 1.00 | 1.00 | 0.75 |
+
+## hybrid (38 answerable queries, K=5)
+| Model | Recall@5 | Precision@5 | MRR | nDCG@5 | semantic | keyword | abbrev | multi | metadata | short |
+|---|---|---|---|---|---|---|---|---|---|---|
+| all-MiniLM-L6-v2 | 0.974 | 0.216 | 0.889 | 0.890 | 0.88 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 |
+| multi-qa-MiniLM-L6-cos-v1 | 0.974 | 0.216 | 0.869 | 0.875 | 0.88 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 |
+| bge-small-en-v1.5 | 0.947 | 0.211 | 0.864 | 0.864 | 0.75 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 |
+| e5-small-v2 | 0.947 | 0.211 | 0.908 | 0.898 | 0.75 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 |
+| all-MiniLM-L12-v2 | 0.974 | 0.216 | 0.893 | 0.893 | 0.88 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 |
+| gte-small | 0.921 | 0.205 | 0.862 | 0.857 | 0.75 | 0.88 | 1.00 | 1.00 | 1.00 | 1.00 |
+
+## hybrid_rerank (38 answerable queries, K=5)
+| Model | Recall@5 | Precision@5 | MRR | nDCG@5 | semantic | keyword | abbrev | multi | metadata | short |
+|---|---|---|---|---|---|---|---|---|---|---|
+| all-MiniLM-L6-v2 | 0.947 | 0.211 | 0.926 | 0.911 | 0.75 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 |
+| multi-qa-MiniLM-L6-cos-v1 | 0.947 | 0.211 | 0.926 | 0.911 | 0.75 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 |
+| bge-small-en-v1.5 | 0.921 | 0.205 | 0.921 | 0.901 | 0.75 | 0.88 | 1.00 | 1.00 | 1.00 | 1.00 |
+| e5-small-v2 | 0.947 | 0.211 | 0.926 | 0.911 | 0.75 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 |
+| all-MiniLM-L12-v2 | 0.947 | 0.211 | 0.947 | 0.927 | 0.88 | 0.88 | 1.00 | 1.00 | 1.00 | 1.00 |
+| gte-small | 0.947 | 0.211 | 0.947 | 0.927 | 0.88 | 0.88 | 1.00 | 1.00 | 1.00 | 1.00 |
+
+## vector_rerank (38 answerable queries, K=5)
+| Model | Recall@5 | Precision@5 | MRR | nDCG@5 | semantic | keyword | abbrev | multi | metadata | short |
+|---|---|---|---|---|---|---|---|---|---|---|
+| all-MiniLM-L6-v2 | 0.842 | 0.189 | 0.842 | 0.822 | 0.88 | 0.75 | 0.75 | 1.00 | 1.00 | 0.75 |
+| multi-qa-MiniLM-L6-cos-v1 | 0.803 | 0.179 | 0.816 | 0.785 | 0.75 | 0.75 | 0.75 | 0.92 | 1.00 | 0.75 |
+| bge-small-en-v1.5 | 0.868 | 0.195 | 0.868 | 0.848 | 0.62 | 0.75 | 1.00 | 1.00 | 1.00 | 1.00 |
+| e5-small-v2 | 0.921 | 0.205 | 0.921 | 0.901 | 0.75 | 0.88 | 1.00 | 1.00 | 1.00 | 1.00 |
+| all-MiniLM-L12-v2 | 0.855 | 0.189 | 0.868 | 0.838 | 0.88 | 0.88 | 0.75 | 0.92 | 1.00 | 0.75 |
+| gte-small | 0.895 | 0.200 | 0.895 | 0.874 | 0.88 | 0.75 | 1.00 | 1.00 | 1.00 | 0.75 |
+
+## vector_noprefix (38 answerable queries, K=5)
+| Model | Recall@5 | Precision@5 | MRR | nDCG@5 | semantic | keyword | abbrev | multi | metadata | short |
+|---|---|---|---|---|---|---|---|---|---|---|
+| bge-small-en-v1.5 | 0.842 | 0.184 | 0.825 | 0.792 | 0.62 | 0.75 | 1.00 | 0.83 | 1.00 | 1.00 |
+| e5-small-v2 | 0.908 | 0.200 | 0.857 | 0.843 | 0.75 | 0.88 | 1.00 | 0.92 | 1.00 | 1.00 |
+
+## hybrid_noprefix (38 answerable queries, K=5)
+| Model | Recall@5 | Precision@5 | MRR | nDCG@5 | semantic | keyword | abbrev | multi | metadata | short |
+|---|---|---|---|---|---|---|---|---|---|---|
+| bge-small-en-v1.5 | 0.947 | 0.211 | 0.886 | 0.881 | 0.75 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 |
+| e5-small-v2 | 0.947 | 0.211 | 0.904 | 0.894 | 0.75 | 1.00 | 1.00 | 1.00 | 1.00 | 1.00 |
+
+## Paired bootstrap vs baseline, vector (1000 resamples, seed 7): diff [95% CI]
+| Model | d Recall@5 | d MRR | d nDCG@5 | queries better / worse (recall) | better / worse (MRR) |
+|---|---|---|---|---|---|
+| multi-qa-MiniLM-L6-cos-v1 | -0.066 [-0.145, +0.000] | -0.077 [-0.178, +0.013] | -0.074 [-0.171, +0.004] | 0 / 3 | 2 / 6 |
+| bge-small-en-v1.5 | -0.026 [-0.145, +0.092] | +0.009 [-0.101, +0.118] | -0.011 [-0.120, +0.105] | 3 / 5 | 3 / 5 |
+| e5-small-v2 | +0.053 [-0.079, +0.184] | +0.083 [-0.031, +0.211] | +0.079 [-0.033, +0.200] | 4 / 2 | 6 / 3 |
+| all-MiniLM-L12-v2 | -0.026 [-0.132, +0.079] | -0.044 [-0.136, +0.048] | -0.050 [-0.139, +0.049] | 2 / 4 | 2 / 6 |
+| gte-small | +0.053 [-0.053, +0.184] | +0.045 [-0.061, +0.147] | +0.049 [-0.059, +0.151] | 4 / 2 | 5 / 4 |
+
+## Paired bootstrap vs baseline, hybrid (1000 resamples, seed 7): diff [95% CI]
+| Model | d Recall@5 | d MRR | d nDCG@5 | queries better / worse (recall) | better / worse (MRR) |
+|---|---|---|---|---|---|
+| multi-qa-MiniLM-L6-cos-v1 | +0.000 [+0.000, +0.000] | -0.020 [-0.079, +0.033] | -0.014 [-0.058, +0.026] | 0 / 0 | 2 / 3 |
+| bge-small-en-v1.5 | -0.026 [-0.079, +0.000] | -0.025 [-0.058, +0.000] | -0.025 [-0.056, +0.000] | 0 / 1 | 0 / 3 |
+| e5-small-v2 | -0.026 [-0.079, +0.000] | +0.019 [-0.011, +0.055] | +0.008 [-0.027, +0.039] | 0 / 1 | 3 / 1 |
+| all-MiniLM-L12-v2 | +0.000 [-0.079, +0.079] | +0.004 [-0.045, +0.056] | +0.003 [-0.044, +0.056] | 1 / 1 | 2 / 2 |
+| gte-small | -0.053 [-0.132, +0.000] | -0.027 [-0.063, +0.004] | -0.033 [-0.074, -0.002] | 0 / 2 | 1 / 4 |
+
+## Paired bootstrap vs baseline, hybrid_rerank (1000 resamples, seed 7): diff [95% CI]
+| Model | d Recall@5 | d MRR | d nDCG@5 | queries better / worse (recall) | better / worse (MRR) |
+|---|---|---|---|---|---|
+| multi-qa-MiniLM-L6-cos-v1 | +0.000 [+0.000, +0.000] | +0.000 [+0.000, +0.000] | +0.000 [+0.000, +0.000] | 0 / 0 | 0 / 0 |
+| bge-small-en-v1.5 | -0.026 [-0.079, +0.000] | -0.005 [-0.016, +0.000] | -0.010 [-0.031, +0.000] | 0 / 1 | 0 / 1 |
+| e5-small-v2 | +0.000 [+0.000, +0.000] | +0.000 [+0.000, +0.000] | +0.000 [+0.000, +0.000] | 0 / 0 | 0 / 0 |
+| all-MiniLM-L12-v2 | +0.000 [-0.079, +0.079] | +0.021 [-0.016, +0.079] | +0.016 [-0.031, +0.079] | 1 / 1 | 1 / 1 |
+| gte-small | +0.000 [-0.079, +0.079] | +0.021 [-0.016, +0.079] | +0.016 [-0.031, +0.079] | 1 / 1 | 1 / 1 |
+
+## Per-query differences vs baseline, vector (only queries where any model differs on recall or MRR)
+| # | kind | query | base R/RR | multi-qa-MiniLM-L6-cos-v1 R/RR | bge-small-en-v1.5 R/RR | e5-small-v2 R/RR | all-MiniLM-L12-v2 R/RR | gte-small R/RR |
+|---|---|---|---|---|---|---|---|---|
+| 0 | semantic | How can a server prove its identity and keep traffic private | 1.00/0.50 | 1.00/0.33 | 0.00/0.00 | 1.00/1.00 | 1.00/0.33 | 1.00/0.33 |
+| 1 | semantic | What happens to old row versions after an update in the data | 0.00/0.00 | 0.00/0.00 | 0.00/0.00 | 0.00/0.00 | 1.00/1.00 | 1.00/0.20 |
+| 4 | semantic | Why did the online shop stop working for most of an hour in  | 1.00/1.00 | 1.00/1.00 | 1.00/1.00 | 0.00/0.00 | 1.00/1.00 | 1.00/1.00 |
+| 5 | semantic | How can I cut compute expenses using interruptible machines? | 1.00/1.00 | 1.00/0.50 | 1.00/1.00 | 1.00/1.00 | 1.00/0.50 | 1.00/1.00 |
+| 6 | semantic | What should I do to be sure a callback request really came f | 1.00/0.33 | 1.00/0.33 | 0.00/0.00 | 0.00/0.00 | 1.00/0.33 | 0.00/0.00 |
+| 8 | keyword | ERR-4096 | 1.00/1.00 | 0.00/0.00 | 1.00/1.00 | 1.00/0.50 | 1.00/1.00 | 1.00/1.00 |
+| 10 | keyword | PHD26052 | 1.00/0.50 | 1.00/1.00 | 1.00/0.33 | 1.00/1.00 | 0.00/0.00 | 1.00/1.00 |
+| 11 | keyword | INC-2057 | 0.00/0.00 | 0.00/0.00 | 0.00/0.00 | 1.00/1.00 | 1.00/0.50 | 0.00/0.00 |
+| 12 | keyword | Who is candidate PHD26067? | 1.00/1.00 | 1.00/0.50 | 1.00/1.00 | 1.00/1.00 | 1.00/0.50 | 1.00/1.00 |
+| 14 | keyword | X-Signature header | 1.00/1.00 | 1.00/1.00 | 1.00/1.00 | 1.00/1.00 | 1.00/0.50 | 1.00/1.00 |
+| 15 | keyword | WireGuard | 1.00/1.00 | 1.00/1.00 | 1.00/0.33 | 1.00/1.00 | 1.00/1.00 | 1.00/0.50 |
+| 16 | abbrev | What is HNSW? | 0.00/0.00 | 0.00/0.00 | 1.00/1.00 | 1.00/1.00 | 0.00/0.00 | 1.00/1.00 |
+| 19 | abbrev | What is the MTTR for the quarter? | 0.00/0.00 | 0.00/0.00 | 1.00/1.00 | 1.00/1.00 | 0.00/0.00 | 1.00/1.00 |
+| 22 | abbrev | What does the IDS do? | 1.00/1.00 | 0.00/0.00 | 1.00/1.00 | 1.00/1.00 | 1.00/1.00 | 1.00/1.00 |
+| 24 | multi | Compare HNSW and IVFFlat indexes and explain what pg_dump is | 1.00/1.00 | 1.00/1.00 | 0.50/1.00 | 1.00/1.00 | 1.00/1.00 | 1.00/1.00 |
+| 27 | multi | What was the Q3 cloud spend and what is the Q4 target? | 1.00/1.00 | 1.00/1.00 | 1.00/1.00 | 1.00/1.00 | 0.50/1.00 | 1.00/1.00 |
+| 28 | multi | What caused INC-2041 and what did the INC-2057 rollback fix? | 1.00/1.00 | 0.50/0.25 | 0.50/1.00 | 1.00/1.00 | 0.50/1.00 | 1.00/1.00 |
+| 33 | metadata | When is the interview? | 1.00/0.50 | 1.00/1.00 | 1.00/0.50 | 1.00/0.50 | 1.00/0.50 | 1.00/0.50 |
+| 34 | short | HNSW | 0.00/0.00 | 0.00/0.00 | 1.00/1.00 | 1.00/1.00 | 0.00/0.00 | 1.00/1.00 |
+| 36 | short | probation | 1.00/1.00 | 1.00/1.00 | 0.00/0.00 | 1.00/1.00 | 0.00/0.00 | 0.00/0.00 |
+
+## Per-query differences vs baseline, hybrid (only queries where any model differs on recall or MRR)
+| # | kind | query | base R/RR | multi-qa-MiniLM-L6-cos-v1 R/RR | bge-small-en-v1.5 R/RR | e5-small-v2 R/RR | all-MiniLM-L12-v2 R/RR | gte-small R/RR |
+|---|---|---|---|---|---|---|---|---|
+| 0 | semantic | How can a server prove its identity and keep traffic private | 1.00/0.33 | 1.00/0.33 | 1.00/0.33 | 1.00/0.50 | 1.00/0.33 | 1.00/0.50 |
+| 1 | semantic | What happens to old row versions after an update in the data | 0.00/0.00 | 0.00/0.00 | 0.00/0.00 | 0.00/0.00 | 1.00/0.50 | 0.00/0.00 |
+| 6 | semantic | What should I do to be sure a callback request really came f | 1.00/0.20 | 1.00/0.20 | 0.00/0.00 | 0.00/0.00 | 0.00/0.00 | 0.00/0.00 |
+| 8 | keyword | ERR-4096 | 1.00/1.00 | 1.00/0.50 | 1.00/1.00 | 1.00/1.00 | 1.00/1.00 | 1.00/1.00 |
+| 9 | keyword | POL-HR-031 | 1.00/0.25 | 1.00/0.50 | 1.00/0.25 | 1.00/0.50 | 1.00/0.25 | 0.00/0.00 |
+| 11 | keyword | INC-2057 | 1.00/0.50 | 1.00/1.00 | 1.00/0.25 | 1.00/1.00 | 1.00/1.00 | 1.00/0.25 |
+| 16 | abbrev | What is HNSW? | 1.00/1.00 | 1.00/0.50 | 1.00/1.00 | 1.00/1.00 | 1.00/1.00 | 1.00/1.00 |
+| 22 | abbrev | What does the IDS do? | 1.00/1.00 | 1.00/0.50 | 1.00/1.00 | 1.00/1.00 | 1.00/1.00 | 1.00/1.00 |
+| 36 | short | probation | 1.00/1.00 | 1.00/1.00 | 1.00/0.50 | 1.00/1.00 | 1.00/0.33 | 1.00/0.50 |

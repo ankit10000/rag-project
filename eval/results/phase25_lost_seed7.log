@@ -1,0 +1,115 @@
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 1198.17it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Corpus: seed=7 docs=128 chunks=744 (strategy=words 100/20) K=5
+
+### Vector-hit-lost analysis (seed 7, default k=60, lists of 10, fused top 10)
+Gold items in vector top-10 but not in fused top-5: 1
+- `What happens to old row versions after an update in the database?` [semantic] gold=leave dead tuples behind: vec rank 6, kw rank None, fused rank None, in pool10=False; top5: api_reference_v2.pdf(rrf 0.01639, vNone, k1); filler_044.pdf(rrf 0.01639, v1, kNone); incident_postmortems.pdf(rrf 0.01613, vNone, k2); filler_003.pdf(rrf 0.01613, v2, kNone); api_reference_v2.pdf(rrf 0.01587, vNone, k3)
+Of which vector rank<=5: 0
+
+### Interventions (all 38 queries; D = fused top 5, E = rerank of fused top-pool)
+
+D (no rerank): fused top 5
+| Variant | R@5 | MRR | nDCG | Hit@1 | fixed (queries recall/MRR up) | hurt | dRecall CI | dMRR CI |
+|---|---|---|---|---|---|---|---|---|
+| D baseline D (k=60, w=[1,1]) | 0.974 | 0.889 | 0.890 | 0.842 | 0 | 0 | [+0.000,+0.000] | [+0.000,+0.000] |
+| D w=[1,1.5] (kw,vec) | 0.842 | 0.798 | 0.789 | 0.763 | 2 | 5 | [-0.237,-0.053] | [-0.187,-0.012] |
+| D w=[1,2] | 0.842 | 0.798 | 0.789 | 0.763 | 2 | 5 | [-0.237,-0.053] | [-0.187,-0.012] |
+| D w=[0.5,1] | 0.842 | 0.798 | 0.789 | 0.763 | 2 | 5 | [-0.237,-0.053] | [-0.187,-0.012] |
+| D stopwords removed | 0.947 | 0.884 | 0.879 | 0.842 | 0 | 1 | [-0.079,+0.000] | [-0.016,+0.000] |
+| D stopwords + w=[1,1.5] | 0.842 | 0.798 | 0.789 | 0.763 | 2 | 5 | [-0.237,-0.053] | [-0.187,-0.012] |
+| D kw filter >=0.3*best | 0.974 | 0.889 | 0.890 | 0.842 | 0 | 0 | [+0.000,+0.000] | [+0.000,+0.000] |
+| D kw filter >=0.5*best | 0.974 | 0.922 | 0.914 | 0.895 | 2 | 0 | [+0.000,+0.000] | [+0.000,+0.086] |
+| D kw filter >=0.7*best | 0.974 | 0.926 | 0.918 | 0.895 | 3 | 0 | [+0.000,+0.000] | [+0.000,+0.092] |
+| D kw filter 0.5 + w=[1,1.5] | 0.842 | 0.798 | 0.789 | 0.763 | 2 | 5 | [-0.237,-0.053] | [-0.187,-0.012] |
+| D k=10 | 0.974 | 0.889 | 0.890 | 0.842 | 0 | 0 | [+0.000,+0.000] | [+0.000,+0.000] |
+| D k=30 | 0.974 | 0.889 | 0.890 | 0.842 | 0 | 0 | [+0.000,+0.000] | [+0.000,+0.000] |
+| D k=100 | 0.974 | 0.889 | 0.890 | 0.842 | 0 | 0 | [+0.000,+0.000] | [+0.000,+0.000] |
+- D w=[1,1.5] (kw,vec): improved ['How can a server prove its identity and keep traffic private?', 'What should I do to be sure a callback request really came from the platform?']; worsened ['POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- D w=[1,2]: improved ['How can a server prove its identity and keep traffic private?', 'What should I do to be sure a callback request really came from the platform?']; worsened ['POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- D w=[0.5,1]: improved ['How can a server prove its identity and keep traffic private?', 'What should I do to be sure a callback request really came from the platform?']; worsened ['POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- D stopwords removed: improved []; worsened ['What should I do to be sure a callback request really came from the platform?']
+- D stopwords + w=[1,1.5]: improved ['How can a server prove its identity and keep traffic private?', 'What should I do to be sure a callback request really came from the platform?']; worsened ['POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- D kw filter >=0.3*best: improved []; worsened []
+- D kw filter >=0.5*best: improved ['POL-HR-031', 'INC-2057']; worsened []
+- D kw filter >=0.7*best: improved ['How can a server prove its identity and keep traffic private?', 'POL-HR-031', 'INC-2057']; worsened []
+- D kw filter 0.5 + w=[1,1.5]: improved ['How can a server prove its identity and keep traffic private?', 'What should I do to be sure a callback request really came from the platform?']; worsened ['POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- D k=10: improved []; worsened []
+- D k=30: improved []; worsened []
+- D k=100: improved []; worsened []
+
+E (cross-encoder rerank over fused top-pool)
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|##########| 105/105 [00:00<00:00, 1060.09it/s]
+| Variant | R@5 | MRR | nDCG | Hit@1 | improved | worsened | dRecall CI | dMRR CI |
+|---|---|---|---|---|---|---|---|---|
+| E pool=5 w=[1,1.5] (kw,vec) | 0.842 | 0.821 | 0.806 | 0.816 | 1 | 5 | [-0.237,+0.000] | [-0.211,-0.021] |
+| E pool=5 w=[1,2] | 0.842 | 0.821 | 0.806 | 0.816 | 1 | 5 | [-0.237,+0.000] | [-0.211,-0.021] |
+| E pool=5 w=[0.5,1] | 0.842 | 0.821 | 0.806 | 0.816 | 1 | 5 | [-0.237,+0.000] | [-0.211,-0.021] |
+| E pool=5 stopwords removed | 0.947 | 0.930 | 0.914 | 0.921 | 1 | 0 | [+0.000,+0.000] | [+0.000,+0.014] |
+| E pool=5 stopwords + w=[1,1.5] | 0.842 | 0.821 | 0.806 | 0.816 | 1 | 5 | [-0.237,+0.000] | [-0.211,-0.021] |
+| E pool=5 kw filter >=0.3*best | 0.974 | 0.939 | 0.927 | 0.921 | 2 | 0 | [+0.000,+0.079] | [+0.000,+0.035] |
+| E pool=5 kw filter >=0.5*best | 0.974 | 0.939 | 0.927 | 0.921 | 2 | 0 | [+0.000,+0.079] | [+0.000,+0.035] |
+| E pool=5 kw filter >=0.7*best | 0.974 | 0.943 | 0.930 | 0.921 | 2 | 0 | [+0.000,+0.079] | [+0.000,+0.042] |
+| E pool=5 kw filter 0.5 + w=[1,1.5] | 0.842 | 0.821 | 0.806 | 0.816 | 1 | 5 | [-0.237,+0.000] | [-0.211,-0.021] |
+| E pool=10 baseline D (k=60, w=[1,1]) | 0.947 | 0.926 | 0.911 | 0.921 | 0 | 0 | [+0.000,+0.000] | [+0.000,+0.000] |
+| E pool=10 w=[1,1.5] (kw,vec) | 0.842 | 0.842 | 0.822 | 0.842 | 1 | 5 | [-0.237,+0.000] | [-0.195,+0.021] |
+| E pool=10 w=[1,2] | 0.842 | 0.842 | 0.822 | 0.842 | 1 | 5 | [-0.237,+0.000] | [-0.195,+0.021] |
+| E pool=10 w=[0.5,1] | 0.842 | 0.842 | 0.822 | 0.842 | 1 | 5 | [-0.237,+0.000] | [-0.195,+0.021] |
+| E pool=10 stopwords removed | 0.947 | 0.926 | 0.911 | 0.921 | 0 | 0 | [+0.000,+0.000] | [+0.000,+0.000] |
+| E pool=10 stopwords + w=[1,1.5] | 0.842 | 0.842 | 0.822 | 0.842 | 1 | 5 | [-0.237,+0.000] | [-0.195,+0.021] |
+| E pool=10 kw filter >=0.3*best | 0.947 | 0.926 | 0.911 | 0.921 | 0 | 0 | [+0.000,+0.000] | [+0.000,+0.000] |
+| E pool=10 kw filter >=0.5*best | 0.947 | 0.926 | 0.911 | 0.921 | 0 | 0 | [+0.000,+0.000] | [+0.000,+0.000] |
+| E pool=10 kw filter >=0.7*best | 0.974 | 0.954 | 0.938 | 0.947 | 2 | 0 | [+0.000,+0.079] | [+0.000,+0.082] |
+| E pool=10 kw filter 0.5 + w=[1,1.5] | 0.842 | 0.842 | 0.822 | 0.842 | 1 | 5 | [-0.237,+0.000] | [-0.195,+0.021] |
+| E pool=10 k=10 | 0.947 | 0.926 | 0.911 | 0.921 | 0 | 0 | [+0.000,+0.000] | [+0.000,+0.000] |
+| E pool=10 k=30 | 0.947 | 0.926 | 0.911 | 0.921 | 0 | 0 | [+0.000,+0.000] | [+0.000,+0.000] |
+| E pool=10 k=100 | 0.947 | 0.926 | 0.911 | 0.921 | 0 | 0 | [+0.000,+0.000] | [+0.000,+0.000] |
+| E pool=20 w=[1,1.5] (kw,vec) | 0.947 | 0.947 | 0.927 | 0.947 | 1 | 1 | [-0.079,+0.079] | [-0.016,+0.079] |
+| E pool=20 w=[1,2] | 0.947 | 0.947 | 0.927 | 0.947 | 1 | 1 | [-0.079,+0.079] | [-0.016,+0.079] |
+| E pool=20 w=[0.5,1] | 0.947 | 0.947 | 0.927 | 0.947 | 1 | 1 | [-0.079,+0.079] | [-0.016,+0.079] |
+| E pool=20 stopwords removed | 0.947 | 0.947 | 0.927 | 0.947 | 1 | 1 | [-0.079,+0.079] | [-0.016,+0.079] |
+| E pool=20 stopwords + w=[1,1.5] | 0.947 | 0.947 | 0.927 | 0.947 | 1 | 1 | [-0.079,+0.079] | [-0.016,+0.079] |
+| E pool=20 kw filter >=0.3*best | 0.947 | 0.947 | 0.927 | 0.947 | 1 | 1 | [-0.079,+0.079] | [-0.016,+0.079] |
+| E pool=20 kw filter >=0.5*best | 0.947 | 0.947 | 0.927 | 0.947 | 1 | 1 | [-0.079,+0.079] | [-0.016,+0.079] |
+| E pool=20 kw filter >=0.7*best | 0.974 | 0.953 | 0.937 | 0.947 | 1 | 0 | [+0.000,+0.079] | [+0.000,+0.079] |
+| E pool=20 kw filter 0.5 + w=[1,1.5] | 0.947 | 0.947 | 0.927 | 0.947 | 1 | 1 | [-0.079,+0.079] | [-0.016,+0.079] |
+| E pool=20 lists=20 baseline D (k=60, w=[1,1]) | 0.947 | 0.947 | 0.927 | 0.947 | 1 | 1 | [-0.079,+0.079] | [-0.016,+0.079] |
+| E pool=20 lists=20 w=[1,1.5] (kw,vec) | 0.842 | 0.842 | 0.822 | 0.842 | 1 | 5 | [-0.237,+0.000] | [-0.195,+0.021] |
+| E pool=20 lists=20 w=[1,2] | 0.842 | 0.842 | 0.822 | 0.842 | 1 | 5 | [-0.237,+0.000] | [-0.195,+0.021] |
+| E pool=20 lists=20 w=[0.5,1] | 0.842 | 0.842 | 0.822 | 0.842 | 1 | 5 | [-0.237,+0.000] | [-0.195,+0.021] |
+| E pool=20 lists=20 stopwords removed | 0.947 | 0.947 | 0.927 | 0.947 | 1 | 1 | [-0.079,+0.079] | [-0.016,+0.079] |
+| E pool=20 lists=20 stopwords + w=[1,1.5] | 0.842 | 0.842 | 0.822 | 0.842 | 1 | 5 | [-0.237,+0.000] | [-0.195,+0.021] |
+| E pool=20 lists=20 kw filter >=0.3*best | 0.947 | 0.947 | 0.927 | 0.947 | 1 | 1 | [-0.079,+0.079] | [-0.016,+0.079] |
+- E pool=5 w=[1,1.5] (kw,vec): improved ['What should I do to be sure a callback request really came from the platform?']; worsened ['POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- E pool=5 w=[1,2]: improved ['What should I do to be sure a callback request really came from the platform?']; worsened ['POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- E pool=5 w=[0.5,1]: improved ['What should I do to be sure a callback request really came from the platform?']; worsened ['POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- E pool=5 stopwords removed: improved ['POL-HR-031']; worsened []
+- E pool=5 stopwords + w=[1,1.5]: improved ['What should I do to be sure a callback request really came from the platform?']; worsened ['POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- E pool=5 kw filter >=0.3*best: improved ['What should I do to be sure a callback request really came from the platform?', 'POL-HR-031']; worsened []
+- E pool=5 kw filter >=0.5*best: improved ['What should I do to be sure a callback request really came from the platform?', 'POL-HR-031']; worsened []
+- E pool=5 kw filter >=0.7*best: improved ['What should I do to be sure a callback request really came from the platform?', 'POL-HR-031']; worsened []
+- E pool=5 kw filter 0.5 + w=[1,1.5]: improved ['What should I do to be sure a callback request really came from the platform?']; worsened ['POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- E pool=10 w=[1,1.5] (kw,vec): improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- E pool=10 w=[1,2]: improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- E pool=10 w=[0.5,1]: improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- E pool=10 stopwords + w=[1,1.5]: improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- E pool=10 kw filter >=0.7*best: improved ['What happens to old row versions after an update in the database?', 'POL-HR-031']; worsened []
+- E pool=10 kw filter 0.5 + w=[1,1.5]: improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- E pool=20 w=[1,1.5] (kw,vec): improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031']
+- E pool=20 w=[1,2]: improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031']
+- E pool=20 w=[0.5,1]: improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031']
+- E pool=20 stopwords removed: improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031']
+- E pool=20 stopwords + w=[1,1.5]: improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031']
+- E pool=20 kw filter >=0.3*best: improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031']
+- E pool=20 kw filter >=0.5*best: improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031']
+- E pool=20 kw filter >=0.7*best: improved ['What happens to old row versions after an update in the database?']; worsened []
+- E pool=20 kw filter 0.5 + w=[1,1.5]: improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031']
+- E pool=20 lists=20 baseline D (k=60, w=[1,1]): improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031']
+- E pool=20 lists=20 w=[1,1.5] (kw,vec): improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- E pool=20 lists=20 w=[1,2]: improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- E pool=20 lists=20 w=[0.5,1]: improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- E pool=20 lists=20 stopwords removed: improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031']
+- E pool=20 lists=20 stopwords + w=[1,1.5]: improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- E pool=20 lists=20 kw filter >=0.3*best: improved ['What happens to old row versions after an update in the database?']; worsened ['POL-HR-031']
+
+(done in 124s)

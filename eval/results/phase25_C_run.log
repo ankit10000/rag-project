@@ -1,0 +1,45 @@
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 1234.33it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+=== sentence-transformers/all-MiniLM-L6-v2
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 1103.04it/s]
+  [15:25:45] corpus embedded (744 chunks); evaluating
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights:  40%|####      | 42/105 [00:00<00:00, 406.68it/s]Loading weights: 100%|##########| 105/105 [00:00<00:00, 863.42it/s]
+done sentence-transformers/all-MiniLM-L6-v2
+=== sentence-transformers/multi-qa-MiniLM-L6-cos-v1
+C:\Users\vijay puri\Downloads\rag-project\.venv\Lib\site-packages\huggingface_hub\file_download.py:149: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\vijay puri\.cache\huggingface\hub\models--sentence-transformers--multi-qa-MiniLM-L6-cos-v1. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+C:\Users\vijay puri\Downloads\rag-project\.venv\Lib\site-packages\huggingface_hub\file_download.py:149: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\vijay puri\.cache\huggingface\hub. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 1179.19it/s]
+  [15:28:35] corpus embedded (744 chunks); evaluating
+done sentence-transformers/multi-qa-MiniLM-L6-cos-v1
+=== BAAI/bge-small-en-v1.5
+C:\Users\vijay puri\Downloads\rag-project\.venv\Lib\site-packages\huggingface_hub\file_download.py:149: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\vijay puri\.cache\huggingface\hub\models--BAAI--bge-small-en-v1.5. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  16%|#5        | 31/199 [00:00<00:00, 291.50it/s]Loading weights:  31%|###       | 61/199 [00:00<00:00, 282.15it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 643.63it/s]
+  [15:32:58] corpus embedded (744 chunks); evaluating
+done BAAI/bge-small-en-v1.5
+=== intfloat/e5-small-v2
+C:\Users\vijay puri\Downloads\rag-project\.venv\Lib\site-packages\huggingface_hub\file_download.py:149: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\vijay puri\.cache\huggingface\hub\models--intfloat--e5-small-v2. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  13%|#3        | 26/199 [00:00<00:00, 241.92it/s]Loading weights:  26%|##5       | 51/199 [00:00<00:00, 227.89it/s]Loading weights:  42%|####2     | 84/199 [00:00<00:00, 267.35it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 549.00it/s]
+  [15:39:34] corpus embedded (744 chunks); evaluating
+done intfloat/e5-small-v2
+=== sentence-transformers/all-MiniLM-L12-v2
+C:\Users\vijay puri\Downloads\rag-project\.venv\Lib\site-packages\huggingface_hub\file_download.py:149: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\vijay puri\.cache\huggingface\hub\models--sentence-transformers--all-MiniLM-L12-v2. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  27%|##6       | 53/199 [00:00<00:00, 527.41it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 1051.62it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (132 > 128). Running this sequence through the model will result in indexing errors
+  [15:45:03] corpus embedded (744 chunks); evaluating
+done sentence-transformers/all-MiniLM-L12-v2
+=== thenlper/gte-small
+C:\Users\vijay puri\Downloads\rag-project\.venv\Lib\site-packages\huggingface_hub\file_download.py:149: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\vijay puri\.cache\huggingface\hub\models--thenlper--gte-small. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  85%|########4 | 169/199 [00:00<00:00, 1687.95it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 1910.24it/s]
+This model was loaded in torch.float16 on CPU. Depending on your CPU, inference may be significantly slower than with torch.float32. Consider comparing inference speeds by loading with `model_kwargs={"dtype": torch.float32}`.

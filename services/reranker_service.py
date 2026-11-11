@@ -1,8 +1,21 @@
-from sentence_transformers import CrossEncoder
+import threading
 
-model = CrossEncoder(
-    "cross-encoder/ms-marco-MiniLM-L-6-v2"
-)
+from services import retrieval_config as cfg
+
+_model = None
+_lock = threading.Lock()
+
+
+def get_reranker():
+    """Load the cross-encoder lazily so importing the module stays cheap."""
+    global _model
+
+    with _lock:
+        if _model is None:
+            from sentence_transformers import CrossEncoder
+            _model = CrossEncoder(cfg.RERANK_MODEL)
+
+    return _model
 
 
 def rerank_results(query: str, results: list, top_k: int = 5):
@@ -17,7 +30,7 @@ def rerank_results(query: str, results: list, top_k: int = 5):
     ]
 
     # Calculate relevance scores
-    scores = model.predict(pairs)
+    scores = get_reranker().predict(pairs)
 
     # Attach scores to results
     reranked = []
@@ -29,7 +42,7 @@ def rerank_results(query: str, results: list, top_k: int = 5):
             "rerank_score": float(score)
         })
 
-    # Highest relevance score first
+    # Highest relevance score first (stable sort keeps RRF order on ties)
     reranked.sort(
         key=lambda item: item["rerank_score"],
         reverse=True

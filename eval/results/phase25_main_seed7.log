@@ -1,0 +1,186 @@
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights:  41%|####      | 42/103 [00:00<00:00, 386.03it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 833.38it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Corpus: seed=7 docs=128 chunks=744 (strategy=words 100/20) K=5
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights:  27%|##6       | 28/105 [00:00<00:00, 276.89it/s]Loading weights: 100%|##########| 105/105 [00:00<00:00, 563.14it/s]
+  done A vector (23s)
+  done B bm25 (35s)
+  done C interleave (67s)
+  done D RRF (k=60) (100s)
+  done E RRF+rerank (pool 10) (170s)
+  done D k=10 (190s)
+  done D k=30 (213s)
+  done D k=100 (237s)
+  done E k=10 (291s)
+  done E k=30 (349s)
+  done E k=100 (401s)
+  done E pool=5 (436s)
+  done E pool=20 (fused 20, lists 10) (512s)
+  done E pool=20 (lists 20) (600s)
+  done B2 postgres FTS (617s)
+  done D2 RRF + FTS (644s)
+  done E2 RRF(FTS)+rerank (699s)
+  done B3 bm25 stopwords removed (707s)
+  done D3 RRF stopwords removed (727s)
+  done E3 rerank stopwords removed (775s)
+  done E3 pool=5 stopwords removed (816s)
+
+#### Main table (seed 7, 744 chunks, 38 queries)
+| Config | R@5 | P@5 | MRR | nDCG@5 | Hit@1 | med ms | p95 ms | rerank ms | pre-IDF R/MRR/nDCG | delta R/MRR/nDCG |
+|---|---|---|---|---|---|---|---|---|---|---|
+| A vector | 0.842 | 0.189 | 0.785 | 0.776 | 0.737 | 302 | 427 | - | 0.842/0.785/0.776 | +0.000/+0.000/+0.000 |
+| B bm25 | 0.921 | 0.205 | 0.908 | 0.889 | 0.895 | 144 | 197 | - | 0.921/0.908/0.888 | +0.000/-0.000/+0.001 |
+| C interleave | 0.974 | 0.216 | 0.922 | 0.914 | 0.895 | 409 | 525 | - | 0.974/0.922/0.914 | -0.000/-0.000/+0.000 |
+| D RRF (k=60) | 0.974 | 0.216 | 0.889 | 0.890 | 0.842 | 419 | 546 | - | 0.974/0.889/0.890 | -0.000/+0.000/-0.000 |
+| E RRF+rerank (pool 10) | 0.947 | 0.211 | 0.926 | 0.911 | 0.921 | 916 | 1256 | 566 | 0.947/0.926/0.911 | +0.000/+0.000/-0.000 |
+| D k=10 | 0.974 | 0.216 | 0.889 | 0.890 | 0.842 | 263 | 328 | - | - | - |
+| D k=30 | 0.974 | 0.216 | 0.889 | 0.890 | 0.842 | 293 | 465 | - | - | - |
+| D k=100 | 0.974 | 0.216 | 0.889 | 0.890 | 0.842 | 297 | 414 | - | - | - |
+| E k=10 | 0.947 | 0.211 | 0.926 | 0.911 | 0.921 | 685 | 1067 | 398 | - | - |
+| E k=30 | 0.947 | 0.211 | 0.926 | 0.911 | 0.921 | 729 | 1051 | 417 | - | - |
+| E k=100 | 0.947 | 0.211 | 0.926 | 0.911 | 0.921 | 707 | 904 | 423 | - | - |
+| E pool=5 | 0.974 | 0.216 | 0.939 | 0.927 | 0.921 | 442 | 610 | 172 | 0.974/0.939/0.927 | -0.000/-0.000/+0.000 |
+| E pool=20 (fused 20, lists 10) | 0.947 | 0.211 | 0.947 | 0.927 | 0.947 | 1015 | 1443 | 718 | - | - |
+| E pool=20 (lists 20) | 0.947 | 0.211 | 0.947 | 0.927 | 0.947 | 1186 | 1471 | 893 | - | - |
+| B2 postgres FTS | 0.803 | 0.179 | 0.734 | 0.724 | 0.684 | 215 | 309 | - | 0.803/0.734/0.724 | -0.000/+0.000/+0.000 |
+| D2 RRF + FTS | 0.868 | 0.195 | 0.831 | 0.820 | 0.816 | 350 | 501 | - | - | - |
+| E2 RRF(FTS)+rerank | 0.895 | 0.200 | 0.895 | 0.874 | 0.895 | 741 | 911 | 367 | - | - |
+| B3 bm25 stopwords removed | 0.908 | 0.200 | 0.908 | 0.881 | 0.895 | 106 | 171 | - | - | - |
+| D3 RRF stopwords removed | 0.947 | 0.211 | 0.884 | 0.879 | 0.842 | 242 | 334 | - | - | - |
+| E3 rerank stopwords removed | 0.947 | 0.211 | 0.926 | 0.911 | 0.921 | 644 | 896 | 371 | - | - |
+| E3 pool=5 stopwords removed | 0.947 | 0.211 | 0.930 | 0.914 | 0.921 | 481 | 755 | 203 | - | - |
+
+#### Bootstrap 95% CI (1000 resamples, seed 12345)
+| Config | Recall@5 [CI] | MRR [CI] |
+|---|---|---|
+| A vector | 0.842 [0.711, 0.947] | 0.785 [0.658, 0.895] |
+| B bm25 | 0.921 [0.816, 1.000] | 0.908 [0.803, 0.974] |
+| C interleave | 0.974 [0.921, 1.000] | 0.922 [0.836, 0.987] |
+| D RRF (k=60) | 0.974 [0.921, 1.000] | 0.889 [0.789, 0.961] |
+| E RRF+rerank (pool 10) | 0.947 [0.868, 1.000] | 0.926 [0.832, 1.000] |
+| D k=10 | 0.974 [0.921, 1.000] | 0.889 [0.789, 0.961] |
+| D k=30 | 0.974 [0.921, 1.000] | 0.889 [0.789, 0.961] |
+| D k=100 | 0.974 [0.921, 1.000] | 0.889 [0.789, 0.961] |
+| E k=10 | 0.947 [0.868, 1.000] | 0.926 [0.832, 1.000] |
+| E k=30 | 0.947 [0.868, 1.000] | 0.926 [0.832, 1.000] |
+| E k=100 | 0.947 [0.868, 1.000] | 0.926 [0.832, 1.000] |
+| E pool=5 | 0.974 [0.921, 1.000] | 0.939 [0.860, 1.000] |
+| E pool=20 (fused 20, lists 10) | 0.947 [0.868, 1.000] | 0.947 [0.868, 1.000] |
+| E pool=20 (lists 20) | 0.947 [0.868, 1.000] | 0.947 [0.868, 1.000] |
+| B2 postgres FTS | 0.803 [0.671, 0.908] | 0.734 [0.605, 0.861] |
+| D2 RRF + FTS | 0.868 [0.763, 0.974] | 0.831 [0.702, 0.930] |
+| E2 RRF(FTS)+rerank | 0.895 [0.789, 0.974] | 0.895 [0.789, 0.974] |
+| B3 bm25 stopwords removed | 0.908 [0.803, 0.987] | 0.908 [0.803, 0.974] |
+| D3 RRF stopwords removed | 0.947 [0.868, 1.000] | 0.884 [0.779, 0.961] |
+| E3 rerank stopwords removed | 0.947 [0.868, 1.000] | 0.926 [0.832, 1.000] |
+| E3 pool=5 stopwords removed | 0.947 [0.868, 1.000] | 0.930 [0.842, 1.000] |
+
+#### Recall@5 by kind (counts: abbrev=8, keyword=8, metadata=4, multi=6, semantic=8, short=4)
+| Config | abbrev | keyword | metadata | multi | semantic | short |
+|---|---|---|---|---|---|---|
+| A vector | 0.75 | 0.75 | 1.00 | 1.00 | 0.88 | 0.75 |
+| B bm25 | 1.00 | 1.00 | 0.75 | 1.00 | 0.75 | 1.00 |
+| C interleave | 1.00 | 1.00 | 1.00 | 1.00 | 0.88 | 1.00 |
+| D RRF (k=60) | 1.00 | 1.00 | 1.00 | 1.00 | 0.88 | 1.00 |
+| E RRF+rerank (pool 10) | 1.00 | 1.00 | 1.00 | 1.00 | 0.75 | 1.00 |
+| D k=10 | 1.00 | 1.00 | 1.00 | 1.00 | 0.88 | 1.00 |
+| D k=30 | 1.00 | 1.00 | 1.00 | 1.00 | 0.88 | 1.00 |
+| D k=100 | 1.00 | 1.00 | 1.00 | 1.00 | 0.88 | 1.00 |
+| E k=10 | 1.00 | 1.00 | 1.00 | 1.00 | 0.75 | 1.00 |
+| E k=30 | 1.00 | 1.00 | 1.00 | 1.00 | 0.75 | 1.00 |
+| E k=100 | 1.00 | 1.00 | 1.00 | 1.00 | 0.75 | 1.00 |
+| E pool=5 | 1.00 | 1.00 | 1.00 | 1.00 | 0.88 | 1.00 |
+| E pool=20 (fused 20, lists 10) | 1.00 | 0.88 | 1.00 | 1.00 | 0.88 | 1.00 |
+| E pool=20 (lists 20) | 1.00 | 0.88 | 1.00 | 1.00 | 0.88 | 1.00 |
+| B2 postgres FTS | 0.88 | 0.50 | 1.00 | 0.92 | 0.75 | 1.00 |
+| D2 RRF + FTS | 0.88 | 0.75 | 1.00 | 1.00 | 0.75 | 1.00 |
+| E2 RRF(FTS)+rerank | 0.88 | 0.75 | 1.00 | 1.00 | 0.88 | 1.00 |
+| B3 bm25 stopwords removed | 1.00 | 1.00 | 0.75 | 0.92 | 0.75 | 1.00 |
+| D3 RRF stopwords removed | 1.00 | 1.00 | 1.00 | 1.00 | 0.75 | 1.00 |
+| E3 rerank stopwords removed | 1.00 | 1.00 | 1.00 | 1.00 | 0.75 | 1.00 |
+| E3 pool=5 stopwords removed | 1.00 | 1.00 | 1.00 | 1.00 | 0.75 | 1.00 |
+
+#### Paired per-query changes (first -> second; recall/mrr deltas; bootstrap CI of mean MRR delta)
+- B bm25 -> D RRF (k=60): 5 queries changed; dRecall CI [+0.000,+0.132], dMRR CI [-0.081,+0.032]
+    - `How can a server prove its identity and keep traffic private?` [semantic]: recall 1.00->1.00, MRR 0.50->0.33
+    - `What should I do to be sure a callback request really came from the platform?` [semantic]: recall 0.00->1.00, MRR 0.00->0.20
+    - `POL-HR-031` [keyword]: recall 1.00->1.00, MRR 1.00->0.25
+    - `INC-2057` [keyword]: recall 1.00->1.00, MRR 1.00->0.50
+    - `When is the interview?` [metadata]: recall 0.00->1.00, MRR 0.00->0.50
+- A vector -> D RRF (k=60): 8 queries changed; dRecall CI [+0.053,+0.237], dMRR CI [+0.024,+0.200]
+    - `How can a server prove its identity and keep traffic private?` [semantic]: recall 1.00->1.00, MRR 0.50->0.33
+    - `What should I do to be sure a callback request really came from the platform?` [semantic]: recall 1.00->1.00, MRR 0.33->0.20
+    - `POL-HR-031` [keyword]: recall 0.00->1.00, MRR 0.00->0.25
+    - `PHD26052` [keyword]: recall 1.00->1.00, MRR 0.50->1.00
+    - `INC-2057` [keyword]: recall 0.00->1.00, MRR 0.00->0.50
+    - `What is HNSW?` [abbrev]: recall 0.00->1.00, MRR 0.00->1.00
+    - `What is the MTTR for the quarter?` [abbrev]: recall 0.00->1.00, MRR 0.00->1.00
+    - `HNSW` [short]: recall 0.00->1.00, MRR 0.00->1.00
+- C interleave -> D RRF (k=60): 2 queries changed; dRecall CI [+0.000,+0.000], dMRR CI [-0.086,+0.000]
+    - `POL-HR-031` [keyword]: recall 1.00->1.00, MRR 1.00->0.25
+    - `INC-2057` [keyword]: recall 1.00->1.00, MRR 1.00->0.50
+- D RRF (k=60) -> E RRF+rerank (pool 10): 5 queries changed; dRecall CI [-0.079,+0.000], dMRR CI [-0.007,+0.093]
+    - `How can a server prove its identity and keep traffic private?` [semantic]: recall 1.00->1.00, MRR 0.33->1.00
+    - `What should I do to be sure a callback request really came from the platform?` [semantic]: recall 1.00->0.00, MRR 0.20->0.00
+    - `POL-HR-031` [keyword]: recall 1.00->1.00, MRR 0.25->0.20
+    - `INC-2057` [keyword]: recall 1.00->1.00, MRR 0.50->1.00
+    - `When is the interview?` [metadata]: recall 1.00->1.00, MRR 0.50->1.00
+- E RRF+rerank (pool 10) -> E pool=5: 2 queries changed; dRecall CI [+0.000,+0.079], dMRR CI [+0.000,+0.035]
+    - `What should I do to be sure a callback request really came from the platform?` [semantic]: recall 0.00->1.00, MRR 0.00->0.33
+    - `POL-HR-031` [keyword]: recall 1.00->1.00, MRR 0.20->0.33
+- E RRF+rerank (pool 10) -> E pool=20 (fused 20, lists 10): 2 queries changed; dRecall CI [-0.079,+0.079], dMRR CI [-0.016,+0.079]
+    - `What happens to old row versions after an update in the database?` [semantic]: recall 0.00->1.00, MRR 0.00->1.00
+    - `POL-HR-031` [keyword]: recall 1.00->0.00, MRR 0.20->0.00
+- D RRF (k=60) -> D k=10: 0 queries changed; dRecall CI [+0.000,+0.000], dMRR CI [+0.000,+0.000]
+
+- D RRF (k=60) -> D k=100: 0 queries changed; dRecall CI [+0.000,+0.000], dMRR CI [+0.000,+0.000]
+
+- B bm25 -> B3 bm25 stopwords removed: 1 queries changed; dRecall CI [-0.039,+0.000], dMRR CI [+0.000,+0.000]
+    - `Compare HNSW and IVFFlat indexes and explain what pg_dump is used for.` [multi]: recall 1.00->0.50, MRR 1.00->1.00
+- D RRF (k=60) -> D3 RRF stopwords removed: 1 queries changed; dRecall CI [-0.079,+0.000], dMRR CI [-0.016,+0.000]
+    - `What should I do to be sure a callback request really came from the platform?` [semantic]: recall 1.00->0.00, MRR 0.20->0.00
+- E RRF+rerank (pool 10) -> E3 rerank stopwords removed: 0 queries changed; dRecall CI [+0.000,+0.000], dMRR CI [+0.000,+0.000]
+
+- B bm25 -> B2 postgres FTS: 11 queries changed; dRecall CI [-0.263,+0.000], dMRR CI [-0.311,-0.047]
+    - `Why did the online shop stop working for most of an hour in March?` [semantic]: recall 1.00->1.00, MRR 1.00->0.20
+    - `How can I cut compute expenses using interruptible machines?` [semantic]: recall 1.00->1.00, MRR 1.00->0.20
+    - `ERR-4096` [keyword]: recall 1.00->0.00, MRR 1.00->0.00
+    - `POL-HR-031` [keyword]: recall 1.00->0.00, MRR 1.00->0.00
+    - `INC-2057` [keyword]: recall 1.00->0.00, MRR 1.00->0.00
+    - `Who is candidate PHD26067?` [keyword]: recall 1.00->1.00, MRR 1.00->0.50
+    - `What is the phone number of the admissions office?` [keyword]: recall 1.00->0.00, MRR 1.00->0.00
+    - `What is the MTTR for the quarter?` [abbrev]: recall 1.00->0.00, MRR 1.00->0.00
+    - `Compare HNSW and IVFFlat indexes and explain what pg_dump is used for.` [multi]: recall 1.00->0.50, MRR 1.00->1.00
+    - `What is the API rate limit and how is pagination done?` [multi]: recall 1.00->1.00, MRR 1.00->0.50
+    - `When is the interview?` [metadata]: recall 0.00->1.00, MRR 0.00->1.00
+- D RRF (k=60) -> D2 RRF + FTS: 6 queries changed; dRecall CI [-0.211,-0.026], dMRR CI [-0.143,+0.008]
+    - `What should I do to be sure a callback request really came from the platform?` [semantic]: recall 1.00->0.00, MRR 0.20->0.00
+    - `ERR-4096` [keyword]: recall 1.00->1.00, MRR 1.00->0.25
+    - `POL-HR-031` [keyword]: recall 1.00->0.00, MRR 0.25->0.00
+    - `INC-2057` [keyword]: recall 1.00->0.00, MRR 0.50->0.00
+    - `What is the MTTR for the quarter?` [abbrev]: recall 1.00->0.00, MRR 1.00->0.00
+    - `When is the interview?` [metadata]: recall 1.00->1.00, MRR 0.50->1.00
+
+#### Queries with recall < 1
+- A vector: ['What happens to old row versions after an update in the database?', 'POL-HR-031', 'INC-2057', 'What is HNSW?', 'What is the MTTR for the quarter?', 'HNSW']
+- B bm25: ['What happens to old row versions after an update in the database?', 'What should I do to be sure a callback request really came from the platform?', 'When is the interview?']
+- C interleave: ['What happens to old row versions after an update in the database?']
+- D RRF (k=60): ['What happens to old row versions after an update in the database?']
+- E RRF+rerank (pool 10): ['What happens to old row versions after an update in the database?', 'What should I do to be sure a callback request really came from the platform?']
+- D k=10: ['What happens to old row versions after an update in the database?']
+- D k=30: ['What happens to old row versions after an update in the database?']
+- D k=100: ['What happens to old row versions after an update in the database?']
+- E k=10: ['What happens to old row versions after an update in the database?', 'What should I do to be sure a callback request really came from the platform?']
+- E k=30: ['What happens to old row versions after an update in the database?', 'What should I do to be sure a callback request really came from the platform?']
+- E k=100: ['What happens to old row versions after an update in the database?', 'What should I do to be sure a callback request really came from the platform?']
+- E pool=5: ['What happens to old row versions after an update in the database?']
+- E pool=20 (fused 20, lists 10): ['What should I do to be sure a callback request really came from the platform?', 'POL-HR-031']
+- E pool=20 (lists 20): ['What should I do to be sure a callback request really came from the platform?', 'POL-HR-031']
+- B2 postgres FTS: ['What happens to old row versions after an update in the database?', 'What should I do to be sure a callback request really came from the platform?', 'ERR-4096', 'POL-HR-031', 'INC-2057', 'What is the phone number of the admissions office?', 'What is the MTTR for the quarter?', 'Compare HNSW and IVFFlat indexes and explain what pg_dump is used for.']
+- D2 RRF + FTS: ['What happens to old row versions after an update in the database?', 'What should I do to be sure a callback request really came from the platform?', 'POL-HR-031', 'INC-2057', 'What is the MTTR for the quarter?']
+- E2 RRF(FTS)+rerank: ['What should I do to be sure a callback request really came from the platform?', 'POL-HR-031', 'INC-2057', 'What is the MTTR for the quarter?']
+- B3 bm25 stopwords removed: ['What happens to old row versions after an update in the database?', 'What should I do to be sure a callback request really came from the platform?', 'Compare HNSW and IVFFlat indexes and explain what pg_dump is used for.', 'When is the interview?']
+- D3 RRF stopwords removed: ['What happens to old row versions after an update in the database?', 'What should I do to be sure a callback request really came from the platform?']
+- E3 rerank stopwords removed: ['What happens to old row versions after an update in the database?', 'What should I do to be sure a callback request really came from the platform?']
+- E3 pool=5 stopwords removed: ['What happens to old row versions after an update in the database?', 'What should I do to be sure a callback request really came from the platform?']
+
+(done in 885s)

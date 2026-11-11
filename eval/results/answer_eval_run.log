@@ -1,0 +1,112 @@
+[new] 1/33 direct-01: correct=True status=answered
+[new] 2/33 direct-02: correct=True status=answered
+[new] 3/33 direct-03: correct=True status=answered
+[new] 4/33 multi-chunk-01: correct=True status=answered
+[new] 5/33 multi-chunk-02: correct=True status=answered
+[new] 6/33 multi-chunk-03: correct=True status=answered
+[new] 7/33 compound-01: correct=True status=answered
+[new] 8/33 compound-02: correct=True status=answered
+[new] 9/33 compound-03: correct=True status=partial
+[new] 10/33 multi-page-01: correct=True status=answered
+[new] 11/33 multi-page-02: correct=True status=answered
+[new] 12/33 multi-page-03: correct=True status=answered
+[new] 13/33 no-answer-01: correct=True status=abstained
+[new] 14/33 no-answer-02: correct=True status=abstained
+[new] 15/33 no-answer-03: correct=True status=abstained
+[new] 16/33 no-answer-04: correct=True status=abstained
+[new] 17/33 irrelevant-01: correct=True status=abstained
+[new] 18/33 irrelevant-02: correct=True status=abstained
+[new] 19/33 irrelevant-03: correct=True status=abstained
+[new] 20/33 conflict-01: correct=True status=conflict
+[new] 21/33 conflict-02: correct=True status=answered
+[new] 22/33 conflict-03: correct=True status=conflict
+[new] 23/33 missing-meta-01: correct=True status=answered
+[new] 24/33 missing-meta-02: correct=True status=answered
+[new] 25/33 missing-meta-03: correct=True status=answered
+[new] 26/33 follow-up-01: correct=True status=answered
+[new] 27/33 follow-up-02: correct=True status=answered
+[new] 28/33 follow-up-03: correct=True status=answered
+[new] 29/33 follow-up-04: correct=True status=answered
+[new] 30/33 injection-01: correct=True status=answered
+[new] 31/33 injection-02: correct=True status=answered
+[new] 32/33 injection-03: correct=True status=answered
+[new] 33/33 injection-04: correct=True status=answered
+[old] 1/33 direct-01: correct=True status=answered
+[old] 2/33 direct-02: correct=True status=answered
+[old] 3/33 direct-03: correct=True status=answered
+[old] 4/33 multi-chunk-01: correct=True status=answered
+[old] 5/33 multi-chunk-02: correct=True status=answered
+[old] 6/33 multi-chunk-03: correct=True status=answered
+[old] 7/33 compound-01: correct=True status=answered
+[old] 8/33 compound-02: correct=True status=answered
+[old] 9/33 compound-03: correct=False status=abstained
+[old] 10/33 multi-page-01: correct=True status=answered
+[old] 11/33 multi-page-02: correct=True status=answered
+[old] 12/33 multi-page-03: correct=True status=answered
+[old] 13/33 no-answer-01: correct=True status=abstained
+[old] 14/33 no-answer-02: correct=True status=abstained
+[old] 15/33 no-answer-03: correct=True status=abstained
+[old] 16/33 no-answer-04: correct=False status=answered
+[old] 17/33 irrelevant-01: correct=True status=abstained
+[old] 18/33 irrelevant-02: correct=True status=abstained
+[old] 19/33 irrelevant-03: correct=True status=abstained
+[old] 20/33 conflict-01: correct=False status=answered
+[old] 21/33 conflict-02: correct=False status=answered
+[old] 22/33 conflict-03: correct=False status=answered
+[old] 23/33 missing-meta-01: correct=True status=answered
+[old] 24/33 missing-meta-02: correct=True status=answered
+[old] 25/33 missing-meta-03: correct=True status=answered
+[old] 26/33 follow-up-01: correct=True status=answered
+[old] 27/33 follow-up-02: correct=True status=answered
+[old] 28/33 follow-up-03: correct=True status=answered
+[old] 29/33 follow-up-04: correct=False status=answered
+[old] 30/33 injection-01: correct=True status=answered
+[old] 31/33 injection-02: correct=True status=answered
+[old] 32/33 injection-03: correct=True status=answered
+[old] 33/33 injection-04: correct=True status=answered
+
+=== SUMMARY ===
+new {
+ "answer_correctness": 1.0,
+ "faithfulness": 1.0,
+ "unsupported_claim_rate": 0.0,
+ "citation_correctness": 1.0,
+ "citation_completeness": 1.0,
+ "abstention_accuracy": 1.0,
+ "fabricated_citations_total": 0,
+ "per_category": {
+  "direct_factual": 1.0,
+  "multi_chunk": 1.0,
+  "compound": 1.0,
+  "multi_page": 1.0,
+  "no_answer": 1.0,
+  "irrelevant_retrieval": 1.0,
+  "conflicting": 1.0,
+  "missing_metadata": 1.0,
+  "follow_up": 1.0,
+  "prompt_injection": 1.0
+ },
+ "latency_s_median": 3.0204328999388963
+}
+old {
+ "answer_correctness": 0.8181818181818182,
+ "faithfulness": 0.9393939393939394,
+ "unsupported_claim_rate": 0.06060606060606061,
+ "citation_correctness": 0.8131313131313131,
+ "citation_completeness": 0.9696969696969697,
+ "abstention_accuracy": 0.96875,
+ "fabricated_citations_total": 0,
+ "per_category": {
+  "direct_factual": 1.0,
+  "multi_chunk": 1.0,
+  "compound": 0.6666666666666666,
+  "multi_page": 1.0,
+  "no_answer": 0.75,
+  "irrelevant_retrieval": 1.0,
+  "conflicting": 0.0,
+  "missing_metadata": 1.0,
+  "follow_up": 0.75,
+  "prompt_injection": 1.0
+ },
+ "latency_s_median": 2.6306837999727577
+}
