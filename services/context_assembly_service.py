@@ -10,6 +10,9 @@ from services import retrieval_config as cfg
 
 MIN_TRUNCATE_CHARS = 200
 
+# Same shape as citation_service's marker: [S1], [ S2 ], [S1, S3]
+_CITATION_MARKER = re.compile(r"\[\s*[Ss]\d+(?:\s*[,;]\s*[Ss]\d+)*\s*\]")
+
 
 def _norm(text):
     return re.sub(r"\s+", " ", text).strip().lower()
@@ -108,7 +111,10 @@ def assemble_context(results, max_chars=None, max_chunks=None):
     for s in sources:
         doc = s["document_name"] or "unknown"
         pg = s["page_number"] if s["page_number"] is not None else "unknown"
-        blocks.append(f"[{s['ref']}] Document: {doc} | Page: {pg} | Chunk: {s['chunk_id']}\n{s['content']}")
+        # Prompt display only (s["content"] is unchanged): document text must not
+        # be able to forge our reference tags, e.g. a fake "[S2] Document: ..." header.
+        shown = _CITATION_MARKER.sub("[ref removed]", s["content"])
+        blocks.append(f"[{s['ref']}] Document: {doc} | Page: {pg} | Chunk: {s['chunk_id']}\n{shown}")
     return {
         "sources": sources,
         "dropped": dropped,

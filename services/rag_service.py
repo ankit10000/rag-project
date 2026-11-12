@@ -48,16 +48,26 @@ def ask_question(
 ) -> dict:
 
     history = history or []
-    # Step 1: Classify the question
-    question_type = classify_question(query)
+    # Step 1: Classify the question. If the provider fails, fall back to
+    # DOCUMENT, the strictest type (retrieval runs and citations are required).
+    try:
+        question_type = classify_question(query)
+    except Exception as error:
+        print(f"\nQuestion classification failed ({type(error).__name__}); using DOCUMENT.")
+        question_type = "DOCUMENT"
 
     print(f"\nQuestion type: {question_type}")
-    # Step 1: Rewrite follow-up question
-    search_query = rewrite_query(
-        query=query,
-        history=history,
-        memory_summary=memory_summary
-    )
+    # Step 1: Rewrite follow-up question (optional step: on failure search
+    # with the user's own words instead of aborting the whole answer).
+    try:
+        search_query = rewrite_query(
+            query=query,
+            history=history,
+            memory_summary=memory_summary
+        )
+    except Exception as error:
+        print(f"\nQuery rewriting failed ({type(error).__name__}); using the original question.")
+        search_query = query
 
     # Fallback if query rewriting returns an empty result
     if not search_query or not search_query.strip():

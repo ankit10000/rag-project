@@ -8,8 +8,11 @@ import re
 from services import retrieval_config as cfg
 from services.answer_prompt import REFUSAL_MESSAGE, build_answer_prompt
 from services.citation_service import (
+    ABSTAIN_PHRASES,
     answer_with_citations,
+    drop_uncited_claims,
     remove_invalid_refs,
+    uncited_claim_sentences,
     validate_answer_citations,
 )
 from services.context_assembly_service import source_index
@@ -26,13 +29,7 @@ ERROR_MESSAGE = (
 
 _TAG_RE = re.compile(r"^\s*\[(DOCUMENT|MEMORY|MIXED)\]\s*", re.I)
 
-_ABSTAIN_PHRASES = (
-    "couldn't find", "could not find", "cannot find", "can't find",
-    "not enough information", "insufficient information", "does not contain",
-    "doesn't contain", "do not contain", "don't contain", "no information",
-    "not mentioned", "not available", "not provided", "not stated",
-    "do not say", "does not say", "not specified",
-)
+_ABSTAIN_PHRASES = ABSTAIN_PHRASES      # single shared list (citation_service)
 _CONFLICT_PHRASES = ("disagree", "conflict", "differ", "inconsistent", "contradict")
 
 
@@ -131,8 +128,23 @@ def generate_grounded_answer(
             continue
 
         last_tag, last_body = tag, body
-        needs_citations = bool(sources) and tag in ("DOCUMENT", "MIXED", None) \
-            and question_type != "MEMORY" and not body.strip() == REFUSAL_MESSAGE
+        is_refusal = body.strip() == REFUSAL_MESSAGE
+        # A DOCUMENT question with retrieved sources always needs citations,
+        # whatever tag the model chose (a [MEMORY] tag must not bypass grounding).
+        needs_citations = bool(sources) and question_type != "MEMORY" and not is_refusal \
+            and (tag in ("DOCUMENT", "MIXED", None) or question_type == "DOCUMENT")
+
+        # Nothing was retrieved, yet the reply claims document facts: reject.
+        if (not sources and tag == "DOCUMENT" and not is_refusal
+                and not (has_abstention_language(body) and not uncited_claim_sentences(body))):
+            last_issues = ["document_claim_without_sources"]
+            feedback = (
+                "Problems found: document_claim_without_sources. No document passages "
+                "were retrieved, so you cannot state document facts. Answer only from "
+                "memory/conversation with the [MEMORY] tag, or say the documents do not "
+                "contain the answer."
+            )
+            continue
 
         checked = answer_with_citations(body, sources)
 
@@ -163,19 +175,26 @@ def generate_grounded_answer(
 
     # ---- bounded retries exhausted: safe fallback ---------------------------
     if last_body:
-        # Repair: drop invalid refs; keep the answer only if valid citations remain
-        # and nothing fabricated was written in prose.
-        repaired = remove_invalid_refs(last_body, set(source_index(sources)))
+        # Repair: drop invalid refs, then drop every sentence left without a
+        # citation (including a claim whose only citation was fabricated). Keep
+        # the answer only if valid citations remain and nothing fabricated was
+        # written in prose.
+        without_bad_refs = remove_invalid_refs(last_body, set(source_index(sources)))
+        dropped = uncited_claim_sentences(without_bad_refs)
+        repaired = drop_uncited_claims(without_bad_refs) if dropped else without_bad_refs
         v = validate_answer_citations(repaired, sources, require_citations=True)
         issues_blocking = [i for i in v["issues"] if i != "invalid_ref"]
 
         if v["valid"] and not issues_blocking:
             checked = answer_with_citations(repaired, sources)
             cited_docs = {c["document"] for c in checked["citations"]}
+            repair_issues = ["repaired:" + ",".join(last_issues)]
+            if dropped:
+                repair_issues.append(f"dropped_uncited_sentences:{len(dropped)}")
             return _result(checked["text"],
                            classify_status(repaired, cited_docs, True),
                            last_tag or "DOCUMENT", checked["citations"], v,
-                           attempts, issues=["repaired:" + ",".join(last_issues)])
+                           attempts, issues=repair_issues)
 
         if has_abstention_language(last_body) and not any(
             i.startswith(("unknown_", "invalid")) for i in last_issues
