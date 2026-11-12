@@ -6,9 +6,24 @@ _REF = re.compile(r"[Ss](\d+)")
 _PAGE = re.compile(r"\b(?:page|pg|p)\.?\s*(\d+)\b", re.IGNORECASE)
 _FILE = re.compile(r"[\w\-.]+\.(?:pdf|docx|txt)\b", re.IGNORECASE)
 _SPLIT = re.compile(r"(?<=[.!?])\s+|\n+")
-_REFUSAL = ("couldn't find", "could not find", "cannot find", "can't find",
-            "not enough information", "does not contain", "doesn't contain",
-            "no information")
+_LEADING_MARKERS = re.compile(r"^((?:\s*\[\s*[Ss]\d+(?:\s*[,;]\s*[Ss]\d+)*\s*\])+)")
+
+# One shared list of insufficiency / abstention phrases (used by the citation
+# coverage check here and by answer_service). Phrase matching is a heuristic.
+ABSTAIN_PHRASES = (
+    "couldn't find", "could not find", "cannot find", "can't find",
+    "not enough information", "insufficient information", "does not contain",
+    "doesn't contain", "do not contain", "don't contain", "no information",
+    "not mentioned", "not available", "not provided", "not stated",
+    "do not say", "does not say", "not specified", "do not mention",
+    "does not mention", "don't mention", "doesn't mention", "no mention",
+)
+_REFUSAL = ABSTAIN_PHRASES
+
+# Meta statements about disagreement between sources ("the two passages
+# disagree on ...") are not document claims of their own.
+_CONFLICT_WORDS = ("disagree", "conflict", "differ", "inconsistent", "contradict")
+_SOURCE_WORDS = ("source", "passage", "document", "report", "file")
 
 
 def _s(x):
@@ -68,48 +83,98 @@ def build_citations(refs, sources):
     return out
 
 
+def split_sentences(text):
+    """
+    Sentence segments of an answer. A citation marker written AFTER the full
+    stop ("Fact. [S1] Next fact.") belongs to the preceding sentence, so
+    leading markers are moved back to the previous segment.
+    """
+    out = []
+    for seg in _SPLIT.split(_s(text)):
+        seg = seg.strip()
+        if not seg:
+            continue
+        lead = _LEADING_MARKERS.match(seg)
+        if lead and out:
+            out[-1] = out[-1] + " " + lead.group(1).strip()
+            seg = seg[lead.end():].strip()
+            if not seg:
+                continue
+        out.append(seg)
+    return out
+
+
+def _is_claim_without_citation(sent):
+    """A sentence that states something (>=5 words) but carries no [S#]."""
+    if len(sent.split()) < 5 or _MARKER.search(sent):
+        return False
+    if sent.rstrip().endswith(":"):                       # list / section intro
+        return False
+    low = sent.lower().replace("’", "'")
+    if any(p in low for p in ABSTAIN_PHRASES):
+        return False
+    if any(w in low for w in _CONFLICT_WORDS) and any(w in low for w in _SOURCE_WORDS):
+        return False
+    return True
+
+
+def uncited_claim_sentences(text):
+    """Sentences that need a citation but have none (heuristic, see docs)."""
+    return [s for s in split_sentences(text) if _is_claim_without_citation(s)]
+
+
 def count_uncited_sentences(text):
-    """Sentences with >=5 words, no [S#] marker, and not a refusal statement."""
-    n = 0
-    for sent in _SPLIT.split(_s(text)):
-        sent = sent.strip()
-        if len(sent.split()) < 5 or _MARKER.search(sent):
-            continue
-        low = sent.lower().replace("’", "'")
-        if any(p in low for p in _REFUSAL):
-            continue
-        n += 1
-    return n
+    """Number of sentences with >=5 words, no [S#] marker, not an abstention/meta statement."""
+    return len(uncited_claim_sentences(text))
+
+
+def drop_uncited_claims(text):
+    """Remove uncited claim sentences (used only by the repair fallback)."""
+    kept = [s for s in split_sentences(text) if not _is_claim_without_citation(s)]
+    return _tidy(" ".join(kept))
 
 
 def validate_answer_citations(answer, sources, require_citations=True):
-    """Check citations and prose mentions of pages/files against sources."""
+    """Check citations, claim coverage and prose mentions of pages/files against sources."""
     sources = [s for s in (sources or []) if isinstance(s, dict)]
     if not isinstance(answer, str) or not answer.strip():
         return {"valid": False, "cited_refs": [], "invalid_refs": [],
                 "issues": ["empty_answer"], "uncited_sentences": 0}
-    known = {s.get("ref") for s in sources}
+    by_ref = {s.get("ref"): s for s in sources}
+    known = set(by_ref)
     cited = extract_citation_refs(answer)
     good = [r for r in cited if r in known]
     bad = [r for r in cited if r not in known]
+    uncited = count_uncited_sentences(answer)
     issues = []
     if bad:
         issues.append("invalid_ref")
     if require_citations and not good:
         issues.append("no_citation")
+    if require_citations and uncited:
+        issues.append("uncited_claim")
 
+    # Page mentions: a sentence that cites sources may only mention pages of the
+    # sources it cites; an uncited sentence may mention any retrieved page.
+    all_pages = {str(s.get("page_number")) for s in sources if s.get("page_number")}
     prose = _MARKER.sub("", answer)
-    pages = {str(s.get("page_number")) for s in sources if s.get("page_number")}
-    if any(str(int(p)) not in pages for p in _PAGE.findall(prose)):
+    if any(str(int(p)) not in all_pages for p in _PAGE.findall(prose)):
         issues.append("unknown_page_mention")
-    docs = [str(s.get("document_name")).lower() for s in sources if s.get("document_name")]
+    for sent in ([] if "unknown_page_mention" in issues else split_sentences(answer)):
+        refs = [r for r in extract_citation_refs(sent) if r in known]
+        allowed = ({str(by_ref[r].get("page_number")) for r in refs if by_ref[r].get("page_number")}
+                   if refs else all_pages)
+        if any(str(int(p)) not in allowed for p in _PAGE.findall(_MARKER.sub("", sent))):
+            issues.append("unknown_page_mention")
+            break
+
+    docs = {str(s.get("document_name")).lower() for s in sources if s.get("document_name")}
     for tok in _FILE.findall(prose):
-        t = tok.lower()
-        if not any(d == t or d.endswith(t) for d in docs):
+        if tok.lower() not in docs:                       # exact file name only
             issues.append("unknown_document_mention")
             break
     return {"valid": not issues, "cited_refs": good, "invalid_refs": bad,
-            "issues": issues, "uncited_sentences": count_uncited_sentences(answer)}
+            "issues": issues, "uncited_sentences": uncited}
 
 
 def answer_with_citations(answer, sources):

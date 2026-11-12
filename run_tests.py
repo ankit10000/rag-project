@@ -55,6 +55,8 @@ CATEGORIES = {
         "test_p1_d5_delete_ids.py",
         "test_p2_05_zero_top_k.py",
         "test_a1_embedding_model_config.py",
+        "test_b2_citation_evidence.py",
+        "test_b3_answer_reliability.py",
     ],
     "integration": [
         "test_memory_sources_regression.py",
