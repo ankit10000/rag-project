@@ -21,6 +21,9 @@ def reciprocal_rank_fusion(
     dedupe_content is true, by identical normalised text (the best ranked
     copy is kept). Metadata (document, page) travels inside the tuple.
     """
+    if top_k <= 0:
+        return []
+
     weights = weights or [1.0] * len(result_lists)
     scores = {}
     chunks = {}
