@@ -96,7 +96,7 @@ Package files:
 
 **Thresholds:**
 - The development thresholds are frozen: Tier 1 ≥ 41/47, Tier 2 ≥ 28/42.
-- **No held-out threshold has been set yet.** Fix it before the held-out run, never after seeing results.
+- **Held-out thresholds are frozen** (2026-11-12, before any held-out result): Tier 1 ≥ 85% = at least **97/113**; Tier 2 ≥ 65% = at least **69/106**. The 7 answer-only cases are excluded from the Tier 2 denominator. See [`../HELDOUT_THRESHOLD_FREEZE.md`](../HELDOUT_THRESHOLD_FREEZE.md).
 
 ## Reviewer sign-off
 | Item | Value |
