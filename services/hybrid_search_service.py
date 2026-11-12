@@ -55,7 +55,8 @@ def hybrid_search_detailed(
     Each result is {"chunk": (id, document, page, content, raw_score),
     "rrf_score": float, "rerank_score": float (only when reranked)}.
     """
-    top_k = top_k or cfg.FINAL_TOP_K
+    # None -> configured default; an explicit 0 (or negative) means "no results".
+    top_k = cfg.FINAL_TOP_K if top_k is None else max(0, top_k)
     rerank = cfg.RERANK_ENABLED if rerank is None else rerank
     timings = {}
 

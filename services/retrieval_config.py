@@ -58,6 +58,10 @@ SIMILARITY_THRESHOLD = _opt_float("SIMILARITY_THRESHOLD")
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
 EMBEDDING_DIM = _int("EMBEDDING_DIM", 384)    # must match document_chunks.embedding
 
+# --- ingestion resource limits (A3) -------------------------------------------
+MAX_PDF_SIZE_MB = _float("MAX_PDF_SIZE_MB", 50)    # reject larger files before parsing
+MAX_PDF_PAGES = _int("MAX_PDF_PAGES", 500)         # reject PDFs with more pages (checked before text extraction)
+
 # --- chunking (ingestion) ---------------------------------------------------
 CHUNK_SIZE = _int("CHUNK_SIZE", 100)          # words
 CHUNK_OVERLAP = _int("CHUNK_OVERLAP", 20)     # words

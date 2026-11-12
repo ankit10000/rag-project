@@ -205,9 +205,9 @@ def run():
         quiet(ingestion.ingest_pdf, big)
     srows = rows_for(sname)
     print(f"INFO | shrink re-ingest: {n_big} chunks first, {len(srows)} rows after re-ingesting a smaller file")
-    check("[dup, existing behaviour PINNED] re-ingesting a shorter version updates chunk 1 but leaves the "
-          "old extra chunks (stale rows are not removed)",
-          n_big == 3 and len(srows) == 3 and srows[0][3].startswith("p1t001"))
+    check("[dup, A2] re-ingesting a shorter version updates chunk 1 and removes the obsolete chunks "
+          "(superseded P2-01 pin: stale rows used to remain)",
+          n_big == 3 and len(srows) == 1 and srows[0][3].startswith("p1t001"))
 
     # ----------------------------------------------------------- 5. failure cases
     before_fail = other_rows_fingerprint()
