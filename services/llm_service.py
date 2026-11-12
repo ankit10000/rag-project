@@ -1,9 +1,10 @@
 import os
 import time
 
+import httpx
 from dotenv import load_dotenv
 from google import genai
-from google.genai import errors
+from google.genai import errors, types
 
 from services.gemini_retry_service import (
     generate_with_retry,
@@ -17,7 +18,16 @@ api_key = os.getenv("GEMINI_API_KEY")
 if not api_key:
     raise ValueError("GEMINI_API_KEY is missing from .env")
 
-client = genai.Client(api_key=api_key)
+# Finite HTTP timeout per Gemini request. google-genai's HttpOptions.timeout is
+# in MILLISECONDS; the SDK converts it to seconds and passes it to httpx, where
+# it bounds connect, read, write and pool waits. Without it (SDK default None)
+# a stalled request blocks forever.
+REQUEST_TIMEOUT_MS = 120_000
+
+client = genai.Client(
+    api_key=api_key,
+    http_options=types.HttpOptions(timeout=REQUEST_TIMEOUT_MS),
+)
 
 MODEL_NAME = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
 
@@ -153,6 +163,18 @@ def generate_answer(prompt: str) -> str:
 
             print(
                 f"Gemini model '{model}' failed ({code}); "
+                "trying next model..."
+            )
+
+        except httpx.TimeoutException as error:
+            # The request hit REQUEST_TIMEOUT_MS: treat it like a temporary
+            # model failure (no retry on the same model, move on). Bounded:
+            # at most one timed-out request per model per call.
+            last_error = error
+
+            print(
+                f"Gemini model '{model}' timed out after "
+                f"{REQUEST_TIMEOUT_MS / 1000:g}s ({type(error).__name__}); "
                 "trying next model..."
             )
 

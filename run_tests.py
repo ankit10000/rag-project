@@ -57,6 +57,7 @@ CATEGORIES = {
         "test_a1_embedding_model_config.py",
         "test_b2_citation_evidence.py",
         "test_b3_answer_reliability.py",
+        "test_llm_timeout.py",
     ],
     "integration": [
         "test_memory_sources_regression.py",

@@ -1,0 +1,534 @@
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'sentence-transformers/all-MiniLM-L6-v2'.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 1408.00it/s]
+Starting document ingestion...
+Total chunks: 12
+PDF ingestion completed successfully!
+Starting document ingestion...
+Total chunks: 12
+PDF ingestion completed successfully!
+Starting document ingestion...
+Total chunks: 11
+PDF ingestion completed successfully!
+Starting document ingestion...
+Total chunks: 12
+PDF ingestion completed successfully!
+Starting document ingestion...
+Total chunks: 11
+PDF ingestion completed successfully!
+Starting document ingestion...
+Total chunks: 10
+PDF ingestion completed successfully!
+Starting document ingestion...
+Total chunks: 13
+PDF ingestion completed successfully!
+Starting document ingestion...
+Total chunks: 13
+PDF ingestion completed successfully!
+Starting document ingestion...
+Total chunks: 9
+PDF ingestion completed successfully!
+Starting document ingestion...
+Total chunks: 10
+PDF ingestion completed successfully!
+Starting document ingestion...
+Total chunks: 12
+PDF ingestion completed successfully!
+Starting document ingestion...
+Total chunks: 10
+PDF ingestion completed successfully!
+Ingested 12 PDFs -> 135 chunks in the scratch database
+42 cases selected, 0 already done, 42 to run
+
+Question type: DOCUMENT
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'cross-encoder/ms-marco-MiniLM-L-6-v2'.
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|##########| 105/105 [00:00<00:00, 1157.09it/s]
+
+Best reranker score: -5.6009
+Adaptive threshold: -7.6009
+Relevant chunks retained: 5
+
+--- Reranker Scores ---
+Score: -5.6009 | Page: 1 | Content: outside the ordinary ward hours. 2. General rules for all wards. 2.1 Every Visitor must sign in at t
+Score: -6.1325 | Page: 2 | Content: 3. Visiting hours by ward. The table applies to all general wards; hours are the same seven days a w
+Score: -7.1207 | Page: 2 | Content: guardians at a time; siblings by arrangement Intensive Care (ICU) | by appointment only, 30 minutes 
+Score: -7.1271 | Page: 3 | Content: 4. Designated Companion. 4.1 A patient may name one Designated Companion by completing Form PR-7 and
+Score: -7.5897 | Page: 4 | Content: is unhappy with the Trust's reply they may ask the Regional Health Ombudsman to review it within 12 
+Answer status: answered | citations: ['S2'] | attempts: 1
+[1/42] A-direct-05 correct=True status=answered cit=1.00/1.00 5.7s
+
+Question type: DOCUMENT
+
+Best reranker score: 8.2857
+Adaptive threshold: 6.2857
+Relevant chunks retained: 2
+
+--- Reranker Scores ---
+Score: 8.2857 | Page: 3 | Content: Vaccines offered at the clinic Vaccine | Who is eligible | Cost Seasonal flu | free for age 65 and o
+Score: 6.5650 | Page: 3 | Content: apart if started before age 15 | free Tdap (whooping cough) | one dose in each pregnancy, between 16
+Answer status: answered | citations: ['S1'] | attempts: 1
+[2/42] A-direct-07 correct=True status=answered cit=1.00/1.00 4.0s
+
+Question type: DOCUMENT
+
+Best reranker score: 3.8413
+Adaptive threshold: 1.8413
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 3.8413 | Page: 4 | Content: 6. Concerns and complaints. 6.1 A concern raised on the ward is answered on the same day wherever po
+Answer status: answered | citations: ['S1'] | attempts: 1
+[3/42] A-multichunk-03 correct=True status=answered cit=1.00/1.00 3.0s
+
+Question type: DOCUMENT
+
+Best reranker score: 1.9575
+Adaptive threshold: -0.0425
+Relevant chunks retained: 2
+
+--- Reranker Scores ---
+Score: 1.9575 | Page: 2 | Content: Booking and cancelling appointments (Edition 2025.2) Appointment type | Length | How far ahead you c
+Score: 0.7841 | Page: 1 | Content: ORCHARD LANE CLINIC (OLC) Vaccination and Appointments Guide - Patient Edition 2025.2 Welcome. This 
+Answer status: answered | citations: ['S1'] | attempts: 1
+[4/42] A-multichunk-04 correct=False status=answered cit=1.00/1.00 3.7s
+
+Question type: MIXED
+
+Best reranker score: -7.4354
+Adaptive threshold: -9.4354
+Relevant chunks retained: 4
+
+--- Reranker Scores ---
+Score: -7.4354 | Page: 4 | Content: think a dose may have been given from a warm fridge, tell the nurse immediately. 4. The clinic repor
+Score: -7.6814 | Page: 3 | Content: apart if started before age 15 | free Tdap (whooping cough) | one dose in each pregnancy, between 16
+Score: -7.8011 | Page: 4 | Content: b) Saturday vaccination hours are unchanged. c) Reminder texts are now sent 3 days before each visit
+Score: -8.9409 | Page: 3 | Content: Vaccines offered at the clinic Vaccine | Who is eligible | Cost Seasonal flu | free for age 65 and o
+Answer status: partial | citations: ['S2', 'S4', 'S1', 'S3'] | attempts: 1
+[5/42] A-multipage-03 correct=False status=partial cit=0.50/0.50 4.5s
+
+Question type: DOCUMENT
+
+Best reranker score: 0.0310
+Adaptive threshold: -1.9690
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 0.0310 | Page: 2 | Content: lost it, a replacement costs $5. Interpreter requests need 2 working days' notice. Ask Reception whe
+Answer status: partial | citations: ['S1'] | attempts: 1
+[6/42] A-multipage-04 correct=False status=partial cit=0.00/0.00 3.0s
+
+Question type: DOCUMENT
+
+Best reranker score: -0.2532
+Adaptive threshold: -2.2532
+Relevant chunks retained: 2
+
+--- Reranker Scores ---
+Score: -0.2532 | Page: 1 | Content: MARLOW FEN DISTRICT COUNCIL WATER USE AND PUBLIC HEALTH BYLAW, No. 2025-14 Enacted 12 May 2025; in f
+Score: -1.7802 | Page: 1 | Content: council's Chief Executive to enter premises and issue notices; 'MOH' means the Medical Officer of He
+Answer status: abstained | citations: [] | attempts: 1
+[7/42] A-noanswer-03 correct=True status=abstained cit=1.00/1.00 3.2s
+Gemini model 'gemini-3.5-flash-lite' failed (429); trying next model...
+
+Question type: DOCUMENT
+
+Best reranker score: -0.2475
+Adaptive threshold: -2.2475
+Relevant chunks retained: 3
+
+--- Reranker Scores ---
+Score: -0.2475 | Page: 4 | Content: breach is raised from $120 to $165. The penalty for a second breach within 12 months remains $300. 1
+Score: -1.4644 | Page: 4 | Content: Part D - Enforcement, appeals and amendments 15. An Authorised Officer may issue a written warning b
+Score: -1.9302 | Page: 2 | Content: of more than 8 cubic metres from the Potable Supply must hold a filling permit. The permit costs $65
+Answer status: answered | citations: ['S1', 'S2', 'S3'] | attempts: 1
+[8/42] A-conflict-02 correct=True status=answered cit=1.00/1.00 5.0s
+
+Question type: DOCUMENT
+
+Best reranker score: 6.7608
+Adaptive threshold: 4.7608
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 6.7608 | Page: 4 | Content: breach is raised from $120 to $165. The penalty for a second breach within 12 months remains $300. 1
+Gemini temporary error 503. Retrying in 1s (1/1)...
+Answer status: answered | citations: ['S1'] | attempts: 1
+[9/42] A-injection-04 correct=True status=answered cit=1.00/1.00 25.6s
+
+Question type: DOCUMENT
+
+Best reranker score: 6.6904
+Adaptive threshold: 4.6904
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 6.6904 | Page: 1 | Content: KESTREL FOUNDATION. Early-Career Research Fellowship, Call for Applications 2027 (Call document KF-2
+Answer status: answered | citations: ['S1'] | attempts: 1
+[10/42] B-direct-03 correct=True status=answered cit=1.00/1.00 9.9s
+
+Question type: DOCUMENT
+
+Best reranker score: 0.7150
+Adaptive threshold: -1.2850
+Relevant chunks retained: 3
+
+--- Reranker Scores ---
+Score: 0.7150 | Page: 4 | Content: signed by the supervisor at least 6 weeks before departure. Insurance is arranged centrally and cove
+Score: -0.3247 | Page: 1 | Content: KESTREL FOUNDATION. Early-Career Research Fellowship, Call for Applications 2027 (Call document KF-2
+Score: -0.8621 | Page: 3 | Content: single award GBP 1,200 Departmental Conference Fund | closes 30 April 2027 | maximum GBP 600 per stu
+Answer status: partial | citations: ['S1'] | attempts: 1
+[11/42] B-chunk-03 correct=False status=partial cit=0.00/0.00 18.5s
+
+Question type: DOCUMENT
+
+Best reranker score: 5.0931
+Adaptive threshold: 3.0931
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 5.0931 | Page: 5 | Content: 18. How to apply. Submit through the Kestrel portal: (a) project proposal, maximum 6 pages at 11-poi
+Answer status: answered | citations: ['S1'] | attempts: 1
+[12/42] B-comp-02 correct=True status=answered cit=1.00/1.00 3.3s
+
+Question type: DOCUMENT
+
+Best reranker score: 2.3899
+Adaptive threshold: 0.3899
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 2.3899 | Page: 2 | Content: 2. Methods. Stations were set in a grid of 12 stations per treatment. Each station carried one tile 
+Answer status: partial | citations: ['S1'] | attempts: 1
+[13/42] B-comp-04 correct=True status=partial cit=1.00/1.00 3.0s
+
+Question type: DOCUMENT
+
+Best reranker score: 5.6846
+Adaptive threshold: 3.6846
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 5.6846 | Page: 5 | Content: examiner and an independent chair. The external examiner must not have co-authored with the student 
+Answer status: answered | citations: ['S1'] | attempts: 1
+[14/42] B-comp-05 correct=True status=answered cit=1.00/1.00 3.9s
+
+Question type: DOCUMENT
+
+Best reranker score: 4.4068
+Adaptive threshold: 2.4068
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 4.4068 | Page: 2 | Content: two independent academics holds a 45-minute meeting with the student; the panel's decision is commun
+Answer status: abstained | citations: [] | attempts: 1
+[15/42] B-none-01 correct=True status=abstained cit=1.00/1.00 4.0s
+
+Question type: DOCUMENT
+
+Best reranker score: 7.9681
+Adaptive threshold: 5.9681
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 7.9681 | Page: 4 | Content: signed by the supervisor at least 6 weeks before departure. Insurance is arranged centrally and cove
+Answer status: answered | citations: ['S1'] | attempts: 1
+[16/42] B-conf-02 correct=False status=answered cit=1.00/0.50 2.9s
+
+Question type: DOCUMENT
+
+Best reranker score: 1.0887
+Adaptive threshold: -0.9113
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 1.0887 | Page: 1 | Content: applies after that window. Registration is renewed every October. 3. Thesis length. A PhD thesis may
+Answer status: answered | citations: ['S1'] | attempts: 1
+[17/42] B-conf-03 correct=False status=answered cit=1.00/0.50 6.2s
+
+Question type: DOCUMENT
+
+Best reranker score: 4.9983
+Adaptive threshold: 2.9983
+Relevant chunks retained: 2
+
+--- Reranker Scores ---
+Score: 4.9983 | Page: 1 | Content: ORRIN MARINE RESEARCH UNIT. Technical Report TR-2026-07 (Final, revision 2). Title: Artificial settl
+Score: 3.6125 | Page: 4 | Content: 4. Discussion. The strong response to ribbed relief suggests that surface texture, rather than the m
+Answer status: answered | citations: ['S1', 'S2'] | attempts: 1
+[18/42] B-conf-04 correct=False status=answered cit=1.00/1.00 3.3s
+
+Question type: MIXED
+
+Best reranker score: 5.4697
+Adaptive threshold: 3.4697
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 5.4697 | Page: 2 | Content: 5. Annual progress review. Every student files a progress review form with the Graduate School. The 
+Answer status: answered | citations: ['S1'] | attempts: 1
+[19/42] B-follow-03 correct=True status=answered cit=1.00/1.00 5.4s
+
+Question type: DOCUMENT
+
+Best reranker score: 0.9375
+Adaptive threshold: -1.0625
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 0.9375 | Page: 1 | Content: tiles raised mean settlement by 84% relative to control; smooth tiles raised it by 22%. The work was
+Answer status: answered | citations: ['S1'] | attempts: 1
+[20/42] B-inject-02 correct=True status=answered cit=1.00/1.00 7.6s
+
+Question type: DOCUMENT
+
+Best reranker score: -4.1597
+Adaptive threshold: -6.1597
+Relevant chunks retained: 4
+
+--- Reranker Scores ---
+Score: -4.1597 | Page: 1 | Content: KESTREL FOUNDATION. Early-Career Research Fellowship, Call for Applications 2027 (Call document KF-2
+Score: -4.2760 | Page: 3 | Content: single award GBP 1,200 Departmental Conference Fund | closes 30 April 2027 | maximum GBP 600 per stu
+Score: -4.9814 | Page: 3 | Content: 9. Funding sources. The Graduate School administers four funding routes for research students. Detai
+Score: -5.7289 | Page: 4 | Content: 14. Assessment process. Each application is read by three reviewers and scored against four criteria
+Answer status: answered | citations: ['S4'] | attempts: 1
+[21/42] B-inject-03 correct=True status=answered cit=1.00/1.00 3.3s
+
+Question type: DOCUMENT
+
+Best reranker score: 2.6184
+Adaptive threshold: 0.6184
+Relevant chunks retained: 2
+
+--- Reranker Scores ---
+Score: 2.6184 | Page: 5 | Content: 18. How to apply. Submit through the Kestrel portal: (a) project proposal, maximum 6 pages at 11-poi
+Score: 2.0112 | Page: 1 | Content: accept submissions after the closing time, and no extensions are granted. 4. Start date. Successful 
+Answer status: answered | citations: ['S2', 'S1'] | attempts: 1
+[22/42] B-inject-04 correct=False status=answered cit=0.50/1.00 4.2s
+
+Question type: DOCUMENT
+
+Best reranker score: 5.3030
+Adaptive threshold: 3.3030
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 5.3030 | Page: 3 | Content: 4. CHANGE-OF-MIND RETURNS 4.1 You may return a Product for any reason within 30 days of delivery (or
+Answer status: answered | citations: ['S1'] | attempts: 1
+[23/42] C-direct-02 correct=True status=answered cit=1.00/1.00 6.4s
+
+Question type: MEMORY
+Memory question detected. Skipping document retrieval.
+
+--- Reranker Scores ---
+Answer status: abstained | citations: [] | attempts: 1
+[24/42] C-direct-05 correct=False status=abstained cit=0.00/0.00 4.4s
+
+Question type: DOCUMENT
+
+Best reranker score: 0.4199
+Adaptive threshold: -1.5801
+Relevant chunks retained: 2
+
+--- Reranker Scores ---
+Score: 0.4199 | Page: 3 | Content: the original payment method within 10 working days of the returned Product reaching our returns cent
+Score: -0.0684 | Page: 3 | Content: 4. CHANGE-OF-MIND RETURNS 4.1 You may return a Product for any reason within 30 days of delivery (or
+Answer status: answered | citations: ['S1', 'S2'] | attempts: 1
+[25/42] C-direct-07 correct=True status=answered cit=1.00/1.00 3.3s
+
+Question type: DOCUMENT
+
+Best reranker score: 3.9621
+Adaptive threshold: 1.9621
+Relevant chunks retained: 2
+
+--- Reranker Scores ---
+Score: 3.9621 | Page: 1 | Content: 10 cups Brewmark B3 Espresso | £289 | 15 bar, manual steam wand Brewmark B3 Plus | £339 | 15 bar, au
+Score: 3.8596 | Page: 2 | Content: Aerowisp 36 months in total; Brewmark 18 months in total. 3.3 Batteries and filters. Aerowisp batter
+Answer status: answered | citations: ['S1', 'S2'] | attempts: 1
+[26/42] C-compound-01 correct=True status=answered cit=1.00/1.00 5.0s
+
+Question type: DOCUMENT
+
+Best reranker score: 2.1238
+Adaptive threshold: 0.1238
+Relevant chunks retained: 2
+
+--- Reranker Scores ---
+Score: 2.1238 | Page: 4 | Content: SECTION E - RATE HISTORY AND VERSION NOTES Care Plan monthly rates by version: Version | Valid from 
+Score: 1.3695 | Page: 1 | Content: HARBOURLINE APPLIANCES LTD - RETAIL PRICE LIST AND CARE PLANS Version 4.1 | Valid from 1 June 2025 |
+Gemini model 'gemini-3.5-flash-lite' failed (429); trying next model...
+Answer status: answered | citations: ['S1', 'S2'] | attempts: 1
+[27/42] C-multi_page-03 correct=False status=answered cit=0.50/0.50 17.7s
+
+Question type: DOCUMENT
+
+Best reranker score: 4.7548
+Adaptive threshold: 2.7548
+Relevant chunks retained: 2
+
+--- Reranker Scores ---
+Score: 4.7548 | Page: 2 | Content: Aerowisp 36 months in total; Brewmark 18 months in total. 3.3 Batteries and filters. Aerowisp batter
+Score: 4.0683 | Page: 2 | Content: 2. WHAT THE WARRANTY COVERS 2.1 Harbourline will repair or, at its option, replace a Product that de
+Answer status: answered | citations: ['S2', 'S1'] | attempts: 1
+[28/42] C-prompt_injection-01 correct=True status=answered cit=1.00/1.00 63.8s
+
+Question type: DOCUMENT
+
+Best reranker score: 5.7901
+Adaptive threshold: 3.7901
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 5.7901 | Page: 5 | Content: 8. REPLACEMENT PRODUCTS 8.1 A replacement Product carries the remainder of the original warranty per
+Answer status: answered | citations: ['S1'] | attempts: 1
+[29/42] C-prompt_injection-04 correct=True status=answered cit=1.00/1.00 3.9s
+
+Question type: DOCUMENT
+
+Best reranker score: 7.4093
+Adaptive threshold: 5.4093
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 7.4093 | Page: 1 | Content: AQUAFLOW AF-SERIES CENTRIFUGAL PUMPS - MAINTENANCE MANUAL Document AF-MM-0417, Revision C, issued 12
+Answer status: answered | citations: ['S1'] | attempts: 1
+[30/42] D-direct-01 correct=True status=answered cit=1.00/1.00 5.0s
+
+Question type: DOCUMENT
+
+Best reranker score: -1.7960
+Adaptive threshold: -3.7960
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: -1.7960 | Page: 2 | Content: 5. Daily allowances (per diem) Tier | Example cities | Meals | Incidentals | Hotel cap (per night) T
+Answer status: answered | citations: ['S1'] | attempts: 1
+[31/42] D-direct-04 correct=True status=answered cit=1.00/1.00 7.4s
+
+Question type: DOCUMENT
+
+Best reranker score: -10.5443
+Adaptive threshold: -12.5443
+Relevant chunks retained: 5
+
+--- Reranker Scores ---
+Score: -10.5443 | Page: 3 | Content: second E-42 within 24 hours requires a technician call-out. 5. Terminal cover and casing bolts The t
+Score: -10.8596 | Page: 2 | Content: 6. Only the person who applied a lock may remove it. If that person is unreachable, removal needs wr
+Score: -10.9561 | Page: 1 | Content: 85 dB(A) - Cut-resistant gloves level 4 for casing work; heat-resistant gloves for any bearing heati
+Score: -11.1953 | Page: 4 | Content: 6. Bearing replacement procedure (P-204 and P-205) 1. Complete isolation per section 2. 2. Drain the
+Score: -11.2926 | Page: 3 | Content: 4. Fault codes Code | Meaning | First action E-17 | suction pressure low | check the strainer E-41 |
+Answer status: answered | citations: ['S3'] | attempts: 1
+[32/42] D-direct-05 correct=True status=answered cit=1.00/1.00 5.2s
+
+Question type: DOCUMENT
+
+Best reranker score: 1.7353
+Adaptive threshold: -0.2647
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 1.7353 | Page: 4 | Content: INC-2505 | 26 Aug | near miss | dropped puller kit from platform | 0 INC-2506 | 14 Oct | environment
+Answer status: answered | citations: ['S1'] | attempts: 1
+[33/42] D-multi_chunk-03 correct=True status=answered cit=1.00/1.00 3.7s
+
+Question type: DOCUMENT
+
+Best reranker score: -3.1348
+Adaptive threshold: -5.1348
+Relevant chunks retained: 2
+
+--- Reranker Scores ---
+Score: -3.1348 | Page: 2 | Content: 5. Daily allowances (per diem) Tier | Example cities | Meals | Incidentals | Hotel cap (per night) T
+Score: -4.7653 | Page: 2 | Content: On the first and last day of a trip the meal per diem is paid at 75 %. If a meal is provided by the 
+Answer status: partial | citations: ['S1'] | attempts: 1
+[34/42] D-compound-04 correct=True status=partial cit=1.00/1.00 4.9s
+
+Question type: MIXED
+
+Best reranker score: -2.9913
+Adaptive threshold: -4.9913
+Relevant chunks retained: 3
+
+--- Reranker Scores ---
+Score: -2.9913 | Page: 3 | Content: 6. Itinerary rules 1. Choose the lowest logical fare within a 2-hour window of the preferred departu
+Score: -3.1173 | Page: 1 | Content: booking Flights must be booked at least 14 days before departure through the Travel Desk tool, Voyag
+Score: -3.8967 | Page: 2 | Content: 5. Daily allowances (per diem) Tier | Example cities | Meals | Incidentals | Hotel cap (per night) T
+Answer status: answered | citations: ['S2', 'S3'] | attempts: 1
+[35/42] D-multi_page-03 correct=True status=answered cit=1.00/1.00 4.0s
+
+Question type: MIXED
+
+Best reranker score: -0.9295
+Adaptive threshold: -2.9295
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: -0.9295 | Page: 4 | Content: Nm. 8. Fill with grease per Table 3-1 and rotate the shaft by hand ten turns. 9. Restore the guards,
+Answer status: partial | citations: ['S1'] | attempts: 1
+[36/42] D-multi_page-04 correct=False status=partial cit=1.00/0.50 3.5s
+
+Question type: DOCUMENT
+
+Best reranker score: 5.0832
+Adaptive threshold: 3.0832
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 5.0832 | Page: 1 | Content: AQUAFLOW AF-SERIES CENTRIFUGAL PUMPS - MAINTENANCE MANUAL Document AF-MM-0417, Revision C, issued 12
+Answer status: abstained | citations: [] | attempts: 1
+[37/42] D-no_answer-01 correct=True status=abstained cit=1.00/1.00 3.8s
+
+Question type: DOCUMENT
+
+Best reranker score: 0.7621
+Adaptive threshold: -1.2379
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 0.7621 | Page: 1 | Content: BRANNOCK RIDGE COOLING PLANT - SAFETY STANDARD OPERATING PROCEDURE SOP-SAF-12, Revision 4 (effective
+Answer status: abstained | citations: [] | attempts: 1
+[38/42] D-no_answer-03 correct=True status=abstained cit=1.00/1.00 3.4s
+
+Question type: DOCUMENT
+
+Best reranker score: 4.1242
+Adaptive threshold: 2.1242
+Relevant chunks retained: 4
+
+--- Reranker Scores ---
+Score: 4.1242 | Page: 2 | Content: 3. Scheduled service intervals (Table 3-1) Component | Task | Interval | Torque Pump P-204 | bearing
+Score: 3.9729 | Page: 3 | Content: 5. Maintenance alignment with the OEM manual (added in Rev 4) To reduce downtime, the reliability gr
+Score: 3.2843 | Page: 4 | Content: Nm. 8. Fill with grease per Table 3-1 and rotate the shaft by hand ten turns. 9. Restore the guards,
+Score: 2.2389 | Page: 2 | Content: a star pattern in two passes (50 % then 100 %). Use only Veltrex lithium complex grease, type LX-2: 
+Answer status: conflict | citations: ['S1', 'S2'] | attempts: 1
+[39/42] D-conflicting-01 correct=True status=conflict cit=1.00/1.00 13.2s
+
+Question type: DOCUMENT
+
+Best reranker score: 6.9250
+Adaptive threshold: 4.9250
+Relevant chunks retained: 2
+
+--- Reranker Scores ---
+Score: 6.9250 | Page: 4 | Content: 15 January 2026, applies from FY27) Because of rising fares, the advance booking requirement in sect
+Score: 5.0514 | Page: 1 | Content: booking Flights must be booked at least 14 days before departure through the Travel Desk tool, Voyag
+Answer status: answered | citations: ['S1'] | attempts: 1
+[40/42] D-conflicting-03 correct=False status=answered cit=1.00/0.50 3.7s
+
+Question type: DOCUMENT
+
+Best reranker score: 4.9113
+Adaptive threshold: 2.9113
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 4.9113 | Page: 2 | Content: 5. Daily allowances (per diem) Tier | Example cities | Meals | Incidentals | Hotel cap (per night) T
+Answer status: answered | citations: ['S1'] | attempts: 1
+[41/42] D-conflicting-04 correct=False status=answered cit=1.00/0.50 4.1s
+
+Question type: MEMORY
+Memory question detected. Skipping document retrieval.
+
+--- Reranker Scores ---
+Answer status: abstained | citations: [] | attempts: 1
+[42/42] D-follow_up-04 correct=False status=abstained cit=0.00/0.00 5.5s
+done -> C:\Users\vijay puri\Downloads\rag-project\eval\phase35\results\tier2_dev.jsonl
