@@ -60,6 +60,7 @@ CATEGORIES = {
         "test_llm_timeout.py",
         "test_p3_memory_intelligence.py",
         "test_p4_eval_framework.py",
+        "test_batch1_provider_config.py",
     ],
     "integration": [
         "test_memory_sources_regression.py",

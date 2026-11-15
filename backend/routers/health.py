@@ -35,6 +35,8 @@ def health():
 def system_status():
     from services import retrieval_config as cfg
 
+    embedding = sys.modules.get("services.embedding_service")
+    embedding_loaded = bool(embedding and getattr(embedding, "_model", None) is not None)
     components = [
         ComponentStatus(
             name="database",
@@ -44,7 +46,7 @@ def system_status():
         ),
         ComponentStatus(
             name="embedding_model",
-            status="initialized" if "services.embedding_service" in sys.modules else "configured",
+            status="initialized" if embedding_loaded else "configured",
             detail=f"model {cfg.EMBEDDING_MODEL}, dim {cfg.EMBEDDING_DIM}; loaded on first use",
         ),
     ]

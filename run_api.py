@@ -4,6 +4,7 @@
     .venv\\Scripts\\python.exe run_api.py --port 9000
     .venv\\Scripts\\python.exe run_api.py --show-token-path  # where the API token file lives
     .venv\\Scripts\\python.exe run_api.py --rotate-token     # write a new token (restart the server)
+    .venv\\Scripts\\python.exe run_api.py --check-config     # validate settings (.env loaded first)
 
 Binds to loopback (127.0.0.1) by default. Any other host is refused unless
 --allow-non-loopback is given explicitly AND the host is listed in
@@ -44,7 +45,20 @@ def main(argv=None) -> int:
                         help="permit a non-loopback bind address (no TLS; LAN exposure is unsafe)")
     parser.add_argument("--rotate-token", action="store_true", help="write a new API token file and exit")
     parser.add_argument("--show-token-path", action="store_true", help="print the token file path and exit")
+    parser.add_argument("--check-config", action="store_true",
+                        help="validate configuration (names only, no secret values) and exit 1 on errors")
     args = parser.parse_args(argv)
+
+    if args.check_config:
+        from backend.config import config_problems
+
+        problems, warnings = config_problems()
+        for warning in warnings:
+            print(f"WARNING: {warning}", file=sys.stderr)
+        for problem in problems:
+            print(f"ERROR: {problem}", file=sys.stderr)
+        print("configuration OK" if not problems else "configuration INVALID")
+        return 1 if problems else 0
 
     from backend.security import default_token_path, rotate_token
 

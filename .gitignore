@@ -11,3 +11,11 @@ data/uploads/
 *.pem
 *.key
 api_token
+
+# Batch 1 Stage 0: database dumps/backups must never be committed (anywhere in the tree)
+*.dump
+*.backup
+*.bak
+*.sql.gz
+venv/
+.pytest_cache/

@@ -1,22 +1,16 @@
 import os
+import threading
 import time
 
 import httpx
-from dotenv import load_dotenv
 from google import genai
 from google.genai import errors, types
 
+from services import llm_config
 from services.gemini_retry_service import (
     generate_with_retry,
     get_server_retry_delay,
 )
-
-load_dotenv()
-
-api_key = os.getenv("GEMINI_API_KEY")
-
-if not api_key:
-    raise ValueError("GEMINI_API_KEY is missing from .env")
 
 # Finite HTTP timeout per Gemini request. google-genai's HttpOptions.timeout is
 # in MILLISECONDS; the SDK converts it to seconds and passes it to httpx, where
@@ -24,25 +18,46 @@ if not api_key:
 # a stalled request blocks forever.
 REQUEST_TIMEOUT_MS = 120_000
 
-client = genai.Client(
-    api_key=api_key,
-    http_options=types.HttpOptions(timeout=REQUEST_TIMEOUT_MS),
-)
+# Batch 1: the client is created lazily on the first request (get_client), so
+# importing this module no longer requires GEMINI_API_KEY. A request without a
+# key still fails with the same ValueError message. ``llm_service.client`` keeps
+# working (module __getattr__ below), and tests may still patch it.
+_client_lock = threading.Lock()
 
-MODEL_NAME = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
+
+def get_client():
+    existing = globals().get("client")
+    if existing is not None:
+        return existing
+
+    with _client_lock:
+        existing = globals().get("client")
+        if existing is None:
+            api_key = os.getenv("GEMINI_API_KEY")
+            if not api_key:
+                raise ValueError("GEMINI_API_KEY is missing from .env")
+            existing = genai.Client(
+                api_key=api_key,
+                http_options=types.HttpOptions(timeout=REQUEST_TIMEOUT_MS),
+            )
+            globals()["client"] = existing
+    return existing
+
+
+def __getattr__(name):
+    if name == "client":
+        return get_client()
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+
+
+# Model selection (defaults and env precedence live in services/llm_config.py).
+MODEL_NAME = llm_config.MODEL_NAME
 
 # Tried in order when the current model is out of quota (429), not
 # found (404) or temporarily failing (5xx). Free-tier quota is
 # tracked per model, so another model usually still has capacity.
 # Override with GEMINI_FALLBACK_MODELS="modelA,modelB" in .env.
-FALLBACK_MODELS = [
-    name.strip()
-    for name in os.getenv(
-        "GEMINI_FALLBACK_MODELS",
-        "gemini-3.1-flash-lite,gemini-2.5-flash",
-    ).split(",")
-    if name.strip()
-]
+FALLBACK_MODELS = list(llm_config.FALLBACK_MODELS)
 
 # HTTP statuses that should move on to the next model.
 MODEL_SWITCH_CODES = {404, 429, 500, 502, 503, 504}
@@ -98,7 +113,7 @@ def _model_order() -> list[str]:
 def _generate_with_model(model: str, prompt: str, **retry_options) -> str:
 
     response = generate_with_retry(
-        lambda: client.models.generate_content(
+        lambda: get_client().models.generate_content(
             model=model,
             contents=prompt
         ),

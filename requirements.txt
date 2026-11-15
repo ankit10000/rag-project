@@ -4,7 +4,10 @@
 # Other Python versions are NOT verified. Transitive dependencies (torch,
 # transformers, numpy, ...) are resolved by pip; numpy/torch are pinned because
 # embeddings and the reranker depend on them directly.
-# API layer extras: backend/requirements-api.txt (install separately).
+# Requires Python >= 3.11 (FastAPI/Starlette); only 3.14.10 on Windows 11 is verified.
+# torch reports 2.15.0+cpu at runtime (CPU-only build); "torch==2.15.0" matches it.
+# API layer: backend/requirements-api.txt (pinned in Batch 1). Full install:
+#   .venv\Scripts\python.exe -m pip install -r requirements.txt -r backend\requirements-api.txt
 psycopg[binary]==3.3.6
 pgvector==0.5.1
 python-dotenv==1.2.4

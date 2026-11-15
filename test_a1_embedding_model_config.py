@@ -67,13 +67,17 @@ with mock.patch.dict(os.environ, {"EMBEDDING_MODEL": "some/other-model"}):
     cfg_override = load_copy("retrieval_config.py", "_a1_cfg_override")
 check("[env] EMBEDDING_MODEL env var overrides the model name", cfg_override.EMBEDDING_MODEL == "some/other-model")
 
-# 3. loader receives the configured name
+# 3. loader receives the configured name (Batch 1: lazily, on first use, exactly once)
 svc = load_embedding_service()
+check("[lazy] importing embedding_service does not load the model", FakeModel.calls == [] and not svc.is_model_loaded())
+svc.get_model(); svc.get_model()
 check("[loader] with the default config the loader is called once with 'all-MiniLM-L6-v2'",
       FakeModel.calls == ["all-MiniLM-L6-v2"] == [real_cfg.EMBEDDING_MODEL])
-svc = load_embedding_service("some/other-model")
+with mock.patch.object(real_cfg, "EMBEDDING_MODEL", "some/other-model"):
+    svc = load_embedding_service("some/other-model")
+    loaded = svc.model           # module attribute still works and triggers the lazy load
 check("[loader] a different configured name is what the loader receives (no hardcoded model)",
-      FakeModel.calls == ["some/other-model"] and svc.model.name == "some/other-model")
+      FakeModel.calls == ["some/other-model"] and loaded.name == "some/other-model")
 
 # 6. default behaviour unchanged: encode with normalisation, output passed through
 svc = load_embedding_service()
@@ -96,16 +100,21 @@ check("[dim] a configured model producing 768-d vectors is rejected by the EMBED
       isinstance(err, ValueError) and "EMBEDDING_DIM" in str(err) and "768" in str(err))
 check("[dim] the guard compares against cfg.EMBEDDING_DIM (384 by default)", real_cfg.EMBEDDING_DIM == 384)
 
-# 5. loading failure: same as before (propagates at import time, no silent fallback to another model)
+# 5. loading failure (Batch 1: raised on first use with a clear error, no silent fallback)
 def failing(name):
     raise OSError(f"cannot load {name}")
-try:
-    load_embedding_service("missing/model", factory=failing)
-    err = None
-except Exception as error:  # noqa: BLE001
-    err = error
-check("[failure] an unloadable model raises at import (OSError), with no silent fallback to the default model",
-      isinstance(err, OSError) and "missing/model" in str(err))
+with mock.patch.object(real_cfg, "EMBEDDING_MODEL", "missing/model"):
+    svc_bad = load_embedding_service("missing/model", factory=failing)
+    check("[failure] import alone does not raise", not svc_bad.is_model_loaded())
+    try:
+        svc_bad.generate_embeddings(["x", "y"])
+        err = None
+    except Exception as error:  # noqa: BLE001
+        err = error
+check("[failure] an unloadable model raises EmbeddingModelLoadError naming the model, caused by the OSError, "
+      "with no silent fallback to the default model",
+      isinstance(err, svc_bad.EmbeddingModelLoadError) and "missing/model" in str(err)
+      and isinstance(err.__cause__, OSError) and not svc_bad.is_model_loaded())
 
 # the real module was not disturbed
 check("[isolation] the real services.embedding_service module is not the test copy",

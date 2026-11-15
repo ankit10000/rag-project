@@ -6,11 +6,52 @@ from sentence_transformers import SentenceTransformer
 from services import perf_metrics
 from services import retrieval_config as cfg
 
-# Load the configured embedding model (default "all-MiniLM-L6-v2", override
-# with the EMBEDDING_MODEL environment variable). Vectors stored with one model
-# are NOT comparable with vectors from another, even if the dimensions match.
-with perf_metrics.timed("embedding.model_init"):
-    model = SentenceTransformer(cfg.EMBEDDING_MODEL)
+# The configured embedding model (default "all-MiniLM-L6-v2", override with the
+# EMBEDDING_MODEL environment variable). Vectors stored with one model are NOT
+# comparable with vectors from another, even if the dimensions match.
+#
+# Batch 1: loaded lazily on the first embedding request (get_model), not at
+# import, so importing services/the API never loads or downloads the model.
+# Loaded once per process (lock-protected); a failed load is not cached, so the
+# next request retries. ``embedding_service.model`` still works (module
+# __getattr__ below) and triggers the same lazy load.
+_model = None
+_model_lock = threading.Lock()
+
+
+class EmbeddingModelLoadError(RuntimeError):
+    """The configured embedding model could not be initialised."""
+
+
+def get_model():
+    global _model
+    loaded = _model
+    if loaded is not None:
+        return loaded
+
+    with _model_lock:
+        if _model is None:
+            name = cfg.EMBEDDING_MODEL
+            try:
+                with perf_metrics.timed("embedding.model_init"):
+                    _model = SentenceTransformer(name)
+            except Exception as error:
+                raise EmbeddingModelLoadError(
+                    f"could not load embedding model {name!r} "
+                    f"({type(error).__name__}: {error}); check EMBEDDING_MODEL and the "
+                    "local Hugging Face cache (HF_HUB_OFFLINE=1 forbids downloads)"
+                ) from error
+        return _model
+
+
+def is_model_loaded() -> bool:
+    return _model is not None
+
+
+def __getattr__(name):
+    if name == "model":
+        return get_model()
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
 
 # Phase 5: bounded LRU cache for SINGLE-text calls (query and single-memory
 # embeddings). The model is deterministic for a given text, so a cache hit
@@ -65,7 +106,7 @@ def generate_embeddings(texts: list[str]):
         perf_metrics.count("embedding.query_cache.miss")
 
     with perf_metrics.timed("embedding.encode", batch=len(texts) if hasattr(texts, "__len__") else 0):
-        embeddings = model.encode(
+        embeddings = get_model().encode(
             texts,
             normalize_embeddings=True
         )

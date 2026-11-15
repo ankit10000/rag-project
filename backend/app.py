@@ -92,6 +92,11 @@ def _remove_stale_upload_temps() -> None:
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    problems, warnings = config.config_problems()
+    if problems:                                   # invalid configuration -> startup fails clearly
+        raise RuntimeError("invalid API configuration: " + "; ".join(problems))
+    for warning in warnings:
+        log.warning("configuration: %s", warning)
     digest, source = load_token_digest()          # raises -> startup fails (fail closed)
     app.state.token_digest = digest
     _remove_stale_upload_temps()

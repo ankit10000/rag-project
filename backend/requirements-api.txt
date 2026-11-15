@@ -1,10 +1,10 @@
-# Phase 6/7 API dependencies — NOT installed yet; install manually when approved:
-#   .venv\Scripts\python.exe -m pip install -r backend/requirements-api.txt
-# These are minimum versions only: the API stack has never been installed or run in
-# this project, so exact pins cannot be derived from a verified environment.
-# After a successful, reviewed installation, pin the resolved versions here
-# (python -m pip freeze | findstr /i "fastapi starlette uvicorn multipart").
-# pydantic 2.x is already pinned in requirements.txt.
-fastapi>=0.110,<1.0
-uvicorn>=0.29,<1.0
-python-multipart>=0.0.9,<1.0
+# Phase 6/7 API dependencies — installed and pinned in Batch 1 (2026-11-15) on
+# Python 3.14.10 / Windows 11, into the project .venv:
+#   .venv\Scripts\python.exe -m pip install -r requirements.txt -r backend\requirements-api.txt
+# Pins are the versions pip resolved against the already-pinned core stack
+# (pydantic 2.14.2 in requirements.txt); `pip check` reported no broken requirements.
+# All four require Python >= 3.11 (fastapi, starlette, python-multipart) or >= 3.10 (uvicorn).
+fastapi==0.163.1
+starlette==1.10.0
+uvicorn==0.54.0
+python-multipart==0.0.33

@@ -1,8 +1,25 @@
-"""Backend settings (local, single-user). Only cheap imports here."""
+"""Backend settings (local, single-user). Only cheap imports here.
+
+Batch 1: the project .env is loaded HERE, before any setting below is read, so
+RAG_API_* values in .env take effect. Real process environment variables still
+win (override=False), the same precedence the services use.
+
+Environment variable classes (see .env.example):
+  required          DATABASE_URL (every data endpoint and the CLI)
+  provider-specific GEMINI_API_KEY (chat / LLM calls only), GEMINI_MODEL,
+                    GEMINI_FALLBACK_MODELS
+  optional          RAG_API_* (this module, backend/security.py), retrieval and
+                    ingestion knobs (services/retrieval_config.py), RAG_PERF_METRICS
+  development-only  EVAL_*, DATABASE_URL_BASE, TEST_BASE_URL, TESTSAFE_BLOCK_NETWORK
+"""
 
 import os
 
+from dotenv import load_dotenv
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+load_dotenv(os.path.join(ROOT, ".env"), override=False)
 
 API_PREFIX = "/api/v1"
 DEFAULT_HOST = "127.0.0.1"          # loopback only by default
@@ -37,4 +54,27 @@ MAX_JSON_BODY_BYTES = 1 * 1024 * 1024
 MULTIPART_OVERHEAD_BYTES = 1 * 1024 * 1024
 
 # Interactive OpenAPI docs (schema only, no data). Disable with RAG_API_DOCS=0.
-DOCS_ENABLED = os.environ.get("RAG_API_DOCS", "1").strip().lower() not in ("0", "false", "no", "off")
+_TRUE = ("1", "true", "yes", "on")
+_FALSE = ("0", "false", "no", "off")
+_DOCS_RAW = os.environ.get("RAG_API_DOCS", "1").strip().lower()
+DOCS_ENABLED = _DOCS_RAW not in _FALSE
+
+
+def config_problems() -> tuple[list[str], list[str]]:
+    """Return (errors, warnings) for the API configuration.
+
+    Errors make startup fail with a clear message; warnings are logged. Only
+    variable NAMES appear in messages, never values of secrets.
+    """
+    errors, warnings = [], []
+    if _DOCS_RAW not in _TRUE + _FALSE:
+        errors.append(f"RAG_API_DOCS must be one of {', '.join(_TRUE + _FALSE)}")
+    try:
+        from services import retrieval_config  # noqa: F401  (parses numeric knobs)
+    except ValueError as error:
+        errors.append(f"invalid retrieval/ingestion setting in the environment or .env: {error}")
+    if not os.environ.get("DATABASE_URL"):
+        warnings.append("DATABASE_URL is not set: every data endpoint will fail")
+    if not os.environ.get("GEMINI_API_KEY"):
+        warnings.append("GEMINI_API_KEY is not set: /chat will fail until it is configured")
+    return errors, warnings
