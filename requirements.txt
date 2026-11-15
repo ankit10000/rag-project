@@ -1,0 +1,19 @@
+# Core RAG application dependencies (CLI + services).
+# Versions are those INSTALLED in the project's .venv (Python 3.14.10), read from
+# package metadata during Phase 7 — the only environment this project has run in.
+# Other Python versions are NOT verified. Transitive dependencies (torch,
+# transformers, numpy, ...) are resolved by pip; numpy/torch are pinned because
+# embeddings and the reranker depend on them directly.
+# API layer extras: backend/requirements-api.txt (install separately).
+psycopg[binary]==3.3.6
+pgvector==0.5.1
+python-dotenv==1.2.4
+sentence-transformers==6.2.0
+torch==2.15.0
+transformers==5.22.1
+numpy==2.5.4
+google-genai==2.34.0
+httpx==0.28.1
+pydantic==2.14.2
+PyMuPDF==2.0
+rank-bm25==0.2.2

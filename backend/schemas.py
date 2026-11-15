@@ -13,8 +13,6 @@ class ComponentStatus(BaseModel):
 
 class HealthResponse(BaseModel):
     status: Literal["ok"]
-    app_version: str
-    api_version: str
 
 
 class SystemStatusResponse(BaseModel):

@@ -71,6 +71,8 @@ def upload_and_ingest(file: UploadFile = File(...),
     final_path = os.path.realpath(os.path.join(upload_dir, final_name))
     if os.path.dirname(final_path) != upload_dir:              # path traversal guard
         raise unprocessable("invalid_document_name", "invalid document name")
+    if os.path.islink(os.path.join(upload_dir, final_name)):   # Phase 7: never write through a symlink
+        raise unprocessable("invalid_document_name", "the target name is a symbolic link")
 
     limit = int(cfg.MAX_PDF_SIZE_MB * 1024 * 1024)
     temp_path = os.path.join(upload_dir, f".upload-{uuid.uuid4().hex}.part")

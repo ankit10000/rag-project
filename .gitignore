@@ -3,3 +3,11 @@
 __pycache__/
 *.pyc
 backups/
+
+# Phase 7: never commit secrets, local env variants or user documents
+.env.*
+!.env.example
+data/uploads/
+*.pem
+*.key
+api_token

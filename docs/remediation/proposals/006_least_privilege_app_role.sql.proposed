@@ -1,0 +1,38 @@
+-- PROPOSAL ONLY — NOT A MIGRATION. NOT APPLIED. Run manually by the database owner after review.
+-- Kept outside migrations/ so the migration history is unchanged.
+-- See docs/remediation/PHASE7_SECURITY_LOCAL_DEPLOYMENT.md (database security).
+--
+-- Creates a dedicated application role with only the privileges the application
+-- code uses (SELECT/INSERT/UPDATE/DELETE on its tables, sequence usage). It cannot
+-- create/drop tables, alter schema or create roles. Migrations keep running as the
+-- owner (postgres). Set the password interactively — never commit it:
+--   psql -U postgres -d rag_db -c "\password rag_app"
+BEGIN;
+
+DO $$
+BEGIN
+    IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'rag_app') THEN
+        CREATE ROLE rag_app LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT;
+    END IF;
+END $$;
+
+REVOKE ALL ON DATABASE rag_db FROM PUBLIC;
+GRANT CONNECT ON DATABASE rag_db TO rag_app;
+GRANT USAGE ON SCHEMA public TO rag_app;
+REVOKE CREATE ON SCHEMA public FROM PUBLIC;
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON
+    conversations, messages, conversation_memories, memory_sources, document_chunks
+    TO rag_app;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO rag_app;
+
+COMMIT;
+
+-- Rollback (manual):
+--   REVOKE ALL ON ALL TABLES IN SCHEMA public FROM rag_app;
+--   REVOKE ALL ON ALL SEQUENCES IN SCHEMA public FROM rag_app;
+--   REVOKE USAGE ON SCHEMA public FROM rag_app;
+--   REVOKE CONNECT ON DATABASE rag_db FROM rag_app;
+--   DROP ROLE rag_app;
+-- Note: the vector extension must already exist (created by the owner); the app role
+-- does not need CREATE privileges. Scratch/test databases need equivalent grants.

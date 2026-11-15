@@ -1,6 +1,10 @@
-# Phase 6 API dependencies (NOT installed during Phase 6; install manually when approved):
+# Phase 6/7 API dependencies — NOT installed yet; install manually when approved:
 #   .venv\Scripts\python.exe -m pip install -r backend/requirements-api.txt
-# pydantic 2.x is already installed in the project environment.
-fastapi>=0.110
-uvicorn>=0.29
-python-multipart>=0.0.9
+# These are minimum versions only: the API stack has never been installed or run in
+# this project, so exact pins cannot be derived from a verified environment.
+# After a successful, reviewed installation, pin the resolved versions here
+# (python -m pip freeze | findstr /i "fastapi starlette uvicorn multipart").
+# pydantic 2.x is already pinned in requirements.txt.
+fastapi>=0.110,<1.0
+uvicorn>=0.29,<1.0
+python-multipart>=0.0.9,<1.0

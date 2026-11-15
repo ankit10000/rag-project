@@ -10,6 +10,9 @@ from backend import API_VERSION, APP_VERSION
 from backend.config import ROOT
 from backend.schemas import ComponentStatus, HealthResponse, SystemStatusResponse
 
+# Public liveness (no auth, minimal: no versions, no component details).
+public_router = APIRouter(tags=["health"])
+# Detailed status requires the API token (registered with require_token in app.py).
 router = APIRouter(tags=["health"])
 
 
@@ -23,9 +26,9 @@ def _env_has(name: str) -> bool:
         return False
 
 
-@router.get("/health", response_model=HealthResponse)
+@public_router.get("/health", response_model=HealthResponse)
 def health():
-    return HealthResponse(status="ok", app_version=APP_VERSION, api_version=API_VERSION)
+    return HealthResponse(status="ok")
 
 
 @router.get("/health/status", response_model=SystemStatusResponse)

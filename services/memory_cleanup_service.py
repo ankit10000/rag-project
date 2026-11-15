@@ -140,7 +140,10 @@ Return ONLY valid JSON:
         return True
 
     if value is True:
-        print(f"Summary still contains forgotten info: {data.get('evidence')}")
+        # Phase 7 privacy: never echo the forgotten information itself to logs.
+        evidence = data.get("evidence")
+        print("Summary still contains forgotten info "
+              f"(evidence length {len(evidence) if isinstance(evidence, str) else 0}).")
         return True
 
     if value is False:

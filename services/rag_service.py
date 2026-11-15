@@ -113,10 +113,11 @@ def ask_question(
     for item in results:
         chunk = item["chunk"]
 
+        # Phase 7 privacy: identifiers and scores only, no document text in logs.
         print(
             f"Score: {item.get('rerank_score', item['rrf_score']):.4f} | "
-            f"Page: {chunk[2]} | "
-            f"Content: {chunk[3][:100]}"
+            f"Chunk: {chunk[0]} | "
+            f"Page: {chunk[2]}"
         )
 
     # Step 4: Assemble context (dedupe, budget, numbered [S#] references).
