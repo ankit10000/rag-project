@@ -1,0 +1,6 @@
+# Phase 6 API dependencies (NOT installed during Phase 6; install manually when approved):
+#   .venv\Scripts\python.exe -m pip install -r backend/requirements-api.txt
+# pydantic 2.x is already installed in the project environment.
+fastapi>=0.110
+uvicorn>=0.29
+python-multipart>=0.0.9
