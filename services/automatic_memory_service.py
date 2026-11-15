@@ -6,7 +6,26 @@ from services.memory_storage_service import (
     delete_memory,
     get_memory_details,
     confirm_memory,
+    normalize_memory_text,
     normalize_source_ids,
+    normalize_positive_id,
+)
+
+
+# Phase 1 Task 4 candidate-coverage contract. Automatic NEW/DUPLICATE/UPDATE
+# detection compares a new memory only with the latest N memories of the
+# conversation (highest ids first). A conflicting or duplicate memory OLDER
+# than this window is NOT considered by automatic update detection; there is
+# deliberately no full-history fallback scan and no additional ranking.
+# (Explicit deletion requests use get_all_conversation_memories instead.)
+AUTOMATIC_CANDIDATE_WINDOW = 20
+
+from services.memory_consolidation_service import (
+    TEMPORARY_STATE,
+    TIME_DEPENDENT,
+    analyze_relation,
+    find_exact_duplicate,
+    new_details_preserved,
 )
 from services.memory_decision_service import (
     decide_memory_action,
@@ -15,17 +34,21 @@ from services.memory_decision_service import (
 
 
 def normalize_memory_id(memory_id):
-    """Convert memory IDs to integers when possible."""
-    if memory_id is None:
-        return None
+    """Strictly normalize positive memory IDs without lossy coercion.
 
-    try:
-        return int(memory_id)
-    except (TypeError, ValueError):
-        return None
+    Positive ASCII numeric strings remain supported for compatibility with
+    existing single-memory decision tests/callers. Booleans, fractional or
+    unsafe floats, malformed strings, and non-positive IDs are rejected.
+    """
+    return normalize_positive_id(memory_id, allow_numeric_string=True)
 
 
-def get_recent_memories(conversation_id: str, limit: int = 20):
+def get_recent_memories(conversation_id: str, limit: int = AUTOMATIC_CANDIDATE_WINDOW):
+    """Latest ``limit`` memories of this conversation, newest first (by id).
+
+    This is the complete automatic-update candidate set; see
+    AUTOMATIC_CANDIDATE_WINDOW for the documented coverage limitation.
+    """
     with get_connection() as conn:
         with conn.cursor() as cursor:
             cursor.execute(
@@ -40,6 +63,23 @@ def get_recent_memories(conversation_id: str, limit: int = 20):
             )
 
             return cursor.fetchall()
+
+
+def _save_new_retaining_existing(conversation_id, new_memory, source_ids, allow_new) -> str:
+    """Store a statement as its own memory instead of merging/replacing.
+
+    Used when merging would lose information. Provenance is the statement's
+    own validated source IDs; the existing memory is not touched.
+    """
+    if not allow_new:
+        print("NEW action blocked; nothing stored.")
+        return "SKIPPED"
+    saved = save_memory(
+        conversation_id=conversation_id,
+        memory_text=new_memory,
+        source_message_ids=source_ids,
+    )
+    return "SAVED" if saved else "SKIPPED"
 
 
 def get_all_conversation_memories(conversation_id: str):
@@ -77,6 +117,23 @@ def process_memory(
     source_message_ids: list[int] | None = None,
 ) -> str:
 
+    # Validate supplied provenance before candidate lookup or a model decision.
+    # Explicit delete-only operations do not create facts and need no source;
+    # every NEW/DUPLICATE/UPDATE path must carry valid user-message evidence.
+    source_ids = normalize_source_ids(
+        source_message_id, source_message_ids
+    )
+    if not source_ids and not (delete_only or allow_delete):
+        print("Memory processing refused: source message ID is required.")
+        return "UNCERTAIN"
+
+    # Task 4: trim-only normalization before the decision model sees the text
+    # and before any write. Non-string or blank text is rejected, not saved.
+    new_memory = normalize_memory_text(new_memory)
+    if new_memory is None:
+        print("Memory processing refused: memory text is empty or not text.")
+        return "UNCERTAIN"
+
     if candidate_memories is None:
         existing_memories = get_recent_memories(conversation_id)
     else:
@@ -94,14 +151,20 @@ def process_memory(
 
     existing_memories = normalized_memories
 
-    print("\nExisting memory candidates:")
-    for memory_id, memory_text in existing_memories:
-        print(f"ID: {memory_id} | Memory: {memory_text}")
+    # Phase 5 observability: ids and counts only (no memory content in logs).
+    print(
+        f"\nExisting memory candidates: {len(existing_memories)} "
+        f"(ids {[memory_id for memory_id, _ in existing_memories]})"
+    )
 
     if not existing_memories:
         print("No existing memories available.")
 
         if delete_only:
+            return "UNCERTAIN"
+
+        if not source_ids:
+            print("Memory creation refused: source message ID is required.")
             return "UNCERTAIN"
 
         if not allow_new:
@@ -110,11 +173,24 @@ def process_memory(
         saved = save_memory(
             conversation_id=conversation_id,
             memory_text=new_memory,
-            source_message_id=source_message_id,
-            source_message_ids=source_message_ids,
+            source_message_ids=source_ids,
         )
 
         return "SAVED" if saved else "SKIPPED"
+
+    # Phase 3 dedup: an exact restatement (same text ignoring case, spacing and
+    # trailing punctuation) of a candidate is a DUPLICATE without a model call.
+    # The new source is linked as confirmation; nothing is overwritten.
+    if not delete_only and source_ids:
+        exact_id = find_exact_duplicate(new_memory, existing_memories)
+        if exact_id is not None:
+            confirm_memory(
+                conversation_id=conversation_id,
+                memory_id=exact_id,
+                source_message_ids=source_ids,
+            )
+            print(f"Exact duplicate of memory {exact_id}: confirmation linked, nothing saved.")
+            return "SKIPPED"
 
     decision =decide_memory_action(
         new_memory=new_memory,
@@ -131,13 +207,17 @@ def process_memory(
 
     updated_memory = decision.get("updated_memory")
 
-    print("\nGemini memory decision:")
-    print(decision)
+    print(
+        "\nMemory decision: action="
+        f"{action} memory_id={memory_id} "
+        f"updated_text_chars={len(updated_memory) if isinstance(updated_memory, str) else 0}"
+    )
 
     valid_ids = {
         existing_id
         for existing_id, _ in existing_memories
     }
+    existing_text_by_id = dict(existing_memories)
 
     # Automatic memory extraction must never delete stored memories.
     # Explicit deletion is permitted only through delete_only mode
@@ -150,6 +230,10 @@ def process_memory(
         print("Delete-only mode rejected action:", action)
         return "UNCERTAIN"
 
+    if action in {"NEW", "DUPLICATE", "UPDATE"} and not source_ids:
+        print("Memory write/update decision rejected: source message ID is required.")
+        return "UNCERTAIN"
+
     if action == "NEW":
 
         if not allow_new:
@@ -159,13 +243,24 @@ def process_memory(
         saved = save_memory(
             conversation_id=conversation_id,
             memory_text=new_memory,
-            source_message_id=source_message_id,
-            source_message_ids=source_message_ids,
+            source_message_ids=source_ids,
         )
 
         return "SAVED" if saved else "SKIPPED"
 
     elif action == "DUPLICATE":
+
+        # Phase 3: a "duplicate" that carries a number, amount, date, time or
+        # version the existing memory does not have is a genuinely new detail.
+        # Keep it as a separate memory instead of discarding it.
+        if memory_id in valid_ids and not new_details_preserved(
+            new_memory, existing_text_by_id[memory_id]
+        ):
+            print("DUPLICATE decision rejected: the new statement has details "
+                  "the existing memory lacks; keeping both.")
+            return _save_new_retaining_existing(
+                conversation_id, new_memory, source_ids, allow_new
+            )
 
         # The restating message becomes supporting evidence of the existing
         # memory. Without a valid memory id nothing is linked (no guessing).
@@ -173,9 +268,7 @@ def process_memory(
             confirm_memory(
                 conversation_id=conversation_id,
                 memory_id=memory_id,
-                source_message_ids=normalize_source_ids(
-                    source_message_id, source_message_ids
-                ),
+                source_message_ids=source_ids,
             )
         else:
             print("Duplicate without a valid memory id: not linked.")
@@ -189,16 +282,37 @@ def process_memory(
             print("Invalid memory ID returned by Gemini.")
             return "UNCERTAIN"
 
-        if not updated_memory or not str(updated_memory).strip():
-            print("Updated memory text is empty.")
+        # Task 4: the model's replacement text must be a non-blank string;
+        # it is trimmed only (no str() coercion of numbers/objects).
+        updated_text = normalize_memory_text(updated_memory)
+        if updated_text is None:
+            print("Updated memory text is empty or not text.")
             return "UNCERTAIN"
+
+        # Phase 3 conflict handling (auditable, conservative). Replacement is
+        # allowed only when it cannot destroy information:
+        #   * a temporary state ("today", "right now") never overwrites a fact;
+        #   * different dates/years may both be true (time-dependent facts);
+        #   * the replacement must keep every material detail of the new
+        #     statement (numbers, amounts, dates, versions).
+        # Otherwise the existing memory is kept unchanged and the new statement
+        # is stored as its own memory with its own sources.
+        relation = analyze_relation(existing_text_by_id[memory_id], new_memory)
+        print(f"Update relation evidence: {relation} (memory {memory_id})")
+        if relation in (TEMPORARY_STATE, TIME_DEPENDENT) or not new_details_preserved(
+            new_memory, updated_text
+        ):
+            print("UPDATE not applied as a replacement; keeping the existing "
+                  "memory and storing the new statement separately.")
+            return _save_new_retaining_existing(
+                conversation_id, new_memory, source_ids, allow_new
+            )
 
         updated = update_memory(
             conversation_id=conversation_id,
             memory_id=memory_id,
-            new_memory_text=str(updated_memory).strip(),
-            source_message_id=source_message_id,
-            source_message_ids=source_message_ids,
+            new_memory_text=updated_text,
+            source_message_ids=source_ids,
         )
 
         return "UPDATED" if updated else "SKIPPED"

@@ -1,0 +1,9 @@
+-- PROPOSAL ONLY — NOT APPLIED. Rollback of 004_memory_provenance_quarantine.sql.proposed.
+-- Dropping the marker table removes ONLY quarantine markers. No memory, link,
+-- message, link_kind, source_role or embedding is touched by the forward
+-- proposal, so nothing else needs to be restored.
+-- Before running: export the table (it is the audit history of quarantine decisions), e.g.
+--   \copy (SELECT * FROM memory_provenance_quarantine ORDER BY id) TO 'quarantine_history.csv' CSV HEADER
+BEGIN;
+DROP TABLE IF EXISTS memory_provenance_quarantine;
+COMMIT;

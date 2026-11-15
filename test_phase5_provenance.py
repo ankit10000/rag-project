@@ -12,6 +12,7 @@ import sys
 import uuid
 from unittest import mock
 
+import numpy as np
 import psycopg
 
 import services.automatic_memory_service as automatic
@@ -21,6 +22,22 @@ import services.memory_service as memsvc
 import services.memory_storage_service as storage
 from services.conversation_service import create_conversation, save_message
 from services.database import get_connection
+
+
+class FakeEmbeddings:
+    """Stable, orthogonal vectors avoid model loading in this scratch test."""
+    def __init__(self):
+        self.indices = {}
+
+    def __call__(self, texts):
+        vectors = []
+        for text in texts:
+            if text not in self.indices:
+                self.indices[text] = len(self.indices) % 384
+            vector = np.zeros(384)
+            vector[self.indices[text]] = 1.0
+            vectors.append(vector)
+        return vectors
 
 
 def quiet(fn, *a, **k):
@@ -145,12 +162,17 @@ def main():
         check("DUPLICATE with invalid id links nothing",
               q("SELECT count(*) FROM memory_sources WHERE source_message_id=%s", (u6,))[0][0] == 0)
 
-        # 7. parser: list / singular / junk ids filtered to user ids of the batch
+        # 7. parser: list / singular IDs are strict; any invalid source rejects
         parsed = memsvc._parse_json_memories(
-            '[{"memory":"A fact","source_message_ids":[%d,%d,999,"x"],"source_message_id":%d}]'
-            % (u1, u2, u1), {u1, u2, u3})
-        check("parser keeps only valid ids, de-duplicated",
+            '[{"memory":"A fact","source_message_ids":[%d,%d,%d],"source_message_id":%d}]'
+            % (u1, u2, u1, u1), {u1, u2, u3})
+        check("parser keeps valid ids and de-duplicates",
               parsed[0]["source_message_ids"] == [u1, u2] and parsed[0]["source_message_id"] == u1)
+        raises("mixed valid and invalid source IDs reject the memory batch",
+               memsvc.InvalidMemoryProvenanceError,
+               memsvc._parse_json_memories,
+               '[{"memory":"A fact","source_message_ids":[%d,%d,999,"x"]}]' % (u1, u2),
+               {u1, u2, u3})
         legacy_shape = memsvc._parse_json_memories('[{"memory":"B","source_message_id":%d}]' % u3, {u3})
         check("parser still accepts legacy single id", legacy_shape[0]["source_message_ids"] == [u3])
 
@@ -163,7 +185,7 @@ def main():
             {"id": a7, "role": "assistant", "content": "Cool bicycle."},
             {"id": u8, "role": "user", "content": "The bicycle is made of carbon."},
         ]
-        fake = '[{"memory":"User owns a red carbon bicycle.","source_message_ids":[%d,%d,%d]}]' % (u7, a7, u8)
+        fake = '[{"memory":"User owns a red carbon bicycle.","source_message_ids":[%d,%d]}]' % (u7, u8)
         # Both LLM touch points are mocked: extraction output and the
         # NEW/UPDATE/DUPLICATE decision (the conversation already has memories).
         with mock.patch.object(memsvc, "generate_answer", return_value=fake), \
@@ -172,6 +194,17 @@ def main():
         mb = mem_by_text(c1, "User owns a red carbon bicycle.")
         check("extraction stores all contributing user ids, drops assistant id",
               mb is not None and [s for s, _ in links(mb)] == [u7, u8])
+
+        invalid = '[{"memory":"Must reject assistant evidence.","source_message_ids":[%d,%d]}]' % (u7, a7)
+        with mock.patch.object(memsvc, "generate_answer", return_value=invalid), \
+             mock.patch.object(automatic, "process_memory") as process:
+            raises("assistant source rejects extracted memory",
+                   memsvc.InvalidMemoryProvenanceError,
+                   memsvc.extract_and_save_memories,
+                   c1,
+                   msgs)
+        check("rejected assistant-source memory is not stored", mem_by_text(c1, "Must reject assistant evidence.") is None
+              and process.call_count == 0)
 
         # 9. second memory + deletion via links only
         quiet(storage.save_memory, c1, "User's favourite colour is teal.", source_message_ids=[u3])
@@ -220,4 +253,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    with mock.patch.object(storage, "generate_embeddings", side_effect=FakeEmbeddings()):
+        main()

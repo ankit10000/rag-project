@@ -1,9 +1,12 @@
+import heapq
 import re
 import threading
+from collections import OrderedDict
 
 from rank_bm25 import BM25Okapi
 
 from services import retrieval_config as cfg
+from services import perf_metrics
 from services.database import get_connection
 from services.search_service import build_scope_filter
 
@@ -44,7 +47,10 @@ def tokenize(text: str, drop_stopwords: bool = False) -> list[str]:
 
 
 # --- cached in-memory index (rebuilt only when the corpus changes) -----------
-_cache = {}
+# Phase 5: bounded LRU (cfg.BM25_CACHE_MAX_ENTRIES filter scopes). Eviction only
+# forces a rebuild; results are identical. Validity is still guarded by the
+# per-scope corpus fingerprint, so stale content is never served.
+_cache = OrderedDict()
 _cache_lock = threading.Lock()
 
 
@@ -74,7 +80,10 @@ def _get_index(document_names, pages, drop_stopwords):
         with _cache_lock:
             cached = _cache.get(key)
             if cached and cached["fingerprint"] == fingerprint:
+                _cache.move_to_end(key)
+                perf_metrics.count("bm25.index_cache.hit")
                 return cached
+        perf_metrics.count("bm25.index_cache.miss")
 
         documents = conn.execute(
             f"""
@@ -85,15 +94,19 @@ def _get_index(document_names, pages, drop_stopwords):
             scope_params,
         ).fetchall()
 
-    entry = {
-        "fingerprint": fingerprint,
-        "documents": documents,
-        "bm25": LuceneBM25([tokenize(d[3], drop_stopwords) for d in documents])
-        if documents else None,
-    }
+    with perf_metrics.timed("bm25.index_build", documents=len(documents)):
+        entry = {
+            "fingerprint": fingerprint,
+            "documents": documents,
+            "bm25": LuceneBM25([tokenize(d[3], drop_stopwords) for d in documents])
+            if documents else None,
+        }
 
     with _cache_lock:
         _cache[key] = entry
+        _cache.move_to_end(key)
+        while len(_cache) > max(1, cfg.BM25_CACHE_MAX_ENTRIES):
+            _cache.popitem(last=False)
 
     return entry
 
@@ -125,14 +138,19 @@ def bm25_search(
 
     scores = entry["bm25"].get_scores(tokenize(query, drop_stopwords))
 
-    ranked = sorted(
-        zip(entry["documents"], scores),
-        key=lambda item: item[1],
-        reverse=True,
-    )
+    # heapq.nlargest(n, it, key) is documented as equivalent to
+    # sorted(it, key=key, reverse=True)[:n] (same ties order), without sorting
+    # the whole corpus. Ranking and the score > 0 filter are unchanged.
+    pairs = zip(entry["documents"], scores)
+    if isinstance(top_k, int) and not isinstance(top_k, bool) and top_k >= 0:
+        ranked = heapq.nlargest(top_k, pairs, key=lambda item: item[1])
+    else:
+        # Preserve the previous slicing semantics exactly for unusual top_k
+        # values (e.g. negative: sorted(...)[:-1]), documented in P2-05.
+        ranked = sorted(pairs, key=lambda item: item[1], reverse=True)[:top_k]
 
     return [
         (*document, float(score))
-        for document, score in ranked[:top_k]
+        for document, score in ranked
         if score > 0
     ]

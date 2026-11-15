@@ -3,7 +3,9 @@
 import testsafe  # refuses to run against anything but a scratch database
 testsafe.require_scratch_db()
 
+import atexit
 import contextlib, io
+import uuid
 from unittest import mock
 
 import services.memory_service as ms
@@ -12,6 +14,20 @@ from services.conversation_service import (
     create_conversation, update_conversation_memory, get_conversation_summary,
 )
 from services.database import get_connection
+
+CREATED = []
+
+
+def cleanup_created_conversations():
+    if CREATED:
+        with get_connection() as conn:
+            conn.execute(
+                "DELETE FROM conversations WHERE id = ANY(%s::uuid[])",
+                ([uuid.UUID(value) for value in CREATED],),
+            )
+
+
+atexit.register(cleanup_created_conversations)
 
 
 def quiet(fn, *a, **k):
@@ -40,20 +56,22 @@ def fake_extractor(prompt):
             ' {"memory": "User prefers simple Hinglish.", "source_message_id": 12}]')
 
 with mock.patch.object(ms, "generate_answer", side_effect=fake_extractor):
-    out = quiet(ms.extract_memories, BATCH)
+    rejected = False
+    try:
+        quiet(ms.extract_memories, BATCH)
+    except ms.InvalidMemoryProvenanceError:
+        rejected = True
 
 p = seen["prompt"]
 check("extractor prompt contains user messages", "I use Python and PostgreSQL." in p and "I prefer simple Hinglish." in p)
 check("extractor prompt contains NO assistant text", "LEAK" not in p and "assistant:" not in p and "React frontend" not in p)
-check("source id of an assistant message is rejected (-> None)",
-      {m["memory"]: m["source_message_id"] for m in out} ==
-      {"User uses Python and PostgreSQL.": 10, "User uses React.": None, "User prefers simple Hinglish.": 12})
+check("memory with assistant source ID is rejected, not retained with a guessed source", rejected)
 
 with mock.patch.object(ms, "generate_answer", side_effect=AssertionError("must not be called")):
     only_assistant = [{"id": 1, "role": "assistant", "content": "hello"}]
     check("batch with no user messages -> [] and no LLM call", quiet(ms.extract_memories, only_assistant) == [])
 
-# fallback attribution = last USER message, never the assistant message
+# Missing attribution is rejected; neither the last user nor a caller fallback is used.
 captured = []
 def fake_process(**kw):
     captured.append(kw["source_message_id"])
@@ -61,8 +79,12 @@ def fake_process(**kw):
 
 with mock.patch.object(ms, "generate_answer", return_value='[{"memory": "User likes tea."}]'), \
      mock.patch.object(ms, "process_memory", side_effect=fake_process):
-    quiet(ms.extract_and_save_memories, "c", BATCH, source_message_id=13)
-check("fallback source = last user message (12), not assistant (13)", captured == [12])
+    rejected = False
+    try:
+        quiet(ms.extract_and_save_memories, "c", BATCH, source_message_id=13)
+    except ms.InvalidMemoryProvenanceError:
+        rejected = True
+check("missing source rejects memory without calling process_memory", rejected and captured == [])
 
 # ---------------- 1a: summary rewrite -----------------------------------
 NO = '{"still_contains": false, "evidence": ""}'
@@ -90,6 +112,7 @@ def llm(rewrite, verify=NO, prompts=None):
 
 def fresh(text=ORIG):
     s = create_conversation("T-guards")
+    CREATED.append(s)
     update_conversation_memory(s, text, 7)
     return s
 
@@ -111,7 +134,8 @@ s = fresh()
 LEAKY = ORIG.replace("The user's RAG project uses Python and PostgreSQL. ", "Building a RAG app with Python and PostgreSQL (with pgvector). ")
 with mock.patch.object(mcs, "generate_answer", side_effect=llm(LEAKY, verify=YES)):
     r = quiet(mcs.rewrite_summary_without, s, DEL, REQ)
-check("semantic leak (not verbatim) caught -> RESET", r == "RESET" and get_conversation_summary(s) == "" and checkpoint(s) == 0)
+check("semantic leak (not verbatim) caught -> RESET without lowering checkpoint",
+      r == "RESET" and get_conversation_summary(s) == "" and checkpoint(s) == 7)
 
 s = fresh()
 with mock.patch.object(mcs, "generate_answer", side_effect=llm(CLEAN, verify="maybe?")):

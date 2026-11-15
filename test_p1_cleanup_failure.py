@@ -90,11 +90,29 @@ class Fx:
             return conn.execute("SELECT summary_up_to_message_id FROM conversations WHERE id=%s",
                                 (uuid.UUID(conv or self.conv),)).fetchone()[0]
 
+    def extraction_checkpoint(self, conv=None):
+        with get_connection() as conn:
+            return conn.execute(
+                "SELECT memory_extraction_up_to_message_id FROM conversations WHERE id=%s",
+                (uuid.UUID(conv or self.conv),),
+            ).fetchone()[0]
+
     def excluded(self, conv=None):
         with get_connection() as conn:
             return {r[0] for r in conn.execute(
                 "SELECT id FROM messages WHERE conversation_id=%s AND context_excluded",
                 (uuid.UUID(conv or self.conv),)).fetchall()}
+
+    def stored_unexcluded_contents(self):
+        with get_connection() as conn:
+            return {
+                row[0]
+                for row in conn.execute(
+                    "SELECT content FROM messages WHERE conversation_id=%s "
+                    "AND NOT context_excluded",
+                    (uuid.UUID(self.conv),),
+                ).fetchall()
+            }
 
     def other_fingerprint(self):
         return (get_conversation_summary(self.other), self.checkpoint(self.other), self.excluded(self.other),
@@ -126,11 +144,13 @@ def run():
     result, gen = cleanup(fx, llm(rewrite=RuntimeError("503 unavailable")))
     check("[a] summary_status RESET", result["summary_status"] == "RESET")
     check("[a] stored summary is empty", get_conversation_summary(fx.conv) == "")
-    check("[a] checkpoint reset to 0", fx.checkpoint() == 0)
+    check("[a] summary checkpoint fenced at current history", fx.checkpoint() == fx.r2)
+    check("[a] extraction checkpoint fenced at current history", fx.extraction_checkpoint() == fx.r2)
     check("[a] messages_excluded > 0 (deterministic exclusion survives LLM failure)", result["messages_excluded"] > 0)
     check("[a] source message and paired reply excluded", {fx.u1, fx.r1} <= fx.excluded())
     check("[a] forgotten text absent from history", FORGOTTEN_WORD not in fx.visible())
-    check("[a] unrelated messages still visible", "cricket" in fx.visible())
+    check("[a] unrelated messages remain stored and unexcluded",
+          any("cricket" in text for text in fx.stored_unexcluded_contents()))
     check("[a] LLM mock was exercised", gen.call_count > 0)
     check("[g/a] other conversation untouched", fx.other_fingerprint() == iso)
     invariant("a", fx)
@@ -140,7 +160,9 @@ def run():
     iso = fx.other_fingerprint()
     result, gen = cleanup(fx, llm(rewrite=GOOD, verify=YES))
     check("[b] verifier YES -> RESET", result["summary_status"] == "RESET")
-    check("[b] summary empty, checkpoint 0", get_conversation_summary(fx.conv) == "" and fx.checkpoint() == 0)
+    check("[b] summary empty and both checkpoints fenced",
+          get_conversation_summary(fx.conv) == "" and fx.checkpoint() == fx.r2
+          and fx.extraction_checkpoint() == fx.r2)
     check("[b] source message and paired reply excluded", {fx.u1, fx.r1} <= fx.excluded())
     check("[b] LLM mock exercised (rewrite + verify)", gen.call_count >= 2)
     check("[g/b] other conversation untouched", fx.other_fingerprint() == iso)
@@ -151,7 +173,9 @@ def run():
     iso = fx.other_fingerprint()
     result, gen = cleanup(fx, llm(rewrite=GOOD, verify=RuntimeError("verifier down")))
     check("[c] verifier raises -> RESET", result["summary_status"] == "RESET")
-    check("[c] summary empty, checkpoint 0", get_conversation_summary(fx.conv) == "" and fx.checkpoint() == 0)
+    check("[c] summary empty and both checkpoints fenced",
+          get_conversation_summary(fx.conv) == "" and fx.checkpoint() == fx.r2
+          and fx.extraction_checkpoint() == fx.r2)
     check("[c] source messages still excluded", {fx.u1, fx.r1} <= fx.excluded())
     check("[g/c] other conversation untouched", fx.other_fingerprint() == iso)
     invariant("c", fx)
@@ -189,7 +213,9 @@ def run():
     after = get_conversation_summary(fx.conv)
     print(f"INFO | [e] empty rewrite -> status={result['summary_status']!r} stored summary={after!r} checkpoint={fx.checkpoint()}")
     check("[e] empty-string rewrite -> RESET (pinned)", result["summary_status"] == "RESET")
-    check("[e] summary empty and checkpoint 0", after == "" and fx.checkpoint() == 0)
+    check("[e] summary empty and both checkpoints fenced",
+          after == "" and fx.checkpoint() == fx.r2
+          and fx.extraction_checkpoint() == fx.r2)
     if FORGOTTEN_WORD in after.lower() or after == LEAKY:
         finding("empty rewrite leaves leaky summary", f"stored summary after '' rewrite: {after!r}")
     check("[g/e] other conversation untouched", fx.other_fingerprint() == iso)
@@ -206,7 +232,9 @@ def run():
         fx = Fx()
         result, gen = cleanup(fx, fake)
         check(f"[{tag}] RESET", result["summary_status"] == "RESET")
-        check(f"[{tag}] summary empty, checkpoint 0", get_conversation_summary(fx.conv) == "" and fx.checkpoint() == 0)
+        check(f"[{tag}] summary empty and both checkpoints fenced",
+              get_conversation_summary(fx.conv) == "" and fx.checkpoint() == fx.r2
+              and fx.extraction_checkpoint() == fx.r2)
         check(f"[{tag}] deterministic exclusion kept", result["messages_excluded"] > 0 and {fx.u1, fx.r1} <= fx.excluded())
         invariant(tag, fx)
 

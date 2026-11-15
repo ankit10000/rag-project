@@ -59,6 +59,15 @@ Important safety rules:
 - For UPDATE or DELETE, select an existing memory ID from the list.
 - Never invent a memory ID.
 - Preserve project names and context to avoid changing unrelated facts.
+- Use UPDATE only when the user clearly states a change (for example a new
+  job, a project now completed, a changed preference or goal). A temporary
+  state ("today", "right now") or a fact about a different time period is
+  NOT an update of a lasting fact: use NEW.
+- Newer is not automatically more correct: if the new statement only
+  contradicts an existing fact without saying it changed, use NEW (both
+  statements are kept for later clarification; nothing is overwritten).
+- For UPDATE, the replacement memory must keep every number, amount, date,
+  version and status word of the new statement.
 - Return valid JSON only.
 
 JSON format:

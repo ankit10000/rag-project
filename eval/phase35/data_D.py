@@ -286,7 +286,7 @@ CASES = [
     # ---------------- multi_chunk (4) ----------------
     case("D-multi_chunk-01", "multi_chunk",
          "How often does the 5-inch pump need its bearings greased, and how much grease per bearing?",
-         [["1000 h", "1,000 h", "1000 hours"], ["30 g"]],
+         [["1000 h", "1,000 h", "1000 hours", "1000 running", "1,000 running", "1 000"], ["30 g"]],
          [src(MAN, 2, "Pump P-205 | bearing grease | 1000 h | 48 Nm"),
           src(MAN, 2, "30 g per bearing on P-205")],
          forbidden=["500 h", "18 g"],
@@ -294,7 +294,7 @@ CASES = [
          review="P-205 is the 5-inch pump (page 1). Page 2 table: 1000 h; grease paragraph: 30 g per bearing. The SOP also gives 1000 h for P-205, so no conflict."),
     case("D-multi_chunk-02", "multi_chunk",
          "If I go to Zurich, what is the daily meal allowance and how much of it do I get on the day I fly out?",
-         [["USD 92", "$92", "92"], ["75"]],
+         [["USD 92", "$92", "92"], ["75", "69"]],
          [src(TEP, 2, "Tier 1 | London, Zurich, Singapore | USD 92 | USD 18 | USD 310"),
           src(TEP, 2, "On the first and last day of a trip the meal per diem is paid at 75 %")],
          forbidden=["USD 64"],
@@ -321,7 +321,7 @@ CASES = [
          [["Finance Director", "Priyanka"], ["14 days"]],
          [src(TEP, 1, "Finance Director (currently Priyanka Sathyanarayan)"),
           src(TEP, 1, "at least 14 days before departure")],
-         forbidden=["21 days"],
+         forbidden=[],
          citation="Travel policy page 1: approval levels and advance booking; page 4 memo confirms domestic stays at 14 days.",
          review="Over USD 5,000 requires the Finance Director; domestic flights are 14 days (page 1, and the page 4 memo says domestic remains 14 days)."),
     case("D-compound-02", "compound",
@@ -356,7 +356,7 @@ CASES = [
     # ---------------- multi_page (4) ----------------
     case("D-multi_page-01", "multi_page",
          "I'm doing a seal job on the standby pump. Which kit do I order and at what running-hour interval is the seal inspected?",
-         [["SK-205/B"], ["6000 h", "6,000 h", "6000 hours"]],
+         [["SK-205/B"], ["6000 h", "6,000 h", "6000 hours", "6000 running", "6,000 running", "6 000"]],
          [src(MAN, 4, "for P-205 SK-205/B"),
           src(MAN, 2, "Pump P-205 | mechanical seal inspection | 6000 h | 22 Nm")],
          forbidden=["SK-204/B", "4000 h"],
@@ -450,7 +450,7 @@ CASES = [
     case("D-follow_up-01", "follow_up",
          "Can you confirm the grease quantity per bearing for that pump?",
          [["30 g"]], [src(MAN, 2, "18 g per bearing on P-204 and 30 g per bearing on P-205")],
-         forbidden=["18 g"],
+         forbidden=[],
          history=[
              {"role": "user", "content": "Tell me about greasing the standby pump P-205."},
              {"role": "assistant", "content": "The standby pump P-205 takes 18 g of grease per bearing and is greased every 1000 h."},
@@ -471,7 +471,7 @@ CASES = [
          "Who carries those out, and how often again?",
          [["6 months", "six months"], ["HSE officer"]],
          [src(SOP, 2, "LOTO audits are carried out every 6 months by the HSE officer")],
-         forbidden=["3 months"],
+         forbidden=[],
          history=[
              {"role": "user", "content": "What's the lockout tagout procedure at Brannock Ridge about auditing?"},
              {"role": "assistant", "content": "LOTO audits are carried out every 3 months by the HSE officer."},

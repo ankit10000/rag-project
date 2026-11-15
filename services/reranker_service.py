@@ -1,5 +1,6 @@
 import threading
 
+from services import perf_metrics
 from services import retrieval_config as cfg
 
 _model = None
@@ -13,7 +14,8 @@ def get_reranker():
     with _lock:
         if _model is None:
             from sentence_transformers import CrossEncoder
-            _model = CrossEncoder(cfg.RERANK_MODEL)
+            with perf_metrics.timed("reranker.model_init"):
+                _model = CrossEncoder(cfg.RERANK_MODEL)
 
     return _model
 
@@ -30,7 +32,9 @@ def rerank_results(query: str, results: list, top_k: int = 5):
     ]
 
     # Calculate relevance scores
-    scores = get_reranker().predict(pairs)
+    model = get_reranker()
+    with perf_metrics.timed("reranker.predict", candidates=len(pairs)):
+        scores = model.predict(pairs)
 
     # Attach scores to results
     reranked = []

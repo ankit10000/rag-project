@@ -1,7 +1,7 @@
 import testsafe  # refuses to run against anything but a scratch database
 testsafe.require_scratch_db()
 
-from services.conversation_service import create_conversation
+from services.conversation_service import create_conversation, save_message
 from services.memory_storage_service import (
     save_memory,
     delete_memory
@@ -11,10 +11,16 @@ from services.memory_search_service import search_memories
 
 conversation_id = create_conversation("Memory Delete Test")
 
-# Save test memory
+# Save test source and memory
+source_id = save_message(
+    conversation_id,
+    "user",
+    "The user is learning RAG using PostgreSQL.",
+)
 save_memory(
     conversation_id,
-    "The user is learning RAG using PostgreSQL."
+    "The user is learning RAG using PostgreSQL.",
+    source_message_id=source_id,
 )
 
 # Retrieve its ID

@@ -5,7 +5,7 @@ from services.llm_service import generate_answer
 from services.conversation_service import (
     get_conversation_summary,
     update_conversation_summary,
-    reset_conversation_summary,
+    clear_summary_and_advance_checkpoints,
     mark_messages_excluded,
     get_paired_assistant_ids,
     get_live_messages,
@@ -160,15 +160,16 @@ def rewrite_summary_without(
 
     Uses the deleted memory texts AND the user's original request, then
     verifies the result semantically. A forgotten fact is never allowed
-    to stay in the summary: any failure or uncertainty resets it.
+    to stay in the summary: any failure or uncertainty clears it and fences
+    both memory pipelines at current conversation history.
 
     Returns one of:
       NO_SUMMARY  - nothing to clean
       UNCHANGED   - verified: nothing to remove
       REWRITTEN   - summary rewritten and verified
       EMPTIED     - nothing remained after removal
-      RESET       - rewrite failed/invalid/unverified; summary cleared so
-                    it is rebuilt from non-excluded messages
+      RESET       - rewrite failed/invalid/unverified; summary cleared and
+                    checkpoints advanced past current history
     """
 
     deleted_texts = [t for t in deleted_texts if t and t.strip()]
@@ -184,8 +185,8 @@ def rewrite_summary_without(
         ).strip()
 
     except Exception as error:
-        print(f"Summary rewrite failed ({error}). Resetting summary.")
-        reset_conversation_summary(conversation_id)
+        print(f"Summary rewrite failed ({error}). Clearing and fencing summary.")
+        clear_summary_and_advance_checkpoints(conversation_id)
         return "RESET"
 
     if rewritten.upper() == EMPTY_SENTINEL:
@@ -193,16 +194,16 @@ def rewrite_summary_without(
         return "EMPTIED"
 
     if not _validate_rewrite(summary, rewritten, deleted_texts):
-        print("Summary rewrite failed validation. Resetting summary.")
-        reset_conversation_summary(conversation_id)
+        print("Summary rewrite failed validation. Clearing and fencing summary.")
+        clear_summary_and_advance_checkpoints(conversation_id)
         return "RESET"
 
     # Semantic verification (also runs when the model changed nothing).
     if _summary_still_contains_forgotten(
         rewritten, deleted_texts, user_request
     ):
-        print("Summary failed semantic verification. Resetting summary.")
-        reset_conversation_summary(conversation_id)
+        print("Summary failed semantic verification. Clearing and fencing summary.")
+        clear_summary_and_advance_checkpoints(conversation_id)
         return "RESET"
 
     if rewritten == summary.strip():
@@ -287,22 +288,42 @@ def apply_deletion_cleanup(
     user_request: str | None = None,
 ) -> dict:
     """
-    After memories were deleted:
-      1. exclude their source messages (and any extra messages, such as
-         the deletion request turn) from history, summaries and
-         memory extraction;
-      2. remove the deleted information from the summary, using both
-         the deleted memory texts and the user's original request
-         (e.g. "Forget my technology preferences").
-    Everything is scoped to conversation_id.
+    After memories were deleted, exclude recorded sources and their
+    immediately adjacent assistant replies. Echo scanning is supplemental.
+    If any deleted memory has unknown provenance, clear the summary, fence
+    summary and extraction checkpoints at current history, and report an
+    incomplete cleanup. All operations are scoped to conversation_id.
     """
 
-    source_ids = sorted({
-        source_id
-        for item in deleted_memories
-        for source_id in item.get("source_message_ids", [item.get("source_message_id")])
-        if source_id is not None
-    })
+    deleted_memories = deleted_memories or []
+    source_ids = set()
+    unknown_provenance = not deleted_memories
+
+    for item in deleted_memories:
+        raw_ids = []
+        listed_ids = item.get("source_message_ids")
+        if listed_ids is not None:
+            if isinstance(listed_ids, (list, tuple)):
+                raw_ids.extend(listed_ids)
+            else:
+                raw_ids.append(listed_ids)
+
+        scalar_id = item.get("source_message_id")
+        if scalar_id is not None:
+            raw_ids.append(scalar_id)
+
+        item_ids = set()
+        for source_id in raw_ids:
+            if isinstance(source_id, int) and not isinstance(source_id, bool) and source_id > 0:
+                item_ids.add(source_id)
+            else:
+                unknown_provenance = True
+
+        if not item_ids:
+            unknown_provenance = True
+        source_ids.update(item_ids)
+
+    source_ids = sorted(source_ids)
 
     # Also exclude the assistant reply that followed each source user
     # message: it often repeats the forgotten fact.
@@ -319,10 +340,9 @@ def apply_deletion_cleanup(
     #    committed first and never depends on an LLM.
     excluded = mark_messages_excluded(conversation_id, message_ids)
 
-    # 2. Best-effort extra: ask the model for further messages that
-    #    still repeat the forgotten fact (needed mainly for legacy
-    #    memories that have no recorded source). Any failure here is
-    #    swallowed: it can never undo or block step 1.
+    # 2. Supplemental only: scan recent messages for additional echoes.
+    #    Source links and the checkpoint fence remain the safety mechanism;
+    #    a failed or short-window scan cannot make old messages eligible.
     echo_ids = []
 
     try:
@@ -336,14 +356,36 @@ def apply_deletion_cleanup(
         echo_ids = []
         print(f"Echo scan skipped ({error}); deterministic cleanup kept.")
 
-    summary_status = rewrite_summary_without(
+    rewrite_status = rewrite_summary_without(
         conversation_id,
         [item["memory"] for item in deleted_memories],
         user_request=user_request,
     )
 
+    if unknown_provenance:
+        # Unknown origins cannot be reconstructed from recent echoes. Keep
+        # original message rows intact, but prevent pre-cleanup history from
+        # entering either generated summary or automatic extraction again.
+        if rewrite_status != "RESET":
+            clear_summary_and_advance_checkpoints(conversation_id)
+        status = "INCOMPLETE"
+        summary_status = "CLEARED_UNKNOWN_PROVENANCE"
+        print(
+            "Memory deleted, historical cleanup incomplete: source "
+            "provenance is unavailable; the summary was cleared and both "
+            "checkpoints were advanced past current history."
+        )
+    else:
+        status = "COMPLETE"
+        summary_status = rewrite_status
+        print("Historical memory cleanup completed with recorded provenance.")
+
     return {
+        "status": status,
+        "provenance_status": "UNKNOWN" if unknown_provenance else "KNOWN",
         "messages_excluded": excluded,
         "echo_messages_excluded": len(echo_ids),
         "summary_status": summary_status,
+        "rewrite_status": rewrite_status,
+        "checkpoints_fenced": unknown_provenance or rewrite_status == "RESET",
     }

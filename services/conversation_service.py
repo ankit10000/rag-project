@@ -87,9 +87,10 @@ def get_paired_assistant_ids(
     message_ids: list[int]
 ) -> list[int]:
     """
-    For each given user message, return the id of the assistant reply
-    that immediately follows it in this conversation (if any).
-    Replies often echo the fact the user stated.
+    For each given user message, return the next message by ID only when
+    that next message in the same conversation is an assistant. An
+    intervening user or other row prevents pairing; no later assistant is
+    guessed as a reply. Excluded rows still count as the immediate next row.
     """
 
     paired = []
@@ -157,22 +158,46 @@ def get_live_messages(
     ]
 
 
-def reset_conversation_summary(conversation_id: str):
+def clear_summary_and_advance_checkpoints(conversation_id: str):
     """
-    Clear the summary and its checkpoint so it is rebuilt from the
-    (non-excluded) messages by the normal summarization flow.
+    Clear an unsafe summary and fence both memory pipelines at the current
+    conversation high-water message ID. This prevents old history from being
+    reprocessed after a failed deletion rewrite or verification.
     """
 
     with get_connection() as conn:
-        conn.execute(
+        row = conn.execute(
             """
+            WITH message_high_water AS (
+                SELECT COALESCE(MAX(id), 0) AS message_id
+                FROM messages
+                WHERE conversation_id = %s
+            )
             UPDATE conversations
             SET summary = '',
-                summary_up_to_message_id = 0
+                summary_up_to_message_id = GREATEST(
+                    COALESCE(summary_up_to_message_id, 0),
+                    (SELECT message_id FROM message_high_water)
+                ),
+                memory_extraction_up_to_message_id = GREATEST(
+                    COALESCE(memory_extraction_up_to_message_id, 0),
+                    (SELECT message_id FROM message_high_water)
+                )
             WHERE id = %s
+            RETURNING summary_up_to_message_id,
+                      memory_extraction_up_to_message_id
             """,
-            (uuid.UUID(conversation_id),)
-        )
+            (uuid.UUID(conversation_id), uuid.UUID(conversation_id))
+        ).fetchone()
+
+    if row is None:
+        raise ValueError("Conversation not found")
+    return row
+
+
+def reset_conversation_summary(conversation_id: str):
+    """Backward-compatible alias for the safe summary-clear operation."""
+    return clear_summary_and_advance_checkpoints(conversation_id)
 
 
 def get_conversation_history(

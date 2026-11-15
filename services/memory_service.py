@@ -7,6 +7,43 @@ from services.conversation_service import (
     get_messages_to_summarize,
     update_conversation_memory
 )
+from services.memory_storage_service import (
+    normalize_memory_text,
+    normalize_positive_id,
+    normalize_source_ids,
+    validate_source_messages,
+)
+
+
+# ---------------------------------------------------------------------------
+# Phase 1 Task 4 extraction-result contract
+#
+# extract_memories() / extract_and_save_memories() have exactly three outcomes:
+#   1. success with records : a non-empty list (every record has a trimmed,
+#                             non-empty "memory" string and validated sources)
+#   2. success, no memories : [] -- ONLY for an explicit "NONE" response
+#                             (case-insensitive, nothing else), a JSON empty
+#                             array "[]" (optionally in a ```json fence), or a
+#                             batch that contains no user messages (no model
+#                             call is made)
+#   3. failure              : MemoryExtractionError (or its subclass
+#                             InvalidMemoryProvenanceError) -- empty, non-text,
+#                             malformed, ambiguous or non-list responses,
+#                             malformed items, missing/invalid/out-of-batch
+#                             source IDs, bullet-style output (it carries no
+#                             per-memory source IDs), unresolved decisions.
+# A failure is never converted into []. Callers advance the extraction
+# checkpoint only after outcome 1 or 2 returns normally (see main.py).
+# ---------------------------------------------------------------------------
+EXPLICIT_NO_MEMORY_TOKEN = "NONE"
+
+
+class MemoryExtractionError(RuntimeError):
+    """An extraction batch was not safely completed and must not checkpoint."""
+
+
+class InvalidMemoryProvenanceError(MemoryExtractionError):
+    """At least one extracted memory did not have explicit valid sources."""
 def update_long_term_memory(
     conversation_id: str,
     keep_recent: int = 6,
@@ -111,8 +148,9 @@ def _parse_json_memories(response: str, valid_ids: set):
     Parse a JSON array of {"memory", "source_message_id"} objects.
 
     Returns None if the response is not valid JSON of that shape.
-    source_message_id is kept only if it is one of the batch's
-    message IDs; otherwise it becomes None.
+    Every memory must have explicit source IDs that are positive integer IDs
+    from this batch's user messages. Any invalid or missing source rejects the
+    extraction batch before the caller can write a partial set of memories.
     """
 
     cleaned = re.sub(r"```(?:json)?\s*|\s*```", "", response).strip()
@@ -129,37 +167,42 @@ def _parse_json_memories(response: str, valid_ids: set):
 
     for item in data:
         if not isinstance(item, dict):
-            continue
+            raise MemoryExtractionError("extraction returned a malformed memory item")
 
-        text = str(item.get("memory") or "").strip()
+        # Task 4: the memory must be a string; it is trimmed only (casing,
+        # punctuation and internal whitespace are preserved). Numbers, objects
+        # or blank text make the whole batch malformed.
+        text = normalize_memory_text(item.get("memory"))
 
-        if not text:
-            continue
-
-        raw_ids = []
-        if item.get("source_message_id") is not None:
-            raw_ids.append(item.get("source_message_id"))
+        if text is None:
+            raise MemoryExtractionError(
+                "extraction returned a missing, empty or non-text memory"
+            )
 
         listed = item.get("source_message_ids")
-        if isinstance(listed, list):
-            raw_ids.extend(listed)
-        elif listed is not None:
-            raw_ids.append(listed)
+        if listed is not None and not isinstance(listed, list):
+            raise InvalidMemoryProvenanceError(
+                "extraction source_message_ids must be a list"
+            )
 
-        # Keep only ids that are real user messages of this batch.
-        source_ids = []
-        for raw in raw_ids:
-            try:
-                value = int(raw)
-            except (TypeError, ValueError):
-                continue
-            if value in valid_ids and value not in source_ids:
-                source_ids.append(value)
+        try:
+            source_ids = normalize_source_ids(
+                item.get("source_message_id"), listed, required=True
+            )
+        except ValueError:
+            raise InvalidMemoryProvenanceError(
+                "extraction contained missing or invalid source IDs"
+            ) from None
+
+        if any(source_id not in valid_ids for source_id in source_ids):
+            raise InvalidMemoryProvenanceError(
+                "extraction source IDs must identify user messages in this batch"
+            )
 
         memories.append(
             {
                 "memory": text,
-                "source_message_id": source_ids[0] if source_ids else None,
+                "source_message_id": source_ids[0],
                 "source_message_ids": source_ids,
             }
         )
@@ -171,9 +214,9 @@ def extract_memories(messages: list[dict]) -> list[dict]:
     """
     Extract useful long-term memories from conversation messages.
 
-    Returns a list of {"memory": str, "source_message_id": int | None}.
-    source_message_id is the batch message the memory came from, or
-    None when it could not be determined reliably.
+    Returns a list of memories with explicit, validated user-message source
+    IDs. Missing, malformed, assistant, or out-of-batch provenance raises
+    InvalidMemoryProvenanceError instead of returning a source-less memory.
     """
 
     if not messages:
@@ -191,11 +234,14 @@ def extract_memories(messages: list[dict]) -> list[dict]:
     if not user_messages:
         return []
 
-    valid_ids = {
-        message["id"]
-        for message in user_messages
-        if message.get("id") is not None
-    }
+    valid_ids = set()
+    for message in user_messages:
+        message_id = normalize_positive_id(message.get("id"))
+        if message_id is None:
+            raise MemoryExtractionError(
+                "extraction batch contains an invalid user message ID"
+            )
+        valid_ids.add(message_id)
 
     conversation_text = "\n".join(
         (
@@ -233,7 +279,17 @@ Rules:
   projects, preferences or goals.
 - Only extract facts supported by the conversation.
 - Do not invent or infer facts.
-- Keep each memory concise and self-contained.
+- Keep each memory concise and self-contained, one fact per memory.
+- Only keep information that is useful in FUTURE conversations
+  (profile, preferences, goals, projects, skills, relationships,
+  routines). Skip temporary states and one-off details such as
+  "I'm tired today" or "right now I'm on the train".
+- Never infer sensitive attributes (health, religion, politics,
+  sexuality, finances, ethnicity) that the user did not state
+  explicitly about themselves.
+- Keep exact numbers, amounts, dates, versions and status words
+  (e.g. "completed", "no longer") exactly as the user said them.
+- Suggestions or answers from the assistant are never user facts.
 - For each memory, set source_message_ids to the [id=N] of EVERY
   user message that states or contributes to the fact (a list,
   even when there is only one).
@@ -249,25 +305,31 @@ Return ONLY a JSON array, for example:
 ]
 """
 
-    response = (generate_answer(prompt) or "").strip()
+    response = generate_answer(prompt)
 
-    if not response or response.upper() == "NONE":
+    if not isinstance(response, str):
+        raise MemoryExtractionError("extractor returned a non-text response")
+
+    response = response.strip()
+
+    if not response:
+        raise MemoryExtractionError("extractor returned an empty response")
+
+    # Explicit successful "no memories" outcome (exact token, any case).
+    if response.upper() == EXPLICIT_NO_MEMORY_TOKEN:
         return []
 
     memories = _parse_json_memories(response, valid_ids)
 
     if memories is None:
         # Model ignored the JSON format: fall back to bullet parsing.
-        # Per-memory source IDs are unknown in this case.
         print("Memory extraction: JSON parsing failed, using bullet fallback.")
-
-        memories = [
-            {"memory": text, "source_message_id": None, "source_message_ids": []}
-            for text in _parse_bullet_memories(response)
-        ]
-
-        if not memories:
-            print("Memory extraction: no memories parsed from response.")
+        bullet_memories = _parse_bullet_memories(response)
+        if bullet_memories:
+            raise InvalidMemoryProvenanceError(
+                "bullet extraction has no explicit per-memory source IDs"
+            )
+        raise MemoryExtractionError("extractor response was not parseable")
 
     return memories
 
@@ -277,52 +339,80 @@ def extract_and_save_memories(
     messages,
     source_message_id=None,
 ):
+    """Extract and persist only memories with explicit, validated sources.
+
+    ``source_message_id`` remains as a deprecated call-compatibility argument;
+    it is deliberately never used as a fallback attribution.
+    """
     memories = extract_memories(messages)
 
     if not memories:
         print("No memories extracted.")
         return []
 
+    # Validate every memory before the first write so an invalid item cannot
+    # leave a partial batch that the caller mistakes for a completed extract.
+    validated = []
+    batch_user_ids = {
+        normalize_positive_id(message.get("id"))
+        for message in messages
+        if message.get("role") == "user"
+    }
+    for item in memories:
+        try:
+            source_ids = normalize_source_ids(
+                item.get("source_message_id"),
+                item.get("source_message_ids"),
+                required=True,
+            )
+        except (AttributeError, ValueError):
+            raise InvalidMemoryProvenanceError(
+                "extraction contained missing or invalid source IDs"
+            ) from None
+
+        if any(source_id not in batch_user_ids for source_id in source_ids):
+            raise InvalidMemoryProvenanceError(
+                "extraction source IDs must identify user messages in this batch"
+            )
+        validated.append((item, source_ids))
+
+    # Task 4: one read-only database check of the whole batch's sources
+    # (user messages of THIS conversation) before the first write, so a
+    # mixed-validity batch is rejected without saving any of its memories.
+    all_source_ids = sorted({sid for _, ids in validated for sid in ids})
+    try:
+        validate_source_messages(conversation_id, all_source_ids)
+    except ValueError:
+        raise InvalidMemoryProvenanceError(
+            "extraction source IDs are not user messages of this conversation"
+        ) from None
+
     processed_memories = []
 
-    # Fallback attribution: the last USER message of the batch (an
-    # assistant message must never be recorded as a memory's source).
-    last_user_id = next(
-        (
-            message["id"]
-            for message in reversed(messages)
-            if message.get("role") == "user"
-            and message.get("id") is not None
-        ),
-        None,
-    )
-
-    fallback_source_id = (
-        last_user_id if last_user_id is not None else source_message_id
-    )
-
-    for item in memories:
+    for item, memory_source_ids in validated:
         memory = item["memory"]
 
-        # Per-memory ID when known; otherwise the fallback above.
-        memory_source_ids = list(item.get("source_message_ids") or [])
-        memory_source_id = item.get("source_message_id")
+        try:
+            status = process_memory(
+                conversation_id=conversation_id,
+                new_memory=memory,
+                source_message_ids=memory_source_ids,
+                allow_new=True,
+                delete_only=False,
+            )
+        except ValueError:
+            raise InvalidMemoryProvenanceError(
+                "storage rejected extracted source IDs"
+            ) from None
 
-        if memory_source_id is None:
-            memory_source_id = fallback_source_id
-
-        status = process_memory(
-            conversation_id=conversation_id,
-            new_memory=memory,
-            source_message_id=memory_source_id,
-            source_message_ids=memory_source_ids,
-            allow_new=True,
-            delete_only=False,
-        )
+        if status == "UNCERTAIN":
+            raise MemoryExtractionError(
+                "an extracted memory was unresolved; checkpoint must not advance"
+            )
 
         print(
             f"Memory processing status: {status} "
-            f"(source_message_id={memory_source_id})"
+            f"(source_message_ids={memory_source_ids})"
         )
 
         if status in {"SAVED", "UPDATED"}:

@@ -1,0 +1,26 @@
+-- PROPOSAL ONLY — NOT A MIGRATION. NOT APPLIED. DO NOT RUN WITHOUT SEPARATE WRITTEN APPROVAL.
+-- Kept outside migrations/ so the migration history is unchanged.
+-- See docs/remediation/PHASE3_CONVERSATIONAL_MEMORY_INTELLIGENCE.md (schema limitations).
+--
+-- Today memory categories are computed at runtime by
+-- services/memory_classification_service.classify_memory_text(). Persisting them would
+-- allow category filters in SQL and an audit of category changes. Additive, nullable,
+-- no backfill: existing rows keep NULL (= "compute at runtime"); no memory text,
+-- embedding or provenance is touched.
+-- Rollback: 005_memory_category_down.sql.proposed
+BEGIN;
+
+ALTER TABLE conversation_memories
+    ADD COLUMN IF NOT EXISTS category text;
+
+DO $$
+BEGIN
+    IF NOT EXISTS (SELECT 1 FROM pg_constraint WHERE conname = 'conversation_memories_category_ck') THEN
+        ALTER TABLE conversation_memories ADD CONSTRAINT conversation_memories_category_ck
+            CHECK (category IS NULL OR category IN
+                   ('profile', 'preferences', 'goals', 'projects', 'skills',
+                    'relationships', 'routines', 'other'));
+    END IF;
+END $$;
+
+COMMIT;

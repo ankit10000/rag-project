@@ -1,0 +1,50 @@
+-- PROPOSAL ONLY — NOT A MIGRATION. NOT APPLIED. DO NOT RUN WITHOUT SEPARATE WRITTEN APPROVAL.
+-- Kept outside migrations/ on purpose so the migration history is unchanged.
+-- See docs/remediation/PHASE2_LEGACY_MEMORY_QUARANTINE_DESIGN.md.
+--
+-- Additive and non-destructive: creates ONE new table. It does not alter,
+-- update or delete any row or column of conversation_memories, memory_sources
+-- or messages. Quarantine is a marker row that points at a memory; the memory,
+-- its links (link_kind, source_role) and its embedding stay exactly as they are.
+-- Rollback: 004_memory_provenance_quarantine_down.sql.proposed.
+BEGIN;
+
+CREATE TABLE IF NOT EXISTS memory_provenance_quarantine (
+    id                    bigserial PRIMARY KEY,
+    conversation_id       uuid   NOT NULL,
+    memory_id             bigint NOT NULL,
+    classification        text   NOT NULL,
+    reason                text   NOT NULL,
+    issues                jsonb  NOT NULL DEFAULT '[]'::jsonb,   -- verbatim classifier issues
+    source_snapshot       jsonb  NOT NULL,                        -- every memory_sources row (source_message_id, link_kind,
+                                                                  -- source_role, actual role) + legacy scalar, as found
+    memory_text_sha256    text,                                   -- change detection; the text itself is not copied
+    approval_ref          text   NOT NULL,
+    status                text   NOT NULL DEFAULT 'quarantined',
+    quarantined_at        timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    released_at           timestamp without time zone,
+    release_reason        text,
+    release_approval_ref  text,
+    CONSTRAINT memory_provenance_quarantine_classification_ck
+        CHECK (classification IN ('ASSISTANT_ONLY_OR_UNVERIFIED', 'MISSING_SOURCE', 'INCONSISTENT_SOURCE')),
+    CONSTRAINT memory_provenance_quarantine_status_ck
+        CHECK (status IN ('quarantined', 'released')),
+    CONSTRAINT memory_provenance_quarantine_release_ck
+        CHECK ((status = 'released') = (released_at IS NOT NULL))
+    -- Deliberately NO foreign key to conversation_memories:
+    --  * a RESTRICT FK would make conversation deletion (which cascades to
+    --    conversation_memories) and the Phase 1 delete_memory() path fail;
+    --  * a CASCADE FK would silently erase the audit record.
+    -- The marker therefore survives as audit history if the memory is later
+    -- deleted through the normal, already-approved deletion paths. Applying
+    -- the plan must still verify that (conversation_id, memory_id) exists.
+);
+
+-- At most one ACTIVE marker per memory; released markers are kept as history.
+CREATE UNIQUE INDEX IF NOT EXISTS memory_provenance_quarantine_active_uq
+    ON memory_provenance_quarantine (memory_id) WHERE status = 'quarantined';
+
+CREATE INDEX IF NOT EXISTS memory_provenance_quarantine_conversation_idx
+    ON memory_provenance_quarantine (conversation_id);
+
+COMMIT;

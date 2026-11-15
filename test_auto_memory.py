@@ -1,8 +1,11 @@
 import testsafe  # refuses to run against anything but a scratch database
 testsafe.require_scratch_db()
 
+import uuid
+
 from services.memory_service import extract_and_save_memories
-from services.conversation_service import create_conversation
+from services.conversation_service import create_conversation, save_message
+from services.database import get_connection
 
 
 def main():
@@ -27,16 +30,27 @@ def main():
         }
     ]
 
-    print("Conversation ID:", conversation_id)
+    for message in messages:
+        message["id"] = save_message(
+            conversation_id,
+            message["role"],
+            message["content"],
+        )
 
-    memories = extract_and_save_memories(
-        conversation_id=conversation_id,
-        messages=messages
-    )
+    try:
+        print("Conversation ID:", conversation_id)
 
-    print("\nSaved memories:")
-    for memory in memories:
-        print("-", memory)
+        memories = extract_and_save_memories(
+            conversation_id=conversation_id,
+            messages=messages
+        )
+
+        print("\nSaved memories:")
+        for memory in memories:
+            print("-", memory)
+    finally:
+        with get_connection() as conn:
+            conn.execute("DELETE FROM conversations WHERE id=%s", (uuid.UUID(conversation_id),))
 
 
 if __name__ == "__main__":

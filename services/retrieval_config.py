@@ -58,6 +58,13 @@ SIMILARITY_THRESHOLD = _opt_float("SIMILARITY_THRESHOLD")
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
 EMBEDDING_DIM = _int("EMBEDDING_DIM", 384)    # must match document_chunks.embedding
 
+# --- performance / resource knobs (Phase 5) -----------------------------------
+# None of these changes retrieval or answer results; they only bound memory or
+# skip recomputing identical deterministic work.
+EMBEDDING_QUERY_CACHE_SIZE = _int("EMBEDDING_QUERY_CACHE_SIZE", 256)  # single-text embeddings kept (0 = off)
+BM25_CACHE_MAX_ENTRIES = _int("BM25_CACHE_MAX_ENTRIES", 8)           # filter scopes with a cached BM25 index
+PERF_METRICS_ENABLED = _bool("RAG_PERF_METRICS", False)              # in-process timing/counters (off by default)
+
 # --- ingestion resource limits (A3) -------------------------------------------
 MAX_PDF_SIZE_MB = _float("MAX_PDF_SIZE_MB", 50)    # reject larger files before parsing
 MAX_PDF_PAGES = _int("MAX_PDF_PAGES", 500)         # reject PDFs with more pages (checked before text extraction)

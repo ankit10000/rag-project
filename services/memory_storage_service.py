@@ -1,36 +1,130 @@
 
 import re
+import math
 
 from services.database import get_connection
 from services.embedding_service import generate_embeddings
+from services.memory_consolidation_service import new_details_preserved
 from pgvector import Vector
 
 
 SIMILARITY_THRESHOLD = 0.90
 
 LINK_KINDS = ("origin", "update", "confirmation", "legacy")
+_BIGINT_MIN = -(2 ** 63)
+_BIGINT_MAX = 2 ** 63 - 1
+_MAX_SAFE_FLOAT_ID = 2 ** 53 - 1
+_NUMERIC_ID_STRING = re.compile(r"[ \t\r\n]*\+?[0-9]+[ \t\r\n]*", re.ASCII)
 
 
-def normalize_source_ids(source_message_id=None, source_message_ids=None) -> list[int]:
+def normalize_positive_id(
+    value,
+    *,
+    allow_numeric_string=False,
+    allow_integral_float=True,
+):
+    """Return a strictly validated positive bigint ID, or None.
+
+    Booleans are never IDs. Integral floats are accepted only while they are
+    exactly representable as integers; fractional, non-finite, and unsafe
+    large floats are rejected. Numeric strings are opt-in and restricted to
+    positive ASCII decimal strings (optionally surrounded by ASCII whitespace
+    and a leading plus).
     """
-    Ordered, de-duplicated list of contributing message ids. The singular
-    argument (kept for backward compatibility) comes first.
+    if isinstance(value, bool):
+        return None
+
+    if isinstance(value, int):
+        normalized = value
+    elif isinstance(value, float):
+        if (
+            not allow_integral_float
+            or not math.isfinite(value)
+            or not value.is_integer()
+            or value > _MAX_SAFE_FLOAT_ID
+        ):
+            return None
+        normalized = int(value)
+    elif allow_numeric_string and isinstance(value, str):
+        if not _NUMERIC_ID_STRING.fullmatch(value):
+            return None
+        normalized = int(value)
+    else:
+        return None
+
+    if not (1 <= normalized <= _BIGINT_MAX):
+        return None
+    return normalized
+
+
+def normalize_source_ids(
+    source_message_id=None,
+    source_message_ids=None,
+    *,
+    required=False,
+) -> list[int]:
+    """
+    Strictly validate and de-duplicate contributing message IDs. The singular
+    argument (kept for backward compatibility) comes first. Source IDs must
+    be integer or exactly integral, safely representable floats; numeric
+    strings are rejected because no source-ID string compatibility contract
+    exists.
     """
     ordered = []
 
     candidates = []
     if source_message_id is not None:
         candidates.append(source_message_id)
-    candidates.extend(source_message_ids or [])
+
+    if source_message_ids is not None:
+        if not isinstance(source_message_ids, (list, tuple)):
+            raise ValueError("source_message_ids must be a list or tuple")
+        candidates.extend(source_message_ids)
 
     for value in candidates:
         if value is None:
-            continue
-        value = int(value)
-        if value not in ordered:
-            ordered.append(value)
+            raise ValueError("source message IDs cannot contain null values")
+        normalized = normalize_positive_id(value)
+        if normalized is None:
+            raise ValueError("source message ID must be a positive integer")
+        if normalized not in ordered:
+            ordered.append(normalized)
+
+    if required and not ordered:
+        raise ValueError("at least one source message ID is required")
 
     return ordered
+
+
+def normalize_memory_text(text) -> str | None:
+    """Phase 1 Task 4 normalization contract: trim-only.
+
+    Returns ``text.strip()`` for a string, preserving casing, punctuation and
+    internal whitespace (repeated spaces and newlines are kept). Returns None
+    for non-string input and for text that is empty after trimming; callers
+    must treat None as "reject, write nothing". This is the single
+    normalization used by every memory writer, and the returned string is both
+    the persisted memory text and the exact embedding input.
+    """
+    if not isinstance(text, str):
+        return None
+    normalized = text.strip()
+    return normalized or None
+
+
+def validate_source_messages(conversation_id: str, source_message_ids) -> list[int]:
+    """Read-only pre-write check of a whole set of source IDs.
+
+    Normalizes the IDs (at least one required) and verifies, in one query, that
+    every ID is a user message of this conversation. Raises ValueError on the
+    first invalid ID; nothing is written. Used to reject an extraction batch
+    before its first memory write.
+    """
+    source_ids = normalize_source_ids(None, source_message_ids, required=True)
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            _validate_source_messages(cursor, conversation_id, source_ids)
+    return source_ids
 
 
 def save_memory(
@@ -41,12 +135,15 @@ def save_memory(
     link_kind: str = "origin",
 ) -> bool:
 
-    memory_text = memory_text.strip()
+    # Task 4: trim-only normalization; the same string is embedded and stored.
+    memory_text = normalize_memory_text(memory_text)
 
-    if not memory_text:
+    if memory_text is None:
         return False
 
-    source_ids = normalize_source_ids(source_message_id, source_message_ids)
+    source_ids = normalize_source_ids(
+        source_message_id, source_message_ids, required=True
+    )
 
     embedding = generate_embeddings([memory_text])[0]
     embedding_vector = Vector(embedding.tolist())
@@ -83,12 +180,22 @@ def save_memory(
 
                 print(f"Similarity score: {similarity:.3f}")
 
-                if similarity >= SIMILARITY_THRESHOLD:
+                # Phase 3: similar wording is not enough. A statement with a
+                # number, amount, date, time or version that the nearest memory
+                # lacks is a new detail and is stored (threshold unchanged).
+                if similarity >= SIMILARITY_THRESHOLD and not new_details_preserved(
+                    memory_text, existing_text
+                ):
+                    print(
+                        "Similar memory found but the new text has different "
+                        f"details (similarity {similarity:.3f}); storing it separately."
+                    )
+                elif similarity >= SIMILARITY_THRESHOLD:
                     print(
                         "Semantic duplicate skipped. "
                         f"Similarity: {similarity:.3f}"
                     )
-                    print(f"Existing memory: {existing_text}")
+                    print(f"Existing memory id: {memory_id}")
 
                     # The user restated a fact we already hold: record the
                     # message as supporting evidence of that memory so that
@@ -206,7 +313,10 @@ def _validate_source_message(cursor, conversation_id, source_message_id):
     """Single-id form kept for backward compatibility."""
     if source_message_id is None:
         return
-    _validate_source_messages(cursor, conversation_id, [int(source_message_id)])
+    normalized = normalize_positive_id(source_message_id)
+    if normalized is None:
+        raise ValueError("source message ID must be a positive integer")
+    _validate_source_messages(cursor, conversation_id, [normalized])
 
 
 def _link_memory_sources(cursor, conversation_id, memory_id, source_ids, link_kind):
@@ -241,10 +351,16 @@ def confirm_memory(
     'confirmation'). The memory must belong to this conversation; the text
     is not changed. Returns False when the memory is not found here.
     """
-    source_ids = normalize_source_ids(None, source_message_ids)
-
-    if not source_ids:
+    valid_memory_id = normalize_positive_id(
+        memory_id, allow_numeric_string=True
+    )
+    if valid_memory_id is None:
         return False
+    memory_id = valid_memory_id
+
+    source_ids = normalize_source_ids(
+        None, source_message_ids, required=True
+    )
 
     with get_connection() as conn:
         with conn.cursor() as cursor:
@@ -270,35 +386,20 @@ def confirm_memory(
     return True
 
 
-_BIGINT_MIN = -(2 ** 63)
-_BIGINT_MAX = 2 ** 63 - 1
-_NUMERIC_STRING = re.compile(r"\s*[+-]?[0-9]+\s*", re.ASCII)
-
-
 def _valid_memory_id(memory_id):
     """Return memory_id as an int if it is a usable memory id, otherwise None.
 
-    Accepted: genuine ints (not bool) and ASCII integer strings such as "2",
-    " 2 ", "+2" (these already worked because PostgreSQL cast them). Rejected:
-    bool, float (even 2.0), None, list, dict, bytes, other strings, and ints
-    outside the bigint range. Zero and negative ints are valid integers; they
-    simply match no row.
+    Accepted: positive genuine ints (not bool) and compatible ASCII numeric
+    strings such as "2", " 2 ", "+2". The existing delete-ID contract rejects
+    all floats (including 2.0), fractional/non-finite values, zero/negative
+    values, malformed strings, containers, bytes, and values outside bigint
+    range before SQL.
     """
-    if isinstance(memory_id, bool):
-        return None
-
-    if isinstance(memory_id, str):
-        if not _NUMERIC_STRING.fullmatch(memory_id):
-            return None
-        memory_id = int(memory_id)
-
-    if not isinstance(memory_id, int):
-        return None
-
-    if not (_BIGINT_MIN <= memory_id <= _BIGINT_MAX):
-        return None
-
-    return memory_id
+    return normalize_positive_id(
+        memory_id,
+        allow_numeric_string=True,
+        allow_integral_float=False,
+    )
 
 
 def delete_memory(
@@ -351,7 +452,8 @@ def delete_memory(
                 "Actual memory conversation ID:",
                 actual_conversation_id,
             )
-            print("Memory text:", memory_text)
+            # Phase 5 observability: size only, never the memory content.
+            print("Memory text length:", len(memory_text or ""))
 
             # Safety check: refuse cross-conversation deletion
             if str(actual_conversation_id) != str(conversation_id):
@@ -401,11 +503,20 @@ def update_memory(
     source_message_ids: list[int] | None = None,
 ) -> bool:
 
-    new_memory_text = new_memory_text.strip()
+    # Task 4: trim-only normalization; the same string is embedded and stored.
+    new_memory_text = normalize_memory_text(new_memory_text)
 
-    if not new_memory_text:
+    if new_memory_text is None:
         print("Memory text cannot be empty.")
         return False
+
+    valid_memory_id = normalize_positive_id(
+        memory_id, allow_numeric_string=True
+    )
+    if valid_memory_id is None:
+        print("Memory update refused: invalid memory ID.")
+        return False
+    memory_id = valid_memory_id
 
     source_ids = normalize_source_ids(source_message_id, source_message_ids)
 

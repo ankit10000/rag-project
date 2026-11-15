@@ -1,6 +1,7 @@
 
 from services.rag_service import ask_question
 from services.memory_search_service import search_memories
+from services.memory_context_service import assemble_memory_context
 
 from services.conversation_service import (
     create_conversation,
@@ -26,6 +27,7 @@ from services.automatic_memory_service import (
 from services.memory_service import (
     update_long_term_memory,
     extract_and_save_memories,
+    MemoryExtractionError,
 )
 
 # Testing value: extraction runs once this many new messages exist.
@@ -194,16 +196,17 @@ def main():
             # 6. RETRIEVE LONG-TERM MEMORIES
             # ==============================================
 
-            retrieved_memories = search_memories(
+            # Phase 3: relevance + provenance-filtered, categorized context.
+            # Same search (threshold 0.35, top_k=5); only user-supported
+            # memories are included; internal IDs stay out of the text.
+            memory_context = assemble_memory_context(
                 conversation_id=conversation_id,
                 query=query,
                 top_k=5,
+                search_fn=search_memories,
             )
 
-            memory_text = "\n".join(
-                item["memory"]
-                for item in retrieved_memories
-            )
+            memory_text = memory_context["text"]
 
             combined_memory = "\n".join(
                 part
@@ -268,10 +271,10 @@ def main():
             # ==============================================
             # 10. AUTOMATIC MEMORY EXTRACTION (isolated failure)
             #
-            # The checkpoint advances once extraction completes
-            # without an exception. UNCERTAIN / SKIPPED outcomes are
-            # safe no-ops. Only a technical failure leaves the
-            # checkpoint unchanged so the batch is retried later.
+            # The checkpoint advances only after an explicit successful
+            # extraction outcome. Invalid provenance or unresolved model
+            # decisions raise MemoryExtractionError and leave this batch
+            # eligible for retry.
             # ==============================================
 
             try:
@@ -288,13 +291,9 @@ def main():
                         f"{len(new_messages)} messages..."
                     )
 
-                    # Fallback attribution: last message of this batch.
-                    batch_source_message_id = new_messages[-1]["id"]
-
                     extract_and_save_memories(
                         conversation_id=conversation_id,
                         messages=new_messages,
-                        source_message_id=batch_source_message_id,
                     )
 
                     last_message_id = new_messages[-1]["id"]
@@ -315,6 +314,14 @@ def main():
                         f"{len(new_messages)} new messages; "
                         f"{MEMORY_EXTRACTION_THRESHOLD} required."
                     )
+
+            except MemoryExtractionError as extraction_error:
+
+                print(
+                    "\nWarning: memory extraction rejected or incomplete "
+                    "(checkpoint not advanced; batch will retry): "
+                    f"{extraction_error}"
+                )
 
             except Exception as extraction_error:
 

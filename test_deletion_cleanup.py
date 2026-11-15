@@ -4,6 +4,8 @@ testsafe.require_scratch_db()
 
 import contextlib
 import io
+import atexit
+import uuid
 from unittest import mock
 
 import services.memory_cleanup_service as mcs
@@ -15,6 +17,34 @@ from services.conversation_service import (
     update_conversation_memory,
 )
 from services.memory_storage_service import save_memory
+import services.memory_storage_service as storage
+from services.database import get_connection
+
+_create_conversation = create_conversation
+CREATED = []
+
+
+def create_conversation(title="New Conversation"):
+    conversation_id = _create_conversation(title)
+    CREATED.append(conversation_id)
+    return conversation_id
+
+
+def cleanup_created_conversations():
+    if CREATED:
+        with get_connection() as conn:
+            conn.execute(
+                "DELETE FROM conversations WHERE id = ANY(%s::uuid[])",
+                ([uuid.UUID(value) for value in CREATED],),
+            )
+
+
+atexit.register(cleanup_created_conversations)
+
+
+class FakeEmbedding:
+    def tolist(self):
+        return [1.0] + [0.0] * 383
 
 
 def quiet(fn, *a, **k):
@@ -123,7 +153,8 @@ check("unrelated summary -> UNCHANGED", r == "UNCHANGED")
 d = create_conversation("T-del")
 m1 = save_message(d, "user", "I prefer simple Hinglish.")
 m1r = save_message(d, "assistant", "Sure, I will use simple Hinglish.")
-quiet(save_memory, d, "The user prefers simple Hinglish.", m1)
+with mock.patch.object(storage, "generate_embeddings", return_value=[FakeEmbedding()]):
+    quiet(save_memory, d, "The user prefers simple Hinglish.", m1)
 mem_id = ams.get_all_conversation_memories(d)[0][0]
 with mock.patch.object(ams, "decide_memories_to_delete",
                        return_value={"status": "DELETE", "memory_ids": [mem_id]}):

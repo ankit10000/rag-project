@@ -2,6 +2,7 @@
 
 **Frozen:** 2026-11-12 17:28 +0530, approved by the project owner.
 **Frozen before any held-out result was observed.**
+- The dataset received the documented A-conflict-01/A-conflict-02 corrections after the original hash freeze. The hashes below now identify the current corrected dataset; the approved thresholds and eligibility counts are unchanged.
 - No held-out evaluation has ever been run: no `eval/phase35/results/tier*_heldout.jsonl` exists, and no held-out Gemini call has been made.
 - The independent human review has not yet taken place: all reviewer fields in `heldout_review/heldout_review_sheet.csv` are empty.
 
@@ -36,13 +37,16 @@
 3. **Run once.** The held-out evaluation is run once per tier, with no re-runs to improve a score and no tuning of prompts, retrieval or configuration in between.
 4. **Separate approval.** Held-out execution still requires **separate, explicit approval from the user after the independent human review is complete**. This freeze document does not authorise any run.
 
-## Frozen inputs at the time of freezing (SHA-256)
+## Current corrected dataset hashes (SHA-256)
+
+These are the current dataset hashes after the documented corrections in `HELDOUT_DATASET_CORRECTIONS.md`; use these values for the current dataset. The original threshold percentages and minimum passing counts remain frozen.
+
 | File | SHA-256 |
 |---|---|
-| `eval/phase35/data_A.py` | `b4d8b3516a777c59a280d6cb9b5bbb23aefaf40459130bf46fc4e1d8c51cbf65` |
-| `eval/phase35/data_B.py` | `a3434f5b6ad1fbd3da30f2413f9f855595f6ec09278afb296b28e5f7d82b1778` |
-| `eval/phase35/data_C.py` | `67bc2b5e1ea01e27516c6fb61809efe6c90573630498e3384408dd8c4ad3b647` |
-| `eval/phase35/data_D.py` | `655be7b3c60cd13af50c2e15d1c9346b727ad3f57998233ffebc43d934b2306e` |
+| `eval/phase35/data_A.py` | `c204fd037d653a27dfed00f7d9b9ad0b38dea4d20f578145aa7bc9b15201714c` |
+| `eval/phase35/data_B.py` | `f58fc8041bed81682e0bc22be6123364f963b170db5a409204b60922aa5a3548` |
+| `eval/phase35/data_C.py` | `6fc3ca44254f4dc536b2bde59d355134ccdee284ff359c4a6f3ebe7deb6cfea6` |
+| `eval/phase35/data_D.py` | `6341a55f5307cf9cc47fbf1608e7dc26e3041793f6e0184528f1a3b9249d8f64` |
 | `eval/phase35/run_eval.py` (split and scoring) | `3b066a5b3b4c1de908cb5a555db17762af2bd70606f0854d5f2ba0ce7106e989` |
 | `eval/answer_scoring.py` | `c3b5422820b96266be8529e853653ebc40184e3b48e2cd7991f68663cf8167af` |
 | `eval/phase35/validate.py` | `1727a33421202da3bd0d52aabcf0bf11dd9515c16c73a8b10e385aa356fe1a7d` |

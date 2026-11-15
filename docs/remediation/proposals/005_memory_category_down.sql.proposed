@@ -1,0 +1,6 @@
+-- PROPOSAL ONLY — NOT APPLIED. Rollback of 005_memory_category.sql.proposed.
+-- Removes only the category column and its check; categories remain computable at runtime.
+BEGIN;
+ALTER TABLE conversation_memories DROP CONSTRAINT IF EXISTS conversation_memories_category_ck;
+ALTER TABLE conversation_memories DROP COLUMN IF EXISTS category;
+COMMIT;
