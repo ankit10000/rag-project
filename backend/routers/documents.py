@@ -9,6 +9,7 @@ removing chunks safely would also need BM25/embedding cache and file cleanup
 semantics that are not defined yet (documented as deferred).
 """
 
+import logging
 import os
 import re
 import uuid
@@ -21,6 +22,7 @@ from backend.errors import ApiError, conflict, not_found, unprocessable
 from backend.schemas import DocumentDetail, DocumentSummary, IngestResponse
 
 router = APIRouter(prefix="/documents", tags=["documents"])
+log = logging.getLogger("rag.api")
 
 _SAFE = re.compile(r"[^A-Za-z0-9._ \-]+")
 _CHUNK = 1024 * 1024
@@ -106,24 +108,45 @@ def upload_and_ingest(file: UploadFile = File(...),
         # failed re-ingest restores both the database state (ingest_pdf is one
         # transaction) and the file on disk.
         backup_path = None
-        if os.path.exists(final_path):
-            backup_path = os.path.join(upload_dir, f".previous-{uuid.uuid4().hex}.pdf.bak")
-            os.replace(final_path, backup_path)
-        os.replace(temp_path, final_path)
+        try:
+            if os.path.exists(final_path):
+                backup_path = os.path.join(upload_dir, f".previous-{uuid.uuid4().hex}.pdf.bak")
+                os.replace(final_path, backup_path)
+            os.replace(temp_path, final_path)
+        except OSError as exc:
+            # e.g. the existing PDF is open in another program (Windows): undo the swap,
+            # remove the temp file, keep the previous file and database state.
+            if backup_path and os.path.exists(backup_path) and not os.path.exists(final_path):
+                os.replace(backup_path, final_path)
+            if os.path.exists(temp_path):
+                os.remove(temp_path)
+            log.error("upload could not be stored: %s", type(exc).__name__)
+            raise ApiError(500, "storage_error", "the uploaded file could not be stored; nothing was changed") from None
 
         from services.ingestion_service import ingest_pdf
-        from services.pdf_parser import PDFLimitExceeded, UnsupportedFileTypeError
+        from services.pdf_parser import InvalidPDFError, PDFLimitExceeded, UnsupportedFileTypeError
 
         try:
             ingest_pdf(final_path)
         except BaseException as exc:
             _restore_previous(final_path, backup_path)
+            # Safe diagnostics: exception types only (messages may contain paths or document text).
+            cause = getattr(exc, "cause_type", None) or (
+                type(exc.__cause__).__name__ if exc.__cause__ is not None else "-")
+            if isinstance(exc, InvalidPDFError):
+                log.warning("upload rejected: invalid PDF (%s, cause %s)", type(exc).__name__, cause)
+                raise unprocessable("invalid_pdf",
+                                    "the file is not a readable PDF (empty, corrupt or password-protected)") from None
             if isinstance(exc, (PDFLimitExceeded, UnsupportedFileTypeError)):
+                log.warning("upload rejected: %s", type(exc).__name__)
                 raise unprocessable("ingestion_rejected", type(exc).__name__) from None
             if isinstance(exc, ValueError):
+                log.warning("upload not ingested: %s", type(exc).__name__)
                 raise unprocessable("ingestion_failed",
                                     "the PDF could not be ingested (no usable text or invalid embeddings)") from None
             if isinstance(exc, Exception):
+                log.error("ingestion error: %s (cause %s); previous document state preserved",
+                          type(exc).__name__, cause)
                 raise ApiError(500, "ingestion_error", "ingestion failed; previous document state was preserved") from None
             raise
 

@@ -168,13 +168,15 @@ def run():
         handle.write(b"this is plain text, not a pdf " * 60)      # deterministic invalid content
     err, spies = ingest(bad_pdf)
     print(f"INFO | invalid .pdf content -> {type(err).__name__}: {str(err)[:60]!r}")
-    check("[malformed] .pdf with invalid content still fails in PyMuPDF (FileDataError), after the type and size checks",
-          type(err).__name__ == "FileDataError" and spies["getsize"].call_count >= 1 and spies["embed"].call_count == 0)
+    check("[malformed] .pdf with invalid content fails as InvalidPDFError (Stage 4; PyMuPDF FileDataError kept in "
+          "cause_type), after the type and size checks",
+          type(err).__name__ == "InvalidPDFError" and err.cause_type == "FileDataError"
+          and spies["getsize"].call_count >= 1 and spies["embed"].call_count == 0)
     bad_upper = os.path.join(WORKDIR, f"{PREFIX}garbage2.PDF")
     with open(bad_upper, "wb") as handle:
         handle.write(b"not a pdf at all " * 50)
     err, _ = ingest(bad_upper)
-    check("[malformed] .PDF with invalid content -> FileDataError (not a type error)", type(err).__name__ == "FileDataError")
+    check("[malformed] .PDF with invalid content -> InvalidPDFError (not a type error)", type(err).__name__ == "InvalidPDFError")
     err, _ = ingest(os.path.join(WORKDIR, f"{PREFIX}missing.pdf"))
     check("[missing] a missing .pdf still raises FileNotFoundError", isinstance(err, FileNotFoundError))
     enc = os.path.join(WORKDIR, f"{PREFIX}enc.pdf")

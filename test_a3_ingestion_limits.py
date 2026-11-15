@@ -171,8 +171,9 @@ def run():
     bad = os.path.join(WORKDIR, f"{PREFIX}bad.pdf")
     open(bad, "wb").write(b"%PDF-1.4\n" + os.urandom(3000))
     err, embed = ingest(bad)
-    check("[malformed] garbage PDF within limits still fails as before (FileDataError), nothing stored, no embedding",
-          type(err).__name__ == "FileDataError" and embed.call_count == 0)
+    check("[malformed] garbage PDF within limits fails as InvalidPDFError (Stage 4; was raw FileDataError), "
+          "nothing stored, no embedding",
+          type(err).__name__ == "InvalidPDFError" and err.cause_type == "FileDataError" and embed.call_count == 0)
     err, _ = ingest(bad, MAX_PDF_SIZE_MB=0.0001)
     check("[malformed] garbage PDF over the size limit is rejected by the size check before parsing", isinstance(err, PDFLimitExceeded))
     err, _ = ingest(os.path.join(WORKDIR, "nope.pdf"))

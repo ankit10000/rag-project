@@ -128,11 +128,13 @@ def run():
     print("INFO | --- 1. malformed and unreadable inputs ---")
     cases = []
     for label, data, allowed in (
-        ("%PDF header + random bytes", b"%PDF-1.4\n" + os.urandom(2000), {"FileDataError"}),
-        ("zero-byte file", b"", {"EmptyFileError"}),
-        ("plain text saved as .pdf", b"this is plain text, not a pdf " * 30, {"FileDataError"}),
-        ("PDF truncated to half its size", good_bytes[: len(good_bytes) // 2], {"ValueError"}),
-        ("PDF with 200 bytes overwritten", good_bytes[:200] + b"A" * 200 + good_bytes[400:], {"ValueError"}),
+        # Stage 4: unreadable files are reported as InvalidPDFError (a ValueError; the
+        # PyMuPDF error type is kept in cause_type) instead of PyMuPDF's raw RuntimeErrors.
+        ("%PDF header + random bytes", b"%PDF-1.4\n" + os.urandom(2000), {"InvalidPDFError"}),
+        ("zero-byte file", b"", {"InvalidPDFError"}),
+        ("plain text saved as .pdf", b"this is plain text, not a pdf " * 30, {"InvalidPDFError"}),
+        ("PDF truncated to half its size", good_bytes[: len(good_bytes) // 2], {"ValueError", "InvalidPDFError"}),
+        ("PDF with 200 bytes overwritten", good_bytes[:200] + b"A" * 200 + good_bytes[400:], {"ValueError", "InvalidPDFError"}),
     ):
         fname = name()
         path = os.path.join(WORKDIR, fname)
@@ -159,7 +161,8 @@ def run():
     check("[unreadable, A4] a directory path without a .pdf extension -> UnsupportedFileTypeError", etype(error) == "UnsupportedFileTypeError")
     pdf_dir = os.path.join(WORKDIR, name())
     os.mkdir(pdf_dir)
-    check("[unreadable] a directory whose name ends in .pdf -> FileDataError (as before)", etype(ingest(pdf_dir)) == "FileDataError")
+    check("[unreadable] a directory whose name ends in .pdf -> InvalidPDFError (Stage 4; was FileDataError)",
+          etype(ingest(pdf_dir)) == "InvalidPDFError")
 
     enc_name = name()
     enc_path = os.path.join(WORKDIR, enc_name)
@@ -168,8 +171,9 @@ def run():
     doc.save(enc_path, encryption=pymupdf.PDF_ENCRYPT_AES_256, user_pw="secret", owner_pw="owner")
     doc.close()
     error = ingest(enc_path)
-    check("[unreadable] password-protected PDF -> ValueError (no password support), nothing stored",
-          etype(error) == "ValueError" and "encrypted" in str(error) and rows_for(enc_name) == [])
+    check("[unreadable] password-protected PDF -> InvalidPDFError, a ValueError (no password support), nothing stored",
+          etype(error) == "InvalidPDFError" and isinstance(error, ValueError) and "password" in str(error)
+          and rows_for(enc_name) == [])
 
     # valid PDFs with nothing to ingest
     for label, make in (

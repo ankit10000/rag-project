@@ -5,7 +5,6 @@ Evaluation harness for Phase 2. Everything here targets a SCRATCH database
 IMPORTANT: call use_scratch_database() BEFORE importing anything from
 services.* so services.database picks up the scratch DATABASE_URL.
 """
-import hashlib
 import math
 import os
 import re
@@ -122,39 +121,38 @@ def load_corpus(docs: dict, chunk_fn, embed_fn, dedupe=True) -> int:
     Replace the scratch table with `docs` chunked by chunk_fn(page_text).
     Returns the number of chunks stored. Identical chunk text inside one
     document is stored once when dedupe is true.
+
+    Stage 4: chunk records, de-duplication, embedding validation and the
+    per-document write are the SAME functions ingest_pdf uses
+    (services.ingestion_service). Benchmark-specific differences are explicit:
+    the corpus is text (no PDF parsing), chunk_fn/embed_fn are pluggable, no
+    page is skipped for being short (min_words=0), the embedding dimension is
+    not pinned to EMBEDDING_DIM (benchmarks compare models), and the table is
+    truncated first.
     """
-    from pgvector.psycopg import register_vector
     from services.database import get_connection
+    from services.ingestion_service import build_chunks, validate_embeddings, write_document_chunks
 
     assert_scratch()
-    rows = []
+    per_document = []
 
     for document, pages in docs.items():
-        seen = set()
-        for page_number, text in enumerate(pages, start=1):
-            for chunk_id, content in enumerate(chunk_fn(text), start=1):
-                if dedupe:
-                    key = hashlib.sha1(
-                        re.sub(r"\s+", " ", content).lower().encode()
-                    ).hexdigest()
-                    if key in seen:
-                        continue
-                    seen.add(key)
-                rows.append((document, page_number, chunk_id, content))
+        page_records = [{"page_number": n, "text": text} for n, text in enumerate(pages, start=1)]
+        per_document.append(
+            (document, build_chunks(document, page_records, chunk_fn, min_words=0, dedupe=dedupe))
+        )
 
-    embeddings = embed_fn([r[3] for r in rows])
+    rows = [chunk for _, chunks in per_document for chunk in chunks]
+    embeddings = embed_fn([r["content"] for r in rows])
+    validate_embeddings(embeddings, len(rows))
 
     with get_connection() as conn:
         conn.execute("TRUNCATE document_chunks RESTART IDENTITY")
         with conn.cursor() as cur:
-            cur.executemany(
-                """
-                INSERT INTO document_chunks
-                    (document_name, page_number, chunk_id, content, embedding)
-                VALUES (%s, %s, %s, %s, %s)
-                """,
-                [(*r, e.tolist()) for r, e in zip(rows, embeddings)],
-            )
+            offset = 0
+            for document, chunks in per_document:
+                write_document_chunks(cur, document, chunks, embeddings[offset:offset + len(chunks)])
+                offset += len(chunks)
 
     return len(rows)
 

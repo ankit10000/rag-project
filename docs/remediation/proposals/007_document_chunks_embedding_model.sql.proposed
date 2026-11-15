@@ -1,0 +1,27 @@
+-- PROPOSAL ONLY — NOT A MIGRATION. NOT APPLIED. For review (Batch 2 / Stage 4, task 4.10).
+-- Kept outside migrations/ so the migration history is unchanged.
+-- See docs/remediation/BATCH2_STAGE4_INGESTION_REPORT.md, section G.
+--
+-- Purpose: record which embedding model produced each stored vector, so a change of
+-- EMBEDDING_MODEL (even to a model with the same 384 dimensions) can be detected
+-- instead of silently mixing incomparable vectors in one index.
+--
+-- Backward compatibility:
+--   * Existing rows get NULL = "unknown (written before this column existed)". The
+--     value is NOT backfilled automatically: the project has only ever used
+--     all-MiniLM-L6-v2, but that is a documented assumption, not stored evidence.
+--     A deliberate, approved backfill would be:
+--       UPDATE document_chunks SET embedding_model = 'all-MiniLM-L6-v2' WHERE embedding_model IS NULL;
+--   * Requires a matching code change (not made in Stage 4): ingest_pdf writes
+--     cfg.EMBEDDING_MODEL, and retrieval/startup refuses or warns when rows exist
+--     for a different model. Without the code change the column stays NULL.
+--   * Same pattern would apply to conversation_memories.embedding (memory vectors).
+BEGIN;
+
+ALTER TABLE document_chunks
+    ADD COLUMN IF NOT EXISTS embedding_model text;
+
+COMMIT;
+
+-- Rollback:
+--   ALTER TABLE document_chunks DROP COLUMN IF EXISTS embedding_model;
