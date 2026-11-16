@@ -1,0 +1,193 @@
+{
+ "tier1": {
+  "cases": 47,
+  "runner_errors": 0,
+  "correct": 41,
+  "baseline_correct": 41,
+  "correct_lenient": 41,
+  "unsupported_scorer": 1,
+  "baseline_unsupported_scorer": 0,
+  "status": {
+   "answered": 35,
+   "abstained": 9,
+   "conflict": 2,
+   "partial": 1
+  },
+  "baseline_status": {
+   "answered": 36,
+   "abstained": 9,
+   "conflict": 1,
+   "partial": 1
+  },
+  "attempts": {
+   "1": 45,
+   "2": 2
+  },
+  "baseline_attempts": {
+   "1": 47
+  },
+  "regenerated_cases": 2,
+  "safeguard_cases": [],
+  "repaired": 0,
+  "dropped_unsupported_number_sentences": 0,
+  "dropped_uncited_sentences": 0,
+  "retrieval_status": {
+   "null": 47
+  },
+  "requests": {
+   "total": 51,
+   "by_kind": {
+    "answer": 49,
+    "answer_retry": 2
+   },
+   "by_model": {
+    "gemini-3.5-flash-lite": 35,
+    "gemini-3.1-flash-lite": 15,
+    "gemini-2.5-flash": 1
+   },
+   "errors": {
+    "ClientError:429": 2
+   },
+   "rate_limited_429": 2,
+   "timeouts": 0,
+   "corrections": {
+    "uncited_claim": 2
+   }
+  },
+  "llm_calls_recorded": 49,
+  "baseline_llm_calls": 47,
+  "tokens": {
+   "prompt": 76289,
+   "output": 2481
+  },
+  "baseline_tokens": {
+   "prompt": 73040,
+   "output": 1933
+  },
+  "latency_s": {
+   "median": 1.18,
+   "p90": 1.81,
+   "max": 4.02,
+   "total": 62.7
+  },
+  "baseline_latency_s": {
+   "median": 1.81,
+   "p90": 6.22,
+   "max": 15.5,
+   "total": 151.7
+  },
+  "changes": {
+   "correct_gained": [
+    {
+     "id": "A-conflict-02",
+     "safeguard": false
+    }
+   ],
+   "correct_lost": [
+    {
+     "id": "D-compound-04",
+     "safeguard": false
+    }
+   ],
+   "status_changed": [
+    "D-conflicting-01: answered->conflict"
+   ],
+   "same_answer_text": 19
+  }
+ },
+ "tier2": {
+  "cases": 42,
+  "runner_errors": 0,
+  "correct": 29,
+  "baseline_correct": 28,
+  "correct_lenient": 29,
+  "unsupported_scorer": 1,
+  "baseline_unsupported_scorer": 1,
+  "status": {
+   "answered": 30,
+   "partial": 6,
+   "abstained": 5,
+   "conflict": 1
+  },
+  "baseline_status": {
+   "answered": 29,
+   "partial": 6,
+   "abstained": 6,
+   "conflict": 1
+  },
+  "attempts": {
+   "1": 40,
+   "2": 2
+  },
+  "baseline_attempts": {
+   "null": 42
+  },
+  "regenerated_cases": 2,
+  "safeguard_cases": [],
+  "repaired": 0,
+  "dropped_unsupported_number_sentences": 0,
+  "dropped_uncited_sentences": 0,
+  "retrieval_status": {
+   "ok": 41,
+   "not_run": 1
+  },
+  "requests": {
+   "total": 91,
+   "by_kind": {
+    "classify": 45,
+    "answer": 42,
+    "rewrite": 2,
+    "answer_retry": 2
+   },
+   "by_model": {
+    "gemini-3.1-flash-lite": 35,
+    "gemini-3.5-flash-lite": 56
+   },
+   "errors": {
+    "ClientError:429": 3
+   },
+   "rate_limited_429": 3,
+   "timeouts": 0,
+   "corrections": {
+    "uncited_claim": 2
+   }
+  },
+  "llm_calls_recorded": 88,
+  "baseline_llm_calls": 86,
+  "tokens": {
+   "prompt": 47130,
+   "output": 1816
+  },
+  "baseline_tokens": {
+   "prompt": 44751,
+   "output": 1642
+  },
+  "latency_s": {
+   "median": 2.3,
+   "p90": 3.66,
+   "max": 30.02,
+   "total": 139.9
+  },
+  "baseline_latency_s": {
+   "median": 4.14,
+   "p90": 9.85,
+   "max": 63.83,
+   "total": 304.8
+  },
+  "changes": {
+   "correct_gained": [
+    {
+     "id": "C-direct-05",
+     "safeguard": false
+    }
+   ],
+   "correct_lost": [],
+   "status_changed": [
+    "A-multipage-03: partial->answered",
+    "C-direct-05: abstained->answered",
+    "C-multi_page-03: answered->partial"
+   ],
+   "same_answer_text": 12
+  }
+ }
+}
