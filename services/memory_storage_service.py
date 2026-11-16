@@ -518,7 +518,12 @@ def update_memory(
         return False
     memory_id = valid_memory_id
 
-    source_ids = normalize_source_ids(source_message_id, source_message_ids)
+    # Stage 7: a content update needs at least one valid user source (same
+    # rule as save_memory); a missing source raises ValueError before any
+    # embedding or SQL, so content can never change without provenance.
+    source_ids = normalize_source_ids(
+        source_message_id, source_message_ids, required=True
+    )
 
     embedding = generate_embeddings([new_memory_text])[0]
     embedding_vector = Vector(embedding.tolist())
