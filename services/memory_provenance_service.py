@@ -8,6 +8,7 @@ legacy scalar source column.
 import uuid
 
 from services.database import get_connection
+from services.memory_storage_service import normalize_positive_id
 
 
 def get_memory_sources(conversation_id: str, memory_id: int) -> list[dict]:
@@ -98,10 +99,19 @@ def delete_message_with_provenance(conversation_id: str, message_id: int) -> dic
     transaction, so any exception rolls back all changes.
 
     Missing and foreign-conversation messages return the existing safe
-    no-op shape: deleted=False, orphaned=[], still_supported=[].
+    no-op shape: deleted=False, orphaned=[], still_supported=[]. So does an
+    invalid message ID (Stage 7): it is rejected before any SQL with the
+    same contract as memory IDs (positive int or numeric string; no bool, no
+    float), so it can never be coerced into another message's ID.
     """
     cid = uuid.UUID(str(conversation_id))
-    message_id = int(message_id)
+    valid_id = normalize_positive_id(
+        message_id, allow_numeric_string=True, allow_integral_float=False
+    )
+    if valid_id is None:
+        print(f"Message deletion refused: invalid message ID (type {type(message_id).__name__}).")
+        return {"deleted": False, "orphaned": [], "still_supported": []}
+    message_id = valid_id
 
     with get_connection() as conn:
         exists = conn.execute(

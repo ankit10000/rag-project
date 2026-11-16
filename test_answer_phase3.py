@@ -320,7 +320,7 @@ hits = [
 ANSWER_CALLS.clear()
 with mock.patch.object(rag, "generate_answer", side_effect=fake_generate_answer_factory("[DOCUMENT] The fee is 5. [S1]")), \
         mock.patch.object(rag, "rewrite_query", side_effect=rewrite), \
-        mock.patch.object(rag, "hybrid_search", return_value=hits) as hs, \
+        mock.patch.object(rag, "hybrid_search_detailed", return_value={"results": hits, "rerank_status": "ok"}) as hs, \
         mock.patch.object(rag.cfg, "RERANK_MIN_SCORE", None), \
         mock.patch.object(rag.cfg, "RERANK_SCORE_MARGIN", 2.0):
     res = rag.ask_question("What is the fee?")
@@ -336,12 +336,12 @@ check("ask_question: retrieved has metadata keys",
 check("ask_question: far chunk text never reached the prompt",
       len(ANSWER_CALLS) == 1 and "gardening" not in ANSWER_CALLS[0]
       and "deadline is Friday" in ANSWER_CALLS[0])
-check("ask_question: hybrid_search was called", hs.called)
+check("ask_question: hybrid_search_detailed was called", hs.called)
 
 ANSWER_CALLS.clear()
 with mock.patch.object(rag, "generate_answer", side_effect=fake_generate_answer_factory("[DOCUMENT] nope [S1]")), \
         mock.patch.object(rag, "rewrite_query", side_effect=rewrite), \
-        mock.patch.object(rag, "hybrid_search", return_value=[]):
+        mock.patch.object(rag, "hybrid_search_detailed", return_value={"results": [], "rerank_status": "skipped"}):
     res = rag.ask_question("What is the fee?")
 check("ask_question: empty retrieval -> refusal, answer LLM not called",
       res["answer"] == REFUSAL_MESSAGE and res["status"] == "abstained"
@@ -350,7 +350,7 @@ check("ask_question: empty retrieval -> refusal, answer LLM not called",
 ANSWER_CALLS.clear()
 with mock.patch.object(rag, "generate_answer", side_effect=fake_generate_answer_factory("[DOCUMENT] nope [S1]")), \
         mock.patch.object(rag, "rewrite_query", side_effect=rewrite), \
-        mock.patch.object(rag, "hybrid_search", return_value=hits), \
+        mock.patch.object(rag, "hybrid_search_detailed", return_value={"results": hits, "rerank_status": "ok"}), \
         mock.patch.object(rag.cfg, "RERANK_MIN_SCORE", 10.0):
     res = rag.ask_question("What is the fee?")
 check("ask_question: RERANK_MIN_SCORE floor drops everything -> refusal, no answer LLM",
@@ -359,7 +359,7 @@ check("ask_question: RERANK_MIN_SCORE floor drops everything -> refusal, no answ
 ANSWER_CALLS.clear()
 with mock.patch.object(rag, "generate_answer", side_effect=fake_generate_answer_factory("[DOCUMENT] The fee is 5. [S1]")), \
         mock.patch.object(rag, "rewrite_query", side_effect=rewrite), \
-        mock.patch.object(rag, "hybrid_search", return_value=hits), \
+        mock.patch.object(rag, "hybrid_search_detailed", return_value={"results": hits, "rerank_status": "ok"}), \
         mock.patch.object(rag.cfg, "RERANK_MIN_SCORE", 4.5):
     res = rag.ask_question("What is the fee?")
 check("ask_question: floor below best score keeps results",

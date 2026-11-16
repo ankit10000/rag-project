@@ -115,9 +115,13 @@ check("uncited claim triggers one regeneration with feedback naming uncited_clai
 
 # ---------------------------------------------------------------- unsupported claims with valid citation syntax
 # Deterministic code cannot prove semantic support: this is ACCEPTED and documented as a limitation.
-out, f = ask(["[DOCUMENT] Refunds are accepted within 90 days without a receipt [S1]."])
-check("LIMITATION pinned: a wrong claim with a syntactically valid citation is accepted (no semantic check)",
+# Stage 6: a wrong NUMBER is now caught (numeric grounding), so the pin uses a non-numeric claim.
+out, f = ask(["[DOCUMENT] Refunds are accepted without a receipt [S1]."])
+check("LIMITATION pinned: a wrong non-numeric claim with a syntactically valid citation is accepted (no semantic check)",
       out["status"] == "answered" and [c["ref"] for c in out["citations"]] == ["S1"])
+out, f = ask(["[DOCUMENT] Refunds are accepted within 90 days without a receipt [S1]."])
+check("Stage 6: a wrong number with a valid citation is rejected (numeric grounding)",
+      out["status"] == "unverified" and out["citations"] == [] and "unsupported_number" in out["issues"])
 
 # ---------------------------------------------------------------- citation repair and fallback
 out, f = ask(["[DOCUMENT] Refunds take 30 days [S1]. Refunds are paid in cash at any branch [S9]."])

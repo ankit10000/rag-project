@@ -205,7 +205,7 @@ check("[fallback] invalid reranker output (NaN) also falls back to the RRF order
 
 
 # =============================================================== no-rerank relevance policy (rag_service)
-def run_rag(results):
+def run_rag(results, status="ok"):
     captured = {}
 
     def fake_answer(**kwargs):
@@ -214,7 +214,7 @@ def run_rag(results):
 
     with mock.patch.object(rag, "classify_question", return_value="DOCUMENT"), \
             mock.patch.object(rag, "rewrite_query", return_value="q"), \
-            mock.patch.object(rag, "hybrid_search", return_value=results), \
+            mock.patch.object(rag, "hybrid_search_detailed", return_value={"results": results, "rerank_status": status}), \
             mock.patch.object(rag, "generate_grounded_answer", side_effect=fake_answer), \
             contextlib.redirect_stdout(io.StringIO()):
         rag.ask_question("q")
@@ -230,7 +230,7 @@ with mock.patch.object(cfg, "RERANK_MIN_SCORE", 6.0):
           run_rag(reranked) == [])
 unreranked = [{"chunk": chunk(i), "rrf_score": 1 / (60 + i)} for i in range(1, 5)]
 check("[gate] no-rerank / fallback results: no score gate is applied (documented gap: no approved threshold "
-      "for RRF scores); candidates pass in rank order", run_rag(unreranked) == [1, 2, 3, 4])
+      "for RRF scores); candidates pass in rank order", run_rag(unreranked, "disabled") == [1, 2, 3, 4])
 
 
 # =============================================================== context limits

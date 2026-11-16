@@ -137,11 +137,16 @@ def run():
     fx = Fixture()
     ids = fx.seed(["Fact A"])
     link_before = links(fx.conv, ids[0])
-    ok = quiet(storage.update_memory, fx.conv, ids[0], "Fact A v2")
-    after = rows(fx.conv)
-    check("[u2] no source: update True, text changed", ok is True and after[0][1] == "Fact A v2")
-    check("[u2] no source: legacy source_message_id kept (COALESCE), no new link",
-          after[0][3] == fx.m1 and links(fx.conv, ids[0]) == link_before)
+    # Stage 7 (approved contract change): a content update requires a source.
+    before_u2 = rows(fx.conv)
+    try:
+        quiet(storage.update_memory, fx.conv, ids[0], "Fact A v2")
+        refused = False
+    except ValueError:
+        refused = True
+    check("[u2] no source: update refused with ValueError", refused)
+    check("[u2] no source: text, legacy source_message_id and links unchanged",
+          rows(fx.conv) == before_u2 and links(fx.conv, ids[0]) == link_before)
 
     ok = quiet(storage.update_memory, fx.conv, ids[0], "Fact A v3", None, [fx.m2, fx.m3])
     check("[u3] source_message_ids links both", ok is True and links(fx.conv, ids[0]) ==

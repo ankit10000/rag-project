@@ -233,7 +233,7 @@ def phase1_required_cases():
                 except ValueError:
                     check(f"[7] {label} rejects foreign source", True)
             check("[7] update through the wrong conversation changes nothing",
-                  storage.update_memory(other, mid, "hijack") is False
+                  storage.update_memory(other, mid, "hijack", foreign) is False
                   and _links(cid, mid) == [a, b, c])
             try:
                 with get_connection() as conn:
