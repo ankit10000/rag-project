@@ -51,14 +51,34 @@ def hybrid_search_detailed(
     drop_stopwords: bool | None = None,
 ):
     """
-    Run the retrieval pipeline and return {"results", "timings_ms", "counts"}.
+    Run the retrieval pipeline and return
+    {"results", "timings_ms", "counts", "rerank_status"}.
     Each result is {"chunk": (id, document, page, content, raw_score),
     "rrf_score": float, "rerank_score": float (only when reranked)}.
+
+    Failure behaviour (Stage 5):
+      * a retriever that raises (database or embedding failure) propagates its
+        exception: a failed retrieval is never reported as an empty result;
+      * the reranker is optional: if it fails to load or score, the fused (RRF)
+        order is kept, a type-only diagnostic is printed, and rerank_status is
+        "failed:<ExceptionType>"; other values are "ok", "disabled", "skipped";
+      * a blank query returns no results without querying anything.
     """
+    if not isinstance(query, str):
+        raise TypeError(f"query must be a string, not {type(query).__name__}")
+
     # None -> configured default; an explicit 0 (or negative) means "no results".
     top_k = cfg.FINAL_TOP_K if top_k is None else max(0, top_k)
     rerank = cfg.RERANK_ENABLED if rerank is None else rerank
     timings = {}
+
+    if not query.strip():
+        return {
+            "results": [],
+            "timings_ms": {"total": 0.0},
+            "counts": {"vector": 0, "keyword": 0, "fused": 0},
+            "rerank_status": "skipped",
+        }
 
     started = time.perf_counter()
     vector_results, keyword_results = [], []
@@ -91,14 +111,25 @@ def hybrid_search_detailed(
         )
     timings["fusion"] = (time.perf_counter() - t) * 1000
 
-    if rerank:
-        t = time.perf_counter()
-        results = rerank_results(
-            query, fused[: rerank_top_k or cfg.RERANK_TOP_K], top_k=top_k
-        )
-        timings["rerank"] = (time.perf_counter() - t) * 1000
-    else:
+    if not rerank:
+        rerank_status = "disabled"
         results = fused[:top_k]
+    elif top_k == 0 or not fused:
+        rerank_status = "skipped"          # nothing to rerank: do not load the model
+        results = []
+    else:
+        t = time.perf_counter()
+        try:
+            results = rerank_results(
+                query, fused[: rerank_top_k or cfg.RERANK_TOP_K], top_k=top_k
+            )
+            rerank_status = "ok"
+        except Exception as error:  # noqa: BLE001 - the reranker is an optional stage
+            # Keep the valid fused order; type only (messages may contain paths).
+            rerank_status = f"failed:{type(error).__name__}"
+            print(f"Reranker failed ({type(error).__name__}); keeping the RRF order.")
+            results = fused[:top_k]
+        timings["rerank"] = (time.perf_counter() - t) * 1000
 
     timings["total"] = (time.perf_counter() - started) * 1000
 
@@ -110,6 +141,7 @@ def hybrid_search_detailed(
             "keyword": len(keyword_results),
             "fused": len(fused),
         },
+        "rerank_status": rerank_status,
     }
 
 

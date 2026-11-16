@@ -25,6 +25,9 @@ def reciprocal_rank_fusion(
         return []
 
     weights = weights or [1.0] * len(result_lists)
+    if len(weights) != len(result_lists):
+        # Stage 5: zip() would silently drop the lists without a weight.
+        raise ValueError(f"{len(weights)} weights given for {len(result_lists)} result lists")
     scores = {}
     chunks = {}
     first_seen = {}

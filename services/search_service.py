@@ -33,8 +33,24 @@ def semantic_search(
     """
     Returns (id, document_name, page_number, content, distance) tuples,
     nearest first. distance is cosine distance (similarity = 1 - distance).
+
+    Stage 5: a non-string query is a programming error (TypeError); a blank
+    query returns [] (an empty query would otherwise "match" the k nearest
+    chunks of an arbitrary vector). The query vector's dimension is checked
+    against EMBEDDING_DIM before the database is touched.
     """
+    if not isinstance(query, str):
+        raise TypeError(f"query must be a string, not {type(query).__name__}")
+    if not query.strip():
+        return []
+
     query_embedding = generate_embeddings([query])[0]
+
+    if len(query_embedding) != cfg.EMBEDDING_DIM:
+        raise ValueError(
+            f"query embedding dimension {len(query_embedding)} does not match "
+            f"EMBEDDING_DIM={cfg.EMBEDDING_DIM}"
+        )
 
     # Convert embedding into pgvector format
     vector = Vector(query_embedding.tolist())
