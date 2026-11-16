@@ -36,7 +36,7 @@ PATCHED = [
     "get_conversation_history", "get_conversation_summary", "search_memories",
     "get_messages_for_memory_extraction", "extract_and_save_memories",
     "update_memory_extraction_checkpoint", "update_long_term_memory",
-    "process_memory",
+    "process_memory", "assemble_memory_context",
 ]
 for _name in PATCHED:
     assert hasattr(main, _name), f"main has no attribute {_name}"
@@ -86,6 +86,9 @@ def run_main(inputs, **overrides):
         "update_memory_extraction_checkpoint": dict(),
         "update_long_term_memory": dict(),
         "process_memory": dict(),
+        # Stage 8: pass-through by default (real Phase 3 context assembly over the
+        # mocked search_memories); [N2] replaces it with a fixed context.
+        "assemble_memory_context": dict(wraps=main.assemble_memory_context),
     }
     mocks = {}
     out = io.StringIO()
@@ -263,12 +266,14 @@ check("[N1] extraction lookup and summary update called",
       m["get_messages_for_memory_extraction"].call_args == mock.call("conv-test", limit=4)
       and m["update_long_term_memory"].call_args == mock.call("conv-test", keep_recent=6))
 
-for label, summary, found, expected in (
-        ("summary + memories", "S", [{"memory": "M1"}, {"memory": "M2"}], "S\nM1\nM2"),
-        ("memories only", "", [{"memory": "M1"}, {"memory": "M2"}], "M1\nM2"),
-        ("neither", "", [], "")):
+# Stage 8: run_turn composes summary + the Phase 3 memory-context text
+# (provenance filtering itself is covered by the Phase 3 / Stage 7 tests).
+for label, summary, context, expected in (
+        ("summary + memories", "S", "CTX", "S\nCTX"),
+        ("memories only", "", "CTX", "CTX"),
+        ("neither", "", "", "")):
     out, m, err = run_main(["", "What is RAG?", "exit"], get_conversation_summary=dict(return_value=summary),
-                           search_memories=dict(return_value=found))
+                           assemble_memory_context=dict(return_value={"text": context}))
     check(f"[N2] memory_summary composition: {label}", last(m["ask_question"]).kwargs.get("memory_summary") == expected)
 
 out, m, err = run_main(["", "What is RAG?", "exit"],
@@ -277,8 +282,10 @@ check("[N3] 3 messages -> extraction skipped", m["extract_and_save_memories"].ca
       and "Memory extraction skipped. 3 new messages; 4 required." in out)
 batch = [{"id": i} for i in (11, 12, 13, 14)]
 out, m, err = run_main(["", "What is RAG?", "exit"], get_messages_for_memory_extraction=dict(return_value=batch))
-check("[N3] 4 messages -> extraction with last id as source", m["extract_and_save_memories"].call_args ==
-      mock.call(conversation_id="conv-test", messages=batch, source_message_id=14))
+# Stage 8: Phase 1 Task 1 strict attribution - no fallback source_message_id is passed
+# (exact call equality also proves the keyword is absent).
+check("[N3] 4 messages -> extraction without a fallback source", m["extract_and_save_memories"].call_args ==
+      mock.call(conversation_id="conv-test", messages=batch))
 check("[N3] checkpoint advanced to 14", m["update_memory_extraction_checkpoint"].call_args ==
       mock.call(conversation_id="conv-test", last_message_id=14))
 out, m, err = run_main(["", "What is RAG?", "exit"], get_messages_for_memory_extraction=dict(return_value=batch),

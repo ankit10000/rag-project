@@ -34,6 +34,20 @@ def finding(label, detail):
     print(f"FINDING | {label} | {detail}")
 
 
+def call_kwargs(m):
+    """kwargs of a mock's last call, or {} if it was never called (Stage 8).
+
+    A missing call then fails its check readably instead of raising
+    AttributeError and aborting the rest of the file.
+    """
+    return m.call_args.kwargs if m.call_args is not None else {}
+
+
+def call_args(m):
+    """Positional args of a mock's last call, or None if it was never called."""
+    return m.call_args.args if m.call_args is not None else None
+
+
 def quiet(fn, *args, **kwargs):
     with contextlib.redirect_stdout(io.StringIO()):
         return fn(*args, **kwargs)
@@ -164,23 +178,37 @@ def part_a():
     fx = Fixture()
     with decide_mock(action="NEW") as d:
         r = pm(fx, "   ", fx.m1)
-    check("[5] whitespace-only memory -> SKIPPED, no row", r == "SKIPPED" and rows(fx.conv) == [] and d.call_count == 0)
+    # Stage 8: Phase 1 Task 4 contract - blank text is rejected as UNCERTAIN (normalize_memory_text -> None).
+    check("[5] whitespace-only memory -> UNCERTAIN, no row", r == "UNCERTAIN" and rows(fx.conv) == [] and d.call_count == 0)
 
     # ---- Candidate sourcing / normalisation ----
     fx = Fixture()
     ids = fx.seed([f"Fact number {i}" for i in range(22)])
     with decide_mock(action="UNCERTAIN") as d:
         r = pm(fx, "something", fx.m2)
-    passed = d.call_args.kwargs["existing_memories"]
+    passed = call_kwargs(d).get("existing_memories", [])
     check("[6] limit 20 candidates", len(passed) == 20)
     check("[6] newest first (id DESC)", [i for i, _ in passed] == ids[::-1][:20])
     check("[6] UNCERTAIN passthrough", r == "UNCERTAIN")
 
+    # Stage 8: non-duplicate text, so the decision model runs and receives the
+    # normalised candidates ("x" itself would hit the Phase 3 exact-duplicate shortcut).
     fx = Fixture()
     with decide_mock(action="UNCERTAIN") as d:
-        pm(fx, "x", fx.m1, candidate_memories=[("5", "x"), (None, "y"), ("abc", "z"), (7, "w")])
+        pm(fx, "something else", fx.m1, candidate_memories=[("5", "x"), (None, "y"), ("abc", "z"), (7, "w")])
     check("[7] supplied candidates normalised to ints, invalid dropped",
-          d.call_args.kwargs["existing_memories"] == [(5, "x"), (7, "w")])
+          call_kwargs(d).get("existing_memories") == [(5, "x"), (7, "w")])
+
+    # Stage 8: Phase 3 exact-duplicate shortcut, checked on its own.
+    fx = Fixture()
+    (mid,) = fx.seed(["User likes tea"])
+    before = rows(fx.conv)
+    with decide_mock(action="NEW") as d:
+        r = pm(fx, "user likes  tea.", fx.m2, candidate_memories=[(mid, "User likes tea")])
+    check("[7b] exact duplicate of a candidate -> SKIPPED, decision model not called",
+          r == "SKIPPED" and d.call_count == 0)
+    check("[7b] rows unchanged, restating message linked as confirmation",
+          rows(fx.conv) == before and (fx.m2, "confirmation") in links(fx.conv, mid))
 
     fx = Fixture()
     with decide_mock(action="NEW") as d:
@@ -228,8 +256,10 @@ def part_a():
     (oid,) = fx.seed(["Foreign seed"], conv=fx.other)
     before = state(fx)
     for label, mid in (("None id", None), ("foreign id", oid), ("nonexistent id", 2_000_000_000)):
+        # Stage 8: non-duplicate text so the model's DUPLICATE decision is reached ("Seed A"
+        # itself is an exact restatement and is linked by the Phase 3 shortcut instead).
         with decide_mock(action="DUPLICATE", memory_id=mid), spy("confirm_memory") as conf:
-            r = pm(fx, "Seed A", fx.m2)
+            r = pm(fx, "Seed A, restated", fx.m2)
         check(f"[13] DUPLICATE {label} -> SKIPPED", r == "SKIPPED")
         check(f"[13] DUPLICATE {label} -> confirm_memory not called, nothing linked",
               conf.call_count == 0 and state(fx) == before)
@@ -280,7 +310,9 @@ def part_a():
     ids = fx.seed(["User lives in Delhi"])
     with decide_mock(action="UPDATE", memory_id=ids[0], updated_memory=123):
         r = pm(fx, "x", fx.m2)
-    check("[19] non-str updated_memory 123 stored as '123' (pin)", r == "UPDATED" and rows(fx.conv)[0][1] == "123")
+    # Stage 8: Phase 1 Task 4 contract - no str() coercion; non-string text is rejected.
+    check("[19] non-str updated_memory 123 -> UNCERTAIN, text unchanged (no coercion)",
+          r == "UNCERTAIN" and rows(fx.conv)[0][1] == "User lives in Delhi")
 
     fx = Fixture()
     ids = fx.seed(["User lives in Delhi"])
@@ -418,10 +450,10 @@ def part_b():
     ids = fx.seed(["Seed A", "Seed B", "Seed C"])
     fx.seed(["Foreign seed"], conv=fx.other)
     result, c = dm(fx, {"status": "NO_MATCH", "memory_ids": []}, request="forget my cats")
-    kw = c.call_args.kwargs
+    kw = call_kwargs(c)
     check("[b2] classifier gets all own memories ascending as (int, text)",
-          kw["existing_memories"] == [(ids[0], "Seed A"), (ids[1], "Seed B"), (ids[2], "Seed C")])
-    check("[b2] user_request passed through", kw["user_request"] == "forget my cats")
+          kw.get("existing_memories") == [(ids[0], "Seed A"), (ids[1], "Seed B"), (ids[2], "Seed C")])
+    check("[b2] user_request passed through", kw.get("user_request") == "forget my cats")
 
     # 3. UNCERTAIN even with ids
     before = state(fx)
@@ -505,7 +537,7 @@ def part_b():
     with mock.patch.object(automatic, "get_memory_details", wraps=storage.get_memory_details) as gmd:
         dm(fx, {"status": "DELETE", "memory_ids": [ids[0]]})
     check("[b11] get_memory_details called with conversation and selected ids",
-          gmd.call_args.args == (fx.conv, [ids[0]]))
+          call_args(gmd) == (fx.conv, [ids[0]]))
 
     # Probes
     fx = Fixture()
