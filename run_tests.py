@@ -63,6 +63,7 @@ CATEGORIES = {
         "test_batch1_provider_config.py",
         "test_stage5_retrieval.py",
         "test_stage6_answer.py",
+        "test_stage8_p3_classification.py",
     ],
     "integration": [
         "test_memory_sources_regression.py",

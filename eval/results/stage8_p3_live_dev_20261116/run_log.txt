@@ -1,0 +1,79 @@
+W1116 17:42:35.025000 31225 .venv/lib/python3.14/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+start 17:42:35 model=gemini-3.5-flash-lite fallbacks=['gemini-3.1-flash-lite', 'gemini-2.5-flash']
+
+Question type: DOCUMENT
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'sentence-transformers/all-MiniLM-L6-v2'.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 9807.56it/s]
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'cross-encoder/ms-marco-MiniLM-L-6-v2'.
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 8331.95it/s]
+Retrieval status: ok
+
+Best reranker score: 4.8952
+Adaptive threshold: 2.8952
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 4.8952 | Chunk: 108 | Page: 3
+Answer status: answered | citations: ['S1'] | attempts: 1
+D-follow_up-04: class=DOCUMENT retrieval=ok gold=1/1 correct=True requests=3
+
+Question type: MEMORY
+Memory question detected. Skipping document retrieval.
+
+--- Reranker Scores ---
+Answer status: abstained | citations: [] | attempts: 1
+C-direct-05: class=MEMORY retrieval=not_run gold=0/1 correct=False requests=2
+
+Question type: MIXED
+Retrieval status: ok
+
+Best reranker score: -7.4354
+Adaptive threshold: -9.4354
+Relevant chunks retained: 4
+
+--- Reranker Scores ---
+Score: -7.4354 | Chunk: 34 | Page: 4
+Score: -7.6814 | Chunk: 31 | Page: 3
+Score: -7.8011 | Chunk: 35 | Page: 4
+Score: -8.9409 | Chunk: 30 | Page: 3
+Answer status: partial | citations: ['S2', 'S4', 'S1', 'S3'] | attempts: 1
+A-multipage-03: class=MIXED retrieval=ok gold=1/2 correct=False requests=2
+
+Question type: DOCUMENT
+Retrieval status: ok
+
+Best reranker score: 5.4697
+Adaptive threshold: 3.4697
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 5.4697 | Chunk: 39 | Page: 2
+Answer status: answered | citations: ['S1'] | attempts: 1
+B-follow-03: class=DOCUMENT retrieval=ok gold=1/1 correct=True requests=3
+
+Question type: MIXED
+Retrieval status: ok
+
+Best reranker score: -2.9913
+Adaptive threshold: -4.9913
+Relevant chunks retained: 3
+
+--- Reranker Scores ---
+Score: -2.9913 | Chunk: 130 | Page: 3
+Score: -3.1173 | Chunk: 127 | Page: 1
+Score: -3.8967 | Chunk: 128 | Page: 2
+Answer status: answered | citations: ['S2', 'S3'] | attempts: 1
+D-multi_page-03: class=MIXED retrieval=ok gold=2/2 correct=True requests=2
+
+Question type: MIXED
+Retrieval status: ok
+
+Best reranker score: -0.9295
+Adaptive threshold: -2.9295
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: -0.9295 | Chunk: 111 | Page: 4
+Answer status: partial | citations: ['S1'] | attempts: 1
+D-multi_page-04: class=MIXED retrieval=ok gold=1/2 correct=False requests=2
+done 17:43:12 total requests=14

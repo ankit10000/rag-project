@@ -48,15 +48,6 @@ def ask_question(
 ) -> dict:
 
     history = history or []
-    # Step 1: Classify the question. If the provider fails, fall back to
-    # DOCUMENT, the strictest type (retrieval runs and citations are required).
-    try:
-        question_type = classify_question(query)
-    except Exception as error:
-        print(f"\nQuestion classification failed ({type(error).__name__}); using DOCUMENT.")
-        question_type = "DOCUMENT"
-
-    print(f"\nQuestion type: {question_type}")
     # Step 1: Rewrite follow-up question (optional step: on failure search
     # with the user's own words instead of aborting the whole answer).
     try:
@@ -72,6 +63,20 @@ def ask_question(
     # Fallback if query rewriting returns an empty result
     if not search_query or not search_query.strip():
         search_query = query
+
+    # Step 1b (Stage 8 P3): classify the rewritten standalone query, so a
+    # document follow-up ("...after that trip?") is judged with its reference
+    # resolved. Without history or memory rewrite_query returns the query
+    # unchanged (no LLM call), so standalone questions classify as before.
+    # If the provider fails, fall back to DOCUMENT, the strictest type
+    # (retrieval runs and citations are required).
+    try:
+        question_type = classify_question(search_query)
+    except Exception as error:
+        print(f"\nQuestion classification failed ({type(error).__name__}); using DOCUMENT.")
+        question_type = "DOCUMENT"
+
+    print(f"\nQuestion type: {question_type}")
 
     # Step 2: Retrieve document chunks
     # Step 2: Retrieve document chunks only when needed

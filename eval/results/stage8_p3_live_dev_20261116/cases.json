@@ -1,0 +1,281 @@
+[
+ {
+  "id": "D-follow_up-04",
+  "category": "follow_up",
+  "history_turns": 2,
+  "raw_query": "How long must I wait before restarting after that trip?",
+  "rewritten_query": "Aquaflow pump E-41 fault restart cooldown time",
+  "classifier_input": "Aquaflow pump E-41 fault restart cooldown time",
+  "classification": "DOCUMENT",
+  "errors": {},
+  "retrieval_status": "ok",
+  "retrieval_ran": true,
+  "gold_pages": [
+   [
+    "Aquaflow_AF-Series_Maintenance_Manual_RevC.pdf",
+    3
+   ]
+  ],
+  "gold_pages_retrieved": [
+   [
+    "Aquaflow_AF-Series_Maintenance_Manual_RevC.pdf",
+    3
+   ]
+  ],
+  "page_recall": 1.0,
+  "status": "answered",
+  "correct": true,
+  "answer": "A trip on E-41 requires a 30-minute cool-down before restart [S1].",
+  "requests": [
+   [
+    "rewrite",
+    "gemini-3.5-flash-lite",
+    "ok"
+   ],
+   [
+    "classify",
+    "gemini-3.5-flash-lite",
+    "ok"
+   ],
+   [
+    "answer",
+    "gemini-3.5-flash-lite",
+    "ok"
+   ]
+  ],
+  "prompt_tokens": 1141,
+  "output_tokens": 39,
+  "latency_s": 4.7159230839988595
+ },
+ {
+  "id": "C-direct-05",
+  "category": "direct_factual",
+  "history_turns": 0,
+  "raw_query": "What would a spare burr set for my B3 espresso machine set me back?",
+  "rewritten_query": "What would a spare burr set for my B3 espresso machine set me back?",
+  "classifier_input": "What would a spare burr set for my B3 espresso machine set me back?",
+  "classification": "MEMORY",
+  "errors": {},
+  "retrieval_status": "not_run",
+  "retrieval_ran": false,
+  "gold_pages": [
+   [
+    "Harbourline_Price_List_and_Care_Plans_v4.1.pdf",
+    3
+   ]
+  ],
+  "gold_pages_retrieved": [],
+  "page_recall": 0.0,
+  "status": "abstained",
+  "correct": false,
+  "answer": "I couldn't find sufficient information in the provided documents.",
+  "requests": [
+   [
+    "classify",
+    "gemini-3.5-flash-lite",
+    "ok"
+   ],
+   [
+    "answer",
+    "gemini-3.5-flash-lite",
+    "ok"
+   ]
+  ],
+  "prompt_tokens": 740,
+  "output_tokens": 13,
+  "latency_s": 1.671538333001081
+ },
+ {
+  "id": "A-multipage-03",
+  "category": "multi_page",
+  "history_turns": 0,
+  "raw_query": "I'm expecting. Which jab does the clinic give during pregnancy and in which weeks, and what time does the Saturday session finish?",
+  "rewritten_query": "I'm expecting. Which jab does the clinic give during pregnancy and in which weeks, and what time does the Saturday session finish?",
+  "classifier_input": "I'm expecting. Which jab does the clinic give during pregnancy and in which weeks, and what time does the Saturday session finish?",
+  "classification": "MIXED",
+  "errors": {},
+  "retrieval_status": "ok",
+  "retrieval_ran": true,
+  "gold_pages": [
+   [
+    "Orchard_Lane_Clinic_Vaccination_and_Appointments_Guide.pdf",
+    1
+   ],
+   [
+    "Orchard_Lane_Clinic_Vaccination_and_Appointments_Guide.pdf",
+    3
+   ]
+  ],
+  "gold_pages_retrieved": [
+   [
+    "Orchard_Lane_Clinic_Vaccination_and_Appointments_Guide.pdf",
+    3
+   ]
+  ],
+  "page_recall": 0.5,
+  "status": "partial",
+  "correct": false,
+  "answer": "- The clinic gives the free Tdap (whooping cough) vaccine in each pregnancy, between 16 and 32 weeks [S2].\n- The clinic also offers seasonal flu vaccine to pregnant women, which is free for them [S4].\n- Regarding the Saturday session closing time, the provided documents do not contain information on when Saturday sessions finish, only stating that Saturday vaccination hours are unchanged [S1][S3].",
+  "requests": [
+   [
+    "classify",
+    "gemini-3.5-flash-lite",
+    "ok"
+   ],
+   [
+    "answer",
+    "gemini-3.5-flash-lite",
+    "ok"
+   ]
+  ],
+  "prompt_tokens": 1353,
+  "output_tokens": 96,
+  "latency_s": 1.9242923750007321
+ },
+ {
+  "id": "B-follow-03",
+  "category": "follow_up",
+  "history_turns": 2,
+  "raw_query": "And for part-timers?",
+  "rewritten_query": "When does a part-time MPhil student have to submit the upgrade report at Velmoor?",
+  "classifier_input": "When does a part-time MPhil student have to submit the upgrade report at Velmoor?",
+  "classification": "DOCUMENT",
+  "errors": {},
+  "retrieval_status": "ok",
+  "retrieval_ran": true,
+  "gold_pages": [
+   [
+    "velmoor_postgrad_handbook_v4.2.pdf",
+    2
+   ]
+  ],
+  "gold_pages_retrieved": [
+   [
+    "velmoor_postgrad_handbook_v4.2.pdf",
+    2
+   ]
+  ],
+  "page_recall": 1.0,
+  "status": "answered",
+  "correct": true,
+  "answer": "For part-time students, the upgrade report must be submitted in month 24 [S1].",
+  "requests": [
+   [
+    "rewrite",
+    "gemini-3.5-flash-lite",
+    "ok"
+   ],
+   [
+    "classify",
+    "gemini-3.5-flash-lite",
+    "ok"
+   ],
+   [
+    "answer",
+    "gemini-3.5-flash-lite",
+    "ok"
+   ]
+  ],
+  "prompt_tokens": 1155,
+  "output_tokens": 44,
+  "latency_s": 3.3774365420013055
+ },
+ {
+  "id": "D-multi_page-03",
+  "category": "multi_page",
+  "history_turns": 0,
+  "raw_query": "For a 7-hour flight to Lisbon, what cabin class may I book and what's the hotel cap per night?",
+  "rewritten_query": "For a 7-hour flight to Lisbon, what cabin class may I book and what's the hotel cap per night?",
+  "classifier_input": "For a 7-hour flight to Lisbon, what cabin class may I book and what's the hotel cap per night?",
+  "classification": "MIXED",
+  "errors": {},
+  "retrieval_status": "ok",
+  "retrieval_ran": true,
+  "gold_pages": [
+   [
+    "Corvane_Travel_Expense_Policy_FY27.pdf",
+    1
+   ],
+   [
+    "Corvane_Travel_Expense_Policy_FY27.pdf",
+    2
+   ]
+  ],
+  "gold_pages_retrieved": [
+   [
+    "Corvane_Travel_Expense_Policy_FY27.pdf",
+    1
+   ],
+   [
+    "Corvane_Travel_Expense_Policy_FY27.pdf",
+    2
+   ]
+  ],
+  "page_recall": 1.0,
+  "status": "answered",
+  "correct": true,
+  "answer": "For a 7-hour flight, premium economy is permitted [S2].\n\nRegarding the hotel cap per night, Lisbon is listed as a Tier 2 city with a hotel cap of USD 185 [S3].",
+  "requests": [
+   [
+    "classify",
+    "gemini-3.5-flash-lite",
+    "ok"
+   ],
+   [
+    "answer",
+    "gemini-3.5-flash-lite",
+    "ok"
+   ]
+  ],
+  "prompt_tokens": 1257,
+  "output_tokens": 53,
+  "latency_s": 2.8650477920000412
+ },
+ {
+  "id": "D-multi_page-04",
+  "category": "multi_page",
+  "history_turns": 0,
+  "raw_query": "Which contractor firm was involved in the bearing heater burn, and how hot can the induction heater surface get?",
+  "rewritten_query": "Which contractor firm was involved in the bearing heater burn, and how hot can the induction heater surface get?",
+  "classifier_input": "Which contractor firm was involved in the bearing heater burn, and how hot can the induction heater surface get?",
+  "classification": "MIXED",
+  "errors": {},
+  "retrieval_status": "ok",
+  "retrieval_ran": true,
+  "gold_pages": [
+   [
+    "Aquaflow_AF-Series_Maintenance_Manual_RevC.pdf",
+    4
+   ],
+   [
+    "Brannock_Ridge_Safety_SOP_Rev4.pdf",
+    4
+   ]
+  ],
+  "gold_pages_retrieved": [
+   [
+    "Aquaflow_AF-Series_Maintenance_Manual_RevC.pdf",
+    4
+   ]
+  ],
+  "page_recall": 0.5,
+  "status": "partial",
+  "correct": false,
+  "answer": "The provided documents do not contain any information about a contractor firm involved in a bearing heater burn [S1]. The induction heater surface can exceed 120 C [S1].",
+  "requests": [
+   [
+    "classify",
+    "gemini-3.5-flash-lite",
+    "ok"
+   ],
+   [
+    "answer",
+    "gemini-3.5-flash-lite",
+    "ok"
+   ]
+  ],
+  "prompt_tokens": 931,
+  "output_tokens": 42,
+  "latency_s": 4.05240749999939
+ }
+]
