@@ -315,7 +315,7 @@ check("15 RAG: answer text keeps its [S1] marker for traceability", "[S1]" in ou
 
 with mock.patch.object(rag, "generate_answer", side_effect=lambda p: "MEMORY" if "Classify" in p else "[MEMORY] ok"), \
         mock.patch.object(rag, "rewrite_query", side_effect=lambda query, history, memory_summary: query), \
-        mock.patch.object(rag, "hybrid_search") as spy:
+        mock.patch.object(rag, "hybrid_search_detailed") as spy:
     rag.ask_question("What did I tell you about my project?", memory_summary="x")
 check("15 RAG: memory questions still skip document retrieval", not spy.called)
 

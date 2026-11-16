@@ -62,6 +62,7 @@ CATEGORIES = {
         "test_p4_eval_framework.py",
         "test_batch1_provider_config.py",
         "test_stage5_retrieval.py",
+        "test_stage6_answer.py",
     ],
     "integration": [
         "test_memory_sources_regression.py",
@@ -89,6 +90,7 @@ CATEGORIES = {
         "test_stage4_ingestion.py",
         "test_stage4_ingestion_api.py",
         "test_stage5_retrieval_integration.py",
+        "test_stage6_answer_integration.py",
     ],
     # "live" = calls the real Gemini API. Verified by running the scripts with
     # outbound network blocked: these made blocked Gemini calls.

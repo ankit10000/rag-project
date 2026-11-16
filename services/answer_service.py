@@ -16,6 +16,7 @@ from services.citation_service import (
     validate_answer_citations,
 )
 from services.context_assembly_service import source_index
+from services.grounding_service import drop_unsupported_number_sentences, unsupported_numbers
 
 UNVERIFIED_MESSAGE = (
     "I found related passages in your documents, but I couldn't produce an "
@@ -147,6 +148,9 @@ def generate_grounded_answer(
             continue
 
         checked = answer_with_citations(body, sources)
+        # Numbers are checked whenever document grounding applies, including in
+        # an abstention that the next rule exempts from needing a citation.
+        check_uncited_numbers = needs_citations
 
         # A pure abstention / insufficiency statement needs no citation.
         # Only when EVERY sentence is an insufficiency statement; a factual
@@ -157,6 +161,12 @@ def generate_grounded_answer(
             needs_citations = False
 
         validation = validate_answer_citations(body, sources, require_citations=needs_citations)
+
+        # Stage 6: every number must be written in the passage it cites (or in the question).
+        ungrounded = unsupported_numbers(body, sources, question, check_uncited=check_uncited_numbers)
+        if ungrounded:
+            validation = {**validation, "valid": False,
+                          "issues": validation["issues"] + ["unsupported_number"]}
 
         if validation["valid"]:
             cited_docs = {c["document"] for c in checked["citations"]}
@@ -172,37 +182,55 @@ def generate_grounded_answer(
             "Do not write page numbers or filenames. If the passages do not "
             "contain the answer, say so instead of guessing."
         )
+        if ungrounded:
+            numbers = sorted({n for _, missing in ungrounded for n in missing})
+            feedback += (
+                f" These numbers are not written in the passages you cited: {', '.join(numbers)}. "
+                "Use only numbers that appear in the cited passage; do not calculate, "
+                "estimate or carry over numbers from elsewhere."
+            )
 
     # ---- bounded retries exhausted: safe fallback ---------------------------
     if last_body:
-        # Repair: drop invalid refs, then drop every sentence left without a
-        # citation (including a claim whose only citation was fabricated). Keep
-        # the answer only if valid citations remain and nothing fabricated was
-        # written in prose.
-        without_bad_refs = remove_invalid_refs(last_body, set(source_index(sources)))
-        dropped = uncited_claim_sentences(without_bad_refs)
-        repaired = drop_uncited_claims(without_bad_refs) if dropped else without_bad_refs
-        v = validate_answer_citations(repaired, sources, require_citations=True)
-        issues_blocking = [i for i in v["issues"] if i != "invalid_ref"]
-
-        if v["valid"] and not issues_blocking:
-            checked = answer_with_citations(repaired, sources)
-            cited_docs = {c["document"] for c in checked["citations"]}
-            repair_issues = ["repaired:" + ",".join(last_issues)]
-            if dropped:
-                repair_issues.append(f"dropped_uncited_sentences:{len(dropped)}")
-            return _result(checked["text"],
-                           classify_status(repaired, cited_docs, True),
-                           last_tag or "DOCUMENT", checked["citations"], v,
-                           attempts, issues=repair_issues)
-
-        if has_abstention_language(last_body) and not any(
-            i.startswith(("unknown_", "invalid")) for i in last_issues
-        ) and validate_answer_citations(
-            last_body, sources, require_citations=False
-        )["uncited_sentences"] == 0:
-            return _result(last_body, "abstained", last_tag, [], None, attempts, last_issues)
-
-        return _result(UNVERIFIED_MESSAGE, "unverified", last_tag, [], None, attempts, last_issues)
+        return _fallback(last_body, last_tag, last_issues, sources, question, attempts)
 
     return _result(ERROR_MESSAGE, "error", None, [], None, attempts, last_issues)
+
+
+def _fallback(last_body, last_tag, last_issues, sources, question, attempts):
+    """Repair the last reply, accept a pure abstention, or return UNVERIFIED."""
+    # Repair: drop invalid refs, then drop every sentence left without a
+    # citation (including a claim whose only citation was fabricated) and
+    # every sentence with a number its evidence does not contain. Keep the
+    # answer only if valid citations remain and nothing fabricated was
+    # written in prose.
+    without_bad_refs = remove_invalid_refs(last_body, set(source_index(sources)))
+    dropped = uncited_claim_sentences(without_bad_refs)
+    repaired = drop_uncited_claims(without_bad_refs) if dropped else without_bad_refs
+    number_dropped = unsupported_numbers(repaired, sources, question)
+    if number_dropped:
+        repaired = drop_unsupported_number_sentences(repaired, sources, question)
+    v = validate_answer_citations(repaired, sources, require_citations=True)
+    issues_blocking = [i for i in v["issues"] if i != "invalid_ref"]
+
+    if v["valid"] and not issues_blocking:
+        checked = answer_with_citations(repaired, sources)
+        cited_docs = {c["document"] for c in checked["citations"]}
+        repair_issues = ["repaired:" + ",".join(last_issues)]
+        if dropped:
+            repair_issues.append(f"dropped_uncited_sentences:{len(dropped)}")
+        if number_dropped:
+            repair_issues.append(f"dropped_unsupported_number_sentences:{len(number_dropped)}")
+        return _result(checked["text"],
+                       classify_status(repaired, cited_docs, True),
+                       last_tag or "DOCUMENT", checked["citations"], v,
+                       attempts, issues=repair_issues)
+
+    if has_abstention_language(last_body) and not any(
+        i.startswith(("unknown_", "invalid")) for i in last_issues
+    ) and validate_answer_citations(
+        last_body, sources, require_citations=False
+    )["uncited_sentences"] == 0 and not unsupported_numbers(last_body, sources, question):
+        return _result(last_body, "abstained", last_tag, [], None, attempts, last_issues)
+
+    return _result(UNVERIFIED_MESSAGE, "unverified", last_tag, [], None, attempts, last_issues)

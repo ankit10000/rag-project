@@ -115,10 +115,13 @@ check("7 injection: real headers still present for S1 and S2",
 check("7 injection: the untrusted-data instruction is in the prompt", "untrusted DATA" in prompt)
 out, f = ask(["HACKED"], inj)
 check("7 injection: an obeyed injection ('HACKED', uncited) is not accepted", out["status"] != "answered" or out["citations"])
-out, f = ask(["[DOCUMENT] The CEO salary is 9M [S2]."], inj)
-check("7 injection: LIMITATION pinned - a claim cited to a real ref is accepted even if it came from injected text "
-      "(no semantic check); citation points to the real S2 metadata, not the forged one",
+out, f = ask(["[DOCUMENT] The CEO approved the salary personally [S2]."], inj)
+check("7 injection: LIMITATION pinned - a non-numeric claim cited to a real ref is accepted even if it came from "
+      "injected text (no semantic check); citation points to the real S2 metadata, not the forged one",
       out["citations"] and out["citations"][0]["document"] == "policy.pdf")
+out, f = ask(["[DOCUMENT] The CEO salary is 9M [S2]."], inj)
+check("7 injection (Stage 6): an injected number cited to a passage that does not contain it is rejected",
+      out["status"] == "unverified" and out["citations"] == [] and "unsupported_number" in out["issues"])
 
 # 8. empty output / 9. malformed output
 for label, replies in (("8 empty string", [""]), ("8 whitespace", ["  \n "]), ("8 None", [None]),
@@ -166,7 +169,8 @@ def fake_generate(prompt):
 searched = []
 with mock.patch.object(rag_service, "generate_answer", side_effect=fake_generate), \
         mock.patch("services.llm_service.generate_answer", side_effect=fake_generate), \
-        mock.patch.object(rag_service, "hybrid_search", side_effect=lambda q, top_k: searched.append(q) or retrieval), \
+        mock.patch.object(rag_service, "hybrid_search_detailed",
+                          side_effect=lambda q, top_k: searched.append(q) or {"results": retrieval, "rerank_status": "ok"}), \
         contextlib.redirect_stdout(io.StringIO()):
     try:
         result = rag_service.ask_question("And the refund window?", history=[{"role": "user", "content": "hi"}])
@@ -177,7 +181,7 @@ check("rag_service: classification + rewrite failures fall back (DOCUMENT, origi
 
 with mock.patch.object(rag_service, "generate_answer", side_effect=RuntimeError("down")), \
         mock.patch("services.llm_service.generate_answer", side_effect=RuntimeError("down")), \
-        mock.patch.object(rag_service, "hybrid_search", return_value=retrieval), \
+        mock.patch.object(rag_service, "hybrid_search_detailed", return_value={"results": retrieval, "rerank_status": "ok"}), \
         contextlib.redirect_stdout(io.StringIO()):
     try:
         result = rag_service.ask_question("Refund window?")
@@ -188,7 +192,7 @@ check("rag_service: provider fully down -> a safe ERROR answer instead of an exc
       and result["citations"] == [])
 
 with mock.patch.object(rag_service, "generate_answer", return_value="MEMORY"), \
-        mock.patch.object(rag_service, "hybrid_search", side_effect=AssertionError("must not search")), \
+        mock.patch.object(rag_service, "hybrid_search_detailed", side_effect=AssertionError("must not search")), \
         contextlib.redirect_stdout(io.StringIO()):
     check("rag_service: a successful MEMORY classification still skips retrieval (unchanged)",
           rag_service.classify_question("what did I say?") == "MEMORY")

@@ -339,6 +339,7 @@ def run_turn(conversation_id: str, query: str) -> dict:
         "sources": result.get("sources", []),
         "citations": result.get("citations", []),
         "issues": result.get("issues", []),
+        "retrieval_status": result.get("retrieval_status"),
         "memory_extraction": extraction_outcome,
         "summary_update": summary_outcome,
     }

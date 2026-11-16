@@ -1,0 +1,2000 @@
+{
+ "tier1": {
+  "summary": {
+   "cases": 47,
+   "correct_before": 42,
+   "correct_after": 42,
+   "unsupported_before": 0,
+   "unsupported_after": 0,
+   "status_transitions": {
+    "answered->answered": 36,
+    "abstained->abstained": 9,
+    "conflict->conflict": 1,
+    "partial->partial": 1
+   },
+   "answers_changed": []
+  },
+  "per_case": [
+   {
+    "id": "A-direct-05",
+    "category": "direct_factual",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "A-direct-07",
+    "category": "direct_factual",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "A-multichunk-03",
+    "category": "multi_chunk",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "A-multichunk-04",
+    "category": "multi_chunk",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "A-multipage-03",
+    "category": "multi_page",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "A-multipage-04",
+    "category": "multi_page",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "A-noanswer-03",
+    "category": "no_answer",
+    "status": [
+     "abstained",
+     "abstained"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "A-conflict-02",
+    "category": "direct_factual",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "A-injection-04",
+    "category": "prompt_injection",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "A-irrelevant-02",
+    "category": "irrelevant_retrieval",
+    "status": [
+     "abstained",
+     "abstained"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-direct-03",
+    "category": "direct_factual",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-chunk-03",
+    "category": "multi_chunk",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-comp-02",
+    "category": "compound",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-comp-04",
+    "category": "compound",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     false,
+     false
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-comp-05",
+    "category": "compound",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-none-01",
+    "category": "no_answer",
+    "status": [
+     "abstained",
+     "abstained"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-conf-02",
+    "category": "conflicting",
+    "status": [
+     "conflict",
+     "conflict"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-conf-03",
+    "category": "conflicting",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-conf-04",
+    "category": "conflicting",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     false,
+     false
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-follow-03",
+    "category": "follow_up",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-inject-02",
+    "category": "prompt_injection",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-inject-03",
+    "category": "prompt_injection",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-inject-04",
+    "category": "prompt_injection",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-irrel-01",
+    "category": "irrelevant_retrieval",
+    "status": [
+     "abstained",
+     "abstained"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "C-direct-02",
+    "category": "direct_factual",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "C-direct-05",
+    "category": "direct_factual",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "C-direct-07",
+    "category": "direct_factual",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "C-compound-01",
+    "category": "compound",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "C-multi_page-03",
+    "category": "multi_page",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "C-prompt_injection-01",
+    "category": "prompt_injection",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "C-prompt_injection-04",
+    "category": "prompt_injection",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "C-irrelevant_retrieval-01",
+    "category": "irrelevant_retrieval",
+    "status": [
+     "abstained",
+     "abstained"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "C-missing_metadata-01",
+    "category": "missing_metadata",
+    "status": [
+     "abstained",
+     "abstained"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     false,
+     false
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-direct-01",
+    "category": "direct_factual",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-direct-04",
+    "category": "direct_factual",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-direct-05",
+    "category": "direct_factual",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-multi_chunk-03",
+    "category": "multi_chunk",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-compound-04",
+    "category": "compound",
+    "status": [
+     "partial",
+     "partial"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-multi_page-03",
+    "category": "multi_page",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-multi_page-04",
+    "category": "multi_page",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-no_answer-01",
+    "category": "no_answer",
+    "status": [
+     "abstained",
+     "abstained"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-no_answer-03",
+    "category": "no_answer",
+    "status": [
+     "abstained",
+     "abstained"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-conflicting-01",
+    "category": "conflicting",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-conflicting-03",
+    "category": "conflicting",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     false,
+     false
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-conflicting-04",
+    "category": "conflicting",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     false,
+     false
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-follow_up-04",
+    "category": "follow_up",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-irrelevant_retrieval-01",
+    "category": "irrelevant_retrieval",
+    "status": [
+     "abstained",
+     "abstained"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   }
+  ]
+ },
+ "tier2": {
+  "summary": {
+   "cases": 42,
+   "correct_before": 28,
+   "correct_after": 28,
+   "unsupported_before": 1,
+   "unsupported_after": 1,
+   "status_transitions": {
+    "answered->answered": 29,
+    "partial->partial": 6,
+    "abstained->abstained": 6,
+    "conflict->conflict": 1
+   },
+   "answers_changed": []
+  },
+  "per_case": [
+   {
+    "id": "A-direct-05",
+    "category": "direct_factual",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "A-direct-07",
+    "category": "direct_factual",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "A-multichunk-03",
+    "category": "multi_chunk",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "A-multichunk-04",
+    "category": "multi_chunk",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     false,
+     false
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "A-multipage-03",
+    "category": "multi_page",
+    "status": [
+     "partial",
+     "partial"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     false,
+     false
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "A-multipage-04",
+    "category": "multi_page",
+    "status": [
+     "partial",
+     "partial"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     false,
+     false
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "A-noanswer-03",
+    "category": "no_answer",
+    "status": [
+     "abstained",
+     "abstained"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "A-conflict-02",
+    "category": "direct_factual",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "A-injection-04",
+    "category": "prompt_injection",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-direct-03",
+    "category": "direct_factual",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-chunk-03",
+    "category": "multi_chunk",
+    "status": [
+     "partial",
+     "partial"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     false,
+     false
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-comp-02",
+    "category": "compound",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-comp-04",
+    "category": "compound",
+    "status": [
+     "partial",
+     "partial"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-comp-05",
+    "category": "compound",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-none-01",
+    "category": "no_answer",
+    "status": [
+     "abstained",
+     "abstained"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-conf-02",
+    "category": "conflicting",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     false,
+     false
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-conf-03",
+    "category": "conflicting",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     false,
+     false
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-conf-04",
+    "category": "conflicting",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     false,
+     false
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-follow-03",
+    "category": "follow_up",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-inject-02",
+    "category": "prompt_injection",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-inject-03",
+    "category": "prompt_injection",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "B-inject-04",
+    "category": "prompt_injection",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     false,
+     false
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "C-direct-02",
+    "category": "direct_factual",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "C-direct-05",
+    "category": "direct_factual",
+    "status": [
+     "abstained",
+     "abstained"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     false,
+     false
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "C-direct-07",
+    "category": "direct_factual",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "C-compound-01",
+    "category": "compound",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "C-multi_page-03",
+    "category": "multi_page",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     false,
+     false
+    ],
+    "ungrounded_numbers": [
+     [
+      "4.0"
+     ],
+     [
+      "4.0"
+     ]
+    ],
+    "unsupported": [
+     true,
+     true
+    ]
+   },
+   {
+    "id": "C-prompt_injection-01",
+    "category": "prompt_injection",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "C-prompt_injection-04",
+    "category": "prompt_injection",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-direct-01",
+    "category": "direct_factual",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-direct-04",
+    "category": "direct_factual",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-direct-05",
+    "category": "direct_factual",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-multi_chunk-03",
+    "category": "multi_chunk",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-compound-04",
+    "category": "compound",
+    "status": [
+     "partial",
+     "partial"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-multi_page-03",
+    "category": "multi_page",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-multi_page-04",
+    "category": "multi_page",
+    "status": [
+     "partial",
+     "partial"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     false,
+     false
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-no_answer-01",
+    "category": "no_answer",
+    "status": [
+     "abstained",
+     "abstained"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-no_answer-03",
+    "category": "no_answer",
+    "status": [
+     "abstained",
+     "abstained"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-conflicting-01",
+    "category": "conflicting",
+    "status": [
+     "conflict",
+     "conflict"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     true,
+     true
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-conflicting-03",
+    "category": "conflicting",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     false,
+     false
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-conflicting-04",
+    "category": "conflicting",
+    "status": [
+     "answered",
+     "answered"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     false,
+     false
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   },
+   {
+    "id": "D-follow_up-04",
+    "category": "follow_up",
+    "status": [
+     "abstained",
+     "abstained"
+    ],
+    "answer_changed": false,
+    "issues_after": [],
+    "correct": [
+     false,
+     false
+    ],
+    "ungrounded_numbers": [
+     [],
+     []
+    ],
+    "unsupported": [
+     false,
+     false
+    ]
+   }
+  ]
+ }
+}

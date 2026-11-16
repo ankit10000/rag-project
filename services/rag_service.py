@@ -1,5 +1,5 @@
 from services import retrieval_config as cfg
-from services.hybrid_search_service import hybrid_search
+from services.hybrid_search_service import hybrid_search_detailed
 from services.llm_service import generate_answer, rewrite_query
 from services.answer_prompt import REFUSAL_MESSAGE
 from services.answer_service import generate_grounded_answer
@@ -77,10 +77,17 @@ def ask_question(
     # Step 2: Retrieve document chunks only when needed
     if question_type == "MEMORY":
         results = []
+        retrieval_status = "not_run"
         print("Memory question detected. Skipping document retrieval.")
 
     else:
-        results = hybrid_search(search_query, top_k=cfg.FINAL_TOP_K)
+        # Stage 6: the detailed call (same arguments and results as the
+        # hybrid_search wrapper) also reports the Stage 5 rerank_status:
+        # ok | disabled | skipped | failed:<ExceptionType>.
+        retrieval = hybrid_search_detailed(search_query, top_k=cfg.FINAL_TOP_K)
+        results = retrieval["results"]
+        retrieval_status = retrieval["rerank_status"]
+        print(f"Retrieval status: {retrieval_status}")
 
     # Step 3: Filter chunks using adaptive reranker threshold
     if results and "rerank_score" in results[0]:
@@ -150,6 +157,9 @@ def ask_question(
         "citations": outcome["citations"],
         "status": outcome["status"],
         "issues": outcome["issues"],
+        # Stage 6: how retrieval ran; "not_run" when no retrieval was needed.
+        # Not used to change the answer (the no-rerank policy, H.1, is undecided).
+        "retrieval_status": retrieval_status,
         "retrieved": [
             {k: s[k] for k in ("ref", "chunk_id", "document_name", "page_number", "retrieval_score")}
             for s in bundle["sources"]
