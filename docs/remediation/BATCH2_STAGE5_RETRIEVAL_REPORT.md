@@ -300,3 +300,192 @@ The no-rerank relevance gate has an **explicit, tested policy** (no score gate w
 
 ### Stage 6 readiness
 **Ready**, on the condition that H.1 is decided before relying on no-rerank mode in production. With the default (reranking enabled and the model cached), the gate is active, and a reranker failure now degrades to the RRF order instead of failing the turn. Stage 6 was not started.
+
+---
+
+## H.1 — Development-Only Relevance Gate Evaluation
+
+**Date:** 2026-11-16 (follow-up, after Stage 5 was committed as `09e6007`). **Scope:** measurement only.
+The original Stage 5 sections above are unchanged.
+**Not done:**
+- No application code, default, threshold, dataset, split or schema changed. `SIMILARITY_THRESHOLD` stays unset and `BM25_DROP_STOPWORDS` stays `False`.
+- No held-out case was retrieved or scored, no LLM was called, and nothing was committed or pushed.
+
+### H.1.1 Environment and database target
+
+| Item | Value |
+|---|---|
+| Machine | macOS (Apple silicon). This is the first run on this machine; earlier sections ran on Windows 11 |
+| HEAD | `09e6007`, `main` = `origin/main`. Untracked before this work: `.vscode/` only |
+| Python | 3.14.5 (`.venv`); the Windows runs used 3.14.10 |
+| PostgreSQL | 18.7 (Homebrew), pgvector 0.8.7 |
+| Evaluation database | `rag_phase35_eval`, the existing Tier 2 scratch name, created new and empty by `eval/harness.use_scratch_database`. The script asserts `current_database() = 'rag_phase35_eval'` and `harness.assert_scratch()` before any work |
+| `rag_db` on this machine | A **fresh, empty** schema (migrations 000–003) created on 2026-11-16. It is **not** the Windows application database. Its read-only fingerprint (`run_tests.fingerprint`) was identical before and after (all 5 tables: 0 rows) |
+
+**Database writes:** only `rag_phase35_eval`, which got 12 synthetic PDFs from the evaluation corpus and 135 chunks through the real `ingest_pdf`, using `run_eval.build_scratch_corpus` (unchanged). No other database was written.
+
+### H.1.2 Dataset and method
+
+- **Dataset:** `eval/phase35` data A–D (160 cases, 12 documents, 56 pages). `build_manifest` reports it valid, and the split rule matches the runner.
+  - Dataset hash: `dataset_sha256 5c58796a…a7d6a1`.
+  - Split hash: `split_sha256 a185fa1c…44244`.
+- **Cases used:** the **dev** split, Tier 2 cases (`tier == "both"`): **42 cases**. 38 have gold pages; 4 are `no_answer` (`A-noanswer-03`, `B-none-01`, `D-no_answer-01`, `D-no_answer-03`).
+  - Held-out cases are loaded only for dataset validation (`run_eval.load_all`) and are never retrieved.
+- **Queries:** the raw case question. The production path first rewrites the query with Gemini, and earlier Tier 2 results do not store the rewritten text. This affects the 2 `follow_up` cases.
+- **Path under test:** the **no-rerank** path. This is where the H.1 gap is: `rag_service`'s margin/min-score gate needs a `rerank_score`.
+  - Simulation: RRF over `[keyword, vector]`, then the first `FINAL_TOP_K`, then `assemble_context`.
+  - Check: at T = none, the simulated top-5 equals `hybrid_search_detailed(rerank=False)` chunk-for-chunk in **42/42 cases under both stopword settings** (0 mismatches).
+- **Settings:** the defaults, unchanged:
+  - `VECTOR_TOP_K = BM25_TOP_K = 10`, `RRF_K = 60`, `RRF_TOP_K = 10`, `FINAL_TOP_K = 5`, `CONTEXT_MAX_CHUNKS = 8`.
+  - `BM25_BACKEND = memory`, `EMBEDDING_MODEL = all-MiniLM-L6-v2`.
+  - Every option is passed as an explicit argument; no environment variable was changed.
+- **Configurations:**
+  - **E (existing):** no threshold, stopwords kept.
+  - **(a):** cosine floor T. The vector list is filtered at T, which is the existing `SIMILARITY_THRESHOLD` semantics, and *every* fused candidate, keyword-only ones included, needs cosine similarity ≥ T ("vector support"). Two variants:
+    - **with refill:** gate the RRF pool of 10, then keep 5.
+    - **without refill:** keep 5, then gate. This is how the existing margin gate works.
+  - **(b):** `drop_stopwords=True`, the existing BM25 path.
+  - **(a)+(b):** both together.
+- **Calibration for (a):**
+  - Grid: T = 0.00, 0.05, …, 0.70.
+  - Rule, **fixed before looking at the results:** take the largest T at which no answerable case loses all of its gold pages and no case's page recall falls below its T = none value.
+  - Stability: recomputed with each answerable case left out in turn (leave-one-out).
+
+### H.1.3 Metrics
+
+The existing metrics come from `eval/framework/retrieval_metrics.case_metrics`. The unit is the (document, page) pair: a chunk counts as relevant when its page is a gold page. Those metrics are page recall, precision@5 (a fixed K, so missing slots count as misses), MRR and nDCG@5, averaged over the 38 answerable cases.
+
+The framework has no "relevant / irrelevant retrieval rate", so these are defined here:
+- **Relevant retrieval rate:** the share of the 38 answerable cases whose final context contains at least one gold-page chunk.
+- **Irrelevant retrieval rate:** non-gold chunks divided by all chunks returned, over all 42 cases. A chunk returned for a no-answer case always counts as irrelevant.
+- **No-answer leakage:** the number of no-answer cases that still get any context, and how many chunks they get.
+- **Keyword-only candidate:** a chunk in the final context that is not in the vector top-10. "Removed" and "relevant lost" are counted against the T = none context of the same stopword setting.
+
+### H.1.4 Command
+
+```
+.venv/bin/python -m eval.h1_relevance_gate --output eval/results/h1_relevance_gate_dev.json             # run 1: ingest + measure
+.venv/bin/python -m eval.h1_relevance_gate --output eval/results/h1_relevance_gate_dev.json --no-ingest # run 2: adds the no-refill variant
+```
+
+- The script is `eval/h1_relevance_gate.py` (new, untracked).
+- Raw results are in `eval/results/h1_relevance_gate_dev.json` (new, untracked; the file is opened in mode `x`, so it is never overwritten).
+- Run 1's output was kept outside the repository. Its with-refill summaries and per-case contexts are **identical** to run 2, so the retrieval is deterministic.
+
+### H.1.5 Results
+
+**Reference: the default reranked path** (cross-encoder plus `rag_service`'s margin gate, `rerank_status = ok` in 42/42 cases):
+- Relevant rate **0.921**, irrelevant rate **0.359** (28 of 78 chunks).
+- Page recall 0.842, MRR 0.833, nDCG@5 0.800.
+- No-answer leakage: 4 of 4 cases, 5 chunks. Median latency 58.0 ms.
+
+**Table 1: no-rerank, gate *without* refill** (matches the existing gate style):
+
+| Configuration | Rel. rate | Irrel. rate (chunks) | Page recall | P@5 | MRR | nDCG@5 | No-answer leakage | KW-only returned / removed / relevant lost | Contexts changed vs E |
+|---|---|---|---|---|---|---|---|---|---|
+| **E** existing | 0.947 | 0.652 (137/210) | 0.934 | 0.253 | 0.882 | 0.892 | 4/4 cases, 20 chunks | 23 / – / – | – |
+| (a) T=0.10 | 0.947 | 0.647 (132/204) | 0.934 | 0.253 | 0.868 | 0.882 | 4/4, 19 | 17 / 6 / 1 | 5 |
+| **(a) T=0.15** (calibrated) | 0.947 | 0.636 (126/198) | 0.934 | 0.253 | 0.868 | 0.882 | 4/4, 18 | 11 / 12 / 1 | 10 |
+| (a) T=0.20 | **0.921** | 0.628 (120/191) | 0.908 | 0.247 | 0.855 | 0.866 | 4/4, 18 | 4 / 19 / 2 | 13 |
+| (a) T=0.30 | 0.895 | 0.609 (109/179) | 0.868 | 0.237 | 0.842 | 0.839 | 4/4, 16 | 3 / 20 / 2 | 18 |
+| (a) T=0.40 | 0.842 | 0.544 (74/136) | 0.776 | 0.205 | 0.803 | 0.766 | 4/4, 13 | 0 / 23 / 2 | 34 |
+| (a) T=0.50 | 0.658 | 0.471 (33/70) | 0.579 | 0.142 | 0.632 | 0.577 | 3/4, 6 | 0 / 23 / 2 | 41 |
+| **(b)** stopwords | 0.947 | 0.648 (136/210) | 0.934 | 0.253 | 0.890 | 0.894 | 4/4, 20 | 18 / – / – | 29 (25 with a different chunk set) |
+| **(a)+(b)** T=0.15 | 0.947 | 0.633 (126/199) | 0.934 | 0.253 | 0.890 | 0.894 | 4/4, 18 | 7 / 11 / 1 | 9 vs (b) |
+
+At T ≥ 0.55, at least 17 answerable cases get no context at all, and at T = 0.70 relevant retrieval falls to 0.105. Every T value is in the JSON.
+
+**Table 2: no-rerank, gate *with* refill** (gate the pool of 10, then keep 5):
+
+| Configuration | Rel. rate | Irrel. rate (chunks) | Page recall | MRR | nDCG@5 | No-answer leakage | KW-only removed / relevant lost |
+|---|---|---|---|---|---|---|---|
+| E | 0.947 | 0.652 (137/210) | 0.934 | 0.882 | 0.892 | 4/4, 20 | – |
+| (a) T=0.15 | 0.947 | 0.652 (137/210) | 0.934 | 0.868 | 0.882 | 4/4, 20 | 12 / 1 |
+| (a)+(b) T=0.15 | 0.947 | 0.652 (137/210) | 0.934 | 0.890 | 0.894 | 4/4, 20 | 11 / 1 |
+
+With refill, every removed keyword-only chunk is replaced by another non-gold chunk from deeper in the pool. The irrelevant rate does not move at the calibrated T, so the refill variant gives no benefit and is not considered further.
+
+**Calibration evidence for (a)**, identical for both stopword settings:
+- **Calibrated T = 0.15.** Leave-one-out gives T between 0.15 and 0.20: dropping **one** case, `B-follow-03`, raises T to 0.20.
+  - `B-follow-03` is a follow-up question evaluated **without** the production query rewrite. The calibrated value is therefore set by a case whose query is not what production would search with.
+- **Cases that lose relevance as T rises:**
+
+  | T | Cases losing relevance |
+  |---|---|
+  | 0.20 | `B-follow-03` |
+  | 0.25 | + `D-direct-05` |
+  | 0.30 | + `D-multi_page-04` |
+  | 0.40 | 7–8 cases |
+  | 0.50 | 16 cases |
+
+- **Cosine similarity of every candidate** in the vector and keyword top-10 lists, with stopwords kept:
+
+  | Candidates | n | min | p10 | median | p90 | max |
+  |---|---|---|---|---|---|---|
+  | On a gold page | 97 | 0.094 | 0.311 | 0.482 | 0.627 | 0.796 |
+  | Other | 541 | −0.093 | 0.096 | 0.311 | 0.482 | 0.639 |
+
+  The two groups overlap heavily: the 10th percentile of gold candidates equals the median of the others, and the best non-gold candidate (0.639) scores above 90% of gold candidates. No single cosine value separates relevant from irrelevant chunks on this corpus.
+
+**Effect of stopword removal (b):**
+- The keyword top-10 changed order in **42/42** cases and changed membership in **38/42**.
+- The final context changed in 29/42 cases (25 with a different chunk set).
+- The first gold rank improved in 1 case and got worse in 1.
+- The relevance metrics barely move:
+
+  | Metric | Before | After | Change |
+  |---|---|---|---|
+  | Irrelevant chunks | 137 | 136 | −1 |
+  | MRR | 0.882 | 0.890 | +0.008 |
+  | nDCG@5 | 0.892 | 0.894 | +0.002 |
+  | Keyword-only chunks in context | 23 | 18 | −5 |
+
+- No-answer leakage did not change. The FTS backend ignores this setting (see H, Limitations).
+
+**Latency** (medians per query, run 2, warm caches):
+
+| Measurement | Median |
+|---|---|
+| BM25 search, stopwords kept | 6.1 ms |
+| BM25 search, stopwords removed | 6.0 ms |
+| Full no-rerank retrieval (either setting) | 13.1 ms |
+| Similarity lookup for the gate (an extra query, ~10–20 candidate ids) | 6.4 ms |
+
+- Run-to-run variation was about 1 ms (run 1: 5.4, 5.5, 11.8 and 5.8 ms in the same order).
+- Neither option has a meaningful latency cost. The gate's lookup could be folded into the vector query if it were ever implemented.
+
+### H.1.6 Trade-offs
+
+- **(a) at the only threshold that loses nothing on dev (0.15, without refill):**
+  - Removes 11 of 137 irrelevant chunks (irrelevant rate 0.652 → 0.636).
+  - Stops **0 of 4** no-answer cases from receiving context (20 → 18 chunks).
+  - Still drops one relevant keyword-only chunk: MRR −0.014, nDCG@5 −0.010, one case's first gold rank gets worse.
+  - Each higher grid value loses whole answerable cases before it removes much irrelevant content.
+  - Keeping no-answer cases out would need T ≥ 0.5–0.65, which cuts relevant retrieval to 0.66–0.16.
+  - The calibrated value rests on 38 answerable cases, its binding case is an unrewritten follow-up, and the similarity distributions overlap. **The dev set cannot support a reliable threshold.**
+- **(b):** neutral on every relevance metric (changes of 1 chunk or less, or 0.01 or less) but reorders most contexts. There is no measured benefit to justify the churn, and it would also change the default reranked path's candidate pool, which was not part of this measurement.
+- **(a)+(b):** the same small irrelevant-chunk reduction as (a), and (b) happens to avoid (a)'s MRR loss on this set. That is a single-case difference and not a basis for a default.
+- **The real gap:**
+  - Even the best variant leaves the no-rerank path at an irrelevant rate of about 0.63, against **0.359** with the reranker plus margin gate.
+  - What actually filters irrelevant content in this pipeline is the cross-encoder plus margin gate, not a cosine or stopword tweak.
+  - No configuration tested here, including the reranked path, stops the 4 no-answer cases from receiving some context. Abstaining on those is left to the answer layer, as in the Stage B dev run.
+- **Limits of this measurement:**
+  - Relevance is judged at page level: a chunk on a gold page counts as relevant even if it lacks the fact.
+  - Raw questions were used (no query rewrite).
+  - The corpus is small (135 chunks).
+  - Setting `SIMILARITY_THRESHOLD` would also filter the vector list in the *reranked* path; that was not measured, because neither option is recommended.
+
+### H.1.7 Recommendation
+
+**Adopt neither.**
+- **(a): insufficient evidence for calibration.** The only safe dev value (0.15) brings a negligible benefit and depends on one unrepresentative case. No threshold is proposed, and `SIMILARITY_THRESHOLD` remains unset.
+- **(b): no measurable benefit.** It is neutral on relevance and causes large ranking churn.
+
+H.1 stays **open** as a policy decision rather than a tuning task. These options need separate approval and are not implemented:
+1. **(c) Fail closed:** when the reranker is disabled or fails, return no document context (or a user-visible "degraded retrieval" status) instead of ungated RRF results.
+2. **Keep the reranker as a hard dependency** of document answers, and add a startup check that the model is cached locally.
+3. Repeat (a) only on a larger dev set, with the rewritten queries stored, so any threshold rests on more than ~40 cases.
+
+No production default was changed.
+
+**Stage 5 status:** unchanged, **PASS WITH KNOWN ISSUES**. The known issue (no-rerank relevance gate) is now measured, not just described.
