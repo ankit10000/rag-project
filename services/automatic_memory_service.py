@@ -12,12 +12,8 @@ from services.memory_storage_service import (
 )
 
 
-# Phase 1 Task 4 candidate-coverage contract. Automatic NEW/DUPLICATE/UPDATE
-# detection compares a new memory only with the latest N memories of the
-# conversation (highest ids first). A conflicting or duplicate memory OLDER
-# than this window is NOT considered by automatic update detection; there is
-# deliberately no full-history fallback scan and no additional ranking.
-# (Explicit deletion requests use get_all_conversation_memories instead.)
+# Compatibility helper limit only. Automatic decisions use the complete eligible
+# conversation history so older duplicates and corrections are considered.
 AUTOMATIC_CANDIDATE_WINDOW = 20
 
 from services.memory_consolidation_service import (
@@ -46,8 +42,7 @@ def normalize_memory_id(memory_id):
 def get_recent_memories(conversation_id: str, limit: int = AUTOMATIC_CANDIDATE_WINDOW):
     """Latest ``limit`` memories of this conversation, newest first (by id).
 
-    This is the complete automatic-update candidate set; see
-    AUTOMATIC_CANDIDATE_WINDOW for the documented coverage limitation.
+    Retained for callers explicitly requesting a recent preview.
     """
     with get_connection() as conn:
         with conn.cursor() as cursor:
@@ -82,9 +77,10 @@ def _save_new_retaining_existing(conversation_id, new_memory, source_ids, allow_
     return "SAVED" if saved else "SKIPPED"
 
 
-def get_all_conversation_memories(conversation_id: str):
+def get_all_conversation_memories(conversation_id: str, exclude_memory_ids=None, *, eligible_only=False):
     """
-    Fetch every memory belonging to this conversation only.
+    Fetch conversation-scoped memories. Automatic candidates require eligible_only;
+    explicit forgetting includes quarantined and unsupported rows for removal.
     """
     with get_connection() as conn:
         with conn.cursor() as cursor:
@@ -100,9 +96,15 @@ def get_all_conversation_memories(conversation_id: str):
 
             rows = cursor.fetchall()
 
+    eligible = {int(row[0]) for row in rows}
+    if eligible_only:
+        from services.legacy_provenance_quarantine import eligible_memory_ids
+        eligible = eligible_memory_ids(conversation_id, sorted(eligible))
+    excluded = set(exclude_memory_ids or ())
     return [
         (int(memory_id), memory_text)
         for memory_id, memory_text in rows
+        if int(memory_id) in eligible and int(memory_id) not in excluded
     ]
 
 
@@ -115,6 +117,7 @@ def process_memory(
     delete_only: bool = False,
     allow_delete: bool = False,
     source_message_ids: list[int] | None = None,
+    exclude_memory_ids=None,
 ) -> str:
 
     # Validate supplied provenance before candidate lookup or a model decision.
@@ -135,16 +138,19 @@ def process_memory(
         return "UNCERTAIN"
 
     if candidate_memories is None:
-        existing_memories = get_recent_memories(conversation_id)
+        existing_memories = get_all_conversation_memories(
+            conversation_id, exclude_memory_ids=exclude_memory_ids, eligible_only=True
+        )
     else:
         existing_memories = candidate_memories
 
     normalized_memories = []
+    excluded_ids = set(exclude_memory_ids or ())
 
     for memory_id, memory_text in existing_memories:
         normalized_id = normalize_memory_id(memory_id)
 
-        if normalized_id is not None:
+        if normalized_id is not None and normalized_id not in excluded_ids:
             normalized_memories.append(
                 (normalized_id, memory_text)
             )
@@ -184,11 +190,13 @@ def process_memory(
     if not delete_only and source_ids:
         exact_id = find_exact_duplicate(new_memory, existing_memories)
         if exact_id is not None:
-            confirm_memory(
+            confirmed = confirm_memory(
                 conversation_id=conversation_id,
                 memory_id=exact_id,
                 source_message_ids=source_ids,
             )
+            if not confirmed:
+                return "UNCERTAIN"
             print(f"Exact duplicate of memory {exact_id}: confirmation linked, nothing saved.")
             return "SKIPPED"
 
@@ -196,6 +204,9 @@ def process_memory(
         new_memory=new_memory,
         existing_memories=existing_memories,
     )
+
+    if not isinstance(decision, dict):
+        return "UNCERTAIN"
 
     action = str(
         decision.get("action", "UNCERTAIN")
@@ -265,13 +276,16 @@ def process_memory(
         # The restating message becomes supporting evidence of the existing
         # memory. Without a valid memory id nothing is linked (no guessing).
         if memory_id in valid_ids:
-            confirm_memory(
+            confirmed = confirm_memory(
                 conversation_id=conversation_id,
                 memory_id=memory_id,
                 source_message_ids=source_ids,
             )
+            if not confirmed:
+                return "UNCERTAIN"
         else:
             print("Duplicate without a valid memory id: not linked.")
+            return "UNCERTAIN"
 
         print("Duplicate memory skipped.")
         return "SKIPPED"
@@ -315,7 +329,7 @@ def process_memory(
             source_message_ids=source_ids,
         )
 
-        return "UPDATED" if updated else "SKIPPED"
+        return "UPDATED" if updated else "UNCERTAIN"
 
     elif action == "DELETE":
 
@@ -412,13 +426,13 @@ def delete_matching_memories(
 
     # Only genuine integer ids that belong to this conversation survive
     # (bool is an int subclass and unhashable values are rejected).
-    selected_ids = [
+    selected_ids = list(dict.fromkeys(
         memory_id
         for memory_id in selected_ids
         if isinstance(memory_id, int)
         and not isinstance(memory_id, bool)
         and memory_id in valid_ids
-    ]
+    ))
 
     print("\nGemini deletion decision:", decision)
 

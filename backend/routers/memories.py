@@ -25,16 +25,18 @@ def list_memories(conversation_id: str, limit: int = Query(50, ge=1, le=config.M
     from services.legacy_provenance_classifier import USER_SUPPORTED, classify_memory
     from services.memory_classification_service import classify_memory_text
     from services.memory_context_service import load_provenance_facts
+    from services.legacy_provenance_quarantine import active_quarantine_ids
 
     cid = require_conversation(conversation_id)
     rows = list_memory_rows(cid, limit)
     facts = load_provenance_facts(cid, [r[0] for r in rows]) if rows else {}
+    quarantined = active_quarantine_ids(cid, [r[0] for r in rows]) if rows else set()
 
     items, hidden = [], 0
     for memory_id, text in rows:
         fact = facts.get(memory_id)
         verdict = classify_memory(fact) if fact is not None else None
-        if verdict is None or verdict.category != USER_SUPPORTED:
+        if memory_id in quarantined or verdict is None or verdict.category != USER_SUPPORTED:
             hidden += 1
             continue
         items.append(MemoryItem(memory_id=memory_id, memory=text, category=classify_memory_text(text),

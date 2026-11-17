@@ -36,6 +36,8 @@ from services.memory_storage_service import (
 # checkpoint only after outcome 1 or 2 returns normally (see main.py).
 # ---------------------------------------------------------------------------
 EXPLICIT_NO_MEMORY_TOKEN = "NONE"
+SUMMARY_MAX_CHARACTERS = 6000
+SUMMARY_MAX_MEMORIES = 50
 
 
 class MemoryExtractionError(RuntimeError):
@@ -47,7 +49,8 @@ class InvalidMemoryProvenanceError(MemoryExtractionError):
 def update_long_term_memory(
     conversation_id: str,
     keep_recent: int = 6,
-    min_messages: int = 10
+    min_messages: int = 10,
+    exclude_memory_ids=None,
 ):
 
     existing_summary, messages = get_messages_to_summarize(
@@ -65,13 +68,9 @@ def update_long_term_memory(
 
     print(f"Summarizing {len(messages)} older messages...")
 
-    new_summary = summarize_conversation(
-        existing_summary,
-        messages
-    )
-
-    if not new_summary:
-        raise ValueError("Gemini returned an empty summary")
+    # Rebuild from live, verified facts. An opaque historical summary cannot
+    # prove its sources and must never reintroduce deleted/quarantined facts.
+    new_summary = build_supported_memory_summary(conversation_id, exclude_memory_ids)
 
     last_message_id = messages[-1]["id"]
 
@@ -82,6 +81,42 @@ def update_long_term_memory(
     )
 
     print("Long-term memory updated successfully!")
+
+
+def build_supported_memory_summary(conversation_id, exclude_memory_ids=None):
+    """Deterministic summary of currently eligible facts, with no model call.
+
+    Read eligibility on every use instead of trusting a persisted summary
+    whose source memories may since have been deleted or quarantined.
+    """
+    from services.automatic_memory_service import get_all_conversation_memories
+    from services.legacy_provenance_quarantine import filter_supported_memories
+    from services.memory_classification_service import CATEGORIES, CATEGORY_LABELS, classify_memory_text
+
+    rows = filter_supported_memories(
+        conversation_id, get_all_conversation_memories(conversation_id),
+        exclude_memory_ids=exclude_memory_ids,
+    )
+    groups = {category: [] for category in CATEGORIES}
+
+    def render():
+        return "\n".join(
+            f"{CATEGORY_LABELS[category]}:\n" + "\n".join(f"- {text}" for text in groups[category])
+            for category in CATEGORIES if groups[category]
+        )
+
+    retained = 0
+    for mid, text in sorted(rows, reverse=True):
+        category = classify_memory_text(text)
+        groups[category].append(text)
+        if len(render()) > SUMMARY_MAX_CHARACTERS:
+            # Omit an oversized fact whole; truncation could change its meaning.
+            groups[category].pop()
+            continue
+        retained += 1
+        if retained >= SUMMARY_MAX_MEMORIES:
+            break
+    return render()
 
 def summarize_conversation(
     existing_summary: str,
@@ -405,7 +440,7 @@ def extract_and_save_memories(
                 "storage rejected extracted source IDs"
             ) from None
 
-        if status == "UNCERTAIN":
+        if status not in {"SAVED", "UPDATED", "SKIPPED"}:
             raise MemoryExtractionError(
                 "an extracted memory was unresolved; checkpoint must not advance"
             )

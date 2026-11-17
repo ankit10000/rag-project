@@ -1,5 +1,21 @@
 # Phase 4 — Evaluation Framework
 
+> **Superseded in part (banner added in Stage 9 Phase E2, 2026-11-17).** This is a point-in-time record of Phase 4 (2026-11-15) and is kept unchanged below. Stage 9 Phase E0/E0.1 changed the runner and the gate, so these statements are **no longer true**:
+>
+> | Original line (before this banner) | Statement here | Current state |
+> |---|---|---|
+> | 12 | `run_eval.py` "opens a DB admin connection at import time" | No longer. Import has no side effects; the scratch DB and `services.*` imports moved into `bootstrap_execution()`, which `main()` calls only after the gate |
+> | 13 | `summarize.py` imports `run_eval`, "so the same side effect applies" | It still imports `run_eval`, but that import no longer has the side effect |
+> | 38 | `cli.py` has `manifest`, `compare` and `report` | It also has `frozen-manifest` and `verify-frozen-manifest` |
+> | 55 | "no frozen manifest file exists yet" | `eval/phase35/frozen_manifest.json` exists (`content_sha256` `1b73a208…0fbf97`) |
+> | 140 | the approval file is "an existing approval file containing `HELDOUT EVALUATION AUTHORIZED`" | The approval file is a structured JSON object bound to splits, tiers, output paths and the frozen-manifest `content_sha256` (`eval/framework/safety.py` docstring) |
+> | 143 | "`run_eval.py` is **not** modified"; gate wiring is future work | `run_eval.main()` calls `safety.runner_gate()` before any side effect; held-out and `all` need a verified frozen manifest and a bound approval; `--limit` is refused for them |
+> | 164 | "Not modified: … `run_eval.py` …" | `run_eval.py` was modified in E0/E0.1 (accepted non-scoring change; scoring code AST-identical) |
+> | 168 | "`run_eval.py` does not yet call `check_run_request`" | It does, through `runner_gate` |
+> | 169 | "No frozen manifest file exists yet" | It exists (see line 55) |
+>
+> **Current documents:** `STAGE9_PHASE_E0_COMPLETION_REPORT.md` (gate and manifest, with its Phase E2 addendum), `STAGE9_FROZEN_MANIFEST.md`, `STAGE9_RUNBOOK.md` (commands, environment, re-freeze) and `STAGE9_STATUS_INDEX.md` (every Stage 9 document and its status).
+
 **Status (2026-11-15):** infrastructure implemented. **No evaluation and no test was executed.**
 - Done: source inspection, static review, and `py_compile` of the new modules.
 - No dataset, split, threshold, scoring rule or historical result was changed, and no new evaluation result was generated.

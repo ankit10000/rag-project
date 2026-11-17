@@ -2,6 +2,7 @@
 from services.rag_service import ask_question
 from services.memory_search_service import search_memories
 from services.memory_context_service import assemble_memory_context
+from services.legacy_provenance_quarantine import get_blocked_source_message_ids
 
 from services.conversation_service import (
     create_conversation,
@@ -11,6 +12,7 @@ from services.conversation_service import (
     get_conversation_summary,
     get_messages_for_memory_extraction,
     update_memory_extraction_checkpoint,
+    clear_summary_and_advance_checkpoints,
 )
 
 from services.memory_delete_service import (
@@ -28,13 +30,14 @@ from services.memory_service import (
     update_long_term_memory,
     extract_and_save_memories,
     MemoryExtractionError,
+    build_supported_memory_summary,
 )
 
 # Testing value: extraction runs once this many new messages exist.
 MEMORY_EXTRACTION_THRESHOLD = 4
 
 
-def run_turn(conversation_id: str, query: str) -> dict:
+def run_turn(conversation_id: str, query: str, exclude_memory_ids=None) -> dict:
     """Process ONE user turn exactly as the CLI loop always did.
 
     Phase 6: extracted unchanged from the main() loop so that the CLI and the
@@ -98,12 +101,19 @@ def run_turn(conversation_id: str, query: str) -> dict:
                 "The deletion operation could not be completed."
             )
 
-        request_message_id = save_message(
-            conversation_id, "user", query
-        )
-        answer_message_id = save_message(
-            conversation_id, "assistant", answer
-        )
+        try:
+            request_message_id = save_message(
+                conversation_id, "user", query
+            )
+            answer_message_id = save_message(
+                conversation_id, "assistant", answer
+            )
+        except Exception:
+            # The memory deletion has already committed. A failure to save
+            # this turn must not leave its old source history extractable.
+            if deleted_count > 0:
+                clear_summary_and_advance_checkpoints(conversation_id)
+            raise
 
         print("\nAssistant:")
         print(answer)
@@ -135,10 +145,12 @@ def run_turn(conversation_id: str, query: str) -> dict:
                 cleanup_status = str(cleanup.get("summary_status"))
 
             except Exception as cleanup_error:
+                # Fence old history/extraction even if supplemental cleanup
+                # fails, so a completed deletion cannot be silently undone.
+                clear_summary_and_advance_checkpoints(conversation_id)
                 print(
-                    f"\nWarning: deletion cleanup failed; "
-                    f"forgotten information may still appear in "
-                    f"the summary or history: {cleanup_error}"
+                    f"\nWarning: deletion cleanup failed; old history and "
+                    f"extraction were fenced: {cleanup_error}"
                 )
                 cleanup_status = "failed"
 
@@ -160,15 +172,19 @@ def run_turn(conversation_id: str, query: str) -> dict:
     history = get_conversation_history(
         conversation_id,
         limit=16,
+        include_ids=True,
     )
+    blocked_message_ids = get_blocked_source_message_ids(conversation_id, exclude_memory_ids)
+    history = [
+        {"role": message["role"], "content": message["content"]}
+        for message in history if message.get("id") not in blocked_message_ids
+    ]
 
     # ==============================================
     # 5. LOAD CONVERSATION SUMMARY
     # ==============================================
 
-    summary = get_conversation_summary(
-        conversation_id
-    )
+    summary = build_supported_memory_summary(conversation_id, exclude_memory_ids)
 
     # ==============================================
     # 6. RETRIEVE LONG-TERM MEMORIES
@@ -182,6 +198,7 @@ def run_turn(conversation_id: str, query: str) -> dict:
         query=query,
         top_k=5,
         search_fn=search_memories,
+        exclude_memory_ids=exclude_memory_ids,
     )
 
     memory_text = memory_context["text"]
@@ -271,7 +288,7 @@ def run_turn(conversation_id: str, query: str) -> dict:
 
             extract_and_save_memories(
                 conversation_id=conversation_id,
-                messages=new_messages,
+                messages=[m for m in new_messages if m["id"] not in blocked_message_ids],
             )
 
             last_message_id = new_messages[-1]["id"]
@@ -321,6 +338,7 @@ def run_turn(conversation_id: str, query: str) -> dict:
         update_long_term_memory(
             conversation_id,
             keep_recent=6,
+            exclude_memory_ids=exclude_memory_ids,
         )
         summary_outcome = "ok"
 

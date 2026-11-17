@@ -37,6 +37,8 @@ PATCHED = [
     "get_messages_for_memory_extraction", "extract_and_save_memories",
     "update_memory_extraction_checkpoint", "update_long_term_memory",
     "process_memory", "assemble_memory_context",
+    "build_supported_memory_summary", "get_blocked_source_message_ids",
+    "clear_summary_and_advance_checkpoints",
 ]
 for _name in PATCHED:
     assert hasattr(main, _name), f"main has no attribute {_name}"
@@ -80,6 +82,9 @@ def run_main(inputs, **overrides):
         "ask_question": dict(return_value={"answer": "RAG ANSWER", "sources": []}),
         "get_conversation_history": dict(return_value=[]),
         "get_conversation_summary": dict(return_value=""),
+        "build_supported_memory_summary": dict(return_value=""),
+        "get_blocked_source_message_ids": dict(return_value=set()),
+        "clear_summary_and_advance_checkpoints": dict(),
         "search_memories": dict(return_value=[]),
         "get_messages_for_memory_extraction": dict(return_value=[]),
         "extract_and_save_memories": dict(),
@@ -114,6 +119,7 @@ def run_main(inputs, **overrides):
 
 
 NON_DELETE_FLOW = ["ask_question", "get_conversation_history", "get_conversation_summary", "search_memories",
+                   "build_supported_memory_summary", "get_blocked_source_message_ids",
                    "get_messages_for_memory_extraction", "extract_and_save_memories",
                    "update_memory_extraction_checkpoint", "update_long_term_memory", "process_memory"]
 
@@ -211,6 +217,8 @@ out, m, err = run_main(["", QUERY, "What is RAG?", "exit"],
                        apply_deletion_cleanup=dict(side_effect=RuntimeError("boom")))
 check("[E1] cleanup failure does not escape", err is None)
 check("[E1] warning printed with cause", "Warning: deletion cleanup failed" in out and "boom" in out)
+check("[E1] failed cleanup fences history and extraction", m["clear_summary_and_advance_checkpoints"].call_args == mock.call("conv-test")
+      and "old history and extraction were fenced" in out)
 check("[E1] both messages saved before cleanup", m["save_message"].call_args_list[:2] ==
       [mock.call("conv-test", "user", QUERY), mock.call("conv-test", "assistant", "Deleted 1 matching memory/memories.")])
 check("[E1] loop continues: next question reaches ask_question", m["ask_question"].call_count == 1 and "RAG ANSWER" in out)
@@ -220,6 +228,7 @@ out, m, err = run_main(["", QUERY, "exit"],
                        apply_deletion_cleanup=dict(return_value={}))
 check("[E2] cleanup result missing keys -> swallowed with warning (pin)",
       err is None and "Warning: deletion cleanup failed" in out)
+check("[E2] malformed cleanup result fences history and extraction", m["clear_summary_and_advance_checkpoints"].call_args == mock.call("conv-test"))
 
 out, m, err = run_main(["", QUERY, "exit"], delete_matching_memories=dict(side_effect=RuntimeError("classifier down")))
 check("[E3] delete_matching_memories raising -> Error printed", err is None and "Error: classifier down" in out)
@@ -254,8 +263,10 @@ out, m, err = run_main(["", "What is RAG?", "exit"])
 check("[N1] delete flow not used",
       m["delete_matching_memories"].call_count == 0 and m["apply_deletion_cleanup"].call_count == 0)
 check("[N1] history/summary/memory search called with expected args",
-      m["get_conversation_history"].call_args == mock.call("conv-test", limit=16)
-      and m["get_conversation_summary"].call_args == mock.call("conv-test")
+      m["get_conversation_history"].call_args == mock.call("conv-test", limit=16, include_ids=True)
+      and m["build_supported_memory_summary"].call_args == mock.call("conv-test", None)
+      and m["get_blocked_source_message_ids"].call_args == mock.call("conv-test", None)
+      and m["get_conversation_summary"].call_count == 0
       and m["search_memories"].call_args == mock.call(conversation_id="conv-test", query="What is RAG?", top_k=5))
 check("[N1] ask_question called once", m["ask_question"].call_count == 1
       and last(m["ask_question"]).kwargs.get("query") == "What is RAG?"
@@ -264,7 +275,7 @@ check("[N1] user then assistant saved", m["save_message"].call_args_list ==
       [mock.call("conv-test", "user", "What is RAG?"), mock.call("conv-test", "assistant", "RAG ANSWER")])
 check("[N1] extraction lookup and summary update called",
       m["get_messages_for_memory_extraction"].call_args == mock.call("conv-test", limit=4)
-      and m["update_long_term_memory"].call_args == mock.call("conv-test", keep_recent=6))
+      and m["update_long_term_memory"].call_args == mock.call("conv-test", keep_recent=6, exclude_memory_ids=None))
 
 # Stage 8: run_turn composes summary + the Phase 3 memory-context text
 # (provenance filtering itself is covered by the Phase 3 / Stage 7 tests).
@@ -272,7 +283,7 @@ for label, summary, context, expected in (
         ("summary + memories", "S", "CTX", "S\nCTX"),
         ("memories only", "", "CTX", "CTX"),
         ("neither", "", "", "")):
-    out, m, err = run_main(["", "What is RAG?", "exit"], get_conversation_summary=dict(return_value=summary),
+    out, m, err = run_main(["", "What is RAG?", "exit"], build_supported_memory_summary=dict(return_value=summary),
                            assemble_memory_context=dict(return_value={"text": context}))
     check(f"[N2] memory_summary composition: {label}", last(m["ask_question"]).kwargs.get("memory_summary") == expected)
 

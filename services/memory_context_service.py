@@ -9,9 +9,9 @@ Pipeline (one conversation only):
                    threshold (MEMORY_RELEVANCE_THRESHOLD = 0.35) and top_k.
                    No new threshold or ranking is introduced.
   2. exclusions  : memory IDs in ``exclude_memory_ids`` are dropped. This is the
-                   integration point for a FUTURE approved quarantine status
-                   (Phase 2); no quarantine table exists today and none is
-                   assumed or queried.
+                   integration point for explicit per-turn exclusions. Active
+                   Proposal 004 quarantine markers are loaded when its optional
+                   table exists; this code never creates or changes markers.
   3. provenance  : only memories classified USER_SUPPORTED by the Phase 2 pure
                    classifier (a same-conversation source whose actual role and
                    stored role are 'user') are used as user facts. Unsupported,
@@ -60,12 +60,19 @@ def load_provenance_facts(conversation_id, memory_ids):
         return {}
     cid = uuid.UUID(str(conversation_id))
 
+    from services.legacy_provenance_quarantine import active_quarantine_ids
+
     with get_connection() as conn:
+        quarantined = active_quarantine_ids(cid, ids, connection=conn)
+        existing_ids = {r[0] for r in conn.execute(
+            "SELECT id FROM conversation_memories WHERE conversation_id = %s AND id = ANY(%s::bigint[])",
+            (cid, ids),
+        ).fetchall()}
         modern = conn.execute(
             """
             SELECT ms.memory_id, ms.conversation_id::text, ms.source_message_id,
                    ms.link_kind, ms.source_role,
-                   m.id IS NOT NULL, m.conversation_id::text, m.role
+                   (m.id IS NOT NULL AND NOT COALESCE(m.context_excluded, FALSE)), m.conversation_id::text, m.role
             FROM memory_sources ms
             LEFT JOIN messages m ON m.id = ms.source_message_id
             WHERE ms.conversation_id = %s AND ms.memory_id = ANY(%s::bigint[])
@@ -76,7 +83,7 @@ def load_provenance_facts(conversation_id, memory_ids):
         legacy = conn.execute(
             """
             SELECT cm.id, cm.source_message_id,
-                   m.id IS NOT NULL, m.conversation_id::text, m.role
+                   (m.id IS NOT NULL AND NOT COALESCE(m.context_excluded, FALSE)), m.conversation_id::text, m.role
             FROM conversation_memories cm
             LEFT JOIN messages m ON m.id = cm.source_message_id
             WHERE cm.conversation_id = %s AND cm.id = ANY(%s::bigint[])
@@ -99,8 +106,9 @@ def load_provenance_facts(conversation_id, memory_ids):
     return {
         mid: MemoryProvenanceFacts(
             memory_id=mid, conversation_id=str(cid),
-            modern_links=tuple(links.get(mid, ())), legacy_scalar=scalars.get(mid))
-        for mid in ids
+            modern_links=tuple(links.get(mid, ())), legacy_scalar=scalars.get(mid),
+            quarantined=mid in quarantined)
+        for mid in ids if mid in existing_ids
     }
 
 
@@ -119,11 +127,11 @@ def assemble_memory_context(
         provenance_fn = load_provenance_facts
 
     excluded = {"quarantined_or_excluded": [], "unverified_provenance": []}
-    if not isinstance(query, str) or not query.strip():
+    if top_k <= 0 or not isinstance(query, str) or not query.strip():
         return {"text": "", "memories": [], "excluded": excluded}
 
-    candidates = search_fn(conversation_id=conversation_id, query=query, top_k=top_k) or []
     blocked = {int(i) for i in (exclude_memory_ids or ())}
+    candidates = search_fn(conversation_id=conversation_id, query=query, top_k=top_k + len(blocked)) or []
 
     usable = []
     for item in candidates:
@@ -141,7 +149,11 @@ def assemble_memory_context(
     for item in usable:
         mid = int(item["id"])
         fact = facts.get(mid)
-        verdict = classify_memory(fact) if fact is not None else None
+        if fact is not None and fact.quarantined:
+            excluded["quarantined_or_excluded"].append(mid)
+            continue
+        verdict = classify_memory(fact) if (fact is not None
+            and fact.memory_id == mid and str(fact.conversation_id) == str(conversation_id)) else None
         if verdict is None or verdict.category != USER_SUPPORTED:
             excluded["unverified_provenance"].append(mid)
             continue
@@ -153,6 +165,7 @@ def assemble_memory_context(
             "source_message_ids": list(verdict.valid_user_source_ids),
         })
 
+    selected = selected[:top_k]
     order = {c: i for i, c in enumerate(CATEGORIES)}
     selected.sort(key=lambda m: (order[m["category"]], -m["id"]))
 

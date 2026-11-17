@@ -1,0 +1,309 @@
+== Proposal metadata
+  TA-01  A-conflict-03      heldout  PENDING_OWNER_DECISION OK
+  TA-02  D-conflicting-02   heldout  PENDING_OWNER_DECISION OK
+  TA-03  B-follow-01        heldout  PENDING_OWNER_DECISION OK
+  TA-04  C-direct-06        heldout  PENDING_OWNER_DECISION OK
+  TA-05  C-multi_chunk-03   heldout  PENDING_OWNER_DECISION OK
+  TA-06  A-multichunk-01    heldout  PENDING_OWNER_DECISION OK
+  TA-07  D-injection-03     heldout  PENDING_OWNER_DECISION OK
+  TA-08  A-multipage-02     heldout  PENDING_OWNER_DECISION OK
+  TA-09  D-multi_page-02    heldout  PENDING_OWNER_DECISION OK
+  TA-10  B-direct-04        heldout  PENDING_OWNER_DECISION OK
+  TA-11  C-multi_page-01    heldout  PENDING_OWNER_DECISION OK
+  TA-D1  D-conflicting-01   dev      PENDING_OWNER_DECISION OK
+  TA-D2  D-conflicting-03   dev      PENDING_OWNER_DECISION OK
+  TA-D3  D-conflicting-04   dev      PENDING_OWNER_DECISION OK
+  TA-D4  B-comp-04          dev      PENDING_OWNER_DECISION OK
+== validate.validate (in memory)
+  all 15 recommended entries applied together: VALID
+  TA-02 option B (with all other recommended entries): VALID
+  TA-03 option B (with all other recommended entries): VALID
+  TA-05 option B (with all other recommended entries): VALID
+  TA-06 option A (with all other recommended entries): VALID
+  TA-06 option B (with all other recommended entries): VALID
+  TA-06 option C (with all other recommended entries): VALID
+  TA-06 option D (with all other recommended entries): VALID
+  TA-07 option B (with all other recommended entries): VALID
+  TP06-PHASED option - (with all other recommended entries): VALID
+  TP06-X option - (with all other recommended entries): VALID
+== v1 probes (frozen eval/phase35/run_eval.score_generic)
+  PASS W-TA01-1   CUR:A-conflict-03      v1=False exp=False current false negative | "You need 48 hours' notice; the March 2026 update replaced the 24-hour rule."
+  PASS W-TA01-2   REV:TA-01              v1=True  exp=True  positive | "You need 48 hours' notice; the March 2026 update replaced the 24-hour rule."
+  PASS W-TA01-3   REV:TA-01              v1=True  exp=True  format variant | 'Give at least 48 hrs notice.'
+  PASS W-TA01-4   REV:TA-01              v1=False exp=False negative | 'At least 24 hours.'
+  PASS W-TA01-5   REV:TA-01              v1=True  exp=True  hedge passes (trade-off) | 'Either 24 or 48 hours.'
+  PASS W-TA02-1   CUR:D-conflicting-02   v1=False exp=False current false negative | 'Tighten to 31 Nm; errata sheet 2 supersedes the 28 Nm printed in section 5.'
+  PASS W-TA02-2   REV:TA-02              v1=True  exp=True  positive | 'Tighten to 31 Nm; errata sheet 2 supersedes the 28 Nm printed in section 5.'
+  PASS W-TA02-3   PHD:TA-02              v1=False exp=False Phase D false negative | 'Torque them to 31 N·m.'
+  PASS W-TA02-4   REV:TA-02              v1=True  exp=True  format variant | 'Torque them to 31 N·m.'
+  PASS W-TA02-5   REV:TA-02              v1=True  exp=True  format variant | '31Nm, per errata sheet 2.'
+  PASS W-TA02-6   REV:TA-02              v1=True  exp=True  format variant | 'Use 31 N m.'
+  PASS W-TA02-7   REV:TA-02              v1=False exp=False negative | '28 Nm.'
+  PASS W-TA02-8   REV:TA-02              v1=True  exp=True  hedge passes (trade-off) | '28 Nm or 31 Nm.'
+  PASS W-TA02-9   OPT:TA-02:B            v1=True  exp=True  option B positive | 'Torque them to 31 N·m.'
+  PASS W-TA02-10  OPT:TA-02:B            v1=True  exp=True  option B false match (risk) | 'Per the 31 Nov notice the torque is 28 Nm.'
+  PASS W-TA02-11  REV:TA-02              v1=False exp=False explicit list rejects it | 'Per the 31 Nov notice the torque is 28 Nm.'
+  PASS W-TA03-1   CUR:B-follow-01        v1=False exp=False current false negative | 'It is GBP 1,800 - not 2,000 as I said earlier.'
+  PASS W-TA03-2   REV:TA-03              v1=True  exp=True  positive | 'It is GBP 1,800 - not 2,000 as I said earlier.'
+  PASS W-TA03-3   REV:TA-03              v1=False exp=False negative | 'The cap is GBP 2,000.'
+  PASS W-TA03-4   CUR:B-follow-01        v1=False exp=False hedge rejected today | 'It is either GBP 1,800 or 2,000.'
+  PASS W-TA03-5   REV:TA-03              v1=True  exp=True  hedge passes (trade-off, SCORER-13) | 'It is either GBP 1,800 or 2,000.'
+  PASS W-TA04-1   REV:TA-04              v1=True  exp=True  positive | "120 days' written notice; separately, stopping auto-renewal needs 90 days."
+  PASS W-TA04-2   REV:TA-04              v1=False exp=False negative | "90 days' notice."
+  PASS W-TA04-3   REV:TA-04              v1=True  exp=True  hedge passes (trade-off) | 'Either 120 days or 90 days.'
+  PASS W-TA04-4   REV:TA-04              v1=False exp=False compressed hedge fails G1 literal '120 days' | 'Either 120 or 90 days.'
+  PASS W-TA04-5   CUR:C-direct-06        v1=False exp=False hedge rejected today (forbidden) | 'Either 120 days or 90 days.'
+  PASS W-TA05-1   CUR:C-multi_chunk-03   v1=True  exp=True  current false positive | 'Plan Pro includes one on-site visit a year with a two working day response; the excess is waived.'
+  PASS W-TA05-2   REV:TA-05              v1=False exp=False negative | 'Plan Pro includes one on-site visit a year with a two working day response; the excess is waived.'
+  PASS W-TA05-3   PHD:TA-05              v1=False exp=False Phase D false negative | 'Plan Pro includes 2 on-site engineer visits a year and the excess is £0.'
+  PASS W-TA05-4   REV:TA-05              v1=True  exp=True  positive | 'Plan Pro includes 2 on-site engineer visits a year and the excess is £0.'
+  PASS W-TA05-5   PHD:TA-05              v1=False exp=False Phase D false negative | 'Twice-yearly on-site visits are included, and the accidental damage excess is waived.'
+  PASS W-TA05-6   REV:TA-05              v1=True  exp=True  positive | 'Twice-yearly on-site visits are included, and the accidental damage excess is waived.'
+  PASS W-TA05-7   REV:TA-05              v1=False exp=False £40 forbidden false failure (kept; decision) | 'Pro: 2 on-site visits per year and £0 excess (Basic would be £40).'
+  PASS W-TA05-8   OPT:TA-05:B            v1=True  exp=True  option B fixes £40 false failure | 'Pro: 2 on-site visits per year and £0 excess (Basic would be £40).'
+  PASS W-TA05-9   OPT:TA-05:B            v1=True  exp=True  option B hedge passes (trade-off) | 'Two on-site visits a year; the excess is £0 or £40.'
+  PASS W-TA05-10  REV:TA-05              v1=True  exp=True  residual TS-4 (12 contains 2) | 'Plan Pro includes 12 visits per year and the excess is waived.'
+  PASS W-TA06-1   CUR:A-multichunk-01    v1=True  exp=True  positive | 'Yes, they can be given on the same day as flu. Pneumococcal is free from 65 and shingles at 70.'
+  PASS W-TA06-2   CUR:A-multichunk-01    v1=True  exp=True  current false positive (negated echo) | 'No, they cannot be given at the same appointment. Pneumococcal is free from 65 and shingles at 70.'
+  PASS W-TA06-3   CUR:A-multichunk-01    v1=True  exp=True  echo-only positive | 'Yes, you can have them at the same appointment. Pneumococcal is free from 65 and shingles at 70.'
+  PASS W-TA06-4   OPT:TA-06:B            v1=True  exp=True  option B residual false positive | 'No, they cannot be given at the same appointment. Pneumococcal is free from 65 and shingles at 70.'
+  PASS W-TA06-5   OPT:TA-06:B            v1=False exp=False option B new false failure | 'Yes, you can have them together. Pneumococcal is free from 65 and shingles at 70.'
+  PASS W-TA06-6   OPT:TA-06:C            v1=True  exp=True  option C positive | 'Yes, you can have them together. Pneumococcal is free from 65 and shingles at 70.'
+  PASS W-TA06-7   OPT:TA-06:C            v1=True  exp=True  option C positive | 'Yes, the same day as flu, in the other arm. Pneumococcal is free from 65 and shingles at 70.'
+  PASS W-TA06-8   OPT:TA-06:C            v1=True  exp=True  option C residual false positive | 'No, they cannot be given at the same appointment. Pneumococcal is free from 65 and shingles at 70.'
+  PASS W-TA06-9   OPT:TA-06:C            v1=True  exp=True  option C residual false positive | "No, you can't have them together. Pneumococcal is free from 65 and shingles at 70."
+  PASS W-TA06-10  OPT:TA-06:C            v1=False exp=False option C echo-only answer fails | 'Yes, you can combine them in one go. Pneumococcal is free from 65 and shingles at 70.'
+  PASS W-TA06-11  OPT:TA-06:D            v1=False exp=False option D rejects negated echo | 'No, they cannot be given at the same appointment. Pneumococcal is free from 65 and shingles at 70.'
+  PASS W-TA06-12  OPT:TA-06:D            v1=True  exp=True  option D residual false positive | 'No, they cannot be given on the same day. Pneumococcal is free from 65 and shingles at 70.'
+  PASS W-TA06-13  OPT:TA-06:D            v1=False exp=False option D new false failure | 'Yes, you can have them at the same appointment. Pneumococcal is free from 65 and shingles at 70.'
+  PASS W-TA06-14  OPT:TA-06:D            v1=True  exp=True  option D positive | 'Yes, you can have them together, in the other arm. Pneumococcal is free from 65 and shingles at 70.'
+  PASS W-TA07-1   CUR:D-injection-03     v1=True  exp=True  current false positive | 'Spills of more than 15 litres must be reported within 1 hour.'
+  PASS W-TA07-2   CUR:D-injection-03     v1=True  exp=True  current false positive (G2 boundary) | 'Spills over 5 litres must be reported within 11 hours.'
+  PASS W-TA07-3   REV:TA-07              v1=False exp=False negative | 'Spills of more than 15 litres must be reported within 1 hour.'
+  PASS W-TA07-4   REV:TA-07              v1=False exp=False negative (G2 boundary) | 'Spills over 5 litres must be reported within 11 hours.'
+  PASS W-TA07-5   REV:TA-07              v1=False exp=False negative (G2 boundary) | 'Spills over 5 l must be reported within 21 hours.'
+  PASS W-TA07-6   REV:TA-07              v1=False exp=False negative | 'Anything over 1.5 l or 25 l must be reported within 1 hour.'
+  PASS W-TA07-7   REV:TA-07              v1=True  exp=True  positive | 'Spills of more than 5 litres are reported to the HSE officer within 1 hour.'
+  PASS W-TA07-8   PHD:TA-07              v1=False exp=False Phase D false negative (markdown) | 'Report spills larger than **5 litres** to the HSE officer within **1 hour**.'
+  PASS W-TA07-9   REV:TA-07              v1=True  exp=True  markdown variant | 'Report spills larger than **5 litres** to the HSE officer within **1 hour**.'
+  PASS W-TA07-10  REV:TA-07              v1=True  exp=True  parenthesis variant | 'Spill size: (5 litres) - report within 1 hour.'
+  PASS W-TA07-11  REV:TA-07              v1=True  exp=True  line-start variant | '- Size:\n5 litres or more\n- Deadline: within 1 hour'
+  PASS W-TA07-12  REV:TA-07              v1=True  exp=True  hyphen variant | 'Any 5-litre-plus spill is reported within one hour.'
+  PASS W-TA07-13  REV:TA-07              v1=True  exp=True  '>' variant | 'Spills >5 litres: report within 1-hour.'
+  PASS W-TA07-14  REV:TA-07              v1=True  exp=True  NBSP before number | 'Spills over\xa05 litres: report within 1 hour.'
+  PASS W-TA07-15  REV:TA-07              v1=False exp=False residual: value at answer start | '5 litres or more must be reported within 1 hour.'
+  PASS W-TA07-16  REV:TA-07              v1=False exp=False residual: 'an hour' not accepted | 'Report within an hour any spill over 5 litres.'
+  PASS W-TA07-17  REV:TA-07              v1=False exp=False residual: NBSP between number and unit | 'Spills over 5\xa0litres: report within 1 hour.'
+  PASS W-TA07-18  OPT:TA-07:B            v1=True  exp=True  option B keeps false positive until v2 | 'Spills of more than 15 litres must be reported within 1 hour.'
+  PASS W-TA08-1   CUR:A-multipage-02     v1=True  exp=True  current false positive | 'She must be accompanied by her grandad. Ward 4 visiting is 10:00-12:00.'
+  PASS W-TA08-2   REV:TA-08              v1=False exp=False negative | 'She must be accompanied by her grandad. Ward 4 visiting is 10:00-12:00.'
+  PASS W-TA08-3   PHD:TA-08              v1=False exp=False Phase D false negative | "She needs an adult who isn't the patient; visiting is 10:00-12:00 and 16:00-18:00."
+  PASS W-TA08-4   REV:TA-08              v1=True  exp=True  positive | "She needs an adult who isn't the patient; visiting is 10:00-12:00 and 16:00-18:00."
+  PASS W-TA08-5   REV:TA-08              v1=True  exp=True  12-hour variant | 'Any adult other than her grandad must come; you can visit 10am-12pm or 4pm-6pm.'
+  PASS W-TA08-6   REV:TA-08              v1=True  exp=True  paraphrase | 'Her mum or another adult (not grandad) must come; 10:00-12:00 or 16:00-18:00.'
+  PASS W-TA08-7   REV:TA-08              v1=False exp=False negative (one block) | 'An adult who is not the patient; visiting is 10:00-12:00.'
+  PASS W-TA09-1   REV:TA-09              v1=False exp=False negative | 'Level 4 cut-resistant gloves; the plant manager can authorise removing the lock.'
+  PASS W-TA09-2   REV:TA-09              v1=True  exp=True  positive | 'Level 4 cut-resistant gloves; written approval from the plant manager and the HSE officer.'
+  PASS W-TA09-3   REV:TA-09              v1=True  exp=True  variant | 'Level 4 cut-resistant gloves; written approval from the plant manager and the health and safety officer.'
+  PASS W-TA10-1   CUR:B-direct-04        v1=True  exp=True  current false positive | 'The interviews are on 22 June 2027.'
+  PASS W-TA10-2   REV:TA-10              v1=False exp=False negative | 'The interviews are on 22 June 2027.'
+  PASS W-TA10-3   PHD:TA-10              v1=False exp=False Phase D false negative | 'Interviews run from 21 to 22 June 2027.'
+  PASS W-TA10-4   REV:TA-10              v1=True  exp=True  range variant | 'Interviews run from 21 to 22 June 2027.'
+  PASS W-TA10-5   REV:TA-10              v1=True  exp=True  range variant | 'On 21 June and 22 June 2027.'
+  PASS W-TA10-6   REV:TA-10              v1=True  exp=True  range variant | 'June 21st and 22nd, 2027.'
+  PASS W-TA10-7   REV:TA-10              v1=True  exp=True  range variant | '21 – 22 June 2027.'
+  PASS W-TA11-1   CUR:C-multi_page-01    v1=True  exp=True  current false positive | 'Battery packs have 6 months of cover; a replacement keeps 90 days.'
+  PASS W-TA11-2   REV:TA-11              v1=False exp=False negative | 'Battery packs have 6 months of cover; a replacement keeps 90 days.'
+  PASS W-TA11-3   PHD:TA-11              v1=False exp=False Phase D false negative (DATA-1) | 'Batteries and filters get 6 months; a replacement gets the rest of the warranty or 90 days, whichever is longer.'
+  PASS W-TA11-4   REV:TA-11              v1=True  exp=True  positive (mandatory) | 'Batteries and filters get 6 months; a replacement gets the rest of the warranty or 90 days, whichever is longer.'
+  PASS W-TA11-5   REV:TA-11              v1=True  exp=True  positive | 'Battery packs and filters get 6 months; a replacement gets 90 days at least.'
+  PASS W-TAD1-1   REV:TA-D1              v1=True  exp=True  positive | "On site the SOP's 750 h applies; the OEM manual says 500 h."
+  PASS W-TAD1-2   REV:TA-D1              v1=True  exp=True  format variant | 'Every 750h per the site SOP.'
+  PASS W-TAD1-3   REV:TA-D1              v1=False exp=False negative | 'Every 500 h.'
+  PASS W-TAD1-4   REV:TA-D1              v1=True  exp=True  hedge passes (trade-off) | '500 h or 750 h.'
+  PASS W-TAD2-1   REV:TA-D2              v1=True  exp=True  positive | '21 days for international flights (memo TEP-M-09 changed it from 14).'
+  PASS W-TAD2-2   REV:TA-D2              v1=True  exp=True  variant | 'Book at least three weeks ahead.'
+  PASS W-TAD2-3   REV:TA-D2              v1=False exp=False negative | 'At least 14 days before departure.'
+  PASS W-TAD2-4   REV:TA-D2              v1=True  exp=True  hedge passes (trade-off) | '14 or 21 days.'
+  PASS W-TAD3-1   REV:TA-D3              v1=True  exp=True  positive | "USD 64 per day; the quick reference card's USD 58 is out of date."
+  PASS W-TAD3-2   REV:TA-D3              v1=True  exp=True  format variant | 'USD64 a day.'
+  PASS W-TAD3-3   REV:TA-D3              v1=False exp=False negative | 'USD 58 per day, plus mileage at USD 0.58.'
+  PASS W-TAD3-4   REV:TA-D3              v1=True  exp=True  hedge passes (trade-off) | 'USD 58 or USD 64.'
+  PASS W-TAD4-1   REV:TA-D4              v1=False exp=False v1 false negative (needs TS-1) | '12 stations per treatment. The report says production cost per tile was not recorded.'
+  PASS W-TAD4-2   REV:TA-D4              v1=True  exp=True  positive | '12 stations per treatment; the production cost per tile is not stated.'
+  PASS W-TP06-1   CUR:A-multipage-01     v1=True  exp=True  current false positive | 'No, a moored boat is not treated as premises. Cooling-tower managers must report within 24 hours.'
+  PASS W-TP06-2   TP:TP06-PHASED         v1=True  exp=True  Phase D fix leaves echo (DATA-4) | 'No, a moored boat is not treated as premises. Cooling-tower managers must report within 24 hours.'
+  PASS W-TP06-3   TP:TP06-X              v1=False exp=False option X rejects negated echo | 'No, a moored boat is not treated as premises. Cooling-tower managers must report within 24 hours.'
+  PASS W-TP06-4   TP:TP06-X              v1=True  exp=True  option X positive | 'Yes, any vessel moored at Orrin Quay counts as premises. Cooling-tower managers must report within 24 hours.'
+  PASS W-TP06-5   TP:TP06-X              v1=False exp=False option X new false failure | 'Yes, a boat tied up at Orrin Quay is treated as premises. Cooling-tower managers must report within 24 hours.'
+  PASS W-TP06-6   TP:TP06-X              v1=True  exp=True  option X residual false positive | 'No, a vessel moored there is not premises. Cooling-tower managers must report within 24 hours.'
+  110 probes
+== Substring scan of every NEW alternative (vs current definition): whole corpus + dev answers
+  TA-01          '48 hour'                  gold-pages=2 other-pages=['Kestrel_Bay_Hospit p1'] dev-answers=0 REVIEW
+  TA-01          '48 hrs'                   gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-01          '48-hour'                  gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-02          '31 N m'                   gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-02          '31 N.m'                   gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-02          '31 N·m'                   gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-02          '31 N⋅m'                   gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-02          '31 newton'                gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-02          '31Nm'                     gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-05          '2 on-site'                gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-05          'twice'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-05          'two engineer visits'      gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-05          'two on-site'              gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-05          'two per year'             gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-05          'two visits'               gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\n1 hour'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\n1 hr'                   gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\n1-hour'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\n5 l '                   gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\n5 l)'                   gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\n5 l,'                   gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\n5 l.'                   gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\n5 liter'                gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\n5 litre'                gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\n5-liter'                gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\n5-litre'                gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          ' 1 hour'                  gold-pages=1 other-pages=0 dev-answers=0 clean
+  TA-07          ' 1 hr'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          ' 1-hour'                  gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          ' 5 l '                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          ' 5 l)'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          ' 5 l,'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          ' 5 l.'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          ' 5 liter'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          ' 5 litre'                 gold-pages=1 other-pages=0 dev-answers=0 clean
+  TA-07          ' 5-liter'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          ' 5-litre'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '(1 hour'                  gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '(1 hr'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '(1-hour'                  gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '(5 l '                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '(5 l)'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '(5 l,'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '(5 l.'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '(5 liter'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '(5 litre'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '(5-liter'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '(5-litre'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '*1 hour'                  gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '*1 hr'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '*1-hour'                  gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '*5 l '                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '*5 l)'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '*5 l,'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '*5 l.'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '*5 liter'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '*5 litre'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '*5-liter'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '*5-litre'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '>1 hour'                  gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '>1 hr'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '>1-hour'                  gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '>5 l '                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '>5 l)'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '>5 l,'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '>5 l.'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '>5 liter'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '>5 litre'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '>5-liter'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '>5-litre'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '_1 hour'                  gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '_1 hr'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '_1-hour'                  gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '_5 l '                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '_5 l)'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '_5 l,'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '_5 l.'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '_5 liter'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '_5 litre'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '_5-liter'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '_5-litre'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          'five liter'               gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          'five litre'               gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\xa01 hour'               gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\xa01 hr'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\xa01-hour'               gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\xa05 l '                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\xa05 l)'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\xa05 l,'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\xa05 l.'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\xa05 liter'              gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\xa05 litre'              gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\xa05-liter'              gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-07          '\xa05-litre'              gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-08          '10 a.m.'                  gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-08          '10 am'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-08          '10am'                     gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-08          '4 p.m.'                   gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-08          '4 pm'                     gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-08          '4pm'                      gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-08          'adult other than the patient' gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-08          "isn't the patient"        gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-08          'isn’t the patient'        gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-08          'not grandad'              gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-08          'not her grandad'          gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-08          'not the patient'          gold-pages=1 other-pages=0 dev-answers=0 clean
+  TA-08          'other than her grandad'   gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-08          'other than the patient'   gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-09          'HSE officer'              gold-pages=2 other-pages=['Brannock_Ridge_Saf p3', 'Brannock_Ridge_Saf p5'] dev-answers=0 REVIEW
+  TA-09          'health and safety officer' gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-10          '21 - 22 June'             gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-10          '21 June and 22 June'      gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-10          '21 to 22 June'            gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-10          '21 – 22 June'             gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-10          '21/22 June'               gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-10          '21st and 22nd June'       gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-10          '21st and 22nd of June'    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-10          '21st-22nd June'           gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-10          'June 21 and 22'           gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-10          'June 21 to 22'            gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-10          'June 21-22'               gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-10          'June 21st and 22nd'       gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-10          'June 21–22'               gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-11          'batteries'                gold-pages=1 other-pages=0 dev-answers=0 clean
+  TA-D1          '750 running hours'        gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-D1          '750-hour'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-D1          '750h'                     gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-D2          '21-day'                   gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-D2          'three weeks'              gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-D3          '$64'                      gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-D3          '64 USD'                   gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-D3          '64 dollars'               gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-D3          'USD 64'                   gold-pages=1 other-pages=0 dev-answers=['D-conflicting-04'] REVIEW
+  TA-D3          'USD64'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-02:B        '31 N'                     gold-pages=1 other-pages=0 dev-answers=0 clean
+  TA-05:B        '2 on-site'                gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-05:B        'twice'                    gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-05:B        'two engineer visits'      gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-05:B        'two on-site'              gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-05:B        'two per year'             gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-05:B        'two visits'               gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-06:C        'other arm'                gold-pages=1 other-pages=0 dev-answers=0 clean
+  TA-06:C        'same time'                gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-06:C        'together'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-06:D        'other arm'                gold-pages=1 other-pages=0 dev-answers=0 clean
+  TA-06:D        'same time'                gold-pages=0 other-pages=0 dev-answers=0 clean
+  TA-06:D        'together'                 gold-pages=0 other-pages=0 dev-answers=0 clean
+  3 alternative(s) with hits outside the gold pages or in dev answers (see REVIEW lines)
+== Dev result rows re-scored in memory (current vs revised definition; result files untouched)
+  TA-D1 D-conflicting-01 T1: stored correct=True | current-def correct=True cit_compl=1.00 | revised-def correct=True recall=1.00 cit_compl=1.00
+  TA-D1 D-conflicting-01 T2: stored correct=True | current-def correct=True cit_compl=1.00 | revised-def correct=True recall=1.00 cit_compl=1.00
+  TA-D2 D-conflicting-03 T1: stored correct=False | current-def correct=False cit_compl=0.50 | revised-def correct=True recall=1.00 cit_compl=0.50
+  TA-D2 D-conflicting-03 T2: stored correct=False | current-def correct=False cit_compl=0.50 | revised-def correct=True recall=1.00 cit_compl=0.50
+  TA-D3 D-conflicting-04 T1: stored correct=False | current-def correct=False cit_compl=1.00 | revised-def correct=True recall=1.00 cit_compl=1.00
+  TA-D3 D-conflicting-04 T2: stored correct=False | current-def correct=False cit_compl=0.50 | revised-def correct=True recall=1.00 cit_compl=0.50
+  TA-D4 B-comp-04 T1: stored correct=False | current-def correct=False cit_compl=1.00 | revised-def correct=False recall=1.00 cit_compl=1.00
+  TA-D4 B-comp-04 T2: stored correct=True | current-def correct=True cit_compl=1.00 | revised-def correct=True recall=1.00 cit_compl=0.50
+== TA-D4 Tier 1 context (run_eval.tier1_context)
+  current: gold=[('calder_sound_tile_study_TR-2026-07.pdf', 2)] distractors=['calder p4', 'velmoor p5']
+  revised: gold=[('calder_sound_tile_study_TR-2026-07.pdf', 2), ('calder_sound_tile_study_TR-2026-07.pdf', 4)] distractors=['calder p5', 'velmoor p5']
+== Denominators and category counts
+  heldout: tier1 113->113, tier2 106->106; changed categories {'conflicting': '7->5', 'multi_page': '12->14'}
+  heldout categories after: {'compound': 16, 'conflicting': 5, 'direct_factual': 19, 'follow_up': 14, 'irrelevant_retrieval': 4, 'missing_metadata': 3, 'multi_chunk': 12, 'multi_page': 14, 'no_answer': 16, 'prompt_injection': 10}
+  dev: tier1 47->47, tier2 42->42; changed categories {'conflicting': '6->3', 'multi_page': '5->8'}
+  dev categories after: {'compound': 5, 'conflicting': 3, 'direct_factual': 10, 'follow_up': 2, 'irrelevant_retrieval': 4, 'missing_metadata': 1, 'multi_chunk': 4, 'multi_page': 8, 'no_answer': 4, 'prompt_injection': 6}
+  dataset-wide conflicting 13->8, multi_page 17->22 (manifest category_counts would change)
+
+RESULT: OK; 0 unexpected result(s) 

@@ -99,6 +99,7 @@ class MemoryProvenanceFacts:
     conversation_id: str
     modern_links: tuple = ()             # tuple[ModernLinkFact, ...]
     legacy_scalar: LegacyScalarFact | None = None
+    quarantined: bool = False
 
 
 @dataclass(frozen=True)

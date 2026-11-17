@@ -1,0 +1,471 @@
+{
+ "content": {
+  "assets": [
+   {
+    "git_blob_sha1": "1daaaec3bc89c5463ed1fd786052e01a1cb5c6f8",
+    "group": "dataset",
+    "kind": "text",
+    "path": "eval/phase35/data_A.py",
+    "portable_sha256": "c204fd037d653a27dfed00f7d9b9ad0b38dea4d20f578145aa7bc9b15201714c"
+   },
+   {
+    "git_blob_sha1": "aba31e5e90eb2c652f550fd72620379fd35a91b5",
+    "group": "dataset",
+    "kind": "text",
+    "path": "eval/phase35/data_B.py",
+    "portable_sha256": "f58fc8041bed81682e0bc22be6123364f963b170db5a409204b60922aa5a3548"
+   },
+   {
+    "git_blob_sha1": "e25a1ff452fb8c8ffedd5417e88716aa349c192f",
+    "group": "dataset",
+    "kind": "text",
+    "path": "eval/phase35/data_C.py",
+    "portable_sha256": "6fc3ca44254f4dc536b2bde59d355134ccdee284ff359c4a6f3ebe7deb6cfea6"
+   },
+   {
+    "git_blob_sha1": "f331160f4dbffa91ce78a1410097f2e13da65b78",
+    "group": "dataset",
+    "kind": "text",
+    "path": "eval/phase35/data_D.py",
+    "portable_sha256": "6341a55f5307cf9cc47fbf1608e7dc26e3041793f6e0184528f1a3b9249d8f64"
+   },
+   {
+    "git_blob_sha1": "85e5a5436172235b5de68d81a94b10bdce8bac23",
+    "group": "validator",
+    "kind": "text",
+    "path": "eval/phase35/validate.py",
+    "portable_sha256": "2f29ba0f1c483bc2fd4a54c1bad2685a3b50d98b104159a6d6365c29ef0222ca"
+   },
+   {
+    "git_blob_sha1": "596d8d571abd54a12e64920d9638a2dedcaf0f0c",
+    "group": "scorer",
+    "kind": "text",
+    "path": "eval/phase35/run_eval.py",
+    "portable_sha256": "9d4670ce5488499ec79f0cc50598993fc2594ba9d1edb95555b1a6ae379ace94"
+   },
+   {
+    "git_blob_sha1": "560d104deb40f1b4ff4add41170ef732648166e6",
+    "group": "scorer",
+    "kind": "text",
+    "path": "eval/answer_scoring.py",
+    "portable_sha256": "c3b5422820b96266be8529e853653ebc40184e3b48e2cd7991f68663cf8167af"
+   },
+   {
+    "git_blob_sha1": "467ea308bc4ee1af6d357163c6298cd8242098d4",
+    "group": "thresholds",
+    "kind": "text",
+    "path": "docs/remediation/HELDOUT_THRESHOLD_FREEZE.md",
+    "portable_sha256": "3e4bd5d71e843dcb2fd5bed13d17d88b7fb67b8fce85723834225641a055be66"
+   },
+   {
+    "git_blob_sha1": "64f9c4c7f031f6d465986105f3c3b7445e189dcb",
+    "group": "dataset_corrections",
+    "kind": "text",
+    "path": "docs/remediation/HELDOUT_DATASET_CORRECTIONS.md",
+    "portable_sha256": "d44573e1a68b43a98ddd50cc9e5344a429079b3e87cf37ae585a26ceaa92eefb"
+   },
+   {
+    "git_blob_sha1": "21baab8dbc24665fa010d743678f18aeb1a8b7d4",
+    "group": "source_pages",
+    "kind": "text",
+    "path": "docs/remediation/heldout_review/source_pages.md",
+    "portable_sha256": "e76ad9475ab5d82bd863ef50f603dd90e01149267b97eef56adf5030fdf985ea"
+   },
+   {
+    "git_blob_sha1": "62e18cb73cd6029cc07131856874a6ccb02421aa",
+    "group": "human_review",
+    "kind": "binary",
+    "path": "docs/remediation/heldout_review/heldout_review_sheet_CURRENT_HUMAN_REVIEW.xlsx",
+    "portable_sha256": "300dc43fb76b1884015583d60e12834f7e50086c0afbaad765ad536e8c491467"
+   },
+   {
+    "git_blob_sha1": "c64a22f048422290b27da02f9e8afd0a03a72b1e",
+    "group": "human_review",
+    "kind": "text",
+    "path": "docs/remediation/heldout_review/heldout_review_sheet.csv",
+    "portable_sha256": "a5b90a4fc4ec2452fdd247d1bce642012b321ce6732213df2d8978ecc01fb8bf"
+   },
+   {
+    "git_blob_sha1": "2a641f2895bca8d1dfe723cec836c047aa0d4f0a",
+    "group": "human_review",
+    "kind": "text",
+    "path": "docs/remediation/heldout_review/heldout_review_sheet_REVIEWED_by_Claude.csv",
+    "portable_sha256": "250049d282d63d654d6b8d20742a8e34cf1eef5989220b37aac5c5b9f27bbd52"
+   },
+   {
+    "git_blob_sha1": "43193d0a96215730697b16412b7edf7db907d1cf",
+    "group": "human_review",
+    "kind": "text",
+    "path": "docs/remediation/heldout_review/README.md",
+    "portable_sha256": "8a6f429607541b127ba8c3dec6de9163a4d916877878b8bc1883ebdfa8a6293b"
+   },
+   {
+    "git_blob_sha1": "434ec32a31e4dbbbfac71f442bf385655b155c28",
+    "group": "human_review",
+    "kind": "text",
+    "path": "docs/remediation/heldout_review/REVIEW_SIGNOFF_REPORT.md",
+    "portable_sha256": "88906a141f54061834071f9a40159d20d9bc4a04e072c97a24ae327f320ef7d0"
+   },
+   {
+    "git_blob_sha1": "f7c32b5beabbdca91644abd4a31b485f65d57475",
+    "group": "source_pdf",
+    "kind": "binary",
+    "path": "docs/remediation/heldout_review/source_pdfs/Aquaflow_AF-Series_Maintenance_Manual_RevC.pdf",
+    "portable_sha256": "98dff714a5b24657fc9bff9569669760e75f7a09e1a7b60a867267dc60bf4df9"
+   },
+   {
+    "git_blob_sha1": "d36962fb20541ba972c13f21246a64017cc5565f",
+    "group": "source_pdf",
+    "kind": "binary",
+    "path": "docs/remediation/heldout_review/source_pdfs/Brannock_Ridge_Safety_SOP_Rev4.pdf",
+    "portable_sha256": "7fcaed2dddb495d35f7b95ffc7ac20be7af3a8443eaddac6752b9de4d8596dc9"
+   },
+   {
+    "git_blob_sha1": "dbc4930cebc4940830ab5a639a536ec9cf967faf",
+    "group": "source_pdf",
+    "kind": "binary",
+    "path": "docs/remediation/heldout_review/source_pdfs/Corvane_Travel_Expense_Policy_FY27.pdf",
+    "portable_sha256": "89ee34a881b4ee37854829ff1804c6478721f6edf55df24b9c4effea6eb3891c"
+   },
+   {
+    "git_blob_sha1": "6c70d66d29cd4e6cc9e0bc6508aaa4dfeab5677b",
+    "group": "source_pdf",
+    "kind": "binary",
+    "path": "docs/remediation/heldout_review/source_pdfs/Harbourline_Price_List_and_Care_Plans_v4.1.pdf",
+    "portable_sha256": "2420dc46b5bc329651e744e80f5184d4a1f26503531bf2ad48b21b3a25d102fc"
+   },
+   {
+    "git_blob_sha1": "d0d2d1b164e0fd0642928980d38ddef3c03536e0",
+    "group": "source_pdf",
+    "kind": "binary",
+    "path": "docs/remediation/heldout_review/source_pdfs/Harbourline_Warranty_and_Returns_Policy.pdf",
+    "portable_sha256": "9599120817b1ac302cd8e7509002b6c2656b40cdd93114ea73bdd2df06e8e2d9"
+   },
+   {
+    "git_blob_sha1": "8dd07a1dedcf86f792f80c99fcfa1fb8178333f0",
+    "group": "source_pdf",
+    "kind": "binary",
+    "path": "docs/remediation/heldout_review/source_pdfs/Kestrel_Bay_Hospital_Visitor_and_Patient_Rights_Policy_v4.2.pdf",
+    "portable_sha256": "021b775ebca833b67a5ab2b36e0a1c954375d347f192a174ab55e9fdf79837b9"
+   },
+   {
+    "git_blob_sha1": "506d6a3d4eba56e8d42e52e25cc6198d194f237e",
+    "group": "source_pdf",
+    "kind": "binary",
+    "path": "docs/remediation/heldout_review/source_pdfs/Kestrel_Vendor_Services_Agreement.pdf",
+    "portable_sha256": "4ebc0916937aa3e10cdc79e033582ffe5ecff6751692262bcdfe4a9a950e76a6"
+   },
+   {
+    "git_blob_sha1": "d69cc012c658c2fed400bf2cc496c2852a761405",
+    "group": "source_pdf",
+    "kind": "binary",
+    "path": "docs/remediation/heldout_review/source_pdfs/Marlow_Fen_Water_Use_and_Public_Health_Bylaw_2025-14.pdf",
+    "portable_sha256": "0b95903f956a50d5e4f45e02761e25489dcbbd561cc639524f4d7101e9a55359"
+   },
+   {
+    "git_blob_sha1": "85dc77572ba5323b1f119dcc002e635ee3ba6304",
+    "group": "source_pdf",
+    "kind": "binary",
+    "path": "docs/remediation/heldout_review/source_pdfs/Orchard_Lane_Clinic_Vaccination_and_Appointments_Guide.pdf",
+    "portable_sha256": "c40153cb0f4607732e9d1b1a79d04fcc66296ec58f48a86a5534caf5413b0a1c"
+   },
+   {
+    "git_blob_sha1": "644fd513999ec377ff3f65063fb57cf4d2e9eca4",
+    "group": "source_pdf",
+    "kind": "binary",
+    "path": "docs/remediation/heldout_review/source_pdfs/calder_sound_tile_study_TR-2026-07.pdf",
+    "portable_sha256": "aadbe06a7183bb300a9dc502fdd314ca3aa56305bb22a6b634918fd73b1170d4"
+   },
+   {
+    "git_blob_sha1": "7e759ea2b4be1b241d681d347df43e9bee71e090",
+    "group": "source_pdf",
+    "kind": "binary",
+    "path": "docs/remediation/heldout_review/source_pdfs/kestrel_fellowship_call_2027.pdf",
+    "portable_sha256": "e7277a4f88305eda428aaa095518a60eecfd7234a047c4c34936f648f81de74c"
+   },
+   {
+    "git_blob_sha1": "244878ae5a2c8c328f44267d80fa2ecf9073cb82",
+    "group": "source_pdf",
+    "kind": "binary",
+    "path": "docs/remediation/heldout_review/source_pdfs/velmoor_postgrad_handbook_v4.2.pdf",
+    "portable_sha256": "d32da00f266b44a13b18a1dc6564bcd184b06846385c3771afacaf52beb20d14"
+   }
+  ],
+  "dataset": {
+   "case_count": 160,
+   "category_counts": {
+    "compound": 21,
+    "conflicting": 13,
+    "direct_factual": 29,
+    "follow_up": 16,
+    "irrelevant_retrieval": 8,
+    "missing_metadata": 4,
+    "multi_chunk": 16,
+    "multi_page": 17,
+    "no_answer": 20,
+    "prompt_injection": 16
+   },
+   "dataset_sha256": "5c58796af13ffe296a08421d9119bbb7f23430d7070d4ace3b281a82e9a7d6a1",
+   "dataset_version": "phase35-corrected-2026-11-12",
+   "documents": 12,
+   "errors": [],
+   "file_sha256": {
+    "eval/phase35/data_A.py": "c204fd037d653a27dfed00f7d9b9ad0b38dea4d20f578145aa7bc9b15201714c",
+    "eval/phase35/data_B.py": "f58fc8041bed81682e0bc22be6123364f963b170db5a409204b60922aa5a3548",
+    "eval/phase35/data_C.py": "6fc3ca44254f4dc536b2bde59d355134ccdee284ff359c4a6f3ebe7deb6cfea6",
+    "eval/phase35/data_D.py": "6341a55f5307cf9cc47fbf1608e7dc26e3041793f6e0184528f1a3b9249d8f64"
+   },
+   "pages": 56,
+   "split_counts": {
+    "dev": 47,
+    "heldout": 113
+   },
+   "split_membership": {
+    "dev": [
+     "A-conflict-02",
+     "A-direct-05",
+     "A-direct-07",
+     "A-injection-04",
+     "A-irrelevant-02",
+     "A-multichunk-03",
+     "A-multichunk-04",
+     "A-multipage-03",
+     "A-multipage-04",
+     "A-noanswer-03",
+     "B-chunk-03",
+     "B-comp-02",
+     "B-comp-04",
+     "B-comp-05",
+     "B-conf-02",
+     "B-conf-03",
+     "B-conf-04",
+     "B-direct-03",
+     "B-follow-03",
+     "B-inject-02",
+     "B-inject-03",
+     "B-inject-04",
+     "B-irrel-01",
+     "B-none-01",
+     "C-compound-01",
+     "C-direct-02",
+     "C-direct-05",
+     "C-direct-07",
+     "C-irrelevant_retrieval-01",
+     "C-missing_metadata-01",
+     "C-multi_page-03",
+     "C-prompt_injection-01",
+     "C-prompt_injection-04",
+     "D-compound-04",
+     "D-conflicting-01",
+     "D-conflicting-03",
+     "D-conflicting-04",
+     "D-direct-01",
+     "D-direct-04",
+     "D-direct-05",
+     "D-follow_up-04",
+     "D-irrelevant_retrieval-01",
+     "D-multi_chunk-03",
+     "D-multi_page-03",
+     "D-multi_page-04",
+     "D-no_answer-01",
+     "D-no_answer-03"
+    ],
+    "heldout": [
+     "A-compound-01",
+     "A-compound-02",
+     "A-compound-03",
+     "A-compound-04",
+     "A-compound-05",
+     "A-conflict-01",
+     "A-conflict-03",
+     "A-conflict-04",
+     "A-direct-01",
+     "A-direct-02",
+     "A-direct-03",
+     "A-direct-04",
+     "A-direct-06",
+     "A-followup-01",
+     "A-followup-02",
+     "A-followup-03",
+     "A-followup-04",
+     "A-injection-01",
+     "A-injection-02",
+     "A-injection-03",
+     "A-irrelevant-01",
+     "A-missingmeta-01",
+     "A-multichunk-01",
+     "A-multichunk-02",
+     "A-multipage-01",
+     "A-multipage-02",
+     "A-noanswer-01",
+     "A-noanswer-02",
+     "A-noanswer-04",
+     "A-noanswer-05",
+     "B-chunk-01",
+     "B-chunk-02",
+     "B-chunk-04",
+     "B-comp-01",
+     "B-comp-03",
+     "B-conf-01",
+     "B-direct-01",
+     "B-direct-02",
+     "B-direct-04",
+     "B-direct-05",
+     "B-direct-06",
+     "B-direct-07",
+     "B-follow-01",
+     "B-follow-02",
+     "B-follow-04",
+     "B-inject-01",
+     "B-irrel-02",
+     "B-meta-01",
+     "B-none-02",
+     "B-none-03",
+     "B-none-04",
+     "B-none-05",
+     "B-page-01",
+     "B-page-02",
+     "B-page-03",
+     "B-page-04",
+     "C-compound-02",
+     "C-compound-03",
+     "C-compound-04",
+     "C-compound-05",
+     "C-conflicting-01",
+     "C-conflicting-02",
+     "C-conflicting-03",
+     "C-conflicting-04",
+     "C-direct-01",
+     "C-direct-03",
+     "C-direct-04",
+     "C-direct-06",
+     "C-follow_up-01",
+     "C-follow_up-02",
+     "C-follow_up-03",
+     "C-follow_up-04",
+     "C-irrelevant_retrieval-02",
+     "C-multi_chunk-01",
+     "C-multi_chunk-02",
+     "C-multi_chunk-03",
+     "C-multi_chunk-04",
+     "C-multi_page-01",
+     "C-multi_page-02",
+     "C-multi_page-04",
+     "C-no_answer-01",
+     "C-no_answer-02",
+     "C-no_answer-03",
+     "C-no_answer-04",
+     "C-no_answer-05",
+     "C-prompt_injection-02",
+     "C-prompt_injection-03",
+     "D-compound-01",
+     "D-compound-02",
+     "D-compound-03",
+     "D-compound-05",
+     "D-conflicting-02",
+     "D-direct-02",
+     "D-direct-03",
+     "D-direct-06",
+     "D-direct-07",
+     "D-follow_up-01",
+     "D-follow_up-02",
+     "D-follow_up-03",
+     "D-injection-01",
+     "D-injection-02",
+     "D-injection-03",
+     "D-injection-04",
+     "D-irrelevant_retrieval-02",
+     "D-missing_metadata-01",
+     "D-multi_chunk-01",
+     "D-multi_chunk-02",
+     "D-multi_chunk-04",
+     "D-multi_page-01",
+     "D-multi_page-02",
+     "D-no_answer-02",
+     "D-no_answer-04",
+     "D-no_answer-05"
+    ]
+   },
+   "split_sha256": "a185fa1c1cc49b7cfdd8f73205193cd4886154d05907b8509a5b559f60e44244",
+   "tier_distribution": {
+    "dev": {
+     "answer_only": 5,
+     "tier1_eligible": 47,
+     "tier2_eligible": 42
+    },
+    "heldout": {
+     "answer_only": 7,
+     "tier1_eligible": 113,
+     "tier2_eligible": 106
+    }
+   },
+   "valid": true,
+   "warnings": []
+  },
+  "hashing": {
+   "algorithm": "sha256",
+   "binary_normalization": "none (raw bytes)",
+   "git_blob_sha1": "sha1 of b'blob <len>\\0' + normalized content",
+   "text_normalization": "CRLF -> LF only; UTF-8 BOM preserved; lone CR and all other bytes unchanged"
+  },
+  "manifest_format": "phase35-frozen-manifest/1",
+  "source_pdfs_match_dataset_documents": true,
+  "thresholds": {
+   "dev/tier1": {
+    "cases": 47,
+    "min_correct": 41
+   },
+   "dev/tier2": {
+    "cases": 42,
+    "min_correct": 28
+   },
+   "heldout/tier1": {
+    "cases": 113,
+    "min_correct": 97,
+    "percent": 85
+   },
+   "heldout/tier2": {
+    "cases": 106,
+    "min_correct": 69,
+    "percent": 65
+   }
+  }
+ },
+ "content_sha256": "1b73a208d22fcfe00a51bf027df0b2e2fe490ceaebc207dbf64504c8da0fbf97",
+ "provenance": {
+  "generated_at_utc": "2026-11-17T04:49:07+00:00",
+  "git_head": "69e8b8ec6822959a72d40a18688442808540f3c8",
+  "note": "informational only; not part of content_sha256 and not expected to reproduce",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "python": "3.14.5",
+  "raw_sha256": {
+   "docs/remediation/HELDOUT_DATASET_CORRECTIONS.md": "d44573e1a68b43a98ddd50cc9e5344a429079b3e87cf37ae585a26ceaa92eefb",
+   "docs/remediation/HELDOUT_THRESHOLD_FREEZE.md": "3e4bd5d71e843dcb2fd5bed13d17d88b7fb67b8fce85723834225641a055be66",
+   "docs/remediation/heldout_review/README.md": "8a6f429607541b127ba8c3dec6de9163a4d916877878b8bc1883ebdfa8a6293b",
+   "docs/remediation/heldout_review/REVIEW_SIGNOFF_REPORT.md": "88906a141f54061834071f9a40159d20d9bc4a04e072c97a24ae327f320ef7d0",
+   "docs/remediation/heldout_review/heldout_review_sheet.csv": "a5b90a4fc4ec2452fdd247d1bce642012b321ce6732213df2d8978ecc01fb8bf",
+   "docs/remediation/heldout_review/heldout_review_sheet_CURRENT_HUMAN_REVIEW.xlsx": "300dc43fb76b1884015583d60e12834f7e50086c0afbaad765ad536e8c491467",
+   "docs/remediation/heldout_review/heldout_review_sheet_REVIEWED_by_Claude.csv": "250049d282d63d654d6b8d20742a8e34cf1eef5989220b37aac5c5b9f27bbd52",
+   "docs/remediation/heldout_review/source_pages.md": "e76ad9475ab5d82bd863ef50f603dd90e01149267b97eef56adf5030fdf985ea",
+   "docs/remediation/heldout_review/source_pdfs/Aquaflow_AF-Series_Maintenance_Manual_RevC.pdf": "98dff714a5b24657fc9bff9569669760e75f7a09e1a7b60a867267dc60bf4df9",
+   "docs/remediation/heldout_review/source_pdfs/Brannock_Ridge_Safety_SOP_Rev4.pdf": "7fcaed2dddb495d35f7b95ffc7ac20be7af3a8443eaddac6752b9de4d8596dc9",
+   "docs/remediation/heldout_review/source_pdfs/Corvane_Travel_Expense_Policy_FY27.pdf": "89ee34a881b4ee37854829ff1804c6478721f6edf55df24b9c4effea6eb3891c",
+   "docs/remediation/heldout_review/source_pdfs/Harbourline_Price_List_and_Care_Plans_v4.1.pdf": "2420dc46b5bc329651e744e80f5184d4a1f26503531bf2ad48b21b3a25d102fc",
+   "docs/remediation/heldout_review/source_pdfs/Harbourline_Warranty_and_Returns_Policy.pdf": "9599120817b1ac302cd8e7509002b6c2656b40cdd93114ea73bdd2df06e8e2d9",
+   "docs/remediation/heldout_review/source_pdfs/Kestrel_Bay_Hospital_Visitor_and_Patient_Rights_Policy_v4.2.pdf": "021b775ebca833b67a5ab2b36e0a1c954375d347f192a174ab55e9fdf79837b9",
+   "docs/remediation/heldout_review/source_pdfs/Kestrel_Vendor_Services_Agreement.pdf": "4ebc0916937aa3e10cdc79e033582ffe5ecff6751692262bcdfe4a9a950e76a6",
+   "docs/remediation/heldout_review/source_pdfs/Marlow_Fen_Water_Use_and_Public_Health_Bylaw_2025-14.pdf": "0b95903f956a50d5e4f45e02761e25489dcbbd561cc639524f4d7101e9a55359",
+   "docs/remediation/heldout_review/source_pdfs/Orchard_Lane_Clinic_Vaccination_and_Appointments_Guide.pdf": "c40153cb0f4607732e9d1b1a79d04fcc66296ec58f48a86a5534caf5413b0a1c",
+   "docs/remediation/heldout_review/source_pdfs/calder_sound_tile_study_TR-2026-07.pdf": "aadbe06a7183bb300a9dc502fdd314ca3aa56305bb22a6b634918fd73b1170d4",
+   "docs/remediation/heldout_review/source_pdfs/kestrel_fellowship_call_2027.pdf": "e7277a4f88305eda428aaa095518a60eecfd7234a047c4c34936f648f81de74c",
+   "docs/remediation/heldout_review/source_pdfs/velmoor_postgrad_handbook_v4.2.pdf": "d32da00f266b44a13b18a1dc6564bcd184b06846385c3771afacaf52beb20d14",
+   "eval/answer_scoring.py": "c3b5422820b96266be8529e853653ebc40184e3b48e2cd7991f68663cf8167af",
+   "eval/phase35/data_A.py": "c204fd037d653a27dfed00f7d9b9ad0b38dea4d20f578145aa7bc9b15201714c",
+   "eval/phase35/data_B.py": "f58fc8041bed81682e0bc22be6123364f963b170db5a409204b60922aa5a3548",
+   "eval/phase35/data_C.py": "6fc3ca44254f4dc536b2bde59d355134ccdee284ff359c4a6f3ebe7deb6cfea6",
+   "eval/phase35/data_D.py": "6341a55f5307cf9cc47fbf1608e7dc26e3041793f6e0184528f1a3b9249d8f64",
+   "eval/phase35/run_eval.py": "9d4670ce5488499ec79f0cc50598993fc2594ba9d1edb95555b1a6ae379ace94",
+   "eval/phase35/validate.py": "2f29ba0f1c483bc2fd4a54c1bad2685a3b50d98b104159a6d6365c29ef0222ca"
+  }
+ }
+}

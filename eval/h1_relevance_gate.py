@@ -8,6 +8,8 @@ Retrieval only: no LLM call, no answer generation, no default changed.
 Data: eval/phase35 dataset, DEV split only (run_eval.split_of), Tier 2 cases
 (tier == "both"). The corpus is written as PDFs and ingested with the real
 ingest_pdf into the scratch database rag_phase35_eval (run_eval's builder).
+prepare() first calls bootstrap() (harness.use_scratch_database, then the
+services imports); importing this module has no side effect.
 Queries are the raw case questions (no LLM rewrite).
 
 Configurations, all in the no-rerank path that has no gate today:
@@ -25,23 +27,40 @@ import json
 import statistics
 import time
 
-from eval.phase35.run_eval import build_scratch_corpus, load_all  # noqa: E402 (sets the scratch DB)
+from eval.phase35.run_eval import build_scratch_corpus, load_all   # no side effects since Stage 9 E0
 from eval import harness
 from eval.framework import retrieval_metrics as RM
-from services import retrieval_config as cfg
-from services.context_assembly_service import assemble_context
-from services.database import get_connection
-from services.embedding_service import generate_embeddings
-from services.hybrid_search_service import hybrid_search_detailed, keyword_search
-from services.rrf_service import reciprocal_rank_fusion
-from services.search_service import semantic_search
 from pgvector import Vector
 
 GRID = [round(0.05 * i, 2) for i in range(15)]   # 0.00 .. 0.70
 SCRATCH_DB = "rag_phase35_eval"
 
+# Bound by bootstrap(): services.database reads DATABASE_URL at import, so the
+# services are imported only after the scratch switch. Importing this module touches no DB.
+cfg = assemble_context = get_connection = generate_embeddings = None
+hybrid_search_detailed = keyword_search = reciprocal_rank_fusion = semantic_search = None
+
+
+def bootstrap():
+    """Point DATABASE_URL at the scratch DB, then import the retrieval services (no provider)."""
+    global cfg, assemble_context, get_connection, generate_embeddings
+    global hybrid_search_detailed, keyword_search, reciprocal_rank_fusion, semantic_search
+    harness.use_scratch_database(SCRATCH_DB)   # before any services import
+    from services import retrieval_config as _cfg
+    from services.context_assembly_service import assemble_context as _assemble_context
+    from services.database import get_connection as _get_connection
+    from services.embedding_service import generate_embeddings as _generate_embeddings
+    from services.hybrid_search_service import hybrid_search_detailed as _hybrid, keyword_search as _keyword
+    from services.rrf_service import reciprocal_rank_fusion as _rrf
+    from services.search_service import semantic_search as _semantic
+    cfg, assemble_context, get_connection, generate_embeddings = (
+        _cfg, _assemble_context, _get_connection, _generate_embeddings)
+    hybrid_search_detailed, keyword_search, reciprocal_rank_fusion, semantic_search = (
+        _hybrid, _keyword, _rrf, _semantic)
+
 
 def prepare(no_ingest):
+    bootstrap()
     harness.assert_scratch()
     with get_connection() as conn:
         name = conn.execute("SELECT current_database()").fetchone()[0]

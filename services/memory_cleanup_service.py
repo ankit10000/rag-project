@@ -1,7 +1,11 @@
 import json
 import re
+import uuid
+
+from services.database import get_connection
 
 from services.llm_service import generate_answer
+from services.memory_storage_service import normalize_positive_id
 from services.conversation_service import (
     get_conversation_summary,
     update_conversation_summary,
@@ -273,15 +277,30 @@ Return [] if none.
     selected = []
 
     for value in data:
-        try:
-            value = int(value)
-        except (TypeError, ValueError):
+        value = normalize_positive_id(value, allow_integral_float=False)
+        if value is None:
             continue
 
         if value in valid_ids and value not in selected:
             selected.append(value)
 
     return selected
+
+
+def _owned_source_ids(conversation_id, source_ids):
+    """Resolve actual user-source ownership without guessing historical origins.
+
+    An assistant-only historical reference cannot establish which user
+    messages contained the forgotten fact, so it requires the unknown fence.
+    """
+    if not source_ids:
+        return set()
+    with get_connection() as conn:
+        rows = conn.execute(
+            "SELECT id FROM messages WHERE conversation_id = %s AND id = ANY(%s::bigint[]) AND role = 'user'",
+            (uuid.UUID(str(conversation_id)), list(source_ids)),
+        ).fetchall()
+    return {row[0] for row in rows}
 
 
 def apply_deletion_cleanup(
@@ -317,8 +336,9 @@ def apply_deletion_cleanup(
 
         item_ids = set()
         for source_id in raw_ids:
-            if isinstance(source_id, int) and not isinstance(source_id, bool) and source_id > 0:
-                item_ids.add(source_id)
+            valid_id = normalize_positive_id(source_id, allow_integral_float=False)
+            if valid_id is not None:
+                item_ids.add(valid_id)
             else:
                 unknown_provenance = True
 
@@ -326,7 +346,10 @@ def apply_deletion_cleanup(
             unknown_provenance = True
         source_ids.update(item_ids)
 
-    source_ids = sorted(source_ids)
+    owned_ids = _owned_source_ids(conversation_id, source_ids)
+    if source_ids - owned_ids:
+        unknown_provenance = True
+    source_ids = sorted(owned_ids)
 
     # Also exclude the assistant reply that followed each source user
     # message: it often repeats the forgotten fact.

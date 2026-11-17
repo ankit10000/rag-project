@@ -42,6 +42,10 @@ DEFAULT_SCRATCH = "rag_test_scratch"
 
 CATEGORIES = {
     "unit": [
+        "test_assignment_flow.py",
+        "test_assignment_provenance.py",
+        "test_assignment_intelligence.py",
+        "test_assignment_quarantine.py",
         "test_testsafe.py",
         "test_answer_scoring.py",
         "test_context_and_citations.py",
@@ -64,8 +68,17 @@ CATEGORIES = {
         "test_stage5_retrieval.py",
         "test_stage6_answer.py",
         "test_stage8_p3_classification.py",
+        "test_stage9_e0_runner_gate.py",
+        "test_stage9_e0_frozen_manifest.py",
+        "test_stage9_b_review_tools.py",
+        "test_stage9_e2_dev_runners.py",
+        "test_stage9_scorer_probes.py",
+        "test_stage9_v1_immutability.py",
+        "test_stage9_review_checks_branches.py",
+        "test_stage9_gate_branches.py",
     ],
     "integration": [
+        "test_assignment_lifecycle.py",
         "test_memory_sources_regression.py",
         "test_deletion_cleanup.py",
         "test_extraction_and_summary_guards.py",
@@ -240,7 +253,10 @@ def main():
 
     try:
         with psycopg.connect(scratch_url) as conn:
-            conn.execute("SELECT 1")
+            actual_database = conn.execute("SELECT current_database()").fetchone()[0]
+            if actual_database != "rag_test_scratch":
+                print("SAFETY: integration runs require current_database() = rag_test_scratch")
+                return 2
     except psycopg.Error:
         print(f"Scratch database {args.db!r} is not reachable. Create it first "
               "(schema only, from the application DB) - see docs/remediation/p4_07_test_infrastructure.md.")

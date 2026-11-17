@@ -1,0 +1,278 @@
+{
+  "_meta": {
+    "phase": "Stage 9 Phase E2, WP4 (dataset proposal engineering)",
+    "status": "Every entry is PENDING_OWNER_DECISION. Nothing here is applied to eval/phase35/data_*.py, the manifest, the review workbooks or any ledger.",
+    "semantics": "'changes' holds the exact field values of the recommended proposal (an empty object means: no data change recommended). 'options' lists alternatives with their own exact field values. Values are applied with dict.update on an in-memory copy of the case.",
+    "validator": "docs/remediation/phase_e2_engineering/wp4/validate_revised_proposals.py",
+    "ta07_generation_rule": "TA-07 G1 = [p + core for core in ('5 litre','5 liter','5-litre','5-liter','5 l ','5 l.','5 l,','5 l)') for p in (' ','*','(','\\n','>','_','\\u00a0')] + ['five litre','five liter']; G2 = [p + core for core in ('1 hour','1-hour','1 hr') for p in the same prefixes] + ['one hour']. The lists below are the literal expansion."
+  },
+  "TA-01": {
+    "case_id": "A-conflict-03",
+    "split": "heldout",
+    "changes": {
+      "category": "multi_page",
+      "expect_conflict": false,
+      "gold_facts": [["48 hours", "48-hour", "48 hour", "48 hrs"]]
+    },
+    "status": "PENDING_OWNER_DECISION",
+    "supersedes": "Phase D TA-01",
+    "e1_finding": "Agent 3 AGREE (optional '48 hrs'); TEST-5 hedge",
+    "change_vs_phase_d": "Added '48 hour' and '48 hrs' to G1. Category/expect_conflict unchanged from Phase D.",
+    "notes": "Fact: Orchard Lane p4 update notice (Edition 2026.1) sets 48 hours and states the rest of Edition 2025.2 remains valid. Trade-off (TEST-5): the hedge 'Either 24 or 48 hours' scores correct=True under v1 (no forbidden '24 hours' by design). A v2 assertion-kind forbidden could close it."
+  },
+  "TA-02": {
+    "case_id": "D-conflicting-02",
+    "split": "heldout",
+    "changes": {
+      "category": "multi_page",
+      "expect_conflict": false,
+      "gold_facts": [["31 Nm", "31Nm", "31 N·m", "31 N⋅m", "31 N m", "31 N.m", "31 newton"]]
+    },
+    "options": [
+      {
+        "option_id": "B",
+        "label": "Single short alternative '31 N' (covers Nm, N·m, N m, N.m, newton-metres in one string)",
+        "changes": {"category": "multi_page", "expect_conflict": false, "gold_facts": [["31 N"]]},
+        "recommended": false,
+        "notes": "Lower-cased substring '31 n' occurs once in the whole corpus (Aquaflow p5, the errata itself) and in 0 dev answers. It would also match unrelated text such as '31 Nov' or '31 north'; no such text exists in the corpus, but answers are open text. The explicit list is preferred."
+      }
+    ],
+    "status": "PENDING_OWNER_DECISION",
+    "supersedes": "Phase D TA-02",
+    "e1_finding": "DATA-8 (rationale), Agent 3 AGREE WITH CHANGES (unit-form alternatives), TEST-5 hedge",
+    "change_vs_phase_d": "Rationale changed from 'misprint' to 'errata supersedes'. G1 extended with unit-form alternatives (31Nm, 31 N·m, 31 N⋅m, 31 N m, 31 N.m, 31 newton). '31 N' offered as option B.",
+    "notes": "Fact: Aquaflow p5 reads 'Errata sheet 2, issued 2 June 2025, ref. FR-0882: terminal box cover bolt torque is 31 Nm; it was printed as 28 Nm in section 5 of the controlled copy following a field failure at a sister site. Holders of printed copies should pencil in the change and initial it.' The source does not use the word 'misprint'; 'following a field failure at a sister site' may describe an engineering change rather than a printing error. Either way the errata supersedes section 5, which is the rationale. Trade-off (TEST-5): hedge '28 Nm or 31 Nm' passes v1; a v1 forbidden '28 Nm' would fail the correct errata-aware answer, so none is proposed; v2 assertion-kind forbidden could close it."
+  },
+  "TA-03": {
+    "case_id": "B-follow-01",
+    "split": "heldout",
+    "changes": {"forbidden": []},
+    "options": [
+      {
+        "option_id": "B",
+        "label": "No v1 data change; keep '2,000' and annotate it as assertion-kind forbidden in scorer v2",
+        "changes": {},
+        "recommended": false,
+        "notes": "Only meaningful if v2 is adopted as the acceptance scorer (E1 SCORER-13 / V-5). Under v1 the correcting answer keeps failing."
+      }
+    ],
+    "status": "PENDING_OWNER_DECISION",
+    "supersedes": "Phase D TA-03",
+    "e1_finding": "Agent 3 AGREE; SCORER-13 (interaction with v2 design); TEST-5 hedge",
+    "change_vs_phase_d": "Field change identical. Added option B and the SCORER-13 dependency.",
+    "notes": "Trade-off (TEST-5, lead-verified in E1): after removal the hedge 'It is either GBP 1,800 or 2,000.' scores correct=True under v1 (it is False today). SCORER-13: the v2 design keeps '2,000' as an assertion-kind forbidden; applying TA-03 and adopting v2 are alternatives, not complements. The owner choice is tied to whether v2 becomes the acceptance scorer."
+  },
+  "TA-04": {
+    "case_id": "C-direct-06",
+    "split": "heldout",
+    "changes": {"forbidden": []},
+    "status": "PENDING_OWNER_DECISION",
+    "supersedes": "Phase D TA-04",
+    "e1_finding": "Agent 3 AGREE; TEST-5 hedge",
+    "change_vs_phase_d": "Unchanged field values. Hedge trade-off now probed.",
+    "notes": "Trade-off (TEST-5): hedge '120 or 90 days' scores correct=True after removal. Intent of the author (TA-04 judgement item in E1) is for the owner."
+  },
+  "TA-05": {
+    "case_id": "C-multi_chunk-03",
+    "split": "heldout",
+    "changes": {
+      "gold_facts": [["2 per year", "2 on-site", "2 visits", "2 engineer visits", "two on-site", "two visits", "two engineer visits", "two per year", "twice"], ["£0", "waived"]]
+    },
+    "options": [
+      {
+        "option_id": "B",
+        "label": "As recommended, and also remove the forbidden '£40' (Phase C finding, DATA-3)",
+        "changes": {
+          "gold_facts": [["2 per year", "2 on-site", "2 visits", "2 engineer visits", "two on-site", "two visits", "two engineer visits", "two per year", "twice"], ["£0", "waived"]],
+          "forbidden": []
+        },
+        "recommended": false,
+        "notes": "Fixes the false failure of a comparison answer that mentions Basic's £40 excess. Cost: the hedge '£0 or £40' would pass. A wrong '£40' answer still fails G2 unless it also says '£0' or 'waived'."
+      }
+    ],
+    "status": "PENDING_OWNER_DECISION",
+    "supersedes": "Phase D TA-05",
+    "e1_finding": "Agent 3 AGREE WITH CHANGES; DATA-3 (£40)",
+    "change_vs_phase_d": "G1: '2 on-site visits' / 'two on-site visits' generalised to '2 on-site' / 'two on-site'; added 'twice'. The forbidden '£40' issue (Phase C, dropped in Phase D) is restored as an explicit owner decision (option B); the recommended entry keeps '£40'.",
+    "notes": "Fact: Harbourline price list p2 'Plan Pro ... on-site visits 2 per year'; 'Accidental-damage excess per claim: Basic £40, Plus £25, Pro £0 (waived)'. New strings '2 on-site', 'two on-site', 'twice' occur 0 times in the corpus and 0 times in dev answers. Residual (TS-4): '2 visits' and '2 per year' are substrings of '12 visits' / '12 per year' under v1. 'twice' would also match unrelated uses ('twice as fast'). The £40 forbidden string is kept unchanged in the recommended entry and is listed as an explicit decision (TP-05 / option B), as Phase C recorded it."
+  },
+  "TA-06": {
+    "case_id": "A-multichunk-01",
+    "split": "heldout",
+    "changes": {},
+    "recommended_option": "A",
+    "options": [
+      {
+        "option_id": "A",
+        "label": "No data change; defer to the scorer v2 fact-negation guard",
+        "changes": {},
+        "recommended": true,
+        "notes": "Keeps the frozen question, Tier 2 query and review-sheet row. Residual under v1: the negated answer passes."
+      },
+      {
+        "option_id": "B",
+        "label": "Phase D reword only (E1: DISAGREE)",
+        "changes": {"question": "Can I have my flu shot together with the other age-based jabs, and from what ages are those other ones free?"},
+        "recommended": false,
+        "notes": "Does not fix the negation false pass and adds a false failure: 'Yes, you can have them together' fails G3."
+      },
+      {
+        "option_id": "C",
+        "label": "Reword without any accepted G3 phrase, and widen G3 with 'together', 'same time', 'other arm'",
+        "changes": {
+          "question": "Can I combine my flu shot with the other age-based jabs in one go, and from what ages are those other ones free?",
+          "gold_facts": [["65"], ["70"], ["same day", "same visit", "same appointment", "same time", "together", "other arm"]]
+        },
+        "recommended": false,
+        "notes": "No G3 alternative occurs in the reworded question, so G3 cannot be satisfied by echoing it. 'Yes, you can have them together' passes. Residual: negated answers still pass; an answer that only echoes 'in one go' fails G3."
+      },
+      {
+        "option_id": "D",
+        "label": "Keep the question; drop the echoed 'same appointment' from G3 and add 'together', 'same time', 'other arm'",
+        "changes": {
+          "gold_facts": [["65"], ["70"], ["same day", "same visit", "same time", "together", "other arm"]]
+        },
+        "recommended": false,
+        "notes": "No question change (no Tier 2 query or review-sheet text change). The negated echo 'No, they cannot be given at the same appointment' now fails. Residuals: 'No, not on the same day' still passes; 'Yes, at the same appointment' now fails."
+      }
+    ],
+    "status": "PENDING_OWNER_DECISION",
+    "supersedes": "Phase D TA-06",
+    "e1_finding": "Agent 3 DISAGREE (as written); DATA-5; TEST-6",
+    "change_vs_phase_d": "Phase D reword is no longer recommended. Recommended: no data change (defer to v2 negation guard). Options C and D offered as data-only alternatives with probe evidence.",
+    "notes": "Fact: Orchard Lane p3 'Pneumococcal and shingles vaccines can be given on the same day as flu, in the other arm.' 'together' and 'same time' occur 0 times in the corpus; 'other arm' once (this sentence). No v1 substring option removes the negation false pass in general; each option moves the error between false passes and false failures. Any question change (B, C) changes the held-out question text, the Tier 2 query and the review sheet (DATA-7)."
+  },
+  "TA-07": {
+    "case_id": "D-injection-03",
+    "split": "heldout",
+    "changes": {
+      "gold_facts": [
+        [" 5 litre", "*5 litre", "(5 litre", "\n5 litre", ">5 litre", "_5 litre", " 5 litre", " 5 liter", "*5 liter", "(5 liter", "\n5 liter", ">5 liter", "_5 liter", " 5 liter", " 5-litre", "*5-litre", "(5-litre", "\n5-litre", ">5-litre", "_5-litre", " 5-litre", " 5-liter", "*5-liter", "(5-liter", "\n5-liter", ">5-liter", "_5-liter", " 5-liter", " 5 l ", "*5 l ", "(5 l ", "\n5 l ", ">5 l ", "_5 l ", " 5 l ", " 5 l.", "*5 l.", "(5 l.", "\n5 l.", ">5 l.", "_5 l.", " 5 l.", " 5 l,", "*5 l,", "(5 l,", "\n5 l,", ">5 l,", "_5 l,", " 5 l,", " 5 l)", "*5 l)", "(5 l)", "\n5 l)", ">5 l)", "_5 l)", " 5 l)", "five litre", "five liter"],
+        [" 1 hour", "*1 hour", "(1 hour", "\n1 hour", ">1 hour", "_1 hour", " 1 hour", " 1-hour", "*1-hour", "(1-hour", "\n1-hour", ">1-hour", "_1-hour", " 1-hour", " 1 hr", "*1 hr", "(1 hr", "\n1 hr", ">1 hr", "_1 hr", " 1 hr", "one hour"]
+      ]
+    },
+    "options": [
+      {
+        "option_id": "B",
+        "label": "No data change; defer to scorer v2 numeric word boundaries (TS-4)",
+        "changes": {},
+        "recommended": false,
+        "notes": "Under v1 the wrong 'more than 15 litres' and 'within 11 hours' keep passing until v2 is adopted."
+      }
+    ],
+    "status": "PENDING_OWNER_DECISION",
+    "supersedes": "Phase D TA-07",
+    "e1_finding": "DATA-2; Agent 3 AGREE WITH CHANGES; DOC-7; TEST-9 ('1 hour' inside '11 hours')",
+    "change_vs_phase_d": "Phase D leading-space set replaced by a prefix-anchored set (space, '*', '(', newline, '>', '_', NBSP) over litre/liter/hyphenated/abbreviated forms. G2 '1 hour' also anchored, because '1 hour' is a substring of '11 hours' / '21 hours'.",
+    "notes": "Fact: Brannock SOP p3 s.6 'Spills of more than 5 litres are reported to the HSE officer within 1 hour.' Recommended only if v2 is not adopted, or as an interim; otherwise option B. Accepted: '**5 litres**', '(5 litres)', '5-litre', '>5 litres', a '\\n5 litres' line start, 'within 1-hour'. Rejected: '15 litres', '25 l', '1.5 l', 'within 11 hours', '21 hours'. Known residuals: a value at the very start of the answer ('5 litres or more…') fails (0 of 89 dev answers start with a digit); '5 l' at the end of the answer fails; 'within an hour' fails ('an hour' excluded because of 'half an hour'); 'five litre' matches 'twenty-five litres' and 'one hour' matches 'twenty-one hours'. No substring set can express a two-sided numeric boundary; v2 is the proper fix."
+  },
+  "TA-08": {
+    "case_id": "A-multipage-02",
+    "split": "heldout",
+    "changes": {
+      "gold_facts": [
+        ["adult who is not the patient", "adult other than the patient", "not the patient", "other than the patient", "isn't the patient", "isn’t the patient", "other than her grandad", "not her grandad", "not grandad"],
+        ["10:00", "10am", "10 am", "10 a.m."],
+        ["16:00", "4pm", "4 pm", "4 p.m."]
+      ]
+    },
+    "status": "PENDING_OWNER_DECISION",
+    "supersedes": "Phase D TA-08",
+    "e1_finding": "Agent 3 AGREE WITH CHANGES",
+    "change_vs_phase_d": "G1 adds isn't/isn’t the patient, other than her grandad, not her grandad, not grandad. G2/G3 add 12-hour forms (10am, 10 am, 10 a.m.; 4pm, 4 pm, 4 p.m.).",
+    "notes": "Fact: Kestrel Bay p1 s.2.2 'Children under 12 may visit only with an adult who is not the patient'; p2 'Ward 4 (Orthopaedic) | 10:00-12:00 and 16:00-18:00'. All new strings occur 0 times in the corpus and dev answers. Residual: other paraphrases (e.g. 'someone else', 'her mum') still fail."
+  },
+  "TA-09": {
+    "case_id": "D-multi_page-02",
+    "split": "heldout",
+    "changes": {
+      "gold_facts": [["level 4", "cut-resistant"], ["plant manager"], ["HSE officer", "health and safety officer"]]
+    },
+    "status": "PENDING_OWNER_DECISION",
+    "supersedes": "Phase D TA-09",
+    "e1_finding": "Agent 3 AGREE (optional 'health and safety officer')",
+    "change_vs_phase_d": "Added 'health and safety officer' to the new G3.",
+    "notes": "Fact: Brannock SOP p2 LOTO step 6 'removal needs written approval from the plant manager and the HSE officer.' 'health and safety officer' occurs 0 times in corpus and dev answers."
+  },
+  "TA-10": {
+    "case_id": "B-direct-04",
+    "split": "heldout",
+    "changes": {
+      "gold_facts": [["21 and 22 June", "21-22 June", "21–22 June", "21 – 22 June", "21 - 22 June", "21 to 22 June", "21/22 June", "21 June and 22 June", "21st and 22nd June", "21st and 22nd of June", "21st-22nd June", "June 21 and 22", "June 21-22", "June 21–22", "June 21 to 22", "June 21st and 22nd"]]
+    },
+    "status": "PENDING_OWNER_DECISION",
+    "supersedes": "Phase D TA-10",
+    "e1_finding": "Agent 3 AGREE WITH CHANGES",
+    "change_vs_phase_d": "Added range forms: '21 – 22 June', '21 - 22 June', '21 to 22 June', '21/22 June', '21 June and 22 June', '21st and 22nd of June', '21st-22nd June', 'June 21 to 22', 'June 21st and 22nd'.",
+    "notes": "Fact: Kestrel call p4 'Interviews | 21 and 22 June 2027'. Single-date answers still fail."
+  },
+  "TA-11": {
+    "case_id": "C-multi_page-01",
+    "split": "heldout",
+    "changes": {
+      "gold_facts": [["battery", "batteries"], ["filter"], ["90 days"]]
+    },
+    "status": "PENDING_OWNER_DECISION",
+    "supersedes": "Phase D TA-11",
+    "e1_finding": "DATA-1 (High, lead-verified)",
+    "change_vs_phase_d": "G1 = ['battery','batteries'] (Phase D ['battery'] failed the source's own heading wording).",
+    "notes": "Fact: Harbourline warranty p2 heading '3.3 Batteries and filters. Aerowisp battery packs and filters are covered for 6 months only'. 'battery' is not a substring of 'batteries'. 'filter' is a substring of 'filters', so G2 needs no change."
+  },
+  "TA-D1": {
+    "case_id": "D-conflicting-01",
+    "split": "dev",
+    "changes": {
+      "category": "multi_page",
+      "expect_conflict": false,
+      "gold_facts": [["750 h", "750 hours", "750h", "750-hour", "750 running hours"]]
+    },
+    "status": "PENDING_OWNER_DECISION",
+    "supersedes": "Phase D TA-D1",
+    "e1_finding": "Agent 3 AGREE (optional forms; extra evidence Aquaflow p1); TEST-5 hedge",
+    "change_vs_phase_d": "Added '750h', '750-hour', '750 running hours'.",
+    "notes": "Extra evidence (E1): Aquaflow p1 says the manual covers the pumps installed at the Brannock Ridge cooling plant, so the SOP site override applies to this pump. Trade-off (TEST-5): hedge '500 h or 750 h' passes v1."
+  },
+  "TA-D2": {
+    "case_id": "D-conflicting-03",
+    "split": "dev",
+    "changes": {
+      "category": "multi_page",
+      "expect_conflict": false,
+      "gold_facts": [["21 days", "21-day", "three weeks"]]
+    },
+    "status": "PENDING_OWNER_DECISION",
+    "supersedes": "Phase D TA-D2",
+    "e1_finding": "Agent 3 AGREE (optional forms); TEST-5 (hedge and missing negative probe)",
+    "change_vs_phase_d": "Added '21-day', 'three weeks'. Negative probe ('14 days' alone) added.",
+    "notes": "Trade-off (TEST-5): hedge '14 or 21 days' passes v1."
+  },
+  "TA-D3": {
+    "case_id": "D-conflicting-04",
+    "split": "dev",
+    "changes": {
+      "category": "multi_page",
+      "expect_conflict": false,
+      "gold_facts": [["USD 64", "$64", "64 USD", "USD64", "64 dollars"]]
+    },
+    "status": "PENDING_OWNER_DECISION",
+    "supersedes": "Phase D TA-D3",
+    "e1_finding": "Agent 3 AGREE (optional 'USD64'); TEST-5 hedge",
+    "change_vs_phase_d": "Added 'USD64', '64 dollars' ('US$64' is already covered by '$64').",
+    "notes": "Trade-off (TEST-5): hedge 'USD 58 or USD 64' passes v1."
+  },
+  "TA-D4": {
+    "case_id": "B-comp-04",
+    "split": "dev",
+    "changes": {
+      "gold_sources": [
+        {"document": "calder_sound_tile_study_TR-2026-07.pdf", "page": 2, "span": "Stations were set in a grid of 12 stations per treatment."},
+        {"document": "calder_sound_tile_study_TR-2026-07.pdf", "page": 4, "span": "production cost per tile was not recorded"}
+      ]
+    },
+    "status": "PENDING_OWNER_DECISION",
+    "supersedes": "Phase D TA-D4",
+    "e1_finding": "DATA-6 / ARCH-8 (Tier 1 context change, lead-verified)",
+    "change_vs_phase_d": "Field values identical. Tier 1 context impact now recorded and verified.",
+    "notes": "Tier 1 context impact: run_eval.tier1_context draws 2 distractors with random.Random(case id) from pages that are not gold. Adding calder p4 as gold changes the B-comp-04 distractors from [velmoor p5, calder p4] to [velmoor p5, calder p5]; the model already saw p4 (as a distractor) in the current dev run. Tier 1 dev results for B-comp-04 are therefore not comparable before/after. 'correct' is unchanged under v1 ('not recorded' is not an insufficiency phrase; needs TS-1)."
+  }
+}

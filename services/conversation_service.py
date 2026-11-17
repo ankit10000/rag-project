@@ -1,5 +1,6 @@
 import uuid
 from services.database import get_connection
+from services.memory_storage_service import normalize_positive_id
 
 
 def create_conversation(title: str = "New Conversation") -> str:
@@ -52,6 +53,16 @@ def save_message(
     return row[0]
 
 
+def _validated_message_ids(message_ids):
+    """Discard coercible non-IDs before any history exclusion or pairing."""
+    return list(dict.fromkeys(
+        valid for value in message_ids
+        if (valid := normalize_positive_id(
+            value, allow_numeric_string=True, allow_integral_float=False
+        )) is not None
+    ))
+
+
 def mark_messages_excluded(
     conversation_id: str,
     message_ids: list[int]
@@ -62,7 +73,7 @@ def mark_messages_excluded(
     Returns the number of messages marked.
     """
 
-    ids = [int(i) for i in message_ids if i is not None]
+    ids = _validated_message_ids(message_ids)
 
     if not ids:
         return 0
@@ -96,9 +107,7 @@ def get_paired_assistant_ids(
     paired = []
 
     with get_connection() as conn:
-        for message_id in message_ids:
-            if message_id is None:
-                continue
+        for message_id in _validated_message_ids(message_ids):
 
             row = conn.execute(
                 """
@@ -202,7 +211,9 @@ def reset_conversation_summary(conversation_id: str):
 
 def get_conversation_history(
     conversation_id: str,
-    limit: int = 16
+    limit: int = 16,
+    *,
+    include_ids: bool = False,
 ) -> list[dict]:
 
     if limit <= 0:
@@ -226,7 +237,7 @@ def get_conversation_history(
 
         rows = conn.execute(
             """
-            SELECT role, content
+            SELECT id, role, content
             FROM messages
             WHERE conversation_id = %s
               AND id > %s
@@ -240,8 +251,9 @@ def get_conversation_history(
     rows.reverse()
 
     return [
-        {"role": role, "content": content}
-        for role, content in rows
+        ({"id": message_id, "role": role, "content": content}
+         if include_ids else {"role": role, "content": content})
+        for message_id, role, content in rows
     ]
 def get_conversation_summary(conversation_id: str) -> str:
 
@@ -392,11 +404,17 @@ def update_conversation_memory(
             SET summary = %s,
                 summary_up_to_message_id = %s
             WHERE id = %s
+              AND (COALESCE(summary_up_to_message_id, 0) < %s
+                   OR (%s = 0
+                       AND COALESCE(summary_up_to_message_id, 0) = 0
+                       AND COALESCE(memory_extraction_up_to_message_id, 0) = 0))
             """,
             (
                 summary,
                 last_message_id,
-                uuid.UUID(conversation_id)
+                uuid.UUID(conversation_id),
+                last_message_id,
+                last_message_id,
             )
         )
 def get_messages_for_memory_extraction(
@@ -460,7 +478,8 @@ def update_memory_extraction_checkpoint(
         conn.execute(
             """
             UPDATE conversations
-            SET memory_extraction_up_to_message_id = %s
+            SET memory_extraction_up_to_message_id = GREATEST(
+                COALESCE(memory_extraction_up_to_message_id, 0), %s)
             WHERE id = %s
             """,
             (last_message_id, conversation_uuid)

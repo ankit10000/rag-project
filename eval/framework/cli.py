@@ -1,6 +1,8 @@
 """File-based evaluation framework commands (no model calls, no evaluation runs).
 
     python -m eval.framework.cli manifest --dataset-version <v> --output <manifest.json>
+    python -m eval.framework.cli frozen-manifest --dataset-version <v> --output <frozen_manifest.json>
+    python -m eval.framework.cli verify-frozen-manifest --manifest <frozen_manifest.json>
     python -m eval.framework.cli compare  --baseline <a.jsonl> --current <b.jsonl> --output <cmp.json>
     python -m eval.framework.cli report   --results <rows.jsonl> --split dev|heldout --tier 1|2
                                           --evidence-class <CLASS> --human-review-status <STATUS>
@@ -36,6 +38,26 @@ def cmd_manifest(args):
     _write_new(args.output, json.dumps(manifest, indent=1, ensure_ascii=False))
     print(f"manifest written: {args.output} (valid={manifest['valid']}, errors={len(manifest['errors'])})")
     return 0 if manifest["valid"] else 1
+
+
+def cmd_frozen_manifest(args):
+    from eval.framework.frozen_manifest import build_frozen_manifest
+    manifest = build_frozen_manifest(args.dataset_version)
+    _write_new(args.output, json.dumps(manifest, indent=1, ensure_ascii=False, sort_keys=True) + "\n")
+    valid = manifest["content"]["dataset"]["valid"]
+    print(f"frozen manifest written: {args.output} content_sha256={manifest['content_sha256']} valid={valid}")
+    return 0 if valid else 1
+
+
+def cmd_verify_frozen_manifest(args):
+    from eval.framework.frozen_manifest import load_frozen_manifest, verify_frozen_manifest
+    manifest, problems = load_frozen_manifest(args.manifest)
+    if not problems:
+        problems, _ = verify_frozen_manifest(manifest)
+    for problem in problems:
+        print(f"MISMATCH: {problem}")
+    print("frozen manifest REPRODUCED" if not problems else f"{len(problems)} problem(s)")
+    return 0 if not problems else 1
 
 
 def cmd_compare(args):
@@ -88,6 +110,15 @@ def main(argv=None):
     m.add_argument("--dataset-version", required=True)
     m.add_argument("--output", required=True)
     m.set_defaults(func=cmd_manifest)
+
+    f = sub.add_parser("frozen-manifest")
+    f.add_argument("--dataset-version", required=True)
+    f.add_argument("--output", required=True)
+    f.set_defaults(func=cmd_frozen_manifest)
+
+    v = sub.add_parser("verify-frozen-manifest")
+    v.add_argument("--manifest", required=True)
+    v.set_defaults(func=cmd_verify_frozen_manifest)
 
     c = sub.add_parser("compare")
     c.add_argument("--baseline", required=True)

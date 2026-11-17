@@ -187,8 +187,8 @@ def part_a():
     with decide_mock(action="UNCERTAIN") as d:
         r = pm(fx, "something", fx.m2)
     passed = call_kwargs(d).get("existing_memories", [])
-    check("[6] limit 20 candidates", len(passed) == 20)
-    check("[6] newest first (id DESC)", [i for i, _ in passed] == ids[::-1][:20])
+    check("[6] full-history candidate recall", len(passed) == 22)
+    check("[6] stable oldest first (id ASC)", [i for i, _ in passed] == ids)
     check("[6] UNCERTAIN passthrough", r == "UNCERTAIN")
 
     # Stage 8: non-duplicate text, so the decision model runs and receives the
@@ -260,7 +260,7 @@ def part_a():
         # itself is an exact restatement and is linked by the Phase 3 shortcut instead).
         with decide_mock(action="DUPLICATE", memory_id=mid), spy("confirm_memory") as conf:
             r = pm(fx, "Seed A, restated", fx.m2)
-        check(f"[13] DUPLICATE {label} -> SKIPPED", r == "SKIPPED")
+        check(f"[13] DUPLICATE {label} -> UNCERTAIN", r == "UNCERTAIN")
         check(f"[13] DUPLICATE {label} -> confirm_memory not called, nothing linked",
               conf.call_count == 0 and state(fx) == before)
 
@@ -304,7 +304,7 @@ def part_a():
     with decide_mock(action="UPDATE", memory_id=ids[0], updated_memory="New text"), \
             mock.patch.object(automatic, "update_memory", return_value=False):
         r = pm(fx, "x", fx.m2)
-    check("[18] storage refuses update -> SKIPPED", r == "SKIPPED")
+    check("[18] storage refuses update -> UNCERTAIN", r == "UNCERTAIN")
 
     fx = Fixture()
     ids = fx.seed(["User lives in Delhi"])

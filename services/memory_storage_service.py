@@ -145,6 +145,13 @@ def save_memory(
         source_message_id, source_message_ids, required=True
     )
 
+    from services.legacy_provenance_quarantine import eligible_memory_ids
+
+    # An unsafe legacy row must never become a duplicate-confirmation target.
+    # It remains quarantined; a current, user-supported statement is stored
+    # independently instead of reviving the historical row.
+    supported_ids = sorted(eligible_memory_ids(conversation_id))
+
     embedding = generate_embeddings([memory_text])[0]
     embedding_vector = Vector(embedding.tolist())
 
@@ -161,12 +168,14 @@ def save_memory(
                        embedding <=> %s AS distance
                 FROM conversation_memories
                 WHERE conversation_id = %s
+                  AND id = ANY(%s::bigint[])
                 ORDER BY embedding <=> %s
                 LIMIT 1
                 """,
                 (
                     embedding_vector,
                     conversation_id,
+                    supported_ids,
                     embedding_vector,
                 ),
             )
@@ -240,7 +249,10 @@ def get_memory_details(
     given IDs, restricted to this conversation.
     """
 
-    ids = [int(i) for i in memory_ids]
+    ids = list(dict.fromkeys(
+        valid for value in memory_ids
+        if (valid := _valid_memory_id(value)) is not None
+    ))
 
     if not ids:
         return {}
@@ -296,6 +308,8 @@ def _validate_source_messages(cursor, conversation_id, source_ids):
         """
         SELECT id, role FROM messages
         WHERE conversation_id = %s AND id = ANY(%s::bigint[])
+          AND NOT context_excluded
+        FOR SHARE
         """,
         (conversation_id, list(source_ids)),
     )
@@ -333,8 +347,8 @@ def _link_memory_source(cursor, conversation_id, memory_id, source_message_id, l
     cursor.execute(
         """
         INSERT INTO memory_sources
-            (conversation_id, memory_id, source_message_id, link_kind)
-        VALUES (%s, %s, %s, %s)
+            (conversation_id, memory_id, source_message_id, link_kind, source_role)
+        VALUES (%s, %s, %s, %s, 'user')
         ON CONFLICT (memory_id, source_message_id) DO NOTHING
         """,
         (conversation_id, memory_id, source_message_id, link_kind),

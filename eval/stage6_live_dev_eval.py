@@ -14,7 +14,9 @@ Behaviour of the application is not changed.
 
 Safety: dev split only (Tier 1: 47, Tier 2: 42, ids must equal the recorded
 baseline's ids); held-out definitions are read only by the dataset validator
-and never run. Tier 2 uses the scratch database rag_phase35_eval as it is
+and never run. preflight() first calls bootstrap() (run_eval.bootstrap_execution:
+scratch DB switch, then services imports); importing this module has no side
+effect. Tier 2 uses the scratch database rag_phase35_eval as it is
 (no re-ingestion, verified: 12 documents, 135 chunks). Output files are created
 new; an existing output directory is refused unless --resume, which skips
 completed ids and logs the resume (no case is re-run silently).
@@ -25,10 +27,13 @@ import os
 import re
 import time
 
-from eval.phase35 import run_eval  # noqa: E402  (points DATABASE_URL at rag_phase35_eval)
+from eval.phase35 import run_eval   # import has no side effects since Stage 9 E0
 from eval import harness
-import services.llm_service as llm
-import services.rag_service as rag
+
+# Bound by bootstrap(): services.database reads DATABASE_URL at import, so these
+# modules are imported only after run_eval.bootstrap_execution() has switched it
+# to the scratch database rag_phase35_eval. Importing this module touches no DB.
+llm = rag = None
 
 BASELINE_DIR = os.path.join(run_eval.ROOT, "eval", "phase35", "results")
 EXPECTED = {1: 47, 2: 42}
@@ -92,7 +97,17 @@ def capture_answers():
     rag.ask_question = ask
 
 
+def bootstrap():
+    """Scratch DB switch + provider services (run_eval's own bootstrap), then services imports."""
+    global llm, rag
+    run_eval.bootstrap_execution()    # use_scratch_database("rag_phase35_eval") before any services import
+    import services.llm_service as _llm
+    import services.rag_service as _rag
+    llm, rag = _llm, _rag
+
+
 def preflight():
+    bootstrap()
     harness.assert_scratch()
     from services.database import get_connection
     with get_connection() as conn:

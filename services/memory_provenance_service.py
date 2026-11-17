@@ -13,18 +13,34 @@ from services.memory_storage_service import normalize_positive_id
 
 def get_memory_sources(conversation_id: str, memory_id: int) -> list[dict]:
     """Every message linked to a memory: [{message_id, role, link_kind, content}]."""
+    memory_id = normalize_positive_id(memory_id, allow_numeric_string=True, allow_integral_float=False)
+    if memory_id is None:
+        return []
     with get_connection() as conn:
         rows = conn.execute(
             """
-            SELECT ms.source_message_id, ms.source_role, ms.link_kind, m.content
+            SELECT ms.source_message_id, m.role, ms.link_kind, m.content
             FROM memory_sources ms
             JOIN messages m
-              ON m.conversation_id = ms.conversation_id
-             AND m.id = ms.source_message_id
+              ON m.conversation_id = ms.conversation_id AND m.id = ms.source_message_id
+            JOIN conversation_memories cm
+              ON cm.id = ms.memory_id AND cm.conversation_id = ms.conversation_id
             WHERE ms.conversation_id = %s AND ms.memory_id = %s
-            ORDER BY ms.source_message_id
+            UNION ALL
+            SELECT m.id, m.role, 'legacy', m.content
+            FROM conversation_memories cm
+            JOIN messages m ON m.id = cm.source_message_id
+              AND m.conversation_id = cm.conversation_id
+            WHERE cm.conversation_id = %s AND cm.id = %s
+              AND NOT EXISTS (
+                SELECT 1 FROM memory_sources ms WHERE ms.memory_id = cm.id
+                  AND ms.conversation_id = cm.conversation_id
+                  AND ms.source_message_id = cm.source_message_id
+              )
+            ORDER BY 1
             """,
-            (uuid.UUID(str(conversation_id)), int(memory_id)),
+            (uuid.UUID(str(conversation_id)), int(memory_id),
+             uuid.UUID(str(conversation_id)), int(memory_id)),
         ).fetchall()
 
     return [
@@ -35,6 +51,9 @@ def get_memory_sources(conversation_id: str, memory_id: int) -> list[dict]:
 
 def get_memories_for_message(conversation_id: str, message_id: int) -> list[dict]:
     """Every memory that relies on a message: [{memory_id, memory, link_kind}]."""
+    message_id = normalize_positive_id(message_id, allow_numeric_string=True, allow_integral_float=False)
+    if message_id is None:
+        return []
     with get_connection() as conn:
         rows = conn.execute(
             """
@@ -43,9 +62,21 @@ def get_memories_for_message(conversation_id: str, message_id: int) -> list[dict
             JOIN conversation_memories cm
               ON cm.conversation_id = ms.conversation_id AND cm.id = ms.memory_id
             WHERE ms.conversation_id = %s AND ms.source_message_id = %s
-            ORDER BY cm.id
+            UNION ALL
+            SELECT cm.id, cm.memory, 'legacy'
+            FROM conversation_memories cm
+            JOIN messages m ON m.id = cm.source_message_id
+              AND m.conversation_id = cm.conversation_id
+            WHERE cm.conversation_id = %s AND cm.source_message_id = %s
+              AND NOT EXISTS (
+                SELECT 1 FROM memory_sources ms WHERE ms.memory_id = cm.id
+                  AND ms.conversation_id = cm.conversation_id
+                  AND ms.source_message_id = cm.source_message_id
+              )
+            ORDER BY 1
             """,
-            (uuid.UUID(str(conversation_id)), int(message_id)),
+            (uuid.UUID(str(conversation_id)), int(message_id),
+             uuid.UUID(str(conversation_id)), int(message_id)),
         ).fetchall()
 
     return [{"memory_id": r[0], "memory": r[1], "link_kind": r[2]} for r in rows]
@@ -71,6 +102,7 @@ def _has_valid_user_source(conn, conversation_id, memory_id: int) -> bool:
               AND ms.memory_id = %s
               AND ms.source_role = 'user'
               AND source_message.role = 'user'
+              AND NOT source_message.context_excluded
             UNION ALL
             SELECT 1
             FROM conversation_memories cm
@@ -80,6 +112,7 @@ def _has_valid_user_source(conn, conversation_id, memory_id: int) -> bool:
             WHERE cm.conversation_id = %s
               AND cm.id = %s
               AND source_message.role = 'user'
+              AND NOT source_message.context_excluded
         )
         """,
         (conversation_id, memory_id, conversation_id, memory_id),
@@ -115,7 +148,7 @@ def delete_message_with_provenance(conversation_id: str, message_id: int) -> dic
 
     with get_connection() as conn:
         exists = conn.execute(
-            "SELECT 1 FROM messages WHERE conversation_id = %s AND id = %s",
+            "SELECT 1 FROM messages WHERE conversation_id = %s AND id = %s FOR UPDATE",
             (cid, message_id),
         ).fetchone()
 

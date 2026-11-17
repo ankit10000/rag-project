@@ -1,8 +1,9 @@
-"""Phase 2 — quarantine PLAN builder (preparation only, no execution).
+"""Phase 2 — quarantine plans and read-only application eligibility.
 
-PURE module: it turns reviewed inventory classifications into a proposed,
+The plan builder turns reviewed inventory classifications into a proposed,
 auditable quarantine plan (a list of dicts). It does NOT connect to any
-database and contains NO apply/execute function. Applying a plan requires the
+database. Read helpers below inspect existing markers but never apply plans.
+Applying a plan requires the
 proposed schema (docs/remediation/proposals/004_memory_provenance_quarantine.sql.proposed),
 a separately approved migration, a rehearsal on an isolated clone, and a
 separately approved apply step — none of which exist or were run.
@@ -84,3 +85,92 @@ def build_quarantine_plan(inventory_records, approved_memory_ids, approval_ref: 
         "executed": False,
         "note": "Plan only. No database change has been made. Applying requires a separately approved migration, rehearsal and apply step.",
     }
+
+
+def active_quarantine_ids(conversation_id, memory_ids=None, connection=None):
+    """Read optional Proposal 004 markers without applying its schema.
+
+    Query failures propagate rather than silently releasing quarantined facts.
+    """
+    import uuid
+    from services.database import get_connection
+    cid = uuid.UUID(str(conversation_id))
+    ids = None if memory_ids is None else sorted({int(i) for i in memory_ids})
+    if ids == []:
+        return set()
+    def read(conn):
+        exists = conn.execute("SELECT to_regclass('memory_provenance_quarantine') IS NOT NULL").fetchone()[0]
+        if not exists:
+            return set()
+        sql = "SELECT memory_id FROM memory_provenance_quarantine WHERE conversation_id = %s AND status = 'quarantined'"
+        params = [cid]
+        if ids is not None:
+            sql += " AND memory_id = ANY(%s::bigint[])"
+            params.append(ids)
+        return {int(r[0]) for r in conn.execute(sql, params).fetchall()}
+    if connection is not None:
+        return read(connection)
+    with get_connection() as conn:
+        return read(conn)
+
+
+def eligible_memory_ids(conversation_id, memory_ids=None):
+    """Existing same-conversation user-supported and unquarantined IDs."""
+    import uuid
+    from services.database import get_connection
+    from services.memory_context_service import load_provenance_facts
+    from services.legacy_provenance_classifier import classify_memory
+    if memory_ids is None:
+        with get_connection() as conn:
+            memory_ids = [r[0] for r in conn.execute(
+                "SELECT id FROM conversation_memories WHERE conversation_id = %s",
+                (uuid.UUID(str(conversation_id)),)).fetchall()]
+    facts = load_provenance_facts(conversation_id, memory_ids)
+    return {mid for mid, fact in facts.items()
+            if not fact.quarantined and classify_memory(fact).category == USER_SUPPORTED}
+
+
+def filter_supported_memories(conversation_id, rows, exclude_memory_ids=None):
+    rows = list(rows)
+    allowed = eligible_memory_ids(conversation_id, [r[0] for r in rows])
+    allowed -= {int(i) for i in (exclude_memory_ids or ())}
+    return [r for r in rows if r[0] in allowed]
+
+
+def get_blocked_source_message_ids(conversation_id, exclude_memory_ids=None):
+    """Same-conversation sources of blocked facts, including paired assistants.
+
+    Never guesses sources for source-less historical facts. All references are
+    checked against actual message ownership before suppressing history.
+    """
+    import uuid
+    from services.database import get_connection
+    from services.memory_context_service import load_provenance_facts
+    from services.legacy_provenance_classifier import classify_memory
+    cid = uuid.UUID(str(conversation_id))
+    with get_connection() as conn:
+        mids = [r[0] for r in conn.execute(
+            "SELECT id FROM conversation_memories WHERE conversation_id = %s", (cid,)).fetchall()]
+    facts = load_provenance_facts(conversation_id, mids)
+    excluded = {int(i) for i in (exclude_memory_ids or ())}
+    source_ids = set()
+    for mid, fact in facts.items():
+        if mid not in excluded and not fact.quarantined and classify_memory(fact).category == USER_SUPPORTED:
+            continue
+        source_ids.update(l.source_message_id for l in fact.modern_links
+                          if l.message_exists and str(l.message_conversation_id) == str(cid))
+        scalar = fact.legacy_scalar
+        if scalar and scalar.message_exists and str(scalar.message_conversation_id) == str(cid):
+            source_ids.add(scalar.source_message_id)
+    if not source_ids:
+        return set()
+    with get_connection() as conn:
+        messages = conn.execute(
+            "SELECT id, role FROM messages WHERE conversation_id = %s ORDER BY id", (cid,)).fetchall()
+    blocked = set()
+    for index, (mid, role) in enumerate(messages):
+        if mid in source_ids:
+            blocked.add(mid)
+            if role == 'user' and index + 1 < len(messages) and messages[index + 1][1] == 'assistant':
+                blocked.add(messages[index + 1][0])
+    return blocked

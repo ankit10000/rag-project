@@ -8,7 +8,9 @@ MEMORY and the four classified MIXED in the Stage B / Stage 6 runs). Each case
 runs once through the unchanged run_eval.run_tier2 (real retrieval on the
 scratch database rag_phase35_eval, real Gemini, frozen scorer). Reuses the
 Stage 6 live-eval preflight (dev-only, database check) and client request
-counter; adds pass-through recorders for rewrite_query and classify_question.
+counter (s6.preflight() also performs the scratch bootstrap, so importing
+this module has no side effect); adds pass-through recorders for rewrite_query
+and classify_question.
 No prompt text is stored. The output directory must not exist.
 """
 import argparse
@@ -16,16 +18,15 @@ import json
 import os
 import time
 
-from eval import stage6_live_dev_eval as s6   # noqa: E402 (sets the scratch DB via run_eval)
+from eval import stage6_live_dev_eval as s6   # no side effects; s6.preflight() bootstraps the scratch DB
 from eval.phase35 import run_eval
-import services.llm_service as llm
-import services.rag_service as rag
 
 CASES = ["D-follow_up-04", "C-direct-05", "A-multipage-03", "B-follow-03", "D-multi_page-03", "D-multi_page-04"]
 TRACE = {}
 
 
 def record_rewrite_and_classify():
+    rag = s6.rag                     # bound by s6.preflight() -> s6.bootstrap(); None before it
     real_rewrite, real_classify = rag.rewrite_query, rag.classify_question
 
     def rewrite(query, history, memory_summary):
@@ -77,13 +78,14 @@ def main():
     args = ap.parse_args()
     if os.path.exists(args.out):
         raise SystemExit(f"{args.out} already exists")
-    docs, selected = s6.preflight()          # dev-only selection + database checks
+    docs, selected = s6.preflight()          # scratch bootstrap, dev-only selection + database checks
     by_id = {c["id"]: c for c in selected[2]}
     cases = [by_id[i] for i in CASES]        # KeyError if a case is not a Tier 2 dev case
     os.makedirs(args.out)
     s6.instrument_client()
     s6.capture_answers()
     record_rewrite_and_classify()
+    llm = s6.llm
     print(f"start {time.strftime('%H:%M:%S')} model={llm.MODEL_NAME} fallbacks={llm.FALLBACK_MODELS}", flush=True)
     rows = []
     for case in cases:

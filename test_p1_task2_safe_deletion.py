@@ -297,9 +297,8 @@ def run_unknown_provenance_case(name, rewrite, verify, echo, *, old_origin=False
     with mock.patch.object(memory_service, "generate_answer", side_effect=lambda prompt: summary_prompts.append(prompt) or "Post-cleanup future summary."):
         memory_service.update_long_term_memory(conversation_id, keep_recent=1, min_messages=1)
     check(
-        f"{name}: summary rebuild sees only post-cleanup input",
-        len(summary_prompts) == 1 and old_text not in summary_prompts[0]
-        and "POST_CLEANUP_FUTURE_FACT" in summary_prompts[0],
+        f"{name}: summary rebuild uses only verified live memories without a model",
+        summary_prompts == [] and get_conversation_summary(conversation_id) == "",
     )
 
 

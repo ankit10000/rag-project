@@ -73,9 +73,24 @@ def compare_memories(existing_text, new_text) -> str:
     return DETAILS_DIFFER
 
 
+_STATUS_DETAILS = re.compile(
+    r"\b(?:no longer|not|never|without|completed|cancelled|canceled|paused|"
+    r"pending|finished|stopped|quit|failed|active|inactive)\b", re.IGNORECASE
+)
+
+
 def new_details_preserved(new_text, candidate_text) -> bool:
-    """True when every material detail of new_text also appears in candidate_text."""
-    return material_details(new_text) <= material_details(candidate_text)
+    """Keep numeric details and require consistent status/negation evidence.
+
+    A semantic similarity score must not turn a completed project into an
+    active one, or discard a positive statement against an existing negation.
+    For updates callers compare the new statement with its proposed replacement,
+    so changing the old fact remains allowed when the replacement is faithful.
+    """
+    def statuses(text):
+        return {match.group(0).casefold() for match in _STATUS_DETAILS.finditer(text or "")}
+    return (material_details(new_text) <= material_details(candidate_text)
+            and statuses(new_text) == statuses(candidate_text))
 
 
 def find_exact_duplicate(new_text, candidates):

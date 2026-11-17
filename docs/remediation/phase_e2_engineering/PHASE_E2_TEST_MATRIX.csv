@@ -1,0 +1,16 @@
+test_or_tool,owner,scope,registration,pass,fail,exit_code,notes
+test_stage9_e0_runner_gate.py,WP3 (edited),"E0 held-out gate: refusals, tripwires, valid-approval path via fixture manifest",unit (registered),110,0,0,108/0 before E2
+test_stage9_e0_frozen_manifest.py,WP3 (edited),Portable hashing; manifest build/verify via fixtures (live checks moved to readiness script),unit (registered),24,0,0,"25/0 before; 6 live checks moved, 5 fixture checks added"
+test_stage9_b_review_tools.py,WP3 (edited),Review workbook tooling; real workbooks checked for integrity only (no review-progress assumptions),unit (registered),44,0,0,40/0 before
+test_stage9_e2_dev_runners.py,WP2 (new),stage6/stage8/h1: no import side effects; scratch bootstrap before services; dev-only selection; psycopg+provider tripwires,unit (registered by lead),38,0,0,new
+test_stage9_scorer_probes.py,WP3 (new),"110-probe harness: all v1 sub-signals, ids, targets, manifest pin, Phase D matrix correspondence, proposals VALID, v2 hook contract",unit (registered by lead),134,0,0,new
+test_stage9_v1_immutability.py,WP3 (new),answer_scoring.py hash; AST of score_generic/norm_numbers/split_of/tier1_context/NUM_RE/REF_RE vs HEAD; phrase list sizes,unit (registered by lead),21,0,0,new
+test_stage9_review_checks_branches.py,WP3 (new),eval/review/checks.py branches incl. the two fixed functional gaps,unit (registered by lead),38,0,0,new
+test_stage9_gate_branches.py,WP3 (new),safety.py / frozen_manifest.py untested branches; documents ARCH-11 date gap (accepted) for WP7,unit (registered by lead),40,0,0,new
+test_p4_eval_framework.py,pre-existing,Phase 4 framework regression,unit (registered),22,0,0,unchanged
+python -m eval.probes.scorer_regression --validate-proposals,WP3 (new),Probe harness CLI: 110 probes v1 expectations; proposals VALID,tool (not registered),110,0,0,110 probes; 0 failure(s)
+check_stage9_readiness.py,WP3 (new),"LIVE-STATE readiness report (manifest REPRODUCED, dataset pin, workbook integrity/progress)",readiness script (not a test),n/a,n/a,0,"0 problem(s), 0 warning(s); held-out 0/113 reviewed, dev 0/7"
+docs/remediation/phase_e2_engineering/wp4/validate_revised_proposals.py,WP4 (new),Revised proposals applied in memory: validate VALID; 110 v1 probes; denominators,tool (not registered),110,0,0,RESULT: OK; 0 unexpected result(s)
+docs/remediation/phase_d_decision_package/scorer_regression_probes.py --validate-proposals,Phase D (unchanged),Historical Phase D suite still consistent,tool (not registered),72,0,0,72 probes; 0 failure(s)
+# command prefix for every row: cd <repo> && DATABASE_URL=postgresql://nobody@127.0.0.1:1/rag_test_scratch TESTSAFE_BLOCK_NETWORK=1 HF_HUB_OFFLINE=1 .venv/bin/python -B <file>,,,,,,,
+# executed by the lead after integration on 2026-11-17 (WP1-WP4 landed; WP5 docs-only); run_tests.py NOT run (opens a DB connection),,,,,,,

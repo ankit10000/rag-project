@@ -3,6 +3,12 @@ Phase 3.5 independent answer-quality evaluation (live Gemini).
 
     .venv\\Scripts\\python.exe eval\\phase35\\run_eval.py --tier 1|2 --split dev|heldout|all
         [--limit N] [--pause SECONDS] [--fresh] [--no-ingest]
+        [--approval-file APPROVAL.json] [--frozen-manifest eval/phase35/frozen_manifest.json]
+
+Gate: --split heldout|all is refused (exit 3) unless eval.framework.safety.runner_gate
+accepts the frozen manifest and a bound approval file. The check runs before the scratch
+database is touched, before any provider import and before any result file is written.
+--limit is refused with heldout/all. --split dev (the default) needs no approval.
 
 Tier 1  answer layer only: the gold pages (+2 random distractor pages) are handed to
         generate_grounded_answer, exactly as retrieval would. Isolates generation.
@@ -31,21 +37,18 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 sys.path.insert(0, ROOT)
 
 from eval import harness  # noqa: E402
-
-harness.use_scratch_database("rag_phase35_eval")
-
 from eval.answer_scoring import (  # noqa: E402
     DISAGREEMENT_PHRASES, INSUFFICIENCY_PHRASES, _has_any, fact_recall, forbidden_hits,
 )
+from eval.framework.safety import runner_gate  # noqa: E402
 from eval.phase35 import validate as V  # noqa: E402
-from services import llm_service  # noqa: E402
-from services.answer_service import generate_grounded_answer  # noqa: E402
-from services.context_assembly_service import assemble_context  # noqa: E402
-from services.llm_service import generate_answer  # noqa: E402
+
+# Bound by bootstrap_execution(), which main() calls only after runner_gate() has passed.
+llm_service = generate_grounded_answer = assemble_context = generate_answer = None
 
 DATA_MODULES = ["data_A", "data_B", "data_C", "data_D"]
 RESULTS_DIR = os.path.join(ROOT, "eval", "phase35", "results")
-os.makedirs(RESULTS_DIR, exist_ok=True)
+FROZEN_MANIFEST = os.path.join(ROOT, "eval", "phase35", "frozen_manifest.json")
 NUM_RE = re.compile(r"(?<![\w.])\d[\d,]*(?:\.\d+)?")
 REF_RE = re.compile(r"\[S\d+(?:\s*[,;]\s*S\d+)*\]", re.I)
 
@@ -253,7 +256,32 @@ def run_tier2(case, docs):
 
 
 # --------------------------------------------------------------------- main --
-def main():
+def bootstrap_execution():
+    """Run side effects: create/connect the scratch DB, import the provider services, results dir."""
+    global llm_service, generate_grounded_answer, assemble_context, generate_answer
+    harness.use_scratch_database("rag_phase35_eval")   # before any services import
+    from services import llm_service as _llm_service
+    from services.answer_service import generate_grounded_answer as _generate_grounded_answer
+    from services.context_assembly_service import assemble_context as _assemble_context
+    from services.llm_service import generate_answer as _generate_answer
+    llm_service, generate_grounded_answer = _llm_service, _generate_grounded_answer
+    assemble_context, generate_answer = _assemble_context, _generate_answer
+    os.makedirs(RESULTS_DIR, exist_ok=True)
+
+
+def enforce_split_gate(args, path):
+    """Exit 3 before any side effect unless runner_gate accepts the split (dev always passes)."""
+    problems = runner_gate(args.split, int(args.tier), path, args.approval_file, args.frozen_manifest,
+                           limit=args.limit)
+    if problems:
+        print(f"REFUSED --split {args.split}: nothing was run, no database or provider was touched.",
+              file=sys.stderr)
+        for problem in problems:
+            print(f"  - {problem}", file=sys.stderr)
+        sys.exit(3)
+
+
+def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--tier", choices=["1", "2"], required=True)
     ap.add_argument("--split", choices=["dev", "heldout", "all"], default="dev")
@@ -261,7 +289,13 @@ def main():
     ap.add_argument("--pause", type=float, default=3.0)
     ap.add_argument("--fresh", action="store_true")
     ap.add_argument("--no-ingest", action="store_true")
-    args = ap.parse_args()
+    ap.add_argument("--approval-file", help="heldout/all only: JSON approval (eval/framework/safety.py)")
+    ap.add_argument("--frozen-manifest", default=FROZEN_MANIFEST)
+    args = ap.parse_args(argv)
+
+    path = os.path.join(RESULTS_DIR, f"tier{args.tier}_{args.split}.jsonl")
+    enforce_split_gate(args, path)
+    bootstrap_execution()
 
     harness.assert_scratch()
     docs, cases = load_all()
@@ -271,7 +305,6 @@ def main():
     if args.limit:
         chosen = chosen[: args.limit]
 
-    path = os.path.join(RESULTS_DIR, f"tier{args.tier}_{args.split}.jsonl")
     if args.fresh and os.path.exists(path):
         os.remove(path)
     done = set()

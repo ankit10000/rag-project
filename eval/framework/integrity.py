@@ -5,8 +5,8 @@ facts on gold pages) and ADDS checks; it never rewrites a dataset, never
 repairs a case and never writes a manifest unless a caller explicitly asks
 (see cli.py, which refuses to overwrite).
 
-The split rule is duplicated from eval/phase35/run_eval.py:split_of (that
-module cannot be imported: it opens a database connection at import time).
+The split rule is duplicated from eval/phase35/run_eval.py:split_of (kept
+independent of the runner module so the framework never imports it).
 ``runner_split_logic_matches()`` verifies the duplicate against the runner's
 source text with ``ast`` (no execution) so a silent divergence is detected.
 """
@@ -53,10 +53,14 @@ def load_dataset(modules=DATA_MODULES):
 
 
 def file_hashes(modules=DATA_MODULES) -> dict:
+    """Portable SHA-256 of the dataset modules (CRLF -> LF; see eval/framework/hashing.py)."""
+    from eval.framework.hashing import portable_sha256
+
     out = {}
     for name in modules:
         path = os.path.join(ROOT, "eval", "phase35", f"{name}.py")
-        out[f"eval/phase35/{name}.py"] = hashlib.sha256(open(path, "rb").read()).hexdigest()
+        with open(path, "rb") as fh:
+            out[f"eval/phase35/{name}.py"] = portable_sha256(fh.read(), "text")
     return out
 
 
