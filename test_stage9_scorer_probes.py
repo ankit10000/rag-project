@@ -123,9 +123,10 @@ for pid, _lim, target, answer, truth, v1_exp, v2_exp, _cls, _reason in literal:
         differing.append(pid)
 corrected = sorted(p["id"] for p in PROBES if p["phase_d_change"])
 print(f"      corrected Phase D probes: {corrected}")
-check("Phase D probes differ from the harness only where a correction is recorded", sorted(differing) == corrected)
-check("the corrected set is exactly P-TS1-06, P-TS1-09, P-TAD4-1",
-      corrected == ["P-TAD4-1", "P-TS1-06", "P-TS1-09"])
+check("Phase D value differences match recorded corrections; P-TS1-06 retains its context-only correction",
+      sorted(differing) == [p for p in corrected if p != "P-TS1-06"])
+check("corrected Phase D probes are recorded, including WP5 Appendix B v2-only corrections",
+      corrected == ["P-TA11-2", "P-TAD4-1", "P-TS1-06", "P-TS1-08", "P-TS1-09", "P-TS4-10", "P-TS4-11"])
 
 # ------------------------------------------------------------- proposals --
 check("15 Phase D proposals modelled", len(PROPOSALS) == 15)

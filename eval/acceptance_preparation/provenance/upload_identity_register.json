@@ -1,0 +1,85 @@
+{
+  "schema": "phase35-upload-identity-register/1",
+  "status": "PENDING_EXTERNAL_EVIDENCE",
+  "source": "2026-11-18 user handoff exact seven expected upload names; repository-retained final counterparts",
+  "note": "Known expected annotation digest alone does not establish receipt or equality of unavailable original upload bytes. Other original digests are unknown.",
+  "uploads": [
+    {
+      "expected_upload_name": "literal-annotations.c1bbcae(1).json",
+      "artifact_role": "annotation",
+      "original_bytes_available": false,
+      "original_to_retained_byte_equality": "NOT_ESTABLISHED",
+      "expected_original_sha256": "b4f6ed739756f3ca3c57bb83f9c21acfad87413b9d4a3d2e1322abca01f4452a",
+      "expected_hash_basis": "user handoff annotation SHA-256",
+      "retained_repository_path": "docs/remediation/phase_e2_engineering/wp8_evidence/flip_inputs/final/literal-annotations.c1bbcae.json",
+      "retained_raw_sha256": "b4f6ed739756f3ca3c57bb83f9c21acfad87413b9d4a3d2e1322abca01f4452a",
+      "retained_bytes": 17582
+    },
+    {
+      "expected_upload_name": "tier1_dev.v2(1).jsonl",
+      "artifact_role": "tier1_development_comparison",
+      "original_bytes_available": false,
+      "original_to_retained_byte_equality": "NOT_ESTABLISHED",
+      "expected_original_sha256": null,
+      "expected_hash_basis": "not supplied; must not infer from retained counterpart",
+      "retained_repository_path": "docs/remediation/phase_e2_engineering/wp8_evidence/flip_inputs/final/tier1_dev.v2.jsonl",
+      "retained_raw_sha256": "cc075371eaeea6e9c73e3edab6af4f5f9799c02e3e782fdbba2df368c61f6fe0",
+      "retained_bytes": 72664
+    },
+    {
+      "expected_upload_name": "tier1_dev.v2.diff(1).md",
+      "artifact_role": "tier1_diff",
+      "original_bytes_available": false,
+      "original_to_retained_byte_equality": "NOT_ESTABLISHED",
+      "expected_original_sha256": null,
+      "expected_hash_basis": "not supplied; must not infer from retained counterpart",
+      "retained_repository_path": "docs/remediation/phase_e2_engineering/wp8_evidence/flip_inputs/final/tier1_dev.v2.diff.md",
+      "retained_raw_sha256": "7f49fdb156e6181e6502d90954d4f66b8a8d363d3c2a581a927e1b8651a7f676",
+      "retained_bytes": 365
+    },
+    {
+      "expected_upload_name": "tier1_dev.v2.jsonl.scoring(1).json",
+      "artifact_role": "tier1_sidecar",
+      "original_bytes_available": false,
+      "original_to_retained_byte_equality": "NOT_ESTABLISHED",
+      "expected_original_sha256": null,
+      "expected_hash_basis": "not supplied; must not infer from retained counterpart",
+      "retained_repository_path": "docs/remediation/phase_e2_engineering/wp8_evidence/flip_inputs/final/tier1_dev.v2.jsonl.scoring.json",
+      "retained_raw_sha256": "820ed0d45b16e87d37d117016abac09afeaa87f1eba21d7a4c6c31ccddd4d557",
+      "retained_bytes": 17084
+    },
+    {
+      "expected_upload_name": "tier2_dev.v2(1).jsonl",
+      "artifact_role": "tier2_development_comparison",
+      "original_bytes_available": false,
+      "original_to_retained_byte_equality": "NOT_ESTABLISHED",
+      "expected_original_sha256": null,
+      "expected_hash_basis": "not supplied; must not infer from retained counterpart",
+      "retained_repository_path": "docs/remediation/phase_e2_engineering/wp8_evidence/flip_inputs/final/tier2_dev.v2.jsonl",
+      "retained_raw_sha256": "fe875b55933b0a98292d247a11ef2d9737e792fee3aea01a6985a543808f2443",
+      "retained_bytes": 70493
+    },
+    {
+      "expected_upload_name": "tier2_dev.v2.diff(1).md",
+      "artifact_role": "tier2_diff",
+      "original_bytes_available": false,
+      "original_to_retained_byte_equality": "NOT_ESTABLISHED",
+      "expected_original_sha256": null,
+      "expected_hash_basis": "not supplied; must not infer from retained counterpart",
+      "retained_repository_path": "docs/remediation/phase_e2_engineering/wp8_evidence/flip_inputs/final/tier2_dev.v2.diff.md",
+      "retained_raw_sha256": "d974eaff8b76c9a127318982325d5937968c3ae93a3a760a6f95468b023cd38a",
+      "retained_bytes": 247
+    },
+    {
+      "expected_upload_name": "tier2_dev.v2.jsonl.scoring(1).json",
+      "artifact_role": "tier2_sidecar",
+      "original_bytes_available": false,
+      "original_to_retained_byte_equality": "NOT_ESTABLISHED",
+      "expected_original_sha256": null,
+      "expected_hash_basis": "not supplied; must not infer from retained counterpart",
+      "retained_repository_path": "docs/remediation/phase_e2_engineering/wp8_evidence/flip_inputs/final/tier2_dev.v2.jsonl.scoring.json",
+      "retained_raw_sha256": "86ac6fd3e03c04d7328502c6da62dd73a78f4ce10a595a9bfe77b0b90daa8ce3",
+      "retained_bytes": 23040
+    }
+  ]
+}

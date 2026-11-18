@@ -1,0 +1,680 @@
+{
+  "schema": "phase-e2-acceptance-status/1",
+  "official_scorer": "v1",
+  "experimental_scorer": "2.1.0",
+  "acceptance_approved": false,
+  "activation_allowed": false,
+  "refreeze_executed": false,
+  "requirements": [
+    {
+      "id": "scorer_engineering",
+      "status": "ENGINEERING_COMPLETE",
+      "category": "engineering",
+      "summary": "Completed v2.1 engineering and 89-row development verification retained.",
+      "owner_role": "Engineering lead",
+      "next_action": "Revisit scorer only for a demonstrated defect or an authorized versioned policy change.",
+      "can_continue_independently": true,
+      "evidence": [
+        {
+          "path": "docs/remediation/phase_e2_engineering/V21_DEVELOPMENT_IMPLEMENTATION_REPORT.md",
+          "sha256": "8abde952ff37cb3468d576abc0fc8d5ed2e78f3163a1342dec80db62a064c9e2"
+        },
+        {
+          "path": "docs/remediation/phase_e2_engineering/v21_development_verification/verification.json",
+          "sha256": "fbb993201486760ec39d8d16c67df3891c022ec42bd2e3e97dd9e5379e3d8755"
+        }
+      ]
+    },
+    {
+      "id": "flip_review_package",
+      "status": "PREPARED_FOR_REVIEW",
+      "category": "review_package",
+      "summary": "Four case/tier evidence bundles and eight historical occurrences prepared, with blank judgments.",
+      "owner_role": "Independent review coordinator (not named)",
+      "next_action": "Assign an independent reviewer and provide Stage A only before judgments are recorded.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "independent_review/flip_review_package/README.md",
+          "sha256": "f8b0d698ce0e1458b316023b0e1d6e081960fd7bd4a6662ce0ed576ed0365921"
+        },
+        {
+          "path": "independent_review/flip_review_package/package_manifest.json",
+          "sha256": "4cad22792f7369d7289145822dda8021a5f9cc23bbff074257bffb32cf90bb6f"
+        }
+      ]
+    },
+    {
+      "id": "flip_review/tier1_D-conflicting-01",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "category": "independent_review",
+      "summary": "Independent judgment and rationale are absent; no outcome is recommended.",
+      "owner_role": "Independent development reviewer (not named)",
+      "next_action": "Record an independent Stage A judgment before viewing Stage B; prioritize D-conflicting-01.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "independent_review/flip_review_package/records/tier1_D-conflicting-01/stage_a_blind.json",
+          "sha256": "b5271654878b45aeaef1bbb7b809947e02f219fc1d668f50272582c569c8506b"
+        },
+        {
+          "path": "independent_review/flip_review_package/review_status_index.json",
+          "sha256": "db0aed9fdf4262c2e545ec1dd8ddd8fbafdecbe1fada018cca1a390f894ec925"
+        }
+      ]
+    },
+    {
+      "id": "flip_review/tier1_B-comp-04",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "category": "independent_review",
+      "summary": "Independent judgment and rationale are absent; no outcome is recommended.",
+      "owner_role": "Independent development reviewer (not named)",
+      "next_action": "Record an independent Stage A judgment before viewing Stage B; prioritize D-conflicting-01.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "independent_review/flip_review_package/records/tier1_B-comp-04/stage_a_blind.json",
+          "sha256": "7a50cba15d82e8958bce3c0f789bbad9931a9a31dce92524f31f93cdf2bbcb42"
+        },
+        {
+          "path": "independent_review/flip_review_package/review_status_index.json",
+          "sha256": "db0aed9fdf4262c2e545ec1dd8ddd8fbafdecbe1fada018cca1a390f894ec925"
+        }
+      ]
+    },
+    {
+      "id": "flip_review/tier1_B-conf-04",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "category": "independent_review",
+      "summary": "Independent judgment and rationale are absent; no outcome is recommended.",
+      "owner_role": "Independent development reviewer (not named)",
+      "next_action": "Record an independent Stage A judgment before viewing Stage B; prioritize D-conflicting-01.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "independent_review/flip_review_package/records/tier1_B-conf-04/stage_a_blind.json",
+          "sha256": "d9f6a7168c525509018d181a77ca9f467a27bc9cd3c0f77a6cffea2a1a9043b4"
+        },
+        {
+          "path": "independent_review/flip_review_package/review_status_index.json",
+          "sha256": "db0aed9fdf4262c2e545ec1dd8ddd8fbafdecbe1fada018cca1a390f894ec925"
+        }
+      ]
+    },
+    {
+      "id": "flip_review/tier2_B-conf-04",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "category": "independent_review",
+      "summary": "Independent judgment and rationale are absent; no outcome is recommended.",
+      "owner_role": "Independent development reviewer (not named)",
+      "next_action": "Record an independent Stage A judgment before viewing Stage B; prioritize D-conflicting-01.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "independent_review/flip_review_package/records/tier2_B-conf-04/stage_a_blind.json",
+          "sha256": "53ec88113228a530a6b8e9ab76dbe3bf991642c65cddc1e2cf375897134daa38"
+        },
+        {
+          "path": "independent_review/flip_review_package/review_status_index.json",
+          "sha256": "db0aed9fdf4262c2e545ec1dd8ddd8fbafdecbe1fada018cca1a390f894ec925"
+        }
+      ]
+    },
+    {
+      "id": "annotation_review",
+      "status": "PENDING_INDEPENDENT_REVIEW",
+      "category": "independent_review",
+      "summary": "160 current annotations structurally valid, not independently approved.",
+      "owner_role": "Independent annotation reviewer (not named)",
+      "next_action": "Review original annotation/source evidence and record independent dispositions without overwriting originals.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "docs/remediation/phase_e2_engineering/WP8_ANNOTATION_REVIEW_REPORT.md",
+          "sha256": "83d5f0eaa75d97630ef10948b252ef888d897ec52596a1e6dce22f59699122b6"
+        },
+        {
+          "path": "docs/remediation/phase_e2_engineering/WP8_ANNOTATION_REVIEW_LEDGER.csv",
+          "sha256": "c873b6936654e3ee10bdac15f49ca8ec7df7bbbe8a80c083b396739a0b98ef2b"
+        }
+      ]
+    },
+    {
+      "id": "reviewer_assignment",
+      "status": "PENDING_OWNER_DECISION",
+      "category": "owner_decision",
+      "summary": "Independent reviewers and coordinator have not been designated in source records.",
+      "owner_role": "Evaluation owner (not named)",
+      "next_action": "Designate independent development/annotation reviewers and apply the existing S-2 exposure policy.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "docs/remediation/phase_e2_engineering/PHASE_E2_REMAINING_DECISIONS.md",
+          "sha256": "8a880cf84ec74970098471967f7b56be1687db726621aa9ece2fc2c1725327c0"
+        }
+      ]
+    },
+    {
+      "id": "SC-01",
+      "status": "PREPARED_FOR_REVIEW",
+      "category": "review_package",
+      "summary": "Appendix B explicit probe outcomes: engineering resolution retained; formal adoption absent.",
+      "owner_role": "Scoring-policy owner and independent reviewer (not named)",
+      "next_action": "Review the existing resolution and record formal disposition separately.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/clarifications/decision_package.json",
+          "sha256": "f966bf0453ee0b4bf0f9798c4d1064599ac04b965b81812ca63f1cc889860170"
+        },
+        {
+          "path": "docs/remediation/phase_e2_engineering/WP8_SPECIFICATION_CLARIFICATION_REGISTER.md",
+          "sha256": "00fce37da9336a1773daabe01b98c2529c7ff23c5ddcb7379a5e5103537ac18b"
+        }
+      ]
+    },
+    {
+      "id": "SC-02",
+      "status": "PREPARED_FOR_REVIEW",
+      "category": "review_package",
+      "summary": "Plural relaxation is quantity-only: engineering resolution retained; formal adoption absent.",
+      "owner_role": "Scoring-policy owner and independent reviewer (not named)",
+      "next_action": "Review the existing resolution and record formal disposition separately.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/clarifications/decision_package.json",
+          "sha256": "f966bf0453ee0b4bf0f9798c4d1064599ac04b965b81812ca63f1cc889860170"
+        },
+        {
+          "path": "docs/remediation/phase_e2_engineering/WP8_SPECIFICATION_CLARIFICATION_REGISTER.md",
+          "sha256": "00fce37da9336a1773daabe01b98c2529c7ff23c5ddcb7379a5e5103537ac18b"
+        }
+      ]
+    },
+    {
+      "id": "SC-03",
+      "status": "PREPARED_FOR_REVIEW",
+      "category": "review_package",
+      "summary": "Preserve explicit quote glyph table before NFKC: engineering resolution retained; formal adoption absent.",
+      "owner_role": "Scoring-policy owner and independent reviewer (not named)",
+      "next_action": "Review the existing resolution and record formal disposition separately.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/clarifications/decision_package.json",
+          "sha256": "f966bf0453ee0b4bf0f9798c4d1064599ac04b965b81812ca63f1cc889860170"
+        },
+        {
+          "path": "docs/remediation/phase_e2_engineering/WP8_SPECIFICATION_CLARIFICATION_REGISTER.md",
+          "sha256": "00fce37da9336a1773daabe01b98c2529c7ff23c5ddcb7379a5e5103537ac18b"
+        }
+      ]
+    },
+    {
+      "id": "SC-04",
+      "status": "PREPARED_FOR_REVIEW",
+      "category": "review_package",
+      "summary": "Number-word unit normalization must be idempotent: engineering resolution retained; formal adoption absent.",
+      "owner_role": "Scoring-policy owner and independent reviewer (not named)",
+      "next_action": "Review the existing resolution and record formal disposition separately.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/clarifications/decision_package.json",
+          "sha256": "f966bf0453ee0b4bf0f9798c4d1064599ac04b965b81812ca63f1cc889860170"
+        },
+        {
+          "path": "docs/remediation/phase_e2_engineering/WP8_SPECIFICATION_CLARIFICATION_REGISTER.md",
+          "sha256": "00fce37da9336a1773daabe01b98c2529c7ff23c5ddcb7379a5e5103537ac18b"
+        }
+      ]
+    },
+    {
+      "id": "SC-05",
+      "status": "PREPARED_FOR_REVIEW",
+      "category": "review_package",
+      "summary": "AV-10 duplicates within collections, not across roles: engineering resolution retained; formal adoption absent.",
+      "owner_role": "Scoring-policy owner and independent reviewer (not named)",
+      "next_action": "Review the existing resolution and record formal disposition separately.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/clarifications/decision_package.json",
+          "sha256": "f966bf0453ee0b4bf0f9798c4d1064599ac04b965b81812ca63f1cc889860170"
+        },
+        {
+          "path": "docs/remediation/phase_e2_engineering/WP8_SPECIFICATION_CLARIFICATION_REGISTER.md",
+          "sha256": "00fce37da9336a1773daabe01b98c2529c7ff23c5ddcb7379a5e5103537ac18b"
+        }
+      ]
+    },
+    {
+      "id": "SC-06",
+      "status": "PENDING_OWNER_DECISION",
+      "category": "specification",
+      "summary": "Comma/but epistemic scope: unselected alternatives prepared; current behavior preserved.",
+      "owner_role": "Scoring-policy owner and independent reviewer (not named)",
+      "next_action": "Select exact wording and versioned tests in the canonical decision overlay.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/clarifications/decision_package.json",
+          "sha256": "f966bf0453ee0b4bf0f9798c4d1064599ac04b965b81812ca63f1cc889860170"
+        },
+        {
+          "path": "docs/remediation/phase_e2_engineering/WP8_SPECIFICATION_CLARIFICATION_REGISTER.md",
+          "sha256": "00fce37da9336a1773daabe01b98c2529c7ff23c5ddcb7379a5e5103537ac18b"
+        }
+      ]
+    },
+    {
+      "id": "SC-07",
+      "status": "PENDING_OWNER_DECISION",
+      "category": "specification",
+      "summary": "Compound number words ending in one: unselected alternatives prepared; current behavior preserved.",
+      "owner_role": "Scoring-policy owner and independent reviewer (not named)",
+      "next_action": "Select exact wording and versioned tests in the canonical decision overlay.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/clarifications/decision_package.json",
+          "sha256": "f966bf0453ee0b4bf0f9798c4d1064599ac04b965b81812ca63f1cc889860170"
+        },
+        {
+          "path": "docs/remediation/phase_e2_engineering/WP8_SPECIFICATION_CLARIFICATION_REGISTER.md",
+          "sha256": "00fce37da9336a1773daabe01b98c2529c7ff23c5ddcb7379a5e5103537ac18b"
+        }
+      ]
+    },
+    {
+      "id": "SC-08",
+      "status": "PENDING_OWNER_DECISION",
+      "category": "specification",
+      "summary": "Unknown string result statuses: unselected alternatives prepared; current behavior preserved.",
+      "owner_role": "Scoring-policy owner and independent reviewer (not named)",
+      "next_action": "Select exact wording and versioned tests in the canonical decision overlay.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/clarifications/decision_package.json",
+          "sha256": "f966bf0453ee0b4bf0f9798c4d1064599ac04b965b81812ca63f1cc889860170"
+        },
+        {
+          "path": "docs/remediation/phase_e2_engineering/WP8_SPECIFICATION_CLARIFICATION_REGISTER.md",
+          "sha256": "00fce37da9336a1773daabe01b98c2529c7ff23c5ddcb7379a5e5103537ac18b"
+        }
+      ]
+    },
+    {
+      "id": "gate_contract",
+      "status": "ENGINEERING_COMPLETE",
+      "category": "engineering",
+      "summary": "Exact identity and content-bound profile/gate proposal checks implemented; no official acceptance is possible.",
+      "owner_role": "Engineering lead",
+      "next_action": "Maintain deterministic refusal tests; no production gate activation.",
+      "can_continue_independently": true,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/gate_policy/policy.py",
+          "sha256": "e9eff83f64de8dd83e6b70cda0a389119f74c16a1e2b95289245268a79087bde"
+        },
+        {
+          "path": "eval/acceptance_preparation/gate_policy/schema.md",
+          "sha256": "e8bc39b70bef2adf0b96e73c0b6f9a195b6a0b60b79190b0a1b4d2a48a23b1ca"
+        },
+        {
+          "path": "test_phase_e2_gate_policy.py",
+          "sha256": "74a49a219d221b4e5a1b46beaab4a76e5e0f114cb5765f318e37a7c5bab379d9"
+        }
+      ]
+    },
+    {
+      "id": "gate_decision/threshold-sharing",
+      "status": "PENDING_OWNER_DECISION",
+      "category": "owner_decision",
+      "summary": "Share reviewed values or independently calibrate each exact scorer identity?",
+      "owner_role": "Evaluation and gate-policy owner (not named)",
+      "next_action": "Record a decision, rationale, exact content identity and review evidence; recommendations are non-binding.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/gate_policy/decision_register.json",
+          "sha256": "10310635cbb4b8630d0cdef9ed4af7003d04c408256d805d5d5235b7d22f2401"
+        }
+      ]
+    },
+    {
+      "id": "gate_decision/unknown-identity",
+      "status": "PENDING_OWNER_DECISION",
+      "category": "owner_decision",
+      "summary": "Approve explicit rejection of unknown scorer identities?",
+      "owner_role": "Evaluation and gate-policy owner (not named)",
+      "next_action": "Record a decision, rationale, exact content identity and review evidence; recommendations are non-binding.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/gate_policy/decision_register.json",
+          "sha256": "10310635cbb4b8630d0cdef9ed4af7003d04c408256d805d5d5235b7d22f2401"
+        }
+      ]
+    },
+    {
+      "id": "gate_decision/annotation-mismatch",
+      "status": "PENDING_OWNER_DECISION",
+      "category": "owner_decision",
+      "summary": "Approve blocking annotation identity mismatches?",
+      "owner_role": "Evaluation and gate-policy owner (not named)",
+      "next_action": "Record a decision, rationale, exact content identity and review evidence; recommendations are non-binding.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/gate_policy/decision_register.json",
+          "sha256": "10310635cbb4b8630d0cdef9ed4af7003d04c408256d805d5d5235b7d22f2401"
+        }
+      ]
+    },
+    {
+      "id": "gate_decision/missing-provenance",
+      "status": "PENDING_OWNER_DECISION",
+      "category": "owner_decision",
+      "summary": "Approve blocking missing or unverifiable provenance?",
+      "owner_role": "Evaluation and gate-policy owner (not named)",
+      "next_action": "Record a decision, rationale, exact content identity and review evidence; recommendations are non-binding.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/gate_policy/decision_register.json",
+          "sha256": "10310635cbb4b8630d0cdef9ed4af7003d04c408256d805d5d5235b7d22f2401"
+        }
+      ]
+    },
+    {
+      "id": "gate_decision/V9-errors-incomplete",
+      "status": "PENDING_OWNER_DECISION",
+      "category": "owner_decision",
+      "summary": "Define official errors, invalid rows and incomplete-run handling",
+      "owner_role": "Evaluation and gate-policy owner (not named)",
+      "next_action": "Record a decision, rationale, exact content identity and review evidence; recommendations are non-binding.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/gate_policy/decision_register.json",
+          "sha256": "10310635cbb4b8630d0cdef9ed4af7003d04c408256d805d5d5235b7d22f2401"
+        }
+      ]
+    },
+    {
+      "id": "gate_decision/hard-metrics",
+      "status": "PENDING_OWNER_DECISION",
+      "category": "owner_decision",
+      "summary": "Which metrics are hard gates and what reviewed finite values apply?",
+      "owner_role": "Evaluation and gate-policy owner (not named)",
+      "next_action": "Record a decision, rationale, exact content identity and review evidence; recommendations are non-binding.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/gate_policy/decision_register.json",
+          "sha256": "10310635cbb4b8630d0cdef9ed4af7003d04c408256d805d5d5235b7d22f2401"
+        }
+      ]
+    },
+    {
+      "id": "gate_decision/rollback",
+      "status": "PENDING_OWNER_DECISION",
+      "category": "owner_decision",
+      "summary": "Approve exact frozen v1 rollback and isolated failure evidence?",
+      "owner_role": "Evaluation and gate-policy owner (not named)",
+      "next_action": "Record a decision, rationale, exact content identity and review evidence; recommendations are non-binding.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/gate_policy/decision_register.json",
+          "sha256": "10310635cbb4b8630d0cdef9ed4af7003d04c408256d805d5d5235b7d22f2401"
+        }
+      ]
+    },
+    {
+      "id": "gate_decision/versioning",
+      "status": "PENDING_OWNER_DECISION",
+      "category": "owner_decision",
+      "summary": "Approve content-addressed policy/profile versioning and independent authorization?",
+      "owner_role": "Evaluation and gate-policy owner (not named)",
+      "next_action": "Record a decision, rationale, exact content identity and review evidence; recommendations are non-binding.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/gate_policy/decision_register.json",
+          "sha256": "10310635cbb4b8630d0cdef9ed4af7003d04c408256d805d5d5235b7d22f2401"
+        }
+      ]
+    },
+    {
+      "id": "V5_official_scorer",
+      "status": "PENDING_OWNER_DECISION",
+      "category": "owner_decision",
+      "summary": "V1 remains official; no V5 adoption decision is supplied.",
+      "owner_role": "Evaluation owner (not named)",
+      "next_action": "Choose the exact scorer/annotation/dataset identity and approve the reviewed integration only after prerequisite decisions.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/integration/selection_contract.md",
+          "sha256": "373d6d9af900bf3e0d9d5f2d37c1ad88421d12b9a9d4437f1e5bfcba605ab9ad"
+        },
+        {
+          "path": "docs/remediation/phase_e2_engineering/PHASE_E2_REMAINING_DECISIONS.md",
+          "sha256": "8a880cf84ec74970098471967f7b56be1687db726621aa9ece2fc2c1725327c0"
+        }
+      ]
+    },
+    {
+      "id": "runtime_capture_contract",
+      "status": "ENGINEERING_COMPLETE",
+      "category": "engineering",
+      "summary": "Resolved configuration, ordered scoring context and separate prompt-context capture contract prepared and tested.",
+      "owner_role": "Engineering lead",
+      "next_action": "Use synthetic fixtures to verify the contract; installing capture in frozen paths needs separate authorization.",
+      "can_continue_independently": true,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/provenance/runtime.py",
+          "sha256": "8bf01f6d7e23774dde1eb24272471a1d40a36971cf4e4850822574883c48d1e2"
+        },
+        {
+          "path": "eval/acceptance_preparation/provenance/schema.md",
+          "sha256": "11496f823c28abbbb7fde377d9d52d66d217e8555f60621ec5b7e75c95caeac6"
+        },
+        {
+          "path": "test_phase_e2_provenance.py",
+          "sha256": "fe84f31fa9fbe8cb956e42d8acab8e012b5b568025e5e0faa18f6e8b75922201"
+        }
+      ]
+    },
+    {
+      "id": "original_uploads",
+      "status": "PENDING_EXTERNAL_EVIDENCE",
+      "category": "external_evidence",
+      "summary": "Seven named original uploads unavailable; equality to retained counterparts has not been established.",
+      "owner_role": "Artifact custodian (not named)",
+      "next_action": "Supply original bytes and trusted provenance to compare against the registered retained hashes; never infer equality from names.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/provenance/upload_identity_register.json",
+          "sha256": "2d2a96538e6e916abd49d1f57959a3101d4bf39bfb58877dd2413b8a40353f04"
+        }
+      ]
+    },
+    {
+      "id": "historical_tier2_runtime",
+      "status": "PENDING_EXTERNAL_EVIDENCE",
+      "category": "external_evidence",
+      "summary": "Reconstruction cannot prove original environment overrides, database order or prompt bytes.",
+      "owner_role": "Original run operator / artifact custodian (not named)",
+      "next_action": "Recover genuine original runtime records if available; otherwise preserve the limitation. Do not reconstruct missing facts as runtime evidence.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/provenance/historical_limitations.json",
+          "sha256": "90d4897f91f96b18cac010651b551e682b0cffef1129f9b88dff6f78c0505aaa"
+        },
+        {
+          "path": "docs/remediation/phase_e2_engineering/TIER2_V21_DEVELOPMENT_VALIDATION.md",
+          "sha256": "98deaea6c1c83c5d086bc2552fa24463235717e863037d8cd29bffd2f9752e87"
+        }
+      ]
+    },
+    {
+      "id": "candidate_refreeze",
+      "status": "PREPARED_FOR_REVIEW",
+      "category": "review_package",
+      "summary": "Candidate validates 27 preserved assets and 20 current candidate snapshots; both annotation bindings remain unapproved.",
+      "owner_role": "Evaluation owner and integration reviewer (not named)",
+      "next_action": "Review candidate scope and dependency closure; choose approved identities only after all prerequisites.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/integration/candidate_manifest.json",
+          "sha256": "bbd89b928d37baf51b237243c23d81a8822b64e5cd122c81b6ce396d917b0d9b"
+        },
+        {
+          "path": "eval/acceptance_preparation/integration/candidate_validation_report.json",
+          "sha256": "f62f65e04499292cd1b2abe2b3c473e1a7c4f28e75ddfb8a5f4c433de7ca4c72"
+        }
+      ]
+    },
+    {
+      "id": "correction_set",
+      "status": "PENDING_OWNER_DECISION",
+      "category": "owner_decision",
+      "summary": "Historical correction proposals remain unapplied; no labels or annotations were changed.",
+      "owner_role": "Dataset owner and independent reviewer (not named)",
+      "next_action": "Disposition only the independently reviewed correction set through a separately authorized controlled process.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "docs/remediation/phase_e2_engineering/wp4/REVISED_DEV_CORRECTION_PROPOSALS.csv",
+          "sha256": "986b40f21852c49b24ef36192512878bafde31c7ef0d9fc7911c9e13db2a0727"
+        },
+        {
+          "path": "docs/remediation/phase_e2_engineering/PHASE_E2_REMAINING_DECISIONS.md",
+          "sha256": "8a880cf84ec74970098471967f7b56be1687db726621aa9ece2fc2c1725327c0"
+        }
+      ]
+    },
+    {
+      "id": "official_integration",
+      "status": "BLOCKED_BY_APPROVAL",
+      "category": "inactive_integration",
+      "summary": "Official selection, gate and runtime-capture integration remain inactive.",
+      "owner_role": "Evaluation owner (not named)",
+      "next_action": "Approve exact integration patches and dependency scope after review/policy decisions; retain deterministic v1 rollback.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/integration/selection_contract.md",
+          "sha256": "373d6d9af900bf3e0d9d5f2d37c1ad88421d12b9a9d4437f1e5bfcba605ab9ad"
+        }
+      ]
+    },
+    {
+      "id": "official_refreeze",
+      "status": "BLOCKED_BY_APPROVAL",
+      "category": "inactive_integration",
+      "summary": "A candidate is not an authorized freeze; the original manifest remains unchanged.",
+      "owner_role": "Evaluation owner (not named)",
+      "next_action": "Obtain explicit re-freeze authorization, regenerate actual post-approval hashes, review lineage and verify the new freeze separately.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/integration/refreeze_checklist.md",
+          "sha256": "d84238fc52a17193654b06700456ccc7d2677153571c80a7d6a1af077c15258c"
+        }
+      ]
+    },
+    {
+      "id": "heldout_execution",
+      "status": "BLOCKED_BY_APPROVAL",
+      "category": "inactive_integration",
+      "summary": "No held-out, full-split or production evaluation is authorized by this package.",
+      "owner_role": "Evaluation owner (not named)",
+      "next_action": "Keep evaluation inactive; any future run requires a separate explicit authorization and readiness decision.",
+      "can_continue_independently": false,
+      "evidence": [
+        {
+          "path": "docs/remediation/phase_e2_engineering/PHASE_E2_REMAINING_DECISIONS.md",
+          "sha256": "8a880cf84ec74970098471967f7b56be1687db726621aa9ece2fc2c1725327c0"
+        }
+      ]
+    },
+    {
+      "id": "dashboard_engineering",
+      "status": "ENGINEERING_COMPLETE",
+      "category": "engineering",
+      "summary": "Status-state validation, evidence hashes and no-acceptance checks implemented.",
+      "owner_role": "Engineering lead",
+      "next_action": "Rebuild the status register after genuine new evidence or authenticated decisions arrive.",
+      "can_continue_independently": true,
+      "evidence": [
+        {
+          "path": "eval/acceptance_preparation/dashboard.py",
+          "sha256": "7634fef290b6ebf7beeed191725e704da269ccdc79c8f205cecadff6f11247f8"
+        },
+        {
+          "path": "test_phase_e2_dashboard.py",
+          "sha256": "1e558300cc6ce3629c4ec427ea0bb30fbde3e99bcc0d65e6d655cb5c54230ab7"
+        }
+      ]
+    }
+  ],
+  "status_counts": {
+    "ENGINEERING_COMPLETE": 4,
+    "PREPARED_FOR_REVIEW": 7,
+    "PENDING_INDEPENDENT_REVIEW": 5,
+    "PENDING_OWNER_DECISION": 14,
+    "PENDING_EXTERNAL_EVIDENCE": 2,
+    "BLOCKED_BY_APPROVAL": 3,
+    "ACCEPTED": 0
+  },
+  "authority_limitation": "Evidence preparation is not independent review, owner authorization, acceptance or re-freezing.",
+  "date": "2026-11-18",
+  "scope": "Coordinator-facing engineering preparation; Stage A review exposure rules apply.",
+  "branch": "main",
+  "head": "690fcfbbf0abdf43b274161a5e6545f7ad11c325",
+  "validation_evidence_path": "docs/remediation/phase_e2_acceptance_evidence/verification.json",
+  "historical_validation": {
+    "label": "Previous 2026-11-18 engineering verification, not rerun in full in this preparation task",
+    "path": "docs/remediation/phase_e2_engineering/v21_development_verification/verification.json",
+    "sha256": "fbb993201486760ec39d8d16c67df3891c022ec42bd2e3e97dd9e5379e3d8755",
+    "unittest_methods": 168,
+    "regression_checks": 471,
+    "dual_scorer_probes": 110
+  },
+  "engineering_preparation_complete": true,
+  "validation": {
+    "commands_passed": 18,
+    "failed": 0,
+    "skipped": 0,
+    "unittest_methods": 107,
+    "new_methods": 59,
+    "retained_wp8_methods": 48,
+    "existing_regression_checks": 289,
+    "dual_scorer_probes": 110,
+    "frozen_manifest": "REPRODUCED",
+    "revised_proposals": "VALID"
+  },
+  "repository_integrity": {
+    "branch": "main",
+    "head": "690fcfbbf0abdf43b274161a5e6545f7ad11c325",
+    "initial_modified_tracked": 8,
+    "initial_untracked": 101,
+    "final_modified_tracked": 8,
+    "final_untracked": 148,
+    "index_preserved": true,
+    "protected_unchanged": 44,
+    "unchanged_preexisting_files": 509,
+    "only_preexisting_edit": "run_tests.py: six additive registrations; removal reproduces baseline hash",
+    "diff_check": "PASS"
+  }
+}

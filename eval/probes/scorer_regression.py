@@ -58,7 +58,7 @@ def _gold_context(case, docs, extra):
 
 def _tier1_context(case, docs):
     results, chunk_pair, _ = tier1_context(case, docs)
-    return chunk_pair, " ".join(r["chunk"][3] for r in results)
+    return chunk_pair, " ".join(r["chunk"][3].strip() for r in results)
 
 
 def build_inputs(probe, case, docs):
@@ -128,9 +128,18 @@ def run(probes=PROBES, v2_fn=None):
     rows = []
     for probe in probes:
         score = score_probe(probe, docs, by_id)
-        row = {"probe": probe, "score": score, "v1_mismatches": v1_mismatches(probe, score), "v2": None}
+        row = {"probe": probe, "score": score, "v1_mismatches": v1_mismatches(probe, score),
+               "v2": None, "v2_score": None, "v2_mismatches": []}
         if v2_fn is not None:
-            row["v2"] = score_v2(v2_fn, probe, docs, by_id)["correct"]
+            observed = score_v2(v2_fn, probe, docs, by_id)
+            row["v2_score"] = observed
+            row["v2"] = observed["correct"]
+            for key, expected in probe.get("v2_signals", {}).items():
+                actual = observed.get(key)
+                equal = (isinstance(actual, (int, float)) and abs(actual - expected) < 1e-9
+                         if isinstance(expected, float) else actual == expected)
+                if not equal:
+                    row["v2_mismatches"].append(f"{key}: expected {expected!r}, observed {actual!r}")
         rows.append(row)
     return rows
 
@@ -159,11 +168,11 @@ def main(argv=None):
     rows, failures = run(v2_fn=v2_fn), []
     for row in rows:
         p = row["probe"]
-        ok = not row["v1_mismatches"] and (row["v2"] is None or p["v2"] is None or row["v2"] == p["v2"])
+        ok = not row["v1_mismatches"] and not row["v2_mismatches"] and (row["v2"] is None or p["v2"] is None or row["v2"] == p["v2"])
         if not ok:
             failures.append(p["id"])
         print(f"{'PASS' if ok else 'FAIL'} | {p['id']:13} {p['limitation']:6} {p['target']:20} "
-              f"v1={row['score']['correct']!s:5} v2_exp={p['v2']!s:5} {'; '.join(row['v1_mismatches'])}")
+              f"v1={row['score']['correct']!s:5} v2_exp={p['v2']!s:5} {'; '.join(row['v1_mismatches'] + row['v2_mismatches'])}")
     if args.validate_proposals:
         docs, cases, _ = dataset()
         for label, errors in validate_proposals(docs, cases).items():

@@ -5,6 +5,7 @@ from sentence_transformers import SentenceTransformer
 
 from services import perf_metrics
 from services import retrieval_config as cfg
+from services.local_release_profile import require_embedding_model
 
 # The configured embedding model (default "all-MiniLM-L6-v2", override with the
 # EMBEDDING_MODEL environment variable). Vectors stored with one model are NOT
@@ -16,6 +17,7 @@ from services import retrieval_config as cfg
 # next request retries. ``embedding_service.model`` still works (module
 # __getattr__ below) and triggers the same lazy load.
 _model = None
+_model_name = None
 _model_lock = threading.Lock()
 
 
@@ -23,18 +25,34 @@ class EmbeddingModelLoadError(RuntimeError):
     """The configured embedding model could not be initialised."""
 
 
+class EmbeddingModelMismatchError(ValueError):
+    """A configuration change would reuse vectors from another loaded model."""
+
+
+def _verify_model_configuration():
+    require_embedding_model(cfg.EMBEDDING_MODEL)
+    if _model is not None and _model_name is not None and _model_name != cfg.EMBEDDING_MODEL:
+        raise EmbeddingModelMismatchError(
+            "EMBEDDING_MODEL changed after model initialization; restart with "
+            "the original index model or rebuild a verified empty index"
+        )
+
+
 def get_model():
-    global _model
+    global _model, _model_name
+    _verify_model_configuration()
     loaded = _model
     if loaded is not None:
         return loaded
 
     with _model_lock:
+        _verify_model_configuration()
         if _model is None:
             name = cfg.EMBEDDING_MODEL
             try:
                 with perf_metrics.timed("embedding.model_init"):
                     _model = SentenceTransformer(name)
+                    _model_name = name
             except Exception as error:
                 raise EmbeddingModelLoadError(
                     f"could not load embedding model {name!r} "
@@ -89,6 +107,10 @@ def clear_embedding_cache():
 
 
 def generate_embeddings(texts: list[str]):
+
+    # Check before cache lookup too: a warm cache must not bypass a model pin
+    # or silently encode with the old model under a newly configured cache key.
+    _verify_model_configuration()
 
     single = (
         cfg.EMBEDDING_QUERY_CACHE_SIZE > 0

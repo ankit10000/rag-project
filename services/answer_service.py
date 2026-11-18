@@ -130,10 +130,9 @@ def generate_grounded_answer(
 
         last_tag, last_body = tag, body
         is_refusal = body.strip() == REFUSAL_MESSAGE
-        # A DOCUMENT question with retrieved sources always needs citations,
+        # A DOCUMENT/MIXED question with retrieved sources needs citations,
         # whatever tag the model chose (a [MEMORY] tag must not bypass grounding).
-        needs_citations = bool(sources) and question_type != "MEMORY" and not is_refusal \
-            and (tag in ("DOCUMENT", "MIXED", None) or question_type == "DOCUMENT")
+        needs_citations = bool(sources) and question_type != "MEMORY" and not is_refusal
 
         # Nothing was retrieved, yet the reply claims document facts: reject.
         if (not sources and tag == "DOCUMENT" and not is_refusal

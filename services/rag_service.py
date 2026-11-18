@@ -4,6 +4,8 @@ from services.llm_service import generate_answer, rewrite_query
 from services.answer_prompt import REFUSAL_MESSAGE
 from services.answer_service import generate_grounded_answer
 from services.context_assembly_service import assemble_context
+from services.local_release_profile import requires_verified_ranking
+from services.answer_service import UNVERIFIED_MESSAGE
 
 
 
@@ -32,15 +34,11 @@ Question:
 {query}
 """
 
-    result = generate_answer(prompt).strip().upper()
-
-    if "MIXED" in result:
-        return "MIXED"
-
-    if "MEMORY" in result:
-        return "MEMORY"
-
-    return "DOCUMENT"
+    raw = generate_answer(prompt)
+    result = raw.strip().upper() if isinstance(raw, str) else ""
+    # Only the requested exact enum may suppress document retrieval. A
+    # malformed reply such as "NOT MEMORY" follows the existing safe fallback.
+    return result if result in ("DOCUMENT", "MEMORY", "MIXED") else "DOCUMENT"
 def ask_question(
     query: str,
     history: list = None,
@@ -61,7 +59,7 @@ def ask_question(
         search_query = query
 
     # Fallback if query rewriting returns an empty result
-    if not search_query or not search_query.strip():
+    if not isinstance(search_query, str) or not search_query.strip():
         search_query = query
 
     # Step 1b (Stage 8 P3): classify the rewritten standalone query, so a
@@ -140,14 +138,18 @@ def ask_question(
         print(f"Context assembly dropped: {bundle['dropped']}")
 
     # Step 5: Grounded generation + citation validation (bounded retries)
-    outcome = generate_grounded_answer(
-        question=query,
-        bundle=bundle,
-        question_type=question_type,
-        generate_fn=lambda prompt: generate_answer(prompt),
-        history=history,
-        memory_summary=memory_summary,
-    )
+    if requires_verified_ranking(question_type, results, retrieval_status):
+        outcome = dict(answer=UNVERIFIED_MESSAGE, status="unverified", sources=[],
+                       citations=[], attempts=0, issues=["local_v1_rerank_required"])
+    else:
+        outcome = generate_grounded_answer(
+            question=query,
+            bundle=bundle,
+            question_type=question_type,
+            generate_fn=lambda prompt: generate_answer(prompt),
+            history=history,
+            memory_summary=memory_summary,
+        )
 
     print(
         f"Answer status: {outcome['status']} | "
@@ -163,7 +165,8 @@ def ask_question(
         "status": outcome["status"],
         "issues": outcome["issues"],
         # Stage 6: how retrieval ran; "not_run" when no retrieval was needed.
-        # Not used to change the answer (the no-rerank policy, H.1, is undecided).
+        # Existing defaults keep H.1 behavior; explicit local-v1.0 requires
+        # verified reranking for nonempty document retrieval above.
         "retrieval_status": retrieval_status,
         "retrieved": [
             {k: s[k] for k in ("ref", "chunk_id", "document_name", "page_number", "retrieval_score")}

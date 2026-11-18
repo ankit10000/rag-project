@@ -1,0 +1,5 @@
+record_id,review_status,reviewer_name,review_date,prior_exposure,reviewer_judgment,reviewer_rationale,independent_judgment_recorded_at,stage_b_viewed_at,post_analysis_comment
+tier1_D-conflicting-01,PENDING_INDEPENDENT_REVIEW,,,,,,,,
+tier1_B-comp-04,PENDING_INDEPENDENT_REVIEW,,,,,,,,
+tier1_B-conf-04,PENDING_INDEPENDENT_REVIEW,,,,,,,,
+tier2_B-conf-04,PENDING_INDEPENDENT_REVIEW,,,,,,,,

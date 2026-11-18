@@ -1,0 +1,89 @@
+{
+  "case_id": "B-comp-04",
+  "citations": [
+    {
+      "chunk_id": 2,
+      "context_present": true,
+      "context_reference": {
+        "document": "calder_sound_tile_study_TR-2026-07.pdf",
+        "page": 2
+      },
+      "document": "calder_sound_tile_study_TR-2026-07.pdf",
+      "page": 2,
+      "ref": "S2"
+    },
+    {
+      "chunk_id": 3,
+      "context_present": true,
+      "context_reference": {
+        "document": "calder_sound_tile_study_TR-2026-07.pdf",
+        "page": 4
+      },
+      "document": "calder_sound_tile_study_TR-2026-07.pdf",
+      "page": 4,
+      "ref": "S3"
+    }
+  ],
+  "context_sha256": "b01b51c3522e78f2f75fe88bd7422d7e0f1854edf9a0a02367cd4e526a1dabb3",
+  "history": [],
+  "ordered_scoring_context": [
+    {
+      "chunk_id": 1,
+      "document": "velmoor_postgrad_handbook_v4.2.pdf",
+      "page": 5,
+      "text": "ANNEX B. Summary of regulations (carried forward from Version 4.1 and not revised in this issue).\n\nB1. PhD thesis maximum length 100,000 words.\nB2. MPhil thesis maximum length 40,000 words.\nB3. Viva to be held within 3 months of submission.\nB4. Resubmission after major corrections must happen within 12 months.\n\nNote: Annex B has not been reviewed this cycle. [Editor's comment, draft 3: check B1 again.]\n\nANNEX C. Viva arrangements. The viva panel consists of one internal examiner, one external examiner and an independent chair. The external examiner must not have co-authored with the student or supervisor in the last 5 years. Examiner reports are due 14 days after the viva. Outcomes are: pass, minor corrections (3 months), major corrections (6 months), resubmission for MPhil, or fail.\n\nANNEX D. Contacts. Graduate School Helpdesk: gradschool.help at velmoor.example; phone extension 4417. Opening hours are 9:30 to 16:30, Monday to Thursday.",
+      "text_sha256": "b790b7eb8555f4cd4523a22b552f3b3bcec31f20d491fe9da33294d14e57cef3"
+    },
+    {
+      "chunk_id": 2,
+      "document": "calder_sound_tile_study_TR-2026-07.pdf",
+      "page": 2,
+      "text": "2. Methods. Stations were set in a grid of 12 stations per treatment. Each station carried one tile of 30 cm x 30 cm (Groups B and C) or a marked rock patch of the same area (Group A). Tiles were cast from marine-grade concrete with a 6 mm ribbed relief (B) or a ground-smooth face (C).\n\n2.1 Sampling. Counts were made every 28 days at low spring tide. At each visit two observers counted spat inside a 10 cm x 10 cm quadrat placed over the tile or patch, and the counts were averaged. Settlement is reported as spat per 100 cm2.\n\n2.2 Environmental loggers. Water temperature was logged hourly by Type TL-9 loggers fixed at 8 of the 36 stations. Salinity was measured by hand-held meter only on sampling days.\n\n2.3 Exclusions. Stations 14 and 29 were lost to a storm on 12 November 2025 and were excluded from all later counts. Surveys before that date for those stations are retained.\n\nStatistical analysis was done in R, version 4.3, using a mixed model with station as a random effect. Significance was set at p < 0.05.",
+      "text_sha256": "216e42ace7b40023465b2a4f7373c98ed136dbe2e63e25875230b5d599b6bbba"
+    },
+    {
+      "chunk_id": 3,
+      "document": "calder_sound_tile_study_TR-2026-07.pdf",
+      "page": 4,
+      "text": "4. Discussion. The strong response to ribbed relief suggests that surface texture, rather than the mere presence of a hard substrate, drives settlement. Smooth tiles performed only slightly better than bare rock. Over the 15 months of monitoring, no tile showed signs of material degradation attributable to wave action beyond the storm damage noted earlier.\n\n4.1 Limitations. (i) The study used a single shore, so results may not transfer to sheltered or estuarine sites. (ii) No sampling took place in January 2026 because of a road closure, so winter settlement is under-represented. (iii) Agreement between observers was good (kappa 0.81) but not perfect. (iv) Predation by crabs and gulls was not measured. (v) The report does not cost the tiles; production cost per tile was not recorded.\n\n4.2 Comparison with earlier work. An earlier pilot (TR-2024-03) used 12 stations and reported an increase of 51% for ribbed tiles. The pilot ran only 5 months and is not directly comparable.",
+      "text_sha256": "7d201bf68cb02e7f0694f9da8159a73507b602871b8968d7a7b4e625d27f26f7"
+    }
+  ],
+  "question": "How many stations did each treatment get in the tile study, and what did one tile cost to produce?",
+  "raw_answer": "- Each treatment got 12 stations [S2].\n- The documents do not cover the production cost of one tile; the report did not record production costs [S3].",
+  "record_id": "tier1_B-comp-04",
+  "relevant_source_passages": [
+    {
+      "document": "calder_sound_tile_study_TR-2026-07.pdf",
+      "page": 2,
+      "text": "Stations were set in a grid of 12 stations per treatment."
+    }
+  ],
+  "review_status": "PENDING_INDEPENDENT_REVIEW",
+  "reviewer_judgment": "",
+  "reviewer_rationale": "",
+  "schema": "phase-e2-flip-blind-evidence/1",
+  "scoring_context_text": "ANNEX B. Summary of regulations (carried forward from Version 4.1 and not revised in this issue).\n\nB1. PhD thesis maximum length 100,000 words.\nB2. MPhil thesis maximum length 40,000 words.\nB3. Viva to be held within 3 months of submission.\nB4. Resubmission after major corrections must happen within 12 months.\n\nNote: Annex B has not been reviewed this cycle. [Editor's comment, draft 3: check B1 again.]\n\nANNEX C. Viva arrangements. The viva panel consists of one internal examiner, one external examiner and an independent chair. The external examiner must not have co-authored with the student or supervisor in the last 5 years. Examiner reports are due 14 days after the viva. Outcomes are: pass, minor corrections (3 months), major corrections (6 months), resubmission for MPhil, or fail.\n\nANNEX D. Contacts. Graduate School Helpdesk: gradschool.help at velmoor.example; phone extension 4417. Opening hours are 9:30 to 16:30, Monday to Thursday. 2. Methods. Stations were set in a grid of 12 stations per treatment. Each station carried one tile of 30 cm x 30 cm (Groups B and C) or a marked rock patch of the same area (Group A). Tiles were cast from marine-grade concrete with a 6 mm ribbed relief (B) or a ground-smooth face (C).\n\n2.1 Sampling. Counts were made every 28 days at low spring tide. At each visit two observers counted spat inside a 10 cm x 10 cm quadrat placed over the tile or patch, and the counts were averaged. Settlement is reported as spat per 100 cm2.\n\n2.2 Environmental loggers. Water temperature was logged hourly by Type TL-9 loggers fixed at 8 of the 36 stations. Salinity was measured by hand-held meter only on sampling days.\n\n2.3 Exclusions. Stations 14 and 29 were lost to a storm on 12 November 2025 and were excluded from all later counts. Surveys before that date for those stations are retained.\n\nStatistical analysis was done in R, version 4.3, using a mixed model with station as a random effect. Significance was set at p < 0.05. 4. Discussion. The strong response to ribbed relief suggests that surface texture, rather than the mere presence of a hard substrate, drives settlement. Smooth tiles performed only slightly better than bare rock. Over the 15 months of monitoring, no tile showed signs of material degradation attributable to wave action beyond the storm damage noted earlier.\n\n4.1 Limitations. (i) The study used a single shore, so results may not transfer to sheltered or estuarine sites. (ii) No sampling took place in January 2026 because of a road closure, so winter settlement is under-represented. (iii) Agreement between observers was good (kappa 0.81) but not perfect. (iv) Predation by crabs and gulls was not measured. (v) The report does not cost the tiles; production cost per tile was not recorded.\n\n4.2 Comparison with earlier work. An earlier pilot (TR-2024-03) used 12 stations and reported an increase of 51% for ribbed tiles. The pilot ran only 5 months and is not directly comparable.",
+  "source_pages": [
+    {
+      "document": "velmoor_postgrad_handbook_v4.2.pdf",
+      "page": 5,
+      "text": "ANNEX B. Summary of regulations (carried forward from Version 4.1 and not revised in this issue).\n\nB1. PhD thesis maximum length 100,000 words.\nB2. MPhil thesis maximum length 40,000 words.\nB3. Viva to be held within 3 months of submission.\nB4. Resubmission after major corrections must happen within 12 months.\n\nNote: Annex B has not been reviewed this cycle. [Editor's comment, draft 3: check B1 again.]\n\nANNEX C. Viva arrangements. The viva panel consists of one internal examiner, one external examiner and an independent chair. The external examiner must not have co-authored with the student or supervisor in the last 5 years. Examiner reports are due 14 days after the viva. Outcomes are: pass, minor corrections (3 months), major corrections (6 months), resubmission for MPhil, or fail.\n\nANNEX D. Contacts. Graduate School Helpdesk: gradschool.help at velmoor.example; phone extension 4417. Opening hours are 9:30 to 16:30, Monday to Thursday.",
+      "text_sha256": "b790b7eb8555f4cd4523a22b552f3b3bcec31f20d491fe9da33294d14e57cef3"
+    },
+    {
+      "document": "calder_sound_tile_study_TR-2026-07.pdf",
+      "page": 2,
+      "text": "2. Methods. Stations were set in a grid of 12 stations per treatment. Each station carried one tile of 30 cm x 30 cm (Groups B and C) or a marked rock patch of the same area (Group A). Tiles were cast from marine-grade concrete with a 6 mm ribbed relief (B) or a ground-smooth face (C).\n\n2.1 Sampling. Counts were made every 28 days at low spring tide. At each visit two observers counted spat inside a 10 cm x 10 cm quadrat placed over the tile or patch, and the counts were averaged. Settlement is reported as spat per 100 cm2.\n\n2.2 Environmental loggers. Water temperature was logged hourly by Type TL-9 loggers fixed at 8 of the 36 stations. Salinity was measured by hand-held meter only on sampling days.\n\n2.3 Exclusions. Stations 14 and 29 were lost to a storm on 12 November 2025 and were excluded from all later counts. Surveys before that date for those stations are retained.\n\nStatistical analysis was done in R, version 4.3, using a mixed model with station as a random effect. Significance was set at p < 0.05.",
+      "text_sha256": "216e42ace7b40023465b2a4f7373c98ed136dbe2e63e25875230b5d599b6bbba"
+    },
+    {
+      "document": "calder_sound_tile_study_TR-2026-07.pdf",
+      "page": 4,
+      "text": "4. Discussion. The strong response to ribbed relief suggests that surface texture, rather than the mere presence of a hard substrate, drives settlement. Smooth tiles performed only slightly better than bare rock. Over the 15 months of monitoring, no tile showed signs of material degradation attributable to wave action beyond the storm damage noted earlier.\n\n4.1 Limitations. (i) The study used a single shore, so results may not transfer to sheltered or estuarine sites. (ii) No sampling took place in January 2026 because of a road closure, so winter settlement is under-represented. (iii) Agreement between observers was good (kappa 0.81) but not perfect. (iv) Predation by crabs and gulls was not measured. (v) The report does not cost the tiles; production cost per tile was not recorded.\n\n4.2 Comparison with earlier work. An earlier pilot (TR-2024-03) used 12 stations and reported an increase of 51% for ribbed tiles. The pilot ran only 5 months and is not directly comparable.",
+      "text_sha256": "7d201bf68cb02e7f0694f9da8159a73507b602871b8968d7a7b4e625d27f26f7"
+    }
+  ],
+  "split": "dev",
+  "tier": 1
+}

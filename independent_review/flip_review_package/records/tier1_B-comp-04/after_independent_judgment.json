@@ -1,0 +1,471 @@
+{
+  "annotation": {
+    "forbidden": []
+  },
+  "annotation_path": "docs/remediation/phase_e2_engineering/wp8_evidence/flip_inputs/final/literal-annotations.c1bbcae.json",
+  "annotation_raw_sha256": "b4f6ed739756f3ca3c57bb83f9c21acfad87413b9d4a3d2e1322abca01f4452a",
+  "context_mode": "tier1_reconstructed_exact",
+  "context_sha256": "b01b51c3522e78f2f75fe88bd7422d7e0f1854edf9a0a02367cd4e526a1dabb3",
+  "dataset_pin": {
+    "dataset_version": null,
+    "file_sha256": {
+      "eval/phase35/data_A.py": "b4d8b3516a777c59a280d6cb9b5bbb23aefaf40459130bf46fc4e1d8c51cbf65",
+      "eval/phase35/data_B.py": "a3434f5b6ad1fbd3da30f2413f9f855595f6ec09278afb296b28e5f7d82b1778",
+      "eval/phase35/data_C.py": "67bc2b5e1ea01e27516c6fb61809efe6c90573630498e3384408dd8c4ad3b647",
+      "eval/phase35/data_D.py": "655be7b3c60cd13af50c2e15d1c9346b727ad3f57998233ffebc43d934b2306e"
+    },
+    "git_rev": "c1bbcae9a21e389c16c3f1587de5acc1b5209e37",
+    "manifest_content_sha256": null,
+    "pin_source": "operator_git_rev"
+  },
+  "expected_case_flags": {
+    "expect_abstain": false,
+    "expect_conflict": false,
+    "expect_partial": true
+  },
+  "gold_facts": [
+    [
+      "12 stations",
+      "12 per"
+    ]
+  ],
+  "gold_sources": [
+    {
+      "document": "calder_sound_tile_study_TR-2026-07.pdf",
+      "page": 2,
+      "span": "Stations were set in a grid of 12 stations per treatment."
+    }
+  ],
+  "historical_occurrences": [
+    {
+      "archive_path": "docs/remediation/phase_e2_engineering/wp8_evidence/flip_inputs/initial/tier1_dev.v2.jsonl",
+      "artifact_sha256": "cc075371eaeea6e9c73e3edab6af4f5f9799c02e3e782fdbba2df368c61f6fe0",
+      "context_sha256": "b01b51c3522e78f2f75fe88bd7422d7e0f1854edf9a0a02367cd4e526a1dabb3",
+      "identity_relation": "HISTORICAL_DISTINCT_IDENTITY_BEHAVIORAL_PARITY_ONLY",
+      "original_path": "/private/tmp/wp6-dev-rescore-9ljt095p/tier1_dev.v2.jsonl",
+      "recorded_comparison": {
+        "changed_signals": [
+          "partial_ok",
+          "correct",
+          "correct_lenient"
+        ],
+        "context_mode": "tier1_reconstructed_exact",
+        "id": "B-comp-04",
+        "reconstruction_status": "exact",
+        "rule_codes": [
+          "§10.3-partial"
+        ],
+        "split": "dev",
+        "tier": 1,
+        "v1_current": {
+          "abstain_ok": null,
+          "citation_completeness": 1.0,
+          "citation_correctness": 0.5,
+          "conflict_ok": null,
+          "correct": false,
+          "correct_lenient": false,
+          "fabricated": 0,
+          "fact_recall": 1.0,
+          "forbidden_hits": [],
+          "partial_ok": false,
+          "status": "answered",
+          "ungrounded_numbers": [],
+          "unsupported": false
+        },
+        "v1_stored": {
+          "abstain_ok": null,
+          "citation_completeness": 1.0,
+          "citation_correctness": 0.5,
+          "conflict_ok": null,
+          "correct": false,
+          "correct_lenient": false,
+          "fabricated": 0,
+          "fact_recall": 1.0,
+          "forbidden_hits": [],
+          "partial_ok": false,
+          "status": "answered",
+          "ungrounded_numbers": [],
+          "unsupported": false
+        },
+        "v2": {
+          "abstain_ok": null,
+          "citation_completeness": 1.0,
+          "citation_correctness": 0.5,
+          "conflict_ok": null,
+          "correct": true,
+          "correct_lenient": true,
+          "fabricated": 0,
+          "fact_recall": 1.0,
+          "forbidden_hits": [],
+          "history_echo": [],
+          "numeric_grounded": true,
+          "partial_ok": true,
+          "scorer_name": "phase35-scorer",
+          "scorer_version": "2.1.0",
+          "signals": {
+            "abstention": [
+              {
+                "clause_index": 1,
+                "family": "A1",
+                "span": [
+                  0,
+                  26
+                ]
+              },
+              {
+                "clause_index": 2,
+                "family": "A2",
+                "span": [
+                  0,
+                  25
+                ]
+              }
+            ],
+            "annotations_applied": true,
+            "context_unavailable": false,
+            "disagreement": [],
+            "error_row": false,
+            "excused": [],
+            "history_corrections": [],
+            "matched_groups": [
+              0
+            ],
+            "negated_spans": [],
+            "padded_alternatives": [],
+            "status_conflict": false
+          },
+          "status": "answered",
+          "tables_version": "2.1.0",
+          "ungrounded_numbers": [],
+          "ungrounded_refs": [],
+          "unsupported": false
+        }
+      },
+      "recorded_dataset_pin": {
+        "dataset_version": "operator-pinned:c1bbcae",
+        "file_sha256": {
+          "eval/phase35/data_A.py": "b4d8b3516a777c59a280d6cb9b5bbb23aefaf40459130bf46fc4e1d8c51cbf65",
+          "eval/phase35/data_B.py": "a3434f5b6ad1fbd3da30f2413f9f855595f6ec09278afb296b28e5f7d82b1778",
+          "eval/phase35/data_C.py": "67bc2b5e1ea01e27516c6fb61809efe6c90573630498e3384408dd8c4ad3b647",
+          "eval/phase35/data_D.py": "655be7b3c60cd13af50c2e15d1c9346b727ad3f57998233ffebc43d934b2306e"
+        },
+        "git_rev": "c1bbcae9a21e389c16c3f1587de5acc1b5209e37",
+        "manifest_content_sha256": null,
+        "pin_source": "operator_git_rev"
+      },
+      "recorded_scorer": {
+        "annotation_schema": "phase35-scorer-annotations/1",
+        "annotations_sha256": "b4f6ed739756f3ca3c57bb83f9c21acfad87413b9d4a3d2e1322abca01f4452a",
+        "module_sha256": {
+          "eval/scoring_v2/__init__.py": "748d800afa0cc46e46fd83d32840c0342fd6d409f3b9d0870c2e095879a65c98",
+          "eval/scoring_v2/annotations.py": "37d5be1ce4cc9814d47a2dfdb3f54d02534f71eed46d5a59f045088df07e75e5",
+          "eval/scoring_v2/context.py": "b0cee83e9bf4266b9146fbb557b1f0ff53cc0708488ed5d5539f36015658e229",
+          "eval/scoring_v2/forbidden.py": "342161b3d80070f3ec7ac4d670aa7a0dae6b630fe1da22827ecaf056f5c5c74e",
+          "eval/scoring_v2/history.py": "6cc63e382b6cc50ca965c07c95cf9602926261d63698fc1217b08cad19f5efea",
+          "eval/scoring_v2/negation.py": "01b7fed46ba484f5e84ba036903a423db7a5e82c4f9dfe51c13691d166a40bcc",
+          "eval/scoring_v2/normalize.py": "c91248a2b8ae36699d416a6ff655c53136626c89430ab8dec0ce844431846daf",
+          "eval/scoring_v2/numbers.py": "4d03be838f5f5f2c33583e6c8abb7ff27a98268b46621ede5ffb525f0af805c9",
+          "eval/scoring_v2/rescore.py": "3764685b399a99b9c85e72bf53cc55c44a54910d3baf3ab253bc6af2e256fd30",
+          "eval/scoring_v2/rescore_meta.py": "13f3552004dfe17d9da7f92f4437d1ada64bdebd7130b8109a19c8196d0dc97c",
+          "eval/scoring_v2/score.py": "e0d7456a8a1fcf2a200b65c70ac55a66c69e5c63c15b461b80b268806f3a9e5e",
+          "eval/scoring_v2/signals.py": "1eb406fdc95651287f1ec1e581bff600611be04d4bb495717dff77588e6d4818",
+          "eval/scoring_v2/tables.py": "882d9932ecb034005d71241f66751f4b6777e9b75cee6a2b06f2120183e6a761",
+          "eval/scoring_v2/text_units.py": "25463d90407a019f8712e8d1b944654deff9d0859f6789eb4d2e4c8e4c61dcb5"
+        },
+        "name": "phase35-scorer",
+        "sha256": "ebc9a15b6706180486f8f813b93bc75383bcac29cecce226b8a143f9b8cc93d9",
+        "tables_version": "2.1.0",
+        "version": "2.1.0"
+      },
+      "recorded_source_results": {
+        "path": "eval/phase35/results/tier1_dev.jsonl",
+        "rows": 47,
+        "run_header_sha256": null,
+        "sha256": "4c1a6416f2603f7c0744533b6c3ee99570827aaefbdca003bbe346ea2bfd0988"
+      },
+      "shared_raw_answer_and_full_context": "stage_a_blind.json",
+      "sidecar_path": "docs/remediation/phase_e2_engineering/wp8_evidence/flip_inputs/initial/tier1_dev.v2.jsonl.scoring.json",
+      "sidecar_sha256": "dd389d69ef18e6ff19b5b1080977006340fd5dedd5b1de53c0749afaf9e2ba72"
+    },
+    {
+      "archive_path": "docs/remediation/phase_e2_engineering/wp8_evidence/flip_inputs/final/tier1_dev.v2.jsonl",
+      "artifact_sha256": "cc075371eaeea6e9c73e3edab6af4f5f9799c02e3e782fdbba2df368c61f6fe0",
+      "context_sha256": "b01b51c3522e78f2f75fe88bd7422d7e0f1854edf9a0a02367cd4e526a1dabb3",
+      "identity_relation": "HISTORICAL_DISTINCT_IDENTITY_BEHAVIORAL_PARITY_ONLY",
+      "original_path": "/private/tmp/wp6-final-dev-hnuo27v0/tier1_dev.v2.jsonl",
+      "recorded_comparison": {
+        "changed_signals": [
+          "partial_ok",
+          "correct",
+          "correct_lenient"
+        ],
+        "context_mode": "tier1_reconstructed_exact",
+        "id": "B-comp-04",
+        "reconstruction_status": "exact",
+        "rule_codes": [
+          "§10.3-partial"
+        ],
+        "split": "dev",
+        "tier": 1,
+        "v1_current": {
+          "abstain_ok": null,
+          "citation_completeness": 1.0,
+          "citation_correctness": 0.5,
+          "conflict_ok": null,
+          "correct": false,
+          "correct_lenient": false,
+          "fabricated": 0,
+          "fact_recall": 1.0,
+          "forbidden_hits": [],
+          "partial_ok": false,
+          "status": "answered",
+          "ungrounded_numbers": [],
+          "unsupported": false
+        },
+        "v1_stored": {
+          "abstain_ok": null,
+          "citation_completeness": 1.0,
+          "citation_correctness": 0.5,
+          "conflict_ok": null,
+          "correct": false,
+          "correct_lenient": false,
+          "fabricated": 0,
+          "fact_recall": 1.0,
+          "forbidden_hits": [],
+          "partial_ok": false,
+          "status": "answered",
+          "ungrounded_numbers": [],
+          "unsupported": false
+        },
+        "v2": {
+          "abstain_ok": null,
+          "citation_completeness": 1.0,
+          "citation_correctness": 0.5,
+          "conflict_ok": null,
+          "correct": true,
+          "correct_lenient": true,
+          "fabricated": 0,
+          "fact_recall": 1.0,
+          "forbidden_hits": [],
+          "history_echo": [],
+          "numeric_grounded": true,
+          "partial_ok": true,
+          "scorer_name": "phase35-scorer",
+          "scorer_version": "2.1.0",
+          "signals": {
+            "abstention": [
+              {
+                "clause_index": 1,
+                "family": "A1",
+                "span": [
+                  0,
+                  26
+                ]
+              },
+              {
+                "clause_index": 2,
+                "family": "A2",
+                "span": [
+                  0,
+                  25
+                ]
+              }
+            ],
+            "annotations_applied": true,
+            "context_unavailable": false,
+            "disagreement": [],
+            "error_row": false,
+            "excused": [],
+            "history_corrections": [],
+            "matched_groups": [
+              0
+            ],
+            "negated_spans": [],
+            "padded_alternatives": [],
+            "status_conflict": false
+          },
+          "status": "answered",
+          "tables_version": "2.1.0",
+          "ungrounded_numbers": [],
+          "ungrounded_refs": [],
+          "unsupported": false
+        }
+      },
+      "recorded_dataset_pin": {
+        "dataset_version": "operator-pinned:c1bbcae",
+        "file_sha256": {
+          "eval/phase35/data_A.py": "b4d8b3516a777c59a280d6cb9b5bbb23aefaf40459130bf46fc4e1d8c51cbf65",
+          "eval/phase35/data_B.py": "a3434f5b6ad1fbd3da30f2413f9f855595f6ec09278afb296b28e5f7d82b1778",
+          "eval/phase35/data_C.py": "67bc2b5e1ea01e27516c6fb61809efe6c90573630498e3384408dd8c4ad3b647",
+          "eval/phase35/data_D.py": "655be7b3c60cd13af50c2e15d1c9346b727ad3f57998233ffebc43d934b2306e"
+        },
+        "git_rev": "c1bbcae9a21e389c16c3f1587de5acc1b5209e37",
+        "manifest_content_sha256": null,
+        "pin_source": "operator_git_rev"
+      },
+      "recorded_scorer": {
+        "annotation_schema": "phase35-scorer-annotations/1",
+        "annotations_sha256": "b4f6ed739756f3ca3c57bb83f9c21acfad87413b9d4a3d2e1322abca01f4452a",
+        "module_sha256": {
+          "eval/scoring_v2/__init__.py": "748d800afa0cc46e46fd83d32840c0342fd6d409f3b9d0870c2e095879a65c98",
+          "eval/scoring_v2/annotations.py": "37d5be1ce4cc9814d47a2dfdb3f54d02534f71eed46d5a59f045088df07e75e5",
+          "eval/scoring_v2/context.py": "b0cee83e9bf4266b9146fbb557b1f0ff53cc0708488ed5d5539f36015658e229",
+          "eval/scoring_v2/forbidden.py": "342161b3d80070f3ec7ac4d670aa7a0dae6b630fe1da22827ecaf056f5c5c74e",
+          "eval/scoring_v2/history.py": "6cc63e382b6cc50ca965c07c95cf9602926261d63698fc1217b08cad19f5efea",
+          "eval/scoring_v2/negation.py": "01b7fed46ba484f5e84ba036903a423db7a5e82c4f9dfe51c13691d166a40bcc",
+          "eval/scoring_v2/normalize.py": "c91248a2b8ae36699d416a6ff655c53136626c89430ab8dec0ce844431846daf",
+          "eval/scoring_v2/numbers.py": "4d03be838f5f5f2c33583e6c8abb7ff27a98268b46621ede5ffb525f0af805c9",
+          "eval/scoring_v2/rescore.py": "3764685b399a99b9c85e72bf53cc55c44a54910d3baf3ab253bc6af2e256fd30",
+          "eval/scoring_v2/rescore_meta.py": "13f3552004dfe17d9da7f92f4437d1ada64bdebd7130b8109a19c8196d0dc97c",
+          "eval/scoring_v2/score.py": "d5ab048df410865041d7c1d21295289d31ec553e1ecc9b26c8b68698e1f611e4",
+          "eval/scoring_v2/signals.py": "1eb406fdc95651287f1ec1e581bff600611be04d4bb495717dff77588e6d4818",
+          "eval/scoring_v2/tables.py": "882d9932ecb034005d71241f66751f4b6777e9b75cee6a2b06f2120183e6a761",
+          "eval/scoring_v2/text_units.py": "25463d90407a019f8712e8d1b944654deff9d0859f6789eb4d2e4c8e4c61dcb5"
+        },
+        "name": "phase35-scorer",
+        "sha256": "af81bae9df469cd880c8fec8a970a95bf5e0b275679111b783ee867d4e813a2c",
+        "tables_version": "2.1.0",
+        "version": "2.1.0"
+      },
+      "recorded_source_results": {
+        "path": "eval/phase35/results/tier1_dev.jsonl",
+        "rows": 47,
+        "run_header_sha256": null,
+        "sha256": "4c1a6416f2603f7c0744533b6c3ee99570827aaefbdca003bbe346ea2bfd0988"
+      },
+      "shared_raw_answer_and_full_context": "stage_a_blind.json",
+      "sidecar_path": "docs/remediation/phase_e2_engineering/wp8_evidence/flip_inputs/final/tier1_dev.v2.jsonl.scoring.json",
+      "sidecar_sha256": "820ed0d45b16e87d37d117016abac09afeaa87f1eba21d7a4c6c31ccddd4d557"
+    }
+  ],
+  "human_approved": false,
+  "neutral_mechanical_explanation": "The available-fact group matches. Eligible clauses produce A1 and A2 missing-part signals; partial_ok changes False to True. Citation correctness remains 0.5 in both results.",
+  "recommended_outcome": null,
+  "reconstruction_status": "exact",
+  "record_id": "tier1_B-comp-04",
+  "review_status": "PENDING_INDEPENDENT_REVIEW",
+  "reviewer_judgment": "",
+  "reviewer_rationale": "",
+  "schema": "phase-e2-flip-mechanics/1",
+  "scorer": {
+    "annotation_schema": "phase35-scorer-annotations/1",
+    "annotations_sha256": "b4f6ed739756f3ca3c57bb83f9c21acfad87413b9d4a3d2e1322abca01f4452a",
+    "module_sha256": {
+      "eval/scoring_v2/__init__.py": "748d800afa0cc46e46fd83d32840c0342fd6d409f3b9d0870c2e095879a65c98",
+      "eval/scoring_v2/annotations.py": "37d5be1ce4cc9814d47a2dfdb3f54d02534f71eed46d5a59f045088df07e75e5",
+      "eval/scoring_v2/context.py": "8cf10a44f56be9b29b83f3aa30730c3f14daa40d112f700ca6aaf8c47f97c7cb",
+      "eval/scoring_v2/forbidden.py": "342161b3d80070f3ec7ac4d670aa7a0dae6b630fe1da22827ecaf056f5c5c74e",
+      "eval/scoring_v2/history.py": "6cc63e382b6cc50ca965c07c95cf9602926261d63698fc1217b08cad19f5efea",
+      "eval/scoring_v2/negation.py": "01b7fed46ba484f5e84ba036903a423db7a5e82c4f9dfe51c13691d166a40bcc",
+      "eval/scoring_v2/normalize.py": "c91248a2b8ae36699d416a6ff655c53136626c89430ab8dec0ce844431846daf",
+      "eval/scoring_v2/numbers.py": "4d03be838f5f5f2c33583e6c8abb7ff27a98268b46621ede5ffb525f0af805c9",
+      "eval/scoring_v2/rescore.py": "481cbc9f86337ba7d0ce18189c7a94170f4f32fde8d630a3edd82e19517b0f99",
+      "eval/scoring_v2/rescore_meta.py": "13f3552004dfe17d9da7f92f4437d1ada64bdebd7130b8109a19c8196d0dc97c",
+      "eval/scoring_v2/score.py": "d5ab048df410865041d7c1d21295289d31ec553e1ecc9b26c8b68698e1f611e4",
+      "eval/scoring_v2/signals.py": "1eb406fdc95651287f1ec1e581bff600611be04d4bb495717dff77588e6d4818",
+      "eval/scoring_v2/tables.py": "882d9932ecb034005d71241f66751f4b6777e9b75cee6a2b06f2120183e6a761",
+      "eval/scoring_v2/text_units.py": "25463d90407a019f8712e8d1b944654deff9d0859f6789eb4d2e4c8e4c61dcb5"
+    },
+    "name": "phase35-scorer",
+    "sha256": "0e9358638a94ce070e99b2db20aa3dcbfcdb85eb8670669690689d530ccabcdf",
+    "tables_version": "2.1.0",
+    "version": "2.1.0"
+  },
+  "source_results": {
+    "path": "eval/phase35/results/tier1_dev.jsonl",
+    "raw_sha256": "4c1a6416f2603f7c0744533b6c3ee99570827aaefbdca003bbe346ea2bfd0988"
+  },
+  "source_revision": "690fcfbbf0abdf43b274161a5e6545f7ad11c325",
+  "source_revision_role": "Working-tree HEAD context only; uncommitted scorer identity is bound by module hashes",
+  "specification_clauses": [
+    {
+      "path": "docs/remediation/phase_e2_engineering/wp5/SCORER_V2_1_SPEC.md",
+      "section": "10.1 Eligible clauses",
+      "source_sha256": "45d0c0d5a51f67e327162a27dcb58e8996014485414a4e8aa9e0ac924b5a8967",
+      "start_line": 602,
+      "text": "### 10.1 Eligible clauses\n\nAbstention signals are evaluated **only in clauses that contain no gold-alternative match** (any group, before polarity), and never in clauses whose only content is a citation. In `expect_abstain` cases (no gold facts) every clause is eligible."
+    },
+    {
+      "path": "docs/remediation/phase_e2_engineering/wp5/SCORER_V2_1_SPEC.md",
+      "section": "10.2 Signal families",
+      "source_sha256": "45d0c0d5a51f67e327162a27dcb58e8996014485414a4e8aa9e0ac924b5a8967",
+      "start_line": 606,
+      "text": "### 10.2 Signal families (on `M` clause text)\n\n```\nDOC_SUBJ   = (?:the |these |this |those )?(?:provided |retrieved |available |supplied |attached )?\n             (?:documents?|sources?|context|texts?|excerpts?|passages?|materials?|records?\n              |information (?:provided|available|given)|provided information)\nINSTR_SUBJ = (?:the |this |that )?(?:policy|policies|report|manual|guide|agreement|contract|handbook|call\n             |sop|price list|bylaw|study|schedule|notice|memo|card|leaflet|brochure|warranty|terms)\nNEG        = (?:do|does|did)(?: not|n't)|(?:is|are|was|were)(?: not|n't)\nEPI_VERB   = say|state|specify|mention|list|record|indicate|detail|explain|discuss|describe|set out|refer to|address|give|provide\nANY_VERB   = EPI_VERB|include|cover|contain|show\n```\n\n| Family | Pattern | Notes |\n|---|---|---|\n| A1 | `\\bDOC_SUBJ\\b(?:\\s+\\S+){0,6}?\\s+NEG\\s+(?:\\S+\\s+)?(?:ANY_VERB)\\b` | documents as subject: any verb |\n| A2 | `\\bINSTR_SUBJ\\b(?:\\s+\\S+){0,6}?\\s+NEG\\s+(?:\\S+\\s+)?(?:EPI_VERB)\\b` | instruments: **epistemic verbs only**. \"The policy does not cover gym fees\" is a fact (SCORER-8) |\n| A3 | `\\b(?:DOC_SUBJ\\|INSTR_SUBJ)\\b(?:\\s+\\S+){0,6}?\\s+(?:is\\|are) silent\\b`, `…\\s+makes? no (?:mention\\|reference)\\b` | |\n| B | `\\b(?:is\\|are\\|was\\|were\\|has\\|have)\\s+(?:not\\|n't)(?:\\s+been)?\\s+(?:recorded\\|stated\\|specified\\|mentioned\\|listed\\|documented\\|published\\|disclosed\\|reported\\|indicated\\|set out)\\b`, `\\b(?:isn't\\|aren't\\|wasn't\\|weren't)\\s+(?:recorded\\|stated\\|…)\\b` | `included`, `covered`, `provided`, `available` and `given` count **only** with a locative anchor `\\b(?:in\\|by\\|from\\|within)\\s+(?:the\\s+)?(?:DOC_SUBJ\\|INSTR_SUBJ)\\b` in the same clause |\n| C | `\\b(?:could not\\|couldn't\\|cannot\\|can't\\|can not\\|unable to\\|(?:am\\|is\\|are\\|was\\|were) not able to\\|(?:isn't\\|aren't\\|wasn't\\|weren't) able to)\\s+(?:find\\|locate\\|determine\\|confirm\\|answer\\|see\\|identify\\|tell\\|verify)\\b` | an optional subject (\"I\", \"we\") is not part of the match |\n| D | `\\bno (?:information\\|mention\\|details?\\|records?\\|data\\|figures?\\|reference\\|indication)\\b`, `\\b(?:not enough\\|insufficient) information\\b`, `\\b(?:the\\|that\\|this\\|such) (?:information\\|details?\\|data\\|figures?) (?:is\\|are) (?:not\\|n't) (?:available\\|provided\\|given\\|included)\\b` | |\n| E (v1 compatibility) | the 22 v1 `INSUFFICIENCY_PHRASES` | each counts only if the same clause also matches A–D, or the phrase is in the strong subset {couldn't find, could not find, can't find, cannot find, not enough information, insufficient information, no information, cannot answer, can't answer, unable to answer, no mention}. \"Weekend rates are not available\" and \"is not covered\" alone are **not** signals |\n\n`abstention_signals(answer, gold_alts)` returns a list of `{family, clause_index, span}`."
+    },
+    {
+      "path": "docs/remediation/phase_e2_engineering/wp5/SCORER_V2_1_SPEC.md",
+      "section": "10.3 Status rules",
+      "source_sha256": "45d0c0d5a51f67e327162a27dcb58e8996014485414a4e8aa9e0ac924b5a8967",
+      "start_line": 631,
+      "text": "### 10.3 Status rules\n\n| Case type | Rule |\n|---|---|\n| `expect_abstain` | `abstained_v2 = status == \"abstained\" or (status != \"error\" and signals ≠ [])`; `abstain_ok = abstained_v2 and numeric_grounded is not False` (forbidden hits fail `correct` separately, as in v1) |\n| `expect_partial` | `missing_signal = status in (\"partial\", \"abstained\") or signals ≠ []` (status `partial` counts: decision **V-7**); `partial_ok = recall_v2 > 0 and missing_signal and numeric_grounded is not False`; `abstain_ok = None` (as v1) |\n| all other cases | `abstain_ok = status not in (\"abstained\", \"unverified\", \"error\")`. This is **v1's status-only rule, unchanged**. Text signals are recorded in `signals.abstention` but never fail a fact case (SCORER-8). Statuses `partial` and `conflict` are allowed, as in v1 |\n| error rows | `status == \"error\"`: every boolean is `False`/`None` as in v1's error record; `signals.error_row = True`; context reconstruction is skipped (`context_mode = \"unavailable_error_row\"`). Counted in denominators as v1 does until the owner decides otherwise (§17 V-9) |"
+    }
+  ],
+  "v1": {
+    "abstain_ok": null,
+    "citation_completeness": 1.0,
+    "citation_correctness": 0.5,
+    "conflict_ok": null,
+    "correct": false,
+    "correct_lenient": false,
+    "fabricated": 0,
+    "fact_recall": 1.0,
+    "forbidden_hits": [],
+    "partial_ok": false,
+    "status": "answered",
+    "ungrounded_numbers": [],
+    "unsupported": false
+  },
+  "v2": {
+    "abstain_ok": null,
+    "citation_completeness": 1.0,
+    "citation_correctness": 0.5,
+    "conflict_ok": null,
+    "correct": true,
+    "correct_lenient": true,
+    "fabricated": 0,
+    "fact_recall": 1.0,
+    "forbidden_hits": [],
+    "history_echo": [],
+    "numeric_grounded": true,
+    "partial_ok": true,
+    "scorer_name": "phase35-scorer",
+    "scorer_version": "2.1.0",
+    "signals": {
+      "abstention": [
+        {
+          "clause_index": 1,
+          "family": "A1",
+          "span": [
+            0,
+            26
+          ]
+        },
+        {
+          "clause_index": 2,
+          "family": "A2",
+          "span": [
+            0,
+            25
+          ]
+        }
+      ],
+      "annotations_applied": true,
+      "context_unavailable": false,
+      "disagreement": [],
+      "error_row": false,
+      "excused": [],
+      "history_corrections": [],
+      "matched_groups": [
+        0
+      ],
+      "negated_spans": [],
+      "padded_alternatives": [],
+      "status_conflict": false
+    },
+    "status": "answered",
+    "tables_version": "2.1.0",
+    "ungrounded_numbers": [],
+    "ungrounded_refs": [],
+    "unsupported": false
+  }
+}

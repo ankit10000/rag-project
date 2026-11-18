@@ -4,6 +4,7 @@ import threading
 import uuid
 
 from backend.errors import ApiError, not_found
+from services.request_budget import budgeted_lock
 
 _locks_guard = threading.Lock()
 _conversation_locks: dict[str, threading.Lock] = {}

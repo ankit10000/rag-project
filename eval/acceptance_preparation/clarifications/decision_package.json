@@ -1,0 +1,1469 @@
+{
+  "acceptance_approved": false,
+  "canonical_register": {
+    "markdown_path": "docs/remediation/phase_e2_engineering/WP8_SPECIFICATION_CLARIFICATION_REGISTER.md",
+    "markdown_sha256": "00fce37da9336a1773daabe01b98c2529c7ff23c5ddcb7379a5e5103537ac18b",
+    "path": "eval/acceptance_preparation/clarifications.py",
+    "python_module": "eval.acceptance_preparation.clarifications",
+    "sha256": "32a843262ba12ec969e254bfb2291f78b3532caf4c08e175a2bc9980a20ecc86",
+    "snapshot": {
+      "acceptance_approved": false,
+      "clarifications": [
+        {
+          "acceptance_approved": false,
+          "code_change_needed": false,
+          "code_change_scope": "No existing WP6/WP7 source changes authorized or made in this workstream.",
+          "conflict_or_ambiguity": "Earlier probe intents disagree with the authoritative superseding Appendix B table.",
+          "evidence": {
+            "implementation_report": "docs/remediation/phase_e2_engineering/WP6_IMPLEMENTATION_REPORT.md",
+            "regression_test": "test_stage9_wp8_clarifications.py::test_sc01_appendix_b_explicit_probe_values",
+            "report_section": "Specification clarifications and traceability"
+          },
+          "id": "SC-01",
+          "implementation": {
+            "behavior": "P-TS1-06=False, P-TS1-08=False, P-TS4-10=False and P-E2-STAT-06=True; frozen v1 outcomes remain independent.",
+            "paths": [
+              "eval/probes/probes_phase_d.py",
+              "eval/probes/probes_e2.py",
+              "eval/scoring_v2/score.py"
+            ]
+          },
+          "independent_review_required": true,
+          "proposed_resolution": "",
+          "resolution": "Use Appendix B explicitly stated v2.1 values. This resolves engineering expectations, not acceptance of scoring policy.",
+          "resolution_status": "RESOLVED_ENGINEERING",
+          "review_status": "NOT_REVIEWED",
+          "source": {
+            "line": 1212,
+            "original_language": [
+              "| P-TS1-06 (tier1) | True (residual) | **False** |"
+            ],
+            "path": "docs/remediation/phase_e2_engineering/wp5/SCORER_V2_1_SPEC.md",
+            "section": "Appendix B"
+          },
+          "test_added": true,
+          "title": "Appendix B explicit probe outcomes"
+        },
+        {
+          "acceptance_approved": false,
+          "code_change_needed": false,
+          "code_change_scope": "No existing WP6/WP7 source changes authorized or made in this workstream.",
+          "conflict_or_ambiguity": "Three historical v2 probe intents assumed a general plural rule absent from the closed specification.",
+          "evidence": {
+            "implementation_report": "docs/remediation/phase_e2_engineering/WP6_IMPLEMENTATION_REPORT.md",
+            "regression_test": "test_stage9_wp8_clarifications.py::test_sc02_quantity_only_plural_boundary",
+            "report_section": "Specification clarifications and traceability"
+          },
+          "id": "SC-02",
+          "implementation": {
+            "behavior": "Bare Tuesday does not match Tuesdays; bare filter does not match filters. Quantity 2 visitor matches 2 visitors.",
+            "paths": [
+              "eval/scoring_v2/normalize.py",
+              "eval/probes/probes_phase_d.py",
+              "eval/probes/probes_e2.py"
+            ]
+          },
+          "independent_review_required": true,
+          "proposed_resolution": "",
+          "resolution": "Apply the explicit quantity boundary rule; P-TS4-11, P-TA11-2 and P-E2-TA11-3 remain False. Do not add unreviewed gold alternatives.",
+          "resolution_status": "RESOLVED_ENGINEERING",
+          "review_status": "NOT_REVIEWED",
+          "source": {
+            "line": 204,
+            "original_language": [
+              "If `n` has the form `<N> <word>` (one number token, one word), the right boundary also accepts `h` continuing with `s` or `es` and then a boundary"
+            ],
+            "path": "docs/remediation/phase_e2_engineering/wp5/SCORER_V2_1_SPEC.md",
+            "section": "4.3"
+          },
+          "test_added": true,
+          "title": "Plural relaxation is quantity-only"
+        },
+        {
+          "acceptance_approved": false,
+          "code_change_needed": false,
+          "code_change_scope": "No existing WP6/WP7 source changes authorized or made in this workstream.",
+          "conflict_or_ambiguity": "Literal M1-then-M2 loses double-prime identity: NFKC(U+2033) is two U+2032 characters, otherwise yielding two apostrophes.",
+          "evidence": {
+            "implementation_report": "docs/remediation/phase_e2_engineering/WP6_IMPLEMENTATION_REPORT.md",
+            "regression_test": "test_stage9_wp8_clarifications.py::test_sc03_quote_map_survives_nfkc",
+            "report_section": "Specification clarifications and traceability"
+          },
+          "id": "SC-03",
+          "implementation": {
+            "behavior": "Closed quote glyphs are translated before NFKC so U+2033 becomes one ASCII double quote.",
+            "paths": [
+              "eval/scoring_v2/normalize.py::light",
+              "eval/scoring_v2/tables.py::QUOTES"
+            ]
+          },
+          "independent_review_required": true,
+          "proposed_resolution": "",
+          "resolution": "Honor the explicit M2 output table without widening its glyph set. This existing implementation precedence is tested; formal clarification acceptance remains independent.",
+          "resolution_status": "RESOLVED_ENGINEERING",
+          "review_status": "NOT_REVIEWED",
+          "source": {
+            "line": 122,
+            "original_language": [
+              "`unicodedata.normalize(\"NFKC\", s)`, then `casefold()`",
+              "`’ ‘ ‛ ′` → `'`; `“ ” „ ″` → `\"`"
+            ],
+            "path": "docs/remediation/phase_e2_engineering/wp5/SCORER_V2_1_SPEC.md",
+            "section": "4.1 M1/M2"
+          },
+          "test_added": true,
+          "title": "Preserve explicit quote glyph table before NFKC"
+        },
+        {
+          "acceptance_approved": false,
+          "code_change_needed": false,
+          "code_change_scope": "No existing WP6/WP7 source changes authorized or made in this workstream.",
+          "conflict_or_ambiguity": "A single ordered pass creates 12 months on the first call and 12 month on the second, contradicting required idempotence.",
+          "evidence": {
+            "implementation_report": "docs/remediation/phase_e2_engineering/WP6_IMPLEMENTATION_REPORT.md",
+            "regression_test": "test_stage9_wp8_clarifications.py::test_sc04_number_word_quantity_idempotence",
+            "report_section": "Specification clarifications and traceability"
+          },
+          "id": "SC-04",
+          "implementation": {
+            "behavior": "Unit/currency normalization runs again after number-word conversion: twelve months becomes 12 month immediately.",
+            "paths": [
+              "eval/scoring_v2/normalize.py::M",
+              "eval/scoring_v2/normalize.py::_quantities"
+            ]
+          },
+          "independent_review_required": true,
+          "proposed_resolution": "",
+          "resolution": "Satisfy the explicit idempotence acceptance property by completing existing closed quantity rules after number words; no new unit or word is introduced.",
+          "resolution_status": "RESOLVED_ENGINEERING",
+          "review_status": "NOT_REVIEWED",
+          "source": {
+            "line": 133,
+            "original_language": [
+              "| M12 | Units |",
+              "| M13 | Number words |",
+              "`M` is idempotent;"
+            ],
+            "path": "docs/remediation/phase_e2_engineering/wp5/SCORER_V2_1_SPEC.md",
+            "section": "4.1 M12/M13 and 16.2"
+          },
+          "test_added": true,
+          "title": "Number-word unit normalization must be idempotent"
+        },
+        {
+          "acceptance_approved": false,
+          "code_change_needed": false,
+          "code_change_scope": "No existing WP6/WP7 source changes authorized or made in this workstream.",
+          "conflict_or_ambiguity": "The exact section 13.3 example repeats 2,000 in forbidden and history_wrong_values, contradicting a whole-case ban.",
+          "evidence": {
+            "implementation_report": "docs/remediation/phase_e2_engineering/WP6_IMPLEMENTATION_REPORT.md",
+            "regression_test": "test_stage9_wp8_clarifications.py::test_sc05_full_sample_and_richer_annotations_valid",
+            "report_section": "Specification clarifications and traceability"
+          },
+          "id": "SC-05",
+          "implementation": {
+            "behavior": "Duplicate texts within forbidden or history_wrong_values are rejected; the same 2,000 may appear once in each collection.",
+            "paths": [
+              "eval/scoring_v2/annotations.py::entry_errors",
+              "eval/scoring_v2/annotations.py::validate_annotations"
+            ]
+          },
+          "independent_review_required": true,
+          "proposed_resolution": "",
+          "resolution": "Use the explicit example to scope duplicate checking per collection. Full validation still checks actual history turn ownership, gold overlap and group bounds.",
+          "resolution_status": "RESOLVED_ENGINEERING",
+          "review_status": "NOT_REVIEWED",
+          "source": {
+            "line": 939,
+            "original_language": [
+              "No duplicate texts within a case"
+            ],
+            "path": "docs/remediation/phase_e2_engineering/wp5/SCORER_V2_1_SPEC.md",
+            "section": "13.3 example and AV-10"
+          },
+          "test_added": true,
+          "title": "AV-10 duplicates within collections, not across roles"
+        },
+        {
+          "acceptance_approved": false,
+          "code_change_needed": false,
+          "code_change_scope": "No existing WP6/WP7 source changes authorized or made in this workstream.",
+          "conflict_or_ambiguity": "Section 7 residual says a comma/but Visa repetition fails on its second clause, but the formal splitter does not create that clause.",
+          "evidence": {
+            "implementation_report": "docs/remediation/phase_e2_engineering/WP6_IMPLEMENTATION_REPORT.md",
+            "regression_test": "test_stage9_wp8_clarifications.py::test_sc06_epistemic_comma_scope_remains_pending",
+            "report_section": "Specification clarifications and traceability"
+          },
+          "id": "SC-06",
+          "implementation": {
+            "behavior": "Comma and but remain in one clause; family E can excuse a repeated Visa after but. A semicolon creates a separate asserted occurrence and fails.",
+            "paths": [
+              "eval/scoring_v2/text_units.py::split",
+              "eval/scoring_v2/negation.py::occurrence_family"
+            ]
+          },
+          "independent_review_required": true,
+          "proposed_resolution": "Owner must choose: affirm formal clause scope and correct the residual example; or define exact adversative boundaries/epistemic termination with positive and negative examples, version the changed rule and review flips.",
+          "resolution": "Unresolved: retain current experimental formal-grammar behavior, explicitly register its false-acceptance risk, and do not claim the residual prose is satisfied.",
+          "resolution_status": "PENDING_OWNER_DECISION",
+          "review_status": "NOT_REVIEWED",
+          "source": {
+            "line": 376,
+            "original_language": [
+              "Commas **do not** split clauses.",
+              "every `V` **after** the end of that match, up to the end of the clause"
+            ],
+            "path": "docs/remediation/phase_e2_engineering/wp5/SCORER_V2_1_SPEC.md",
+            "section": "6.1.5, 7.2 E and 7 residual"
+          },
+          "test_added": true,
+          "title": "Comma/but epistemic scope"
+        },
+        {
+          "acceptance_approved": false,
+          "code_change_needed": false,
+          "code_change_scope": "No existing WP6/WP7 source changes authorized or made in this workstream.",
+          "conflict_or_ambiguity": "The prose numeric interval includes 21/31/etc., while the closed grammar excludes one and separately excludes isolated one.",
+          "evidence": {
+            "implementation_report": "docs/remediation/phase_e2_engineering/WP6_IMPLEMENTATION_REPORT.md",
+            "regression_test": "test_stage9_wp8_clarifications.py::test_sc07_tens_one_grammar_remains_pending",
+            "report_section": "Specification clarifications and traceability"
+          },
+          "id": "SC-07",
+          "implementation": {
+            "behavior": "The explicit grammar converts twenty-two and ninety-nine, but leaves twenty-one and thirty-one literal; isolated one also remains literal.",
+            "paths": [
+              "eval/scoring_v2/normalize.py::_words",
+              "eval/scoring_v2/tables.py::NUMBER_WORDS"
+            ]
+          },
+          "independent_review_required": true,
+          "proposed_resolution": "Owner must choose: clarify the stated interval to exclude every tens-plus-one value; or amend the compound grammar to one-nine while retaining isolated-one exclusion, version the behavior and review affected outputs.",
+          "resolution": "Unresolved: current experimental code follows the explicit two-nine grammar; no inferred one mapping is adopted.",
+          "resolution_status": "PENDING_OWNER_DECISION",
+          "review_status": "NOT_REVIEWED",
+          "source": {
+            "line": 210,
+            "original_language": [
+              "compounds `<tens>[- ]<two..nine>` (21 – 99) → digits."
+            ],
+            "path": "docs/remediation/phase_e2_engineering/wp5/SCORER_V2_1_SPEC.md",
+            "section": "4.4"
+          },
+          "test_added": true,
+          "title": "Compound number words ending in one"
+        },
+        {
+          "acceptance_approved": false,
+          "code_change_needed": false,
+          "code_change_scope": "No existing WP6/WP7 source changes authorized or made in this workstream.",
+          "conflict_or_ambiguity": "The API describes status but specifies no exhaustive accepted enum or rejection rule for unknown strings.",
+          "evidence": {
+            "implementation_report": "docs/remediation/phase_e2_engineering/WP6_IMPLEMENTATION_REPORT.md",
+            "regression_test": "test_stage9_wp8_clarifications.py::test_sc08_unknown_status_policy_remains_pending",
+            "report_section": "Specification clarifications and traceability"
+          },
+          "id": "SC-08",
+          "implementation": {
+            "behavior": "Unknown string statuses retain v1 status-only semantics on fact cases; non-string non-null statuses raise ValueError. Missing/null status is not silently assigned an enum value.",
+            "paths": [
+              "eval/scoring_v2/score.py::_validate",
+              "eval/scoring_v2/score.py::score_case"
+            ]
+          },
+          "independent_review_required": true,
+          "proposed_resolution": "Owner must choose: explicitly retain v1-compatible unknown string handling; or specify a closed enum, treatment of missing/null/unknown values and versioned malformed-output/error policy before adoption.",
+          "resolution": "Unresolved: preserve current experimental v1-compatible handling and report the missing enum policy; do not invent a new failure or acceptance policy.",
+          "resolution_status": "PENDING_OWNER_DECISION",
+          "review_status": "NOT_REVIEWED",
+          "source": {
+            "line": 637,
+            "original_language": [
+              "`abstain_ok = status not in (\"abstained\", \"unverified\", \"error\")`. This is **v1's status-only rule, unchanged**."
+            ],
+            "path": "docs/remediation/phase_e2_engineering/wp5/SCORER_V2_1_SPEC.md",
+            "section": "10.3 all other cases and 13.1"
+          },
+          "test_added": true,
+          "title": "Unknown string result statuses"
+        }
+      ],
+      "schema": "phase35-wp8-specification-clarifications/1"
+    }
+  },
+  "experimental_scorer": "2.1.0",
+  "format": "phase-e2-clarification-decision-package/1",
+  "historical_dev_impact": {
+    "dataset_revision": "c1bbcae9a21e389c16c3f1587de5acc1b5209e37",
+    "limitations": [
+      "Only 47 Tier1 and42 Tier2 development rows were inspected; no held-out evaluation was performed.",
+      "Counts are lexical/syntactic candidate estimates, not predicted correctness flips; no proposed alternative was executed.",
+      "Archived literal-only annotations do not use assertion/disclosure/distractor scopes for these card examples, so SC06 does not imply an observed historical literal-kind correctness change.",
+      "Tiers are separate occurrences, not deduplicated into shared context evidence.",
+      "Zero observed candidate matches would not prove zero future impact."
+    ],
+    "tiers": {
+      "1": {
+        "missing_status": 0,
+        "null_status": 0,
+        "rows": 47,
+        "sc06_candidate_count": 0,
+        "sc06_epistemic_then_adversative_same_clause_candidate_ids": [],
+        "sc07_candidate_count": 0,
+        "sc07_tens_one_candidate_ids": [],
+        "source_path": "eval/phase35/results/tier1_dev.jsonl",
+        "source_sha256": "4c1a6416f2603f7c0744533b6c3ee99570827aaefbdca003bbe346ea2bfd0988",
+        "status_counts": {
+          "abstained": 9,
+          "answered": 36,
+          "conflict": 1,
+          "partial": 1
+        },
+        "unknown_string_status": 0
+      },
+      "2": {
+        "missing_status": 0,
+        "null_status": 0,
+        "rows": 42,
+        "sc06_candidate_count": 0,
+        "sc06_epistemic_then_adversative_same_clause_candidate_ids": [],
+        "sc07_candidate_count": 0,
+        "sc07_tens_one_candidate_ids": [],
+        "source_path": "eval/phase35/results/tier2_dev.jsonl",
+        "source_sha256": "b2c92e582c8e9ddb75e6adc6661a200ab294bc4956002c54f2c6258fb63f4962",
+        "status_counts": {
+          "abstained": 6,
+          "answered": 29,
+          "conflict": 1,
+          "partial": 6
+        },
+        "unknown_string_status": 0
+      }
+    }
+  },
+  "implementation_sources": {
+    "eval/scoring_v2/annotations.py": "37d5be1ce4cc9814d47a2dfdb3f54d02534f71eed46d5a59f045088df07e75e5",
+    "eval/scoring_v2/negation.py": "01b7fed46ba484f5e84ba036903a423db7a5e82c4f9dfe51c13691d166a40bcc",
+    "eval/scoring_v2/normalize.py": "c91248a2b8ae36699d416a6ff655c53136626c89430ab8dec0ce844431846daf",
+    "eval/scoring_v2/score.py": "d5ab048df410865041d7c1d21295289d31ec553e1ecc9b26c8b68698e1f611e4",
+    "eval/scoring_v2/tables.py": "882d9932ecb034005d71241f66751f4b6777e9b75cee6a2b06f2120183e6a761",
+    "eval/scoring_v2/text_units.py": "25463d90407a019f8712e8d1b944654deff9d0859f6789eb4d2e4c8e4c61dcb5"
+  },
+  "official_scorer": "v1",
+  "owner_decisions": {
+    "SC-06": {
+      "approval_reference": null,
+      "decided_at": null,
+      "independent_reviewer": null,
+      "owner_name": null,
+      "rationale": null,
+      "selected_alternative": null,
+      "status": "PENDING_OWNER_DECISION"
+    },
+    "SC-07": {
+      "approval_reference": null,
+      "decided_at": null,
+      "independent_reviewer": null,
+      "owner_name": null,
+      "rationale": null,
+      "selected_alternative": null,
+      "status": "PENDING_OWNER_DECISION"
+    },
+    "SC-08": {
+      "approval_reference": null,
+      "decided_at": null,
+      "independent_reviewer": null,
+      "owner_name": null,
+      "rationale": null,
+      "selected_alternative": null,
+      "status": "PENDING_OWNER_DECISION"
+    }
+  },
+  "sc06": {
+    "affected_specification_examples": [
+      {
+        "line": 376,
+        "role": "formal comma clause definition",
+        "section": "§6.1.5"
+      },
+      {
+        "line": 420,
+        "role": "Visa/Mastercard epistemic scope positive",
+        "section": "§7.2 E"
+      },
+      {
+        "line": 461,
+        "role": "Visa/Mastercard expected positive",
+        "section": "§7.5 C-14"
+      },
+      {
+        "line": 462,
+        "role": "affirmative Visa negative",
+        "section": "§7.5 C-15"
+      },
+      {
+        "line": 470,
+        "role": "comma/but repeated Visa claimed negative conflicts with formal grammar",
+        "section": "§7 residual"
+      },
+      {
+        "line": 1226,
+        "role": "C-14 repeated expected positive",
+        "section": "Appendix B P-TS3-05"
+      }
+    ],
+    "alternatives": {
+      "A": {
+        "change": "Clarify residual comma/but prose; no executable scoring change.",
+        "title": "Affirm formal grammar",
+        "version_effect": "No behavioral widening; owner-approved specification wording still required."
+      },
+      "B": {
+        "change": "Proposed only: stop family-E scope at first standalone but/however/whereas/while/although/though/yet after the epistemic match, with or without a comma. Do not change the global splitter or other negation families.",
+        "precedence": [
+          "Apply existing protected spans and sentence/clause splitting first.",
+          "Find existing A/B/C epistemic matches without broadening their tables.",
+          "Within that clause only, terminate E at first boundary-delimited proposed adversative token after the match; do not treat and or butterfly as a terminator.",
+          "Apply per-occurrence forbidden and full polarity recall requirements unchanged.",
+          "Keep all other families, typed grounding, gold matching and disagreement scope unchanged."
+        ],
+        "title": "Introduce E-specific adversative termination",
+        "version_effect": "Behavior change requires separately reviewed exact wording, tests, minor-version/source identity update and flip review; not implemented."
+      }
+    },
+    "regression_examples": [
+      {
+        "alternative_A_expected_correct": true,
+        "alternative_B_expected_correct": true,
+        "answer": "Basic is £4.99 a month. The documents do not say whether Visa or Mastercard are accepted.",
+        "current_result": {
+          "abstain_ok": null,
+          "conflict_ok": null,
+          "correct": true,
+          "fact_recall": 1.0,
+          "forbidden_hits": [],
+          "outcome": "SCORED",
+          "partial_ok": true,
+          "status": "answered"
+        },
+        "id": "SC06-SPEC-E",
+        "specification_reference": "WP5 §7.2 E / C-14 / Appendix B P-TS3-05"
+      },
+      {
+        "alternative_A_expected_correct": false,
+        "alternative_B_expected_correct": false,
+        "answer": "Basic is £4.99 a month. You can pay by Visa.",
+        "current_result": {
+          "abstain_ok": null,
+          "conflict_ok": null,
+          "correct": false,
+          "fact_recall": 1.0,
+          "forbidden_hits": [
+            "Visa"
+          ],
+          "outcome": "SCORED",
+          "partial_ok": false,
+          "status": "answered"
+        },
+        "id": "SC06-SPEC-C15",
+        "specification_reference": "WP5 C-15"
+      },
+      {
+        "alternative_A_expected_correct": true,
+        "alternative_B_expected_correct": false,
+        "answer": "Basic is £4.99 a month. The documents do not say whether Visa is accepted, but Visa is fine.",
+        "current_result": {
+          "abstain_ok": null,
+          "conflict_ok": null,
+          "correct": true,
+          "fact_recall": 1.0,
+          "forbidden_hits": [],
+          "outcome": "SCORED",
+          "partial_ok": true,
+          "status": "answered"
+        },
+        "id": "SC06-SPEC-RESIDUAL",
+        "specification_reference": "WP5 §7 residual"
+      },
+      {
+        "alternative_A_expected_correct": true,
+        "alternative_B_expected_correct": false,
+        "answer": "Basic is £4.99 a month. The documents do not say whether Visa is accepted, but Visa is fine.",
+        "current_result": {
+          "abstain_ok": null,
+          "conflict_ok": null,
+          "correct": true,
+          "fact_recall": 1.0,
+          "forbidden_hits": [],
+          "outcome": "SCORED",
+          "partial_ok": true,
+          "status": "answered"
+        },
+        "id": "SC06-ADV-but",
+        "specification_reference": "synthetic adversative boundary"
+      },
+      {
+        "alternative_A_expected_correct": true,
+        "alternative_B_expected_correct": false,
+        "answer": "Basic is £4.99 a month. The documents do not say whether Visa is accepted, however Visa is fine.",
+        "current_result": {
+          "abstain_ok": null,
+          "conflict_ok": null,
+          "correct": true,
+          "fact_recall": 1.0,
+          "forbidden_hits": [],
+          "outcome": "SCORED",
+          "partial_ok": true,
+          "status": "answered"
+        },
+        "id": "SC06-ADV-however",
+        "specification_reference": "synthetic adversative boundary"
+      },
+      {
+        "alternative_A_expected_correct": true,
+        "alternative_B_expected_correct": false,
+        "answer": "Basic is £4.99 a month. The documents do not say whether Visa is accepted, whereas Visa is fine.",
+        "current_result": {
+          "abstain_ok": null,
+          "conflict_ok": null,
+          "correct": true,
+          "fact_recall": 1.0,
+          "forbidden_hits": [],
+          "outcome": "SCORED",
+          "partial_ok": true,
+          "status": "answered"
+        },
+        "id": "SC06-ADV-whereas",
+        "specification_reference": "synthetic adversative boundary"
+      },
+      {
+        "alternative_A_expected_correct": true,
+        "alternative_B_expected_correct": false,
+        "answer": "Basic is £4.99 a month. The documents do not say whether Visa is accepted, while Visa is fine.",
+        "current_result": {
+          "abstain_ok": null,
+          "conflict_ok": null,
+          "correct": true,
+          "fact_recall": 1.0,
+          "forbidden_hits": [],
+          "outcome": "SCORED",
+          "partial_ok": true,
+          "status": "answered"
+        },
+        "id": "SC06-ADV-while",
+        "specification_reference": "synthetic adversative boundary"
+      },
+      {
+        "alternative_A_expected_correct": true,
+        "alternative_B_expected_correct": false,
+        "answer": "Basic is £4.99 a month. The documents do not say whether Visa is accepted, although Visa is fine.",
+        "current_result": {
+          "abstain_ok": null,
+          "conflict_ok": null,
+          "correct": true,
+          "fact_recall": 1.0,
+          "forbidden_hits": [],
+          "outcome": "SCORED",
+          "partial_ok": true,
+          "status": "answered"
+        },
+        "id": "SC06-ADV-although",
+        "specification_reference": "synthetic adversative boundary"
+      },
+      {
+        "alternative_A_expected_correct": true,
+        "alternative_B_expected_correct": false,
+        "answer": "Basic is £4.99 a month. The documents do not say whether Visa is accepted, though Visa is fine.",
+        "current_result": {
+          "abstain_ok": null,
+          "conflict_ok": null,
+          "correct": true,
+          "fact_recall": 1.0,
+          "forbidden_hits": [],
+          "outcome": "SCORED",
+          "partial_ok": true,
+          "status": "answered"
+        },
+        "id": "SC06-ADV-though",
+        "specification_reference": "synthetic adversative boundary"
+      },
+      {
+        "alternative_A_expected_correct": true,
+        "alternative_B_expected_correct": false,
+        "answer": "Basic is £4.99 a month. The documents do not say whether Visa is accepted, yet Visa is fine.",
+        "current_result": {
+          "abstain_ok": null,
+          "conflict_ok": null,
+          "correct": true,
+          "fact_recall": 1.0,
+          "forbidden_hits": [],
+          "outcome": "SCORED",
+          "partial_ok": true,
+          "status": "answered"
+        },
+        "id": "SC06-ADV-yet",
+        "specification_reference": "synthetic adversative boundary"
+      },
+      {
+        "alternative_A_expected_correct": true,
+        "alternative_B_expected_correct": false,
+        "answer": "Basic is £4.99 a month. The documents do not say whether Visa is accepted but Visa is fine.",
+        "current_result": {
+          "abstain_ok": null,
+          "conflict_ok": null,
+          "correct": true,
+          "fact_recall": 1.0,
+          "forbidden_hits": [],
+          "outcome": "SCORED",
+          "partial_ok": true,
+          "status": "answered"
+        },
+        "id": "SC06-BUT-NO-COMMA",
+        "specification_reference": "synthetic adversative no comma"
+      },
+      {
+        "alternative_A_expected_correct": true,
+        "alternative_B_expected_correct": true,
+        "answer": "Basic is £4.99 a month. The documents do not say whether Visa is accepted, and Visa is fine.",
+        "current_result": {
+          "abstain_ok": null,
+          "conflict_ok": null,
+          "correct": true,
+          "fact_recall": 1.0,
+          "forbidden_hits": [],
+          "outcome": "SCORED",
+          "partial_ok": true,
+          "status": "answered"
+        },
+        "id": "SC06-AND",
+        "specification_reference": "synthetic non-adversative control"
+      },
+      {
+        "alternative_A_expected_correct": false,
+        "alternative_B_expected_correct": false,
+        "answer": "Basic is £4.99 a month. The documents do not say whether Visa is accepted; but Visa is fine.",
+        "current_result": {
+          "abstain_ok": null,
+          "conflict_ok": null,
+          "correct": false,
+          "fact_recall": 1.0,
+          "forbidden_hits": [
+            "Visa"
+          ],
+          "outcome": "SCORED",
+          "partial_ok": true,
+          "status": "answered"
+        },
+        "id": "SC06-SEMICOLON",
+        "specification_reference": "WP5 §6 clause separator"
+      },
+      {
+        "alternative_A_expected_correct": false,
+        "alternative_B_expected_correct": false,
+        "answer": "Basic is £4.99 a month. The documents do not say whether Visa is accepted. Visa is fine.",
+        "current_result": {
+          "abstain_ok": null,
+          "conflict_ok": null,
+          "correct": false,
+          "fact_recall": 1.0,
+          "forbidden_hits": [
+            "Visa"
+          ],
+          "outcome": "SCORED",
+          "partial_ok": true,
+          "status": "answered"
+        },
+        "id": "SC06-PERIOD",
+        "specification_reference": "WP5 §6 sentence separator"
+      },
+      {
+        "alternative_A_expected_correct": false,
+        "alternative_B_expected_correct": false,
+        "answer": "Basic is £4.99 a month. The documents do not say whether Visa is accepted - but Visa is fine.",
+        "current_result": {
+          "abstain_ok": null,
+          "conflict_ok": null,
+          "correct": false,
+          "fact_recall": 1.0,
+          "forbidden_hits": [
+            "Visa"
+          ],
+          "outcome": "SCORED",
+          "partial_ok": true,
+          "status": "answered"
+        },
+        "id": "SC06-DASH",
+        "specification_reference": "WP5 §6 spaced dash"
+      },
+      {
+        "alternative_A_expected_correct": false,
+        "alternative_B_expected_correct": false,
+        "answer": "Basic is £4.99 a month. The documents do not say whether Visa is accepted (Visa is fine).",
+        "current_result": {
+          "abstain_ok": null,
+          "conflict_ok": null,
+          "correct": false,
+          "fact_recall": 1.0,
+          "forbidden_hits": [
+            "Visa"
+          ],
+          "outcome": "SCORED",
+          "partial_ok": true,
+          "status": "answered"
+        },
+        "id": "SC06-PAREN",
+        "specification_reference": "WP5 §6 parenthetical clause"
+      },
+      {
+        "alternative_A_expected_correct": false,
+        "alternative_B_expected_correct": false,
+        "answer": "Basic is £4.99 a month. Visa is fine; the documents do not say whether Visa is accepted.",
+        "current_result": {
+          "abstain_ok": null,
+          "conflict_ok": null,
+          "correct": false,
+          "fact_recall": 1.0,
+          "forbidden_hits": [
+            "Visa"
+          ],
+          "outcome": "SCORED",
+          "partial_ok": true,
+          "status": "answered"
+        },
+        "id": "SC06-ASSERT-FIRST",
+        "specification_reference": "synthetic per-occurrence order control"
+      },
+      {
+        "alternative_A_expected_correct": false,
+        "alternative_B_expected_correct": false,
+        "answer": "Basic is £4.99 a month. The price list is not available here, but Visa is fine.",
+        "current_result": {
+          "abstain_ok": null,
+          "conflict_ok": null,
+          "correct": false,
+          "fact_recall": 1.0,
+          "forbidden_hits": [
+            "Visa"
+          ],
+          "outcome": "SCORED",
+          "partial_ok": false,
+          "status": "answered"
+        },
+        "id": "SC06-NO-EPI",
+        "specification_reference": "WP5 §10 weak missing signal"
+      },
+      {
+        "alternative_A_expected_correct": true,
+        "alternative_B_expected_correct": true,
+        "answer": "Basic is £4.99 a month. The documents do not say whether Visa or butterfly cards are accepted.",
+        "current_result": {
+          "abstain_ok": null,
+          "conflict_ok": null,
+          "correct": true,
+          "fact_recall": 1.0,
+          "forbidden_hits": [],
+          "outcome": "SCORED",
+          "partial_ok": true,
+          "status": "answered"
+        },
+        "id": "SC06-NON-TOKEN",
+        "specification_reference": "synthetic boundary excludes butter/butterfly"
+      }
+    ]
+  },
+  "sc07": {
+    "alternatives": {
+      "A": {
+        "required_wording": "Replace interval shorthand with explicit tens plus two through nine; tens-plus-one stays literal.",
+        "title": "Affirm narrower explicit grammar",
+        "version_effect": "No behavior change; independent specification approval required."
+      },
+      "B": {
+        "precedence": [
+          "Preserve isolation and scale-word blocking.",
+          "Recognize one only as the second token of an approved tens compound.",
+          "Complete existing unit canonicalization after conversion so M(M(x)) == M(x).",
+          "Do not add any number-word token to guard G."
+        ],
+        "required_wording": "For compound forms only, allow tens followed by one through nine; keep isolated one and scaled/adjacent phrases literal.",
+        "title": "Support stated 21–99 range",
+        "version_effect": "Minor-version/source identity update and focused flip review required; not implemented."
+      }
+    },
+    "exact_wording": "compounds `<tens>[- ]<two..nine>` (21 – 99) → digits.",
+    "isolated_one_rule": "`one`, `a`, `an`, `dozen`, `half`, `quarter`, ordinals are excluded.",
+    "regression_examples": [
+      {
+        "alternative_A_expected": "one",
+        "alternative_B_expected": "one",
+        "current_normalized": "one",
+        "current_twice": "one",
+        "input": "one"
+      },
+      {
+        "alternative_A_expected": "twenty-one",
+        "alternative_B_expected": "21",
+        "current_normalized": "twenty-one",
+        "current_twice": "twenty-one",
+        "input": "twenty-one"
+      },
+      {
+        "alternative_A_expected": "twenty one",
+        "alternative_B_expected": "21",
+        "current_normalized": "twenty one",
+        "current_twice": "twenty one",
+        "input": "twenty one"
+      },
+      {
+        "alternative_A_expected": "thirty-one",
+        "alternative_B_expected": "31",
+        "current_normalized": "thirty-one",
+        "current_twice": "thirty-one",
+        "input": "thirty-one"
+      },
+      {
+        "alternative_A_expected": "thirty one",
+        "alternative_B_expected": "31",
+        "current_normalized": "thirty one",
+        "current_twice": "thirty one",
+        "input": "thirty one"
+      },
+      {
+        "alternative_A_expected": "ninety-one",
+        "alternative_B_expected": "91",
+        "current_normalized": "ninety-one",
+        "current_twice": "ninety-one",
+        "input": "ninety-one"
+      },
+      {
+        "alternative_A_expected": "22",
+        "alternative_B_expected": "22",
+        "current_normalized": "22",
+        "current_twice": "22",
+        "input": "twenty-two"
+      },
+      {
+        "alternative_A_expected": "99",
+        "alternative_B_expected": "99",
+        "current_normalized": "99",
+        "current_twice": "99",
+        "input": "ninety-nine"
+      },
+      {
+        "alternative_A_expected": "twenty-one months",
+        "alternative_B_expected": "21 month",
+        "current_normalized": "twenty-one months",
+        "current_twice": "twenty-one months",
+        "input": "twenty-one months"
+      },
+      {
+        "alternative_A_expected": "22 month",
+        "alternative_B_expected": "22 month",
+        "current_normalized": "22 month",
+        "current_twice": "22 month",
+        "input": "twenty-two months"
+      },
+      {
+        "alternative_A_expected": "one hundred and twenty days",
+        "alternative_B_expected": "one hundred and twenty days",
+        "current_normalized": "one hundred and twenty days",
+        "current_twice": "one hundred and twenty days",
+        "input": "one hundred and twenty days"
+      }
+    ]
+  },
+  "sc08": {
+    "alternatives": {
+      "A": {
+        "contract": "Keep current matrix, including unknown/empty strings and missing/null fact status behavior; retain ValueError for non-string non-null values.",
+        "title": "Explicitly retain v1 compatibility"
+      },
+      "B": {
+        "contract": "Accept only six known strings; reject unknown, empty, missing, null and non-string statuses with ValueError before scoring. No canonical error row is inferred.",
+        "title": "Strict structural status contract"
+      },
+      "C": {
+        "contract": "In a separately versioned adapter only, preserve raw invalid status in diagnostics, supply a canonical error result, and record the conversion. Exact error-row boolean/denominator policy remains V-9 and cannot be assumed.",
+        "title": "Explicit invalid-status error-row adapter"
+      }
+    },
+    "annotation_compatibility": "Annotation schema does not depend on result status. Do not rewrite annotation bytes or values; strict contracts can reject historical result rows previously scored without invalidating their annotations. A canonical-error adapter changes result handling, not annotation provenance.",
+    "current_matrix": [
+      {
+        "current_results": {
+          "abstention": {
+            "abstain_ok": true,
+            "conflict_ok": null,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "answered"
+          },
+          "conflict": {
+            "abstain_ok": true,
+            "conflict_ok": true,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "answered"
+          },
+          "fact": {
+            "abstain_ok": true,
+            "conflict_ok": null,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "answered"
+          },
+          "partial": {
+            "abstain_ok": null,
+            "conflict_ok": null,
+            "correct": false,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": false,
+            "status": "answered"
+          }
+        },
+        "input_category": "known-answered",
+        "input_status": "answered",
+        "status_field_present": true
+      },
+      {
+        "current_results": {
+          "abstention": {
+            "abstain_ok": true,
+            "conflict_ok": null,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "abstained"
+          },
+          "conflict": {
+            "abstain_ok": false,
+            "conflict_ok": true,
+            "correct": false,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "abstained"
+          },
+          "fact": {
+            "abstain_ok": false,
+            "conflict_ok": null,
+            "correct": false,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "abstained"
+          },
+          "partial": {
+            "abstain_ok": null,
+            "conflict_ok": null,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": true,
+            "status": "abstained"
+          }
+        },
+        "input_category": "known-abstained",
+        "input_status": "abstained",
+        "status_field_present": true
+      },
+      {
+        "current_results": {
+          "abstention": {
+            "abstain_ok": true,
+            "conflict_ok": null,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "partial"
+          },
+          "conflict": {
+            "abstain_ok": true,
+            "conflict_ok": true,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "partial"
+          },
+          "fact": {
+            "abstain_ok": true,
+            "conflict_ok": null,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "partial"
+          },
+          "partial": {
+            "abstain_ok": null,
+            "conflict_ok": null,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": true,
+            "status": "partial"
+          }
+        },
+        "input_category": "known-partial",
+        "input_status": "partial",
+        "status_field_present": true
+      },
+      {
+        "current_results": {
+          "abstention": {
+            "abstain_ok": true,
+            "conflict_ok": null,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "conflict"
+          },
+          "conflict": {
+            "abstain_ok": true,
+            "conflict_ok": true,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "conflict"
+          },
+          "fact": {
+            "abstain_ok": true,
+            "conflict_ok": null,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "conflict"
+          },
+          "partial": {
+            "abstain_ok": null,
+            "conflict_ok": null,
+            "correct": false,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": false,
+            "status": "conflict"
+          }
+        },
+        "input_category": "known-conflict",
+        "input_status": "conflict",
+        "status_field_present": true
+      },
+      {
+        "current_results": {
+          "abstention": {
+            "abstain_ok": true,
+            "conflict_ok": null,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "unverified"
+          },
+          "conflict": {
+            "abstain_ok": false,
+            "conflict_ok": true,
+            "correct": false,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "unverified"
+          },
+          "fact": {
+            "abstain_ok": false,
+            "conflict_ok": null,
+            "correct": false,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "unverified"
+          },
+          "partial": {
+            "abstain_ok": null,
+            "conflict_ok": null,
+            "correct": false,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": false,
+            "status": "unverified"
+          }
+        },
+        "input_category": "known-unverified",
+        "input_status": "unverified",
+        "status_field_present": true
+      },
+      {
+        "current_results": {
+          "abstention": {
+            "abstain_ok": null,
+            "conflict_ok": null,
+            "correct": false,
+            "fact_recall": 0.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "error"
+          },
+          "conflict": {
+            "abstain_ok": null,
+            "conflict_ok": null,
+            "correct": false,
+            "fact_recall": 0.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "error"
+          },
+          "fact": {
+            "abstain_ok": null,
+            "conflict_ok": null,
+            "correct": false,
+            "fact_recall": 0.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "error"
+          },
+          "partial": {
+            "abstain_ok": null,
+            "conflict_ok": null,
+            "correct": false,
+            "fact_recall": 0.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "error"
+          }
+        },
+        "input_category": "known-error",
+        "input_status": "error",
+        "status_field_present": true
+      },
+      {
+        "current_results": {
+          "abstention": {
+            "abstain_ok": true,
+            "conflict_ok": null,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "future-status"
+          },
+          "conflict": {
+            "abstain_ok": true,
+            "conflict_ok": true,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "future-status"
+          },
+          "fact": {
+            "abstain_ok": true,
+            "conflict_ok": null,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": "future-status"
+          },
+          "partial": {
+            "abstain_ok": null,
+            "conflict_ok": null,
+            "correct": false,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": false,
+            "status": "future-status"
+          }
+        },
+        "input_category": "unknown",
+        "input_status": "future-status",
+        "status_field_present": true
+      },
+      {
+        "current_results": {
+          "abstention": {
+            "abstain_ok": true,
+            "conflict_ok": null,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": ""
+          },
+          "conflict": {
+            "abstain_ok": true,
+            "conflict_ok": true,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": ""
+          },
+          "fact": {
+            "abstain_ok": true,
+            "conflict_ok": null,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": ""
+          },
+          "partial": {
+            "abstain_ok": null,
+            "conflict_ok": null,
+            "correct": false,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": false,
+            "status": ""
+          }
+        },
+        "input_category": "empty",
+        "input_status": "",
+        "status_field_present": true
+      },
+      {
+        "current_results": {
+          "abstention": {
+            "abstain_ok": true,
+            "conflict_ok": null,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": null
+          },
+          "conflict": {
+            "abstain_ok": true,
+            "conflict_ok": true,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": null
+          },
+          "fact": {
+            "abstain_ok": true,
+            "conflict_ok": null,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": null
+          },
+          "partial": {
+            "abstain_ok": null,
+            "conflict_ok": null,
+            "correct": false,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": false,
+            "status": null
+          }
+        },
+        "input_category": "missing",
+        "input_status": null,
+        "status_field_present": false
+      },
+      {
+        "current_results": {
+          "abstention": {
+            "abstain_ok": true,
+            "conflict_ok": null,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": null
+          },
+          "conflict": {
+            "abstain_ok": true,
+            "conflict_ok": true,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": null
+          },
+          "fact": {
+            "abstain_ok": true,
+            "conflict_ok": null,
+            "correct": true,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": null,
+            "status": null
+          },
+          "partial": {
+            "abstain_ok": null,
+            "conflict_ok": null,
+            "correct": false,
+            "fact_recall": 1.0,
+            "forbidden_hits": [],
+            "outcome": "SCORED",
+            "partial_ok": false,
+            "status": null
+          }
+        },
+        "input_category": "null",
+        "input_status": null,
+        "status_field_present": true
+      },
+      {
+        "current_results": {
+          "abstention": {
+            "message": "status must be text or null",
+            "outcome": "ValueError"
+          },
+          "conflict": {
+            "message": "status must be text or null",
+            "outcome": "ValueError"
+          },
+          "fact": {
+            "message": "status must be text or null",
+            "outcome": "ValueError"
+          },
+          "partial": {
+            "message": "status must be text or null",
+            "outcome": "ValueError"
+          }
+        },
+        "input_category": "integer",
+        "input_status": 7,
+        "status_field_present": true
+      },
+      {
+        "current_results": {
+          "abstention": {
+            "message": "status must be text or null",
+            "outcome": "ValueError"
+          },
+          "conflict": {
+            "message": "status must be text or null",
+            "outcome": "ValueError"
+          },
+          "fact": {
+            "message": "status must be text or null",
+            "outcome": "ValueError"
+          },
+          "partial": {
+            "message": "status must be text or null",
+            "outcome": "ValueError"
+          }
+        },
+        "input_category": "boolean",
+        "input_status": true,
+        "status_field_present": true
+      },
+      {
+        "current_results": {
+          "abstention": {
+            "message": "status must be text or null",
+            "outcome": "ValueError"
+          },
+          "conflict": {
+            "message": "status must be text or null",
+            "outcome": "ValueError"
+          },
+          "fact": {
+            "message": "status must be text or null",
+            "outcome": "ValueError"
+          },
+          "partial": {
+            "message": "status must be text or null",
+            "outcome": "ValueError"
+          }
+        },
+        "input_category": "list",
+        "input_status": [],
+        "status_field_present": true
+      },
+      {
+        "current_results": {
+          "abstention": {
+            "message": "status must be text or null",
+            "outcome": "ValueError"
+          },
+          "conflict": {
+            "message": "status must be text or null",
+            "outcome": "ValueError"
+          },
+          "fact": {
+            "message": "status must be text or null",
+            "outcome": "ValueError"
+          },
+          "partial": {
+            "message": "status must be text or null",
+            "outcome": "ValueError"
+          }
+        },
+        "input_category": "object",
+        "input_status": {},
+        "status_field_present": true
+      }
+    ],
+    "known_strings": [
+      "answered",
+      "abstained",
+      "partial",
+      "conflict",
+      "unverified",
+      "error"
+    ]
+  },
+  "specification": {
+    "path": "docs/remediation/phase_e2_engineering/wp5/SCORER_V2_1_SPEC.md",
+    "sha256": "45d0c0d5a51f67e327162a27dcb58e8996014485414a4e8aa9e0ac924b5a8967"
+  },
+  "state": "PREPARED_FOR_REVIEW"
+}

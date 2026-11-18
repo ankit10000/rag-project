@@ -7,6 +7,8 @@ from google import genai
 from google.genai import errors, types
 
 from services import llm_config
+from services.request_budget import (check_deadline, http_timeout_ms, pause,
+                                     budgeted_lock, RequestDeadlineExceeded, remaining_seconds)
 from services.gemini_retry_service import (
     generate_with_retry,
     get_server_retry_delay,
@@ -30,7 +32,7 @@ def get_client():
     if existing is not None:
         return existing
 
-    with _client_lock:
+    with budgeted_lock(_client_lock):
         existing = globals().get("client")
         if existing is None:
             api_key = os.getenv("GEMINI_API_KEY")
@@ -70,6 +72,7 @@ QUOTA_COOLDOWN_SECONDS = 60
 DEFAULT_QUOTA_WAIT_SECONDS = 5
 
 _quota_cooldown_until = {}
+_state_lock = threading.RLock()
 
 # Passive token accounting (observability only; never affects behaviour).
 # Each successful call appends {"model", "prompt", "output", "total"}.
@@ -83,15 +86,16 @@ def _record_usage(model, response):
     if meta is None:
         return
 
-    usage_log.append({
+    with _state_lock:
+        usage_log.append({
         "model": model,
         "prompt": getattr(meta, "prompt_token_count", None) or 0,
         "output": getattr(meta, "candidates_token_count", None) or 0,
         "total": getattr(meta, "total_token_count", None) or 0,
-    })
+        })
 
-    if len(usage_log) > _USAGE_LOG_LIMIT:
-        del usage_log[: len(usage_log) - _USAGE_LOG_LIMIT]
+        if len(usage_log) > _USAGE_LOG_LIMIT:
+            del usage_log[: len(usage_log) - _USAGE_LOG_LIMIT]
 
 
 def _model_order() -> list[str]:
@@ -101,22 +105,26 @@ def _model_order() -> list[str]:
 
     now = time.time()
 
-    available = [
-        name for name in models
-        if _quota_cooldown_until.get(name, 0) <= now
-    ]
+    with _state_lock:
+        available = [name for name in models if _quota_cooldown_until.get(name, 0) <= now]
     cooling = [name for name in models if name not in available]
 
     return available + cooling
 
 
 def _generate_with_model(model: str, prompt: str, **retry_options) -> str:
-
+    def generate():
+        check_deadline()
+        options = {}
+        if remaining_seconds() is not None:
+            options['config'] = types.GenerateContentConfig(http_options=types.HttpOptions(
+                timeout=http_timeout_ms(REQUEST_TIMEOUT_MS)))
+        result = get_client().models.generate_content(
+            model=model, contents=prompt, **options)
+        check_deadline()
+        return result
     response = generate_with_retry(
-        lambda: get_client().models.generate_content(
-            model=model,
-            contents=prompt
-        ),
+        generate,
         **retry_options
     )
 
@@ -146,6 +154,7 @@ def generate_answer(prompt: str) -> str:
     quota_delays = []
 
     for model in _model_order():
+        check_deadline()
 
         try:
             # First pass: do not sleep on quota errors, just switch.
@@ -172,9 +181,8 @@ def generate_answer(prompt: str) -> str:
                 if server_delay is not None:
                     quota_delays.append(server_delay)
 
-                _quota_cooldown_until[model] = (
-                    time.time() + QUOTA_COOLDOWN_SECONDS
-                )
+                with _state_lock:
+                    _quota_cooldown_until[model] = time.time() + QUOTA_COOLDOWN_SECONDS
 
             print(
                 f"Gemini model '{model}' failed ({code}); "
@@ -192,6 +200,9 @@ def generate_answer(prompt: str) -> str:
                 f"{REQUEST_TIMEOUT_MS / 1000:g}s ({type(error).__name__}); "
                 "trying next model..."
             )
+
+        except RequestDeadlineExceeded:
+            raise
 
         except RuntimeError as error:
             # Empty response from this model: try the next one.
@@ -215,7 +226,7 @@ def generate_answer(prompt: str) -> str:
             f"waiting {wait:g}s before retrying..."
         )
 
-        time.sleep(wait)
+        pause(wait, sleep_fn=time.sleep)
 
         return _generate_with_model(MODEL_NAME, prompt)
 

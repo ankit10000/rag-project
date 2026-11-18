@@ -16,8 +16,10 @@ Requires: pip install -r backend/requirements-api.txt
 
 import argparse
 import ipaddress
+import os
 import sys
 
+os.environ.setdefault("LOCAL_V1_PROFILE", "1")
 from backend.config import DEFAULT_HOST, DEFAULT_PORT, LOOPBACK_HOSTS
 
 
@@ -38,6 +40,7 @@ def _is_loopback(host: str) -> bool:
 
 
 def main(argv=None) -> int:
+    os.environ.setdefault("LOCAL_V1_PROFILE", "1")
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--host", default=DEFAULT_HOST)
     parser.add_argument("--port", type=int, default=DEFAULT_PORT)
@@ -75,6 +78,8 @@ def main(argv=None) -> int:
     if not (1 <= args.port <= 65535):
         parser.error("--port must be between 1 and 65535")
     if not _is_loopback(host):
+        if os.environ.get("LOCAL_V1_PROFILE") == "1":
+            parser.error("local v1 requires a loopback bind; remote exposure is disabled")
         if not args.allow_non_loopback:
             parser.error(f"refusing to bind to {args.host!r}: loopback only (use --allow-non-loopback deliberately)")
         if host in ("0.0.0.0", "::"):

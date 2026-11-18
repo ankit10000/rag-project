@@ -8,9 +8,11 @@ Retrieval filters and streaming are not supported yet (deferred): ask_question
 has no filter parameters and the turn performs post-answer work.
 """
 
+from services.request_budget import budgeted_lock
+
 from fastapi import APIRouter, Request
 
-from backend.dependencies import conversation_lock, require_conversation
+from backend.dependencies import conversation_lock, require_conversation, parse_conversation_id
 from backend.schemas import ChatRequest, ChatResponse, Citation
 
 router = APIRouter(prefix="/chat", tags=["chat"])
@@ -25,14 +27,16 @@ def chat(body: ChatRequest, request: Request):
         from backend.errors import unprocessable
         raise unprocessable("empty_message", "message must not be blank")
 
-    if body.conversation_id:
-        conversation_id = require_conversation(body.conversation_id)
+    if body.conversation_id is not None:
+        conversation_id = parse_conversation_id(body.conversation_id)
     else:
         conversation_id = create_conversation()
 
-    import main as turn_module   # imported lazily: loads models and the LLM client on first chat
-
-    with conversation_lock(conversation_id):
+    with budgeted_lock(conversation_lock(conversation_id)):
+        # Deletion shares this lock; recheck only after acquiring it so a turn
+        # waiting behind a completed deletion cannot recreate orphan history.
+        require_conversation(conversation_id)
+        import main as turn_module  # lazy; a missing conversation never loads the RAG stack
         outcome = turn_module.run_turn(conversation_id, message)
 
     citations = [Citation(ref=c.get("ref"), document=c.get("document"), page=c.get("page"),

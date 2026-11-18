@@ -1,5 +1,8 @@
-"""Health and system status. Never connects to the database, never loads a
-model, never calls a provider, never returns secrets or connection strings."""
+"""Public liveness, private status and authenticated database readiness.
+
+Only /health/ready connects to PostgreSQL. No endpoint loads a model, calls a
+provider or returns credentials/connection strings.
+"""
 
 import os
 import sys
@@ -9,11 +12,32 @@ from fastapi import APIRouter
 from backend import API_VERSION, APP_VERSION
 from backend.config import ROOT
 from backend.schemas import ComponentStatus, HealthResponse, SystemStatusResponse
+from backend.errors import ApiError
 
 # Public liveness (no auth, minimal: no versions, no component details).
 public_router = APIRouter(tags=["health"])
 # Detailed status requires the API token (registered with require_token in app.py).
 router = APIRouter(tags=["health"])
+
+
+@router.get('/health/ready')
+def readiness():
+    """Authenticated actual DB connectivity; never calls a model/provider."""
+    from services.database import get_connection
+    from services.request_budget import check_deadline, RequestDeadlineExceeded
+    try:
+        check_deadline()
+        with get_connection() as conn:
+            with conn.cursor() as cursor:
+                cursor.execute('SELECT 1')
+                if cursor.fetchone() != (1,):
+                    raise ApiError(503, 'database_unavailable', 'database is unavailable')
+        check_deadline()
+    except RequestDeadlineExceeded:
+        raise
+    except Exception:
+        raise ApiError(503, 'database_unavailable', 'database is unavailable') from None
+    return {'status': 'ready', 'database': 'available'}
 
 
 def _env_has(name: str) -> bool:

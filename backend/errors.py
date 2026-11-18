@@ -38,6 +38,17 @@ def _body(request: Request, code: str, message: str, extra=None) -> dict:
 
 
 def install(app: FastAPI) -> None:
+    from services.request_budget import RequestDeadlineExceeded
+    import psycopg
+
+    @app.exception_handler(RequestDeadlineExceeded)
+    async def _deadline(request: Request, exc):
+        return JSONResponse(status_code=504, content=_body(request, "request_timeout", "request deadline exceeded"))
+
+    @app.exception_handler(psycopg.Error)
+    async def _database(request: Request, exc):
+        return JSONResponse(status_code=503, content=_body(request, "database_unavailable", "database is unavailable"))
+
     @app.exception_handler(ApiError)
     async def _api_error(request: Request, exc: ApiError):
         return JSONResponse(status_code=exc.status_code, content=_body(request, exc.code, exc.message))

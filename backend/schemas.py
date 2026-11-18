@@ -5,6 +5,7 @@ from typing import Literal, Optional
 from pydantic import BaseModel, Field
 
 
+
 class ComponentStatus(BaseModel):
     name: str
     status: Literal["configured", "initialized", "available", "unavailable", "not_checked"]
@@ -132,3 +133,14 @@ class MetricsResponse(BaseModel):
     timings: dict
     counters: dict
     note: str
+
+
+class DeletionResponse(BaseModel):
+    resource: Literal["conversation", "message", "memory"]
+    conversation_id: str
+    deleted: bool
+    message_id: Optional[int] = None
+    memory_id: Optional[int] = None
+    orphaned_memory_ids: list[int] = Field(default_factory=list)
+    still_supported_memory_ids: list[int] = Field(default_factory=list)
+    cleanup_status: Optional[Literal['source_fenced', 'incomplete_unknown_provenance']] = None

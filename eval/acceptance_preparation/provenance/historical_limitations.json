@@ -1,0 +1,74 @@
+{
+  "schema": "phase35-historical-provenance-limitations/1",
+  "status": "PENDING_EXTERNAL_EVIDENCE",
+  "evidence_path": "docs/remediation/phase_e2_engineering/v21_development_verification/development-comparisons/scorer-2.1.0/tier2-hardened/comparison.v2.jsonl.scoring.json",
+  "evidence_raw_sha256": "0217fb96c19fc2b75e6fc0144c7efe679c5c1b2e2471b94d3af93895d7332919",
+  "origin": "HISTORICAL_RECONSTRUCTION",
+  "dataset_revision": "c1bbcae9a21e389c16c3f1587de5acc1b5209e37",
+  "reconstructed_counts": {
+    "exact": 42,
+    "mismatch": 0,
+    "error_row": 0,
+    "fallback": 0,
+    "drift": 0,
+    "v2_flips": 1
+  },
+  "reconstructed_tier2_config": {
+    "chunk_size": 100,
+    "chunk_overlap": 20,
+    "chunk_strategy": "words",
+    "min_page_words": 10,
+    "dedupe": "sha1(ws-collapsed lower)",
+    "rect": [
+      36,
+      36,
+      559,
+      806
+    ],
+    "fontsize": 9,
+    "extractor": "get_text(sort=True)",
+    "chunk_config_source": "assumed_default",
+    "chunk_count": 135,
+    "chunk_table_sha256": "29643967a4e3b0e453efa8f44c34cddf7528b4edf3da977140008a2e199b914a",
+    "restated_source_ast_sha256": {
+      "build_chunks": "7e3818238bcebe2adb44cf850b171dd139171b7d7e96adfada358d7d2ccb97f2",
+      "chunk_dedupe_key": "e66f2e25e36dc93241d7978715fc7e0e919579f87062f3934f81c0ee17ece8a5",
+      "extract_text": "e55a438774da6c194cf8952b70621d53d53727fe4cc64fd62f0c1be5f91bff42",
+      "build_scratch_corpus": "a974a49e74664b11fbb396bc4c2ffe12260058fcd08cc127118652a780d221cb",
+      "services/chunker.py": "0a002515c7a2fa624d46c2d0375f6fbceac682fab001272a2091d4da481b3554"
+    }
+  },
+  "original_runtime_config": "NOT_ESTABLISHED",
+  "original_database_row_order": "NOT_ESTABLISHED",
+  "original_prompt_context_bytes": "NOT_AVAILABLE",
+  "original_runtime_run_header": "NOT_AVAILABLE",
+  "original_upload_byte_equality": "NOT_ESTABLISHED",
+  "limitations": [
+    {
+      "id": "HP-01",
+      "fact": "Retained historical dataset is operator-pinned.",
+      "limitation": "No original runtime header binds actual environment-resolved configuration; defaults are assumptions, not observations."
+    },
+    {
+      "id": "HP-02",
+      "fact": "135 reconstructed chunks and 42 exact retained development rows.",
+      "limitation": "Matching reconstructed references/hashes and v1 results prove consistency with reconstruction, not original database retrieval order or production configuration."
+    },
+    {
+      "id": "HP-03",
+      "fact": "WP6 scoring context joins complete retrieved chunks.",
+      "limitation": "Exact model prompt context bytes/truncation/formatting are unavailable; scoring-context text cannot substitute for prompt capture."
+    },
+    {
+      "id": "HP-04",
+      "fact": "Seven retained counterparts have explicit paths and raw identities.",
+      "limitation": "The unavailable original (1)-named upload bytes are not independently equated to retained files."
+    },
+    {
+      "id": "HP-05",
+      "fact": "Future detached capture can bind supplied base-header bytes and actual contexts.",
+      "limitation": "Hashes and origin labels establish consistency only; authenticity requires independent runtime evidence/attestation."
+    }
+  ],
+  "official_acceptance": false
+}

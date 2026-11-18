@@ -3,18 +3,18 @@
 Only memories whose provenance is USER_SUPPORTED (Phase 2 pure classifier on
 facts read by Phase 3's load_provenance_facts) are listed; unverified ones are
 counted, never shown as supported. Source metadata excludes message content.
-There is no create/update/delete endpoint: memory deletion keeps going through
-the chat flow ("forget ...") which runs the established deletion + cleanup
-(summary rewrite, context exclusion, checkpoint fencing). A direct delete
-endpoint would bypass that cleanup and is deferred.
+Explicit ID deletion uses the local transactional deletion service, which fences
+source history and summaries together; natural-language deletion stays in chat.
 """
 
-from fastapi import APIRouter, Query
+from services.request_budget import budgeted_lock
+
+from fastapi import APIRouter, Query, Path
 
 from backend import config
-from backend.dependencies import require_conversation
+from backend.dependencies import require_conversation, parse_conversation_id, conversation_lock
 from backend.errors import not_found
-from backend.schemas import MemoryItem, MemoryList, MemorySource
+from backend.schemas import MemoryItem, MemoryList, MemorySource, DeletionResponse
 
 router = APIRouter(prefix="/conversations/{conversation_id}/memories", tags=["memories"])
 
@@ -55,3 +55,17 @@ def memory_sources(conversation_id: str, memory_id: int):
         raise not_found("memory")
     return [MemorySource(message_id=s["message_id"], role=s.get("role"), link_kind=s.get("link_kind"))
             for s in get_memory_sources(cid, memory_id)]
+
+
+@router.delete("/{memory_id}", response_model=DeletionResponse)
+def delete_memory(conversation_id: str, memory_id: str = Path(pattern=r"^[1-9][0-9]*$")):
+    memory_id = int(memory_id)
+    from services.local_deletion_service import delete_memory as delete
+    cid = parse_conversation_id(conversation_id)
+    with budgeted_lock(conversation_lock(cid)):
+        require_conversation(cid)
+        result = delete(cid, memory_id)
+        if not result.get("deleted"):
+            raise not_found("memory")
+    return DeletionResponse(resource="memory", conversation_id=cid, memory_id=memory_id,
+                            deleted=True, cleanup_status=result.get('cleanup_status'))

@@ -1,0 +1,40 @@
+{
+  "accepted_default": "v1",
+  "activation_allowed": false,
+  "annotation_bindings": 2,
+  "candidate_assets": 20,
+  "candidate_path": "eval/acceptance_preparation/integration/candidate_manifest.json",
+  "candidate_sha256": "d5ad3a2264ccdd3f81ab35800af2ad9ba5391405ada04a8165a90c9cfa973605",
+  "limitations": [
+    "No independent reviewer or owner authority is authenticated.",
+    "No frozen integration, gate or threshold is activated.",
+    "Future dependency closure and post-approval hashes remain review work."
+  ],
+  "parent_manifest_content_sha256": "1b73a208d22fcfe00a51bf027df0b2e2fe490ceaebc207dbf64504c8da0fbf97",
+  "parent_manifest_path": "eval/phase35/frozen_manifest.json",
+  "parent_manifest_raw_sha256": "6a66745490cebe050e1318e6ec959ce4cf6d708a10957604b7e193018d0a8648",
+  "pending_owner_decisions": [
+    "real_case_annotation_review",
+    "independent_human_review",
+    "human_approved_flip_golden_list",
+    "specification_clarification_acceptance",
+    "V5_scorer_adoption",
+    "scorer_keyed_threshold_review",
+    "V9_error_and_gate_policy",
+    "frozen_runner_gate_integration_approval",
+    "refreeze_approval"
+  ],
+  "preserved_assets": 27,
+  "refreeze_executed": false,
+  "schema": "phase-e2-candidate-validation/1",
+  "status": "PASS",
+  "tests": {
+    "command": "DATABASE_URL=postgresql://nobody@127.0.0.1:1/rag_test_scratch TESTSAFE_BLOCK_NETWORK=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 .venv/bin/python -B -m unittest test_phase_e2_integration",
+    "exit_code": 0,
+    "failed": 0,
+    "methods": 15,
+    "passed": 15,
+    "skipped": 0
+  },
+  "validation_scope": "CURRENT_SNAPSHOT_CONSISTENCY_ONLY_NOT_ACCEPTANCE"
+}

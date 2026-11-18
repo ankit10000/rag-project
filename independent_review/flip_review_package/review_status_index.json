@@ -1,0 +1,59 @@
+{
+  "acceptance_approved": false,
+  "current_scorer_sha256": "0e9358638a94ce070e99b2db20aa3dcbfcdb85eb8670669690689d530ccabcdf",
+  "historical_occurrences": 8,
+  "records": [
+    {
+      "blind_evidence": "records/tier1_D-conflicting-01/stage_a_blind.json",
+      "case_id": "D-conflicting-01",
+      "historical_occurrence_count": 2,
+      "human_approved": false,
+      "record_id": "tier1_D-conflicting-01",
+      "review_status": "PENDING_INDEPENDENT_REVIEW",
+      "reviewer_judgment": "",
+      "reviewer_rationale": "",
+      "stage_b_after_judgment": "records/tier1_D-conflicting-01/after_independent_judgment.json",
+      "tier": 1
+    },
+    {
+      "blind_evidence": "records/tier1_B-comp-04/stage_a_blind.json",
+      "case_id": "B-comp-04",
+      "historical_occurrence_count": 2,
+      "human_approved": false,
+      "record_id": "tier1_B-comp-04",
+      "review_status": "PENDING_INDEPENDENT_REVIEW",
+      "reviewer_judgment": "",
+      "reviewer_rationale": "",
+      "stage_b_after_judgment": "records/tier1_B-comp-04/after_independent_judgment.json",
+      "tier": 1
+    },
+    {
+      "blind_evidence": "records/tier1_B-conf-04/stage_a_blind.json",
+      "case_id": "B-conf-04",
+      "historical_occurrence_count": 2,
+      "human_approved": false,
+      "record_id": "tier1_B-conf-04",
+      "review_status": "PENDING_INDEPENDENT_REVIEW",
+      "reviewer_judgment": "",
+      "reviewer_rationale": "",
+      "stage_b_after_judgment": "records/tier1_B-conf-04/after_independent_judgment.json",
+      "tier": 1
+    },
+    {
+      "blind_evidence": "records/tier2_B-conf-04/stage_a_blind.json",
+      "case_id": "B-conf-04",
+      "historical_occurrence_count": 2,
+      "human_approved": false,
+      "record_id": "tier2_B-conf-04",
+      "review_status": "PENDING_INDEPENDENT_REVIEW",
+      "reviewer_judgment": "",
+      "reviewer_rationale": "",
+      "stage_b_after_judgment": "records/tier2_B-conf-04/after_independent_judgment.json",
+      "tier": 2
+    }
+  ],
+  "review_completed": false,
+  "schema": "phase-e2-flip-review-status/1",
+  "state": "PENDING_INDEPENDENT_REVIEW",
+  "unique_case_tier_records": 4
+}

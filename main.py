@@ -33,10 +33,24 @@ from services.memory_service import (
     build_supported_memory_summary,
 )
 
+from services.request_budget import within_turn_budget, check_deadline, output_suppressed
+
+
+def _error_label(error):
+    return type(error).__name__ if output_suppressed() else str(error)
+
+
+def _show_answer(answer):
+    # CLI output is intentional; HTTP turns must not put private answers in server logs.
+    if not output_suppressed():
+        print(answer)
+
+
 # Testing value: extraction runs once this many new messages exist.
 MEMORY_EXTRACTION_THRESHOLD = 4
 
 
+@within_turn_budget
 def run_turn(conversation_id: str, query: str, exclude_memory_ids=None) -> dict:
     """Process ONE user turn exactly as the CLI loop always did.
 
@@ -59,6 +73,7 @@ def run_turn(conversation_id: str, query: str, exclude_memory_ids=None) -> dict:
         print("\nExplicit memory deletion request detected.")
 
         # Keep this part
+        check_deadline()
         result = delete_matching_memories(
             conversation_id=conversation_id,
             user_request=query,
@@ -116,7 +131,7 @@ def run_turn(conversation_id: str, query: str, exclude_memory_ids=None) -> dict:
             raise
 
         print("\nAssistant:")
-        print(answer)
+        _show_answer(answer)
 
         cleanup_status = "not_needed"
 
@@ -150,7 +165,7 @@ def run_turn(conversation_id: str, query: str, exclude_memory_ids=None) -> dict:
                 clear_summary_and_advance_checkpoints(conversation_id)
                 print(
                     f"\nWarning: deletion cleanup failed; old history and "
-                    f"extraction were fenced: {cleanup_error}"
+                    f"extraction were fenced: {_error_label(cleanup_error)}"
                 )
                 cleanup_status = "failed"
 
@@ -169,6 +184,7 @@ def run_turn(conversation_id: str, query: str, exclude_memory_ids=None) -> dict:
     # 4. LOAD CONVERSATION HISTORY
     # ==============================================
 
+    check_deadline()
     history = get_conversation_history(
         conversation_id,
         limit=16,
@@ -213,12 +229,14 @@ def run_turn(conversation_id: str, query: str, exclude_memory_ids=None) -> dict:
     # 7. GENERATE RAG ANSWER
     # ==============================================
 
+    check_deadline()
     result = ask_question(
         query=query,
         history=history,
         memory_summary=combined_memory,
     )
 
+    check_deadline()
     answer = result["answer"]
 
     # ==============================================
@@ -244,11 +262,11 @@ def run_turn(conversation_id: str, query: str, exclude_memory_ids=None) -> dict:
     # ==============================================
 
     print("\nAssistant:")
-    print(answer)
+    _show_answer(answer)
 
     sources = result.get("sources", [])
 
-    if sources:
+    if sources and not output_suppressed():
 
         print("\nSources:")
 
@@ -317,7 +335,7 @@ def run_turn(conversation_id: str, query: str, exclude_memory_ids=None) -> dict:
         print(
             "\nWarning: memory extraction rejected or incomplete "
             "(checkpoint not advanced; batch will retry): "
-            f"{extraction_error}"
+            f"{_error_label(extraction_error)}"
         )
 
     except Exception as extraction_error:
@@ -326,7 +344,7 @@ def run_turn(conversation_id: str, query: str, exclude_memory_ids=None) -> dict:
         print(
             f"\nWarning: memory extraction failed "
             f"(checkpoint not advanced, will retry): "
-            f"{extraction_error}"
+            f"{_error_label(extraction_error)}"
         )
 
     # ==============================================
@@ -347,7 +365,7 @@ def run_turn(conversation_id: str, query: str, exclude_memory_ids=None) -> dict:
         summary_outcome = "failed_will_retry"
         print(
             f"\nWarning: conversation summary update "
-            f"failed (will retry): {summary_error}"
+            f"failed (will retry): {_error_label(summary_error)}"
         )
 
     return {

@@ -46,7 +46,7 @@ ALLOWED_HOSTS = ["127.0.0.1", "localhost", "::1", "[::1]"] + [
 # RAG_API_CORS_ORIGINS="http://localhost:5173,http://127.0.0.1:5173".
 # "*" and "null" are rejected. Credentials (cookies) are never allowed: auth is a bearer token.
 CORS_ORIGINS = [o.strip() for o in os.environ.get("RAG_API_CORS_ORIGINS", "").split(",") if o.strip()]
-CORS_METHODS = ["GET", "POST"]
+CORS_METHODS = ["GET", "POST", "DELETE"]
 CORS_HEADERS = ["Authorization", "Content-Type", "X-Request-ID"]
 
 # Request body limits (bytes). Uploads: the PDF limit plus multipart overhead.
@@ -67,6 +67,15 @@ def config_problems() -> tuple[list[str], list[str]]:
     variable NAMES appear in messages, never values of secrets.
     """
     errors, warnings = [], []
+    if os.getenv('LOCAL_V1_PROFILE') == '1':
+        from services.request_budget import configured_timeout
+        from services.local_release_profile import require_embedding_model
+        try:
+            configured_timeout()
+            from services import retrieval_config as local_cfg
+            require_embedding_model(local_cfg.EMBEDDING_MODEL)
+        except ValueError as exc:
+            errors.append(str(exc))
     if _DOCS_RAW not in _TRUE + _FALSE:
         errors.append(f"RAG_API_DOCS must be one of {', '.join(_TRUE + _FALSE)}")
     try:

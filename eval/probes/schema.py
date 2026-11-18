@@ -16,7 +16,7 @@ def S(correct, fact_recall, forbidden_hits, abstain_ok, partial_ok, conflict_ok,
 
 def probe(pid, limitation, target, answer, truth, v1, v2, classification, reason, *, v2_reason=None,
           status="answered", citations="all_gold", context="gold", extra_context=(), annotations=None,
-          phase_d_change=None) -> dict:
+          phase_d_change=None, v2_signals=None) -> dict:
     """One probe. ``v2`` is the intended v2 ``correct`` (True/False) or None when it cannot be stated
     yet; None requires ``v2_reason``. ``phase_d_change`` records how a Phase D probe was corrected."""
     if v2 is None and not v2_reason:
@@ -31,4 +31,4 @@ def probe(pid, limitation, target, answer, truth, v1, v2, classification, reason
             "v1": v1, "v2": v2, "v2_reason": v2_reason, "classification": classification, "reason": reason,
             "status": status, "citations": citations, "context": context,
             "extra_context": [tuple(e) for e in extra_context], "annotations": dict(annotations or {}),
-            "phase_d_change": phase_d_change}
+            "phase_d_change": phase_d_change, "v2_signals": dict(v2_signals or {})}

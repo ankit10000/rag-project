@@ -1,5 +1,6 @@
 import re
 import time
+from services.request_budget import check_deadline, pause
 
 RETRYABLE_STATUS_CODES = {429, 500, 502, 503, 504}
 
@@ -56,7 +57,9 @@ def generate_with_retry(
 
     for attempt in range(max_retries + 1):
         try:
+            check_deadline()
             result = generate_fn()
+            check_deadline()
 
             if result is None:
                 raise RuntimeError("Gemini returned None.")
@@ -96,4 +99,4 @@ def generate_with_retry(
                 f"({attempt + 1}/{max_retries})..."
             )
 
-            time.sleep(delay)
+            pause(delay, sleep_fn=time.sleep)

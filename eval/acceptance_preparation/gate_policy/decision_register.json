@@ -1,0 +1,32 @@
+{
+  "schema": "phase-e2-gate-policy-proposal/1",
+  "status": "PENDING_OWNER_DECISION",
+  "activation_allowed": false,
+  "official_scorer": "v1",
+  "experimental_scorer": "v2.1",
+  "proposed_threshold_profile": {
+    "id": null,
+    "identity_digest": null,
+    "metrics": null,
+    "owner_decision": null
+  },
+  "proposed_gate_policy": {
+    "id": null,
+    "identity_digest": null,
+    "threshold_profile_id": null,
+    "error_policy": "BLOCK",
+    "incomplete_policy": "BLOCK",
+    "rollback": "KEEP_OFFICIAL_V1",
+    "owner_decision": null
+  },
+  "decisions": [
+    {"id": "threshold-sharing", "question": "Share reviewed values or independently calibrate each exact scorer identity?", "recommendation": "Exact content binding even if approved values coincide", "owner": null, "decision": null, "rationale": null, "review_evidence": null},
+    {"id": "unknown-identity", "question": "Approve explicit rejection of unknown scorer identities?", "recommendation": "BLOCK without inheritance", "owner": null, "decision": null, "rationale": null, "review_evidence": null},
+    {"id": "annotation-mismatch", "question": "Approve blocking annotation identity mismatches?", "recommendation": "BLOCK", "owner": null, "decision": null, "rationale": null, "review_evidence": null},
+    {"id": "missing-provenance", "question": "Approve blocking missing or unverifiable provenance?", "recommendation": "BLOCK", "owner": null, "decision": null, "rationale": null, "review_evidence": null},
+    {"id": "V9-errors-incomplete", "question": "Define official errors, invalid rows and incomplete-run handling", "recommendation": "BLOCK; retain failed diagnostic evidence separately", "owner": null, "decision": null, "rationale": null, "review_evidence": null},
+    {"id": "hard-metrics", "question": "Which metrics are hard gates and what reviewed finite values apply?", "recommendation": null, "owner": null, "decision": null, "rationale": null, "review_evidence": null},
+    {"id": "rollback", "question": "Approve exact frozen v1 rollback and isolated failure evidence?", "recommendation": "KEEP_OFFICIAL_V1", "owner": null, "decision": null, "rationale": null, "review_evidence": null},
+    {"id": "versioning", "question": "Approve content-addressed policy/profile versioning and independent authorization?", "recommendation": "New hash and review on every rule/value change", "owner": null, "decision": null, "rationale": null, "review_evidence": null}
+  ]
+}
