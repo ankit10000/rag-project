@@ -1,0 +1,46 @@
+{
+  "policy_id": "ai-kestrel-abstention-contract-v2",
+  "version": 2,
+  "scope": "DEVELOPMENT_ONLY",
+  "execution_status": "NOT_EXECUTED",
+  "policy_author_type": "AI",
+  "predecessor": {
+    "policy_id": "ai-kestrel-development-policy-v1",
+    "policy_sha256": "2d20349207a7af3c0938985a836117e69e43f979a68d25238193fd94ed4e014f",
+    "dataset_id": "ai-kestrel-synthetic-answer-v1",
+    "dataset_sha256": "aa8422abed8dd48dcc800e3a626da8b2ba776ad48e1aaf6e4c2c494695e9a4f4",
+    "results_sha256": "e613e4ceee92ed17a036d195e9faf1d0fb093f3a466f3f59c18d3b0dc1563ad3",
+    "run_evidence_path": "ai_review/development/run_evidence.json",
+    "run_evidence_sha256": "f211b13dddaddb1d8a333a233ae39cc078ce0459f99dc56feecc7e3ff9309381",
+    "recorded_outcome": "AI_TECHNICAL_EVALUATION_FAIL",
+    "recorded_cases_passed": 3,
+    "recorded_cases_completed": 4,
+    "reinterpret_historical_verdict": false
+  },
+  "semantics": {
+    "document_omission": "The policy does not provide a fax number establishes unavailable information, not absence of fax service.",
+    "explicit_negative_fact": "A source explicitly denying a service or stating a negative world fact supports an answered response with valid citations.",
+    "missing_information": "A pure response that the requested information is absent is abstained even when a valid citation supports the document-omission statement.",
+    "partial_information": "A response containing a supported requested fact and an unavailable requested part is partial; cite its factual claims.",
+    "no_broad_substring_rule": "The words does not provide alone determine neither abstention nor factual support."
+  },
+  "behavior_contract": {
+    "expected_kind_is_predeclared_from_source": true,
+    "supported_fact": {"status": "answered", "valid_document_citations": "required"},
+    "explicit_negative_fact": {"status": "answered", "valid_document_citations": "required"},
+    "missing_information": {"status": "abstained", "valid_document_citations": "optional"},
+    "partial_information": {"status": "partial", "valid_document_citations": "required_for_factual_part"},
+    "invalid_or_fabricated_citations": "reject",
+    "semantic_entailment_from_citation_presence_alone": false
+  },
+  "evaluation_boundaries": {
+    "factual_correctness_and_completeness": "remain required separately; the behavior helper cannot prove them",
+    "frozen_v1_scorer": "unchanged diagnostic reporting; no lexical rule or threshold modified",
+    "zero_citations_for_every_abstention": "removed only for this separately versioned development contract",
+    "new_live_experiment": "none executed; use a fresh run identity and no-overwrite output namespace if later justified",
+    "original_run": "immutable, not rerun, not relabelled or rescored into a new claimed result",
+    "official_heldout_activation": false,
+    "formal_acceptance": false,
+    "human_review_completed": 0
+  }
+}

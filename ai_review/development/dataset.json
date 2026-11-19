@@ -1,0 +1,123 @@
+{
+  "dataset_id": "ai-kestrel-synthetic-answer-v1",
+  "provenance": "New invented synthetic corpus; no original case copied",
+  "cases": [
+    {
+      "id": "ai-kestrel-new-v1-fee",
+      "category": "fee",
+      "split": "new_synthetic_development",
+      "tier": "answer_only",
+      "question": "According to the Kestrel Observatory policy, what does a visitor permit cost?",
+      "history": [],
+      "gold_facts": [
+        [
+          "83 credits"
+        ]
+      ],
+      "gold_sources": [
+        {
+          "document": "synthetic_kestrel_observatory.txt",
+          "page": 1,
+          "span": "SYNTHETIC KEStREL OBSERVATORY VISITOR POLICY. The Kestrel Observatory visitor permit costs 83 credits. The visitor permit is valid for 17 days. The policy does not provide a fax number."
+        }
+      ],
+      "tier1_chunks": [
+        {
+          "document": "synthetic_kestrel_observatory.txt",
+          "page": 1,
+          "content": "SYNTHETIC KEStREL OBSERVATORY VISITOR POLICY. The Kestrel Observatory visitor permit costs 83 credits. The visitor permit is valid for 17 days. The policy does not provide a fax number."
+        }
+      ],
+      "forbidden": [],
+      "expect_abstain": false,
+      "expect_partial": false,
+      "expect_conflict": false
+    },
+    {
+      "id": "ai-kestrel-new-v1-duration",
+      "category": "duration",
+      "split": "new_synthetic_development",
+      "tier": "answer_only",
+      "question": "According to the Kestrel Observatory policy, how long is a visitor permit valid?",
+      "history": [],
+      "gold_facts": [
+        [
+          "17 days"
+        ]
+      ],
+      "gold_sources": [
+        {
+          "document": "synthetic_kestrel_observatory.txt",
+          "page": 1,
+          "span": "SYNTHETIC KEStREL OBSERVATORY VISITOR POLICY. The Kestrel Observatory visitor permit costs 83 credits. The visitor permit is valid for 17 days. The policy does not provide a fax number."
+        }
+      ],
+      "tier1_chunks": [
+        {
+          "document": "synthetic_kestrel_observatory.txt",
+          "page": 1,
+          "content": "SYNTHETIC KEStREL OBSERVATORY VISITOR POLICY. The Kestrel Observatory visitor permit costs 83 credits. The visitor permit is valid for 17 days. The policy does not provide a fax number."
+        }
+      ],
+      "forbidden": [],
+      "expect_abstain": false,
+      "expect_partial": false,
+      "expect_conflict": false
+    },
+    {
+      "id": "ai-kestrel-new-v1-compound",
+      "category": "compound",
+      "split": "new_synthetic_development",
+      "tier": "answer_only",
+      "question": "According to the Kestrel Observatory policy, what is the visitor permit cost and how long is it valid?",
+      "history": [],
+      "gold_facts": [
+        [
+          "83 credits"
+        ],
+        [
+          "17 days"
+        ]
+      ],
+      "gold_sources": [
+        {
+          "document": "synthetic_kestrel_observatory.txt",
+          "page": 1,
+          "span": "SYNTHETIC KEStREL OBSERVATORY VISITOR POLICY. The Kestrel Observatory visitor permit costs 83 credits. The visitor permit is valid for 17 days. The policy does not provide a fax number."
+        }
+      ],
+      "tier1_chunks": [
+        {
+          "document": "synthetic_kestrel_observatory.txt",
+          "page": 1,
+          "content": "SYNTHETIC KEStREL OBSERVATORY VISITOR POLICY. The Kestrel Observatory visitor permit costs 83 credits. The visitor permit is valid for 17 days. The policy does not provide a fax number."
+        }
+      ],
+      "forbidden": [],
+      "expect_abstain": false,
+      "expect_partial": false,
+      "expect_conflict": false
+    },
+    {
+      "id": "ai-kestrel-new-v1-unavailable-fax",
+      "category": "unavailable-fax",
+      "split": "new_synthetic_development",
+      "tier": "answer_only",
+      "question": "According to the Kestrel Observatory policy, what is its fax number?",
+      "history": [],
+      "gold_facts": [],
+      "gold_sources": [],
+      "tier1_chunks": [
+        {
+          "document": "synthetic_kestrel_observatory.txt",
+          "page": 1,
+          "content": "SYNTHETIC KEStREL OBSERVATORY VISITOR POLICY. The Kestrel Observatory visitor permit costs 83 credits. The visitor permit is valid for 17 days. The policy does not provide a fax number."
+        }
+      ],
+      "forbidden": [],
+      "expect_abstain": true,
+      "expect_partial": false,
+      "expect_conflict": false
+    }
+  ]
+}

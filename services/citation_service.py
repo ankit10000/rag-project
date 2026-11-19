@@ -1,5 +1,6 @@
 """Pure citation helpers: extract, strip, validate and build structured citations."""
 import re
+from services.answer_semantics import evidence_clauses, is_discourse_clause, is_insufficiency_clause
 
 _MARKER = re.compile(r"\[\s*[Ss]\d+(?:\s*[,;]\s*[Ss]\d+)*\s*\]")
 _REF = re.compile(r"[Ss](\d+)")
@@ -8,8 +9,8 @@ _FILE = re.compile(r"[\w\-.]+\.(?:pdf|docx|txt)\b", re.IGNORECASE)
 _SPLIT = re.compile(r"(?<=[.!?])\s+|\n+")
 _LEADING_MARKERS = re.compile(r"^((?:\s*\[\s*[Ss]\d+(?:\s*[,;]\s*[Ss]\d+)*\s*\])+)")
 
-# One shared list of insufficiency / abstention phrases (used by the citation
-# coverage check here and by answer_service). Phrase matching is a heuristic.
+# Legacy public phrase list retained for compatibility. Operational citation
+# coverage/status use the scoped clause helpers instead of a blanket substring.
 ABSTAIN_PHRASES = (
     "couldn't find", "could not find", "cannot find", "can't find",
     "not enough information", "insufficient information", "does not contain",
@@ -104,6 +105,26 @@ def split_sentences(text):
     return out
 
 
+def evidence_profile(text, sources=None):
+    """Count missing-evidence and factual clauses, using only local cited text."""
+    by_ref = {s.get("ref"): s.get("content", "") for s in (sources or []) if isinstance(s, dict)}
+    missing, facts = 0, 0
+    for sentence in split_sentences(text):
+        cited = [by_ref[r] for r in extract_citation_refs(sentence) if r in by_ref]
+        for clause in evidence_clauses(sentence):
+            if is_discourse_clause(clause):
+                continue
+            if is_insufficiency_clause(clause, cited):
+                missing += 1
+            else:
+                low = strip_citations(clause).lower()
+                if low and not low.endswith(":") and not (
+                    any(w in low for w in _CONFLICT_WORDS) and any(w in low for w in _SOURCE_WORDS)
+                ):
+                    facts += 1
+    return missing, facts
+
+
 def _is_claim_without_citation(sent):
     """A sentence that states something (>=5 words) but carries no [S#]."""
     if len(sent.split()) < 5 or _MARKER.search(sent):
@@ -111,7 +132,8 @@ def _is_claim_without_citation(sent):
     if sent.rstrip().endswith(":"):                       # list / section intro
         return False
     low = sent.lower().replace("’", "'")
-    if any(p in low for p in ABSTAIN_PHRASES):
+    missing, facts = evidence_profile(sent)
+    if missing and not facts:
         return False
     if any(w in low for w in _CONFLICT_WORDS) and any(w in low for w in _SOURCE_WORDS):
         return False

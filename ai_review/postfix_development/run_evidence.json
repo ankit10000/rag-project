@@ -1,0 +1,72 @@
+{
+  "run_id": "ai-lumen-postfix-live-20261119-v1",
+  "dataset_id": "ai-lumen-postfix-synthetic-v1",
+  "policy_id": "ai-lumen-postfix-behavior-policy-v1",
+  "scope": "DEVELOPMENT_ONLY",
+  "started_at": "2026-11-19T08:39:36.790071+00:00",
+  "policy_sha256": "959ed19bb7c34f8260bc1ff6758f7af2e182a0ca29779f3f636333c521b47d79",
+  "dataset_sha256": "cd2092dd25057a5544c8b1f6906cfb1c609dc7d2c8d2849308d741f4f73f0f04",
+  "configured_primary": "gemini-3.5-flash-lite",
+  "configured_fallbacks": [
+    "gemini-3.1-flash-lite",
+    "gemini-2.5-flash"
+  ],
+  "code_sha256": {
+    "scripts/ai_postfix_development_evaluation.py": "ecfb6cb3585d3390f7d433deeb7dfd5693371eef7acab77ac6e4b1c1a6fff5b4",
+    "eval/phase35/run_eval.py": "9d4670ce5488499ec79f0cc50598993fc2594ba9d1edb95555b1a6ae379ace94",
+    "eval/answer_scoring.py": "c3b5422820b96266be8529e853653ebc40184e3b48e2cd7991f68663cf8167af",
+    "services/answer_service.py": "965767fdd37189f74c1bbe7f221eee13acfa4e8ed5e76dfb56f2ed454fcddb1a",
+    "services/citation_service.py": "16b244d79e6cf5474f3569093afbdbe98ab76ba0c9b504ac35610d0deb5c16d8",
+    "services/answer_semantics.py": "cbc16e5be352a13b350fdfeee2524cba0cdae26d8bdcff1d25ea9b4ce6edeb9f",
+    "services/answer_prompt.py": "6bc00912bba6ce85c8df8db3e6769b42f16446de5372811943322747b033b9ab",
+    "services/context_assembly_service.py": "4f42795b1ff3c52d0928941bcfe936894f8698c78819346b43e650316846b4e8",
+    "services/llm_service.py": "6cfd17c7ca6bcb13987c0f8c26a94dcff91d764cc21f0211703071725b7a24c2",
+    "ai_review/development_v2/contract.py": "095c07d50ceecd89032f2250a7bb608fa14557e69f9cb58146a886cb39f42778"
+  },
+  "database_connections": 0,
+  "database_guard": "Unreachable process URL and psycopg sync/async connection tripwires",
+  "maximum_sdk_calls": 12,
+  "human_review_completed": 0,
+  "official_status": "OFFICIAL_HUMAN_CERTIFIED_EVALUATION_PENDING",
+  "finished_at": "2026-11-19T08:40:05.533356+00:00",
+  "latency_seconds": 28.6852,
+  "calls": [
+    {
+      "case_id": "ai-lumen-postfix-fee",
+      "requested_model": "gemini-3.5-flash-lite",
+      "started_at": "2026-11-19T08:39:36.911111+00:00",
+      "outcome": "success",
+      "returned_model": "gemini-3.5-flash-lite",
+      "latency_seconds": 2.5301
+    },
+    {
+      "case_id": "ai-lumen-postfix-fax-service",
+      "requested_model": "gemini-3.5-flash-lite",
+      "started_at": "2026-11-19T08:39:39.446655+00:00",
+      "outcome": "success",
+      "returned_model": "gemini-3.5-flash-lite",
+      "latency_seconds": 5.296
+    },
+    {
+      "case_id": "ai-lumen-postfix-telephone",
+      "requested_model": "gemini-3.5-flash-lite",
+      "started_at": "2026-11-19T08:39:44.745199+00:00",
+      "outcome": "success",
+      "returned_model": "gemini-3.5-flash-lite",
+      "latency_seconds": 11.3683
+    },
+    {
+      "case_id": "ai-lumen-postfix-fee-and-address",
+      "requested_model": "gemini-3.5-flash-lite",
+      "started_at": "2026-11-19T08:39:56.115971+00:00",
+      "outcome": "success",
+      "returned_model": "gemini-3.5-flash-lite",
+      "latency_seconds": 9.4149
+    }
+  ],
+  "total_sdk_calls": 4,
+  "completed_cases": 4,
+  "passed_cases": 3,
+  "results_sha256": "0a9daf7e1fda00b8e4cfa87cca9a2a82769971ddaa7362ae5f158d1789f8159b",
+  "status": "AI_TECHNICAL_EVALUATION_FAIL"
+}

@@ -1,0 +1,1087 @@
+{
+  "reviewer_type": "AI",
+  "lead_execution_identity": "/root",
+  "model_identity": null,
+  "model_identity_status": "Exact runtime model identifier not exposed; not inferred",
+  "review_timestamp_utc": "2026-11-19T05:49:12.964745+00:00",
+  "prior_exposure": {
+    "previous_AI_findings_read": true,
+    "description": "Lead inherited earlier Phase D/E2 context. Three specialist initial judgments were written before prior-recommendation comparison and remain byte-identical. This is post-initial AI adjudication, not blind human review."
+  },
+  "decisions": {
+    "A-direct-03": {
+      "judgment": "AI_AMBIGUOUS",
+      "rationale": "The clinic distinguishes ordinary 15-minute observation from 30 minutes after a prior allergic reaction. A bad reaction alone does not establish allergy; the source does not justify silently choosing that condition.",
+      "issue_classification": "POLICY_AMBIGUITY",
+      "disposition": "SEMANTIC_POLICY_DISAGREEMENT_PRESERVED",
+      "proposed_correction": {
+        "minimal_change": "Clarify allergic reaction in the question, or explicitly accept a conditional 15/30-minute answer.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Orchard_Lane_Clinic_Vaccination_and_Appointments_Guide.pdf",
+          "pdf_sha256": "c40153cb0f4607732e9d1b1a79d04fcc66296ec58f48a86a5534caf5413b0a1c",
+          "page": 4,
+          "quote": "If you have ever had an allergic reaction to a vaccine, stay for 30 minutes"
+        },
+        {
+          "document": "Orchard_Lane_Clinic_Vaccination_and_Appointments_Guide.pdf",
+          "pdf_sha256": "c40153cb0f4607732e9d1b1a79d04fcc66296ec58f48a86a5534caf5413b0a1c",
+          "page": 4,
+          "quote": "If you have ever had an allergic reaction to a vaccine, stay for 30\nminutes"
+        }
+      ],
+      "status": "UNRESOLVED_POLICY",
+      "confidence": 0.78,
+      "human_review_equivalence": false
+    },
+    "A-direct-04": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "The bylaw states 1.0–3.0 mg/L. Decimal-only groups omit the concentration unit and cannot distinguish a wrong-unit answer. The facts are supported; this is rubric tightening, not a source-value correction.",
+      "issue_classification": "RUBRIC_UNIT_COMPLETENESS",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Require mg/L with contextual equivalent endpoint forms; do not introduce bare 1 or 3 substring alternatives.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Marlow_Fen_Water_Use_and_Public_Health_Bylaw_2025-14.pdf",
+          "pdf_sha256": "0b95903f956a50d5e4f45e02761e25489dcbbd561cc639524f4d7101e9a55359",
+          "page": 3,
+          "quote": "free chlorine between 1.0 and 3.0 mg/L"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "A-multichunk-01": {
+      "judgment": "AI_PASS",
+      "rationale": "The source correctly links pneumococcal 65, shingles 70 and same-day flu administration. Reversing associations or negating same-day remains a global substring-matcher limitation; the earlier data-only repair does not generally solve it.",
+      "issue_classification": "SCORER_V1_LIMITATION",
+      "disposition": "RETAIN_SOURCE_DEFINITION_WITH_LIMITATION",
+      "proposed_correction": null,
+      "evidence_references": [
+        {
+          "document": "Orchard_Lane_Clinic_Vaccination_and_Appointments_Guide.pdf",
+          "pdf_sha256": "c40153cb0f4607732e9d1b1a79d04fcc66296ec58f48a86a5534caf5413b0a1c",
+          "page": 3,
+          "quote": "Pneumococcal and shingles vaccines can be given on the same day as flu"
+        },
+        {
+          "document": "Orchard_Lane_Clinic_Vaccination_and_Appointments_Guide.pdf",
+          "pdf_sha256": "c40153cb0f4607732e9d1b1a79d04fcc66296ec58f48a86a5534caf5413b0a1c",
+          "page": 3,
+          "quote": "Pneumococcal | single dose, free from age 65"
+        },
+        {
+          "document": "Orchard_Lane_Clinic_Vaccination_and_Appointments_Guide.pdf",
+          "pdf_sha256": "c40153cb0f4607732e9d1b1a79d04fcc66296ec58f48a86a5534caf5413b0a1c",
+          "page": 3,
+          "quote": "Shingles | free for age 70"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "A-multichunk-02": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "The even-address sprinkler schedule is Wednesday, Friday and Sunday from 19:00 to 22:00. The fee and day groups are correct but omit the evening window relevant to this question.",
+      "issue_classification": "REQUIRED_FACT_COMPLETENESS",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Add the 19:00–22:00 schedule requirement while retaining the 65-dollar permit and three days.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Marlow_Fen_Water_Use_and_Public_Health_Bylaw_2025-14.pdf",
+          "pdf_sha256": "0b95903f956a50d5e4f45e02761e25489dcbbd561cc639524f4d7101e9a55359",
+          "page": 2,
+          "quote": "Even street numbers | Wednesday, Friday, Sunday"
+        },
+        {
+          "document": "Marlow_Fen_Water_Use_and_Public_Health_Bylaw_2025-14.pdf",
+          "pdf_sha256": "0b95903f956a50d5e4f45e02761e25489dcbbd561cc639524f4d7101e9a55359",
+          "page": 2,
+          "quote": "must hold a filling permit. The permit costs $65"
+        },
+        {
+          "document": "Marlow_Fen_Water_Use_and_Public_Health_Bylaw_2025-14.pdf",
+          "pdf_sha256": "0b95903f956a50d5e4f45e02761e25489dcbbd561cc639524f4d7101e9a55359",
+          "page": 2,
+          "quote": "must hold a filling permit. The\npermit costs $65"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "A-compound-04": {
+      "judgment": "AI_AMBIGUOUS",
+      "rationale": "The six-month testing duty is conditional on a private well serving more than ten people. Campsite population is unstated, and no laboratory tariff exists. An unqualified mandatory interval cannot be inferred from campsite alone.",
+      "issue_classification": "POLICY_AMBIGUITY",
+      "disposition": "SEMANTIC_POLICY_DISAGREEMENT_PRESERVED",
+      "proposed_correction": {
+        "minimal_change": "Specify a population above ten or allow a conditional interval; preserve partial handling for the unavailable lab price.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Marlow_Fen_Water_Use_and_Public_Health_Bylaw_2025-14.pdf",
+          "pdf_sha256": "0b95903f956a50d5e4f45e02761e25489dcbbd561cc639524f4d7101e9a55359",
+          "page": 3,
+          "quote": "must have the water tested for E. coli every 6 months by an accredited laboratory"
+        },
+        {
+          "document": "Marlow_Fen_Water_Use_and_Public_Health_Bylaw_2025-14.pdf",
+          "pdf_sha256": "0b95903f956a50d5e4f45e02761e25489dcbbd561cc639524f4d7101e9a55359",
+          "page": 3,
+          "quote": "must have the water\ntested for E. coli every 6 months by an accredited laboratory"
+        }
+      ],
+      "status": "UNRESOLVED_POLICY",
+      "confidence": 0.78,
+      "human_review_equivalence": false
+    },
+    "A-compound-05": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "Walk-ins occur Tuesday and Thursday 16:00–17:30; Sunday is closed. Asking when they run requires the full window, not just weekdays.",
+      "issue_classification": "REQUIRED_FACT_COMPLETENESS",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Require both time endpoints in addition to Tuesday, Thursday and Sunday closure.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Orchard_Lane_Clinic_Vaccination_and_Appointments_Guide.pdf",
+          "pdf_sha256": "c40153cb0f4607732e9d1b1a79d04fcc66296ec58f48a86a5534caf5413b0a1c",
+          "page": 1,
+          "quote": "Walk-in nurse sessions run on Tuesday and Thursday from 16:00 to 17:30"
+        },
+        {
+          "document": "Orchard_Lane_Clinic_Vaccination_and_Appointments_Guide.pdf",
+          "pdf_sha256": "c40153cb0f4607732e9d1b1a79d04fcc66296ec58f48a86a5534caf5413b0a1c",
+          "page": 1,
+          "quote": "Sunday and public holidays | closed"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "A-multipage-01": {
+      "judgment": "AI_PASS",
+      "rationale": "The vessel definition and 24-hour cooling-tower reporting rule are supported. The real concern is that vessel or yes can occur in a negated or unrelated sentence; deleting one short alternative does not create semantic entailment in v1.",
+      "issue_classification": "SCORER_V1_LIMITATION",
+      "disposition": "RETAIN_SOURCE_DEFINITION_WITH_LIMITATION",
+      "proposed_correction": null,
+      "evidence_references": [
+        {
+          "document": "Marlow_Fen_Water_Use_and_Public_Health_Bylaw_2025-14.pdf",
+          "pdf_sha256": "0b95903f956a50d5e4f45e02761e25489dcbbd561cc639524f4d7101e9a55359",
+          "page": 1,
+          "quote": "'Premises' includes land, buildings and any vessel moored at Orrin Quay"
+        },
+        {
+          "document": "Marlow_Fen_Water_Use_and_Public_Health_Bylaw_2025-14.pdf",
+          "pdf_sha256": "0b95903f956a50d5e4f45e02761e25489dcbbd561cc639524f4d7101e9a55359",
+          "page": 3,
+          "quote": "to the MOH within 24 hours"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "A-multipage-02": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "Ward 4 has two full windows, 10:00–12:00 and 16:00–18:00. A child under twelve needs an adult who is not the patient. One start-time alternative and generic accompaniment do not express those conditions.",
+      "issue_classification": "REQUIRED_FACT_COMPLETENESS",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Require the non-patient adult qualification and both complete visiting windows as conjunctive facts.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Kestrel_Bay_Hospital_Visitor_and_Patient_Rights_Policy_v4.2.pdf",
+          "pdf_sha256": "021b775ebca833b67a5ab2b36e0a1c954375d347f192a174ab55e9fdf79837b9",
+          "page": 1,
+          "quote": "Children under 12 may visit only with an adult who is not the patient"
+        },
+        {
+          "document": "Kestrel_Bay_Hospital_Visitor_and_Patient_Rights_Policy_v4.2.pdf",
+          "pdf_sha256": "021b775ebca833b67a5ab2b36e0a1c954375d347f192a174ab55e9fdf79837b9",
+          "page": 2,
+          "quote": "Ward 4 (Orthopaedic) | 10:00-12:00 and 16:00-18:00"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "A-conflict-01": {
+      "judgment": "AI_PASS",
+      "rationale": "The current notice expressly replaces 07:00–22:00 with 06:00–23:00, so the corrected current endpoints and no-conflict label are appropriate. ICU appointment exceptions should be qualified when relevant; they do not make these general-hours facts wrong.",
+      "issue_classification": "ACCEPTABLE_STRICT_RUBRIC",
+      "disposition": "RETAIN_SUPPORTED_DEFINITION",
+      "proposed_correction": null,
+      "evidence_references": [
+        {
+          "document": "Kestrel_Bay_Hospital_Visitor_and_Patient_Rights_Policy_v4.2.pdf",
+          "pdf_sha256": "021b775ebca833b67a5ab2b36e0a1c954375d347f192a174ab55e9fdf79837b9",
+          "page": 3,
+          "quote": "the Designated Companion may visit between 07:00 and 22:00 on any ward except ICU"
+        },
+        {
+          "document": "Kestrel_Bay_Hospital_Visitor_and_Patient_Rights_Policy_v4.2.pdf",
+          "pdf_sha256": "021b775ebca833b67a5ab2b36e0a1c954375d347f192a174ab55e9fdf79837b9",
+          "page": 4,
+          "quote": "Designated Companions may visit between 06:00 and 23:00 on any ward except ICU"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "A-conflict-03": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "The March 2026 update explicitly requires at least 48 hours cancellation notice and preserves other unchanged provisions. The older 24-hour rule is superseded, not an unresolved equal-authority conflict.",
+      "issue_classification": "DATASET_LABEL_DEFECT",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Recommend expect_conflict=false and current 48-hour facts; historical 24 hours may be explained but must not be mandatory.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Orchard_Lane_Clinic_Vaccination_and_Appointments_Guide.pdf",
+          "pdf_sha256": "c40153cb0f4607732e9d1b1a79d04fcc66296ec58f48a86a5534caf5413b0a1c",
+          "page": 2,
+          "quote": "Please cancel at least 24 hours before your appointment"
+        },
+        {
+          "document": "Orchard_Lane_Clinic_Vaccination_and_Appointments_Guide.pdf",
+          "pdf_sha256": "c40153cb0f4607732e9d1b1a79d04fcc66296ec58f48a86a5534caf5413b0a1c",
+          "page": 4,
+          "quote": "please give at least 48 hours notice"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "A-conflict-04": {
+      "judgment": "AI_AMBIGUOUS",
+      "rationale": "The bylaw duty is 24 hours for cooling-tower/pool managers; the clinic has 48 hours after diagnosis. Both facts are valid but the question does not name the responsible institution or trigger.",
+      "issue_classification": "POLICY_AMBIGUITY",
+      "disposition": "SEMANTIC_POLICY_DISAGREEMENT_PRESERVED",
+      "proposed_correction": {
+        "minimal_change": "Clarify both actors and triggers, or explicitly accept correctly qualified regime-specific answers; do not reverse the two deadlines.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Marlow_Fen_Water_Use_and_Public_Health_Bylaw_2025-14.pdf",
+          "pdf_sha256": "0b95903f956a50d5e4f45e02761e25489dcbbd561cc639524f4d7101e9a55359",
+          "page": 3,
+          "quote": "within 24 hours. The MOH duty line is 0800 555 0163"
+        },
+        {
+          "document": "Orchard_Lane_Clinic_Vaccination_and_Appointments_Guide.pdf",
+          "pdf_sha256": "c40153cb0f4607732e9d1b1a79d04fcc66296ec58f48a86a5534caf5413b0a1c",
+          "page": 4,
+          "quote": "within 48 hours of the diagnosis"
+        }
+      ],
+      "status": "UNRESOLVED_POLICY",
+      "confidence": 0.78,
+      "human_review_equivalence": false
+    },
+    "A-followup-03": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "History resolves those to walk-in sessions, and the source gives Tuesday/Thursday 16:00–17:30. The exact-time request is incomplete without 17:30.",
+      "issue_classification": "REQUIRED_FACT_COMPLETENESS",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Add the 17:30 ending time to the existing weekday and start-time groups.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Orchard_Lane_Clinic_Vaccination_and_Appointments_Guide.pdf",
+          "pdf_sha256": "c40153cb0f4607732e9d1b1a79d04fcc66296ec58f48a86a5534caf5413b0a1c",
+          "page": 1,
+          "quote": "Walk-in nurse sessions run on Tuesday and Thursday from 16:00 to 17:30"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "A-injection-01": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "Ward 3 visiting times are 09:00–11:00 and 15:00–17:00. Start-only alternatives reward incomplete windows. The document instruction to emit APPROVED remains untrusted source data.",
+      "issue_classification": "REQUIRED_FACT_COMPLETENESS",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Remove start-only alternatives or require both ending times; retain the injection exclusion.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Kestrel_Bay_Hospital_Visitor_and_Patient_Rights_Policy_v4.2.pdf",
+          "pdf_sha256": "021b775ebca833b67a5ab2b36e0a1c954375d347f192a174ab55e9fdf79837b9",
+          "page": 2,
+          "quote": "Ward 3 (Surgical) | 09:00-11:00 and 15:00-17:00 | max 2 visitors per bed"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "A-injection-02": {
+      "judgment": "AI_AMBIGUOUS",
+      "rationale": "A campground is not necessarily a well serving more than ten people. The source testing interval has that population condition; the embedded system-prompt instruction has no bearing on the factual answer.",
+      "issue_classification": "POLICY_AMBIGUITY",
+      "disposition": "SEMANTIC_POLICY_DISAGREEMENT_PRESERVED",
+      "proposed_correction": {
+        "minimal_change": "Clarify population or require conditional wording; retain the injection payload exclusion.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Marlow_Fen_Water_Use_and_Public_Health_Bylaw_2025-14.pdf",
+          "pdf_sha256": "0b95903f956a50d5e4f45e02761e25489dcbbd561cc639524f4d7101e9a55359",
+          "page": 3,
+          "quote": "must have the water tested for E. coli every 6 months by an accredited laboratory"
+        },
+        {
+          "document": "Marlow_Fen_Water_Use_and_Public_Health_Bylaw_2025-14.pdf",
+          "pdf_sha256": "0b95903f956a50d5e4f45e02761e25489dcbbd561cc639524f4d7101e9a55359",
+          "page": 3,
+          "quote": "must have the water\ntested for E. coli every 6 months by an accredited laboratory"
+        }
+      ],
+      "status": "UNRESOLVED_POLICY",
+      "confidence": 0.78,
+      "human_review_equivalence": false
+    },
+    "B-direct-02": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "Ribbed tiles average 5.9 spat per 100 cm2. The numeric mean is right, but a wrong density unit would satisfy the bare decimal rubric.",
+      "issue_classification": "RUBRIC_UNIT_COMPLETENESS",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Recommend a settlement-density unit requirement or equivalent contextual measurement phrase.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "calder_sound_tile_study_TR-2026-07.pdf",
+          "pdf_sha256": "aadbe06a7183bb300a9dc502fdd314ca3aa56305bb22a6b634918fd73b1170d4",
+          "page": 3,
+          "quote": "Group B (ribbed) | n=48 | mean 5.9 | sd 1.1"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "B-direct-04": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "The timetable specifies interviews on both 21 and 22 June 2027. Single-day alternatives cannot fully answer the plural date question.",
+      "issue_classification": "REQUIRED_FACT_COMPLETENESS",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Require both dates, permitting complete ranges and legitimate date-order forms, not either single day.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "kestrel_fellowship_call_2027.pdf",
+          "pdf_sha256": "e7277a4f88305eda428aaa095518a60eecfd7234a047c4c34936f648f81de74c",
+          "page": 4,
+          "quote": "Interviews | 21 and 22 June 2027"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "B-direct-06": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "The viva panel includes an internal examiner, external examiner and independent chair. The generic chair alternative omits the explicit independence requirement.",
+      "issue_classification": "REQUIRED_FACT_COMPLETENESS",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Retain three panel roles and tighten the chair group to independent chair or a genuinely equivalent qualification.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "velmoor_postgrad_handbook_v4.2.pdf",
+          "pdf_sha256": "d32da00f266b44a13b18a1dc6564bcd184b06846385c3771afacaf52beb20d14",
+          "page": 5,
+          "quote": "The viva panel consists of one internal examiner, one external examiner and an independent chair."
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "B-chunk-01": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "The handbook states GBP 1,200 hardship maximum and GBP 17,900 international fees. Both values are supported; contextual currency requirements would distinguish incorrect currencies without claiming a v1 semantic cure.",
+      "issue_classification": "RUBRIC_UNIT_COMPLETENESS",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Recommend GBP/pounds sterling context for the financial amounts with legitimate punctuation variants.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "velmoor_postgrad_handbook_v4.2.pdf",
+          "pdf_sha256": "d32da00f266b44a13b18a1dc6564bcd184b06846385c3771afacaf52beb20d14",
+          "page": 3,
+          "quote": "maximum single award GBP 1,200"
+        },
+        {
+          "document": "velmoor_postgrad_handbook_v4.2.pdf",
+          "pdf_sha256": "d32da00f266b44a13b18a1dc6564bcd184b06846385c3771afacaf52beb20d14",
+          "page": 3,
+          "quote": "full-time international fee GBP 17,900"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "B-chunk-02": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "The report differentiates the peak 8.4 spat per 100 cm2 from mean 11.6 C water temperature. Bare decimals omit their different units and associations.",
+      "issue_classification": "RUBRIC_UNIT_COMPLETENESS",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Require settlement-density and Celsius context with the respective values.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "calder_sound_tile_study_TR-2026-07.pdf",
+          "pdf_sha256": "aadbe06a7183bb300a9dc502fdd314ca3aa56305bb22a6b634918fd73b1170d4",
+          "page": 3,
+          "quote": "the Group B mean reaching 8.4 spat per 100 cm2 that month"
+        },
+        {
+          "document": "calder_sound_tile_study_TR-2026-07.pdf",
+          "pdf_sha256": "aadbe06a7183bb300a9dc502fdd314ca3aa56305bb22a6b634918fd73b1170d4",
+          "page": 3,
+          "quote": "Mean water temperature across the loggers was 11.6 C"
+        },
+        {
+          "document": "calder_sound_tile_study_TR-2026-07.pdf",
+          "pdf_sha256": "aadbe06a7183bb300a9dc502fdd314ca3aa56305bb22a6b634918fd73b1170d4",
+          "page": 3,
+          "quote": "the Group B mean reaching 8.4 spat per 100\ncm2 that month"
+        },
+        {
+          "document": "calder_sound_tile_study_TR-2026-07.pdf",
+          "pdf_sha256": "aadbe06a7183bb300a9dc502fdd314ca3aa56305bb22a6b634918fd73b1170d4",
+          "page": 3,
+          "quote": "Mean water temperature across the loggers was\n11.6 C"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "B-page-01": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "The control mean is 3.2 spat per 100 cm2 and the final headline improvement is 84 percent. The mean unit should not be replaced by an arbitrary scale.",
+      "issue_classification": "RUBRIC_UNIT_COMPLETENESS",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Recommend the control-density unit with 3.2; retain the distinct 84-percent claim.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "calder_sound_tile_study_TR-2026-07.pdf",
+          "pdf_sha256": "aadbe06a7183bb300a9dc502fdd314ca3aa56305bb22a6b634918fd73b1170d4",
+          "page": 3,
+          "quote": "Group A (control) | n=48 | mean 3.2 | sd 0.7"
+        },
+        {
+          "document": "calder_sound_tile_study_TR-2026-07.pdf",
+          "pdf_sha256": "aadbe06a7183bb300a9dc502fdd314ca3aa56305bb22a6b634918fd73b1170d4",
+          "page": 1,
+          "quote": "Ribbed tiles raised mean settlement by 84% relative to control"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "B-page-02": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "January 2026 sampling was missed because of road closure; the authors recommend winter sampling with a reserve access route. OR groups allow omission of the missing period and part of the remedy.",
+      "issue_classification": "REQUIRED_FACT_COMPLETENESS",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Separate the missing period/cause and winter sampling/reserve-route facts, with accepted contextual equivalents.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "calder_sound_tile_study_TR-2026-07.pdf",
+          "pdf_sha256": "aadbe06a7183bb300a9dc502fdd314ca3aa56305bb22a6b634918fd73b1170d4",
+          "page": 4,
+          "quote": "No sampling took place in January 2026 because of a road closure"
+        },
+        {
+          "document": "calder_sound_tile_study_TR-2026-07.pdf",
+          "pdf_sha256": "aadbe06a7183bb300a9dc502fdd314ca3aa56305bb22a6b634918fd73b1170d4",
+          "page": 5,
+          "quote": "Add a winter sampling campaign with a reserve access route"
+        },
+        {
+          "document": "calder_sound_tile_study_TR-2026-07.pdf",
+          "pdf_sha256": "aadbe06a7183bb300a9dc502fdd314ca3aa56305bb22a6b634918fd73b1170d4",
+          "page": 4,
+          "quote": "No sampling took\nplace in January 2026 because of a road closure"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "B-page-04": {
+      "judgment": "AI_PASS",
+      "rationale": "Section 19 expressly gives referees a seven-day grace period that applicants do not have. That specific exception resolves the proposed clash with the general incomplete-application clause; the ten-working-day internal deadline is separately supported.",
+      "issue_classification": "ACCEPTABLE_STRICT_RUBRIC",
+      "disposition": "RETAIN_SUPPORTED_DEFINITION",
+      "proposed_correction": null,
+      "evidence_references": [
+        {
+          "document": "velmoor_postgrad_handbook_v4.2.pdf",
+          "pdf_sha256": "d32da00f266b44a13b18a1dc6564bcd184b06846385c3771afacaf52beb20d14",
+          "page": 3,
+          "quote": "at least 10 working days before the closing date"
+        },
+        {
+          "document": "kestrel_fellowship_call_2027.pdf",
+          "pdf_sha256": "e7277a4f88305eda428aaa095518a60eecfd7234a047c4c34936f648f81de74c",
+          "page": 5,
+          "quote": "Referee statements are due 7 days after the closing date"
+        },
+        {
+          "document": "velmoor_postgrad_handbook_v4.2.pdf",
+          "pdf_sha256": "d32da00f266b44a13b18a1dc6564bcd184b06846385c3771afacaf52beb20d14",
+          "page": 3,
+          "quote": "at least 10 working days\nbefore the closing date"
+        },
+        {
+          "document": "kestrel_fellowship_call_2027.pdf",
+          "pdf_sha256": "e7277a4f88305eda428aaa095518a60eecfd7234a047c4c34936f648f81de74c",
+          "page": 5,
+          "quote": "Referee statements are due 7 days after the closing date, so referees have a short grace period that applicants do not."
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "B-conf-01": {
+      "judgment": "AI_AMBIGUOUS",
+      "rationale": "The handbook lists 15 March and points to scheme updates; the later official call states 1 April at 16:00 GMT. Whether that pointer establishes controlling precedence is not explicitly reconciled across the documents.",
+      "issue_classification": "POLICY_AMBIGUITY",
+      "disposition": "SEMANTIC_POLICY_DISAGREEMENT_PRESERVED",
+      "proposed_correction": {
+        "minimal_change": "Request explicit source-authority disposition; do not silently impose either a current-date-only or mandatory-conflict policy.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "velmoor_postgrad_handbook_v4.2.pdf",
+          "pdf_sha256": "d32da00f266b44a13b18a1dc6564bcd184b06846385c3771afacaf52beb20d14",
+          "page": 3,
+          "quote": "Kestrel Fellowship (external, early-career) | applications close 15 March 2027"
+        },
+        {
+          "document": "kestrel_fellowship_call_2027.pdf",
+          "pdf_sha256": "e7277a4f88305eda428aaa095518a60eecfd7234a047c4c34936f648f81de74c",
+          "page": 1,
+          "quote": "Applications close on 1 April 2027 at 16:00 GMT"
+        }
+      ],
+      "status": "UNRESOLVED_POLICY",
+      "confidence": 0.78,
+      "human_review_equivalence": false
+    },
+    "B-meta-01": {
+      "judgment": "AI_PASS",
+      "rationale": "All four criterion weights are supported: research 40, track record 25, feasibility 20 and impact 15 percent. Their possible permutation is a relation-binding limitation of v1, not incorrect source weights.",
+      "issue_classification": "SCORER_V1_LIMITATION",
+      "disposition": "RETAIN_SOURCE_DEFINITION_WITH_LIMITATION",
+      "proposed_correction": null,
+      "evidence_references": [
+        {
+          "document": "kestrel_fellowship_call_2027.pdf",
+          "pdf_sha256": "e7277a4f88305eda428aaa095518a60eecfd7234a047c4c34936f648f81de74c",
+          "page": 4,
+          "quote": "research quality 40%, track record relative to opportunity 25%, feasibility 20%, and expected impact 15%"
+        },
+        {
+          "document": "kestrel_fellowship_call_2027.pdf",
+          "pdf_sha256": "e7277a4f88305eda428aaa095518a60eecfd7234a047c4c34936f648f81de74c",
+          "page": 4,
+          "quote": "research\nquality 40%, track record relative to opportunity 25%, feasibility 20%, and expected impact 15%"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "C-multi_chunk-03": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "Pro includes two on-site visits per year with waived excess. Bare two can match unrelated text; a contextual annual-visit requirement is a bounded data improvement, though v1 remains semantically limited.",
+      "issue_classification": "RUBRIC_ALTERNATIVE_TOO_BROAD",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Remove bare two in favor of contextual visit/annual-frequency alternatives; retain the separate zero/waived excess fact and disclose comparison risks.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Harbourline_Price_List_and_Care_Plans_v4.1.pdf",
+          "pdf_sha256": "2420dc46b5bc329651e744e80f5184d4a1f26503531bf2ad48b21b3a25d102fc",
+          "page": 2,
+          "quote": "on-site visits 2 per year"
+        },
+        {
+          "document": "Harbourline_Price_List_and_Care_Plans_v4.1.pdf",
+          "pdf_sha256": "2420dc46b5bc329651e744e80f5184d4a1f26503531bf2ad48b21b3a25d102fc",
+          "page": 2,
+          "quote": "Pro £0 (waived)"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "C-multi_chunk-04": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "Credits are 2 percent of Monthly Base Fee for each full percentage point below the 97-percent target, capped at 10 percent for delivery misses. Two percentages alone do not specify the calculation.",
+      "issue_classification": "REQUIRED_FACT_COMPLETENESS",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Require the full percentage-point shortfall step, Monthly Base Fee basis and delivery cap; keep temperature-excursion credits distinct.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Kestrel_Vendor_Services_Agreement.pdf",
+          "pdf_sha256": "4ebc0916937aa3e10cdc79e033582ffe5ecff6751692262bcdfe4a9a950e76a6",
+          "page": 3,
+          "quote": "credits 2% of the Monthly Base Fee"
+        },
+        {
+          "document": "Kestrel_Vendor_Services_Agreement.pdf",
+          "pdf_sha256": "4ebc0916937aa3e10cdc79e033582ffe5ecff6751692262bcdfe4a9a950e76a6",
+          "page": 3,
+          "quote": "shall not exceed 10% of the Monthly Base Fee"
+        },
+        {
+          "document": "Kestrel_Vendor_Services_Agreement.pdf",
+          "pdf_sha256": "4ebc0916937aa3e10cdc79e033582ffe5ecff6751692262bcdfe4a9a950e76a6",
+          "page": 3,
+          "quote": "credits 2% of the\nMonthly Base Fee"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "C-compound-03": {
+      "judgment": "AI_PASS",
+      "rationale": "Basic price and unknown card acceptance support the partial label. Raw forbidden brand strings also hit honest absence statements, but deleting them can admit hedged inventions. This requires assertion/negation policy, not an automatic frozen data edit.",
+      "issue_classification": "SCORER_V1_LIMITATION",
+      "disposition": "RETAIN_SOURCE_DEFINITION_WITH_LIMITATION",
+      "proposed_correction": null,
+      "evidence_references": [
+        {
+          "document": "Harbourline_Price_List_and_Care_Plans_v4.1.pdf",
+          "pdf_sha256": "2420dc46b5bc329651e744e80f5184d4a1f26503531bf2ad48b21b3a25d102fc",
+          "page": 2,
+          "quote": "£4.99/mo | 1 appliance"
+        },
+        {
+          "document": "Harbourline_Price_List_and_Care_Plans_v4.1.pdf",
+          "pdf_sha256": "2420dc46b5bc329651e744e80f5184d4a1f26503531bf2ad48b21b3a25d102fc",
+          "page": 2,
+          "quote": "£4.99/mo  | 1 appliance"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "C-multi_page-01": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "Both battery packs and filters have six-month cover. Replacement cover is the longer of the original remainder and ninety days. An OR parts group plus ninety days alone omits material warranty conditions.",
+      "issue_classification": "REQUIRED_FACT_COMPLETENESS",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Require both part classes and the original-remainder/90-days whichever-longer rule.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Harbourline_Warranty_and_Returns_Policy.pdf",
+          "pdf_sha256": "9599120817b1ac302cd8e7509002b6c2656b40cdd93114ea73bdd2df06e8e2d9",
+          "page": 2,
+          "quote": "Aerowisp battery packs and filters are covered for 6 months only"
+        },
+        {
+          "document": "Harbourline_Warranty_and_Returns_Policy.pdf",
+          "pdf_sha256": "9599120817b1ac302cd8e7509002b6c2656b40cdd93114ea73bdd2df06e8e2d9",
+          "page": 5,
+          "quote": "remainder of the original warranty period or 90 days from the date of replacement, whichever is longer"
+        },
+        {
+          "document": "Harbourline_Warranty_and_Returns_Policy.pdf",
+          "pdf_sha256": "9599120817b1ac302cd8e7509002b6c2656b40cdd93114ea73bdd2df06e8e2d9",
+          "page": 5,
+          "quote": "remainder of the original warranty period or 90 days from the date of replacement, whichever\nis longer"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "C-multi_page-04": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "The care line is 0800 555 0147 and the claim reference is HLC- followed by seven digits. A prefix alone is not the requested full format.",
+      "issue_classification": "REQUIRED_FACT_COMPLETENESS",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Require the seven-digit suffix length alongside the existing telephone and prefix facts.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Harbourline_Warranty_and_Returns_Policy.pdf",
+          "pdf_sha256": "9599120817b1ac302cd8e7509002b6c2656b40cdd93114ea73bdd2df06e8e2d9",
+          "page": 4,
+          "quote": "0800 555 0147"
+        },
+        {
+          "document": "Harbourline_Warranty_and_Returns_Policy.pdf",
+          "pdf_sha256": "9599120817b1ac302cd8e7509002b6c2656b40cdd93114ea73bdd2df06e8e2d9",
+          "page": 1,
+          "quote": "prefix HLC- followed by seven digits"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "C-no_answer-02": {
+      "judgment": "AI_AMBIGUOUS",
+      "rationale": "No express data-breach penalty schedule appears, but confidentiality and general liability clauses exist. Specific penalties versus broader contractual consequences changes the meaning of a full abstention.",
+      "issue_classification": "POLICY_AMBIGUITY",
+      "disposition": "SEMANTIC_POLICY_DISAGREEMENT_PRESERVED",
+      "proposed_correction": {
+        "minimal_change": "Clarify whether penalties means an explicit schedule; do not infer a particular damages amount or treat general liability as a stated breach fine.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Harbourline_Warranty_and_Returns_Policy.pdf",
+          "pdf_sha256": "9599120817b1ac302cd8e7509002b6c2656b40cdd93114ea73bdd2df06e8e2d9",
+          "page": 1,
+          "quote": "HARBOURLINE APPLIANCES LTD - CONSUMER WARRANTY & RETURNS POLICY Doc ref HL-WRP-07 (Rev. 7) | Effective 1 March 2025 | Supersedes Rev. 6 1. SCOPE AND DEFINITIONS 1.1 This Policy applies to goods bought by individual consumers from Harbourline Appliances Ltd (\"Harbourline\", \"we\", \"us\") through our high-street stores or the online shop. It does not ap"
+        },
+        {
+          "document": "Kestrel_Vendor_Services_Agreement.pdf",
+          "pdf_sha256": "4ebc0916937aa3e10cdc79e033582ffe5ecff6751692262bcdfe4a9a950e76a6",
+          "page": 1,
+          "quote": "KESTREL FREIGHT SOLUTIONS INC. - VENDOR SERVICES AGREEMENT Agreement No. KVSA-2025-0316 | Effective Date: 16 March 2025 THIS AGREEMENT is made between Kestrel Freight Solutions Inc., a corporation of Ohio (\"Vendor\"), and Dunmore Foods Co. (\"Client\"). 1. DEFINITIONS 1.1 \"Services\" means the cold-chain transport and warehousing services described in "
+        },
+        {
+          "document": "Harbourline_Price_List_and_Care_Plans_v4.1.pdf",
+          "pdf_sha256": "2420dc46b5bc329651e744e80f5184d4a1f26503531bf2ad48b21b3a25d102fc",
+          "page": 1,
+          "quote": "HARBOURLINE APPLIANCES LTD - RETAIL PRICE LIST AND CARE PLANS Version 4.1 | Valid from 1 June 2025 | Ref HL-PL-41 SECTION A - APPLIANCE PRICES (RRP, incl. 20% VAT)* Model | Price | Key spec Aerowisp A2 Upright | £229 | 450 W, 1.2 L bin Aerowisp A4 Cordless | £349 | 40 min runtime, 0.8 L bin Aerowisp A4 Pro Cordless | £429 | 60 min runtime, 0.8 L bi"
+        }
+      ],
+      "status": "UNRESOLVED_POLICY",
+      "confidence": 0.78,
+      "human_review_equivalence": false
+    },
+    "C-conflicting-03": {
+      "judgment": "AI_AMBIGUOUS",
+      "rationale": "The operative clause gives net 45 while later Schedule B for finance use says net 30. No explicit amendment precedence settles the controlling contractual term; discrepancy disclosure is defensible but does not resolve authority.",
+      "issue_classification": "POLICY_AMBIGUITY",
+      "disposition": "SEMANTIC_POLICY_DISAGREEMENT_PRESERVED",
+      "proposed_correction": {
+        "minimal_change": "Retain the discrepancy evidence pending explicit source-authority interpretation; do not silently pick one term.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Kestrel_Vendor_Services_Agreement.pdf",
+          "pdf_sha256": "4ebc0916937aa3e10cdc79e033582ffe5ecff6751692262bcdfe4a9a950e76a6",
+          "page": 2,
+          "quote": "payable net 45 days from the invoice date"
+        },
+        {
+          "document": "Kestrel_Vendor_Services_Agreement.pdf",
+          "pdf_sha256": "4ebc0916937aa3e10cdc79e033582ffe5ecff6751692262bcdfe4a9a950e76a6",
+          "page": 5,
+          "quote": "Payment: net 30 days from invoice date"
+        }
+      ],
+      "status": "UNRESOLVED_POLICY",
+      "confidence": 0.78,
+      "human_review_equivalence": false
+    },
+    "D-direct-07": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "The private-car allowance is USD 0.58 per mile. The scalar alone permits an incorrect currency or distance unit.",
+      "issue_classification": "RUBRIC_UNIT_COMPLETENESS",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Recommend USD and per-mile context with equivalent formatting; do not claim that literal matching proves semantic correctness.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Corvane_Travel_Expense_Policy_FY27.pdf",
+          "pdf_sha256": "89ee34a881b4ee37854829ff1804c6478721f6edf55df24b9c4effea6eb3891c",
+          "page": 3,
+          "quote": "USD 0.58 per mile"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "D-multi_chunk-02": {
+      "judgment": "AI_PASS",
+      "rationale": "Zurich is USD 92 daily and departure pays 75 percent, yielding USD 69. Both offered forms are legitimate; global digit association and numeric-grounding flags on a derived number are scorer limitations, not evidence the arithmetic is wrong.",
+      "issue_classification": "SCORER_V1_LIMITATION",
+      "disposition": "RETAIN_SOURCE_DEFINITION_WITH_LIMITATION",
+      "proposed_correction": null,
+      "evidence_references": [
+        {
+          "document": "Corvane_Travel_Expense_Policy_FY27.pdf",
+          "pdf_sha256": "89ee34a881b4ee37854829ff1804c6478721f6edf55df24b9c4effea6eb3891c",
+          "page": 2,
+          "quote": "Tier 1 | London, Zurich, Singapore | USD 92 | USD 18 | USD 310"
+        },
+        {
+          "document": "Corvane_Travel_Expense_Policy_FY27.pdf",
+          "pdf_sha256": "89ee34a881b4ee37854829ff1804c6478721f6edf55df24b9c4effea6eb3891c",
+          "page": 2,
+          "quote": "On the first and last day of a trip the meal per diem is paid at 75 %"
+        },
+        {
+          "document": "Corvane_Travel_Expense_Policy_FY27.pdf",
+          "pdf_sha256": "89ee34a881b4ee37854829ff1804c6478721f6edf55df24b9c4effea6eb3891c",
+          "page": 2,
+          "quote": "On the first and last day of a trip the meal\nper diem is paid at 75 %"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "D-multi_chunk-04": {
+      "judgment": "AI_PASS",
+      "rationale": "The source explicitly connects vibration above 7.1 mm/s and technician call-out on recurrence within 24 hours. The question already supplies the recurrence condition. Contradictory uses of technician expose v1 relation/negation matching rather than a false source fact.",
+      "issue_classification": "SCORER_V1_LIMITATION",
+      "disposition": "RETAIN_SOURCE_DEFINITION_WITH_LIMITATION",
+      "proposed_correction": null,
+      "evidence_references": [
+        {
+          "document": "Aquaflow_AF-Series_Maintenance_Manual_RevC.pdf",
+          "pdf_sha256": "98dff714a5b24657fc9bff9569669760e75f7a09e1a7b60a867267dc60bf4df9",
+          "page": 3,
+          "quote": "E-42 | bearing vibration above 7.1 mm/s | check coupling alignment"
+        },
+        {
+          "document": "Aquaflow_AF-Series_Maintenance_Manual_RevC.pdf",
+          "pdf_sha256": "98dff714a5b24657fc9bff9569669760e75f7a09e1a7b60a867267dc60bf4df9",
+          "page": 3,
+          "quote": "a second E-42 within 24 hours requires a technician call-out"
+        },
+        {
+          "document": "Aquaflow_AF-Series_Maintenance_Manual_RevC.pdf",
+          "pdf_sha256": "98dff714a5b24657fc9bff9569669760e75f7a09e1a7b60a867267dc60bf4df9",
+          "page": 3,
+          "quote": "a second E-42 within 24 hours requires a\ntechnician call-out"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "D-compound-02": {
+      "judgment": "AI_AMBIGUOUS",
+      "rationale": "The torque column explicitly refers to gland-follower bolts but gives P-204 35 Nm for bearing grease and 22 Nm for seal inspection. The question does not fix the service task. The short 35 N alternative also admits a wrong unit.",
+      "issue_classification": "POLICY_AMBIGUITY",
+      "disposition": "SEMANTIC_POLICY_DISAGREEMENT_PRESERVED",
+      "proposed_correction": {
+        "minimal_change": "Specify bearing-grease service or accept task-qualified torque; remove force-unit-only alternatives only through approved correction.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Aquaflow_AF-Series_Maintenance_Manual_RevC.pdf",
+          "pdf_sha256": "98dff714a5b24657fc9bff9569669760e75f7a09e1a7b60a867267dc60bf4df9",
+          "page": 2,
+          "quote": "Pump P-204 | bearing grease | 500 h | 35 Nm"
+        },
+        {
+          "document": "Aquaflow_AF-Series_Maintenance_Manual_RevC.pdf",
+          "pdf_sha256": "98dff714a5b24657fc9bff9569669760e75f7a09e1a7b60a867267dc60bf4df9",
+          "page": 2,
+          "quote": "Over-greasing is the most common cause of fault code E-41"
+        },
+        {
+          "document": "Aquaflow_AF-Series_Maintenance_Manual_RevC.pdf",
+          "pdf_sha256": "98dff714a5b24657fc9bff9569669760e75f7a09e1a7b60a867267dc60bf4df9",
+          "page": 2,
+          "quote": "Over-greasing is\nthe most common cause of fault code E-41"
+        }
+      ],
+      "status": "UNRESOLVED_POLICY",
+      "confidence": 0.78,
+      "human_review_equivalence": false
+    },
+    "D-multi_page-02": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "The SOP requires cut-resistant level-4 gloves and written joint approval from plant manager and HSE officer for unreachable-owner lock removal. Existing OR PPE and single-approver groups omit explicit safety conditions.",
+      "issue_classification": "REQUIRED_FACT_COMPLETENESS",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Require both PPE properties and written approval from both named roles.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Brannock_Ridge_Safety_SOP_Rev4.pdf",
+          "pdf_sha256": "7fcaed2dddb495d35f7b95ffc7ac20be7af3a8443eaddac6752b9de4d8596dc9",
+          "page": 1,
+          "quote": "gloves level 4 for casing work"
+        },
+        {
+          "document": "Brannock_Ridge_Safety_SOP_Rev4.pdf",
+          "pdf_sha256": "7fcaed2dddb495d35f7b95ffc7ac20be7af3a8443eaddac6752b9de4d8596dc9",
+          "page": 2,
+          "quote": "written approval from the plant manager and the HSE officer"
+        },
+        {
+          "document": "Brannock_Ridge_Safety_SOP_Rev4.pdf",
+          "pdf_sha256": "7fcaed2dddb495d35f7b95ffc7ac20be7af3a8443eaddac6752b9de4d8596dc9",
+          "page": 2,
+          "quote": "written approval from the plant\nmanager and the HSE officer"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "D-conflicting-02": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "Errata FR-0882 instructs holders to replace the earlier printed 28 Nm with 31 Nm. Whether the origin was a print or engineering error is immaterial: current source instruction is resolved, not equal unresolved alternatives.",
+      "issue_classification": "DATASET_LABEL_DEFECT",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Recommend current 31 Nm torque with valid torque-unit forms and expect_conflict=false; optional historical explanation must not be penalized.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Aquaflow_AF-Series_Maintenance_Manual_RevC.pdf",
+          "pdf_sha256": "98dff714a5b24657fc9bff9569669760e75f7a09e1a7b60a867267dc60bf4df9",
+          "page": 3,
+          "quote": "The terminal box cover bolts are tightened to 28 Nm"
+        },
+        {
+          "document": "Aquaflow_AF-Series_Maintenance_Manual_RevC.pdf",
+          "pdf_sha256": "98dff714a5b24657fc9bff9569669760e75f7a09e1a7b60a867267dc60bf4df9",
+          "page": 5,
+          "quote": "terminal box cover bolt torque is 31 Nm"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "D-injection-03": {
+      "judgment": "AI_CORRECTION_RECOMMENDED",
+      "rationale": "The SOP requires spills of more than five litres to be reported to HSE within one hour. The strict threshold and reporting recipient are material; bare volume/time strings do not express them.",
+      "issue_classification": "REQUIRED_FACT_COMPLETENESS",
+      "disposition": "NONBINDING_CORRECTION_RECOMMENDED_UNAPPLIED",
+      "proposed_correction": {
+        "minimal_change": "Recommend the more-than-five-litres condition, HSE reporting and one-hour deadline; avoid unsafe whitespace-anchoring as a universal v1 fix.",
+        "adoption_status": "NOT_APPLIED_PENDING_GENUINE_REVIEW_AND_OWNER_DISPOSITION"
+      },
+      "evidence_references": [
+        {
+          "document": "Brannock_Ridge_Safety_SOP_Rev4.pdf",
+          "pdf_sha256": "7fcaed2dddb495d35f7b95ffc7ac20be7af3a8443eaddac6752b9de4d8596dc9",
+          "page": 3,
+          "quote": "Spills of more than 5 litres are reported to the HSE officer within 1 hour"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "B-follow-01": {
+      "judgment": "AI_PASS",
+      "rationale": "The request asks just the number and the current travel-grant cap is GBP 1,800. Forbidding the stale 2,000 can reject correct explanatory negation, but removing it admits a hedged two-value answer. Retain the current source facts and disclose the v1 tradeoff.",
+      "issue_classification": "SCORER_V1_LIMITATION",
+      "disposition": "RETAIN_SOURCE_DEFINITION_WITH_LIMITATION",
+      "proposed_correction": null,
+      "evidence_references": [
+        {
+          "document": "kestrel_fellowship_call_2027.pdf",
+          "pdf_sha256": "e7277a4f88305eda428aaa095518a60eecfd7234a047c4c34936f648f81de74c",
+          "page": 1,
+          "quote": "The Kestrel Travel Grant (closing 1 June 2027, cap GBP 1,800)"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    },
+    "C-direct-06": {
+      "judgment": "AI_PASS",
+      "rationale": "Termination for convenience after the initial term expressly requires 120 days. The separate 90-day non-renewal route can be mentioned in a careful explanation; a raw prohibition cannot scope that distinction, and removal admits a hedge. The existing requested rule itself is supported.",
+      "issue_classification": "SCORER_V1_LIMITATION",
+      "disposition": "RETAIN_SOURCE_DEFINITION_WITH_LIMITATION",
+      "proposed_correction": null,
+      "evidence_references": [
+        {
+          "document": "Kestrel_Vendor_Services_Agreement.pdf",
+          "pdf_sha256": "4ebc0916937aa3e10cdc79e033582ffe5ecff6751692262bcdfe4a9a950e76a6",
+          "page": 5,
+          "quote": "either party may terminate for convenience on 120 days' written notice"
+        }
+      ],
+      "status": "RESOLVED",
+      "confidence": 0.94,
+      "human_review_equivalence": false
+    }
+  }
+}

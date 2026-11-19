@@ -11,6 +11,7 @@ from services.citation_service import (
     ABSTAIN_PHRASES,
     answer_with_citations,
     drop_uncited_claims,
+    evidence_profile,
     remove_invalid_refs,
     uncited_claim_sentences,
     validate_answer_citations,
@@ -35,23 +36,20 @@ _CONFLICT_PHRASES = ("disagree", "conflict", "differ", "inconsistent", "contradi
 
 
 def has_abstention_language(text: str) -> bool:
-    lowered = (text or "").lower()
-    return any(phrase in lowered for phrase in _ABSTAIN_PHRASES)
+    return evidence_profile(text)[0] > 0
 
 
-def classify_status(answer: str, cited_docs: set, has_citations: bool) -> str:
-    """answered | partial | conflict | abstained (heuristic, for reporting)."""
-    abstains = has_abstention_language(answer)
-
-    if not has_citations:
-        return "abstained" if abstains else "answered"
+def classify_status(answer: str, cited_docs: set, has_citations: bool, sources=None) -> str:
+    """Report pure insufficiency separately from cited negative facts and partials."""
+    missing, facts = evidence_profile(answer, sources)
 
     lowered = answer.lower()
 
-    if len(cited_docs) >= 2 and any(p in lowered for p in _CONFLICT_PHRASES):
+    if has_citations and len(cited_docs) >= 2 and any(p in lowered for p in _CONFLICT_PHRASES):
         return "conflict"
-
-    return "partial" if abstains else "answered"
+    if missing:
+        return "partial" if facts else "abstained"
+    return "answered"
 
 
 def _result(answer, status, tag=None, citations=None, validation=None,
@@ -169,7 +167,7 @@ def generate_grounded_answer(
 
         if validation["valid"]:
             cited_docs = {c["document"] for c in checked["citations"]}
-            status = classify_status(body, cited_docs, bool(checked["citations"]))
+            status = classify_status(body, cited_docs, bool(checked["citations"]), sources)
             final_tag = tag or ("DOCUMENT" if checked["citations"] else "MEMORY")
             return _result(checked["text"], status, final_tag,
                            checked["citations"], validation, attempt)
@@ -221,7 +219,7 @@ def _fallback(last_body, last_tag, last_issues, sources, question, attempts):
         if number_dropped:
             repair_issues.append(f"dropped_unsupported_number_sentences:{len(number_dropped)}")
         return _result(checked["text"],
-                       classify_status(repaired, cited_docs, True),
+                       classify_status(repaired, cited_docs, True, sources),
                        last_tag or "DOCUMENT", checked["citations"], v,
                        attempts, issues=repair_issues)
 

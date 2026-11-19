@@ -1,0 +1,70 @@
+{
+  "run_id": "ai-kestrel-live-20261119-v1",
+  "scope": "DEVELOPMENT_ONLY",
+  "started_at": "2026-11-19T05:45:15.134110+00:00",
+  "policy_sha256": "2d20349207a7af3c0938985a836117e69e43f979a68d25238193fd94ed4e014f",
+  "dataset_sha256": "aa8422abed8dd48dcc800e3a626da8b2ba776ad48e1aaf6e4c2c494695e9a4f4",
+  "configured_primary": "gemini-3.5-flash-lite",
+  "configured_fallbacks": [
+    "gemini-3.1-flash-lite",
+    "gemini-2.5-flash"
+  ],
+  "maximum_sdk_calls": 12,
+  "database_connections": 0,
+  "database_guard": "unreachable DATABASE_URL and psycopg connection tripwires",
+  "human_review_completed": 0,
+  "official_status": "OFFICIAL_HUMAN_CERTIFIED_EVALUATION_PENDING",
+  "code_sha256": {
+    "scripts/ai_development_evaluation.py": "d35ad1aff3422ddd8ebc88b451cfc6246e80e1371cf0a097cd972396155e0d8b",
+    "eval/phase35/run_eval.py": "9d4670ce5488499ec79f0cc50598993fc2594ba9d1edb95555b1a6ae379ace94",
+    "services/answer_service.py": "efb7071f9ca34c8eb83ad397c88fbbe2f096a4e3bd3a809966949e219ceab1b6",
+    "services/answer_prompt.py": "6bc00912bba6ce85c8df8db3e6769b42f16446de5372811943322747b033b9ab",
+    "services/context_assembly_service.py": "4f42795b1ff3c52d0928941bcfe936894f8698c78819346b43e650316846b4e8",
+    "services/llm_service.py": "6cfd17c7ca6bcb13987c0f8c26a94dcff91d764cc21f0211703071725b7a24c2"
+  },
+  "finished_at": "2026-11-19T05:45:53.152818+00:00",
+  "latency_seconds": 37.9612,
+  "calls": [
+    {
+      "case_id": "ai-kestrel-new-v1-fee",
+      "requested_model": "gemini-3.5-flash-lite",
+      "started_at": "2026-11-19T05:45:15.222091+00:00",
+      "outcome": "success",
+      "returned_model": "gemini-3.5-flash-lite",
+      "code": null,
+      "latency_seconds": 7.2207
+    },
+    {
+      "case_id": "ai-kestrel-new-v1-duration",
+      "requested_model": "gemini-3.5-flash-lite",
+      "started_at": "2026-11-19T05:45:22.445140+00:00",
+      "outcome": "success",
+      "returned_model": "gemini-3.5-flash-lite",
+      "code": null,
+      "latency_seconds": 10.9529
+    },
+    {
+      "case_id": "ai-kestrel-new-v1-compound",
+      "requested_model": "gemini-3.5-flash-lite",
+      "started_at": "2026-11-19T05:45:33.398998+00:00",
+      "outcome": "success",
+      "returned_model": "gemini-3.5-flash-lite",
+      "code": null,
+      "latency_seconds": 12.3211
+    },
+    {
+      "case_id": "ai-kestrel-new-v1-unavailable-fax",
+      "requested_model": "gemini-3.5-flash-lite",
+      "started_at": "2026-11-19T05:45:45.721406+00:00",
+      "outcome": "success",
+      "returned_model": "gemini-3.5-flash-lite",
+      "code": null,
+      "latency_seconds": 7.4289
+    }
+  ],
+  "total_sdk_calls": 4,
+  "completed_cases": 4,
+  "passed_cases": 3,
+  "results_sha256": "e613e4ceee92ed17a036d195e9faf1d0fb093f3a466f3f59c18d3b0dc1563ad3",
+  "status": "AI_TECHNICAL_EVALUATION_FAIL"
+}

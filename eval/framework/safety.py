@@ -71,7 +71,7 @@ def threshold_result(split: str, tier: int, correct: int, evaluated: int) -> dic
 def protect_output(path: str) -> list:
     if not path:
         return ["output path is required"]
-    if os.path.exists(path):
+    if os.path.lexists(path):
         return [f"output already exists (never overwritten): {path}"]
     parent = os.path.dirname(os.path.abspath(path))
     if not os.path.isdir(parent):

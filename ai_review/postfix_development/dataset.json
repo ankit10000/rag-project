@@ -1,0 +1,131 @@
+{
+  "dataset_id": "ai-lumen-postfix-synthetic-v1",
+  "provenance": "Wholly new invented non-held-out source and questions",
+  "cases": [
+    {
+      "id": "ai-lumen-postfix-fee",
+      "expected_kind": "supported_fact",
+      "category": "fee",
+      "split": "new_synthetic_development",
+      "tier": "answer_only",
+      "question": "According to the Lumen Observatory policy, what does a visitor permit cost?",
+      "history": [],
+      "gold_facts": [
+        [
+          "71 tokens"
+        ]
+      ],
+      "gold_sources": [
+        {
+          "document": "synthetic_lumen_observatory.txt",
+          "page": 1,
+          "span": "SYNTHETIC LUMEN OBSERVATORY VISITOR POLICY. The Lumen Observatory visitor permit costs 71 tokens. The visitor permit is valid for 23 days. The Lumen Observatory does not provide a fax service. The policy does not provide a telephone number. The policy does not provide a mailing address."
+        }
+      ],
+      "tier1_chunks": [
+        {
+          "document": "synthetic_lumen_observatory.txt",
+          "page": 1,
+          "content": "SYNTHETIC LUMEN OBSERVATORY VISITOR POLICY. The Lumen Observatory visitor permit costs 71 tokens. The visitor permit is valid for 23 days. The Lumen Observatory does not provide a fax service. The policy does not provide a telephone number. The policy does not provide a mailing address."
+        }
+      ],
+      "forbidden": [],
+      "expect_abstain": false,
+      "expect_partial": false,
+      "expect_conflict": false
+    },
+    {
+      "id": "ai-lumen-postfix-fax-service",
+      "expected_kind": "explicit_negative_fact",
+      "category": "fax-service",
+      "split": "new_synthetic_development",
+      "tier": "answer_only",
+      "question": "Does the Lumen Observatory provide a fax service according to its policy?",
+      "history": [],
+      "gold_facts": [
+        [
+          "does not provide a fax service",
+          "doesn't provide a fax service",
+          "no fax service",
+          "not provide fax",
+          "not offer fax",
+          "does not offer a fax service",
+          "fax service is not available",
+          "fax services are unavailable"
+        ]
+      ],
+      "gold_sources": [
+        {
+          "document": "synthetic_lumen_observatory.txt",
+          "page": 1,
+          "span": "SYNTHETIC LUMEN OBSERVATORY VISITOR POLICY. The Lumen Observatory visitor permit costs 71 tokens. The visitor permit is valid for 23 days. The Lumen Observatory does not provide a fax service. The policy does not provide a telephone number. The policy does not provide a mailing address."
+        }
+      ],
+      "tier1_chunks": [
+        {
+          "document": "synthetic_lumen_observatory.txt",
+          "page": 1,
+          "content": "SYNTHETIC LUMEN OBSERVATORY VISITOR POLICY. The Lumen Observatory visitor permit costs 71 tokens. The visitor permit is valid for 23 days. The Lumen Observatory does not provide a fax service. The policy does not provide a telephone number. The policy does not provide a mailing address."
+        }
+      ],
+      "forbidden": [],
+      "expect_abstain": false,
+      "expect_partial": false,
+      "expect_conflict": false
+    },
+    {
+      "id": "ai-lumen-postfix-telephone",
+      "expected_kind": "missing_information",
+      "category": "telephone",
+      "split": "new_synthetic_development",
+      "tier": "answer_only",
+      "question": "According to its policy, what is the Lumen Observatory's telephone number?",
+      "history": [],
+      "gold_facts": [],
+      "gold_sources": [],
+      "tier1_chunks": [
+        {
+          "document": "synthetic_lumen_observatory.txt",
+          "page": 1,
+          "content": "SYNTHETIC LUMEN OBSERVATORY VISITOR POLICY. The Lumen Observatory visitor permit costs 71 tokens. The visitor permit is valid for 23 days. The Lumen Observatory does not provide a fax service. The policy does not provide a telephone number. The policy does not provide a mailing address."
+        }
+      ],
+      "forbidden": [],
+      "expect_abstain": true,
+      "expect_partial": false,
+      "expect_conflict": false
+    },
+    {
+      "id": "ai-lumen-postfix-fee-and-address",
+      "expected_kind": "partial_information",
+      "category": "fee-and-address",
+      "split": "new_synthetic_development",
+      "tier": "answer_only",
+      "question": "According to the Lumen Observatory policy, what does a visitor permit cost and what is the mailing address?",
+      "history": [],
+      "gold_facts": [
+        [
+          "71 tokens"
+        ]
+      ],
+      "gold_sources": [
+        {
+          "document": "synthetic_lumen_observatory.txt",
+          "page": 1,
+          "span": "SYNTHETIC LUMEN OBSERVATORY VISITOR POLICY. The Lumen Observatory visitor permit costs 71 tokens. The visitor permit is valid for 23 days. The Lumen Observatory does not provide a fax service. The policy does not provide a telephone number. The policy does not provide a mailing address."
+        }
+      ],
+      "tier1_chunks": [
+        {
+          "document": "synthetic_lumen_observatory.txt",
+          "page": 1,
+          "content": "SYNTHETIC LUMEN OBSERVATORY VISITOR POLICY. The Lumen Observatory visitor permit costs 71 tokens. The visitor permit is valid for 23 days. The Lumen Observatory does not provide a fax service. The policy does not provide a telephone number. The policy does not provide a mailing address."
+        }
+      ],
+      "forbidden": [],
+      "expect_abstain": false,
+      "expect_partial": true,
+      "expect_conflict": false
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "policy_id": "ai-kestrel-development-policy-v1",
+  "version": 1,
+  "scope": "DEVELOPMENT_ONLY",
+  "created_at": "2026-11-19T05:45:02.971972+00:00",
+  "dataset_id": "ai-kestrel-synthetic-answer-v1",
+  "dataset_sha256": "aa8422abed8dd48dcc800e3a626da8b2ba776ad48e1aaf6e4c2c494695e9a4f4",
+  "run_id": "ai-kestrel-live-20261119-v1",
+  "criteria": {
+    "case_count": 4,
+    "all_correct": true,
+    "fabricated_total": 0,
+    "unsupported_total": 0,
+    "answered_actual_document_citation": true,
+    "proper_abstention": true
+  },
+  "maximum_sdk_calls": 12,
+  "request_budget_seconds": 45,
+  "total_budget_seconds": 180,
+  "policy_author": "AI",
+  "human_review_completed": 0,
+  "limitation": "Toy answer-layer technical criteria only; not frozen v1 thresholds or formal acceptance. Frozen score_generic is reused without modification. No held-out execution."
+}

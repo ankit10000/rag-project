@@ -1,0 +1,29 @@
+{
+  "policy_id": "ai-lumen-postfix-behavior-policy-v1",
+  "version": 1,
+  "run_id": "ai-lumen-postfix-live-20261119-v1",
+  "dataset_id": "ai-lumen-postfix-synthetic-v1",
+  "dataset_sha256": "cd2092dd25057a5544c8b1f6906cfb1c609dc7d2c8d2849308d741f4f73f0f04",
+  "created_at": "2026-11-19T08:39:19.807328+00:00",
+  "scope": "DEVELOPMENT_ONLY",
+  "criteria": {
+    "case_count": 4,
+    "all_behavior_contracts": true,
+    "required_fact_recall": 1.0,
+    "fabricated_citations": 0,
+    "ungrounded_numbers": 0,
+    "forbidden_hits": 0,
+    "factual_citation_completeness": 1.0
+  },
+  "behavior_contract_sha256": "095c07d50ceecd89032f2250a7bb608fa14557e69f9cb58146a886cb39f42778",
+  "behavior_policy_sha256": "8683ab27e30d7a3c3d4cf0062531a21cfce98a20c3328390a89f6a2115fa75c9",
+  "expected_kind": "Fixed in each source-reviewed case before provider execution",
+  "diagnostic_scorer": "Unchanged frozen v1 score_generic; its whole-case correct/partial/unsupported flags are reported, not inherited as this policy gate",
+  "gate_explanation": "Existing behavior contract plus required gold fact recall, structural citations and number guards only; not a semantic entailment certificate or acceptance policy",
+  "maximum_sdk_calls": 12,
+  "request_budget_seconds": 45,
+  "total_budget_seconds": 180,
+  "acceptance_policy_adoption": false,
+  "official_heldout_activation": false,
+  "human_review_completed": 0
+}
