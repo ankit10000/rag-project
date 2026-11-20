@@ -1,0 +1,56 @@
+{
+  "id": "unsupported",
+  "question": "What is the signed customer contract number for the proposed education portal in Executive Summary.pdf?",
+  "result": {
+    "answer": "I couldn't find sufficient information in the provided documents.",
+    "sources": [],
+    "citations": [],
+    "status": "abstained",
+    "issues": [],
+    "retrieval_status": "ok",
+    "retrieved": [
+      {
+        "ref": "S1",
+        "chunk_id": 131,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 1,
+        "retrieval_score": -0.4479934871196747
+      }
+    ],
+    "coverage": {
+      "policy": "v2-explicit-request-coverage/1",
+      "mode": "none",
+      "facets": [],
+      "enumeration_count": null,
+      "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+      "concrete_missing": [],
+      "context_unobserved": [],
+      "answer_checked": true
+    }
+  },
+  "metrics": {
+    "evidence_coverage": null,
+    "evidence_fact_checks": null,
+    "answer_factual_completeness": true,
+    "answer_fact_checks": [
+      {
+        "label": "contract information unavailable",
+        "observed": true
+      }
+    ],
+    "citation_abstention_correctness": true,
+    "citation_metadata_matches_owned_source": true,
+    "citation_presence_correct": true,
+    "declared_status_correct": true,
+    "selected_chunks": [
+      131
+    ],
+    "selected_pages": [
+      1
+    ],
+    "selected_characters": 798,
+    "scope_and_budget_ok": true
+  },
+  "seconds": 17.741,
+  "provider_calls": 2
+}

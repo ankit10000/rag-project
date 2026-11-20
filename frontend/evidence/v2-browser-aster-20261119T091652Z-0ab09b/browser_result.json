@@ -1,0 +1,19 @@
+{
+  "run_id": "v2-browser-aster-20261119T091652Z-0ab09b",
+  "scope": "SYNTHETIC_FUNCTIONAL_BROWSER_ONLY",
+  "answers": [],
+  "upload": {
+    "id": "7119f175-e09e-4fdc-b4ea-e3f807e26a57",
+    "document_id": "7119f175-e09e-4fdc-b4ea-e3f807e26a57",
+    "job_id": "0359bc5f-2efc-4deb-bd70-0db95cb54c47",
+    "filename": "v2-browser-aster-20261119T091652Z-0ab09b.pdf",
+    "status": "queued"
+  },
+  "status": "FAIL",
+  "failure": "Transport ECONNRESET while polling document status; no provider request was reached.",
+  "sdk_calls": 0,
+  "private_raw_trace_sha256": "43d35c6528568bdc6beb2eaabaa637c055a93d11732691e41116696118babc7a",
+  "private_raw_evidence_location": "/private/tmp/rag-v2-private-browser-v2-browser-aster-20261119T091652Z-0ab09b",
+  "record_type": "SANITIZED_ACTUAL_BROWSER_FAILURE",
+  "redaction": "Failure text excludes request cookies and credentials; raw trace retained privately outside Git."
+}

@@ -1,0 +1,25 @@
+{
+  "cid": "f3784764-c8ae-43cd-a42a-866563d772ce",
+  "turn": "b87a2eeb-e866-453b-8c24-045a833b5d6d",
+  "transport": "AbortError",
+  "disconnected_before_POST_response": true,
+  "saved": {
+    "kind": "answer",
+    "answer": "Under EDUCATION, the listed degree is a Bachelor of Engineering in Computer Engineering, the institute is Sample Institute of Technology, and the study dates are 2016 - 2020 [S1].",
+    "issues": [],
+    "status": "answered",
+    "citations": [
+      {
+        "ref": "S1",
+        "page": 2,
+        "chunk_id": 128,
+        "document": "Browser_Check_Morgan_Vale.pdf",
+        "document_id": "567ee27b-074a-4d09-9af5-5dd796b8667e"
+      }
+    ],
+    "retrieval_status": "ok",
+    "conversation_id": "f3784764-c8ae-43cd-a42a-866563d772ce",
+    "turn_id": "b87a2eeb-e866-453b-8c24-045a833b5d6d",
+    "answer_status": "answered"
+  }
+}

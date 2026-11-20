@@ -1,0 +1,22 @@
+{
+  "modules": [
+    "test_v2_auth",
+    "test_v2_ocr",
+    "test_v2_workers",
+    "test_v2_integration",
+    "test_v2_security",
+    "test_v2_journey",
+    "test_v2_release"
+  ],
+  "tests": 67,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 16.31,
+  "scope": "real scratch DB/process/OCR plus deterministic provider fixtures; not live browser",
+  "first_combined_run": {
+    "tests": 67,
+    "errors": 1,
+    "cause": "a legitimate background scheduler claimed the integration fixture job before its explicit claim; repeated after stopping schedulers without application/test changes"
+  }
+}

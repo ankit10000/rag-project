@@ -1,0 +1,132 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - button "Open Next.js Dev Tools" [ref=e8] [cursor=pointer]:
+    - img [ref=e9]
+  - alert [ref=e12]
+  - generic [ref=e13]:
+    - complementary "Sidebar" [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - link "RAG home" [ref=e17] [cursor=pointer]:
+            - /url: /chat
+            - img [ref=e19]
+            - generic [ref=e21]: RAG
+            - generic [ref=e22]: "2.0"
+          - button "Collapse sidebar" [ref=e23] [cursor=pointer]:
+            - img
+        - generic [ref=e24]:
+          - link "New chat" [ref=e25] [cursor=pointer]:
+            - /url: /chat
+            - img
+            - text: New chat
+          - button "Search conversations" [ref=e27] [cursor=pointer]:
+            - img
+            - text: Search conversations
+        - navigation "Workspace" [ref=e28]:
+          - link "Overview" [ref=e29] [cursor=pointer]:
+            - /url: /dashboard
+            - img [ref=e30]
+            - generic [ref=e35]: Overview
+          - link "Document library" [ref=e36] [cursor=pointer]:
+            - /url: /documents
+            - img [ref=e37]
+            - generic [ref=e41]: Document library
+          - link "Conversations" [ref=e42] [cursor=pointer]:
+            - /url: /conversations
+            - img [ref=e43]
+            - generic [ref=e46]: Conversations
+          - link "Memories" [ref=e47] [cursor=pointer]:
+            - /url: /memories
+            - img [ref=e48]
+            - generic [ref=e56]: Memories
+          - link "Processing activity" [ref=e57] [cursor=pointer]:
+            - /url: /jobs
+            - img [ref=e58]
+            - generic [ref=e60]: Processing activity
+          - link "Settings" [ref=e61] [cursor=pointer]:
+            - /url: /settings
+            - img [ref=e62]
+            - generic [ref=e65]: Settings
+        - region "Recent chats" [ref=e66]:
+          - heading "Recent chats" [level=2] [ref=e67]
+          - generic [ref=e68]:
+            - link "According to Morgan Vale’s resume, how did the Atlas project change report preparation time? Also, w" [ref=e69] [cursor=pointer]:
+              - /url: /chat?conversation=a0000000-0000-4000-8000-000000000003
+            - button "Actions for According to Morgan Vale’s resume, how did the Atlas project change report preparation time? Also, w" [ref=e70] [cursor=pointer]:
+              - img
+          - generic [ref=e71]:
+            - link "Orbital research" [ref=e72] [cursor=pointer]:
+              - /url: /chat?conversation=a0000000-0000-4000-8000-000000000001
+            - button "Actions for Orbital research" [ref=e73] [cursor=pointer]:
+              - img
+          - generic [ref=e74]:
+            - link "Meeting notes" [ref=e75] [cursor=pointer]:
+              - /url: /chat?conversation=a0000000-0000-4000-8000-000000000002
+            - button "Actions for Meeting notes" [ref=e76] [cursor=pointer]:
+              - img
+        - generic [ref=e77]:
+          - generic [ref=e78]:
+            - generic [ref=e79]: A
+            - generic [ref=e80]:
+              - paragraph [ref=e81]: Avery
+              - paragraph [ref=e82]: Personal workspace
+          - generic [ref=e83]:
+            - button "Use light mode" [ref=e84] [cursor=pointer]:
+              - img
+            - button "Sign out" [ref=e85] [cursor=pointer]:
+              - img
+              - text: Sign out
+    - generic [ref=e86]:
+      - banner [ref=e87]:
+        - link "RAG workspace" [ref=e89] [cursor=pointer]:
+          - /url: /chat
+        - paragraph [ref=e90]: Your sources. Grounded answers.
+      - main [ref=e91]:
+        - region "Chat workspace" [ref=e93]:
+          - generic [ref=e94]:
+            - generic [ref=e95]:
+              - heading "Chat workspace" [level=1] [ref=e96]
+              - paragraph [ref=e97]: Your documents. Clear answers. Original sources.
+            - button "New chat" [ref=e98] [cursor=pointer]:
+              - img
+              - text: New chat
+          - log "Conversation messages" [ref=e99]:
+            - generic [ref=e100]:
+              - article [ref=e101]:
+                - heading "You" [level=2] [ref=e103]
+                - paragraph [ref=e104]: According to Morgan Vale’s resume, how did the Atlas project change report preparation time? Also, what telephone number is listed for Morgan?
+              - article [ref=e105]:
+                - generic [ref=e106]:
+                  - heading "RAG" [level=2] [ref=e107]
+                  - generic [ref=e108]: partial
+                - paragraph [ref=e110]: The Atlas project reduced report preparation time from 40 to 12 minutes [S1]. The provided documents do not contain a telephone number listed for Morgan.
+                - link "Open citation S1 · observatory.pdf · p. 1" [ref=e112] [cursor=pointer]:
+                  - /url: /api/v2/documents/d0000000-0000-4000-8000-000000000001/file#page=1
+                  - img [ref=e113]
+                  - generic [ref=e116]: S1 · observatory.pdf · p. 1
+                - generic [ref=e118]:
+                  - button "Copy response" [ref=e119] [cursor=pointer]:
+                    - img
+                  - status [ref=e120]
+          - generic [ref=e121]:
+            - generic [ref=e122]:
+              - generic [ref=e123]: Your message
+              - textbox "Your message" [ref=e124]:
+                - /placeholder: Ask anything about your documents
+              - generic [ref=e125]:
+                - generic [ref=e126]:
+                  - button "Choose chat PDF" [ref=e127]
+                  - button "Attach PDF" [ref=e128] [cursor=pointer]:
+                    - img
+                  - button "Browse document sources" [ref=e129] [cursor=pointer]:
+                    - img
+                    - generic [ref=e130]: Sources
+                    - img
+                - button "Send" [disabled]:
+                  - img
+            - paragraph [ref=e131]: RAG can make mistakes. Check the original sources.
+```

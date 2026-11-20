@@ -1,0 +1,146 @@
+# Page snapshot
+
+```yaml
+- generic:
+  - link:
+    - /url: "#main"
+    - text: Skip to content
+  - button "Open Next.js Dev Tools" [ref=e6] [cursor=pointer]:
+    - img [ref=e7]
+  - alert
+  - generic:
+    - complementary:
+      - generic:
+        - generic:
+          - link:
+            - /url: /chat
+            - generic:
+              - img
+            - generic: RAG
+            - generic: "2.0"
+          - button:
+            - img
+        - generic:
+          - link:
+            - /url: /chat
+            - img
+            - text: New chat
+          - button:
+            - img
+            - text: Search conversations
+        - navigation:
+          - link:
+            - /url: /dashboard
+            - img
+            - generic: Overview
+          - link:
+            - /url: /documents
+            - img
+            - generic: Document library
+          - link:
+            - /url: /conversations
+            - img
+            - generic: Conversations
+          - link:
+            - /url: /memories
+            - img
+            - generic: Memories
+          - link:
+            - /url: /jobs
+            - img
+            - generic: Processing activity
+          - link:
+            - /url: /settings
+            - img
+            - generic: Settings
+        - region:
+          - heading [level=2]: Recent chats
+          - generic:
+            - link:
+              - /url: /chat?conversation=a0000000-0000-4000-8000-000000000001
+              - text: Orbital research
+            - button:
+              - img
+          - generic:
+            - link:
+              - /url: /chat?conversation=a0000000-0000-4000-8000-000000000002
+              - text: Meeting notes
+            - button:
+              - img
+        - generic:
+          - generic:
+            - generic: A
+            - generic:
+              - paragraph: Avery
+              - paragraph: Personal workspace
+          - generic:
+            - button:
+              - img
+            - button:
+              - img
+              - text: Sign out
+    - generic:
+      - banner:
+        - generic:
+          - link:
+            - /url: /chat
+            - text: RAG workspace
+        - paragraph: Your sources. Grounded answers.
+      - main:
+        - generic:
+          - region "Chat workspace":
+            - generic:
+              - generic:
+                - heading [level=1]: Chat workspace
+                - paragraph: Your documents. Clear answers. Original sources.
+              - button:
+                - img
+                - text: New chat
+            - log "Conversation messages":
+              - generic:
+                - generic:
+                  - img
+                - heading "What would you like to explore?" [level=2]
+                - paragraph: Ask about your files. Follow each citation back to the original page.
+                - generic:
+                  - button "Summarize a document":
+                    - img
+                    - text: Summarize a document
+                  - button "Find a detail":
+                    - img
+                    - text: Find a detail
+                  - button "Compare information":
+                    - img
+                    - text: Compare information
+            - generic:
+              - generic:
+                - generic: Your message
+                - textbox:
+                  - /placeholder: Ask anything about your documents
+                - generic:
+                  - generic:
+                    - button
+                    - button:
+                      - img
+                    - button:
+                      - img
+                      - generic: Sources
+                      - img
+                  - button [disabled]:
+                    - img
+              - paragraph: RAG can make mistakes. Check the original sources.
+  - dialog "Search conversations" [ref=e11]:
+    - generic [ref=e12]:
+      - heading "Search conversations" [level=2] [ref=e13]
+      - paragraph [ref=e14]: Find a conversation in your private workspace.
+    - generic [ref=e15]: Search conversations
+    - textbox "Search conversations" [active] [ref=e16]:
+      - /placeholder: Search your chats…
+      - text: Orbital
+    - list "Conversation search results" [ref=e17]:
+      - listitem [ref=e18] [cursor=pointer]:
+        - img [ref=e19]
+        - generic [ref=e22]: Orbital research
+    - button "Close dialog" [ref=e23] [cursor=pointer]:
+      - img [ref=e24]
+```

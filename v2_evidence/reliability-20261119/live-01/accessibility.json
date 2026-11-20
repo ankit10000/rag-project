@@ -1,0 +1,157 @@
+{
+  "id": "accessibility",
+  "question": "According to Executive Summary.pdf, what multilingual support and offline/mobile access are proposed?",
+  "result": {
+    "answer": "- Language support: The documents suggest extending content to Hindi and other regional languages to broaden accessibility under suggested additional features [S1].\n- Offline / mobile access: The documents propose allowing users to download videos and notes for offline study under offline access and mobile app features [S1].",
+    "sources": [
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 2,
+        "chunk_id": 138,
+        "ref": "S1"
+      }
+    ],
+    "citations": [
+      {
+        "ref": "S1",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 2,
+        "chunk_id": 138
+      }
+    ],
+    "status": "answered",
+    "issues": [],
+    "retrieval_status": "ok",
+    "retrieved": [
+      {
+        "ref": "S1",
+        "chunk_id": 138,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 2,
+        "retrieval_score": -3.01176381111145
+      },
+      {
+        "ref": "S2",
+        "chunk_id": 131,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 1,
+        "retrieval_score": -5.085249900817871
+      },
+      {
+        "ref": "S3",
+        "chunk_id": 156,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 6,
+        "retrieval_score": -3.8004872798919678
+      }
+    ],
+    "coverage": {
+      "policy": "v2-explicit-request-coverage/1",
+      "mode": "fields",
+      "facets": [
+        {
+          "id": "languages",
+          "label": "language support",
+          "pattern": "\\b(?:multilingual|languages?|Hindi|English|regional)\\b",
+          "request_pattern": "\\b(?:multilingual|languages?)\\b",
+          "query_terms": "multilingual language support",
+          "evidence_refs": [
+            "S1",
+            "S3"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": true,
+          "source_fact_signal": true,
+          "source_titles": [],
+          "refused_supported_item": false
+        },
+        {
+          "id": "offline",
+          "label": "offline / mobile access",
+          "pattern": "\\b(?:offline|mobile|downloads?|downloading)\\b",
+          "request_pattern": "\\b(?:offline|mobile)\\b",
+          "query_terms": "offline mobile downloads access",
+          "evidence_refs": [
+            "S1"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": true,
+          "source_fact_signal": true,
+          "source_titles": [],
+          "refused_supported_item": false
+        }
+      ],
+      "enumeration_count": null,
+      "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+      "concrete_missing": [],
+      "context_unobserved": [],
+      "answer_checked": true
+    }
+  },
+  "metrics": {
+    "evidence_coverage": true,
+    "evidence_fact_checks": [
+      {
+        "label": "Hindi/regional languages",
+        "observed": true
+      },
+      {
+        "label": "offline study",
+        "observed": true
+      },
+      {
+        "label": "videos",
+        "observed": true
+      },
+      {
+        "label": "notes",
+        "observed": true
+      },
+      {
+        "label": "mobile app",
+        "observed": true
+      }
+    ],
+    "answer_factual_completeness": true,
+    "answer_fact_checks": [
+      {
+        "label": "Hindi/regional languages",
+        "observed": true
+      },
+      {
+        "label": "offline study",
+        "observed": true
+      },
+      {
+        "label": "videos",
+        "observed": true
+      },
+      {
+        "label": "notes",
+        "observed": true
+      },
+      {
+        "label": "mobile app",
+        "observed": true
+      }
+    ],
+    "citation_abstention_correctness": true,
+    "citation_metadata_matches_owned_source": true,
+    "citation_presence_correct": true,
+    "declared_status_correct": true,
+    "selected_chunks": [
+      138,
+      131,
+      156
+    ],
+    "selected_pages": [
+      2,
+      1,
+      6
+    ],
+    "selected_characters": 2324,
+    "scope_and_budget_ok": true
+  },
+  "seconds": 26.304,
+  "provider_calls": 2
+}

@@ -1,0 +1,36 @@
+{
+  "branch": "main",
+  "head_unchanged": true,
+  "preexisting_files_changed": [
+    "RAG_V2_IMPLEMENTATION_STATUS.md",
+    "services/answer_prompt.py",
+    "services/answer_semantics.py",
+    "services/answer_service.py",
+    "services/hybrid_search_service.py",
+    "services/rag_service.py",
+    "services/reranker_service.py"
+  ],
+  "unrelated_preexisting_files_preserved": true,
+  "staged_bytes_preserved": true,
+  "original_six_case_evidence_preserved": true,
+  "protected_assets": 44,
+  "protected_hashes_unchanged": true,
+  "diff_check_exit": 0,
+  "modified_tracked_status_entries": 12,
+  "untracked_status_entries": 42,
+  "note": "Untracked status entries include directories; not an individual file count.",
+  "provider_calls": 52,
+  "runtime_source_sha256": {
+    "services/answer_prompt.py": "c91bee195928b4d4214b03ccc6dbf1e1d8b99e5ed7f570e22a014e6482aa80db",
+    "services/answer_semantics.py": "f472342ef0b95ca9c1f3758becfe140732b6abdf5c6b5f3c890bc61a060c980f",
+    "services/answer_service.py": "af3f9656770a7c73447bc0fd87c0605ab94d08207594879b4e37b65427644085",
+    "services/hybrid_search_service.py": "5905f7af90612d69e37ef0647391fc335f5ecdabfc1875baa5d04538d4e9c2fd",
+    "services/rag_service.py": "50a0bdf70d0bd96221c922bd45b88aa290575e0153dc8d62037fd719b829029f",
+    "services/reranker_service.py": "7f7198ab27f7fb555fbd9b25e790c5a2283dbe377ddfd4ee1d8fcd60a39d89f9",
+    "services/evidence_trace.py": "9aa0af8833a2cb1d7fb0d63670f6cac207805a9d8284e52701110445eaa622e4",
+    "services/v2_evidence_recovery.py": "7d9f327bf44f909407e6def2b7dca38dbb258bc3c4abd0f47e084076cbc75485",
+    "services/request_coverage.py": "5f117896b2cd4ba865b9159bb9dc93eb7711d94196061b63e9b9a79f220e83f0",
+    "services/source_count_comparison.py": "6c2a9e253114e6a225b76d7de56b55974a20a5b9731b46504885a317572317e8",
+    "scripts/v2_reliability_check.py": "33a98c10d8cb04da89c5f7553ad6c743bc12a75377e97f97c992d854fbed4113"
+  }
+}

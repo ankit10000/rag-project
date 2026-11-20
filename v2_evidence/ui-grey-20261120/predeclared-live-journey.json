@@ -1,0 +1,16 @@
+{
+  "run_id": "rag-grey-ui-20261120-live-01",
+  "scope": "synthetic development UI integration only",
+  "max_sdk_calls": 6,
+  "source_fixture_sha256": "67d965079325f2013183d2d69137aaf4b22af80c56417510778c1cfb46b0e0c5",
+  "source": "image-only fictional Aster Harbor visitor policy;83credits;17days",
+  "expected": [
+    "real login/upload/OCR/indexing",
+    "real Gemini83/17 answered with ownedpage1 citation",
+    "PDF navigation originalpage",
+    "refresh/reopen preserve text status citations",
+    "second user cannot list/read other user source or conversation",
+    "delete uploaded document/conversation and verify404"
+  ],
+  "historical_evaluation": "unchanged; not an official acceptance run"
+}

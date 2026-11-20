@@ -1,0 +1,103 @@
+{
+  "id": "product",
+  "question": "According to Executive Summary.pdf, what is the proposed product and which three entrance examinations does it target?",
+  "result": {
+    "answer": "The proposed product is an AI-driven education portal that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces [S1]. It targets the JEE, GATE, and NEET entrance examinations [S1].",
+    "sources": [
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 1,
+        "chunk_id": 131,
+        "ref": "S1"
+      }
+    ],
+    "citations": [
+      {
+        "ref": "S1",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 1,
+        "chunk_id": 131
+      }
+    ],
+    "status": "answered",
+    "issues": [],
+    "retrieval_status": "ok",
+    "retrieved": [
+      {
+        "ref": "S1",
+        "chunk_id": 131,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 1,
+        "retrieval_score": -3.2510318756103516
+      }
+    ],
+    "coverage": {
+      "policy": "v2-explicit-request-coverage/1",
+      "mode": "clauses",
+      "facets": [],
+      "enumeration_count": null,
+      "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+      "decomposition_clauses": [
+        "According to Executive Summary.pdf, what is the proposed product",
+        "which three entrance examinations does it target?"
+      ],
+      "concrete_missing": [],
+      "context_unobserved": [],
+      "answer_checked": true
+    }
+  },
+  "metrics": {
+    "evidence_coverage": true,
+    "evidence_fact_checks": [
+      {
+        "label": "AI education portal",
+        "observed": true
+      },
+      {
+        "label": "JEE",
+        "observed": true
+      },
+      {
+        "label": "GATE",
+        "observed": true
+      },
+      {
+        "label": "NEET",
+        "observed": true
+      }
+    ],
+    "answer_factual_completeness": true,
+    "answer_fact_checks": [
+      {
+        "label": "AI education portal",
+        "observed": true
+      },
+      {
+        "label": "JEE",
+        "observed": true
+      },
+      {
+        "label": "GATE",
+        "observed": true
+      },
+      {
+        "label": "NEET",
+        "observed": true
+      }
+    ],
+    "citation_abstention_correctness": true,
+    "citation_metadata_matches_owned_source": true,
+    "citation_presence_correct": true,
+    "declared_status_correct": true,
+    "selected_chunks": [
+      131
+    ],
+    "selected_pages": [
+      1
+    ],
+    "selected_characters": 798,
+    "scope_and_budget_ok": true
+  },
+  "seconds": 20.671,
+  "provider_calls": 2
+}

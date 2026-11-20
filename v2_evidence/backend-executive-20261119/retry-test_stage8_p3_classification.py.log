@@ -1,0 +1,24 @@
+PASS | A rewrite runs before classification
+PASS | A classifier receives the rewritten standalone query, not the raw follow-up
+PASS | A retrieval receives the same rewritten query
+PASS | A the original user question still reaches answer generation
+PASS | A rewrite receives the original query, history and memory (inputs unchanged)
+PASS | A real classifier prompt is built from the rewritten query
+PASS | A standalone question: no rewrite LLM call, classifier gets the raw query, one LLM call in total
+PASS | A follow-up: exactly one rewrite and one classification request, rewrite first
+PASS | B memory question stays MEMORY: retrieval skipped
+PASS | B retrieval_status is 'not_run'
+PASS | B MEMORY type reaches answer generation
+PASS | C document follow-up retrieves with the rewritten query
+PASS | C retrieved evidence reaches context assembly and answer generation
+PASS | C end to end (real answer layer): grounded answer cites the retrieved page
+PASS | D MIXED still runs document retrieval
+PASS | D MIXED keeps the memory context for the answer
+PASS | E rewrite failure: classifier and retrieval use the original question (existing contract)
+PASS | E empty rewrite falls back to the original question for classification and retrieval
+PASS | E whitespace rewrite falls back to the original question for classification and retrieval
+PASS | E classification failure keeps the DOCUMENT fallback: retrieval runs, no bypass
+
+0 check(s) failed
+
+W1119 17:52:04.745000 49409 .venv/lib/python3.14/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.

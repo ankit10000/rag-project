@@ -1,0 +1,41 @@
+
+> rag-v2-web@2.0.0 build
+> next build --webpack
+
+▲ Next.js 16.4.6 (webpack)
+- Environments: .env
+✓ Running next.config.ts took 18ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 5.0s
+  Running TypeScript ...
+  Finished TypeScript in 2.6s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/13) ...
+  Generating static pages using 7 workers (3/13) 
+  Generating static pages using 7 workers (6/13) 
+  Generating static pages using 7 workers (9/13) 
+✓ Generating static pages using 7 workers (13/13) in 211ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /admin
+├ ƒ /api/v2/[...path]
+├ ƒ /chat
+├ ○ /conversations
+├ ○ /dashboard
+├ ○ /documents
+├ ƒ /documents/[id]
+├ ○ /jobs
+├ ○ /login
+├ ○ /memories
+├ ○ /register
+└ ○ /settings
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

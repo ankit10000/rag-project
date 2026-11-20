@@ -1,0 +1,42 @@
+{
+  "identity": "live-03",
+  "selected_case_ids": [
+    "conflict",
+    "explicit_negative",
+    "long_section",
+    "partial"
+  ],
+  "cases": [
+    {
+      "id": "conflict",
+      "question": "In Executive Summary.pdf, does the roadmap stated phase count agree with its listed phases? Report any inconsistency.",
+      "expected": "Roadmap introduction says roughly 3 phases but enumerates 4 phases (p15); disclose inconsistency",
+      "category": "source conflict"
+    },
+    {
+      "id": "explicit_negative",
+      "question": "According to Executive Summary.pdf, does public cloud require upfront capital expenditure?",
+      "expected": "No upfront cost/avoids CapEx; pay-as-you-go ongoing costs (p9 or17). Grounded negative answer, not abstention.",
+      "category": "explicit negative"
+    },
+    {
+      "id": "long_section",
+      "question": "List all core MVP features and all suggested additional features in Executive Summary.pdf.",
+      "expected": "Core video lessons, notes/summaries, test series/quizzes, question bank/Q&A; additional adaptive learning, live doubt forum, analytics, gamification, multilingual Hindi/regional, offline/mobile (p1-2)",
+      "category": "long section and enumeration"
+    },
+    {
+      "id": "partial",
+      "question": "According to Executive Summary.pdf, which entrance exams does the proposed portal target, and what is its signed customer contract number?",
+      "expected": "JEE/GATE/NEET supported (p1); contract number unavailable; partial status, no invented number",
+      "category": "compound supported and unavailable"
+    }
+  ],
+  "frozen_fact_checks_sha256": "46e4accef77df0901e7c8fc0c786d72d9eacc2b64f512201b6fafa183bdaebbb",
+  "predeclared_sha256": "185d0ab7ad600e65d77ddd672a86bdefd8d660eae417244df40fb8f88aa91a54",
+  "provider_call_cap": 10,
+  "prior_provider_calls": 42,
+  "aggregate_cap": 52,
+  "manual_review_note": "The original explicit-negative question asks upfront cost only. Its frozen extra ongoing-cost cue remains unchanged and may fail while the actual question is correctly answered. Report strict metric and separately identified source-bound manual judgment.",
+  "execution_state": "predeclared only; requires lead go"
+}

@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "measurements": [
+    {
+      "originalPage": 2,
+      "width": 930,
+      "height": 1116,
+      "min": 0,
+      "max": 255
+    },
+    {
+      "originalPage": 1,
+      "width": 930,
+      "height": 1116,
+      "min": 0,
+      "max": 255
+    },
+    {
+      "originalPage": 2,
+      "width": 930,
+      "height": 1116,
+      "min": 0,
+      "max": 255
+    },
+    {
+      "originalPage": 2,
+      "width": 324,
+      "height": 388,
+      "min": 6,
+      "max": 255
+    }
+  ],
+  "remote_requests": [],
+  "source_document_id": "567ee27b-074a-4d09-9af5-5dd796b8667e",
+  "original_pages": [
+    2,
+    1,
+    2,
+    2
+  ],
+  "provider_calls": 0
+}

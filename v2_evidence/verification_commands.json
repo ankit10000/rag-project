@@ -1,0 +1,60 @@
+{
+  "note": "Commands and outcomes are actual executed checks; scratch credential constants are disposable fixtures, never application secrets.",
+  "commands": [
+    {
+      "command": ".venv/bin/python -B scripts/v2_scratch.py",
+      "result": "PASS; fresh additive schema, then idempotent reapplication and model columns"
+    },
+    {
+      "command": ".venv/bin/python -B -",
+      "stdin": "import os,unittest\nfrom scripts.v2_scratch import app_url\nos.environ.update(DATABASE_URL=app_url(),RAG_V2='1',RAG_V2_COMPAT='0',RAG_V2_DB_TEST='1',RAG_OCR_TESSDATA='/private/tmp/rag-v2-tessdata',HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',LOCAL_V1_PROFILE='0',TESTSAFE_BLOCK_NETWORK='1')\nnames=['test_v2_security','test_v2_integration','test_v2_journey','test_v2_release']\nr=unittest.TextTestRunner(verbosity=1).run(unittest.defaultTestLoader.loadTestsFromNames(names));raise SystemExit(not r.wasSuccessful())\n",
+      "result": "18/18 PASS in14.278s after final backend transport hardening"
+    },
+    {
+      "command": ".venv/bin/python -B -m unittest test_v2_security.V2BodyDeadlineTests test_v2_security.V2ServerErrorRedactionTests test_v2_security.V2PrivateLogTests -v",
+      "result": "3/3 PASS; first two reproduced FAIL before narrow fixes"
+    },
+    {
+      "command": ".venv/bin/python -B -m scripts.v2_restore_check",
+      "result": "PASS; nonempty consistent snapshot restore; all10 table counts equal;8FORCERLSpolicies; unique restore DB/seed removed"
+    },
+    {
+      "command": ".venv/bin/python -B -",
+      "stdin": "import os\nos.environ.update(LOCAL_V1_SCRATCH_BASE_URL='postgresql://postgres:rag-v2-regression-only@127.0.0.1:55433/rag_test_scratch',RAG_V2='0',RAG_V2_COMPAT='0')\nfrom scripts import local_v1_scratch as s\ns.initialize()\nraise SystemExit(s.run_tests(s.registered_tests(),'/private/tmp/rag-v2-regressions.json'))\n",
+      "result": "91/92 scripts PASS; historical review HEAD pin mismatch only; see regression_summary.json"
+    },
+    {
+      "command": ".venv/bin/python -B -",
+      "stdin": "import os,unittest,sys\nos.environ.update(DATABASE_URL='postgresql://nobody@127.0.0.1:1/rag_test_scratch',TESTSAFE_BLOCK_NETWORK='1',HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1',RAG_V2='0',RAG_V2_COMPAT='0',LOCAL_V1_PROFILE='0')\nnames=['test_abstention_contract','test_abstention_policy','test_official_v1_capture','test_official_v1_execution','test_ai_acceptance_policy','test_ai_postfix_development']\nr=unittest.TextTestRunner(verbosity=1).run(unittest.defaultTestLoader.loadTestsFromNames(names));print('FOCUSED_METHODS',r.testsRun);sys.exit(not r.wasSuccessful())\n",
+      "result": "73/73 PASS"
+    },
+    {
+      "cwd": "frontend",
+      "command": "npm run build; npm run typecheck; npm run lint; npm test",
+      "result": "allPASS;15unit/APIgateway tests"
+    },
+    {
+      "cwd": "frontend",
+      "command": "RAG_E2E_EXTERNAL=1 RAG_V2_LIVE_BROWSER=1 RAG_V2_BROWSER_RUN_ID=v2-browser-aster-20261119T092730Z-466c2d npm run test:e2e -- tests/browser/live-core.spec.ts --project=desktop-chromium --workers=1",
+      "result": "1/1 actual live browser PASS2.4min;11actualSDKcalls;no retries"
+    },
+    {
+      "command": ".venv/bin/python -m pip check",
+      "result": "No broken requirements found"
+    },
+    {
+      "command": "git diff --check",
+      "result": "PASS"
+    },
+    {
+      "cwd": "frontend",
+      "command": "RAG_E2E_EXTERNAL=1 RAG_E2E_REAL=1 npm run test:e2e -- tests/browser/workspace.spec.ts tests/browser/real-api.spec.ts --workers=1",
+      "result": "10 passed in26.7seconds;8 API-intercepted UI tests plus2 real scratch-API browser journeys; no providers"
+    },
+    {
+      "cwd": "frontend",
+      "command": "node scripts/check-openapi.mjs http://127.0.0.1:8000/api/v2/openapi.json",
+      "result": "24 frontend route/method contracts matched"
+    }
+  ]
+}

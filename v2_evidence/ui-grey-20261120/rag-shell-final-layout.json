@@ -1,0 +1,36 @@
+[
+  {
+    "viewport": {
+      "w": 1280,
+      "h": 720
+    },
+    "document": {
+      "w": 1280,
+      "h": 720
+    },
+    "body": 720,
+    "h1": "18px",
+    "textarea": {
+      "border": "0px",
+      "padding": "8px 4px",
+      "background": "rgba(0, 0, 0, 0)"
+    }
+  },
+  {
+    "viewport": {
+      "w": 393,
+      "h": 851
+    },
+    "document": {
+      "w": 393,
+      "h": 851
+    },
+    "body": 851,
+    "h1": "16px",
+    "textarea": {
+      "border": "0px",
+      "padding": "8px 4px",
+      "background": "rgba(0, 0, 0, 0)"
+    }
+  }
+]

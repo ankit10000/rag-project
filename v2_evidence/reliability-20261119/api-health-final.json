@@ -1,0 +1,7 @@
+{
+  "status": 200,
+  "response": {
+    "status": "ok"
+  },
+  "scope": "Health check after API reload; no UI or provider request"
+}

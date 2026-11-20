@@ -1,0 +1,148 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - button "Open Next.js Dev Tools" [ref=e8] [cursor=pointer]:
+    - img [ref=e9]
+  - alert [ref=e12]
+  - generic [ref=e13]:
+    - complementary "Sidebar" [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - link "RAG home" [ref=e17] [cursor=pointer]:
+            - /url: /chat
+            - img [ref=e19]
+            - generic [ref=e21]: RAG
+            - generic [ref=e22]: "2.0"
+          - button "Collapse sidebar" [ref=e23] [cursor=pointer]:
+            - img
+        - generic [ref=e24]:
+          - link "New chat" [ref=e25] [cursor=pointer]:
+            - /url: /chat
+            - img
+            - text: New chat
+          - button "Search conversations" [ref=e27] [cursor=pointer]:
+            - img
+            - text: Search conversations
+        - navigation "Workspace" [ref=e28]:
+          - link "Overview" [ref=e29] [cursor=pointer]:
+            - /url: /dashboard
+            - img [ref=e30]
+            - generic [ref=e35]: Overview
+          - link "Document library" [ref=e36] [cursor=pointer]:
+            - /url: /documents
+            - img [ref=e37]
+            - generic [ref=e41]: Document library
+          - link "Conversations" [ref=e42] [cursor=pointer]:
+            - /url: /conversations
+            - img [ref=e43]
+            - generic [ref=e46]: Conversations
+          - link "Memories" [ref=e47] [cursor=pointer]:
+            - /url: /memories
+            - img [ref=e48]
+            - generic [ref=e56]: Memories
+          - link "Processing activity" [ref=e57] [cursor=pointer]:
+            - /url: /jobs
+            - img [ref=e58]
+            - generic [ref=e60]: Processing activity
+          - link "Settings" [ref=e61] [cursor=pointer]:
+            - /url: /settings
+            - img [ref=e62]
+            - generic [ref=e65]: Settings
+        - region "Recent chats" [ref=e66]:
+          - heading "Recent chats" [level=2] [ref=e67]
+          - generic [ref=e68]:
+            - link "Orbital research" [ref=e69] [cursor=pointer]:
+              - /url: /chat?conversation=a0000000-0000-4000-8000-000000000001
+            - button "Actions for Orbital research" [ref=e70] [cursor=pointer]:
+              - img
+          - generic [ref=e71]:
+            - link "Meeting notes" [ref=e72] [cursor=pointer]:
+              - /url: /chat?conversation=a0000000-0000-4000-8000-000000000002
+            - button "Actions for Meeting notes" [ref=e73] [cursor=pointer]:
+              - img
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - generic [ref=e76]: A
+            - generic [ref=e77]:
+              - paragraph [ref=e78]: Avery
+              - paragraph [ref=e79]: Personal workspace
+          - generic [ref=e80]:
+            - button "Use light mode" [ref=e81] [cursor=pointer]:
+              - img
+            - button "Sign out" [ref=e82] [cursor=pointer]:
+              - img
+              - text: Sign out
+    - generic [ref=e83]:
+      - banner [ref=e84]:
+        - link "RAG workspace" [ref=e86] [cursor=pointer]:
+          - /url: /chat
+        - paragraph [ref=e87]: Your sources. Grounded answers.
+      - main [ref=e88]:
+        - generic [ref=e89]:
+          - generic [ref=e90]:
+            - generic [ref=e91]:
+              - paragraph [ref=e92]: Your sources
+              - heading "Documents" [level=1] [ref=e93]
+              - paragraph [ref=e94]: A private library for grounded answers.
+            - button "Refresh documents" [ref=e95] [cursor=pointer]:
+              - img
+              - text: Refresh
+          - alert [ref=e96]: Choose a PDF file (.pdf).
+          - region "Upload a PDF" [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e99]:
+                - img [ref=e101]
+                - generic [ref=e104]:
+                  - heading "Add a source" [level=2] [ref=e105]
+                  - paragraph [ref=e106]: Drop a PDF here, or choose a file.
+                  - paragraph [ref=e107]: Native and scanned pages · up to 25 MB per PDF
+              - generic [ref=e108]:
+                - generic [ref=e109]: Choose PDF
+                - button "Choose PDF" [ref=e110]
+                - button "Upload PDF" [ref=e111] [cursor=pointer]:
+                  - img
+                  - text: Upload PDF
+          - generic [ref=e112]:
+            - generic [ref=e113]:
+              - img
+              - textbox "Search documents" [ref=e114]:
+                - /placeholder: Search documents…
+            - generic [ref=e115]:
+              - generic [ref=e116]: 1 source
+              - generic [ref=e117]: Filter documents by status
+              - combobox "Filter documents by status" [ref=e118]:
+                - option "All statuses" [selected]
+                - option "Ready"
+                - option "Processing"
+                - option "Failed"
+                - option "Cancelled"
+          - table [ref=e121]:
+            - rowgroup [ref=e122]:
+              - row "Document Status Pages Chunks Actions" [ref=e123]:
+                - columnheader "Document" [ref=e124]
+                - columnheader "Status" [ref=e125]
+                - columnheader "Pages" [ref=e126]
+                - columnheader "Chunks" [ref=e127]
+                - columnheader "Actions" [ref=e128]:
+                  - generic [ref=e129]: Actions
+            - rowgroup [ref=e130]:
+              - row "observatory.pdf 1 native · 1 OCR page Ready 2 3 Actions for observatory.pdf" [ref=e131]:
+                - cell "observatory.pdf 1 native · 1 OCR page" [ref=e132]:
+                  - link "observatory.pdf" [ref=e133] [cursor=pointer]:
+                    - /url: /documents/d0000000-0000-4000-8000-000000000001
+                    - img [ref=e134]
+                    - generic [ref=e137]: observatory.pdf
+                  - paragraph [ref=e138]: 1 native · 1 OCR page
+                - cell "Ready" [ref=e139]:
+                  - generic [ref=e140]:
+                    - img [ref=e141]
+                    - text: Ready
+                - cell "2" [ref=e143]
+                - cell "3" [ref=e144]
+                - cell "Actions for observatory.pdf" [ref=e145]:
+                  - button "Actions for observatory.pdf" [ref=e146] [cursor=pointer]:
+                    - img
+```

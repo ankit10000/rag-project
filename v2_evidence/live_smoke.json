@@ -1,0 +1,40 @@
+{
+  "run_id": "v2-orion-live-20261119T091041Z-6812d846",
+  "started_at": "2026-11-19T09:10:41.078638+00:00",
+  "predeclared_criteria": {
+    "scope": "synthetic functional integration only; not formal evaluation acceptance",
+    "two_independent_workers": "both separate PIDs use real pinned local OCR and actual cached embeddings",
+    "image_only_pdf": "no native PDF text; original page1 is preserved in indexed chunks/citations",
+    "document_facts": {
+      "permit_cost": 37,
+      "validity_days": 19
+    },
+    "negative_fact": "the gallery does not operate a fax service",
+    "grounding": "answered; facts37 and19; nonempty valid citation belonging only to A document/page1; rerank_status ok",
+    "isolation": "B receives404 for A document/file/job/conversation/memory provenance and cannot list A resources",
+    "memory": "peppermint-tea preference extracted from actual user message, user_source link, followed by real memory recall",
+    "deletion": "document chunks disappear and completed stale lease cannot republish; conversation cascades memory/source removal",
+    "maximum_actual_gemini_sdk_calls": 12,
+    "failure_policy": "preserve raw actual outcome; do not change criteria, retry identity or claim formal acceptance"
+  },
+  "synthetic_sources": {
+    "A": "Orion Gallery visitor policy. A visitor permit costs 37 credits. Every visitor permit is valid for 19 days. The gallery does not operate a fax service.",
+    "B": "Zephyr Archive private member policy. A private member pass costs 88 credits. The Zephyr pass is valid for 8 days. Zephyr operates a members-only reading room."
+  },
+  "script_sha256": "bf8cb7860bf109adcc07988939fd08e2d5a1958b41a561cd3f5782ac6691bde6",
+  "status": "FAIL",
+  "checks": [],
+  "provider_calls": [],
+  "answers": [],
+  "human_certification": false,
+  "error_type": "OperationalError",
+  "sdk_call_count": 0,
+  "elapsed_seconds": 0.6888,
+  "finished_at": "2026-11-19T09:10:41.768049+00:00",
+  "limits": [
+    "synthetic functional smoke, not benchmark/formal acceptance",
+    "no browser automation in this script",
+    "no protected inputs or human certification",
+    "no cleanup of unrelated scratch rows"
+  ]
+}

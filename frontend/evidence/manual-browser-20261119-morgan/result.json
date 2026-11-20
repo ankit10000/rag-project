@@ -1,0 +1,66 @@
+{
+  "status": "FAIL",
+  "date": "2026-11-19",
+  "method": "Live manual UI through cua_repl; real application/provider responses; no intercepted or mocked browser API responses",
+  "test_account": "Existing synthetic Aster Browser Tester account",
+  "fixture": "Browser_Check_Morgan_Vale.pdf; fictional person; page1 native career summary, page2 scanned education",
+  "submitted_questions": 7,
+  "questions": [
+    {
+      "question": "Who is Morgan Vale? I prefer concise answers.",
+      "result": "PASS",
+      "observed": "Correct Full Stack Engineer, five years, Cedar Labs, page1 citation; PDF opens."
+    },
+    {
+      "question": "What is the qualifications of Morgan Vale? (follow-up)",
+      "result": "FAIL_DELIVERY",
+      "observed": "UI timeout. Later reopened history contains correct Bachelor of Engineering, Computer Engineering, Sample Institute of Technology, 2016–2020."
+    },
+    {
+      "question": "What is the qualifications of Morgan Vale? (fresh chat)",
+      "result": "FAIL",
+      "observed": "False insufficient-information abstention."
+    },
+    {
+      "question": "In Browser_Check_Morgan_Vale.pdf, what is listed under EDUCATION? Please give the degree, institute and study dates.",
+      "result": "FAIL",
+      "observed": "False insufficient-information abstention citing page1 despite visible/indexed page2 degree."
+    },
+    {
+      "question": "According to Morgan Vale’s resume, how did the Atlas project change report preparation time? Also, what telephone number is listed for Morgan?",
+      "result": "PARTIAL_FAILURE",
+      "observed": "Correct40→12minutes, does not invent phone. Badge answered despite explicit missing-information component; expected partial."
+    },
+    {
+      "question": "Please remember that I prefer concise answers. What answer style do I prefer?",
+      "result": "PASS",
+      "observed": "You prefer concise answers."
+    },
+    {
+      "question": "What answer style do I prefer?",
+      "result": "PASS",
+      "observed": "Correct recall without repeating preference; Memory page shows supported preference and source message108."
+    }
+  ],
+  "additional_checks": {
+    "upload": "PASS:ready2pages2chunks",
+    "ocr": "PASS:page2 OCR metadata and stored text match visible degree; read-only scratch inspection",
+    "citation_open": "PASS:live citation opens original PDF",
+    "history": "FAIL:messages retained but clickable citations and answer status badges disappear after reopening"
+  },
+  "defects": [
+    "False education abstention on fresh/precise questions",
+    "Correct saved answer hidden by UI timeout",
+    "Mixed complete/missing answer incorrectly labelled answered",
+    "Reopened history loses clickable citations and status badges"
+  ],
+  "retained_data": {
+    "document_id": "567ee27b-074a-4d09-9af5-5dd796b8667e",
+    "conversations": [
+      "b1529c9d-4551-4d65-9d7c-17b678c85511",
+      "5248948b-1efe-4a44-8f87-3132574288f1"
+    ],
+    "reason": "Retained for inspection; deletion not executed"
+  },
+  "safety": "No user document/account changes, production DB access, frozen evaluation changes, Git mutations or application source changes. Only synthetic test upload/chat/preference records created. SDK call count not instrumented in this manual run."
+}

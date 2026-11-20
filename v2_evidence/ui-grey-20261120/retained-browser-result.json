@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "cases": 3,
+  "statuses": [
+    "answered",
+    "answered",
+    "partial"
+  ],
+  "original_pages": [
+    2,
+    2,
+    1
+  ],
+  "new_chat_POSTs": 0,
+  "original_model_results": "preserved; not regenerated"
+}

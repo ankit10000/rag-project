@@ -1,0 +1,23 @@
+{
+  "run_id": "v2-browser-aster-20261119T092253Z-4eb789",
+  "scope": "SYNTHETIC_FUNCTIONAL_BROWSER_ONLY",
+  "answers": [],
+  "upload": {
+    "id": "f7a4f2df-8a1b-434b-b2c5-22a334257b74",
+    "document_id": "f7a4f2df-8a1b-434b-b2c5-22a334257b74",
+    "job_id": "e531a07a-c16d-4e9f-a04e-a0539f935b2a",
+    "filename": "v2-browser-aster-20261119T092253Z-4eb789.pdf",
+    "status": "queued"
+  },
+  "status": "FAIL",
+  "failure": "Document did not reach indexed within the predeclared100-second processing window.",
+  "observed_document_statuses": [
+    "queued",
+    "ready"
+  ],
+  "sdk_calls": 0,
+  "private_raw_trace_sha256": "191a2f442275d3994ba0b69271ca8940433dfe88a8262428a0cf0dd4ecfb3462",
+  "private_raw_evidence_location": "/private/tmp/rag-v2-private-browser-v2-browser-aster-20261119T092253Z-4eb789",
+  "record_type": "SANITIZED_ACTUAL_BROWSER_FAILURE",
+  "redaction": "Credentials and session cookies are excluded; raw trace retained privately outside Git."
+}

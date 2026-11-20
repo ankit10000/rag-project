@@ -1,0 +1,24 @@
+{
+  "sha256": {
+    "services/rag_service.py": "aa67778a20ee494a3a85bc88ae69d6076548fc58c76bd357b80b16b98c189bdf",
+    "services/hybrid_search_service.py": "5905f7af90612d69e37ef0647391fc335f5ecdabfc1875baa5d04538d4e9c2fd",
+    "services/reranker_service.py": "7f7198ab27f7fb555fbd9b25e790c5a2283dbe377ddfd4ee1d8fcd60a39d89f9",
+    "services/evidence_trace.py": "5221a1719776a229ef6048258b9c3f4c7c3900ed55d9c16a5c561360134298c1",
+    "services/v2_evidence_recovery.py": "7d9f327bf44f909407e6def2b7dca38dbb258bc3c4abd0f47e084076cbc75485",
+    "services/request_coverage.py": "e3ce5403ead3ef4f8c438e17da184089af1c26197e15df7fd6fe4bf66c23e74f",
+    "services/answer_service.py": "6aa38875b91bb407d326e69ee95d0e9691a951a0ee72d6f043d16cbc35c0e29f",
+    "services/answer_semantics.py": "f472342ef0b95ca9c1f3758becfe140732b6abdf5c6b5f3c890bc61a060c980f",
+    "services/answer_prompt.py": "c91bee195928b4d4214b03ccc6dbf1e1d8b99e5ed7f570e22a014e6482aa80db",
+    "scripts/v2_reliability_check.py": "d2f19c0f0a46c5691e9dbd1b8d0e79fc0e346e75622b4174f40ef38ae7315a2d"
+  },
+  "selected_case_ids": [
+    "unsupported",
+    "comparison",
+    "conflict",
+    "explicit_negative",
+    "long_section",
+    "partial"
+  ],
+  "provider_call_cap": 16,
+  "prior_provider_calls": 28
+}

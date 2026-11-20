@@ -1,0 +1,41 @@
+
+Running 1 test using 1 worker
+
+(node:21843) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:21843) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › tests/browser/reliability-closure.spec.ts:4:1 › retained Morgan live answers, reconciliation, retry and history (12.0s)
+
+
+  1) [desktop-chromium] › tests/browser/reliability-closure.spec.ts:4:1 › retained Morgan live answers, reconciliation, retry and history 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoContain[2m([22m[32mexpected[39m[2m) // indexOf[22m
+
+    Expected substring: [32m"#page="[39m
+    Received string:    [31m":"[39m
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      21 |   const link=assistant.getByRole('link',{name:/Open citation/}).first();await expect(link).toBeVisible();const href=await link.getAttribute('href');expect(href).toContain('/documents/567ee27b-074a-4d09-9af5-5dd796b8667e/file#page=');if(i<2)expect(href).toContain('#page=2');
+      22 |   const file=await page.request.get(href!.split('#')[0]);expect(file.status()).toBe(200);expect(file.headers()['content-type']).toContain('application/pdf');
+    > 23 |   const opened=page.waitForEvent('popup');await link.click();const popup=await opened;await expect.poll(()=>popup.url()).toContain('#page=');await popup.close();
+         |                                                                                       ^
+      24 |   await page.screenshot({path:path.join(out,`browser-${i+1}.png`)});
+      25 |   const retry=await page.evaluate(async({cid,turn,message})=>{const csrf=decodeURIComponent(document.cookie.split('; ').find(x=>x.startsWith('rag_csrf='))!.split('=').slice(1).join('='));const r=await fetch('/api/v2/chat',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':csrf},body:JSON.stringify({conversation_id:cid,turn_id:turn,message})});return {status:r.status,body:await r.json(),history:await(await fetch(`/api/v2/conversations/${cid}`)).json()};},{cid,turn,message:questions[i]});
+      26 |   expect(retry.status).toBe(200);expect(retry.history.messages.length).toBe(2);expect(retry.body.answer).toBe(history.messages[1].content);
+        at /Volumes/Storage/rag-project/frontend/tests/browser/reliability-closure.spec.ts:23:87
+
+    Error Context: test-results/reliability-closure-retain-7da5e-ciliation-retry-and-history-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/reliability-closure-retain-7da5e-ciliation-retry-and-history-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/reliability-closure-retain-7da5e-ciliation-retry-and-history-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop-chromium] › tests/browser/reliability-closure.spec.ts:4:1 › retained Morgan live answers, reconciliation, retry and history 

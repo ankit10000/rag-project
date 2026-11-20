@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "baseline_file": "v2_evidence/backend-executive-20261119/offline-baseline.json",
+  "baseline_selected": [
+    194
+  ],
+  "current_selected": [
+    194,
+    195,
+    196,
+    197
+  ],
+  "baseline_missing_phase_numbers": [
+    3,
+    4
+  ],
+  "current_contains_all_four": true,
+  "current_characters": 2548,
+  "current_context_limits": {
+    "chunks": 8,
+    "characters": 12000
+  },
+  "reproduced_loss_stage": "RERANK_FILTER_LOSS",
+  "exact_removals": [
+    {
+      "chunk_id": 196,
+      "reason": "below_adaptive_rerank_margin",
+      "score": -8.83917236328125,
+      "threshold": 0.29851818084716797
+    },
+    {
+      "chunk_id": 195,
+      "reason": "below_adaptive_rerank_margin",
+      "score": -10.584365844726562,
+      "threshold": 0.29851818084716797
+    }
+  ],
+  "retrieval_calls": 1,
+  "database_network_calls": 0,
+  "provider_calls": 0,
+  "source_snapshot_read_queries": [
+    {
+      "anchor_id": 194,
+      "operation": "adjacent_continuity"
+    },
+    {
+      "anchor_id": 194,
+      "operation": "adjacent_continuity"
+    },
+    {
+      "anchor_id": 194,
+      "operation": "page_continuity"
+    },
+    {
+      "anchor_id": 195,
+      "operation": "page_continuity"
+    }
+  ],
+  "method": "actual current orchestration; immutable saved real candidates/passages; source-read mocks restricted to same owner/source/page; provider replaced by capture stub; not a fresh DB/provider claim"
+}

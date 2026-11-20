@@ -1,0 +1,17 @@
+{
+  "cid": "743cee1e-d41f-4c7c-816f-d975d9724d78",
+  "turn": "15c2fdf3-3385-44cd-b2d2-54e4343090bd",
+  "transport": "AbortError",
+  "disconnected_before_POST_response": true,
+  "saved": {
+    "kind": "answer",
+    "answer": "I couldn't find sufficient information in the provided documents.",
+    "issues": [],
+    "status": "abstained",
+    "citations": [],
+    "retrieval_status": "ok",
+    "conversation_id": "743cee1e-d41f-4c7c-816f-d975d9724d78",
+    "turn_id": "15c2fdf3-3385-44cd-b2d2-54e4343090bd",
+    "answer_status": "abstained"
+  }
+}

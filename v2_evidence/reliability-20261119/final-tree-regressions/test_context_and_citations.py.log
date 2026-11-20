@@ -1,0 +1,66 @@
+PASS: input not mutated
+PASS: two sources
+PASS: metadata preserved
+PASS: score fields
+PASS: 4-tuple works, rrf score used
+PASS: 5-tuple raw fallback
+PASS: refs S1,S2
+PASS: header format
+PASS: blocks separated by blank line
+PASS: not truncated
+PASS: dup id removed
+PASS: dup content removed (case/ws)
+PASS: empty dropped
+PASS: refs contiguous after drops
+PASS: max_chunks
+PASS: max_chunks sets truncated
+PASS: budget truncation flagged
+PASS: truncated within budget
+PASS: cut at word boundary
+PASS: small remaining -> budget drop
+PASS: first chunk kept when over budget
+PASS: missing page -> None
+PASS: Page: unknown in header
+PASS: missing doc -> None / unknown
+PASS: empty input None
+PASS: empty input []
+PASS: content unchanged except trim
+PASS: source_index
+PASS: extract basic
+PASS: extract list forms
+PASS: extract lowercase + unique
+PASS: extract ignores others
+PASS: extract None
+PASS: strip
+PASS: strip None
+PASS: remove_invalid partial
+PASS: remove_invalid whole
+PASS: remove_invalid keeps valid
+PASS: build_citations
+PASS: build missing page
+PASS: build unknown skipped
+PASS: valid answer
+PASS: invalid ref
+PASS: no citation
+PASS: no citation allowed
+PASS: empty answer ''
+PASS: empty answer '   '
+PASS: empty answer None
+PASS: empty answer 42
+PASS: fabricated page
+PASS: correct page accepted
+PASS: p. / pg variants
+PASS: no source pages -> any page unknown
+PASS: fabricated filename
+PASS: known filename accepted
+PASS: refusal require_citations=False
+PASS: refusal not counted uncited
+PASS: short sentence not counted
+PASS: answer_with_citations text
+PASS: answer_with_citations citations
+PASS: answer_with_citations validation
+PASS: answer_with_citations None
+
+62/62 passed
+ALL CONTEXT/CITATION TESTS PASSED
+

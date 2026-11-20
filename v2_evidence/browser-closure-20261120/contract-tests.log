@@ -1,0 +1,12 @@
+test_atomic_pair_rolls_back_if_assistant_insert_cannot_be_built (__main__.BrowserContracts.test_atomic_pair_rolls_back_if_assistant_insert_cannot_be_built) ... W1120 11:10:31.611000 20303 .venv/lib/python3.14/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+ok
+test_excluded_turn_cannot_be_resurrected (__main__.BrowserContracts.test_excluded_turn_cannot_be_resurrected) ... ok
+test_history_preserves_verified_metadata_and_ids (__main__.BrowserContracts.test_history_preserves_verified_metadata_and_ids) ... ok
+test_other_owner_cannot_recover_or_open_history (__main__.BrowserContracts.test_other_owner_cannot_recover_or_open_history) ... ok
+test_retry_idempotency_and_changed_input_conflict (__main__.BrowserContracts.test_retry_idempotency_and_changed_input_conflict) ... ok
+test_wrong_original_page_is_never_hydrated (__main__.BrowserContracts.test_wrong_original_page_is_never_hydrated) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 5.760s
+
+OK

@@ -1,0 +1,10 @@
+{
+  "status": "FAIL_PARTIAL_CONTRACT",
+  "education_questions": "2/2 PASS; exact academic facts and original page2 citations",
+  "disconnect_reconciliation": "PASS actual AbortError and reopened committed result",
+  "raw_partial_generation": "correct40\u219212 and uncited unavailable phone",
+  "validation_defect": "telephone number listed for Morgan was misparsed as a factual uncited claim; safe repair dropped the missing-information clause and incorrectly labelled answered",
+  "sdk_calls": 6,
+  "budget": 6,
+  "repair_attempt": "blocked by bounded provider budget; preserved RuntimeError and original answer"
+}

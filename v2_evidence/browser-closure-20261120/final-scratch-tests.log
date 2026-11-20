@@ -1,0 +1,9 @@
+W1120 11:18:01.901000 23148 .venv/lib/python3.14/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+<frozen importlib._bootstrap>:491: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+<frozen importlib._bootstrap>:491: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+<frozen importlib._bootstrap>:491: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+----------------------------------------------------------------------
+Ran 29 tests in 7.880s
+
+OK (skipped=6)
+<sys>:0: DeprecationWarning: builtin type swigvarlink has no __module__ attribute

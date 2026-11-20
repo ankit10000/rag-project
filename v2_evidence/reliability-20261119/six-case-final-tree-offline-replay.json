@@ -1,0 +1,53 @@
+{
+  "mode": "Deterministic replay of saved live answers against final context and validation, not a new live evaluation",
+  "results": [
+    {
+      "case": "product",
+      "status": "answered",
+      "matches_previous_answer": true,
+      "issues": [],
+      "fixture_generations": 1,
+      "live_provider_calls": 0
+    },
+    {
+      "case": "estimates",
+      "status": "answered",
+      "matches_previous_answer": true,
+      "issues": [],
+      "fixture_generations": 1,
+      "live_provider_calls": 0
+    },
+    {
+      "case": "accessibility",
+      "status": "answered",
+      "matches_previous_answer": true,
+      "issues": [],
+      "fixture_generations": 1,
+      "live_provider_calls": 0
+    },
+    {
+      "case": "phases",
+      "status": "answered",
+      "matches_previous_answer": true,
+      "issues": [],
+      "fixture_generations": 1,
+      "live_provider_calls": 0
+    },
+    {
+      "case": "risks",
+      "status": "answered",
+      "matches_previous_answer": true,
+      "issues": [],
+      "fixture_generations": 1,
+      "live_provider_calls": 0
+    },
+    {
+      "case": "unsupported",
+      "status": "abstained",
+      "matches_previous_answer": true,
+      "issues": [],
+      "fixture_generations": 1,
+      "live_provider_calls": 0
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+
+Running 4 tests using 2 workers
+
+(node:35352) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:35353) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:35352) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:35353) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop-chromium] › tests/browser/history-reliability.spec.ts:28:3 › Preserved browser reliability contracts — mocked transport only › answered, partial, abstained and failed retain authoritative metadata on refresh (1.4s)
+  ✓  2 [mobile-chromium] › tests/browser/history-reliability.spec.ts:28:3 › Preserved browser reliability contracts — mocked transport only › answered, partial, abstained and failed retain authoritative metadata on refresh (1.8s)
+  ✘  3 [desktop-chromium] › tests/browser/history-reliability.spec.ts:82:3 › Preserved browser reliability contracts — mocked transport only › failed POST reconciles its committed result without a second submitted turn (2.9s)
+  ✘  4 [mobile-chromium] › tests/browser/history-reliability.spec.ts:82:3 › Preserved browser reliability contracts — mocked transport only › failed POST reconciles its committed result without a second submitted turn (2.7s)
+
+
+  1) [desktop-chromium] › tests/browser/history-reliability.spec.ts:82:3 › Preserved browser reliability contracts — mocked transport only › failed POST reconciles its committed result without a second submitted turn 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+
+      145 |     expect(posts).toBe(1);
+      146 |     expect(stableTurn).toMatch(/^[0-9a-f-]{36}$/);
+    > 147 |     expect(recoveryIds.length).toBeGreaterThan(0);
+          |                                ^
+      148 |     expect([...new Set(recoveryIds)]).toEqual([stableTurn]);
+      149 |     await page.reload();
+      150 |     await expect(
+        at /Volumes/Storage/rag-project/frontend/tests/browser/history-reliability.spec.ts:147:32
+
+    Error Context: test-results/grey-agent5-history-final/history-reliability-Preser-01738-out-a-second-submitted-turn-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/grey-agent5-history-final/history-reliability-Preser-01738-out-a-second-submitted-turn-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/grey-agent5-history-final/history-reliability-Preser-01738-out-a-second-submitted-turn-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [mobile-chromium] › tests/browser/history-reliability.spec.ts:82:3 › Preserved browser reliability contracts — mocked transport only › failed POST reconciles its committed result without a second submitted turn 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+
+      145 |     expect(posts).toBe(1);
+      146 |     expect(stableTurn).toMatch(/^[0-9a-f-]{36}$/);
+    > 147 |     expect(recoveryIds.length).toBeGreaterThan(0);
+          |                                ^
+      148 |     expect([...new Set(recoveryIds)]).toEqual([stableTurn]);
+      149 |     await page.reload();
+      150 |     await expect(
+        at /Volumes/Storage/rag-project/frontend/tests/browser/history-reliability.spec.ts:147:32
+
+    Error Context: test-results/grey-agent5-history-final/history-reliability-Preser-01738-out-a-second-submitted-turn-mobile-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/grey-agent5-history-final/history-reliability-Preser-01738-out-a-second-submitted-turn-mobile-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/grey-agent5-history-final/history-reliability-Preser-01738-out-a-second-submitted-turn-mobile-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop-chromium] › tests/browser/history-reliability.spec.ts:82:3 › Preserved browser reliability contracts — mocked transport only › failed POST reconciles its committed result without a second submitted turn 
+    [mobile-chromium] › tests/browser/history-reliability.spec.ts:82:3 › Preserved browser reliability contracts — mocked transport only › failed POST reconciles its committed result without a second submitted turn 
+  2 passed (5.6s)

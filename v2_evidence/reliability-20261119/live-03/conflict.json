@@ -1,0 +1,159 @@
+{
+  "id": "conflict",
+  "question": "In Executive Summary.pdf, does the roadmap stated phase count agree with its listed phases? Report any inconsistency.",
+  "result": {
+    "answer": "The source states roughly 3 phases [S1]. The retrieved passages explicitly list consecutive headings from Phase 1 through Phase 4 [S1][S2][S3]. This presents an inconsistency between the stated phase count and the listed phase headings [S1][S2][S3].",
+    "sources": [
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 15,
+        "chunk_id": 194,
+        "ref": "S1"
+      },
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 15,
+        "chunk_id": 195,
+        "ref": "S2"
+      },
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 15,
+        "chunk_id": 196,
+        "ref": "S3"
+      }
+    ],
+    "citations": [
+      {
+        "ref": "S1",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 15,
+        "chunk_id": 194
+      },
+      {
+        "ref": "S2",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 15,
+        "chunk_id": 195
+      },
+      {
+        "ref": "S3",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 15,
+        "chunk_id": 196
+      }
+    ],
+    "status": "conflict",
+    "issues": [
+      "source_bound_count_comparison_fallback"
+    ],
+    "retrieval_status": "ok",
+    "retrieved": [
+      {
+        "ref": "S1",
+        "chunk_id": 194,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 15,
+        "retrieval_score": -4.228762626647949
+      },
+      {
+        "ref": "S2",
+        "chunk_id": 195,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 15,
+        "retrieval_score": null
+      },
+      {
+        "ref": "S3",
+        "chunk_id": 196,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 15,
+        "retrieval_score": null
+      }
+    ],
+    "coverage": {
+      "policy": "v2-explicit-request-coverage/3",
+      "mode": "none",
+      "facets": [],
+      "enumeration_count": null,
+      "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+      "concrete_missing": [],
+      "diagnostic_missing": [],
+      "context_unobserved": [],
+      "answer_checked": true,
+      "source_count_comparison": {
+        "policy": "v2-source-bound-phase-count-comparison/1",
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 15,
+        "stated_count": 3,
+        "qualifier": "roughly",
+        "observed_consecutive_headings": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "stated_refs": [
+          "S1"
+        ],
+        "heading_refs": [
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "evidence_refs": [
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "scope": "observed source headings exceed stated count; not exhaustive section discovery"
+      }
+    }
+  },
+  "metrics": {
+    "evidence_coverage": true,
+    "evidence_fact_checks": [
+      {
+        "label": "stated three",
+        "observed": true
+      },
+      {
+        "label": "listed fourth phase",
+        "observed": true
+      }
+    ],
+    "answer_factual_completeness": true,
+    "answer_fact_checks": [
+      {
+        "label": "stated three",
+        "observed": true
+      },
+      {
+        "label": "listed four",
+        "observed": true
+      },
+      {
+        "label": "disagreement disclosure",
+        "observed": true
+      }
+    ],
+    "citation_abstention_correctness": true,
+    "citation_metadata_matches_owned_source": true,
+    "citation_presence_correct": true,
+    "declared_status_correct": true,
+    "selected_chunks": [
+      194,
+      195,
+      196
+    ],
+    "selected_pages": [
+      15,
+      15,
+      15
+    ],
+    "selected_characters": 2118,
+    "scope_and_budget_ok": true
+  },
+  "seconds": 29.711,
+  "provider_calls": 3
+}

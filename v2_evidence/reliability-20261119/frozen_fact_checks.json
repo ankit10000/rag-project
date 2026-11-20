@@ -1,0 +1,549 @@
+{
+  "policy": "development-reliability-source-review-checks/1",
+  "predeclared_sha256": "185d0ab7ad600e65d77ddd672a86bdefd8d660eae417244df40fb8f88aa91a54",
+  "checks": {
+    "product": {
+      "facts": [
+        {
+          "label": "AI education portal",
+          "alternatives": [
+            "AI.driven education portal",
+            "AI.*education portal"
+          ]
+        },
+        {
+          "label": "JEE",
+          "alternatives": [
+            "\\bJEE\\b"
+          ]
+        },
+        {
+          "label": "GATE",
+          "alternatives": [
+            "\\bGATE\\b"
+          ]
+        },
+        {
+          "label": "NEET",
+          "alternatives": [
+            "\\bNEET\\b"
+          ]
+        }
+      ],
+      "status": [
+        "answered"
+      ]
+    },
+    "estimates": {
+      "facts": [
+        {
+          "label": "2-3 years",
+          "alternatives": [
+            "\\b2\\s*(?:-|to)\\s*3\\s+years?"
+          ]
+        },
+        {
+          "label": "10-15 people",
+          "alternatives": [
+            "\\b10\\s*(?:-|to)\\s*15\\b"
+          ]
+        },
+        {
+          "label": "1M-5M summary budget",
+          "alternatives": [
+            "1\\s*(?:M|million).*?5\\s*(?:M|million)"
+          ]
+        }
+      ],
+      "status": [
+        "answered"
+      ]
+    },
+    "accessibility": {
+      "facts": [
+        {
+          "label": "Hindi/regional languages",
+          "alternatives": [
+            "\\bHindi\\b",
+            "regional languages"
+          ]
+        },
+        {
+          "label": "offline study",
+          "alternatives": [
+            "\\boffline\\b"
+          ]
+        },
+        {
+          "label": "videos",
+          "alternatives": [
+            "\\bvideos?\\b"
+          ]
+        },
+        {
+          "label": "notes",
+          "alternatives": [
+            "\\bnotes?\\b"
+          ]
+        },
+        {
+          "label": "mobile app",
+          "alternatives": [
+            "\\bmobile\\b"
+          ]
+        }
+      ],
+      "status": [
+        "answered"
+      ]
+    },
+    "phases": {
+      "facts": [
+        {
+          "label": "planning and prototype",
+          "alternatives": [
+            "planning\\s*(?:&|and)\\s*prototype"
+          ]
+        },
+        {
+          "label": "0-6 months",
+          "alternatives": [
+            "\\b0\\s*(?:-|to)\\s*6\\b"
+          ]
+        },
+        {
+          "label": "MVP development",
+          "alternatives": [
+            "MVP\\s+development"
+          ]
+        },
+        {
+          "label": "6-15 months",
+          "alternatives": [
+            "\\b6\\s*(?:-|to)\\s*15\\b"
+          ]
+        },
+        {
+          "label": "pilot and feedback",
+          "alternatives": [
+            "pilot\\s*(?:&|and)\\s*feedback"
+          ]
+        },
+        {
+          "label": "15-21 months",
+          "alternatives": [
+            "\\b15\\s*(?:-|to)\\s*21\\b"
+          ]
+        },
+        {
+          "label": "launch and scale",
+          "alternatives": [
+            "launch\\s*(?:&|and)\\s*scale"
+          ]
+        },
+        {
+          "label": "21-30 months",
+          "alternatives": [
+            "\\b21\\s*(?:-|to)\\s*30\\b"
+          ]
+        }
+      ],
+      "status": [
+        "answered"
+      ]
+    },
+    "risks": {
+      "facts": [
+        {
+          "label": "human review",
+          "alternatives": [
+            "human.*?(?:review|loop)"
+          ]
+        },
+        {
+          "label": "conservative generation",
+          "alternatives": [
+            "conservative"
+          ]
+        },
+        {
+          "label": "early feedback",
+          "alternatives": [
+            "feedback"
+          ]
+        },
+        {
+          "label": "legal review",
+          "alternatives": [
+            "legal\\s+review"
+          ]
+        },
+        {
+          "label": "open/public data",
+          "alternatives": [
+            "public.*?open",
+            "open.*?data"
+          ]
+        },
+        {
+          "label": "rephrasing",
+          "alternatives": [
+            "rephras"
+          ]
+        }
+      ],
+      "status": [
+        "answered"
+      ]
+    },
+    "unsupported": {
+      "facts": [
+        {
+          "label": "contract information unavailable",
+          "alternatives": [
+            "couldn.t find.*information",
+            "(?:no|not|does not|do not|doesn.t).*?(?:contract|information|provided|available|specified|listed|contain)",
+            "contract.*?(?:unavailable|not\\s+(?:provided|available|specified|listed))"
+          ]
+        }
+      ],
+      "status": [
+        "abstained"
+      ],
+      "evidence_not_applicable": true,
+      "citations": false
+    },
+    "cross_page": {
+      "facts": [
+        {
+          "label": "relational database",
+          "alternatives": [
+            "PostgreSQL",
+            "MySQL"
+          ]
+        },
+        {
+          "label": "200K annual cloud",
+          "alternatives": [
+            "200\\s*(?:K|thousand).*?(?:year|annual)",
+            "(?:year|annual).*?200\\s*(?:K|thousand)"
+          ]
+        }
+      ],
+      "status": [
+        "answered"
+      ]
+    },
+    "comparison": {
+      "facts": [
+        {
+          "label": "on-premises option",
+          "alternatives": [
+            "on.?(?:premises|prem)\\b",
+            "on-\\s+.*?premises"
+          ]
+        },
+        {
+          "label": "public cloud option",
+          "alternatives": [
+            "public\\s+(?:\\w+\\s+){0,8}cloud",
+            "cloud"
+          ]
+        },
+        {
+          "label": "high upfront capital",
+          "alternatives": [
+            "high.*?(?:upfront|initial|hardware|capital)",
+            "(?:upfront|initial|capital).*?high"
+          ]
+        },
+        {
+          "label": "bounded on-prem capacity",
+          "alternatives": [
+            "limited.*?(?:purchased|capacity|scal)",
+            "(?:purchased|capacity).*?limited"
+          ]
+        },
+        {
+          "label": "no upfront public cloud",
+          "alternatives": [
+            "no\\s+upfront",
+            "none",
+            "avoid.*?CapEx",
+            "no\\s+initial"
+          ]
+        },
+        {
+          "label": "cloud scalability",
+          "alternatives": [
+            "virtually\\s+(?:\\w+\\s+){0,4}unlimited",
+            "elastic",
+            "auto.scal",
+            "easier to scale"
+          ]
+        }
+      ],
+      "status": [
+        "answered"
+      ]
+    },
+    "follow_up": {
+      "facts": [
+        {
+          "label": "Hindi/regional languages",
+          "alternatives": [
+            "\\bHindi\\b",
+            "regional languages"
+          ]
+        },
+        {
+          "label": "offline study",
+          "alternatives": [
+            "\\boffline\\b"
+          ]
+        },
+        {
+          "label": "videos",
+          "alternatives": [
+            "\\bvideos?\\b"
+          ]
+        },
+        {
+          "label": "notes",
+          "alternatives": [
+            "\\bnotes?\\b"
+          ]
+        },
+        {
+          "label": "mobile app",
+          "alternatives": [
+            "\\bmobile\\b"
+          ]
+        }
+      ],
+      "status": [
+        "answered"
+      ]
+    },
+    "conflict": {
+      "facts": [
+        {
+          "label": "stated three",
+          "alternatives": [
+            "(?:roughly\\s+)?(?:3|three)\\s+phases?"
+          ]
+        },
+        {
+          "label": "listed four",
+          "alternatives": [
+            "(?:4|four)\\s+phases?",
+            "phase\\s+4"
+          ]
+        },
+        {
+          "label": "disagreement disclosure",
+          "alternatives": [
+            "inconsisten",
+            "contradict",
+            "disagree",
+            "discrepan",
+            "does not agree",
+            "do not agree",
+            "conflict"
+          ]
+        }
+      ],
+      "status": [
+        "conflict"
+      ],
+      "evidence_facts": [
+        {
+          "label": "stated three",
+          "alternatives": [
+            "(?:roughly\\s+)?(?:3|three)\\s+phases?"
+          ]
+        },
+        {
+          "label": "listed fourth phase",
+          "alternatives": [
+            "phase\\s+4"
+          ]
+        }
+      ]
+    },
+    "explicit_negative": {
+      "facts": [
+        {
+          "label": "no upfront cost",
+          "alternatives": [
+            "no\\s+upfront",
+            "does not.*?(?:upfront|capital)",
+            "avoid.*?CapEx",
+            "no\\s+initial"
+          ]
+        },
+        {
+          "label": "ongoing usage cost",
+          "alternatives": [
+            "pay.as.you.go",
+            "ongoing",
+            "recurring"
+          ]
+        }
+      ],
+      "status": [
+        "answered"
+      ],
+      "evidence_facts": [
+        {
+          "label": "explicit no upfront",
+          "alternatives": [
+            "no\\s+upfront",
+            "none",
+            "avoid.*?CapEx"
+          ]
+        },
+        {
+          "label": "usage costs",
+          "alternatives": [
+            "pay.as.you.go",
+            "ongoing",
+            "recurring"
+          ]
+        }
+      ]
+    },
+    "long_section": {
+      "facts": [
+        {
+          "label": "video lessons",
+          "alternatives": [
+            "video\\s+(?:lessons?|lectures?)",
+            "instructional videos"
+          ]
+        },
+        {
+          "label": "notes/summaries",
+          "alternatives": [
+            "\\bnotes?\\b",
+            "\\bsummaries\\b"
+          ]
+        },
+        {
+          "label": "tests/quizzes",
+          "alternatives": [
+            "\\bquizzes\\b",
+            "test\\s+series"
+          ]
+        },
+        {
+          "label": "question bank/Q&A",
+          "alternatives": [
+            "question\\s+banks?",
+            "Q\\s*&\\s*A",
+            "question.answer"
+          ]
+        },
+        {
+          "label": "adaptive learning",
+          "alternatives": [
+            "adaptive\\s+learning",
+            "personalized.*(?:learning|topic)"
+          ]
+        },
+        {
+          "label": "doubt forum",
+          "alternatives": [
+            "\\bforum\\b"
+          ]
+        },
+        {
+          "label": "progress analytics",
+          "alternatives": [
+            "\\banalytics\\b",
+            "progress\\s+tracking"
+          ]
+        },
+        {
+          "label": "gamification",
+          "alternatives": [
+            "\\bgamification\\b",
+            "badges.*(?:streaks|leaderboards)"
+          ]
+        },
+        {
+          "label": "multilingual",
+          "alternatives": [
+            "\\bmultilingual\\b",
+            "\\bHindi\\b",
+            "regional\\s+languages"
+          ]
+        },
+        {
+          "label": "offline/mobile",
+          "alternatives": [
+            "\\boffline\\b",
+            "\\bmobile\\b"
+          ]
+        }
+      ],
+      "status": [
+        "answered"
+      ]
+    },
+    "partial": {
+      "facts": [
+        {
+          "label": "JEE",
+          "alternatives": [
+            "\\bJEE\\b"
+          ]
+        },
+        {
+          "label": "GATE",
+          "alternatives": [
+            "\\bGATE\\b"
+          ]
+        },
+        {
+          "label": "NEET",
+          "alternatives": [
+            "\\bNEET\\b"
+          ]
+        },
+        {
+          "label": "contract information unavailable",
+          "alternatives": [
+            "couldn.t find.*information",
+            "(?:no|not|does not|do not|doesn.t).*?(?:contract|information|provided|available|specified|listed|contain)",
+            "contract.*?(?:unavailable|not\\s+(?:provided|available|specified|listed))"
+          ]
+        }
+      ],
+      "evidence_facts": [
+        {
+          "label": "JEE",
+          "alternatives": [
+            "\\bJEE\\b"
+          ]
+        },
+        {
+          "label": "GATE",
+          "alternatives": [
+            "\\bGATE\\b"
+          ]
+        },
+        {
+          "label": "NEET",
+          "alternatives": [
+            "\\bNEET\\b"
+          ]
+        }
+      ],
+      "status": [
+        "partial"
+      ]
+    }
+  },
+  "caveat": "Literal coverage signals plus citation metadata/status checks. Not semantic entailment, full-corpus absence proof, or an LLM judge."
+}

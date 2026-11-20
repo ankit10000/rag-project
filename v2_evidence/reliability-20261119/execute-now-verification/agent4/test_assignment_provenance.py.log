@@ -1,0 +1,10 @@
+Memory saved successfully.
+Memory deleted, historical cleanup incomplete: source provenance is unavailable; the summary was cleared and both checkpoints were advanced past current history.
+Memory deleted, historical cleanup incomplete: source provenance is unavailable; the summary was cleared and both checkpoints were advanced past current history.
+
+W1119 21:50:38.129000 28642 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.008s
+
+OK

@@ -1,0 +1,71 @@
+
+Running 38 tests using 4 workers
+
+(node:42979) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:42981) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:42980) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:42978) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:42980) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:42979) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:42978) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:42981) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 [desktop-chromium] › tests/browser/management-contracts.spec.ts:8:3 › Management UI contracts (mocked API, no database or providers) › PDF validation prevents invalid uploads and shows real processing metadata (1.1s)
+  ✓   4 [desktop-chromium] › tests/browser/history-reliability.spec.ts:28:3 › Preserved browser reliability contracts — mocked transport only › answered, partial, abstained and failed retain authoritative metadata on refresh (1.2s)
+  ✓   1 [desktop-chromium] › tests/browser/chat-composer.spec.ts:111:3 › Chat composer UI fixtures — no DB or provider › Enter sends once, Shift+Enter keeps a newline and completed history remains authoritative (1.8s)
+  ✓   5 [desktop-chromium] › tests/browser/management-contracts.spec.ts:44:3 › Management UI contracts (mocked API, no database or providers) › saved memory search, provenance and forget confirmation reflect the API (1.5s)
+  ✓   7 [desktop-chromium] › tests/browser/chat-composer.spec.ts:135:3 › Chat composer UI fixtures — no DB or provider › Markdown/code copy and source citations fit the mobile and desktop composer (930ms)
+  ✓   8 [desktop-chromium] › tests/browser/management-contracts.spec.ts:119:3 › Management UI contracts (mocked API, no database or providers) › appearance settings persist and provider controls do not imply unsupported edits (550ms)
+  ✓  10 [desktop-chromium] › tests/browser/management-contracts.spec.ts:145:3 › Management UI contracts (mocked API, no database or providers) › ordinary users cannot see account-administration controls (185ms)
+  ✓   6 [desktop-chromium] › tests/browser/history-reliability.spec.ts:82:3 › Preserved browser reliability contracts — mocked transport only › failed POST reconciles its committed result without a second submitted turn (2.8s)
+  ✓  11 [desktop-chromium] › tests/browser/management-contracts.spec.ts:161:3 › Management UI contracts (mocked API, no database or providers) › administrator account changes require confirmation and refresh returned state (608ms)
+(node:43050) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  12 [desktop-chromium] › tests/browser/workspace.spec.ts:12:3 › Browser UI contract fixtures (not database integration) › login, tenant dashboard, navigation and logout (767ms)
+(node:43050) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  13 [desktop-chromium] › tests/browser/workspace.spec.ts:27:3 › Browser UI contract fixtures (not database integration) › canonical answer status and citation metadata survive reopen and refresh (1.1s)
+  ✓   9 [desktop-chromium] › tests/browser/chat-composer.spec.ts:206:3 › Chat composer UI fixtures — no DB or provider › Source menu inserts an honest filename request; uploads show actual processing until ready (3.4s)
+  ✓  15 [desktop-chromium] › tests/browser/workspace.spec.ts:71:3 › Browser UI contract fixtures (not database integration) › permission errors do not render private response details (297ms)
+  ✓  16 [desktop-chromium] › tests/browser/workspace.spec.ts:89:3 › Browser UI contract fixtures (not database integration) › responsive shell supports keyboard skip link and no horizontal overflow (312ms)
+(node:43077) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  17 [desktop-chromium] › tests/browser/workspace.spec.ts:106:3 › Browser UI contract fixtures (not database integration) › mobile drawer traps focus and Escape restores its trigger (583ms)
+  ✓  14 [mobile-chromium] › tests/browser/chat-composer.spec.ts:111:3 › Chat composer UI fixtures — no DB or provider › Enter sends once, Shift+Enter keeps a newline and completed history remains authoritative (1.1s)
+  ✓  18 [desktop-chromium] › tests/browser/workspace.spec.ts:132:3 › Browser UI contract fixtures (not database integration) › desktop sidebar collapse and coherent light appearance persist (772ms)
+(node:43077) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  19 [mobile-chromium] › tests/browser/chat-composer.spec.ts:135:3 › Chat composer UI fixtures — no DB or provider › Markdown/code copy and source citations fit the mobile and desktop composer (1.5s)
+  ✓  20 [desktop-chromium] › tests/browser/workspace.spec.ts:153:3 › Browser UI contract fixtures (not database integration) › conversation search, rename and delete use real contract-shaped state (1.9s)
+  ✓  23 [desktop-chromium] › tests/browser/workspace.spec.ts:209:3 › Browser UI contract fixtures (not database integration) › tablet and phone screens retain readable composer without page overflow (933ms)
+(node:43123) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:43123) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  21 [mobile-chromium] › tests/browser/history-reliability.spec.ts:28:3 › Preserved browser reliability contracts — mocked transport only › answered, partial, abstained and failed retain authoritative metadata on refresh (782ms)
+  ✓  22 [mobile-chromium] › tests/browser/chat-composer.spec.ts:206:3 › Chat composer UI fixtures — no DB or provider › Source menu inserts an honest filename request; uploads show actual processing until ready (3.6s)
+  ✓  24 [mobile-chromium] › tests/browser/management-contracts.spec.ts:8:3 › Management UI contracts (mocked API, no database or providers) › PDF validation prevents invalid uploads and shows real processing metadata (345ms)
+  ✓  26 [mobile-chromium] › tests/browser/management-contracts.spec.ts:44:3 › Management UI contracts (mocked API, no database or providers) › saved memory search, provenance and forget confirmation reflect the API (766ms)
+  ✓  28 [mobile-chromium] › tests/browser/management-contracts.spec.ts:119:3 › Management UI contracts (mocked API, no database or providers) › appearance settings persist and provider controls do not imply unsupported edits (514ms)
+  ✓  29 [mobile-chromium] › tests/browser/management-contracts.spec.ts:145:3 › Management UI contracts (mocked API, no database or providers) › ordinary users cannot see account-administration controls (202ms)
+  ✓  25 [mobile-chromium] › tests/browser/history-reliability.spec.ts:82:3 › Preserved browser reliability contracts — mocked transport only › failed POST reconciles its committed result without a second submitted turn (2.5s)
+  ✓  30 [mobile-chromium] › tests/browser/management-contracts.spec.ts:161:3 › Management UI contracts (mocked API, no database or providers) › administrator account changes require confirmation and refresh returned state (704ms)
+  ✓  31 [mobile-chromium] › tests/browser/workspace.spec.ts:12:3 › Browser UI contract fixtures (not database integration) › login, tenant dashboard, navigation and logout (921ms)
+  ✓  32 [mobile-chromium] › tests/browser/workspace.spec.ts:27:3 › Browser UI contract fixtures (not database integration) › canonical answer status and citation metadata survive reopen and refresh (988ms)
+  ✓  33 [mobile-chromium] › tests/browser/workspace.spec.ts:71:3 › Browser UI contract fixtures (not database integration) › permission errors do not render private response details (291ms)
+  ✓  34 [mobile-chromium] › tests/browser/workspace.spec.ts:89:3 › Browser UI contract fixtures (not database integration) › responsive shell supports keyboard skip link and no horizontal overflow (247ms)
+  ✓  35 [mobile-chromium] › tests/browser/workspace.spec.ts:106:3 › Browser UI contract fixtures (not database integration) › mobile drawer traps focus and Escape restores its trigger (478ms)
+  ✓  36 [mobile-chromium] › tests/browser/workspace.spec.ts:132:3 › Browser UI contract fixtures (not database integration) › desktop sidebar collapse and coherent light appearance persist (441ms)
+  ✓  37 [mobile-chromium] › tests/browser/workspace.spec.ts:153:3 › Browser UI contract fixtures (not database integration) › conversation search, rename and delete use real contract-shaped state (963ms)
+  ✓  38 [mobile-chromium] › tests/browser/workspace.spec.ts:209:3 › Browser UI contract fixtures (not database integration) › tablet and phone screens retain readable composer without page overflow (519ms)
+  ✓   2 [desktop-chromium] › tests/browser/real-api.spec.ts:25:1 › real API: register, session, upload/download, tenant denial, history and deletion (no provider) (23.1s)
+  ✓  27 [mobile-chromium] › tests/browser/real-api.spec.ts:25:1 › real API: register, session, upload/download, tenant denial, history and deletion (no provider) (13.9s)
+
+  38 passed (29.3s)

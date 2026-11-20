@@ -11,6 +11,17 @@ def build_scope_filter(document_names=None, pages=None):
     """
     clauses = []
     params = []
+    # Tenant scope is part of every vector/lexical query, in addition to RLS.
+    import os
+    if os.getenv('RAG_V2') == '1':
+        from services.tenant_context import current_owner
+        owner = current_owner()
+        if owner is None:
+            raise PermissionError('authenticated tenant required for retrieval')
+        from services.v2_index import require_index_identity
+        require_index_identity(owner)
+        clauses.append("owner_id = %s::uuid")
+        params.append(owner)
 
     if document_names:
         clauses.append("document_name = ANY(%s)")

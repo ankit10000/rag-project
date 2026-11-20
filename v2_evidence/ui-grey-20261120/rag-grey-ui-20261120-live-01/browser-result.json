@@ -1,0 +1,87 @@
+{
+  "run": "rag-grey-ui-20261120-live-01",
+  "scope": "synthetic UI functional integration, not formal acceptance",
+  "status": "PASS",
+  "screenshots": [
+    "frontend/evidence/rag-grey-ui-20261120-live-01/documents-desktop.png",
+    "frontend/evidence/rag-grey-ui-20261120-live-01/pdf-preview-desktop.png",
+    "frontend/evidence/rag-grey-ui-20261120-live-01/chat-desktop.png",
+    "frontend/evidence/rag-grey-ui-20261120-live-01/chat-tablet.png",
+    "frontend/evidence/rag-grey-ui-20261120-live-01/chat-mobile.png",
+    "frontend/evidence/rag-grey-ui-20261120-live-01/mobile-sidebar.png",
+    "frontend/evidence/rag-grey-ui-20261120-live-01/isolated-source-denied.png"
+  ],
+  "upload": {
+    "id": "00ca5d05-d92b-4dd1-adf9-934e53949530",
+    "document_id": "00ca5d05-d92b-4dd1-adf9-934e53949530",
+    "job_id": "41d26cf4-a5ff-446f-bed7-5605165074d4",
+    "filename": "rag-grey-ui-20261120-live-01.pdf",
+    "status": "queued"
+  },
+  "document": {
+    "id": "00ca5d05-d92b-4dd1-adf9-934e53949530",
+    "filename": "rag-grey-ui-20261120-live-01.pdf",
+    "status": "ready",
+    "pages": 1,
+    "chunks": 1,
+    "created_at": "2026-11-20T06:23:15.591084Z",
+    "page_metadata": [
+      {
+        "method": "pymupdf-tesseract-fast-4.1.0",
+        "quality": {
+          "languages": [
+            "en-US"
+          ],
+          "mean_confidence": null,
+          "language_data_sha256": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2"
+        },
+        "page_number": 1
+      }
+    ]
+  },
+  "conversation_id": "25868044-bcc1-4679-8529-4b1e07a662b7",
+  "history": {
+    "conversation_id": "25868044-bcc1-4679-8529-4b1e07a662b7",
+    "messages": [
+      {
+        "turn_id": "c42d71ce-dc48-4595-9c99-c4e1c8651dee",
+        "answer_metadata": null,
+        "id": 231,
+        "role": "user",
+        "content": "According to the Aster Harbor visitor policy, how many credits does a day pass cost, and for how many days is it valid?"
+      },
+      {
+        "turn_id": "c42d71ce-dc48-4595-9c99-c4e1c8651dee",
+        "answer_metadata": {
+          "conversation_id": "25868044-bcc1-4679-8529-4b1e07a662b7",
+          "kind": "answer",
+          "answer": "According to the Aster Harbor visitor policy, a day pass costs 83 credits and remains valid for 17 days [S1].",
+          "status": "answered",
+          "answer_status": "answered",
+          "citations": [
+            {
+              "ref": "S1",
+              "document": "rag-grey-ui-20261120-live-01.pdf",
+              "document_id": "00ca5d05-d92b-4dd1-adf9-934e53949530",
+              "page": 1,
+              "chunk_id": 216
+            }
+          ],
+          "issues": [],
+          "retrieval_status": "ok",
+          "turn_id": "c42d71ce-dc48-4595-9c99-c4e1c8651dee"
+        },
+        "id": 232,
+        "role": "assistant",
+        "content": "According to the Aster Harbor visitor policy, a day pass costs 83 credits and remains valid for 17 days [S1]."
+      }
+    ]
+  },
+  "isolation": "PASS",
+  "deletion": "PASS",
+  "preview_sizes": [
+    "desktop1440",
+    "tablet768",
+    "mobile390"
+  ]
+}

@@ -1,0 +1,68 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - alert [ref=e3]
+  - generic [ref=e5]:
+    - banner [ref=e6]:
+      - generic [ref=e7]:
+        - button "Toggle navigation" [ref=e8] [cursor=pointer]:
+          - img
+        - link "RAG workspace" [ref=e9] [cursor=pointer]:
+          - /url: /chat
+      - link "Sources" [ref=e10] [cursor=pointer]:
+        - /url: /documents
+        - text: Sources
+        - img [ref=e11]
+    - main [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - generic [ref=e17]:
+            - paragraph [ref=e18]: Your sources
+            - heading "Documents" [level=1] [ref=e19]
+            - paragraph [ref=e20]: A private library for grounded answers.
+          - button "Refresh documents" [ref=e21] [cursor=pointer]:
+            - img
+            - text: Refresh
+        - region "Upload a PDF" [ref=e22]:
+          - generic [ref=e23]:
+            - generic [ref=e24]:
+              - img [ref=e26]
+              - generic [ref=e29]:
+                - heading "Add a source" [level=2] [ref=e30]
+                - paragraph [ref=e31]: Drop a PDF here, or choose a file.
+                - paragraph [ref=e32]: Native and scanned pages · up to 25 MB per PDF
+            - generic [ref=e33]:
+              - generic [ref=e34]: Choose PDF
+              - button "Choose PDF" [ref=e35]
+              - button "Upload PDF" [ref=e36] [cursor=pointer]:
+                - img
+                - text: Upload PDF
+        - status [ref=e37]:
+          - paragraph [ref=e38]:
+            - text: Document and its search index deleted.
+            - link "View activity" [ref=e39] [cursor=pointer]:
+              - /url: /jobs
+          - button "Dismiss document notice" [ref=e40] [cursor=pointer]:
+            - img
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - img
+            - textbox "Search documents" [ref=e43]:
+              - /placeholder: Search documents…
+          - generic [ref=e44]:
+            - generic [ref=e45]: 0 sources
+            - generic [ref=e46]: Filter documents by status
+            - combobox "Filter documents by status" [ref=e47]:
+              - option "All statuses" [selected]
+              - option "Ready"
+              - option "Processing"
+              - option "Failed"
+              - option "Cancelled"
+        - generic [ref=e48]:
+          - img [ref=e49]
+          - heading "Your library starts here" [level=2] [ref=e51]
+          - paragraph [ref=e52]: Upload a PDF to ask questions, follow citations and return to the original pages.
+```

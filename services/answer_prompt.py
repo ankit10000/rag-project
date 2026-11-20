@@ -64,6 +64,20 @@ CORRECTION REQUIRED (your previous attempt was rejected):
 {feedback}
 """
 
+    focus = ""
+    import os
+    if os.getenv("RAG_V2") == "1":
+        from services.v2_routing import qualification_subject
+        if qualification_subject(question) is not None:
+            focus = ("- This asks for academic qualifications: state the degree, field, institution "
+                     "and dates when supported. Do not substitute professional experience, "
+                     "job titles or a skills list for education. If academic details are absent, "
+                     "say that the provided evidence does not establish them.\n")
+        from services.request_coverage import request_coverage, coverage_prompt
+        checklist = coverage_prompt(request_coverage(question, sources))
+        if checklist:
+            focus += checklist + '\n'
+
     return f"""
 You are a careful, document-grounded assistant.
 
@@ -98,7 +112,7 @@ ANSWERING RULES
   each source. Do not pick one silently.
 - Clearly separate stated facts from your interpretation; mark interpretation
   with words such as "this suggests".
-- Be concise. Do not repeat the question or the same fact twice.
+{focus}- Be concise. Do not repeat the question or the same fact twice.
 - For questions that are purely about the user's own earlier conversation or
   preferences (memory), answer from memory/history without citations.
 

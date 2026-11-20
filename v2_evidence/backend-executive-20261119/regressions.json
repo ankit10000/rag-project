@@ -1,0 +1,42 @@
+[
+  {
+    "command": ".venv/bin/python -B test_v2_page_context.py",
+    "exit_code": 0
+  },
+  {
+    "command": ".venv/bin/python -B test_v2_routing_recovery.py",
+    "exit_code": 0
+  },
+  {
+    "command": ".venv/bin/python -B test_v2_qualification_focus.py",
+    "exit_code": 0
+  },
+  {
+    "command": ".venv/bin/python -B test_v2_tenure_calculation.py",
+    "exit_code": 0
+  },
+  {
+    "command": ".venv/bin/python -B test_stage8_p3_classification.py",
+    "exit_code": 2
+  },
+  {
+    "command": ".venv/bin/python -B test_stage6_answer.py",
+    "exit_code": 2
+  },
+  {
+    "command": ".venv/bin/python -B test_context_and_citations.py",
+    "exit_code": 2
+  },
+  {
+    "command": ".venv/bin/python -B test_b3_answer_reliability.py",
+    "exit_code": 2
+  },
+  {
+    "command": ".venv/bin/python -B test_local_v1_retrieval.py",
+    "exit_code": 2
+  },
+  {
+    "command": ".venv/bin/python -B test_assignment_flow.py",
+    "exit_code": 0
+  }
+]

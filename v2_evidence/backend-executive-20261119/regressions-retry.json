@@ -1,0 +1,22 @@
+[
+  {
+    "command": "DATABASE_URL=postgresql:///rag_test_scratch TESTSAFE_BLOCK_NETWORK=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 RAG_V2=0 .venv/bin/python -B test_stage8_p3_classification.py",
+    "exit_code": 0
+  },
+  {
+    "command": "DATABASE_URL=postgresql:///rag_test_scratch TESTSAFE_BLOCK_NETWORK=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 RAG_V2=0 .venv/bin/python -B test_stage6_answer.py",
+    "exit_code": 0
+  },
+  {
+    "command": "DATABASE_URL=postgresql:///rag_test_scratch TESTSAFE_BLOCK_NETWORK=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 RAG_V2=0 .venv/bin/python -B test_context_and_citations.py",
+    "exit_code": 0
+  },
+  {
+    "command": "DATABASE_URL=postgresql:///rag_test_scratch TESTSAFE_BLOCK_NETWORK=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 RAG_V2=0 .venv/bin/python -B test_b3_answer_reliability.py",
+    "exit_code": 0
+  },
+  {
+    "command": "DATABASE_URL=postgresql:///rag_test_scratch TESTSAFE_BLOCK_NETWORK=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 RAG_V2=0 .venv/bin/python -B test_local_v1_retrieval.py",
+    "exit_code": 0
+  }
+]

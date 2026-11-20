@@ -1,0 +1,8 @@
+{
+  "before": "frontend/evidence/rag-grey-ui-20261120-live-01/pdf-preview-desktop.png",
+  "observed": "native PDF object was blank in visual inspection despite authenticated HTTP200; initial link/status journey result preserved",
+  "fix": "same-origin PDF.js canvas with bundled local worker",
+  "after": "frontend/evidence/rag-grey-ui-20261120-live-02/pdf-preview-desktop.png",
+  "verified_measurements": "pdf-render-result-verified.json",
+  "fresh_final_live_identity": "rag-grey-ui-20261120-live-02"
+}

@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "scope": "grey/black UI local engineering acceptance, not official held-out acceptance",
+  "production_build": "PASS",
+  "typescript": "PASS",
+  "eslint": "PASS",
+  "npm_audit_total": 0,
+  "node_tests": 22,
+  "python_api_contract_tests": 12,
+  "playwright_unique_cases": 41,
+  "playwright_breakdown": {
+    "desktop_mobile_ui_fixtures": 36,
+    "real_scratch_api_journeys": 2,
+    "final_live_ocr_gemini_history_isolation_deletion": 1,
+    "retained_education_partial_history_read": 1,
+    "actual_pdf_pages_and_mobile_pixels": 1
+  },
+  "provider_runs": [
+    {
+      "identity": "rag-grey-ui-20261120-live-01",
+      "calls": 2,
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "identity": "rag-grey-ui-20261120-live-02",
+      "calls": 2,
+      "models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "verdict": "PASS"
+    }
+  ],
+  "actual_provider_calls": 4,
+  "aggregate_provider_cap": 6,
+  "no_official_held_out_run": true,
+  "commands": [
+    "npm --prefix frontend run build",
+    "npm --prefix frontend run typecheck",
+    "npm --prefix frontend run lint",
+    "npm --prefix frontend test",
+    "cd frontend && npm audit --json",
+    "RAG_V2_DB_TEST=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 .venv/bin/python -B -m unittest test_v2_browser_contract test_v2_integration -q (background queue workers paused during the deterministic lease test)",
+    "cd frontend && RAG_E2E_EXTERNAL=1 RAG_E2E_REAL=1 node_modules/.bin/playwright test tests/browser/workspace.spec.ts tests/browser/chat-composer.spec.ts tests/browser/management-contracts.spec.ts tests/browser/history-reliability.spec.ts tests/browser/real-api.spec.ts --output=test-results/grey-pdf-production-final",
+    "cd frontend && RAG_E2E_EXTERNAL=1 RAG_UI_RETAINED=1 node_modules/.bin/playwright test tests/browser/ui-retained.spec.ts --project=desktop-chromium (executed in the initial live command; no provider calls)",
+    "cd frontend && RAG_E2E_EXTERNAL=1 RAG_UI_RETAINED=1 node_modules/.bin/playwright test tests/browser/ui-pdf.spec.ts --project=desktop-chromium --output=test-results/grey-pdf-render-verified",
+    "cd frontend && RAG_E2E_EXTERNAL=1 RAG_GREY_UI_LIVE=1 RAG_GREY_UI_RUN_ID=rag-grey-ui-20261120-live-02 node_modules/.bin/playwright test tests/browser/ui-live.spec.ts --project=desktop-chromium --output=test-results/grey-live-final"
+  ]
+}

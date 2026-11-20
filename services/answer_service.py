@@ -3,6 +3,7 @@ Grounded answer generation: prompt -> Gemini -> parse -> citation validation
 -> bounded regeneration -> safe fallback. Citations are kept as structured
 data next to the prose so they can be validated against the retrieval result.
 """
+import os
 import re
 
 from services import retrieval_config as cfg
@@ -18,6 +19,7 @@ from services.citation_service import (
 )
 from services.context_assembly_service import source_index
 from services.grounding_service import drop_unsupported_number_sentences, unsupported_numbers
+from services.request_budget import RequestDeadlineExceeded, check_deadline
 
 UNVERIFIED_MESSAGE = (
     "I found related passages in your documents, but I couldn't produce an "
@@ -33,6 +35,14 @@ _TAG_RE = re.compile(r"^\s*\[(DOCUMENT|MEMORY|MIXED)\]\s*", re.I)
 
 _ABSTAIN_PHRASES = ABSTAIN_PHRASES      # single shared list (citation_service)
 _CONFLICT_PHRASES = ("disagree", "conflict", "differ", "inconsistent", "contradict")
+_SOURCE_DISAGREEMENT = re.compile(
+    r'\b(?:sources?|passages?|documents?|reports?|roadmap|sections?|header|list)\b'
+    r'[^.!?]{0,100}\b(?:disagree|conflict|contradict|(?:is|are|appears?|seems?)\s+(?:internally\s+)?inconsistent)\b'
+    r'|\b(?:contradiction|inconsistency|conflict|disagreement)\s+(?:between|in|within)\s+'
+    r'[^.!?]{0,60}\b(?:sources?|passages?|documents?|reports?|roadmap|sections?|header|list|'
+    r'(?:stated|reported|documented)\s+(?:\w+\s+){0,2}(?:count|number|total))\b',
+    re.I,
+)
 
 
 def has_abstention_language(text: str) -> bool:
@@ -47,6 +57,14 @@ def classify_status(answer: str, cited_docs: set, has_citations: bool, sources=N
 
     if has_citations and len(cited_docs) >= 2 and any(p in lowered for p in _CONFLICT_PHRASES):
         return "conflict"
+    if (os.getenv('RAG_V2') == '1' and has_citations and not missing
+            and _SOURCE_DISAGREEMENT.search(answer)
+            and not re.search(r"\b(?:no|not|never|doesn't|don't)\s+(?:\w+\s+){0,2}(?:conflict|disagree|contradict|inconsistent)", lowered)
+            ):
+        # One PDF may contradict itself within a single passage or between
+        # sections. This reports explicitly disclosed source disagreement;
+        # neither this label nor citation syntax establishes entailment.
+        return "conflict"
     if missing:
         return "partial" if facts else "abstained"
     return "answered"
@@ -55,7 +73,7 @@ def classify_status(answer: str, cited_docs: set, has_citations: bool, sources=N
 def _result(answer, status, tag=None, citations=None, validation=None,
             attempts=0, issues=None):
     citations = citations or []
-    return {
+    result = {
         "answer": answer,
         "status": status,
         "tag": tag,
@@ -70,6 +88,81 @@ def _result(answer, status, tag=None, citations=None, validation=None,
         "attempts": attempts,
         "issues": issues or [],
     }
+    from services.evidence_trace import trace_event
+    trace_event('answer_result', {
+        'status': status, 'tag': tag, 'attempts': attempts,
+        'issues': result['issues'], 'citations': citations,
+        'validation': validation,
+    }, raw={'answer': answer})
+    return result
+
+
+def _coverage(question, sources, body):
+    if os.getenv('RAG_V2') != '1' or not sources:
+        return None
+    from services.request_coverage import request_coverage
+    report = request_coverage(question, sources, body)
+    from services.source_count_comparison import source_count_comparison
+    comparison = source_count_comparison(question, sources)
+    if comparison is not None:
+        report['source_count_comparison'] = comparison
+        if has_abstention_language(body) and not evidence_profile(body, sources)[1]:
+            # An explicit source-bound count comparison exists. A model's
+            # refusal cannot establish source absence after a citation repair.
+            report['concrete_missing'] = report['concrete_missing'] + [{
+                'id': 'source_phase_count_comparison',
+                'label': 'the stated phase count versus the explicitly listed phase headings',
+                'evidence_refs': comparison['evidence_refs'],
+            }]
+    return report
+
+
+def _count_comparison_fallback(question, sources, attempts, last_issues):
+    if os.getenv('RAG_V2') != '1':
+        return None
+    from services.source_count_comparison import source_count_comparison, comparison_answer
+    proof = source_count_comparison(question, sources)
+    if proof is None:
+        return None
+    answer = comparison_answer(proof)
+    validation = validate_answer_citations(answer, sources, require_citations=True)
+    if not validation['valid'] or unsupported_numbers(answer, sources, question, check_uncited=True):
+        return None
+    checked = answer_with_citations(answer, sources)
+    from services.evidence_trace import trace_event
+    trace_event('source_count_comparison_fallback', {
+        'policy': proof['policy'], 'attempts': attempts,
+        'previous_issues': last_issues, 'evidence_refs': proof['evidence_refs'],
+        'stated_count': proof['stated_count'],
+        'observed_consecutive_headings': proof['observed_consecutive_headings'],
+    }, raw={'proof': proof, 'answer': answer})
+    return _result(checked['text'], 'conflict', 'DOCUMENT', checked['citations'],
+                   validation, attempts, ['source_bound_count_comparison_fallback'])
+
+
+def _with_coverage(result, question, sources):
+    """Never report a mechanically known incomplete repair as complete."""
+    report = _coverage(question, sources, result['answer'])
+    if report is None:
+        return result
+    result['coverage'] = report
+    if report.get('concrete_missing'):
+        missing = ['missing_requested_item:' + item['id'] for item in report['concrete_missing']]
+        result['issues'] = list(dict.fromkeys(result['issues'] + missing))
+        if result['status'] == 'answered':
+            result['status'] = 'partial'
+        elif result['status'] == 'abstained':
+            # Evidence exists for a requested item; do not present a failed
+            # bounded generation as proof that the information is absent.
+            result['answer'] = UNVERIFIED_MESSAGE
+            result['status'] = 'unverified'
+    from services.evidence_trace import trace_event
+    trace_event('answer_coverage', {
+        'mode': report.get('mode'), 'status': result['status'],
+        'missing_item_ids': [item['id'] for item in report.get('concrete_missing', [])],
+        'caveat': report.get('caveat'),
+    }, raw={'coverage': report, 'answer': result['answer']})
+    return result
 
 
 def _parse(raw):
@@ -108,16 +201,27 @@ def generate_grounded_answer(
     last_body, last_tag = "", None
 
     for attempt in range(1, attempts + 1):
+        check_deadline()
         prompt = build_answer_prompt(
             question, sources, context_text, history, memory_summary, feedback
         )
+        from services.evidence_trace import trace_event
+        trace_event('generation_request', {
+            'attempt': attempt, 'question_type': question_type,
+            'source_refs': [s['ref'] for s in sources],
+            'context_characters': len(context_text),
+        }, raw={'prompt': prompt, 'context_text': context_text, 'sources': sources})
 
         try:
             raw = generate_fn(prompt)
+            check_deadline()
+        except RequestDeadlineExceeded:
+            raise
         except Exception as error:   # retry/fallback already happened inside generate_answer
             last_issues = [f"generation_error: {type(error).__name__}"]
             feedback = None
             continue
+        trace_event('answer_generated', {'attempt': attempt}, raw={'answer': raw})
 
         tag, body = _parse(raw)
 
@@ -165,12 +269,24 @@ def generate_grounded_answer(
             validation = {**validation, "valid": False,
                           "issues": validation["issues"] + ["unsupported_number"]}
 
+        coverage = _coverage(question, sources, body) if question_type != 'MEMORY' else None
+        coverage_missing = coverage.get('concrete_missing', []) if coverage else []
+        if coverage_missing:
+            validation = {**validation, 'valid': False,
+                          'issues': validation['issues'] + ['missing_requested_item:' + item['id'] for item in coverage_missing]}
+        trace_event('answer_validation', {
+            'attempt': attempt, 'valid': validation['valid'],
+            'issues': validation['issues'],
+            'missing_item_ids': [item['id'] for item in coverage_missing],
+        }, raw={'coverage': coverage, 'answer': body})
+
         if validation["valid"]:
             cited_docs = {c["document"] for c in checked["citations"]}
             status = classify_status(body, cited_docs, bool(checked["citations"]), sources)
             final_tag = tag or ("DOCUMENT" if checked["citations"] else "MEMORY")
-            return _result(checked["text"], status, final_tag,
-                           checked["citations"], validation, attempt)
+            result = _result(checked["text"], status, final_tag,
+                             checked["citations"], validation, attempt)
+            return _with_coverage(result, question, sources) if question_type != 'MEMORY' else result
 
         last_issues = validation["issues"]
         feedback = (
@@ -179,6 +295,9 @@ def generate_grounded_answer(
             "Do not write page numbers or filenames. If the passages do not "
             "contain the answer, say so instead of guessing."
         )
+        if coverage_missing:
+            from services.request_coverage import coverage_feedback
+            feedback += ' ' + coverage_feedback(coverage)
         if ungrounded:
             numbers = sorted({n for _, missing in ungrounded for n in missing})
             feedback += (
@@ -188,8 +307,15 @@ def generate_grounded_answer(
             )
 
     # ---- bounded retries exhausted: safe fallback ---------------------------
+    check_deadline()
     if last_body:
-        return _fallback(last_body, last_tag, last_issues, sources, question, attempts)
+        if (question_type != 'MEMORY' and (
+                has_abstention_language(last_body) or 'uncited_claim' in last_issues)):
+            comparison = _count_comparison_fallback(question, sources, attempts, last_issues)
+            if comparison is not None:
+                return _with_coverage(comparison, question, sources)
+        result = _fallback(last_body, last_tag, last_issues, sources, question, attempts)
+        return _with_coverage(result, question, sources) if question_type != 'MEMORY' else result
 
     return _result(ERROR_MESSAGE, "error", None, [], None, attempts, last_issues)
 

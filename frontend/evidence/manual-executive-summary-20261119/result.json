@@ -1,0 +1,28 @@
+{
+  "document": "Executive Summary.pdf",
+  "method": "Four live questions submitted through the browser UI; source pages1\u20132 visually checked",
+  "status": "PARTIAL_FAILURE",
+  "questions": [
+    {
+      "question": "According to Executive Summary.pdf, what product is proposed and which entrance exams does it target?",
+      "result": "PASS",
+      "observed": "AI education portal; JEE,GATE,NEET; page1citation"
+    },
+    {
+      "question": "Which features are core MVP features, and which are suggested additional features? Keep the two lists separate.",
+      "result": "INCOMPLETE",
+      "observed": "Correct core offerings and four additional-feature groups, but omitted multilingual support and offline/mobile access listed on page2."
+    },
+    {
+      "question": "What development timeline and team size does Executive Summary.pdf estimate?",
+      "result": "INCOMPLETE",
+      "observed": "Returned phase names withpage16citation; omitted the2\u20133year estimate and approximately10\u201315people stated onpage1."
+    },
+    {
+      "question": "What does Executive Summary.pdf say about multilingual support and offline or mobile access?",
+      "result": "PASS",
+      "observed": "Correct Hindi/regional-language support and downloading videos/notes foroffline study; page2citation."
+    }
+  ],
+  "summary": "Two complete answers, two incomplete answers. All four displayed answered status. No timeout observed in this four-question run. No application code, document, schema or protected asset changes; new chat messages only. SDK call count not instrumented."
+}

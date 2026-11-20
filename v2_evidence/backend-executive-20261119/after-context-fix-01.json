@@ -1,0 +1,352 @@
+{
+  "identity": "after-context-fix-01",
+  "results": [
+    {
+      "id": "product",
+      "question": "According to Executive Summary.pdf, what is the proposed product and which three entrance examinations does it target?",
+      "expected": "AI education portal; JEE, GATE, NEET; page 1",
+      "result": {
+        "answer": "The proposed product is an AI-driven education portal that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces [S1]. It targets three entrance examinations: JEE, GATE, and NEET [S1].",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 131,
+            "ref": "S1"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S1",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 131
+          }
+        ],
+        "status": "answered",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 131,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": -3.2510318756103516
+          }
+        ]
+      },
+      "seconds": 11.6,
+      "provider_calls": 2
+    },
+    {
+      "id": "estimates",
+      "question": "According to Executive Summary.pdf, what overall development duration, team size and rough budget does the executive summary estimate? Give all three estimates.",
+      "expected": "2\u20133 years; about 10\u201315 people; $1M\u2013$5M over 2 years; page 1",
+      "result": {
+        "answer": "- Development duration: phased development over 2\u20133 years [S2].\n- Team size: approximately 10\u201315 core team members at peak (or ~10\u201315 people total) [S1][S2].\n- Rough budget: $1.2M\u2013$2.0M over 2 years for personnel plus initial $300K hardware/cloud and $200K/year cloud [S1], or on the order of $1M\u2013$5M over 2 years depending on scale [S2]. Note that the documents provide somewhat different ranges for the rough budget [S1][S2].",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 133,
+            "ref": "S2"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 197,
+            "ref": "S1"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S2",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 133
+          },
+          {
+            "ref": "S1",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 197
+          }
+        ],
+        "status": "answered",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 197,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 15,
+            "retrieval_score": -4.646530628204346
+          },
+          {
+            "ref": "S2",
+            "chunk_id": 133,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": -6.398403167724609
+          }
+        ]
+      },
+      "seconds": 14.53,
+      "provider_calls": 2
+    },
+    {
+      "id": "accessibility",
+      "question": "According to Executive Summary.pdf, what multilingual support and offline/mobile access are proposed?",
+      "expected": "Hindi/other regional languages; downloading videos and notes for offline study; mobile app; page 2",
+      "result": {
+        "answer": "According to the documents, the proposed multilingual support and offline/mobile access features are:\n- Multilingual Support: Extending content to Hindi and other regional languages to broaden accessibility [S1].\n- Offline Access & Mobile App: Allowing the downloading of videos and notes for offline study [S1].",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "chunk_id": 138,
+            "ref": "S1"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S1",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "chunk_id": 138
+          }
+        ],
+        "status": "answered",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 138,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 2,
+            "retrieval_score": -3.01176381111145
+          },
+          {
+            "ref": "S2",
+            "chunk_id": 131,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": -3.2988429069519043
+          }
+        ]
+      },
+      "seconds": 6.32,
+      "provider_calls": 2
+    },
+    {
+      "id": "phases",
+      "question": "List all four implementation phases and their month ranges from the roadmap in Executive Summary.pdf.",
+      "expected": "Planning & Prototype 0\u20136; MVP Development 6\u201315; Pilot & Feedback 15\u201321; Launch & Scale 21\u201330; page 15",
+      "result": {
+        "answer": "Here are the four implementation phases and their month ranges from the roadmap:\n- Phase 1 \u2013 Planning & Prototype: 0\u20136 months [S1].\n- Phase 2 \u2013 MVP Development: 6\u201315 months [S1][S2].\n- Phase 3 \u2013 Pilot & Feedback: 15\u201321 months [S2][S3].\n- Phase 4 \u2013 Launch & Scale: 21\u201330 months [S3].",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 194,
+            "ref": "S1"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 195,
+            "ref": "S2"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 196,
+            "ref": "S3"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S1",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 194
+          },
+          {
+            "ref": "S2",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 195
+          },
+          {
+            "ref": "S3",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 196
+          }
+        ],
+        "status": "answered",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 194,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 15,
+            "retrieval_score": 2.298518180847168
+          },
+          {
+            "ref": "S2",
+            "chunk_id": 195,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 15,
+            "retrieval_score": null
+          },
+          {
+            "ref": "S3",
+            "chunk_id": 196,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 15,
+            "retrieval_score": null
+          },
+          {
+            "ref": "S4",
+            "chunk_id": 197,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 15,
+            "retrieval_score": null
+          }
+        ]
+      },
+      "seconds": 12.45,
+      "provider_calls": 2
+    },
+    {
+      "id": "risks",
+      "question": "According to Executive Summary.pdf, how should quality risks and data/copyright risks be mitigated? Cover both.",
+      "expected": "human review/conservative generation/early feedback; legal review/open data/rephrasing; page 16",
+      "result": {
+        "answer": "To mitigate quality risks where AI outputs might be inaccurate or unengaging, the documents recommend maintaining humans-in-the-loop for review, starting with conservative content generation, and gathering student feedback early [S1]. To mitigate data/copyright risks concerning the unauthorized use of licensed content, the proposed strategies include conducting a legal review of sources, using public or open data, ensuring model outputs are sufficiently rephrased, and citing official guidelines [S1].",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "chunk_id": 199,
+            "ref": "S1"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S1",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "chunk_id": 199
+          }
+        ],
+        "status": "answered",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 199,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 16,
+            "retrieval_score": -0.0869041383266449
+          }
+        ]
+      },
+      "seconds": 16.19,
+      "provider_calls": 2
+    },
+    {
+      "id": "unsupported",
+      "question": "What is the signed customer contract number for the proposed education portal in Executive Summary.pdf?",
+      "expected": "abstain; no invented contract number",
+      "result": {
+        "answer": "I couldn't find sufficient information in the provided documents.",
+        "sources": [],
+        "citations": [],
+        "status": "abstained",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 131,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": -0.4479934871196747
+          }
+        ]
+      },
+      "seconds": 7.58,
+      "provider_calls": 2
+    }
+  ],
+  "calls": [
+    {
+      "model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "cd6faaf777ae4668613b6d3415ed32e0c44ec8c1875062f9ab7c1da305f8b7a5",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1"
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "f49b1f28ee14561b27ee5b1b732688421f653ec4a93aa1a28fd2bb222f134a03",
+      "response_sha256": "1db47eea8c97b52ecb5d5d45790ca093e92ff9ba96eede2b5e34b2cc16d8d8af"
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "36720cb6bc834e249f72e56dcab1d1158e22bf408506b8575016b054574a8803",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1"
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "4cebef118ffa828ffa31a982cdd81bc3b50bc11ebad8a28670907922c4699ce2",
+      "response_sha256": "575d2f56e61343bedcf387973e7755e180ef514752f7e5d4303a890e03192345"
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "ff34a1f49171612c8341f5ee1266f7bfd4bb423df2f923c386f8913525972dad",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1"
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "b4770f88cdbc66cbeafd0262f7a3cb34287d97e1cb45c5fa32c76383888c0490",
+      "response_sha256": "5de612aa4c5336fe46c950a288b3fc2e2645be97ae90c1de1e594d7ee6ec6a40"
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "55e89ad6923a7e55f307c39c3fffec47dcec7243d9b621640954fc6bf85cfcb9",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1"
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "02019e2aa74fea5d72a0871c1e72e24fc3343878fdb39f4fae04eb9a9ee14ffb",
+      "response_sha256": "e472dae201b962fa037618589a1417e033e07f06e382a1413439a86bac043d7b"
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "572354f4bc9eda44c92f3c907807fa21458205100d0c41e865a88c66ff1129eb",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1"
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "3df35261453f389605d0d57a81af28fa047179f47a96383c73bf01bcd892bfce",
+      "response_sha256": "21d2a3019c5cc9497807033a1a5d77c62d497c124b0a1cd483b68de5715914f4"
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "3ec55ed0f6fcfa025ce14d59082771554d14d4988c179203c42d8917fd1a92df",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1"
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "6fd4567904fc5c428e5cd931b707d685021c1dcaa8632f7866bdbe3e17a4153e",
+      "response_sha256": "a81f75b004a549a23672acb55a6d1bf1684b3bc42731ea538cf3fa92626f48fc"
+    }
+  ]
+}

@@ -4,6 +4,7 @@ These rules do not establish semantic entailment. In particular, a statement
 that a document omits an attribute does not establish that a service does not
 exist. Source alignment is limited to the same object in actually cited text.
 """
+import os
 import re
 
 _MARKER = re.compile(r"\[\s*[Ss]\d+(?:\s*[,;]\s*[Ss]\d+)*\s*\]")
@@ -42,7 +43,14 @@ def _core(text):
     # Attribution is not the grammatical subject of the negative statement.
     text = re.sub(r"^(?:(?:i(?:'m| am)\s+)?sorry|unfortunately)(?:[, :]+(?:but\s+)?|$)",
                   "", _clean(text), flags=re.I)
-    return re.sub(r"^according to [^,]+,\s*", "", text, flags=re.I)
+    text = re.sub(r"^according to [^,]+,\s*", "", text, flags=re.I)
+    if os.getenv('RAG_V2') == '1':
+        # A question-part preface is discourse, not the grammatical subject.
+        # Keep the scoped negative-fact rules below: removing this preface
+        # never makes a company's excluded service into missing evidence.
+        text = re.sub(r"^(?:regarding|as for|with respect to|concerning)\s+[^,]+,\s*",
+                      "", text, flags=re.I)
+    return text
 
 
 def is_discourse_clause(text):
@@ -55,6 +63,12 @@ def _information_object(text):
     # coverage' has head coverage, not rate. 'Emergency care information'
     # instead has the informational head information.
     noun_phrase = re.split(r"\s+(?:of|for|about|on|in|at|under)\s+", _clean(text), maxsplit=1, flags=re.I)[0]
+    if os.getenv('RAG_V2') == '1':
+        # Informational heads can carry a reporting participle: 'a telephone
+        # number listed for Morgan'. Do not treat 'fax service provided' or
+        # other non-informational service heads as missing information.
+        noun_phrase = re.sub(r'\s+(?:listed|recorded|given|provided|specified|stated|mentioned)$',
+                             '', noun_phrase, flags=re.I)
     words = noun_phrase.split()
     return bool(words and (_INFORMATION.fullmatch(words[-1]) or noun_phrase.lower().endswith('notice period')))
 

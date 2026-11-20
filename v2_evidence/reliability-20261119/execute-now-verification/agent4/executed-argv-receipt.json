@@ -1,0 +1,48 @@
+{
+  "note": "Actual subprocess argv used -c with the exact saved runner bytes. focused-commands.json lists the equivalent saved-file command for reproduction.",
+  "runner_sha256": "b4551a25da781a1413eeaeb02ba0cb501187ba05f6987a4ad3e4270daff63cfb",
+  "executed_argv": [
+    [
+      ".venv/bin/python",
+      "-B",
+      "-c",
+      "import os,sys,runpy\nos.environ.update(DATABASE_URL=\"postgresql:///rag_test_scratch\", TESTSAFE_BLOCK_NETWORK=\"1\", HF_HUB_OFFLINE=\"1\", TRANSFORMERS_OFFLINE=\"1\", GEMINI_API_KEY=\"offline-placeholder\")\nimport testsafe\ntestsafe.require_scratch_db()\nimport psycopg,socket\ndef forbidden(*args,**kwargs):\n    raise AssertionError(\"provider-free deterministic regression forbids database/network I/O\")\npsycopg.connect=forbidden\npsycopg.Connection.connect=classmethod(forbidden)\nsocket.socket.connect=forbidden\nsys.argv=[sys.argv[1]]\nrunpy.run_path(sys.argv[0],run_name=\"__main__\")\n",
+      "test_v2_execute_acceptance.py"
+    ],
+    [
+      ".venv/bin/python",
+      "-B",
+      "-c",
+      "import os,sys,runpy\nos.environ.update(DATABASE_URL=\"postgresql:///rag_test_scratch\", TESTSAFE_BLOCK_NETWORK=\"1\", HF_HUB_OFFLINE=\"1\", TRANSFORMERS_OFFLINE=\"1\", GEMINI_API_KEY=\"offline-placeholder\")\nimport testsafe\ntestsafe.require_scratch_db()\nimport psycopg,socket\ndef forbidden(*args,**kwargs):\n    raise AssertionError(\"provider-free deterministic regression forbids database/network I/O\")\npsycopg.connect=forbidden\npsycopg.Connection.connect=classmethod(forbidden)\nsocket.socket.connect=forbidden\nsys.argv=[sys.argv[1]]\nrunpy.run_path(sys.argv[0],run_name=\"__main__\")\n",
+      "test_v2_reliability_runtime.py"
+    ],
+    [
+      ".venv/bin/python",
+      "-B",
+      "-c",
+      "import os,sys,runpy\nos.environ.update(DATABASE_URL=\"postgresql:///rag_test_scratch\", TESTSAFE_BLOCK_NETWORK=\"1\", HF_HUB_OFFLINE=\"1\", TRANSFORMERS_OFFLINE=\"1\", GEMINI_API_KEY=\"offline-placeholder\")\nimport testsafe\ntestsafe.require_scratch_db()\nimport psycopg,socket\ndef forbidden(*args,**kwargs):\n    raise AssertionError(\"provider-free deterministic regression forbids database/network I/O\")\npsycopg.connect=forbidden\npsycopg.Connection.connect=classmethod(forbidden)\nsocket.socket.connect=forbidden\nsys.argv=[sys.argv[1]]\nrunpy.run_path(sys.argv[0],run_name=\"__main__\")\n",
+      "test_assignment_flow.py"
+    ],
+    [
+      ".venv/bin/python",
+      "-B",
+      "-c",
+      "import os,sys,runpy\nos.environ.update(DATABASE_URL=\"postgresql:///rag_test_scratch\", TESTSAFE_BLOCK_NETWORK=\"1\", HF_HUB_OFFLINE=\"1\", TRANSFORMERS_OFFLINE=\"1\", GEMINI_API_KEY=\"offline-placeholder\")\nimport testsafe\ntestsafe.require_scratch_db()\nimport psycopg,socket\ndef forbidden(*args,**kwargs):\n    raise AssertionError(\"provider-free deterministic regression forbids database/network I/O\")\npsycopg.connect=forbidden\npsycopg.Connection.connect=classmethod(forbidden)\nsocket.socket.connect=forbidden\nsys.argv=[sys.argv[1]]\nrunpy.run_path(sys.argv[0],run_name=\"__main__\")\n",
+      "test_assignment_provenance.py"
+    ],
+    [
+      ".venv/bin/python",
+      "-B",
+      "-c",
+      "import os,sys,runpy\nos.environ.update(DATABASE_URL=\"postgresql:///rag_test_scratch\", TESTSAFE_BLOCK_NETWORK=\"1\", HF_HUB_OFFLINE=\"1\", TRANSFORMERS_OFFLINE=\"1\", GEMINI_API_KEY=\"offline-placeholder\")\nimport testsafe\ntestsafe.require_scratch_db()\nimport psycopg,socket\ndef forbidden(*args,**kwargs):\n    raise AssertionError(\"provider-free deterministic regression forbids database/network I/O\")\npsycopg.connect=forbidden\npsycopg.Connection.connect=classmethod(forbidden)\nsocket.socket.connect=forbidden\nsys.argv=[sys.argv[1]]\nrunpy.run_path(sys.argv[0],run_name=\"__main__\")\n",
+      "test_p1_d4_delete_decision_errors.py"
+    ],
+    [
+      ".venv/bin/python",
+      "-B",
+      "-c",
+      "import os,sys,runpy\nos.environ.update(DATABASE_URL=\"postgresql:///rag_test_scratch\", TESTSAFE_BLOCK_NETWORK=\"1\", HF_HUB_OFFLINE=\"1\", TRANSFORMERS_OFFLINE=\"1\", GEMINI_API_KEY=\"offline-placeholder\")\nimport testsafe\ntestsafe.require_scratch_db()\nimport psycopg,socket\ndef forbidden(*args,**kwargs):\n    raise AssertionError(\"provider-free deterministic regression forbids database/network I/O\")\npsycopg.connect=forbidden\npsycopg.Connection.connect=classmethod(forbidden)\nsocket.socket.connect=forbidden\nsys.argv=[sys.argv[1]]\nrunpy.run_path(sys.argv[0],run_name=\"__main__\")\n",
+      "test_p1_d5_delete_ids.py"
+    ]
+  ]
+}

@@ -1,0 +1,46 @@
+
+Running 1 test using 1 worker
+
+(node:22556) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:22556) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › tests/browser/reliability-closure.spec.ts:4:1 › retained Morgan live answers, reconciliation, retry and history (3.2s)
+
+
+  1) [desktop-chromium] › tests/browser/reliability-closure.spec.ts:4:1 › retained Morgan live answers, reconciliation, retry and history 
+
+    Test was interrupted.
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveCount[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  getByRole('log').locator('article').filter({ has: getByRole('heading', { name: 'RAG', exact: true }) })
+    Expected: [32m1[39m
+    Received: [31m0[39m
+
+    Call log:
+    [2m  - Expect "toHaveCount" with timeout 100000ms[22m
+    [2m  - waiting for getByRole('log').locator('article').filter({ has: getByRole('heading', { name: 'RAG', exact: true }) })[22m
+    [2m    5 × locator resolved to 0 elements[22m
+    [2m      - unexpected value "0"[22m
+
+
+      13 |   await page.getByLabel('Your message',{exact:true}).fill(questions[i]);await page.getByRole('button',{name:'Send',exact:true}).click();
+      14 |   const assistant=page.getByRole('log').locator('article').filter({has:page.getByRole('heading',{name:'RAG',exact:true})});
+    > 15 |   await expect(assistant).toHaveCount(1,{timeout:100_000});await expect(assistant).toContainText(i===2?'partial':'answered');
+         |                           ^
+      16 |   if(i<2){for(const fact of ['Bachelor of Engineering','Computer Engineering','Sample Institute of Technology','2016','2020'])await expect(assistant).toContainText(fact);await expect(assistant.getByRole('link',{name:/Open citation.*p\. 2/})).toBeVisible();}
+      17 |   else {await expect(assistant).toContainText('40');await expect(assistant).toContainText('12');await expect(assistant).toContainText(/telephone|phone/);}
+      18 |   const early=posts===before;const cid=new URL(page.url()).searchParams.get('conversation')!;
+        at /Volumes/Storage/rag-project/frontend/tests/browser/reliability-closure.spec.ts:15:27
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/reliability-closure-retain-7da5e-ciliation-retry-and-history-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/reliability-closure-retain-7da5e-ciliation-retry-and-history-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 interrupted
+    [desktop-chromium] › tests/browser/reliability-closure.spec.ts:4:1 › retained Morgan live answers, reconciliation, retry and history 

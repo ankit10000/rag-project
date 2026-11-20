@@ -1,0 +1,20 @@
+{
+  "baseline_files": 634,
+  "intentional_preexisting_file_changes": [
+    ".gitignore",
+    "services/automatic_memory_service.py",
+    "services/bm25_service.py",
+    "services/database.py",
+    "services/search_service.py"
+  ],
+  "protected_assets": 44,
+  "protected_mismatches": [],
+  "branch": "main",
+  "baseline_head": "dec09f664bd7bba978ac02a5da7b24186821eea1",
+  "current_head": "3bf3304294ab81aff8678ee9f84250499adeb134",
+  "head_change": "external commit observed during session; no agent performed Git mutations",
+  "staged_bytes_preserved": true,
+  "modified_tracked": 5,
+  "untracked_files": 140,
+  "diff_check": "PASS"
+}

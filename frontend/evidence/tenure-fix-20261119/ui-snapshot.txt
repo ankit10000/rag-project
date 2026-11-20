@@ -1,0 +1,33 @@
+- link "Skip to content":
+  - /url: "#main"
+- alert
+- complementary:
+  - link "RAG 2.0":
+    - /url: /dashboard
+    - text: RAG
+    - generic: "2.0"
+  - button "Toggle navigation":
+- banner:
+  - generic: Private knowledge workspace
+- main:
+  - heading "Chat workspace" [level=1]
+  - paragraph: Ask your sources. Follow every citation.
+  - button "New chat":
+    - text: New chat
+  - log "Conversation messages":
+    - article:
+      - heading "You" [level=2]
+      - paragraph: calculate the year of experience in metacube company
+    - article:
+      - heading "RAG" [level=2]
+      - generic: answered
+      - paragraph: The resume lists employment at Metacube Software Pvt Ltd from February 2022 to November 2025 [S1]. Calculated from those month/year dates, this is approximately 3 years 9 months (45 months); exact days are not specified [S1].
+      - link "Open citation S1 · Ajay_Resume_latest.pdf · p. 1":
+        - /url: /api/v2/documents/37b731aa-5caa-43a5-bfa8-d0d156afde92/file#page=1
+        - text: S1 · Ajay_Resume_latest.pdf · p. 1
+  - generic: Your message
+  - textbox "Your message":
+    - /placeholder: Ask about your documents…
+  - paragraph: Answers may be incomplete. Check original source pages.
+  - button "Send" [disabled]:
+    - text: Send

@@ -1,0 +1,23 @@
+Retrieval status: skipped
+
+--- Reranker Scores ---
+Answer status: abstained | citations: [] | attempts: 0
+
+test_ambiguous_question_is_diagnosed_without_inventing_evidence (__main__.ReliabilityRuntimeTests.test_ambiguous_question_is_diagnosed_without_inventing_evidence) ... ok
+test_artifacts_are_private_exclusive_create (__main__.ReliabilityRuntimeTests.test_artifacts_are_private_exclusive_create) ... ok
+test_default_trace_has_no_private_source_or_secret (__main__.ReliabilityRuntimeTests.test_default_trace_has_no_private_source_or_secret) ... ok
+test_explicit_unavailable_pdf_never_falls_back_to_unscoped_search (__main__.ReliabilityRuntimeTests.test_explicit_unavailable_pdf_never_falls_back_to_unscoped_search) ... W1119 21:48:15.491000 27810 .venv/lib/python3.14/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+ok
+test_guard_closes_identity_mismatch_without_commit (__main__.ReliabilityRuntimeTests.test_guard_closes_identity_mismatch_without_commit) ... ok
+test_guard_refuses_rag_db_before_connect (__main__.ReliabilityRuntimeTests.test_guard_refuses_rag_db_before_connect) ... ok
+test_guard_verifies_actual_database_before_returning_connection (__main__.ReliabilityRuntimeTests.test_guard_verifies_actual_database_before_returning_connection) ... ok
+test_long_section_requires_all_six_additional_features (__main__.ReliabilityRuntimeTests.test_long_section_requires_all_six_additional_features) ... ok
+test_missing_source_and_generation_failure_are_separate (__main__.ReliabilityRuntimeTests.test_missing_source_and_generation_failure_are_separate) ... ok
+test_source_review_checks_match_fixed_case_set (__main__.ReliabilityRuntimeTests.test_source_review_checks_match_fixed_case_set) ... ok
+test_subset_uses_original_questions_and_rejects_new_expectations (__main__.ReliabilityRuntimeTests.test_subset_uses_original_questions_and_rejects_new_expectations) ... ok
+test_trace_opt_in_required (__main__.ReliabilityRuntimeTests.test_trace_opt_in_required) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 4.256s
+
+OK

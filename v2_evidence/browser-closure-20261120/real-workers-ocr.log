@@ -1,0 +1,39 @@
+test_cancelled_claim_cannot_publish_or_duplicate_chunks (test_v2_workers.QueueProcessTests.test_cancelled_claim_cannot_publish_or_duplicate_chunks) ... W1120 11:20:39.268000 24206 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+ok
+test_crashed_worker_is_recovered_and_final_crash_marks_document_failed (test_v2_workers.QueueProcessTests.test_crashed_worker_is_recovered_and_final_crash_marks_document_failed) ... ok
+test_independent_process_resource_locks_order_work (test_v2_workers.QueueProcessTests.test_independent_process_resource_locks_order_work) ... ok
+test_old_job_cancellation_cannot_cancel_replacement_version (test_v2_workers.QueueProcessTests.test_old_job_cancellation_cannot_cancel_replacement_version) ... ok
+test_scheduler_discovers_new_active_owner_without_restart (test_v2_workers.QueueProcessTests.test_scheduler_discovers_new_active_owner_without_restart) ... ok
+test_two_independent_processes_claim_once_and_expired_claim_recovers (test_v2_workers.QueueProcessTests.test_two_independent_processes_claim_once_and_expired_claim_recovers) ... ok
+test_deleted_or_new_document_version_cannot_publish (test_v2_workers.WorkerTests.test_deleted_or_new_document_version_cannot_publish) ... ok
+test_direct_publication_refuses_wrong_embedding_dimensions (test_v2_workers.WorkerTests.test_direct_publication_refuses_wrong_embedding_dimensions) ... ok
+test_expired_token_cannot_publish (test_v2_workers.WorkerTests.test_expired_token_cannot_publish) ... ok
+test_foreign_or_empty_chunk_publication_refused (test_v2_workers.WorkerTests.test_foreign_or_empty_chunk_publication_refused) ... ok
+test_idle_worker_does_not_load_models (test_v2_workers.WorkerTests.test_idle_worker_does_not_load_models) ... ok
+test_invalid_lease_and_heartbeat_refuse_before_connection (test_v2_workers.WorkerTests.test_invalid_lease_and_heartbeat_refuse_before_connection) ... ok
+test_lock_closes_even_if_unlock_fails (test_v2_workers.WorkerTests.test_lock_closes_even_if_unlock_fails) ... ok
+test_lock_releases_on_handler_failure_and_has_no_open_transaction (test_v2_workers.WorkerTests.test_lock_releases_on_handler_failure_and_has_no_open_transaction) ... ok
+test_lock_requires_tenant (test_v2_workers.WorkerTests.test_lock_requires_tenant) ... ok
+test_worker_does_not_read_another_owners_file (test_v2_workers.WorkerTests.test_worker_does_not_read_another_owners_file) ... ok
+test_worker_publication_and_failure_paths (test_v2_workers.WorkerTests.test_worker_publication_and_failure_paths) ... ok
+test_actual_scanned_and_mixed_quality_predeclared_95_percent (test_v2_ocr.OCRTests.test_actual_scanned_and_mixed_quality_predeclared_95_percent) ... ok
+test_backend_cancellation_kills_and_reaps_real_subprocess (test_v2_ocr.OCRTests.test_backend_cancellation_kills_and_reaps_real_subprocess) ... ok
+test_backend_timeout_kills_and_reaps_real_subprocess (test_v2_ocr.OCRTests.test_backend_timeout_kills_and_reaps_real_subprocess) ... ok
+test_cancel_after_native_page_does_not_return_partial_results (test_v2_ocr.OCRTests.test_cancel_after_native_page_does_not_return_partial_results) ... ok
+test_cancel_before_work (test_v2_ocr.OCRTests.test_cancel_before_work) ... ok
+test_corrupt_and_encrypted_rejected (test_v2_ocr.OCRTests.test_corrupt_and_encrypted_rejected) ... ok
+test_extension_and_byte_budget (test_v2_ocr.OCRTests.test_extension_and_byte_budget) ... ok
+test_invalid_options_fail_closed (test_v2_ocr.OCRTests.test_invalid_options_fail_closed) ... ok
+test_missing_local_backend_fails_without_network_fallback (test_v2_ocr.OCRTests.test_missing_local_backend_fails_without_network_fallback) ... ok
+test_mixed_page_numbers_no_duplicate_text_and_progress (test_v2_ocr.OCRTests.test_mixed_page_numbers_no_duplicate_text_and_progress) ... ok
+test_native_path_matches_existing_text_parser_without_ocr (test_v2_ocr.OCRTests.test_native_path_matches_existing_text_parser_without_ocr) ... ok
+test_ocr_failure_and_empty_output_raise_instead_of_false_completion (test_v2_ocr.OCRTests.test_ocr_failure_and_empty_output_raise_instead_of_false_completion) ... ok
+test_page_and_pixel_budgets (test_v2_ocr.OCRTests.test_page_and_pixel_budgets) ... ok
+test_page_timeout_checked_after_backend_return (test_v2_ocr.OCRTests.test_page_timeout_checked_after_backend_return) ... ok
+test_retry_is_pure_and_idempotent (test_v2_ocr.OCRTests.test_retry_is_pure_and_idempotent) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 7.642s
+
+OK
+Actual Tesseract OCR benchmark: word_recall=1.000, numeric_facts=2/2, original_page=2

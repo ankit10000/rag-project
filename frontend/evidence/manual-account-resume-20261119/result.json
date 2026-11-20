@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-19",
+  "method": "Signed into requested account using supplied credentials through localhost browser UI; credentials not copied to artifacts",
+  "document": "Ajay_Resume_latest.pdf",
+  "status": "FAIL",
+  "observations": [
+    {
+      "question": "how much year of experience in metacube company",
+      "actual": "Insufficient-information abstention",
+      "assessment": "Fails to answer employer tenure derivable from visible dates."
+    },
+    {
+      "question": "What start month/year and end month/year are shown for Metacube Software Pvt. Ltd.?",
+      "actual": "Ltd. is February 2022, and the end month and year is November 2025 [S1].",
+      "assessment": "Dates correct, but the opening company/subject text is truncated."
+    },
+    {
+      "question": "Using those employment dates, calculate the Metacube duration in years and months. Clearly label it as a calculation from the dates.",
+      "actual": "Insufficient information to calculate duration [S1].",
+      "assessment": "Failed calculation; month-to-month difference is45months, approximately3years9months."
+    },
+    {
+      "question": "Is Readibots a project under Metacube, and are separate Readibots dates stated?",
+      "actual": "Documents do not state whether Readibots is under Metacube; no separate dates stated. Status partial.",
+      "assessment": "Incorrect project/employer association claim: the resume places Readibots under Metacube. Correct not to assert a separate project-specific duration."
+    }
+  ],
+  "source_check": "User-provided PDF screenshot shows Metacube Software Pvt. Ltd., February2022–November2025, with Readibots beneath that employment entry. No separate project dates shown.",
+  "scope": "Four live UI questions, no application-code changes, source-document edits, deletes, migrations or Git operations. Account left signed in for review; no SDK call count instrumentation."
+}

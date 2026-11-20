@@ -1,0 +1,15 @@
+
+Running 2 tests using 2 workers
+
+(node:39375) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:39376) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:39375) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:39376) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [desktop-chromium] › tests/browser/ui-retained.spec.ts:4:1 › redesigned UI reopens retained real education and partial results with original pages (3.3s)
+  ✓  1 [desktop-chromium] › tests/browser/ui-live.spec.ts:6:1 › grey workspace real scratch journey: OCR, Gemini, source/history, two-user isolation and deletion (22.5s)
+
+  2 passed (25.6s)

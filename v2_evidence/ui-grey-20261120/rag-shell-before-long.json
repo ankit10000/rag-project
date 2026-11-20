@@ -1,0 +1,249 @@
+{
+  "viewport": 720,
+  "root": 918,
+  "body": 720,
+  "rootRect": {
+    "x": 0,
+    "y": 0,
+    "width": 1280,
+    "height": 720,
+    "top": 0,
+    "right": 1280,
+    "bottom": 720,
+    "left": 0
+  },
+  "bodyRect": {
+    "x": 0,
+    "y": 0,
+    "width": 1280,
+    "height": 720,
+    "top": 0,
+    "right": 1280,
+    "bottom": 720,
+    "left": 0
+  },
+  "log": {
+    "x": 338,
+    "y": 159.296875,
+    "width": 864,
+    "height": 377.5625,
+    "top": 159.296875,
+    "right": 1202,
+    "bottom": 536.859375,
+    "left": 338
+  },
+  "logScroll": 807,
+  "logTop": 0,
+  "outside": [
+    {
+      "tag": "DIV",
+      "class": "space-y-8 py-3 sm:space-y-10",
+      "rect": {
+        "x": 346,
+        "y": 159.296875,
+        "width": 848,
+        "height": 786.5,
+        "top": 159.296875,
+        "right": 1194,
+        "bottom": 945.796875,
+        "left": 346
+      }
+    },
+    {
+      "tag": "ARTICLE",
+      "class": "ml-auto max-w-[90%] rounded-3xl bg-secondary px-5 py-3 sm:max-w-[82%]",
+      "rect": {
+        "x": 498.640625,
+        "y": 706.296875,
+        "width": 695.359375,
+        "height": 48.75,
+        "top": 706.296875,
+        "right": 1194,
+        "bottom": 755.046875,
+        "left": 498.640625
+      }
+    },
+    {
+      "tag": "H2",
+      "class": "text-sm font-medium",
+      "rect": {
+        "x": 517.640625,
+        "y": 707.796875,
+        "width": 24.546875,
+        "height": 20,
+        "top": 707.796875,
+        "right": 542.1875,
+        "bottom": 727.796875,
+        "left": 517.640625
+      }
+    },
+    {
+      "tag": "P",
+      "class": "whitespace-pre-wrap break-words text-[15px] leading-7 [overflow-wrap:anywhere]",
+      "rect": {
+        "x": 518.640625,
+        "y": 718.296875,
+        "width": 655.359375,
+        "height": 24.75,
+        "top": 718.296875,
+        "right": 1174,
+        "bottom": 743.046875,
+        "left": 518.640625
+      }
+    },
+    {
+      "tag": "ARTICLE",
+      "class": "min-w-0 pr-1",
+      "rect": {
+        "x": 346,
+        "y": 795.046875,
+        "width": 848,
+        "height": 138.75,
+        "top": 795.046875,
+        "right": 1194,
+        "bottom": 933.796875,
+        "left": 346
+      }
+    },
+    {
+      "tag": "DIV",
+      "class": "mb-2 flex items-center gap-2 ",
+      "rect": {
+        "x": 346,
+        "y": 795.046875,
+        "width": 844,
+        "height": 20,
+        "top": 795.046875,
+        "right": 1190,
+        "bottom": 815.046875,
+        "left": 346
+      }
+    },
+    {
+      "tag": "H2",
+      "class": "text-sm font-medium",
+      "rect": {
+        "x": 346,
+        "y": 795.046875,
+        "width": 28.640625,
+        "height": 20,
+        "top": 795.046875,
+        "right": 374.640625,
+        "bottom": 815.046875,
+        "left": 346
+      }
+    },
+    {
+      "tag": "SPAN",
+      "class": "inline-flex items-center rounded-full status-answered border-0 px-2 py-0.5 text-[10px] font-normal",
+      "rect": {
+        "x": 382.640625,
+        "y": 795.546875,
+        "width": 62.171875,
+        "height": 19,
+        "top": 795.546875,
+        "right": 444.8125,
+        "bottom": 814.546875,
+        "left": 382.640625
+      }
+    },
+    {
+      "tag": "DIV",
+      "class": "min-w-0 space-y-4 break-words text-[15px] leading-7 [overflow-wrap:anywhere] [&_strong]:font-semibold [&_p]:leading-7 [&_ul]:list-disc [&_ul]:space-y-1 [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:space-y-1 [&_ol]:pl-6 [&_li>p]:my-1 [&_h1]:text-xl [&_h1]:font-semibold [&_h2]:text-lg [&_h2]:font-semibold [&_h3]:font-semibold [&_blockquote]:border-l-2 [&_blockquote]:pl-4 [&_blockquote]:text-muted-foreground [&_hr]:my-6",
+      "rect": {
+        "x": 346,
+        "y": 823.046875,
+        "width": 844,
+        "height": 24.75,
+        "top": 823.046875,
+        "right": 1190,
+        "bottom": 847.796875,
+        "left": 346
+      }
+    },
+    {
+      "tag": "P",
+      "class": "",
+      "rect": {
+        "x": 346,
+        "y": 823.046875,
+        "width": 844,
+        "height": 24.75,
+        "top": 823.046875,
+        "right": 1190,
+        "bottom": 847.796875,
+        "left": 346
+      }
+    },
+    {
+      "tag": "DIV",
+      "class": "mt-4 flex flex-wrap gap-2",
+      "rect": {
+        "x": 346,
+        "y": 863.796875,
+        "width": 844,
+        "height": 30,
+        "top": 863.796875,
+        "right": 1190,
+        "bottom": 893.796875,
+        "left": 346
+      }
+    },
+    {
+      "tag": "A",
+      "class": "inline-flex max-w-full items-center gap-1.5 rounded-full border bg-card px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-foreground",
+      "rect": {
+        "x": 346,
+        "y": 863.796875,
+        "width": 190.578125,
+        "height": 30,
+        "top": 863.796875,
+        "right": 536.578125,
+        "bottom": 893.796875,
+        "left": 346
+      }
+    },
+    {
+      "tag": "svg",
+      "class": {},
+      "rect": {
+        "x": 359,
+        "y": 871.796875,
+        "width": 14,
+        "height": 14,
+        "top": 871.796875,
+        "right": 373,
+        "bottom": 885.796875,
+        "left": 359
+      }
+    },
+    {
+      "tag": "path",
+      "class": {},
+      "rect": {
+        "x": 361.3333435058594,
+        "y": 872.9635620117188,
+        "width": 9.33331298828125,
+        "height": 11.6666259765625,
+        "top": 872.9635620117188,
+        "right": 370.6666564941406,
+        "bottom": 884.6301879882812,
+        "left": 361.3333435058594
+      }
+    },
+    {
+      "tag": "path",
+      "class": {},
+      "rect": {
+        "x": 367.1666564941406,
+        "y": 872.9635620117188,
+        "width": 3.5,
+        "height": 3.5,
+        "top": 872.9635620117188,
+        "right": 370.6666564941406,
+        "bottom": 876.4635620117188,
+        "left": 367.1666564941406
+      }
+    }
+  ]
+}

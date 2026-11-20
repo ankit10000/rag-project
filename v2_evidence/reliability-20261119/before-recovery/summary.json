@@ -1,0 +1,169 @@
+[
+  {
+    "id": "product",
+    "chunks": [
+      131
+    ],
+    "pages": [
+      1
+    ],
+    "chars": 798,
+    "provider_calls": 0
+  },
+  {
+    "id": "estimates",
+    "chunks": [
+      197,
+      133
+    ],
+    "pages": [
+      15,
+      1
+    ],
+    "chars": 1165,
+    "provider_calls": 0
+  },
+  {
+    "id": "accessibility",
+    "chunks": [
+      138,
+      131
+    ],
+    "pages": [
+      2,
+      1
+    ],
+    "chars": 1576,
+    "provider_calls": 0
+  },
+  {
+    "id": "phases",
+    "chunks": [
+      194,
+      195,
+      196,
+      197
+    ],
+    "pages": [
+      15,
+      15,
+      15,
+      15
+    ],
+    "chars": 2548,
+    "provider_calls": 0
+  },
+  {
+    "id": "risks",
+    "chunks": [
+      199
+    ],
+    "pages": [
+      16
+    ],
+    "chars": 757,
+    "provider_calls": 0
+  },
+  {
+    "id": "unsupported",
+    "chunks": [
+      131
+    ],
+    "pages": [
+      1
+    ],
+    "chars": 798,
+    "provider_calls": 0
+  },
+  {
+    "id": "cross_page",
+    "chunks": [
+      167,
+      131
+    ],
+    "pages": [
+      9,
+      1
+    ],
+    "chars": 1508,
+    "provider_calls": 0
+  },
+  {
+    "id": "comparison",
+    "chunks": [
+      203
+    ],
+    "pages": [
+      17
+    ],
+    "chars": 712,
+    "provider_calls": 0
+  },
+  {
+    "id": "follow_up",
+    "chunks": [
+      138
+    ],
+    "pages": [
+      2
+    ],
+    "chars": 778,
+    "provider_calls": 0
+  },
+  {
+    "id": "conflict",
+    "chunks": [
+      194
+    ],
+    "pages": [
+      15
+    ],
+    "chars": 666,
+    "provider_calls": 0
+  },
+  {
+    "id": "explicit_negative",
+    "chunks": [
+      164,
+      203
+    ],
+    "pages": [
+      8,
+      17
+    ],
+    "chars": 1430,
+    "provider_calls": 0
+  },
+  {
+    "id": "long_section",
+    "chunks": [
+      131,
+      132,
+      133,
+      134,
+      135,
+      136
+    ],
+    "pages": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "chars": 4075,
+    "provider_calls": 0
+  },
+  {
+    "id": "partial",
+    "chunks": [
+      131
+    ],
+    "pages": [
+      1
+    ],
+    "chars": 798,
+    "provider_calls": 0
+  }
+]

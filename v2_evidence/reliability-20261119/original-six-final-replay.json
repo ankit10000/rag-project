@@ -1,0 +1,47 @@
+{
+  "scope": "saved live answers replayed against final-tree validation; not another live experiment",
+  "results": [
+    {
+      "id": "product",
+      "status": "answered",
+      "answer_unchanged": true,
+      "fixture_calls": 1,
+      "provider_calls": 0
+    },
+    {
+      "id": "estimates",
+      "status": "answered",
+      "answer_unchanged": true,
+      "fixture_calls": 1,
+      "provider_calls": 0
+    },
+    {
+      "id": "accessibility",
+      "status": "answered",
+      "answer_unchanged": true,
+      "fixture_calls": 1,
+      "provider_calls": 0
+    },
+    {
+      "id": "phases",
+      "status": "answered",
+      "answer_unchanged": true,
+      "fixture_calls": 1,
+      "provider_calls": 0
+    },
+    {
+      "id": "risks",
+      "status": "answered",
+      "answer_unchanged": true,
+      "fixture_calls": 1,
+      "provider_calls": 0
+    },
+    {
+      "id": "unsupported",
+      "status": "abstained",
+      "answer_unchanged": true,
+      "fixture_calls": 1,
+      "provider_calls": 0
+    }
+  ]
+}

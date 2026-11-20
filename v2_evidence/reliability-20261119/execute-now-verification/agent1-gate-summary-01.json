@@ -1,0 +1,49 @@
+{
+  "status": "PASS for retrieval/recovery focused deterministic gate",
+  "tests": [
+    {
+      "command": ".venv/bin/python -B test_v2_evidence_recovery.py",
+      "exit_code": 0,
+      "unittest_passed": 24,
+      "script_assertions_passed": 0,
+      "log": "v2_evidence/reliability-20261119/execute-now-verification/agent1-test_v2_evidence_recovery.py.log"
+    },
+    {
+      "command": ".venv/bin/python -B test_v2_page_context.py",
+      "exit_code": 0,
+      "unittest_passed": 7,
+      "script_assertions_passed": 0,
+      "log": "v2_evidence/reliability-20261119/execute-now-verification/agent1-test_v2_page_context.py.log"
+    },
+    {
+      "command": ".venv/bin/python -B test_v2_reliability_runtime.py",
+      "exit_code": 0,
+      "unittest_passed": 12,
+      "script_assertions_passed": 0,
+      "log": "v2_evidence/reliability-20261119/execute-now-verification/agent1-test_v2_reliability_runtime.py.log"
+    },
+    {
+      "command": ".venv/bin/python -B test_stage5_retrieval.py",
+      "exit_code": 0,
+      "unittest_passed": null,
+      "script_assertions_passed": 47,
+      "log": "v2_evidence/reliability-20261119/execute-now-verification/agent1-test_stage5_retrieval.py.log"
+    }
+  ],
+  "unittest_passed": 43,
+  "script_assertions_passed": 47,
+  "roadmap_replay": "agent1-roadmap-replay-01.json",
+  "gate_notes": [
+    "Original saved pre-fix context194 only; actual current orchestration with saved real source snapshots returns194/195/196/197,2548chars,4chunks; no provider or DBnetworkcalls",
+    "Source scope checks restrict literal owned ready PDF identities; explicit unavailable PDF closes scope; every additional facet/neighbor query retains document and owner filters",
+    "Recovery remains3focusedsearches,2sourceheadinganchors,8chunks/12000characters; capital prose path uses existing source166 where available instead of unnecessary query",
+    "Facet ranking failures propagate degraded status; strict localv1 profile can refuse unverifiedranking",
+    "Default trace unrecognized raw fields are fingerprinted; secrets redacted; private writes exclusive0600 with0700directory",
+    "Lead separately fixed current shared fusion-removal reason instrumentation to distinguish duplicate_content from poollimit; no ranking policy change by this agent"
+  ],
+  "protected_assets_checked": 44,
+  "protected_assets_unchanged": true,
+  "source_edits_by_agent_this_execute_now_pass": [],
+  "provider_calls": 0,
+  "database_network_calls": 0
+}

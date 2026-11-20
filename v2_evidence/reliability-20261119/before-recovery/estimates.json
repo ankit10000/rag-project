@@ -1,0 +1,1095 @@
+{
+  "header": {
+    "question": "According to Executive Summary.pdf, what overall development duration, team size and rough budget does the executive summary estimate? Give all three estimates.",
+    "authorized_documents": [
+      "e3160c67-ee6d-4983-9029-8273bd35525a"
+    ],
+    "policy": "development-answer-evidence-trace/1"
+  },
+  "raw_enabled": true,
+  "events": [
+    {
+      "stage": "question_category",
+      "elapsed_ms": 1.39,
+      "metadata": {
+        "category": "DOCUMENT",
+        "origin": "predeclared source question; classifier not called"
+      }
+    },
+    {
+      "stage": "retrieval_scope",
+      "elapsed_ms": 1.42,
+      "metadata": {
+        "document_names": null,
+        "pages": null,
+        "top_k": 5
+      },
+      "raw": {
+        "search_query": "According to Executive Summary.pdf, what overall development duration, team size and rough budget does the executive summary estimate? Give all three estimates."
+      }
+    },
+    {
+      "stage": "vector_candidates",
+      "elapsed_ms": 179.54,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 196,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "7756c16ee42d986eab054bdb477052c0b649162e67d6c48ba17d1ad724561294"
+            },
+            "selected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "51114fa476a8eeb0007a43d5abca8ac16d9e0c9ec88a19a4550e8c158640ba14"
+            },
+            "selected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": 198,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content": {
+              "chars": 92,
+              "sha256": "bebe91c75d16fdd3d43c586e7d0e0a0ea0a94731ec92dfd9b2c505740a6e9625"
+            },
+            "selected": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": 201,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content": {
+              "chars": 92,
+              "sha256": "f45c8618b30b83cecd7d69ec8e7f85851b74f2fa8a692888b43703bc68d84fbf"
+            },
+            "selected": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": 195,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "d524df711b0e2d9cbad88f2b88f019712d745cb1b579c6cd5513d73cd03ac766"
+            },
+            "selected": true
+          },
+          {
+            "rank": 6,
+            "chunk_id": 133,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "726d47cea9a9b85a821c137fc9213e7270a1da99efd2752b95feed0d79c4e820"
+            },
+            "selected": true
+          },
+          {
+            "rank": 7,
+            "chunk_id": 165,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content": {
+              "chars": 92,
+              "sha256": "163e94d313b394eb207194ce5634457fa516f1aa5d48b8a9656f5ab29d627b15"
+            },
+            "selected": true
+          },
+          {
+            "rank": 8,
+            "chunk_id": 194,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "9ff1ffceb2032354b875ffd7d6737565ad11834a06adce5cc89f67b34d4884d7"
+            },
+            "selected": true
+          },
+          {
+            "rank": 9,
+            "chunk_id": 202,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content": {
+              "chars": 92,
+              "sha256": "0b5dee10186eb74e3d12cfe5069e93f26ffbe83e0d802a6cfe2cffc649461eff"
+            },
+            "selected": true
+          },
+          {
+            "rank": 10,
+            "chunk_id": 199,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content": {
+              "chars": 92,
+              "sha256": "e66115280d51d5fc855e523a036a7effca557aeba060e95bdab61407c7408f6f"
+            },
+            "selected": true
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 196,
+            "content": "improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics dashboard, improve filtering). Begin legal/compliance review. \u2022 Team: Same core, +2 QA testers, +1 security auditor. \u2022 Phase 4 \u2013 Launch & Scale (21\u201330 mo): \u2022 Milestones: Public launch; monitoring; content expansion. \u2022 Activities: Scale up infrastructure; add more features (multilingual support, gamification, third-party integrations); marketing; ongoing operations; formalizing handoff docs (architecture diagrams, requirements, model cards, test plans, runbooks). \u2022 Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at"
+          },
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          },
+          {
+            "chunk_id": 198,
+            "content": "\u2022 Misc (licenses, overhead): \\$100K. Total ballpark: \\$1.6M\u2013\\$3M. A more advanced roadmap (larger models, extensive data) could push budgets to the \\$5M level. Milestone Timeline (Mermaid Gantt): Implementation Roadmap Requirements Spec Phase 1: Planning System Architecture & Data Proof-of-Concept AI Models Model Training (NLP, TTS) Phase 2: MVP Development Portal VideoFrontend/BackendPipeline Dev Build Content Filtering Module Phase 3: Pilot & Feedback Internal Pilot Evaluate & Iterate Beta Launch & Fixes Phase 4: Launch & Scale Feature Enhancements (v2) Full Launch Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development"
+          },
+          {
+            "chunk_id": 201,
+            "content": "legal experts. Regular risk reviews will be part of project governance. 16. Handoff Deliverables and Templates At each phase we will produce standard documentation to facilitate handoff and continuity: \u2022 Requirements Document: Detailed functional and non-functional requirements, user stories, use cases. \u2022 Architecture Diagrams: High-level and component diagrams (like Figure 1). Merely this document\u2019s figures can serve as a start. \u2022 Data Schema: Definitions for all database tables/collections (e.g. Video, Question, UserProgress) and metadata. 16"
+          },
+          {
+            "chunk_id": 195,
+            "content": "2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models (NLP, TTS); implement video generation pipeline; integrate content filtering; develop the portal frontend (video player, note display, quiz modules); deploy on test servers; iterate with internal feedback. \u2022 Team: +2 ML engineers (video/TTS specialists), +2 frontend devs, +1 UX designer, continuing content experts. \u2022 Phase 3 \u2013 Pilot & Feedback (15\u201321 mo): \u2022 Milestones: Internal pilot with select students/teachers; evaluation; improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics"
+          },
+          {
+            "chunk_id": 133,
+            "content": "cost vs scalability. Evaluation will combine standard ML metrics (accuracy, BLEU/ROUGE, etc.) with pedagogical validation (expert reviews, student testing). We anticipate phased development over 2\u20133 years, with MVP launch focusing on core video lessons, notes, and quizzes. Estimated team: ~10\u201315 people (AI/ML engineers, software developers, content experts, QA, DevOps, legal). Rough budget: on the order of $1M\u2013$5M (including hardware, personnel, and legal costs) over 2 years, depending on scale. Key risks (model quality, data licensing, engagement) have mitigation plans (human-in-the-loop validation, IP audits, iterative user testing). We include comparison tables (model and hosting options, MVP vs later features) and mermaid"
+          },
+          {
+            "chunk_id": 165,
+            "content": "over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of models and data. 8"
+          },
+          {
+            "chunk_id": 194,
+            "content": "14. Roadmap & Implementation Phases We propose a phased rollout with roughly 3 phases over ~24\u201330 months: \u2022 Phase 1 \u2013 Planning & Prototype (0\u20136 mo): \u2022 Milestones: Requirements gathering, architecture design, initial prototyping. \u2022 Activities: Collect core curriculum data; build basic platform skeleton (user accounts, simple CMS); prototype LLM summarization and Q&A with small models; test video pipeline with manual slide decks. \u2022 Team: Project Manager, 2 ML engineers, 2 software engineers, 1 subject expert, 1 DevOps. \u2022 Phase 2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models"
+          },
+          {
+            "chunk_id": 202,
+            "content": "\u2022 Model Cards: For each ML model, a card describing: architecture, training data, performance metrics, intended use, limitations. This ensures transparency (aligned with [13\u2020L107-L113] emphasis on visibility). \u2022 Test Plans: Test cases for unit, integration, and user acceptance (e.g. \u201cTC1: Given topic X, generation returns video <3 min, mentions key formula\u201d). Include evaluation checklists (accuracy, bias, etc.). \u2022 Runbooks: Operational guides (e.g. \u201cHow to restart the inference cluster\u201d, \u201cEmergency contact matrix\u201d). Include troubleshooting steps and escalation paths. These will be living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists)"
+          },
+          {
+            "chunk_id": 199,
+            "content": "Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development phases (mid-2026 start). 15. Risk Management and Mitigation \u2022 Quality Risk: AI outputs might be inaccurate or unengaging. Mitigation: Maintain humans-in-loop for review, start with conservative content generation, gather student feedback early. \u2022 Data/Copyright Risk: Unauthorized use of licensed content. Mitigation: Legal review of sources, use public/open data, ensure model outputs are sufficiently rephrased. Cite official guidelines\u301045\u2020L75- L84\u3011. \u2022 Cost Overruns: Training large models can blow budgets. Mitigation: Use open models when possible; optimize with distillation/quantization; consider HPC credits or"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "lexical_candidates",
+      "elapsed_ms": 211.49,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "51114fa476a8eeb0007a43d5abca8ac16d9e0c9ec88a19a4550e8c158640ba14"
+            },
+            "selected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "f78bed05cc06020064b3891b202534bc4747f83fa3f3efdf7ba3aa1b2ca98582"
+            },
+            "selected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": 196,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "7756c16ee42d986eab054bdb477052c0b649162e67d6c48ba17d1ad724561294"
+            },
+            "selected": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": 133,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "726d47cea9a9b85a821c137fc9213e7270a1da99efd2752b95feed0d79c4e820"
+            },
+            "selected": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": 45,
+            "document": "37b731aa-5caa-43a5-bfa8-d0d156afde92",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "2ccc184bee58d79149974517543a1a22e987193cabaf244599f43bb179975a26"
+            },
+            "selected": true
+          },
+          {
+            "rank": 6,
+            "chunk_id": 195,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "d524df711b0e2d9cbad88f2b88f019712d745cb1b579c6cd5513d73cd03ac766"
+            },
+            "selected": true
+          },
+          {
+            "rank": 7,
+            "chunk_id": 147,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 4,
+            "content": {
+              "chars": 92,
+              "sha256": "3de7df376323eb548288c25ba5c96f206e3c6091b0bea2344a7ce469a5ffdbc0"
+            },
+            "selected": true
+          },
+          {
+            "rank": 8,
+            "chunk_id": 194,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "9ff1ffceb2032354b875ffd7d6737565ad11834a06adce5cc89f67b34d4884d7"
+            },
+            "selected": true
+          },
+          {
+            "rank": 9,
+            "chunk_id": 149,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 4,
+            "content": {
+              "chars": 92,
+              "sha256": "e4d38924506a3556845663f64d00f6bbada0a2df3cdfe38af6c870b3ae96d2c8"
+            },
+            "selected": true
+          },
+          {
+            "rank": 10,
+            "chunk_id": 198,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content": {
+              "chars": 92,
+              "sha256": "bebe91c75d16fdd3d43c586e7d0e0a0ea0a94731ec92dfd9b2c505740a6e9625"
+            },
+            "selected": true
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 196,
+            "content": "improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics dashboard, improve filtering). Begin legal/compliance review. \u2022 Team: Same core, +2 QA testers, +1 security auditor. \u2022 Phase 4 \u2013 Launch & Scale (21\u201330 mo): \u2022 Milestones: Public launch; monitoring; content expansion. \u2022 Activities: Scale up infrastructure; add more features (multilingual support, gamification, third-party integrations); marketing; ongoing operations; formalizing handoff docs (architecture diagrams, requirements, model cards, test plans, runbooks). \u2022 Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at"
+          },
+          {
+            "chunk_id": 133,
+            "content": "cost vs scalability. Evaluation will combine standard ML metrics (accuracy, BLEU/ROUGE, etc.) with pedagogical validation (expert reviews, student testing). We anticipate phased development over 2\u20133 years, with MVP launch focusing on core video lessons, notes, and quizzes. Estimated team: ~10\u201315 people (AI/ML engineers, software developers, content experts, QA, DevOps, legal). Rough budget: on the order of $1M\u2013$5M (including hardware, personnel, and legal costs) over 2 years, depending on scale. Key risks (model quality, data licensing, engagement) have mitigation plans (human-in-the-loop validation, IP audits, iterative user testing). We include comparison tables (model and hosting options, MVP vs later features) and mermaid"
+          },
+          {
+            "chunk_id": 45,
+            "content": "Ajay Pal Rawat \u0083 +91-9829535768 \u2014 # palrawatajay@gmail.com \u2014 \u00ef linkedin.com/in/ajay-pal-rawat \u2014 * Jaipur, Rajasthan, India SUMMARY \u2014 Full Stack Engineer with 4+ years shipping UI-heavy B2B SaaS products and Node.js microservices; currently Co-Founder at Nexentity building Node.js backends, a Python-based voice-to-voice RAG engine, and React.js frontends. Previously at Metacube Software (Fortune 500 clients), shipping a production RAG agent in Python/LangGraph. Working knowledge of TypeScript, GraphQL, Jest. SKILLS Frontend React.js, TypeScript, Redux, SWR Testing Jest, RTL UI & Styling Tailwind CSS, Shadcn/ui, MUI Databases PostgreSQL, pgvector Backend Node.js, Express.js, FastAPI Tools Git, VS Code, Postman, Vite AI / ML Python,"
+          },
+          {
+            "chunk_id": 195,
+            "content": "2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models (NLP, TTS); implement video generation pipeline; integrate content filtering; develop the portal frontend (video player, note display, quiz modules); deploy on test servers; iterate with internal feedback. \u2022 Team: +2 ML engineers (video/TTS specialists), +2 frontend devs, +1 UX designer, continuing content experts. \u2022 Phase 3 \u2013 Pilot & Feedback (15\u201321 mo): \u2022 Milestones: Internal pilot with select students/teachers; evaluation; improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics"
+          },
+          {
+            "chunk_id": 147,
+            "content": "plus biology) and recommended coaching materials. These provide canonical explanations and examples. Note: NCERT content is copyrighted; we will use it as training input but ensure outputs paraphrase properly to avoid infringement\u301045\u2020L75-L84\u3011. \u2022 Past Exam Papers: Extensive archives of JEE (Mains/Advanced), NEET, and GATE questions. For example, NTA\u2019s JEE Main archive lists papers and answer keys\u301023\u2020L78-L86\u3011, and IIT websites host JEE Advanced and GATE archives. These give question formats, difficulty distribution, and official language styles. \u2022 Syllabus/Info Bulletins: Downloadable PDFs from NTA and GATE websites defining the scope of each exam (topics list, blueprint). \u2022 Open Educational Resources: Where possible,"
+          },
+          {
+            "chunk_id": 194,
+            "content": "14. Roadmap & Implementation Phases We propose a phased rollout with roughly 3 phases over ~24\u201330 months: \u2022 Phase 1 \u2013 Planning & Prototype (0\u20136 mo): \u2022 Milestones: Requirements gathering, architecture design, initial prototyping. \u2022 Activities: Collect core curriculum data; build basic platform skeleton (user accounts, simple CMS); prototype LLM summarization and Q&A with small models; test video pipeline with manual slide decks. \u2022 Team: Project Manager, 2 ML engineers, 2 software engineers, 1 subject expert, 1 DevOps. \u2022 Phase 2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models"
+          },
+          {
+            "chunk_id": 149,
+            "content": "Data Collection Strategies: \u2022 Automated Scraping: Download all available PDFs and web resources (syllabi, question PDFs). Use OCR to extract text and LaTeX formulas when needed. \u2022 APIs & Open Datasets: Leverage open corpora like Wikipedia and scientific abstracts (as background knowledge) \u2013 see e.g. using SQuAD/Wikipedia for QG\u301025\u2020L327-L335\u3011. \u2022 Human Curation: Subject-matter experts will review and label key examples (e.g. annotating concepts in a text, verifying generated questions). \u2022 External Partnerships: If budget allows, license past paper collections or collaborate with coaching institutes for anonymized student performance data. 4"
+          },
+          {
+            "chunk_id": 198,
+            "content": "\u2022 Misc (licenses, overhead): \\$100K. Total ballpark: \\$1.6M\u2013\\$3M. A more advanced roadmap (larger models, extensive data) could push budgets to the \\$5M level. Milestone Timeline (Mermaid Gantt): Implementation Roadmap Requirements Spec Phase 1: Planning System Architecture & Data Proof-of-Concept AI Models Model Training (NLP, TTS) Phase 2: MVP Development Portal VideoFrontend/BackendPipeline Dev Build Content Filtering Module Phase 3: Pilot & Feedback Internal Pilot Evaluate & Iterate Beta Launch & Fixes Phase 4: Launch & Scale Feature Enhancements (v2) Full Launch Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rrf_results",
+      "elapsed_ms": 212.06,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "51114fa476a8eeb0007a43d5abca8ac16d9e0c9ec88a19a4550e8c158640ba14"
+            },
+            "selected": true,
+            "rrf_score": 0.03252247488101534
+          },
+          {
+            "rank": 2,
+            "chunk_id": 196,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "7756c16ee42d986eab054bdb477052c0b649162e67d6c48ba17d1ad724561294"
+            },
+            "selected": true,
+            "rrf_score": 0.032266458495966696
+          },
+          {
+            "rank": 3,
+            "chunk_id": 133,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "726d47cea9a9b85a821c137fc9213e7270a1da99efd2752b95feed0d79c4e820"
+            },
+            "selected": true,
+            "rrf_score": 0.030776515151515152
+          },
+          {
+            "rank": 4,
+            "chunk_id": 195,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "d524df711b0e2d9cbad88f2b88f019712d745cb1b579c6cd5513d73cd03ac766"
+            },
+            "selected": true,
+            "rrf_score": 0.030536130536130537
+          },
+          {
+            "rank": 5,
+            "chunk_id": 198,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content": {
+              "chars": 92,
+              "sha256": "bebe91c75d16fdd3d43c586e7d0e0a0ea0a94731ec92dfd9b2c505740a6e9625"
+            },
+            "selected": true,
+            "rrf_score": 0.030158730158730156
+          },
+          {
+            "rank": 6,
+            "chunk_id": 194,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "9ff1ffceb2032354b875ffd7d6737565ad11834a06adce5cc89f67b34d4884d7"
+            },
+            "selected": true,
+            "rrf_score": 0.029411764705882353
+          },
+          {
+            "rank": 7,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "f78bed05cc06020064b3891b202534bc4747f83fa3f3efdf7ba3aa1b2ca98582"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516
+          },
+          {
+            "rank": 8,
+            "chunk_id": 201,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content": {
+              "chars": 92,
+              "sha256": "f45c8618b30b83cecd7d69ec8e7f85851b74f2fa8a692888b43703bc68d84fbf"
+            },
+            "selected": true,
+            "rrf_score": 0.015625
+          },
+          {
+            "rank": 9,
+            "chunk_id": 45,
+            "document": "37b731aa-5caa-43a5-bfa8-d0d156afde92",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "2ccc184bee58d79149974517543a1a22e987193cabaf244599f43bb179975a26"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385
+          },
+          {
+            "rank": 10,
+            "chunk_id": 147,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 4,
+            "content": {
+              "chars": 92,
+              "sha256": "3de7df376323eb548288c25ba5c96f206e3c6091b0bea2344a7ce469a5ffdbc0"
+            },
+            "selected": true,
+            "rrf_score": 0.014925373134328358
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          },
+          {
+            "chunk_id": 196,
+            "content": "improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics dashboard, improve filtering). Begin legal/compliance review. \u2022 Team: Same core, +2 QA testers, +1 security auditor. \u2022 Phase 4 \u2013 Launch & Scale (21\u201330 mo): \u2022 Milestones: Public launch; monitoring; content expansion. \u2022 Activities: Scale up infrastructure; add more features (multilingual support, gamification, third-party integrations); marketing; ongoing operations; formalizing handoff docs (architecture diagrams, requirements, model cards, test plans, runbooks). \u2022 Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at"
+          },
+          {
+            "chunk_id": 133,
+            "content": "cost vs scalability. Evaluation will combine standard ML metrics (accuracy, BLEU/ROUGE, etc.) with pedagogical validation (expert reviews, student testing). We anticipate phased development over 2\u20133 years, with MVP launch focusing on core video lessons, notes, and quizzes. Estimated team: ~10\u201315 people (AI/ML engineers, software developers, content experts, QA, DevOps, legal). Rough budget: on the order of $1M\u2013$5M (including hardware, personnel, and legal costs) over 2 years, depending on scale. Key risks (model quality, data licensing, engagement) have mitigation plans (human-in-the-loop validation, IP audits, iterative user testing). We include comparison tables (model and hosting options, MVP vs later features) and mermaid"
+          },
+          {
+            "chunk_id": 195,
+            "content": "2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models (NLP, TTS); implement video generation pipeline; integrate content filtering; develop the portal frontend (video player, note display, quiz modules); deploy on test servers; iterate with internal feedback. \u2022 Team: +2 ML engineers (video/TTS specialists), +2 frontend devs, +1 UX designer, continuing content experts. \u2022 Phase 3 \u2013 Pilot & Feedback (15\u201321 mo): \u2022 Milestones: Internal pilot with select students/teachers; evaluation; improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics"
+          },
+          {
+            "chunk_id": 198,
+            "content": "\u2022 Misc (licenses, overhead): \\$100K. Total ballpark: \\$1.6M\u2013\\$3M. A more advanced roadmap (larger models, extensive data) could push budgets to the \\$5M level. Milestone Timeline (Mermaid Gantt): Implementation Roadmap Requirements Spec Phase 1: Planning System Architecture & Data Proof-of-Concept AI Models Model Training (NLP, TTS) Phase 2: MVP Development Portal VideoFrontend/BackendPipeline Dev Build Content Filtering Module Phase 3: Pilot & Feedback Internal Pilot Evaluate & Iterate Beta Launch & Fixes Phase 4: Launch & Scale Feature Enhancements (v2) Full Launch Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development"
+          },
+          {
+            "chunk_id": 194,
+            "content": "14. Roadmap & Implementation Phases We propose a phased rollout with roughly 3 phases over ~24\u201330 months: \u2022 Phase 1 \u2013 Planning & Prototype (0\u20136 mo): \u2022 Milestones: Requirements gathering, architecture design, initial prototyping. \u2022 Activities: Collect core curriculum data; build basic platform skeleton (user accounts, simple CMS); prototype LLM summarization and Q&A with small models; test video pipeline with manual slide decks. \u2022 Team: Project Manager, 2 ML engineers, 2 software engineers, 1 subject expert, 1 DevOps. \u2022 Phase 2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 201,
+            "content": "legal experts. Regular risk reviews will be part of project governance. 16. Handoff Deliverables and Templates At each phase we will produce standard documentation to facilitate handoff and continuity: \u2022 Requirements Document: Detailed functional and non-functional requirements, user stories, use cases. \u2022 Architecture Diagrams: High-level and component diagrams (like Figure 1). Merely this document\u2019s figures can serve as a start. \u2022 Data Schema: Definitions for all database tables/collections (e.g. Video, Question, UserProgress) and metadata. 16"
+          },
+          {
+            "chunk_id": 45,
+            "content": "Ajay Pal Rawat \u0083 +91-9829535768 \u2014 # palrawatajay@gmail.com \u2014 \u00ef linkedin.com/in/ajay-pal-rawat \u2014 * Jaipur, Rajasthan, India SUMMARY \u2014 Full Stack Engineer with 4+ years shipping UI-heavy B2B SaaS products and Node.js microservices; currently Co-Founder at Nexentity building Node.js backends, a Python-based voice-to-voice RAG engine, and React.js frontends. Previously at Metacube Software (Fortune 500 clients), shipping a production RAG agent in Python/LangGraph. Working knowledge of TypeScript, GraphQL, Jest. SKILLS Frontend React.js, TypeScript, Redux, SWR Testing Jest, RTL UI & Styling Tailwind CSS, Shadcn/ui, MUI Databases PostgreSQL, pgvector Backend Node.js, Express.js, FastAPI Tools Git, VS Code, Postman, Vite AI / ML Python,"
+          },
+          {
+            "chunk_id": 147,
+            "content": "plus biology) and recommended coaching materials. These provide canonical explanations and examples. Note: NCERT content is copyrighted; we will use it as training input but ensure outputs paraphrase properly to avoid infringement\u301045\u2020L75-L84\u3011. \u2022 Past Exam Papers: Extensive archives of JEE (Mains/Advanced), NEET, and GATE questions. For example, NTA\u2019s JEE Main archive lists papers and answer keys\u301023\u2020L78-L86\u3011, and IIT websites host JEE Advanced and GATE archives. These give question formats, difficulty distribution, and official language styles. \u2022 Syllabus/Info Bulletins: Downloadable PDFs from NTA and GATE websites defining the scope of each exam (topics list, blueprint). \u2022 Open Educational Resources: Where possible,"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "fusion_selection",
+      "elapsed_ms": 212.22,
+      "metadata": {
+        "input_ids": [
+          197,
+          131,
+          196,
+          133,
+          45,
+          195,
+          147,
+          194,
+          149,
+          198,
+          201,
+          165,
+          202,
+          199
+        ],
+        "selected_ids": [
+          197,
+          196,
+          133,
+          195,
+          198,
+          194,
+          131,
+          201,
+          45,
+          147
+        ],
+        "removal_reason": "rrf_pool_limit",
+        "limit": 10
+      }
+    },
+    {
+      "stage": "reranker_scores",
+      "elapsed_ms": 268.54,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "51114fa476a8eeb0007a43d5abca8ac16d9e0c9ec88a19a4550e8c158640ba14"
+            },
+            "selected": true,
+            "rrf_score": 0.03252247488101534,
+            "rerank_score": -4.646530628204346
+          },
+          {
+            "rank": 2,
+            "chunk_id": 133,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "726d47cea9a9b85a821c137fc9213e7270a1da99efd2752b95feed0d79c4e820"
+            },
+            "selected": true,
+            "rrf_score": 0.030776515151515152,
+            "rerank_score": -6.398403167724609
+          },
+          {
+            "rank": 3,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "f78bed05cc06020064b3891b202534bc4747f83fa3f3efdf7ba3aa1b2ca98582"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -7.285400390625
+          },
+          {
+            "rank": 4,
+            "chunk_id": 196,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "7756c16ee42d986eab054bdb477052c0b649162e67d6c48ba17d1ad724561294"
+            },
+            "selected": true,
+            "rrf_score": 0.032266458495966696,
+            "rerank_score": -8.34250545501709
+          },
+          {
+            "rank": 5,
+            "chunk_id": 194,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "9ff1ffceb2032354b875ffd7d6737565ad11834a06adce5cc89f67b34d4884d7"
+            },
+            "selected": true,
+            "rrf_score": 0.029411764705882353,
+            "rerank_score": -9.705081939697266
+          },
+          {
+            "rank": 6,
+            "chunk_id": 198,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content": {
+              "chars": 92,
+              "sha256": "bebe91c75d16fdd3d43c586e7d0e0a0ea0a94731ec92dfd9b2c505740a6e9625"
+            },
+            "selected": false,
+            "rrf_score": 0.030158730158730156,
+            "rerank_score": -10.542414665222168,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 7,
+            "chunk_id": 195,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "d524df711b0e2d9cbad88f2b88f019712d745cb1b579c6cd5513d73cd03ac766"
+            },
+            "selected": false,
+            "rrf_score": 0.030536130536130537,
+            "rerank_score": -10.968986511230469,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 8,
+            "chunk_id": 201,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content": {
+              "chars": 92,
+              "sha256": "f45c8618b30b83cecd7d69ec8e7f85851b74f2fa8a692888b43703bc68d84fbf"
+            },
+            "selected": false,
+            "rrf_score": 0.015625,
+            "rerank_score": -11.163902282714844,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 9,
+            "chunk_id": 147,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 4,
+            "content": {
+              "chars": 92,
+              "sha256": "3de7df376323eb548288c25ba5c96f206e3c6091b0bea2344a7ce469a5ffdbc0"
+            },
+            "selected": false,
+            "rrf_score": 0.014925373134328358,
+            "rerank_score": -11.315177917480469,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 10,
+            "chunk_id": 45,
+            "document": "37b731aa-5caa-43a5-bfa8-d0d156afde92",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "2ccc184bee58d79149974517543a1a22e987193cabaf244599f43bb179975a26"
+            },
+            "selected": false,
+            "rrf_score": 0.015384615384615385,
+            "rerank_score": -11.383115768432617,
+            "removal_reason": "rerank_top_k"
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          },
+          {
+            "chunk_id": 133,
+            "content": "cost vs scalability. Evaluation will combine standard ML metrics (accuracy, BLEU/ROUGE, etc.) with pedagogical validation (expert reviews, student testing). We anticipate phased development over 2\u20133 years, with MVP launch focusing on core video lessons, notes, and quizzes. Estimated team: ~10\u201315 people (AI/ML engineers, software developers, content experts, QA, DevOps, legal). Rough budget: on the order of $1M\u2013$5M (including hardware, personnel, and legal costs) over 2 years, depending on scale. Key risks (model quality, data licensing, engagement) have mitigation plans (human-in-the-loop validation, IP audits, iterative user testing). We include comparison tables (model and hosting options, MVP vs later features) and mermaid"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 196,
+            "content": "improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics dashboard, improve filtering). Begin legal/compliance review. \u2022 Team: Same core, +2 QA testers, +1 security auditor. \u2022 Phase 4 \u2013 Launch & Scale (21\u201330 mo): \u2022 Milestones: Public launch; monitoring; content expansion. \u2022 Activities: Scale up infrastructure; add more features (multilingual support, gamification, third-party integrations); marketing; ongoing operations; formalizing handoff docs (architecture diagrams, requirements, model cards, test plans, runbooks). \u2022 Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at"
+          },
+          {
+            "chunk_id": 194,
+            "content": "14. Roadmap & Implementation Phases We propose a phased rollout with roughly 3 phases over ~24\u201330 months: \u2022 Phase 1 \u2013 Planning & Prototype (0\u20136 mo): \u2022 Milestones: Requirements gathering, architecture design, initial prototyping. \u2022 Activities: Collect core curriculum data; build basic platform skeleton (user accounts, simple CMS); prototype LLM summarization and Q&A with small models; test video pipeline with manual slide decks. \u2022 Team: Project Manager, 2 ML engineers, 2 software engineers, 1 subject expert, 1 DevOps. \u2022 Phase 2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models"
+          },
+          {
+            "chunk_id": 198,
+            "content": "\u2022 Misc (licenses, overhead): \\$100K. Total ballpark: \\$1.6M\u2013\\$3M. A more advanced roadmap (larger models, extensive data) could push budgets to the \\$5M level. Milestone Timeline (Mermaid Gantt): Implementation Roadmap Requirements Spec Phase 1: Planning System Architecture & Data Proof-of-Concept AI Models Model Training (NLP, TTS) Phase 2: MVP Development Portal VideoFrontend/BackendPipeline Dev Build Content Filtering Module Phase 3: Pilot & Feedback Internal Pilot Evaluate & Iterate Beta Launch & Fixes Phase 4: Launch & Scale Feature Enhancements (v2) Full Launch Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development"
+          },
+          {
+            "chunk_id": 195,
+            "content": "2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models (NLP, TTS); implement video generation pipeline; integrate content filtering; develop the portal frontend (video player, note display, quiz modules); deploy on test servers; iterate with internal feedback. \u2022 Team: +2 ML engineers (video/TTS specialists), +2 frontend devs, +1 UX designer, continuing content experts. \u2022 Phase 3 \u2013 Pilot & Feedback (15\u201321 mo): \u2022 Milestones: Internal pilot with select students/teachers; evaluation; improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics"
+          },
+          {
+            "chunk_id": 201,
+            "content": "legal experts. Regular risk reviews will be part of project governance. 16. Handoff Deliverables and Templates At each phase we will produce standard documentation to facilitate handoff and continuity: \u2022 Requirements Document: Detailed functional and non-functional requirements, user stories, use cases. \u2022 Architecture Diagrams: High-level and component diagrams (like Figure 1). Merely this document\u2019s figures can serve as a start. \u2022 Data Schema: Definitions for all database tables/collections (e.g. Video, Question, UserProgress) and metadata. 16"
+          },
+          {
+            "chunk_id": 147,
+            "content": "plus biology) and recommended coaching materials. These provide canonical explanations and examples. Note: NCERT content is copyrighted; we will use it as training input but ensure outputs paraphrase properly to avoid infringement\u301045\u2020L75-L84\u3011. \u2022 Past Exam Papers: Extensive archives of JEE (Mains/Advanced), NEET, and GATE questions. For example, NTA\u2019s JEE Main archive lists papers and answer keys\u301023\u2020L78-L86\u3011, and IIT websites host JEE Advanced and GATE archives. These give question formats, difficulty distribution, and official language styles. \u2022 Syllabus/Info Bulletins: Downloadable PDFs from NTA and GATE websites defining the scope of each exam (topics list, blueprint). \u2022 Open Educational Resources: Where possible,"
+          },
+          {
+            "chunk_id": 45,
+            "content": "Ajay Pal Rawat \u0083 +91-9829535768 \u2014 # palrawatajay@gmail.com \u2014 \u00ef linkedin.com/in/ajay-pal-rawat \u2014 * Jaipur, Rajasthan, India SUMMARY \u2014 Full Stack Engineer with 4+ years shipping UI-heavy B2B SaaS products and Node.js microservices; currently Co-Founder at Nexentity building Node.js backends, a Python-based voice-to-voice RAG engine, and React.js frontends. Previously at Metacube Software (Fortune 500 clients), shipping a production RAG agent in Python/LangGraph. Working knowledge of TypeScript, GraphQL, Jest. SKILLS Frontend React.js, TypeScript, Redux, SWR Testing Jest, RTL UI & Styling Tailwind CSS, Shadcn/ui, MUI Databases PostgreSQL, pgvector Backend Node.js, Express.js, FastAPI Tools Git, VS Code, Postman, Vite AI / ML Python,"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rerank_results",
+      "elapsed_ms": 268.73,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "51114fa476a8eeb0007a43d5abca8ac16d9e0c9ec88a19a4550e8c158640ba14"
+            },
+            "selected": true,
+            "rrf_score": 0.03252247488101534,
+            "rerank_score": -4.646530628204346
+          },
+          {
+            "rank": 2,
+            "chunk_id": 133,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "726d47cea9a9b85a821c137fc9213e7270a1da99efd2752b95feed0d79c4e820"
+            },
+            "selected": true,
+            "rrf_score": 0.030776515151515152,
+            "rerank_score": -6.398403167724609
+          },
+          {
+            "rank": 3,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "f78bed05cc06020064b3891b202534bc4747f83fa3f3efdf7ba3aa1b2ca98582"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -7.285400390625
+          },
+          {
+            "rank": 4,
+            "chunk_id": 196,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "7756c16ee42d986eab054bdb477052c0b649162e67d6c48ba17d1ad724561294"
+            },
+            "selected": true,
+            "rrf_score": 0.032266458495966696,
+            "rerank_score": -8.34250545501709
+          },
+          {
+            "rank": 5,
+            "chunk_id": 194,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "9ff1ffceb2032354b875ffd7d6737565ad11834a06adce5cc89f67b34d4884d7"
+            },
+            "selected": true,
+            "rrf_score": 0.029411764705882353,
+            "rerank_score": -9.705081939697266
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          },
+          {
+            "chunk_id": 133,
+            "content": "cost vs scalability. Evaluation will combine standard ML metrics (accuracy, BLEU/ROUGE, etc.) with pedagogical validation (expert reviews, student testing). We anticipate phased development over 2\u20133 years, with MVP launch focusing on core video lessons, notes, and quizzes. Estimated team: ~10\u201315 people (AI/ML engineers, software developers, content experts, QA, DevOps, legal). Rough budget: on the order of $1M\u2013$5M (including hardware, personnel, and legal costs) over 2 years, depending on scale. Key risks (model quality, data licensing, engagement) have mitigation plans (human-in-the-loop validation, IP audits, iterative user testing). We include comparison tables (model and hosting options, MVP vs later features) and mermaid"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 196,
+            "content": "improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics dashboard, improve filtering). Begin legal/compliance review. \u2022 Team: Same core, +2 QA testers, +1 security auditor. \u2022 Phase 4 \u2013 Launch & Scale (21\u201330 mo): \u2022 Milestones: Public launch; monitoring; content expansion. \u2022 Activities: Scale up infrastructure; add more features (multilingual support, gamification, third-party integrations); marketing; ongoing operations; formalizing handoff docs (architecture diagrams, requirements, model cards, test plans, runbooks). \u2022 Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at"
+          },
+          {
+            "chunk_id": 194,
+            "content": "14. Roadmap & Implementation Phases We propose a phased rollout with roughly 3 phases over ~24\u201330 months: \u2022 Phase 1 \u2013 Planning & Prototype (0\u20136 mo): \u2022 Milestones: Requirements gathering, architecture design, initial prototyping. \u2022 Activities: Collect core curriculum data; build basic platform skeleton (user accounts, simple CMS); prototype LLM summarization and Q&A with small models; test video pipeline with manual slide decks. \u2022 Team: Project Manager, 2 ML engineers, 2 software engineers, 1 subject expert, 1 DevOps. \u2022 Phase 2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rerank_selection",
+      "elapsed_ms": 268.83,
+      "metadata": {
+        "status": "ok",
+        "selected_ids": [
+          197,
+          133,
+          131,
+          196,
+          194
+        ],
+        "input_ids": [
+          197,
+          196,
+          133,
+          195,
+          198,
+          194,
+          131,
+          201,
+          45,
+          147
+        ],
+        "rerank_candidate_limit": 10,
+        "output_limit": 5,
+        "removal_reason": "rerank_top_k"
+      }
+    },
+    {
+      "stage": "adaptive_filter",
+      "elapsed_ms": 268.89,
+      "metadata": {
+        "removals": [
+          {
+            "chunk_id": 131,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -7.285400390625,
+            "threshold": -6.646530628204346
+          },
+          {
+            "chunk_id": 196,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -8.34250545501709,
+            "threshold": -6.646530628204346
+          },
+          {
+            "chunk_id": 194,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -9.705081939697266,
+            "threshold": -6.646530628204346
+          }
+        ],
+        "input_ids": [
+          197,
+          133,
+          131,
+          196,
+          194
+        ],
+        "selected_ids": [
+          197,
+          133
+        ]
+      }
+    },
+    {
+      "stage": "after_adaptive_filter",
+      "elapsed_ms": 268.93,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "51114fa476a8eeb0007a43d5abca8ac16d9e0c9ec88a19a4550e8c158640ba14"
+            },
+            "selected": true,
+            "rrf_score": 0.03252247488101534,
+            "rerank_score": -4.646530628204346
+          },
+          {
+            "rank": 2,
+            "chunk_id": 133,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "726d47cea9a9b85a821c137fc9213e7270a1da99efd2752b95feed0d79c4e820"
+            },
+            "selected": true,
+            "rrf_score": 0.030776515151515152,
+            "rerank_score": -6.398403167724609
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          },
+          {
+            "chunk_id": 133,
+            "content": "cost vs scalability. Evaluation will combine standard ML metrics (accuracy, BLEU/ROUGE, etc.) with pedagogical validation (expert reviews, student testing). We anticipate phased development over 2\u20133 years, with MVP launch focusing on core video lessons, notes, and quizzes. Estimated team: ~10\u201315 people (AI/ML engineers, software developers, content experts, QA, DevOps, legal). Rough budget: on the order of $1M\u2013$5M (including hardware, personnel, and legal costs) over 2 years, depending on scale. Key risks (model quality, data licensing, engagement) have mitigation plans (human-in-the-loop validation, IP audits, iterative user testing). We include comparison tables (model and hosting options, MVP vs later features) and mermaid"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "page_continuity",
+      "elapsed_ms": 268.98,
+      "metadata": {
+        "recovered_ids": []
+      }
+    },
+    {
+      "stage": "after_page_continuity",
+      "elapsed_ms": 268.99,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "51114fa476a8eeb0007a43d5abca8ac16d9e0c9ec88a19a4550e8c158640ba14"
+            },
+            "selected": true,
+            "rrf_score": 0.03252247488101534,
+            "rerank_score": -4.646530628204346
+          },
+          {
+            "rank": 2,
+            "chunk_id": 133,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "726d47cea9a9b85a821c137fc9213e7270a1da99efd2752b95feed0d79c4e820"
+            },
+            "selected": true,
+            "rrf_score": 0.030776515151515152,
+            "rerank_score": -6.398403167724609
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          },
+          {
+            "chunk_id": 133,
+            "content": "cost vs scalability. Evaluation will combine standard ML metrics (accuracy, BLEU/ROUGE, etc.) with pedagogical validation (expert reviews, student testing). We anticipate phased development over 2\u20133 years, with MVP launch focusing on core video lessons, notes, and quizzes. Estimated team: ~10\u201315 people (AI/ML engineers, software developers, content experts, QA, DevOps, legal). Rough budget: on the order of $1M\u2013$5M (including hardware, personnel, and legal costs) over 2 years, depending on scale. Key risks (model quality, data licensing, engagement) have mitigation plans (human-in-the-loop validation, IP audits, iterative user testing). We include comparison tables (model and hosting options, MVP vs later features) and mermaid"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "final_context",
+      "elapsed_ms": 269.13,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "51114fa476a8eeb0007a43d5abca8ac16d9e0c9ec88a19a4550e8c158640ba14"
+            },
+            "selected": true,
+            "rrf_score": 0.03252247488101534,
+            "rerank_score": -4.646530628204346
+          },
+          {
+            "rank": 2,
+            "chunk_id": 133,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "726d47cea9a9b85a821c137fc9213e7270a1da99efd2752b95feed0d79c4e820"
+            },
+            "selected": true,
+            "rrf_score": 0.030776515151515152,
+            "rerank_score": -6.398403167724609
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          },
+          {
+            "chunk_id": 133,
+            "content": "cost vs scalability. Evaluation will combine standard ML metrics (accuracy, BLEU/ROUGE, etc.) with pedagogical validation (expert reviews, student testing). We anticipate phased development over 2\u20133 years, with MVP launch focusing on core video lessons, notes, and quizzes. Estimated team: ~10\u201315 people (AI/ML engineers, software developers, content experts, QA, DevOps, legal). Rough budget: on the order of $1M\u2013$5M (including hardware, personnel, and legal costs) over 2 years, depending on scale. Key risks (model quality, data licensing, engagement) have mitigation plans (human-in-the-loop validation, IP audits, iterative user testing). We include comparison tables (model and hosting options, MVP vs later features) and mermaid"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "context_packing",
+      "elapsed_ms": 269.17,
+      "metadata": {
+        "total_chars": 1165,
+        "max_chars": 12000,
+        "max_chunks": 8,
+        "dropped": [],
+        "truncated": false
+      },
+      "raw": {
+        "context_text": "[S1] Document: e3160c67-ee6d-4983-9029-8273bd35525a | Page: 15 | Chunk: 197\nTeam: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15\n\n[S2] Document: e3160c67-ee6d-4983-9029-8273bd35525a | Page: 1 | Chunk: 133\ncost vs scalability. Evaluation will combine standard ML metrics (accuracy, BLEU/ROUGE, etc.) with pedagogical validation (expert reviews, student testing). We anticipate phased development over 2\u20133 years, with MVP launch focusing on core video lessons, notes, and quizzes. Estimated team: ~10\u201315 people (AI/ML engineers, software developers, content experts, QA, DevOps, legal). Rough budget: on the order of $1M\u2013$5M (including hardware, personnel, and legal costs) over 2 years, depending on scale. Key risks (model quality, data licensing, engagement) have mitigation plans (human-in-the-loop validation, IP audits, iterative user testing). We include comparison tables (model and hosting options, MVP vs later features) and mermaid"
+      }
+    },
+    {
+      "stage": "generation_skipped",
+      "elapsed_ms": 269.29,
+      "metadata": {
+        "reason": "provider-free stage diagnosis"
+      }
+    },
+    {
+      "stage": "answer_result",
+      "elapsed_ms": 269.3,
+      "metadata": {
+        "status": "unverified",
+        "issues": [
+          "provider_not_run"
+        ],
+        "citations": [],
+        "coverage": null
+      },
+      "raw": {
+        "answer": "NOT_RUN"
+      }
+    }
+  ]
+}

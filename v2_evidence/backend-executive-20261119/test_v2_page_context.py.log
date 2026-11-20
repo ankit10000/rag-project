@@ -1,0 +1,32 @@
+Retrieval status: ok
+
+Best reranker score: 2.3000
+Adaptive threshold: 0.3000
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 2.3000 | Chunk: 1 | Page: 15
+Answer status: answered | citations: [] | attempts: 1
+Retrieval status: ok
+
+Best reranker score: 2.3000
+Adaptive threshold: 0.3000
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 2.3000 | Chunk: 1 | Page: 15
+Answer status: answered | citations: [] | attempts: 1
+
+test_absent_or_deleted_anchor_adds_no_evidence (__main__.PageContinuityTests.test_absent_or_deleted_anchor_adds_no_evidence) ... ok
+test_enumeration_intent_not_all_questions (__main__.PageContinuityTests.test_enumeration_intent_not_all_questions) ... ok
+test_hard_budget_and_duplicate_dedup (__main__.PageContinuityTests.test_hard_budget_and_duplicate_dedup) ... ok
+test_legacy_pipeline_does_not_expand (__main__.PageContinuityTests.test_legacy_pipeline_does_not_expand) ... W1119 17:50:50.533000 48804 .venv/lib/python3.14/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+ok
+test_no_owner_or_non_enumeration_never_reads_database (__main__.PageContinuityTests.test_no_owner_or_non_enumeration_never_reads_database) ... ok
+test_pipeline_uses_continuations_after_margin_filter (__main__.PageContinuityTests.test_pipeline_uses_continuations_after_margin_filter) ... ok
+test_recovers_split_list_without_inventing_rank_scores (__main__.PageContinuityTests.test_recovers_split_list_without_inventing_rank_scores) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 4.014s
+
+OK

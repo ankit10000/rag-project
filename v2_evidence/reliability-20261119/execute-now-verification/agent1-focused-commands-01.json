@@ -1,0 +1,17 @@
+[
+  {
+    "command": ".venv/bin/python -B test_v2_evidence_recovery.py",
+    "exit_code": 0,
+    "log": "v2_evidence/reliability-20261119/execute-now-verification/agent1-test_v2_evidence_recovery.py.log"
+  },
+  {
+    "command": ".venv/bin/python -B test_v2_page_context.py",
+    "exit_code": 0,
+    "log": "v2_evidence/reliability-20261119/execute-now-verification/agent1-test_v2_page_context.py.log"
+  },
+  {
+    "command": ".venv/bin/python -B test_stage5_retrieval.py",
+    "exit_code": 0,
+    "log": "v2_evidence/reliability-20261119/execute-now-verification/agent1-test_stage5_retrieval.py.log"
+  }
+]

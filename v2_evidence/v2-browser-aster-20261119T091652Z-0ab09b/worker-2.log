@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Volumes/Storage/rag-project/scripts/run_v2_worker.py", line 62, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+                                             ~~~~^^
+  File "/Volumes/Storage/rag-project/scripts/run_v2_worker.py", line 55, in main
+    time.sleep(1);continue
+    ~~~~~~~~~~^^^
+KeyboardInterrupt

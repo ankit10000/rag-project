@@ -1,0 +1,47 @@
+
+Running 1 test using 1 worker
+
+(node:23919) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:23919) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › tests/browser/reliability-closure.spec.ts:3:1 › retained education and partial failures, disconnected commit, retry and refreshed metadata (29.8s)
+
+
+  1) [desktop-chromium] › tests/browser/reliability-closure.spec.ts:3:1 › retained education and partial failures, disconnected commit, retry and refreshed metadata 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: getByRole('log').locator('article').filter({ has: getByRole('heading', { name: 'RAG', exact: true }) })
+    Expected substring: [32m"partial"[39m
+    Received string:    [31m"RAGanswered- The Atlas project reduced report preparation time from 40 minutes to 12 minutes [S1].S1 · Browser_Check_Morgan_Vale.pdf · p. 1"[39m
+    Timeout: 5000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('log').locator('article').filter({ has: getByRole('heading', { name: 'RAG', exact: true }) })[22m
+    [2m    9 × locator resolved to <article class="shrink-0 rounded-xl border p-5 mr-6 bg-card md:mr-12">…</article>[22m
+    [2m      - unexpected value "RAGanswered- The Atlas project reduced report preparation time from 40 minutes to 12 minutes [S1].S1 · Browser_Check_Morgan_Vale.pdf · p. 1"[22m
+
+
+      30 |   }
+      31 |   const assistant=page.getByRole('log').locator('article').filter({has:page.getByRole('heading',{name:'RAG',exact:true})});
+    > 32 |   await expect(assistant).toHaveCount(1,{timeout:100_000});await expect(assistant).toContainText(i===2?'partial':'answered');
+         |                                                                                    ^
+      33 |   if(i<2){for(const fact of ['Bachelor of Engineering','Computer Engineering','Sample Institute of Technology','2016','2020'])await expect(assistant).toContainText(fact);await expect(assistant.getByRole('link',{name:/Open citation.*p\. 2/})).toBeVisible();}
+      34 |   else{await expect(assistant).toContainText('40');await expect(assistant).toContainText('12');await expect(assistant).toContainText(/telephone|phone/);}
+      35 |   const cid=new URL(page.url()).searchParams.get('conversation')!;const answer=await assistant.innerText();
+        at /Volumes/Storage/rag-project/frontend/tests/browser/reliability-closure.spec.ts:32:84
+
+    Error Context: test-results/reliability-closure-retain-60466-etry-and-refreshed-metadata-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/reliability-closure-retain-60466-etry-and-refreshed-metadata-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/reliability-closure-retain-60466-etry-and-refreshed-metadata-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop-chromium] › tests/browser/reliability-closure.spec.ts:3:1 › retained education and partial failures, disconnected commit, retry and refreshed metadata 

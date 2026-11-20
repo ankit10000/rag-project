@@ -1,0 +1,52 @@
+PASS | [rrf] manual example: order 1, 3, 2, 4
+PASS | [rrf] manual example: scores equal sum of 1/(k+rank)
+PASS | [rrf] duplicate ids merged (4 unique chunks from 6 entries)
+PASS | [rrf] metadata of the first list's copy is kept (raw score 9.0 for chunk 1)
+PASS | [rrf] the constant k is applied: k=10 -> chunk 1 score 1/11 + 1/12
+PASS | [rrf] ties are broken by first-seen order, deterministically
+PASS | [rrf] different ids with identical normalised text collapse to the best ranked one
+PASS | [rrf] content dedupe can be disabled
+PASS | [rrf] missing ranking (one empty list) is handled
+PASS | [rrf] no lists -> []
+PASS | [rrf] weights/list count mismatch raises instead of silently dropping a list
+PASS | [rrf] top_k limits the output
+PASS | [rerank] lazy: empty candidate list returns [] without loading the model
+PASS | [rerank] initialisation: the configured model is loaded once, on first use
+PASS | [rerank] success: ordered by score, top_k applied
+PASS | [rerank] chunk tuples and rrf scores preserved
+PASS | [rerank] input candidates are not mutated
+PASS | [rerank] initialisation failure raises (not cached: next call retries)
+PASS | [rerank] predict raise -> RuntimeError (never a silently truncated or NaN-ordered list)
+PASS | [rerank] predict short -> ValueError (never a silently truncated or NaN-ordered list)
+PASS | [rerank] predict nan -> ValueError (never a silently truncated or NaN-ordered list)
+PASS | [hybrid] both succeed: 12 (in both lists) first, then 10 (1/61), then the 1/62 tie 13 vs 11 broken by first-seen
+PASS | [hybrid] both retrievers receive the same query
+PASS | [hybrid] vector empty: keyword results only
+PASS | [hybrid] keyword empty: vector results only
+PASS | [hybrid] both empty: valid empty result
+PASS | [hybrid] vector fails: the exception propagates (never reported as an empty or partial success)
+PASS | [hybrid] keyword fails: the exception propagates (never reported as an empty or partial success)
+PASS | [hybrid] both fail: the exception propagates (never reported as an empty or partial success)
+PASS | [hybrid] blank query: no retriever or reranker call, valid empty result
+PASS | [hybrid] non-string query -> TypeError
+PASS | [fallback] reranker failure keeps the exact RRF order and scores
+PASS | [fallback] diagnostic is type-only (no exception message or path printed)
+PASS | [rerank] success path reports rerank_status ok and uses the reranker order
+PASS | [rerank] top_k=0: reranker not called (model not loaded), empty result
+PASS | [fallback] invalid reranker output (NaN) also falls back to the RRF order
+PASS | [gate] reranked results: margin gate keeps scores >= best - RERANK_SCORE_MARGIN (5.0 - 2.0)
+PASS | [gate] reranked results: RERANK_MIN_SCORE floor drops all context when the best score is below it
+PASS | [gate] no-rerank / fallback results: no score gate is applied (documented gap: no approved threshold for RRF scores); candidates pass in rank order
+INFO | FINAL_TOP_K=5 CONTEXT_MAX_CHUNKS=8 CONTEXT_MAX_CHARS=12000 RRF_TOP_K=10 RERANK_TOP_K=10
+PASS | [context] default path: FINAL_TOP_K results -> FINAL_TOP_K sources in rank order (CONTEXT_MAX_CHUNKS not binding)
+PASS | [context] more candidates than CONTEXT_MAX_CHUNKS: first 8 by rank kept, the rest dropped as max_chunks
+PASS | [context] FINAL_TOP_K=10 > CONTEXT_MAX_CHUNKS=8: effective limit is the smaller one, lowest-ranked dropped
+PASS | [context] duplicate ids, duplicate content and empty chunks are excluded with reasons
+PASS | [context] metadata preserved (document, page, chunk id, score)
+PASS | [context] empty retrieval -> valid empty context
+PASS | [context] CONTEXT_MAX_CHARS budget enforced
+PASS | [context] assembly never mutates the retrieval results
+
+0 check(s) failed
+
+W1119 18:40:01.548000 68686 .venv/lib/python3.14/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.

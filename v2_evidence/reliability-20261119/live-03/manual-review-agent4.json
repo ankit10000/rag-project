@@ -1,0 +1,35 @@
+{
+  "reviewer_type": "AI engineering source comparison; not independent human approval",
+  "automated_results_and_frozen_checks_unchanged": true,
+  "actual_question_review_passed": 4,
+  "actual_question_review_total": 4,
+  "reviews": [
+    {
+      "id": "conflict",
+      "actual_question_verdict": "PASS_WITH_DETERMINISTIC_SOURCE_BOUND_FALLBACK",
+      "note": "Gemini raw generations both failed uncited-claim validation. Final application answer comes from the strict same-page source-count comparison proof: source roughly3, observed consecutive headings1through4; cites actual authorized chunks194\u2013196. This is not a raw Gemini success."
+    },
+    {
+      "id": "explicit_negative",
+      "actual_question_verdict": "PASS",
+      "strict_frozen_fact_metric": "FAIL_UNREQUESTED_ONGOING_COST_CUE",
+      "note": "The actual question asks whether public cloud requires upfront capital expenditure. Answer correctly says no upfront cost/avoidsCapEx, with p17/p9 citations and answered status. It omits ongoing usage costs, which were not asked; retain that frozen metric failure rather than force extra facts or change expectations."
+    },
+    {
+      "id": "long_section",
+      "actual_question_verdict": "PASS_WITH_BOUNDED_CITATION_REPAIR",
+      "note": "All four core and six suggested additional feature groups are present. Answer distinguishes narrative feature groups from table priority, including legitimate MVP overlap for analytics/forum. Both raw generations had uncited claims; ordinary deterministic repair dropped one uncited sentence and kept requested supported facts, valid citations and answered status."
+    },
+    {
+      "id": "partial",
+      "actual_question_verdict": "PASS",
+      "note": "JEE/GATE/NEET facts cited; signed customer contract number explicitly unavailable; correct partial status and no invented number."
+    }
+  ],
+  "provider_calls_for_review": 0,
+  "runtime_files_changed_after_run": [
+    "services/rag_service.py",
+    "services/evidence_trace.py"
+  ],
+  "post_run_change_note": "Lead reports diagnostics-only privacy hardening in evidence_trace.py and rag_service.py after the live result. The original runtime digest receipt remains unchanged; do not claim final file byte equality."
+}

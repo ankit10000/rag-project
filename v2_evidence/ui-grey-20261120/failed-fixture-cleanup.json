@@ -1,0 +1,20 @@
+{
+  "scope": "exact new synthetic resources from the initial failed UI test traces only",
+  "resources": [
+    {
+      "resource": "documents",
+      "id": "aa77246a-67f1-4777-a7ac-4bb1a358f390",
+      "status": 404
+    },
+    {
+      "resource": "documents",
+      "id": "c9f67eb5-6c35-4362-99b4-cdce83cbf7d5",
+      "status": 200
+    },
+    {
+      "resource": "conversations",
+      "id": "4f2cca25-42fb-42f7-964a-fb1f6f172885",
+      "status": 200
+    }
+  ]
+}

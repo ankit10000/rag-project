@@ -1,0 +1,2425 @@
+{
+  "identity": "live-01",
+  "predeclared_sha256": "185d0ab7ad600e65d77ddd672a86bdefd8d660eae417244df40fb8f88aa91a54",
+  "frozen_checks_sha256": "46e4accef77df0901e7c8fc0c786d72d9eacc2b64f512201b6fafa183bdaebbb",
+  "metrics": {
+    "evidence_coverage": {
+      "passed": 12,
+      "total": 12,
+      "percent": 100.0
+    },
+    "answer_factual_completeness": {
+      "passed": 12,
+      "total": 13,
+      "percent": 92.31
+    },
+    "citation_abstention_correctness": {
+      "passed": 11,
+      "total": 13,
+      "percent": 84.62
+    }
+  },
+  "provider_calls": 28,
+  "max_provider_calls": 52,
+  "calls": [
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "cd6faaf777ae4668613b6d3415ed32e0c44ec8c1875062f9ab7c1da305f8b7a5",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 9.468
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "f49b1f28ee14561b27ee5b1b732688421f653ec4a93aa1a28fd2bb222f134a03",
+      "response_sha256": "3d1e515b57de2535920f67f722ffc08dcbdeb67792dddf426db17208664f922f",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 9.368
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "36720cb6bc834e249f72e56dcab1d1158e22bf408506b8575016b054574a8803",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 8.306
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "1185dc7312199fd95aeb512d41a59cdcf298e790f4a9ec2f5c42aa43d7e3af65",
+      "response_sha256": "a7cb838263c593ba28add9788039c7fe942ef0293561a6ff97f17689422fef11",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 9.995
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "ff34a1f49171612c8341f5ee1266f7bfd4bb423df2f923c386f8913525972dad",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 17.962
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "841496dfe21c4b4fe6845e4c850817e29a6b0f90f4376c6280818535e37ab7b4",
+      "response_sha256": "6ccb219167c2a7cbbf175656cd7c5b2bc450db95b8ebd6e18b495cb8f67635d8",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 7.643
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "55e89ad6923a7e55f307c39c3fffec47dcec7243d9b621640954fc6bf85cfcb9",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 8.341
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "a7a14fb65a4b62240fb130e04f7f5a1913eb01e101b0578ce10577180be0e1d7",
+      "response_sha256": "7e9d39124cf06bf80e27ccc7e4e6a72bc372340b650af0fd4a1c058750a755d4",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 7.992
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "572354f4bc9eda44c92f3c907807fa21458205100d0c41e865a88c66ff1129eb",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 11.115
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "3df35261453f389605d0d57a81af28fa047179f47a96383c73bf01bcd892bfce",
+      "response_sha256": "8436badfe5946798a9ead6be8e2de52e413f7a2bd55f37710d6388b1038dcb40",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 4.457
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "598c9831c0d46cc3ab3d4bd96c4a7a24aebed1d3b7b1e21c277d8840338a03bf",
+      "response_sha256": "f0acd570d0989382d2de715b718040164937611930b4f88a01e2cebc5bb34c0a",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 7.675
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "3ec55ed0f6fcfa025ce14d59082771554d14d4988c179203c42d8917fd1a92df",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 8.584
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "6fd4567904fc5c428e5cd931b707d685021c1dcaa8632f7866bdbe3e17a4153e",
+      "response_sha256": "a81f75b004a549a23672acb55a6d1bf1684b3bc42731ea538cf3fa92626f48fc",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 8.63
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "92bea173a596f4532b21ef8e69549767938ed7c82da3bede64fcd52988d5b898",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 8.052
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "2f5ca51b6af50594fc4e79538082eb17603eea94c5d5e489c7e4c5afbb403519",
+      "response_sha256": "44c6a8a8f5437e45e62b52e9d83316c0fa3966210b8f17aa7f7939b8b51ffd18",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 7.542
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "2504bf71fbeadee06e4e3ed5822ceb4ae5d80b187589267f03a2fc0672a61201",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 6.748
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "2175d3bcbda9c95d956f73dfdb11c5d10c6b3da815a5e101a77daec5ad8ab036",
+      "response_sha256": "7ff1ebf876167acbd519987015af7479a62cdad5c7f567ed884994a5c5a628de",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 6.792
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "1715bc175fa81d6d9ef512d7df630f5203861d21aaf167d2993b93b7884e0b45",
+      "response_sha256": "59d35b7eab51c066c3ea6a6eb907dbd0c59f18b619613a45b18b0ca221d8ccfe",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 7.475
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "a93ff4644d16c6683c8a8086b6795170bb8b246e0098b7655d9098cf548eadbd",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 6.002
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "c29676e43510ece0f02b004580e0a5436aa0bd24180a8fd4fa913b9475a2ef38",
+      "response_sha256": "4c7010544fd25570684f46a0af3abe2f8408a5000764040dadee6e5f270b95d4",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 8.234
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "e09f11801fd3eb4b71e6fab47ba7ac11e330359f93ce5188e0132cdc05be1faa",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 4.852
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "279d823267075fc21a379cd176f2a67c77c0c933dcbae35acb8ec80e5b365007",
+      "response_sha256": "75b37906274a101d5f74ed48c0725c3b81240c6d2fe07bfde032ff31d0e960c1",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 8.268
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "a8a6f8c9317294fa32df2e900f6b1b17bed2d8fcdef6328023fd294e66714404",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 7.305
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "fd96262d9a616462a7f3d2c64f51a6f83429e1f4145a890388ac6002b7460585",
+      "response_sha256": "a81f75b004a549a23672acb55a6d1bf1684b3bc42731ea538cf3fa92626f48fc",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 7.142
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "12dc13d96b6a2268c1e2238f6baa8bbc78fc63246878f11463e580350df29a18",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 7.272
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "e46c96993df61189ba9fe3a6ab600833f1ef723345c4a894e0d2770bfc6d533d",
+      "response_sha256": "12b92f2c75600702cb1a06b08c37d22366c00c54fe20031d80513f446f1b246b",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 7.498
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "11918486cdf9964d5c1ecdad58238cdd8b480fc329927ecd39a72b5dd436c205",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 5.761
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "bad6f2439d98d34bad4095c89abad8c2659d4c304a19c09a991f9cced18c7204",
+      "response_sha256": "c1524d5b864a3929a8ddbc3fa0bb4e9aa79ca7a3ca3e34f85f658ccf8123f370",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 5.64
+    }
+  ],
+  "results": [
+    {
+      "id": "product",
+      "question": "According to Executive Summary.pdf, what is the proposed product and which three entrance examinations does it target?",
+      "result": {
+        "answer": "The proposed product is an AI-driven education portal that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces [S1]. It targets the JEE, GATE, and NEET entrance examinations [S1].",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 131,
+            "ref": "S1"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S1",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 131
+          }
+        ],
+        "status": "answered",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 131,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": -3.2510318756103516
+          }
+        ],
+        "coverage": {
+          "policy": "v2-explicit-request-coverage/1",
+          "mode": "clauses",
+          "facets": [],
+          "enumeration_count": null,
+          "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+          "decomposition_clauses": [
+            "According to Executive Summary.pdf, what is the proposed product",
+            "which three entrance examinations does it target?"
+          ],
+          "concrete_missing": [],
+          "context_unobserved": [],
+          "answer_checked": true
+        }
+      },
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "AI education portal",
+            "observed": true
+          },
+          {
+            "label": "JEE",
+            "observed": true
+          },
+          {
+            "label": "GATE",
+            "observed": true
+          },
+          {
+            "label": "NEET",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "AI education portal",
+            "observed": true
+          },
+          {
+            "label": "JEE",
+            "observed": true
+          },
+          {
+            "label": "GATE",
+            "observed": true
+          },
+          {
+            "label": "NEET",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          131
+        ],
+        "selected_pages": [
+          1
+        ],
+        "selected_characters": 798,
+        "scope_and_budget_ok": true
+      },
+      "seconds": 20.671,
+      "provider_calls": 2
+    },
+    {
+      "id": "estimates",
+      "question": "According to Executive Summary.pdf, what overall development duration, team size and rough budget does the executive summary estimate? Give all three estimates.",
+      "result": {
+        "answer": "- **Development duration / timeline:** Phased development over roughly 2\u20133 years (or ~24\u201330 months across ~3 phases) [S3][S4].\n- **Team size / staffing:** Roughly 10\u201315 people (including AI/ML engineers, software developers, content experts, QA, DevOps, and legal), with peak estimates of ~10\u201315 core team members (4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, and part-time roles) [S1][S4].\n- **Budget / cost:** A rough budget on the order of $1M\u2013$5M over 2 years, or specifically $1.2M\u2013$2.0M for personnel over 2 years plus initial hardware of $300K and $200K/year for cloud [S1][S4].",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 194,
+            "ref": "S3"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 133,
+            "ref": "S4"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 197,
+            "ref": "S1"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S3",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 194
+          },
+          {
+            "ref": "S4",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 133
+          },
+          {
+            "ref": "S1",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 197
+          }
+        ],
+        "status": "answered",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 197,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 15,
+            "retrieval_score": -4.646530628204346
+          },
+          {
+            "ref": "S2",
+            "chunk_id": 131,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": -7.8191351890563965
+          },
+          {
+            "ref": "S3",
+            "chunk_id": 194,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 15,
+            "retrieval_score": -7.736562728881836
+          },
+          {
+            "ref": "S4",
+            "chunk_id": 133,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": -6.398403167724609
+          }
+        ],
+        "coverage": {
+          "policy": "v2-explicit-request-coverage/1",
+          "mode": "fields",
+          "facets": [
+            {
+              "id": "budget",
+              "label": "budget / cost",
+              "pattern": "\\b(?:budget|costs?|prices?|expenditure)\\b|[$\u20ac\u00a3\u20b9]\\s*\\d",
+              "request_pattern": "\\b(?:budget|costs?|prices?)\\b",
+              "query_terms": "budget cost estimate",
+              "evidence_refs": [
+                "S1",
+                "S4"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [],
+              "refused_supported_item": false
+            },
+            {
+              "id": "team",
+              "label": "team size / staffing",
+              "pattern": "\\b(?:team|headcount|staffing|staff|people|members|employees)\\b",
+              "request_pattern": "\\b(?:team|headcount|staffing|staff)\\b",
+              "query_terms": "team size staffing people",
+              "evidence_refs": [
+                "S1",
+                "S3",
+                "S4"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [],
+              "refused_supported_item": false
+            },
+            {
+              "id": "duration",
+              "label": "development duration / timeline",
+              "pattern": "\\b(?:duration|timeline|timeframe|years?|months?|weeks?|days?)\\b",
+              "request_pattern": "\\b(?:duration|timeline|timeframe|how long)\\b",
+              "query_terms": "development duration timeline months years",
+              "evidence_refs": [
+                "S1",
+                "S3",
+                "S4"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [],
+              "refused_supported_item": false
+            }
+          ],
+          "enumeration_count": null,
+          "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+          "concrete_missing": [],
+          "context_unobserved": [],
+          "answer_checked": true
+        }
+      },
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "2-3 years",
+            "observed": true
+          },
+          {
+            "label": "10-15 people",
+            "observed": true
+          },
+          {
+            "label": "1M-5M summary budget",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "2-3 years",
+            "observed": true
+          },
+          {
+            "label": "10-15 people",
+            "observed": true
+          },
+          {
+            "label": "1M-5M summary budget",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          197,
+          131,
+          194,
+          133
+        ],
+        "selected_pages": [
+          15,
+          1,
+          15,
+          1
+        ],
+        "selected_characters": 2629,
+        "scope_and_budget_ok": true
+      },
+      "seconds": 19.073,
+      "provider_calls": 2
+    },
+    {
+      "id": "accessibility",
+      "question": "According to Executive Summary.pdf, what multilingual support and offline/mobile access are proposed?",
+      "result": {
+        "answer": "- Language support: The documents suggest extending content to Hindi and other regional languages to broaden accessibility under suggested additional features [S1].\n- Offline / mobile access: The documents propose allowing users to download videos and notes for offline study under offline access and mobile app features [S1].",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "chunk_id": 138,
+            "ref": "S1"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S1",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "chunk_id": 138
+          }
+        ],
+        "status": "answered",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 138,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 2,
+            "retrieval_score": -3.01176381111145
+          },
+          {
+            "ref": "S2",
+            "chunk_id": 131,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": -5.085249900817871
+          },
+          {
+            "ref": "S3",
+            "chunk_id": 156,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 6,
+            "retrieval_score": -3.8004872798919678
+          }
+        ],
+        "coverage": {
+          "policy": "v2-explicit-request-coverage/1",
+          "mode": "fields",
+          "facets": [
+            {
+              "id": "languages",
+              "label": "language support",
+              "pattern": "\\b(?:multilingual|languages?|Hindi|English|regional)\\b",
+              "request_pattern": "\\b(?:multilingual|languages?)\\b",
+              "query_terms": "multilingual language support",
+              "evidence_refs": [
+                "S1",
+                "S3"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [],
+              "refused_supported_item": false
+            },
+            {
+              "id": "offline",
+              "label": "offline / mobile access",
+              "pattern": "\\b(?:offline|mobile|downloads?|downloading)\\b",
+              "request_pattern": "\\b(?:offline|mobile)\\b",
+              "query_terms": "offline mobile downloads access",
+              "evidence_refs": [
+                "S1"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [],
+              "refused_supported_item": false
+            }
+          ],
+          "enumeration_count": null,
+          "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+          "concrete_missing": [],
+          "context_unobserved": [],
+          "answer_checked": true
+        }
+      },
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "Hindi/regional languages",
+            "observed": true
+          },
+          {
+            "label": "offline study",
+            "observed": true
+          },
+          {
+            "label": "videos",
+            "observed": true
+          },
+          {
+            "label": "notes",
+            "observed": true
+          },
+          {
+            "label": "mobile app",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "Hindi/regional languages",
+            "observed": true
+          },
+          {
+            "label": "offline study",
+            "observed": true
+          },
+          {
+            "label": "videos",
+            "observed": true
+          },
+          {
+            "label": "notes",
+            "observed": true
+          },
+          {
+            "label": "mobile app",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          138,
+          131,
+          156
+        ],
+        "selected_pages": [
+          2,
+          1,
+          6
+        ],
+        "selected_characters": 2324,
+        "scope_and_budget_ok": true
+      },
+      "seconds": 26.304,
+      "provider_calls": 2
+    },
+    {
+      "id": "phases",
+      "question": "List all four implementation phases and their month ranges from the roadmap in Executive Summary.pdf.",
+      "result": {
+        "answer": "- Phase 1 (Planning & Prototype): 0\u20136 months [S1].\n- Phase 2 (MVP Development): 6\u201315 months [S1][S2].\n- Phase 3 (Pilot & Feedback): 15\u201321 months [S2][S3].\n- Phase 4 (Launch & Scale): 21\u201330 months [S3].",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 194,
+            "ref": "S1"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 195,
+            "ref": "S2"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 196,
+            "ref": "S3"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S1",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 194
+          },
+          {
+            "ref": "S2",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 195
+          },
+          {
+            "ref": "S3",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 196
+          }
+        ],
+        "status": "answered",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 194,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 15,
+            "retrieval_score": 2.298518180847168
+          },
+          {
+            "ref": "S2",
+            "chunk_id": 195,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 15,
+            "retrieval_score": null
+          },
+          {
+            "ref": "S3",
+            "chunk_id": 196,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 15,
+            "retrieval_score": null
+          },
+          {
+            "ref": "S4",
+            "chunk_id": 197,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 15,
+            "retrieval_score": null
+          }
+        ],
+        "coverage": {
+          "policy": "v2-explicit-request-coverage/1",
+          "mode": "enumeration",
+          "facets": [
+            {
+              "id": "phase_1",
+              "label": "Phase 1",
+              "pattern": "\\bphase\\s+1\\b",
+              "query_terms": "phase 1",
+              "evidence_refs": [
+                "S1"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Planning & Prototype"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "phase_2",
+              "label": "Phase 2",
+              "pattern": "\\bphase\\s+2\\b",
+              "query_terms": "phase 2",
+              "evidence_refs": [
+                "S1"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "MVP Development"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "phase_3",
+              "label": "Phase 3",
+              "pattern": "\\bphase\\s+3\\b",
+              "query_terms": "phase 3",
+              "evidence_refs": [
+                "S2"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Pilot & Feedback"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "phase_4",
+              "label": "Phase 4",
+              "pattern": "\\bphase\\s+4\\b",
+              "query_terms": "phase 4",
+              "evidence_refs": [
+                "S3"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Launch & Scale"
+              ],
+              "refused_supported_item": false
+            }
+          ],
+          "enumeration_count": 4,
+          "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+          "enumeration_kind": "phase",
+          "concrete_missing": [],
+          "context_unobserved": [],
+          "answer_checked": true
+        }
+      },
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "planning and prototype",
+            "observed": true
+          },
+          {
+            "label": "0-6 months",
+            "observed": true
+          },
+          {
+            "label": "MVP development",
+            "observed": true
+          },
+          {
+            "label": "6-15 months",
+            "observed": true
+          },
+          {
+            "label": "pilot and feedback",
+            "observed": true
+          },
+          {
+            "label": "15-21 months",
+            "observed": true
+          },
+          {
+            "label": "launch and scale",
+            "observed": true
+          },
+          {
+            "label": "21-30 months",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "planning and prototype",
+            "observed": true
+          },
+          {
+            "label": "0-6 months",
+            "observed": true
+          },
+          {
+            "label": "MVP development",
+            "observed": true
+          },
+          {
+            "label": "6-15 months",
+            "observed": true
+          },
+          {
+            "label": "pilot and feedback",
+            "observed": true
+          },
+          {
+            "label": "15-21 months",
+            "observed": true
+          },
+          {
+            "label": "launch and scale",
+            "observed": true
+          },
+          {
+            "label": "21-30 months",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          194,
+          195,
+          196,
+          197
+        ],
+        "selected_pages": [
+          15,
+          15,
+          15,
+          15
+        ],
+        "selected_characters": 2548,
+        "scope_and_budget_ok": true
+      },
+      "seconds": 17.044,
+      "provider_calls": 2
+    },
+    {
+      "id": "risks",
+      "question": "According to Executive Summary.pdf, how should quality risks and data/copyright risks be mitigated? Cover both.",
+      "result": {
+        "answer": "To mitigate quality risks where AI outputs might be inaccurate or unengaging, the documents recommend maintaining humans-in-the-loop for review, starting with conservative content generation, and gathering student feedback early [S1]. To mitigate data/copyright risks regarding the unauthorized use of licensed content, the documents recommend conducting a legal review of sources, using public or open data, ensuring model outputs are sufficiently rephrased, and citing official guidelines [S1].",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "chunk_id": 199,
+            "ref": "S1"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S1",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "chunk_id": 199
+          }
+        ],
+        "status": "answered",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 199,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 16,
+            "retrieval_score": -0.0869041383266449
+          }
+        ],
+        "coverage": {
+          "policy": "v2-explicit-request-coverage/1",
+          "mode": "none",
+          "facets": [],
+          "enumeration_count": null,
+          "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+          "concrete_missing": [],
+          "context_unobserved": [],
+          "answer_checked": true
+        }
+      },
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "human review",
+            "observed": true
+          },
+          {
+            "label": "conservative generation",
+            "observed": true
+          },
+          {
+            "label": "early feedback",
+            "observed": true
+          },
+          {
+            "label": "legal review",
+            "observed": true
+          },
+          {
+            "label": "open/public data",
+            "observed": true
+          },
+          {
+            "label": "rephrasing",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "human review",
+            "observed": true
+          },
+          {
+            "label": "conservative generation",
+            "observed": true
+          },
+          {
+            "label": "early feedback",
+            "observed": true
+          },
+          {
+            "label": "legal review",
+            "observed": true
+          },
+          {
+            "label": "open/public data",
+            "observed": true
+          },
+          {
+            "label": "rephrasing",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          199
+        ],
+        "selected_pages": [
+          16
+        ],
+        "selected_characters": 757,
+        "scope_and_budget_ok": true
+      },
+      "seconds": 23.752,
+      "provider_calls": 3
+    },
+    {
+      "id": "unsupported",
+      "question": "What is the signed customer contract number for the proposed education portal in Executive Summary.pdf?",
+      "result": {
+        "answer": "I couldn't find sufficient information in the provided documents.",
+        "sources": [],
+        "citations": [],
+        "status": "abstained",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 131,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": -0.4479934871196747
+          }
+        ],
+        "coverage": {
+          "policy": "v2-explicit-request-coverage/1",
+          "mode": "none",
+          "facets": [],
+          "enumeration_count": null,
+          "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+          "concrete_missing": [],
+          "context_unobserved": [],
+          "answer_checked": true
+        }
+      },
+      "metrics": {
+        "evidence_coverage": null,
+        "evidence_fact_checks": null,
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "contract information unavailable",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          131
+        ],
+        "selected_pages": [
+          1
+        ],
+        "selected_characters": 798,
+        "scope_and_budget_ok": true
+      },
+      "seconds": 17.741,
+      "provider_calls": 2
+    },
+    {
+      "id": "cross_page",
+      "question": "In Executive Summary.pdf, which database stores user accounts and what is the proposed annual cloud budget?",
+      "result": {
+        "answer": "- Budget / cost: The initial cloud budget is planned at approximately $200K per year, which is scalable as needed [S1].\n- Database / account storage: User accounts are stored in a relational database such as PostgreSQL or MySQL [S2].",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "chunk_id": 167,
+            "ref": "S1"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 13,
+            "chunk_id": 188,
+            "ref": "S2"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S1",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "chunk_id": 167
+          },
+          {
+            "ref": "S2",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 13,
+            "chunk_id": 188
+          }
+        ],
+        "status": "answered",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 167,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 9,
+            "retrieval_score": -6.9081196784973145
+          },
+          {
+            "ref": "S2",
+            "chunk_id": 188,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 13,
+            "retrieval_score": 0.13959039747714996
+          },
+          {
+            "ref": "S3",
+            "chunk_id": 131,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": -7.865070343017578
+          }
+        ],
+        "coverage": {
+          "policy": "v2-explicit-request-coverage/1",
+          "mode": "fields",
+          "facets": [
+            {
+              "id": "budget",
+              "label": "budget / cost",
+              "pattern": "\\b(?:budget|costs?|prices?|expenditure)\\b|[$\u20ac\u00a3\u20b9]\\s*\\d",
+              "request_pattern": "\\b(?:budget|costs?|prices?)\\b",
+              "query_terms": "budget cost estimate",
+              "evidence_refs": [
+                "S1"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [],
+              "refused_supported_item": false
+            },
+            {
+              "id": "database",
+              "label": "database / account storage",
+              "pattern": "\\b(?:databases?|PostgreSQL|MongoDB|MySQL|SQLite|relational|NoSQL)\\b",
+              "request_pattern": "\\b(?:databases?|account storage)\\b",
+              "query_terms": "database user accounts storage PostgreSQL relational",
+              "evidence_refs": [
+                "S2"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [],
+              "refused_supported_item": false
+            }
+          ],
+          "enumeration_count": null,
+          "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+          "concrete_missing": [],
+          "context_unobserved": [],
+          "answer_checked": true
+        }
+      },
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "relational database",
+            "observed": true
+          },
+          {
+            "label": "200K annual cloud",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "relational database",
+            "observed": true
+          },
+          {
+            "label": "200K annual cloud",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          167,
+          188,
+          131
+        ],
+        "selected_pages": [
+          9,
+          13,
+          1
+        ],
+        "selected_characters": 2213,
+        "scope_and_budget_ok": true
+      },
+      "seconds": 16.391,
+      "provider_calls": 2
+    },
+    {
+      "id": "comparison",
+      "question": "Compare on-premises and public cloud hosting in Executive Summary.pdf in terms of upfront cost and scalability. Address both options.",
+      "result": {
+        "answer": "- On-premises:\n - Upfront cost: High (hardware, infrastructure) [S1]; requires significant capital such as $200K\u2013$500K upfront for NVIDIA A100 or H100 servers, networking, storage, and cooling [S2].\n - Scalability: Limited by purchased capacity [S1][S3], though GPUs can be added gradually [S3].\n- Public cloud:\n - Upfront cost: Virtually none (reliant on provider) [S1].\n - Scalability: Easy to start, scale, and virtually unlimited [S1]; easier to scale up/down with user demand, including auto-scaling for inference [S3].",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "chunk_id": 203,
+            "ref": "S1"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "chunk_id": 164,
+            "ref": "S2"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "chunk_id": 167,
+            "ref": "S3"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S1",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "chunk_id": 203
+          },
+          {
+            "ref": "S2",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "chunk_id": 164
+          },
+          {
+            "ref": "S3",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "chunk_id": 167
+          }
+        ],
+        "status": "answered",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 203,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 17,
+            "retrieval_score": 3.8212664127349854
+          },
+          {
+            "ref": "S2",
+            "chunk_id": 164,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 8,
+            "retrieval_score": 1.8942691087722778
+          },
+          {
+            "ref": "S3",
+            "chunk_id": 167,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 9,
+            "retrieval_score": 2.5391478538513184
+          },
+          {
+            "ref": "S4",
+            "chunk_id": 197,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 15,
+            "retrieval_score": 0.730148434638977
+          }
+        ],
+        "coverage": {
+          "policy": "v2-explicit-request-coverage/1",
+          "mode": "comparison",
+          "facets": [
+            {
+              "id": "entity_1",
+              "label": "on-premises",
+              "pattern": "(?<!\\w)on[\\s-]+premises(?!\\w)",
+              "query_terms": "on-premises",
+              "evidence_refs": [
+                "S2"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [],
+              "refused_supported_item": false
+            },
+            {
+              "id": "entity_2",
+              "label": "public cloud",
+              "pattern": "(?<!\\w)public[\\s-]+cloud(?!\\w)",
+              "query_terms": "public cloud",
+              "evidence_refs": [],
+              "observed_in_context": false,
+              "answer_mentions": true,
+              "source_fact_signal": false,
+              "source_titles": [],
+              "refused_supported_item": false
+            }
+          ],
+          "enumeration_count": null,
+          "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+          "concrete_missing": [],
+          "context_unobserved": [
+            "entity_2"
+          ],
+          "answer_checked": true
+        }
+      },
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "on-premises option",
+            "observed": true
+          },
+          {
+            "label": "public cloud option",
+            "observed": true
+          },
+          {
+            "label": "high upfront capital",
+            "observed": true
+          },
+          {
+            "label": "bounded on-prem capacity",
+            "observed": true
+          },
+          {
+            "label": "no upfront public cloud",
+            "observed": true
+          },
+          {
+            "label": "cloud scalability",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "on-premises option",
+            "observed": true
+          },
+          {
+            "label": "public cloud option",
+            "observed": true
+          },
+          {
+            "label": "high upfront capital",
+            "observed": true
+          },
+          {
+            "label": "bounded on-prem capacity",
+            "observed": true
+          },
+          {
+            "label": "no upfront public cloud",
+            "observed": true
+          },
+          {
+            "label": "cloud scalability",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          203,
+          164,
+          167,
+          197
+        ],
+        "selected_pages": [
+          17,
+          8,
+          9,
+          15
+        ],
+        "selected_characters": 2570,
+        "scope_and_budget_ok": true
+      },
+      "seconds": 14.348,
+      "provider_calls": 2
+    },
+    {
+      "id": "follow_up",
+      "question": "And which languages and offline access does it propose?",
+      "result": {
+        "answer": "- Language support: The documents propose multilingual support to extend content to Hindi and other regional languages [S2].\n- Offline / mobile access: The documents propose allowing users to download videos and notes for offline study through a mobile app [S2].",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "chunk_id": 138,
+            "ref": "S2"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S2",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "chunk_id": 138
+          }
+        ],
+        "status": "answered",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 131,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": 5.864055156707764
+          },
+          {
+            "ref": "S2",
+            "chunk_id": 138,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 2,
+            "retrieval_score": 2.3952484130859375
+          },
+          {
+            "ref": "S3",
+            "chunk_id": 156,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 6,
+            "retrieval_score": 1.9404851198196411
+          }
+        ],
+        "coverage": {
+          "policy": "v2-explicit-request-coverage/1",
+          "mode": "fields",
+          "facets": [
+            {
+              "id": "languages",
+              "label": "language support",
+              "pattern": "\\b(?:multilingual|languages?|Hindi|English|regional)\\b",
+              "request_pattern": "\\b(?:multilingual|languages?)\\b",
+              "query_terms": "multilingual language support",
+              "evidence_refs": [
+                "S2",
+                "S3"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [],
+              "refused_supported_item": false
+            },
+            {
+              "id": "offline",
+              "label": "offline / mobile access",
+              "pattern": "\\b(?:offline|mobile|downloads?|downloading)\\b",
+              "request_pattern": "\\b(?:offline|mobile)\\b",
+              "query_terms": "offline mobile downloads access",
+              "evidence_refs": [
+                "S2"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [],
+              "refused_supported_item": false
+            }
+          ],
+          "enumeration_count": null,
+          "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+          "concrete_missing": [],
+          "context_unobserved": [],
+          "answer_checked": true
+        }
+      },
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "Hindi/regional languages",
+            "observed": true
+          },
+          {
+            "label": "offline study",
+            "observed": true
+          },
+          {
+            "label": "videos",
+            "observed": true
+          },
+          {
+            "label": "notes",
+            "observed": true
+          },
+          {
+            "label": "mobile app",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "Hindi/regional languages",
+            "observed": true
+          },
+          {
+            "label": "offline study",
+            "observed": true
+          },
+          {
+            "label": "videos",
+            "observed": true
+          },
+          {
+            "label": "notes",
+            "observed": true
+          },
+          {
+            "label": "mobile app",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          131,
+          138,
+          156
+        ],
+        "selected_pages": [
+          1,
+          2,
+          6
+        ],
+        "selected_characters": 2324,
+        "scope_and_budget_ok": true
+      },
+      "seconds": 22.871,
+      "provider_calls": 3
+    },
+    {
+      "id": "conflict",
+      "question": "In Executive Summary.pdf, does the roadmap stated phase count agree with its listed phases? Report any inconsistency.",
+      "result": {
+        "answer": "The retrieved documents state that the roadmap proposes a phased rollout with roughly 3 phases over ~24\u201330 months [S1], but then list 4 distinct phases: Phase 1 \u2013 Planning & Prototype, Phase 2 \u2013 MVP Development, Phase 3 \u2013 Pilot & Feedback, and Phase 4 \u2013 Launch & Scale [S1][S2][S3]. This suggests an inconsistency between the stated phase count (roughly 3 phases) and the actual number of phases listed (4 phases) [S1][S2][S3].",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 194,
+            "ref": "S1"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 195,
+            "ref": "S2"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 196,
+            "ref": "S3"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S1",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 194
+          },
+          {
+            "ref": "S2",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 195
+          },
+          {
+            "ref": "S3",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 196
+          }
+        ],
+        "status": "answered",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 194,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 15,
+            "retrieval_score": -4.228762626647949
+          },
+          {
+            "ref": "S2",
+            "chunk_id": 195,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 15,
+            "retrieval_score": null
+          },
+          {
+            "ref": "S3",
+            "chunk_id": 196,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 15,
+            "retrieval_score": null
+          }
+        ],
+        "coverage": {
+          "policy": "v2-explicit-request-coverage/1",
+          "mode": "none",
+          "facets": [],
+          "enumeration_count": null,
+          "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+          "concrete_missing": [],
+          "context_unobserved": [],
+          "answer_checked": true
+        }
+      },
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "stated three",
+            "observed": true
+          },
+          {
+            "label": "listed fourth phase",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "stated three",
+            "observed": true
+          },
+          {
+            "label": "listed four",
+            "observed": true
+          },
+          {
+            "label": "disagreement disclosure",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": false,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": false,
+        "selected_chunks": [
+          194,
+          195,
+          196
+        ],
+        "selected_pages": [
+          15,
+          15,
+          15
+        ],
+        "selected_characters": 2118,
+        "scope_and_budget_ok": true
+      },
+      "seconds": 13.725,
+      "provider_calls": 2
+    },
+    {
+      "id": "explicit_negative",
+      "question": "According to Executive Summary.pdf, does public cloud require upfront capital expenditure?",
+      "result": {
+        "answer": "I couldn't find sufficient information in the provided documents.",
+        "sources": [],
+        "citations": [],
+        "status": "abstained",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 164,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 8,
+            "retrieval_score": -7.485410213470459
+          },
+          {
+            "ref": "S2",
+            "chunk_id": 203,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 17,
+            "retrieval_score": -7.574707508087158
+          }
+        ],
+        "coverage": {
+          "policy": "v2-explicit-request-coverage/1",
+          "mode": "none",
+          "facets": [],
+          "enumeration_count": null,
+          "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+          "concrete_missing": [],
+          "context_unobserved": [],
+          "answer_checked": true
+        }
+      },
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "explicit no upfront",
+            "observed": true
+          },
+          {
+            "label": "usage costs",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": false,
+        "answer_fact_checks": [
+          {
+            "label": "no upfront cost",
+            "observed": false
+          },
+          {
+            "label": "ongoing usage cost",
+            "observed": false
+          }
+        ],
+        "citation_abstention_correctness": false,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": false,
+        "declared_status_correct": false,
+        "selected_chunks": [
+          164,
+          203
+        ],
+        "selected_pages": [
+          8,
+          17
+        ],
+        "selected_characters": 1430,
+        "scope_and_budget_ok": true
+      },
+      "seconds": 15.042,
+      "provider_calls": 2
+    },
+    {
+      "id": "long_section",
+      "question": "List all core MVP features and all suggested additional features in Executive Summary.pdf.",
+      "result": {
+        "answer": "- Core / MVP Features: AI-generated video lessons, topic-wise notes and summaries, test series and quizzes, question bank and Q&A, performance analytics, and Q&A and forum features [S1][S3][S5][S6][S8].\n- Additional / Later Features: Adaptive learning paths, live doubt-solving forum, progress tracking and analytics, gamification, multilingual support, and offline access and mobile app [S1][S2][S6].\n- AI-generated Video Lessons: Included as a core MVP feature for producing automated topic-based lecture videos with synthesized speech and optional avatar presentation [S1][S3][S6].\n- Adaptive Learning Paths: Included as a suggested additional feature to personalize recommendations based on student performance analytics [S1][S2][S6].\n- Gamification: Included as a suggested additional feature featuring badges, streaks, points, and leaderboards to motivate engagement [S1][S2][S6].\n- Live Doubt-Solving Forum: Included as a suggested additional feature allowing students to post questions for AI or human tutors, with notifications and tracking [S2].\n- Multilingual Support: Included as a suggested additional feature to extend content to Hindi and other regional languages [S1][S2][S6].\n- Offline Access & Mobile App: Included as a suggested additional feature to allow downloading videos and notes for offline study [S2].\n- Progress Tracking & Analytics: Included as a suggested additional/later feature providing dashboards for students and teachers showing mastery levels, time spent, and topic coverage [S1][S2][S6].\n- Question Bank & Q&A: Included as a core MVP feature consisting of a searchable database of Q&A by topic where students can ask the AI questions in natural language or browse curated question collections [S1][S5][S6].\n- Test Series & Quizzes: Included as a core MVP feature for auto-creating practice tests, MCQs, short-answer problems, and full mock exams aligned to the syllabus [S1][S5][S6].\n- Topic-wise Notes & Summaries: Included as a core MVP feature that generates concise, structured study notes with explanations, key definitions, worked examples, and formula summaries [S1][S5][S6].",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 131,
+            "ref": "S1"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 135,
+            "ref": "S3"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "chunk_id": 137,
+            "ref": "S5"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "chunk_id": 139,
+            "ref": "S6"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 133,
+            "ref": "S8"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "chunk_id": 138,
+            "ref": "S2"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S1",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 131
+          },
+          {
+            "ref": "S3",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 135
+          },
+          {
+            "ref": "S5",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "chunk_id": 137
+          },
+          {
+            "ref": "S6",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "chunk_id": 139
+          },
+          {
+            "ref": "S8",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 133
+          },
+          {
+            "ref": "S2",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "chunk_id": 138
+          }
+        ],
+        "status": "answered",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 131,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": 5.231591701507568
+          },
+          {
+            "ref": "S2",
+            "chunk_id": 138,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 2,
+            "retrieval_score": -1.884756326675415
+          },
+          {
+            "ref": "S3",
+            "chunk_id": 135,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": -3.4399852752685547
+          },
+          {
+            "ref": "S4",
+            "chunk_id": 204,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 17,
+            "retrieval_score": 2.2513480186462402
+          },
+          {
+            "ref": "S5",
+            "chunk_id": 137,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 2,
+            "retrieval_score": null
+          },
+          {
+            "ref": "S6",
+            "chunk_id": 139,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 2,
+            "retrieval_score": null
+          },
+          {
+            "ref": "S7",
+            "chunk_id": 132,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": null
+          },
+          {
+            "ref": "S8",
+            "chunk_id": 133,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": null
+          }
+        ],
+        "coverage": {
+          "policy": "v2-explicit-request-coverage/1",
+          "mode": "fields",
+          "facets": [
+            {
+              "id": "core_features",
+              "label": "core / MVP features",
+              "pattern": "\\b(?:core|MVP)\\b",
+              "request_pattern": "\\b(?:core|MVP)\\b(?=.{0,35}\\bfeatures?\\b)|\\bfeatures?\\b(?=.{0,35}\\b(?:core|MVP)\\b)",
+              "query_terms": "core MVP product features",
+              "evidence_refs": [
+                "S1",
+                "S3",
+                "S4",
+                "S6",
+                "S8"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [],
+              "refused_supported_item": false
+            },
+            {
+              "id": "additional_features",
+              "label": "additional / later features",
+              "pattern": "\\b(?:additional|extended|later|adaptive|gamification|multilingual|offline)\\b",
+              "request_pattern": "\\b(?:additional|extended|later)\\b(?=.{0,35}\\bfeatures?\\b)|\\bfeatures?\\b(?=.{0,35}\\b(?:additional|extended|later)\\b)",
+              "query_terms": "additional later extended product features",
+              "evidence_refs": [
+                "S1",
+                "S2",
+                "S4",
+                "S5",
+                "S6",
+                "S8"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_ai_generated_video_lessons",
+              "label": "AI-generated Video Lessons",
+              "pattern": "(?<!\\w)AI(?:[\\W_]+|\\s+and\\s+)generated(?:[\\W_]+|\\s+and\\s+)Video(?:[\\W_]+|\\s+and\\s+)Lessons(?!\\w)",
+              "query_terms": "AI-generated Video Lessons",
+              "literal_titles": [
+                "AI-generated Video Lessons"
+              ],
+              "evidence_refs": [
+                "S3"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "AI-generated Video Lessons"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_adaptive_learning_paths",
+              "label": "Adaptive Learning Paths",
+              "pattern": "(?<!\\w)Adaptive(?:[\\W_]+|\\s+and\\s+)Learning(?:[\\W_]+|\\s+and\\s+)Paths(?!\\w)",
+              "query_terms": "Adaptive Learning Paths",
+              "literal_titles": [
+                "Adaptive Learning Paths"
+              ],
+              "evidence_refs": [
+                "S1",
+                "S2",
+                "S5",
+                "S6"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Adaptive Learning Paths"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_gamification",
+              "label": "Gamification",
+              "pattern": "(?<!\\w)Gamification(?!\\w)",
+              "query_terms": "Gamification",
+              "literal_titles": [
+                "Gamification"
+              ],
+              "evidence_refs": [
+                "S1",
+                "S2",
+                "S6"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Gamification"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_live_doubt_solving_forum",
+              "label": "Live Doubt-Solving Forum",
+              "pattern": "(?<!\\w)Live(?:[\\W_]+|\\s+and\\s+)Doubt(?:[\\W_]+|\\s+and\\s+)Solving(?:[\\W_]+|\\s+and\\s+)Forum(?!\\w)",
+              "query_terms": "Live Doubt-Solving Forum",
+              "literal_titles": [
+                "Live Doubt-Solving Forum"
+              ],
+              "evidence_refs": [
+                "S2"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Live Doubt-Solving Forum"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_multilingual_support",
+              "label": "Multilingual Support",
+              "pattern": "(?<!\\w)Multilingual(?:[\\W_]+|\\s+and\\s+)Support(?!\\w)",
+              "query_terms": "Multilingual Support",
+              "literal_titles": [
+                "Multilingual Support"
+              ],
+              "evidence_refs": [
+                "S2"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Multilingual Support"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_offline_access_mobile_app",
+              "label": "Offline Access & Mobile App",
+              "pattern": "(?<!\\w)Offline(?:[\\W_]+|\\s+and\\s+)Access(?:[\\W_]+|\\s+and\\s+)Mobile(?:[\\W_]+|\\s+and\\s+)App(?!\\w)",
+              "query_terms": "Offline Access & Mobile App",
+              "literal_titles": [
+                "Offline Access & Mobile App"
+              ],
+              "evidence_refs": [
+                "S2"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Offline Access & Mobile App"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_progress_tracking_analytics",
+              "label": "Progress Tracking & Analytics",
+              "pattern": "(?<!\\w)Progress(?:[\\W_]+|\\s+and\\s+)Tracking(?:[\\W_]+|\\s+and\\s+)Analytics(?!\\w)",
+              "query_terms": "Progress Tracking & Analytics",
+              "literal_titles": [
+                "Progress Tracking & Analytics"
+              ],
+              "evidence_refs": [
+                "S2"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Progress Tracking & Analytics"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_question_bank_q_a",
+              "label": "Question Bank & Q&A",
+              "pattern": "(?<!\\w)Question(?:[\\W_]+|\\s+and\\s+)Bank(?:[\\W_]+|\\s+and\\s+)Q(?:[\\W_]+|\\s+and\\s+)A(?!\\w)",
+              "query_terms": "Question Bank & Q&A",
+              "literal_titles": [
+                "Question Bank & Q&A"
+              ],
+              "evidence_refs": [
+                "S5"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Question Bank & Q&A"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_test_series_quizzes",
+              "label": "Test Series & Quizzes",
+              "pattern": "(?<!\\w)Test(?:[\\W_]+|\\s+and\\s+)Series(?:[\\W_]+|\\s+and\\s+)Quizzes(?!\\w)",
+              "query_terms": "Test Series & Quizzes",
+              "literal_titles": [
+                "Test Series & Quizzes"
+              ],
+              "evidence_refs": [
+                "S5"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Test Series & Quizzes"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_topic_wise_notes_summaries",
+              "label": "Topic-wise Notes & Summaries",
+              "pattern": "(?<!\\w)Topic(?:[\\W_]+|\\s+and\\s+)wise(?:[\\W_]+|\\s+and\\s+)Notes(?:[\\W_]+|\\s+and\\s+)Summaries(?!\\w)",
+              "query_terms": "Topic-wise Notes & Summaries",
+              "literal_titles": [
+                "Topic-wise Notes & Summaries"
+              ],
+              "evidence_refs": [
+                "S5"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Topic-wise Notes & Summaries"
+              ],
+              "refused_supported_item": false
+            }
+          ],
+          "enumeration_count": null,
+          "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+          "concrete_missing": [],
+          "context_unobserved": [],
+          "answer_checked": true
+        }
+      },
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "video lessons",
+            "observed": true
+          },
+          {
+            "label": "notes/summaries",
+            "observed": true
+          },
+          {
+            "label": "tests/quizzes",
+            "observed": true
+          },
+          {
+            "label": "question bank/Q&A",
+            "observed": true
+          },
+          {
+            "label": "adaptive learning",
+            "observed": true
+          },
+          {
+            "label": "doubt forum",
+            "observed": true
+          },
+          {
+            "label": "progress analytics",
+            "observed": true
+          },
+          {
+            "label": "gamification",
+            "observed": true
+          },
+          {
+            "label": "multilingual",
+            "observed": true
+          },
+          {
+            "label": "offline/mobile",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "video lessons",
+            "observed": true
+          },
+          {
+            "label": "notes/summaries",
+            "observed": true
+          },
+          {
+            "label": "tests/quizzes",
+            "observed": true
+          },
+          {
+            "label": "question bank/Q&A",
+            "observed": true
+          },
+          {
+            "label": "adaptive learning",
+            "observed": true
+          },
+          {
+            "label": "doubt forum",
+            "observed": true
+          },
+          {
+            "label": "progress analytics",
+            "observed": true
+          },
+          {
+            "label": "gamification",
+            "observed": true
+          },
+          {
+            "label": "multilingual",
+            "observed": true
+          },
+          {
+            "label": "offline/mobile",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          131,
+          138,
+          135,
+          204,
+          137,
+          139,
+          132,
+          133
+        ],
+        "selected_pages": [
+          1,
+          2,
+          1,
+          17,
+          2,
+          2,
+          1,
+          1
+        ],
+        "selected_characters": 6020,
+        "scope_and_budget_ok": true
+      },
+      "seconds": 15.78,
+      "provider_calls": 2
+    },
+    {
+      "id": "partial",
+      "question": "According to Executive Summary.pdf, which entrance exams does the proposed portal target, and what is its signed customer contract number?",
+      "result": {
+        "answer": "- The proposed portal targets JEE, GATE, and NEET [S1].\n- The provided documents do not contain information regarding a signed customer contract number.",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 131,
+            "ref": "S1"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S1",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 131
+          }
+        ],
+        "status": "partial",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 131,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": -2.8581175804138184
+          }
+        ],
+        "coverage": {
+          "policy": "v2-explicit-request-coverage/1",
+          "mode": "clauses",
+          "facets": [],
+          "enumeration_count": null,
+          "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+          "decomposition_clauses": [
+            "According to Executive Summary.pdf, which entrance exams does the proposed portal target,",
+            "what is its signed customer contract number?"
+          ],
+          "concrete_missing": [],
+          "context_unobserved": [],
+          "answer_checked": true
+        }
+      },
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "JEE",
+            "observed": true
+          },
+          {
+            "label": "GATE",
+            "observed": true
+          },
+          {
+            "label": "NEET",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "JEE",
+            "observed": true
+          },
+          {
+            "label": "GATE",
+            "observed": true
+          },
+          {
+            "label": "NEET",
+            "observed": true
+          },
+          {
+            "label": "contract information unavailable",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          131
+        ],
+        "selected_pages": [
+          1
+        ],
+        "selected_characters": 798,
+        "scope_and_budget_ok": true
+      },
+      "seconds": 12.71,
+      "provider_calls": 2
+    }
+  ],
+  "isolation": {
+    "pass": true,
+    "checks": [
+      {
+        "owner": "25973a8a-09db-4a15-a686-304a5c986eec",
+        "has_preexisting_owned_documents": true,
+        "selected_source_visible": true,
+        "selected_chunks_visible": 76
+      },
+      {
+        "owner": "4c4125dc-5f84-4cf5-a6df-82384b03ed7f",
+        "has_preexisting_owned_documents": true,
+        "selected_source_visible": false,
+        "selected_chunks_visible": 0
+      }
+    ],
+    "database_writes": false,
+    "secondary_owner_provenance": "existing v2_evidence/live_smoke_retry1.json resource_ids.owner_ids[0]"
+  },
+  "scope": "development only; no formal acceptance claim",
+  "database_writes": false,
+  "metric_caveat": "Literal fact coverage plus citation-page/status checks; manual source comparison still required for entailment."
+}

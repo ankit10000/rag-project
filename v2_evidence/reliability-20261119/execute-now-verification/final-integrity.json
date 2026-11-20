@@ -1,0 +1,26 @@
+{
+  "branch": "main",
+  "head_unchanged": true,
+  "changed_preexisting_files": [
+    "RAG_V2_IMPLEMENTATION_STATUS.md",
+    "test_v2_answer_completeness.py",
+    "services/answer_service.py",
+    "services/hybrid_search_service.py",
+    "services/rrf_service.py"
+  ],
+  "unrelated_preexisting_files_preserved": true,
+  "staged_bytes_preserved": true,
+  "protected_assets_checked": 44,
+  "protected_assets_unchanged": true,
+  "historical_live_and_original_six_unchanged": true,
+  "runtime_hashes_match_verified_tree": true,
+  "diff_check_exit": 0,
+  "new_provider_calls": 0,
+  "database_writes": false,
+  "source_sha256": {
+    "test_v2_answer_completeness.py": "f3a24748d9952d55f87fc9208be278320488bebf314a72dd25ca6929a44b994f",
+    "services/answer_service.py": "b6adea6082c4619b5cc9a569396e85539849f8f870616b0747052a4782dd541d",
+    "services/hybrid_search_service.py": "f380a703bcb0f5ced1a260ce480c1e57e4c0118d6619705814b07a3f36bb20b2",
+    "services/rrf_service.py": "04602e8c3eb8e6cd7df5c67e0ee8c4dd94e030dc68e88ab2a73ef201b7c725fe"
+  }
+}

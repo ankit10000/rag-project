@@ -1,0 +1,57 @@
+PASS | [valid] DELETE [1,3] unchanged
+PASS | [valid] NO_MATCH unchanged (ids forced [])
+PASS | [valid] UNCERTAIN unchanged (ids forced [])
+PASS | [valid] fenced + lower-case status still parsed
+PASS | [valid] foreign id only -> NO_MATCH unchanged
+PASS | [valid] order kept, duplicates and foreign ids dropped
+PASS | [valid] unknown status -> UNCERTAIN unchanged
+PASS | [unchanged] existing=[] -> NO_MATCH without LLM call
+PASS | [unchanged] existing=None -> NO_MATCH without LLM call
+PASS | [exception] RuntimeError -> UNCERTAIN, ids [], not raised
+PASS | [exception] RuntimeError log has type only (no message, request or memory text)
+PASS | [exception] ConnectionError -> UNCERTAIN, ids [], not raised
+PASS | [exception] ConnectionError log has type only (no message, request or memory text)
+PASS | [exception] TimeoutError -> UNCERTAIN, ids [], not raised
+PASS | [exception] TimeoutError log has type only (no message, request or memory text)
+PASS | [exception] ValueError -> UNCERTAIN, ids [], not raised
+PASS | [exception] ValueError log has type only (no message, request or memory text)
+PASS | [exception] KeyError -> UNCERTAIN, ids [], not raised
+PASS | [exception] KeyError log has type only (no message, request or memory text)
+PASS | [exception] OSError -> UNCERTAIN, ids [], not raised
+PASS | [exception] OSError log has type only (no message, request or memory text)
+PASS | [exception] Exception -> UNCERTAIN, ids [], not raised
+PASS | [exception] Exception log has type only (no message, request or memory text)
+PASS | [exception] AttributeError -> UNCERTAIN, ids [], not raised
+PASS | [exception] AttributeError log has type only (no message, request or memory text)
+PASS | [exception] TypeError -> UNCERTAIN, ids [], not raised
+PASS | [exception] TypeError log has type only (no message, request or memory text)
+PASS | [exception] JSONDecodeError -> UNCERTAIN, ids [], not raised
+PASS | [exception] JSONDecodeError log has type only (no message, request or memory text)
+PASS | [bad response] None -> UNCERTAIN, ids [], not raised
+PASS | [bad response] empty string -> UNCERTAIN, ids [], not raised
+PASS | [bad response] whitespace -> UNCERTAIN, ids [], not raised
+PASS | [bad response] int -> UNCERTAIN, ids [], not raised
+PASS | [bad response] float -> UNCERTAIN, ids [], not raised
+PASS | [bad response] bool True -> UNCERTAIN, ids [], not raised
+PASS | [bad response] bool False -> UNCERTAIN, ids [], not raised
+PASS | [bad response] list -> UNCERTAIN, ids [], not raised
+PASS | [bad response] dict (valid-looking) -> UNCERTAIN, ids [], not raised
+PASS | [bad response] bytes -> UNCERTAIN, ids [], not raised
+PASS | [bad response] object -> UNCERTAIN, ids [], not raised
+PASS | [bad response] malformed JSON -> UNCERTAIN, ids [], not raised
+PASS | [bad response] prose -> UNCERTAIN, ids [], not raised
+PASS | [bad response] JSON list -> UNCERTAIN, ids [], not raised
+PASS | [bad response] JSON null -> UNCERTAIN, ids [], not raised
+PASS | [bad response] JSON string -> UNCERTAIN, ids [], not raised
+PASS | [bad response] JSON number -> UNCERTAIN, ids [], not raised
+PASS | [bad response] memory_ids a string -> UNCERTAIN, ids [], not raised
+PASS | [bad response] memory_ids an object -> UNCERTAIN, ids [], not raised
+PASS | [bad response] memory_ids null -> UNCERTAIN, ids [], not raised
+PASS | [bad response] missing status -> UNCERTAIN, ids [], not raised
+PASS | [bad response] null status -> UNCERTAIN, ids [], not raised
+PASS | [bad response] status list -> UNCERTAIN, ids [], not raised
+PASS | [never DELETE] every failure mode returns UNCERTAIN with no ids
+PASS | [safety] mutating a returned fallback does not affect later results
+
+0 check(s) failed
+

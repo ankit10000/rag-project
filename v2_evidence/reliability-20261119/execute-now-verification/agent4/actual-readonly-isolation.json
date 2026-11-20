@@ -1,0 +1,105 @@
+{
+  "database": "rag_test_scratch",
+  "identity_verified_before_every_connection": true,
+  "isolation": {
+    "pass": true,
+    "checks": [
+      {
+        "owner": "25973a8a-09db-4a15-a686-304a5c986eec",
+        "has_preexisting_owned_documents": true,
+        "selected_source_visible": true,
+        "selected_chunks_visible": 76
+      },
+      {
+        "owner": "4c4125dc-5f84-4cf5-a6df-82384b03ed7f",
+        "has_preexisting_owned_documents": true,
+        "selected_source_visible": false,
+        "selected_chunks_visible": 0
+      }
+    ],
+    "database_writes": false,
+    "secondary_owner_provenance": "existing v2_evidence/live_smoke_retry1.json resource_ids.owner_ids[0]"
+  },
+  "captured_source_revalidation": [
+    {
+      "id": "product",
+      "fixture_identity": "live-01",
+      "sources_still_match_owned_db_rows": true,
+      "source_count": 1
+    },
+    {
+      "id": "estimates",
+      "fixture_identity": "live-01",
+      "sources_still_match_owned_db_rows": true,
+      "source_count": 4
+    },
+    {
+      "id": "accessibility",
+      "fixture_identity": "live-01",
+      "sources_still_match_owned_db_rows": true,
+      "source_count": 3
+    },
+    {
+      "id": "phases",
+      "fixture_identity": "live-01",
+      "sources_still_match_owned_db_rows": true,
+      "source_count": 4
+    },
+    {
+      "id": "risks",
+      "fixture_identity": "live-01",
+      "sources_still_match_owned_db_rows": true,
+      "source_count": 1
+    },
+    {
+      "id": "unsupported",
+      "fixture_identity": "live-02",
+      "sources_still_match_owned_db_rows": true,
+      "source_count": 1
+    },
+    {
+      "id": "cross_page",
+      "fixture_identity": "live-01",
+      "sources_still_match_owned_db_rows": true,
+      "source_count": 3
+    },
+    {
+      "id": "comparison",
+      "fixture_identity": "live-02",
+      "sources_still_match_owned_db_rows": true,
+      "source_count": 4
+    },
+    {
+      "id": "follow_up",
+      "fixture_identity": "live-01",
+      "sources_still_match_owned_db_rows": true,
+      "source_count": 3
+    },
+    {
+      "id": "conflict",
+      "fixture_identity": "live-03",
+      "sources_still_match_owned_db_rows": true,
+      "source_count": 3
+    },
+    {
+      "id": "explicit_negative",
+      "fixture_identity": "live-03",
+      "sources_still_match_owned_db_rows": true,
+      "source_count": 3
+    },
+    {
+      "id": "long_section",
+      "fixture_identity": "live-03",
+      "sources_still_match_owned_db_rows": true,
+      "source_count": 8
+    },
+    {
+      "id": "partial",
+      "fixture_identity": "live-03",
+      "sources_still_match_owned_db_rows": true,
+      "source_count": 1
+    }
+  ],
+  "provider_calls": 0,
+  "database_writes": false
+}

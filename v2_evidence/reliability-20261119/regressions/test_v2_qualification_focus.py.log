@@ -1,0 +1,24 @@
+
+Question type: DOCUMENT
+Retrieval status: ok
+
+Best reranker score: 1.0000
+Adaptive threshold: -1.0000
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 1.0000 | Chunk: 2 | Page: 2
+Answer status: answered | citations: ['S1'] | attempts: 1
+
+W1119 18:35:17.503000 66091 .venv/lib/python3.14/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+test_actual_pipeline_uses_degree_and_cites_original_page (__main__.QualificationTests.test_actual_pipeline_uses_degree_and_cites_original_page) ... ok
+test_legacy_prompt_unchanged (__main__.QualificationTests.test_legacy_prompt_unchanged) ... ok
+test_missing_degree_never_substitutes_career_summary (__main__.QualificationTests.test_missing_degree_never_substitutes_career_summary) ... ok
+test_person_question_recognized_without_hardcoded_name (__main__.QualificationTests.test_person_question_recognized_without_hardcoded_name) ... ok
+test_same_name_in_multiple_documents_does_not_guess (__main__.QualificationTests.test_same_name_in_multiple_documents_does_not_guess) ... ok
+test_second_retrieval_is_scoped_to_named_persons_document (__main__.QualificationTests.test_second_retrieval_is_scoped_to_named_persons_document) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.012s
+
+OK

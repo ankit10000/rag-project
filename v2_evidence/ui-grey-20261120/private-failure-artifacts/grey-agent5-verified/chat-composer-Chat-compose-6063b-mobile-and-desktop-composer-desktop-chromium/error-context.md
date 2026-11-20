@@ -1,0 +1,130 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - button "Open Next.js Dev Tools" [ref=e8] [cursor=pointer]:
+    - img [ref=e9]
+  - alert [ref=e12]
+  - generic [ref=e13]:
+    - complementary "Sidebar" [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - link "RAG home" [ref=e17] [cursor=pointer]:
+            - /url: /chat
+            - img [ref=e19]
+            - generic [ref=e21]: RAG
+            - generic [ref=e22]: "2.0"
+          - button "Collapse sidebar" [ref=e23] [cursor=pointer]:
+            - img
+        - generic [ref=e24]:
+          - link "New chat" [ref=e25] [cursor=pointer]:
+            - /url: /chat
+            - img
+            - text: New chat
+          - button "Search conversations" [ref=e27] [cursor=pointer]:
+            - img
+            - text: Search conversations
+        - navigation "Workspace" [ref=e28]:
+          - link "Overview" [ref=e29] [cursor=pointer]:
+            - /url: /dashboard
+            - img [ref=e30]
+            - generic [ref=e35]: Overview
+          - link "Document library" [ref=e36] [cursor=pointer]:
+            - /url: /documents
+            - img [ref=e37]
+            - generic [ref=e41]: Document library
+          - link "Conversations" [ref=e42] [cursor=pointer]:
+            - /url: /conversations
+            - img [ref=e43]
+            - generic [ref=e46]: Conversations
+          - link "Memories" [ref=e47] [cursor=pointer]:
+            - /url: /memories
+            - img [ref=e48]
+            - generic [ref=e56]: Memories
+          - link "Processing activity" [ref=e57] [cursor=pointer]:
+            - /url: /jobs
+            - img [ref=e58]
+            - generic [ref=e60]: Processing activity
+          - link "Settings" [ref=e61] [cursor=pointer]:
+            - /url: /settings
+            - img [ref=e62]
+            - generic [ref=e65]: Settings
+        - region "Recent chats" [ref=e66]:
+          - heading "Recent chats" [level=2] [ref=e67]
+          - paragraph [ref=e68]: Your conversations will appear here.
+        - generic [ref=e69]:
+          - generic [ref=e70]:
+            - generic [ref=e71]: A
+            - generic [ref=e72]:
+              - paragraph [ref=e73]: Avery
+              - paragraph [ref=e74]: Personal workspace
+          - generic [ref=e75]:
+            - button "Use light mode" [ref=e76] [cursor=pointer]:
+              - img
+            - button "Sign out" [ref=e77] [cursor=pointer]:
+              - img
+              - text: Sign out
+    - generic [ref=e78]:
+      - banner [ref=e79]:
+        - link "RAG workspace" [ref=e81] [cursor=pointer]:
+          - /url: /chat
+        - paragraph [ref=e82]: Your sources. Grounded answers.
+      - main [ref=e83]:
+        - region "Chat workspace" [ref=e85]:
+          - generic [ref=e86]:
+            - generic [ref=e87]:
+              - heading "Chat workspace" [level=1] [ref=e88]
+              - paragraph [ref=e89]: Your documents. Clear answers. Original sources.
+            - button "New chat" [ref=e90] [cursor=pointer]:
+              - img
+              - text: New chat
+          - log "Conversation messages" [ref=e91]:
+            - generic [ref=e92]:
+              - article [ref=e93]:
+                - heading "You" [level=2] [ref=e95]
+                - paragraph [ref=e96]: Show a supported finding
+              - article [ref=e97]:
+                - generic [ref=e98]:
+                  - heading "RAG" [level=2] [ref=e99]
+                  - generic [ref=e100]: partial
+                - generic [ref=e101]:
+                  - paragraph [ref=e102]:
+                    - strong [ref=e103]: "Supported finding:"
+                    - text: the result is 42 [S1].
+                  - generic [ref=e104]:
+                    - generic [ref=e105]:
+                      - generic [ref=e106]: ts
+                      - generic [ref=e107]:
+                        - button "Copy code" [active] [ref=e108] [cursor=pointer]:
+                          - img
+                        - status [ref=e109]
+                    - code [ref=e111]: const result = 42;
+                  - paragraph [ref=e112]: The document does not provide a telephone number.
+                - link "Open citation S1 · research.pdf · p. 2" [ref=e114] [cursor=pointer]:
+                  - /url: /api/v2/documents/d0000000-0000-4000-8000-000000000001/file#page=2
+                  - img [ref=e115]
+                  - generic [ref=e118]: S1 · research.pdf · p. 2
+                - generic [ref=e120]:
+                  - button "Copy response" [ref=e121] [cursor=pointer]:
+                    - img
+                  - status [ref=e122]
+          - generic [ref=e123]:
+            - generic [ref=e124]:
+              - generic [ref=e125]: Your message
+              - textbox "Your message" [ref=e126]:
+                - /placeholder: Ask anything about your documents
+              - generic [ref=e127]:
+                - generic [ref=e128]:
+                  - button "Choose chat PDF" [ref=e129]
+                  - button "Attach PDF" [ref=e130] [cursor=pointer]:
+                    - img
+                  - button "Browse document sources" [ref=e131] [cursor=pointer]:
+                    - img
+                    - generic [ref=e132]: Sources
+                    - img
+                - button "Send" [disabled]:
+                  - img
+            - paragraph [ref=e133]: RAG can make mistakes. Check the original sources.
+```

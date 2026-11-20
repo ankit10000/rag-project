@@ -1,0 +1,74 @@
+{
+  "caveat": "Deterministic stage attribution relative to reviewed source chunk IDs; not automatic semantic entailment. Table layout can make a lexical signal overestimate sufficiency.",
+  "cases": [
+    {
+      "case": "cross_page",
+      "trace": "v2_evidence/reliability-20261119/before-recovery/cross_page.json",
+      "review_selected_required_chunks": [
+        167,
+        188
+      ],
+      "diagnosis": [
+        "RERANK_FILTER_LOSS"
+      ]
+    },
+    {
+      "case": "comparison",
+      "trace": "v2_evidence/reliability-20261119/before-recovery/comparison.json",
+      "review_selected_required_chunks": [
+        164,
+        167
+      ],
+      "diagnosis": [
+        "RERANK_FILTER_LOSS"
+      ]
+    },
+    {
+      "case": "conflict",
+      "trace": "v2_evidence/reliability-20261119/before-recovery/conflict.json",
+      "review_selected_required_chunks": [
+        194,
+        196
+      ],
+      "diagnosis": [
+        "RERANK_FILTER_LOSS"
+      ]
+    },
+    {
+      "case": "long_section",
+      "trace": "v2_evidence/reliability-20261119/before-recovery/long_section.json",
+      "review_selected_required_chunks": [
+        131,
+        138
+      ],
+      "diagnosis": [
+        "RERANK_FILTER_LOSS"
+      ]
+    },
+    {
+      "case": "explicit_negative",
+      "trace": "v2_evidence/reliability-20261119/live-01/explicit_negative-trace.json",
+      "review_selected_required_chunks": [
+        166
+      ],
+      "diagnosis": [
+        "RERANK_FILTER_LOSS"
+      ]
+    },
+    {
+      "case": "conflict_declared_status",
+      "trace": "v2_evidence/reliability-20261119/live-01/conflict.json",
+      "diagnosis": [
+        "ANSWER_VALIDATION_ERROR"
+      ],
+      "explanation": "Source contradiction correctly disclosed; status classifier failed to recognize phase-count disagreement wording."
+    },
+    {
+      "case": "unsupported",
+      "diagnosis": [
+        "SOURCE_INFORMATION_ABSENT"
+      ],
+      "explanation": "Signed customer contract number not established by reviewed source; correct abstention."
+    }
+  ]
+}

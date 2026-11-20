@@ -1,0 +1,29 @@
+W1120 11:05:58.386000 18643 .venv/lib/python3.14/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'sentence-transformers/all-MiniLM-L6-v2'.
+
+Question type: DOCUMENT
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 7823.21it/s]
+Could not reach the Hub (Cannot reach https://huggingface.co/api/models/cross-encoder/ms-marco-MiniLM-L-6-v2: offline mode is enabled. To disable it, please unset the `HF_HUB_OFFLINE` environment variable.). Using cached commit hash for 'cross-encoder/ms-marco-MiniLM-L-6-v2'.
+Loading weights:   0%|          | 0/105 [00:00<?, ?it/s]Loading weights: 100%|██████████| 105/105 [00:00<00:00, 4699.27it/s]
+Retrieval status: ok
+
+Best reranker score: -10.3852
+Adaptive threshold: -12.3852
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: -10.3852 | Chunk: 128 | Page: 2
+Answer status: abstained | citations: [] | attempts: 1
+traced 0
+
+Question type: DOCUMENT
+Retrieval status: ok
+
+Best reranker score: -2.0745
+Adaptive threshold: -4.0745
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: -2.0745 | Chunk: 127 | Page: 1
+Answer status: abstained | citations: [] | attempts: 1
+traced 1

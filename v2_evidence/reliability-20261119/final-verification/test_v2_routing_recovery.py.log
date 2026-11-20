@@ -1,0 +1,76 @@
+Retrieval status: ok
+
+Best reranker score: 4.0000
+Adaptive threshold: 2.0000
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 4.0000 | Chunk: 1 | Page: 1
+Answer status: answered | citations: ['S1'] | attempts: 1
+
+Question type: MEMORY
+Memory question detected. Skipping document retrieval.
+
+--- Reranker Scores ---
+Answer status: abstained | citations: [] | attempts: 1
+Retrieval status: ok
+
+Best reranker score: 4.0000
+Adaptive threshold: 2.0000
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 4.0000 | Chunk: 1 | Page: 1
+Answer status: abstained | citations: [] | attempts: 1
+
+Question type: MEMORY
+Memory question detected. Skipping document retrieval.
+
+--- Reranker Scores ---
+Answer status: abstained | citations: [] | attempts: 1
+
+Question type: MEMORY
+Memory question detected. Skipping document retrieval.
+
+--- Reranker Scores ---
+Answer status: abstained | citations: [] | attempts: 1
+Retrieval status: ok
+
+Best reranker score: 4.0000
+Adaptive threshold: 2.0000
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 4.0000 | Chunk: 1 | Page: 1
+Answer status: answered | citations: ['S1'] | attempts: 1
+
+Question type: MEMORY
+Memory question detected. Skipping document retrieval.
+
+--- Reranker Scores ---
+Answer status: abstained | citations: [] | attempts: 1
+Retrieval status: ok
+
+--- Reranker Scores ---
+Answer status: abstained | citations: [] | attempts: 0
+
+Question type: MEMORY
+Memory question detected. Skipping document retrieval.
+
+--- Reranker Scores ---
+Answer status: answered | citations: [] | attempts: 1
+
+W1119 18:57:50.311000 76360 .venv/lib/python3.14/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+test_ambiguous_or_missing_inventory_does_not_guess (__main__.OverviewRoutingTests.test_ambiguous_or_missing_inventory_does_not_guess) ... ok
+test_observed_overview_uses_owned_filename_without_model_routing (__main__.OverviewRoutingTests.test_observed_overview_uses_owned_filename_without_model_routing) ... ok
+test_only_explicit_broad_overviews_match (__main__.OverviewRoutingTests.test_only_explicit_broad_overviews_match) ... ok
+test_irrelevant_documents_cannot_force_an_answer (__main__.RoutingRecoveryTests.test_irrelevant_documents_cannot_force_an_answer) ... ok
+test_legacy_memory_routing_remains_unchanged (__main__.RoutingRecoveryTests.test_legacy_memory_routing_remains_unchanged) ... ok
+test_memory_abstention_recovers_cited_document_answer_once (__main__.RoutingRecoveryTests.test_memory_abstention_recovers_cited_document_answer_once) ... ok
+test_no_document_evidence_preserves_original_abstention (__main__.RoutingRecoveryTests.test_no_document_evidence_preserves_original_abstention) ... ok
+test_successful_personal_memory_does_not_query_documents (__main__.RoutingRecoveryTests.test_successful_personal_memory_does_not_query_documents) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.017s
+
+OK

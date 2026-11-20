@@ -1,0 +1,1053 @@
+{
+  "header": {
+    "question": "And which languages and offline access does it propose?",
+    "authorized_documents": [
+      "e3160c67-ee6d-4983-9029-8273bd35525a"
+    ],
+    "policy": "development-answer-evidence-trace/1"
+  },
+  "raw_enabled": true,
+  "events": [
+    {
+      "stage": "question_category",
+      "elapsed_ms": 0.16,
+      "metadata": {
+        "category": "DOCUMENT",
+        "origin": "predeclared source question; classifier not called"
+      }
+    },
+    {
+      "stage": "retrieval_scope",
+      "elapsed_ms": 0.16,
+      "metadata": {
+        "document_names": null,
+        "pages": null,
+        "top_k": 5
+      },
+      "raw": {
+        "search_query": "And which languages and offline access does it propose?"
+      }
+    },
+    {
+      "stage": "vector_candidates",
+      "elapsed_ms": 35.18,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 188,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 13,
+            "content": {
+              "chars": 92,
+              "sha256": "8430c20e371593cdf56ee26351b7bf757d4c13c6eb1bae938d87c567b0ad00bc"
+            },
+            "selected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": 156,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 6,
+            "content": {
+              "chars": 92,
+              "sha256": "cc95f9bf1b42716823080d0bcca960e0a6a728128719e6f0486e931d1e00800f"
+            },
+            "selected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": 186,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content": {
+              "chars": 92,
+              "sha256": "8e496ca70800d7cdca5ed390dc5ed3ac062c555a6bb1675ea38b8c6b103ec709"
+            },
+            "selected": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": 187,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 13,
+            "content": {
+              "chars": 92,
+              "sha256": "abc1eb3a83f9cddda762518ce3d020ee858acf484af5f94e8d5987ece93c0dee"
+            },
+            "selected": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": 138,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content": {
+              "chars": 92,
+              "sha256": "b8f3033a83062388fbc4746c5741637fe880f6a767d76a98754dbc29c7e43111"
+            },
+            "selected": true
+          },
+          {
+            "rank": 6,
+            "chunk_id": 46,
+            "document": "37b731aa-5caa-43a5-bfa8-d0d156afde92",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "ad3da45b0e2eb1bf0294533b1446af88596c755d71e88063982e096996c9c776"
+            },
+            "selected": true
+          },
+          {
+            "rank": 7,
+            "chunk_id": 135,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "030727ca64108ea926a02ae489515d0fb6322a33f95d2d8608fbd416d54b1553"
+            },
+            "selected": true
+          },
+          {
+            "rank": 8,
+            "chunk_id": 203,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content": {
+              "chars": 92,
+              "sha256": "417ff67049302e502c60ee36caea8a756ddc3630b37e63084c18754e009798b1"
+            },
+            "selected": true
+          },
+          {
+            "rank": 9,
+            "chunk_id": 48,
+            "document": "37b731aa-5caa-43a5-bfa8-d0d156afde92",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "c2ee5b26c8c345b6057d939a32ce3d74f4cf966e953c66d3abb724469a27cd31"
+            },
+            "selected": true
+          },
+          {
+            "rank": 10,
+            "chunk_id": 160,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 7,
+            "content": {
+              "chars": 92,
+              "sha256": "0074c6a5cfbc5083b792e14c7f29aacb830d5628485fec6f59d88b90a175fda5"
+            },
+            "selected": true
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 188,
+            "content": "Hosted separately (possibly on GPU nodes). For example: \u2022 Video Service: generates videos on demand (queues jobs). \u2022 NLP Service: answers queries and generates notes. \u2022 TTS/ASR Service: handles media processing. \u2022 Filtering Service: scans outputs before release. \u2022 Databases: \u2022 Relational DB (PostgreSQL/MySQL): Store user accounts, course metadata, logs. \u2022 Document DB (MongoDB/ElasticSearch): Store learning content (notes, Q/A), for flexible schema and search. \u2022 Object Storage (S3 or on-prem Ceph): For videos, audio files, images. \u2022 LMS Integration: We can support standards like xAPI/SCORM to interoperate with existing Learning Management Systems (e.g. Moodle, Canvas). This allows schools to track"
+          },
+          {
+            "chunk_id": 156,
+            "content": "budget permits, proprietary systems (Amazon Polly, Google Cloud TTS) yield very natural voices. We will likely fine-tune a multi-speaker TTS (e.g. Coqui TTS) on English and Hindi speech. \u2022 Automatic Speech Recognition (ASR): To transcribe voice (for indexing videos or enabling voice search), use an open ASR like OpenAI Whisper (multilingual, trained on 700k hours, near-human accuracy\u301033\u2020L118-L124\u3011) or Facebook Wav2Vec 2.0. Whisper supports Hindi/English. For real-time conferencing or captioning, lighter models (Whisper-small or Kaldi/Vosk) can be deployed. \u2022 Natural Language Processing (Notes/Q&A): \u2022 Model: Transformer-based LLM (decoder-only or encoder-decoder). Candidates: Llama 2 (Meta), Mistral, Flan-T5, BLOOM, or custom GPT-3.5/4. We"
+          },
+          {
+            "chunk_id": 186,
+            "content": "user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts for videos). Content should be suitable for all genders/castes (avoid biased examples). \u2022 Compliance: We will audit content regularly. A legal advisor will review terms of service to comply with educational regulations. If partnering with schools, ensure FERPA/COPPA-like child-safety policies (even if India has none, best to be safe). 12"
+          },
+          {
+            "chunk_id": 187,
+            "content": "12. UX and System Architecture Portal Architecture: The system will follow a standard web-app architecture with clear separation of concerns: \u2022 Frontend: Web (React/Angular) and mobile (optional) clients. User-specific views: student dashboard, teacher admin panel, content creator interface. Responsive design for desktop/mobile. \u2022 Backend/API: Microservices or modular services (e.g. Python Flask/Django or Node.js) exposing RESTful or GraphQL APIs. Key services include user management (auth/roles), content management, video generation service, Q&A engine, analytics service, and content filtering service. \u2022 AI/ML Services: Hosted separately (possibly on GPU nodes). For example: \u2022 Video Service: generates videos on demand (queues jobs). \u2022 NLP Service:"
+          },
+          {
+            "chunk_id": 138,
+            "content": "answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on student performance analytics. \u2022 Live Doubt-Solving Forum: Enable students to post questions for AI or human tutors, with notifications and tracking. \u2022 Progress Tracking & Analytics: Dashboards for students/teachers showing mastery levels, time spent, and topic coverage. \u2022 Gamification: Badges, streaks, leaderboards to motivate engagement. \u2022 Multilingual Support: Extend content to Hindi/other regional languages to broaden accessibility. \u2022 Offline Access & Mobile App: Allow downloading videos/notes for offline study. These features align with common e-learning platform needs (content delivery, assessment,"
+          },
+          {
+            "chunk_id": 46,
+            "content": "CSS, Shadcn/ui, MUI Databases PostgreSQL, pgvector Backend Node.js, Express.js, FastAPI Tools Git, VS Code, Postman, Vite AI / ML Python, LangGraph, RAG, RAGAS Cloud / CI-CD Vercel, Azure SWA, Azure DevOps EXPERIENCE Freelancer Nov 2025 \u2013 Present Freelancer Software Engineer Jaipur, India Sports Management Platform - Backend microservices and voice-driven support \u2013 Built a login microservice and a CRUD microservice (Node.js) as independently deployable services, separating auth from core entity operations \u2013 Built a file upload microservice (Node.js) backed by Azure Blob Storage for scalable file handling \u2013 Built a voice-to-voice RAG engine: Azure Speech Services for STT/TTS, Azure AI"
+          },
+          {
+            "chunk_id": 135,
+            "content": "open TTS/ASR systems (e.g. Google WaveNet, Mozilla\u2019s Tacotron/VITS, OpenAI\u2019s Whisper) can provide high-quality audio\u301030\u2020L34-L42\u3011\u301033\u2020L118-L124\u3011. Custom content-filtering is critical in education: as PowerSchool\u2019s AI assistant demonstrates, fine-tuning a model on safe/unsafe examples yields more accurate filtering than generic rules\u301013\u2020L107-L113\u3011\u301013\u2020L176-L184\u3011. We must also heed copyright: NCERT (Indian official textbooks) strictly forbids unlicensed reproduction \u301045\u2020L75-L84\u3011, so all source material use must comply with IP laws. 1. Product Features Core Features (MVP): \u2022 AI-generated Video Lessons: Given a topic or curriculum unit, the system produces a video lecture. This could be an animated slideshow or avatar presentation with synthesized speech. Key elements include synchronized"
+          },
+          {
+            "chunk_id": 203,
+            "content": "living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists) to enforce code quality and reproducibility. 17. Comparison Tables Hosting Options: Option Upfront Cost Scalability Control Recurring Cost Notes High (hardware, Limited by Full (you Low if idle Best if On- infra) purchased own (electricity, consistent Premises \u301038\u2020L53- capacity hardware) maintenance) heavy use L62\u3011 Virtually Less direct Pay-as-you-go Easy to start, Public unlimited None (reliant on (high if used scale; possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost"
+          },
+          {
+            "chunk_id": 48,
+            "content": "a hybrid retrieval loop (vector + BM25, RRF, cross-encoder reranking) and guardrails escalating low-confidence answers to a human ticket; validated on a public dataset, then cut to live support data \u2013 Built a full-stack bulk email feature (query-builder UI + Node.js sending job) and a JWT-based auth API with RBAC enforced via role/permission tables \u2013 Co-designed a fully dynamic connector UI rendered at runtime via Monaco Editor scripting; built a FusionCharts ROI dashboard and 30+ component Storybook library, driving code splitting and lazy-loading IAM SaaS - Multi-tenant identity and access management platform \u2013 Engineered a JSON-driven form engine (Formik +"
+          },
+          {
+            "chunk_id": 160,
+            "content": "License/ Function Model/Tool Type Size Pros/Cons Source Flexible, cheaper; Pipeline proven workable Model- (GPT\u2192Slides + Hybrid N/A \u30105\u2020L156-L164\u3011, dependent TTS) may lack polish of full video Tacotron-2 + Good naturalness; TTS Neural TTS 65M/16M Open (Apache) WaveRNN easy to train offline High quality, End-to-end VITS (NVIDIA) 90M Open (Apache) supports multi- TTS speaker PyTorch-based, Coqui TTS Toolkit (various) Open (MPL) many pre-trained voices Amazon Polly, Very realistic, Google Cloud Cloud API -- Commercial multi-lang; costs TTS per char Near-human Whisper accuracy (OpenAI) End-to-end 1.5B ASR Open (MIT) \u301033\u2020L118-L124\u3011; \u301033\u2020L118- STT (medium) multi-lingual; L124\u3011 slower Fast, good quality; Wav2Vec 2.0 Transformer"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "lexical_candidates",
+      "elapsed_ms": 61.69,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 138,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content": {
+              "chars": 92,
+              "sha256": "b8f3033a83062388fbc4746c5741637fe880f6a767d76a98754dbc29c7e43111"
+            },
+            "selected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": 173,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 10,
+            "content": {
+              "chars": 92,
+              "sha256": "42c93eb5f78eadbffdf6ed8383aee9cc20fdfccb8ea0588937271526ad0b5eca"
+            },
+            "selected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": 165,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content": {
+              "chars": 92,
+              "sha256": "163e94d313b394eb207194ce5634457fa516f1aa5d48b8a9656f5ab29d627b15"
+            },
+            "selected": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "f78bed05cc06020064b3891b202534bc4747f83fa3f3efdf7ba3aa1b2ca98582"
+            },
+            "selected": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": 194,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "9ff1ffceb2032354b875ffd7d6737565ad11834a06adce5cc89f67b34d4884d7"
+            },
+            "selected": true
+          },
+          {
+            "rank": 6,
+            "chunk_id": 137,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content": {
+              "chars": 92,
+              "sha256": "68539222dda1f6a83fabbf658ad3ac1af83d3baf90da30ac7dc0a8ce385786a2"
+            },
+            "selected": true
+          },
+          {
+            "rank": 7,
+            "chunk_id": 140,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content": {
+              "chars": 92,
+              "sha256": "2feaa683f9fd0cdd3bea27f54c676d7988ea4366c07ee7c8073aa5295c5f78b0"
+            },
+            "selected": true
+          },
+          {
+            "rank": 8,
+            "chunk_id": 49,
+            "document": "37b731aa-5caa-43a5-bfa8-d0d156afde92",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "894ccef3186f5bcb7d9df5614e5dee751f4529a6bc5b84730a6609f3a9e36a2e"
+            },
+            "selected": true
+          },
+          {
+            "rank": 9,
+            "chunk_id": 48,
+            "document": "37b731aa-5caa-43a5-bfa8-d0d156afde92",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "c2ee5b26c8c345b6057d939a32ce3d74f4cf966e953c66d3abb724469a27cd31"
+            },
+            "selected": true
+          },
+          {
+            "rank": 10,
+            "chunk_id": 141,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content": {
+              "chars": 92,
+              "sha256": "2e5c276462e83aa8dc820af6801028a52fcb55982062b06908f21ca674bb325f"
+            },
+            "selected": true
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 138,
+            "content": "answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on student performance analytics. \u2022 Live Doubt-Solving Forum: Enable students to post questions for AI or human tutors, with notifications and tracking. \u2022 Progress Tracking & Analytics: Dashboards for students/teachers showing mastery levels, time spent, and topic coverage. \u2022 Gamification: Badges, streaks, leaderboards to motivate engagement. \u2022 Multilingual Support: Extend content to Hindi/other regional languages to broaden accessibility. \u2022 Offline Access & Mobile App: Allow downloading videos/notes for offline study. These features align with common e-learning platform needs (content delivery, assessment,"
+          },
+          {
+            "chunk_id": 173,
+            "content": "Generation: Can allow a few seconds (like summarization). \u2022 TTS: Near-real-time is needed for video generation pipeline, but since video is pre-composed, it's offline. \u2022 Video Generation: Expected to take minutes per video; this will run as a batch job. We\u2019ll queue jobs and notify when ready. \u2022 Scaling: \u2022 Horizontal Scaling: For stateless inference (Q&A, summarization), replicate instances as users grow. Use GPU autoscaling (e.g. Kubernetes with GPU nodes, or AWS Elastic Inference). \u2022 Batch Jobs: Video and TTS creation jobs can be placed on a work queue (e.g. Celery or AWS SQS), processed by scalable GPU workers. \u2022"
+          },
+          {
+            "chunk_id": 165,
+            "content": "over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of models and data. 8"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 194,
+            "content": "14. Roadmap & Implementation Phases We propose a phased rollout with roughly 3 phases over ~24\u201330 months: \u2022 Phase 1 \u2013 Planning & Prototype (0\u20136 mo): \u2022 Milestones: Requirements gathering, architecture design, initial prototyping. \u2022 Activities: Collect core curriculum data; build basic platform skeleton (user accounts, simple CMS); prototype LLM summarization and Q&A with small models; test video pipeline with manual slide decks. \u2022 Team: Project Manager, 2 ML engineers, 2 software engineers, 1 subject expert, 1 DevOps. \u2022 Phase 2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models"
+          },
+          {
+            "chunk_id": 137,
+            "content": "\u2022 Topic-wise Notes & Summaries: The portal generates concise, structured notes from official content. For each topic, it creates explanations, key definitions, worked examples, and formula summaries. \u2022 Test Series & Quizzes: The system auto-creates practice tests and quizzes. It can generate multiple- choice questions (MCQs), short-answer problems, and full mock exams aligned to JEE/GATE/NEET pattern. \u2022 Question Bank & Q&A: A searchable database of Q&A by topic. Students can ask the AI questions in natural language and get precise answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on"
+          },
+          {
+            "chunk_id": 140,
+            "content": "Learning Paths Personalized topic recommendations \u2713 Multilingual Content English + Hindi (e.g.) materials \u2713 Gamification Badges, points, streaks \u2713 Live Classes / Tutoring Scheduled video sessions with live instructors \u2713 Third-party Integration e.g. upload own content, integrate with Moodle/LMS \u2713 Mobile App / Offline Mode Native app for phone; downloads \u2713 Table 1. Core and extended features (MVP vs later). 2"
+          },
+          {
+            "chunk_id": 49,
+            "content": "splitting and lazy-loading IAM SaaS - Multi-tenant identity and access management platform \u2013 Engineered a JSON-driven form engine (Formik + Yup) rendering action-specific forms dynamically; generated Users, Groups, and Mailboxes views from a shared template using SWR for caching \u2013 Delivered 15+ service request features for RBAC, user lifecycle, and entitlement management; built data export interfaces for large paginated datasets and deployed via Azure Static Web Apps with CI/CD Truro Analytics - Dental healthcare SaaS \u2013 Built a conflict-free dental scheduling system using FullCalendar \u2013 editable calendar bookings, patient appointment management, and slot-overlap detection with frontend checks and backend validation"
+          },
+          {
+            "chunk_id": 48,
+            "content": "a hybrid retrieval loop (vector + BM25, RRF, cross-encoder reranking) and guardrails escalating low-confidence answers to a human ticket; validated on a public dataset, then cut to live support data \u2013 Built a full-stack bulk email feature (query-builder UI + Node.js sending job) and a JWT-based auth API with RBAC enforced via role/permission tables \u2013 Co-designed a fully dynamic connector UI rendered at runtime via Monaco Editor scripting; built a FusionCharts ROI dashboard and 30+ component Storybook library, driving code splitting and lazy-loading IAM SaaS - Multi-tenant identity and access management platform \u2013 Engineered a JSON-driven form engine (Formik +"
+          },
+          {
+            "chunk_id": 141,
+            "content": "2. User Personas \u2022 Students (JEE/GATE/NEET aspirants): Typically high-school (17\u201318 yrs) or graduate (21+ yrs) students. They want clear, focused preparation material for Physics, Chemistry, Math and (for NEET) Biology, mapped to exam syllabus. They value mobile/online access, self-paced learning, and interactive assessments. We will support user journeys like \u201creview Chapter X, watch video, take quiz, review mistakes.\u201d \u2022 Teachers/Tutors: Education professionals preparing content or monitoring students. They need tools to assign topics, track class progress, and generate new materials. They might use the portal to supplement in-class teaching, or to personalize tasks. Teachers might curate AI-generated content or upload"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rrf_results",
+      "elapsed_ms": 62.05,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 138,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content": {
+              "chars": 92,
+              "sha256": "b8f3033a83062388fbc4746c5741637fe880f6a767d76a98754dbc29c7e43111"
+            },
+            "selected": true,
+            "rrf_score": 0.03177805800756621
+          },
+          {
+            "rank": 2,
+            "chunk_id": 48,
+            "document": "37b731aa-5caa-43a5-bfa8-d0d156afde92",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "c2ee5b26c8c345b6057d939a32ce3d74f4cf966e953c66d3abb724469a27cd31"
+            },
+            "selected": true,
+            "rrf_score": 0.028985507246376812
+          },
+          {
+            "rank": 3,
+            "chunk_id": 188,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 13,
+            "content": {
+              "chars": 92,
+              "sha256": "8430c20e371593cdf56ee26351b7bf757d4c13c6eb1bae938d87c567b0ad00bc"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082
+          },
+          {
+            "rank": 4,
+            "chunk_id": 173,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 10,
+            "content": {
+              "chars": 92,
+              "sha256": "42c93eb5f78eadbffdf6ed8383aee9cc20fdfccb8ea0588937271526ad0b5eca"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516
+          },
+          {
+            "rank": 5,
+            "chunk_id": 156,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 6,
+            "content": {
+              "chars": 92,
+              "sha256": "cc95f9bf1b42716823080d0bcca960e0a6a728128719e6f0486e931d1e00800f"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516
+          },
+          {
+            "rank": 6,
+            "chunk_id": 165,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content": {
+              "chars": 92,
+              "sha256": "163e94d313b394eb207194ce5634457fa516f1aa5d48b8a9656f5ab29d627b15"
+            },
+            "selected": true,
+            "rrf_score": 0.015873015873015872
+          },
+          {
+            "rank": 7,
+            "chunk_id": 186,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content": {
+              "chars": 92,
+              "sha256": "8e496ca70800d7cdca5ed390dc5ed3ac062c555a6bb1675ea38b8c6b103ec709"
+            },
+            "selected": true,
+            "rrf_score": 0.015873015873015872
+          },
+          {
+            "rank": 8,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "f78bed05cc06020064b3891b202534bc4747f83fa3f3efdf7ba3aa1b2ca98582"
+            },
+            "selected": true,
+            "rrf_score": 0.015625
+          },
+          {
+            "rank": 9,
+            "chunk_id": 187,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 13,
+            "content": {
+              "chars": 92,
+              "sha256": "abc1eb3a83f9cddda762518ce3d020ee858acf484af5f94e8d5987ece93c0dee"
+            },
+            "selected": true,
+            "rrf_score": 0.015625
+          },
+          {
+            "rank": 10,
+            "chunk_id": 194,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "9ff1ffceb2032354b875ffd7d6737565ad11834a06adce5cc89f67b34d4884d7"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 138,
+            "content": "answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on student performance analytics. \u2022 Live Doubt-Solving Forum: Enable students to post questions for AI or human tutors, with notifications and tracking. \u2022 Progress Tracking & Analytics: Dashboards for students/teachers showing mastery levels, time spent, and topic coverage. \u2022 Gamification: Badges, streaks, leaderboards to motivate engagement. \u2022 Multilingual Support: Extend content to Hindi/other regional languages to broaden accessibility. \u2022 Offline Access & Mobile App: Allow downloading videos/notes for offline study. These features align with common e-learning platform needs (content delivery, assessment,"
+          },
+          {
+            "chunk_id": 48,
+            "content": "a hybrid retrieval loop (vector + BM25, RRF, cross-encoder reranking) and guardrails escalating low-confidence answers to a human ticket; validated on a public dataset, then cut to live support data \u2013 Built a full-stack bulk email feature (query-builder UI + Node.js sending job) and a JWT-based auth API with RBAC enforced via role/permission tables \u2013 Co-designed a fully dynamic connector UI rendered at runtime via Monaco Editor scripting; built a FusionCharts ROI dashboard and 30+ component Storybook library, driving code splitting and lazy-loading IAM SaaS - Multi-tenant identity and access management platform \u2013 Engineered a JSON-driven form engine (Formik +"
+          },
+          {
+            "chunk_id": 188,
+            "content": "Hosted separately (possibly on GPU nodes). For example: \u2022 Video Service: generates videos on demand (queues jobs). \u2022 NLP Service: answers queries and generates notes. \u2022 TTS/ASR Service: handles media processing. \u2022 Filtering Service: scans outputs before release. \u2022 Databases: \u2022 Relational DB (PostgreSQL/MySQL): Store user accounts, course metadata, logs. \u2022 Document DB (MongoDB/ElasticSearch): Store learning content (notes, Q/A), for flexible schema and search. \u2022 Object Storage (S3 or on-prem Ceph): For videos, audio files, images. \u2022 LMS Integration: We can support standards like xAPI/SCORM to interoperate with existing Learning Management Systems (e.g. Moodle, Canvas). This allows schools to track"
+          },
+          {
+            "chunk_id": 173,
+            "content": "Generation: Can allow a few seconds (like summarization). \u2022 TTS: Near-real-time is needed for video generation pipeline, but since video is pre-composed, it's offline. \u2022 Video Generation: Expected to take minutes per video; this will run as a batch job. We\u2019ll queue jobs and notify when ready. \u2022 Scaling: \u2022 Horizontal Scaling: For stateless inference (Q&A, summarization), replicate instances as users grow. Use GPU autoscaling (e.g. Kubernetes with GPU nodes, or AWS Elastic Inference). \u2022 Batch Jobs: Video and TTS creation jobs can be placed on a work queue (e.g. Celery or AWS SQS), processed by scalable GPU workers. \u2022"
+          },
+          {
+            "chunk_id": 156,
+            "content": "budget permits, proprietary systems (Amazon Polly, Google Cloud TTS) yield very natural voices. We will likely fine-tune a multi-speaker TTS (e.g. Coqui TTS) on English and Hindi speech. \u2022 Automatic Speech Recognition (ASR): To transcribe voice (for indexing videos or enabling voice search), use an open ASR like OpenAI Whisper (multilingual, trained on 700k hours, near-human accuracy\u301033\u2020L118-L124\u3011) or Facebook Wav2Vec 2.0. Whisper supports Hindi/English. For real-time conferencing or captioning, lighter models (Whisper-small or Kaldi/Vosk) can be deployed. \u2022 Natural Language Processing (Notes/Q&A): \u2022 Model: Transformer-based LLM (decoder-only or encoder-decoder). Candidates: Llama 2 (Meta), Mistral, Flan-T5, BLOOM, or custom GPT-3.5/4. We"
+          },
+          {
+            "chunk_id": 165,
+            "content": "over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of models and data. 8"
+          },
+          {
+            "chunk_id": 186,
+            "content": "user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts for videos). Content should be suitable for all genders/castes (avoid biased examples). \u2022 Compliance: We will audit content regularly. A legal advisor will review terms of service to comply with educational regulations. If partnering with schools, ensure FERPA/COPPA-like child-safety policies (even if India has none, best to be safe). 12"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 187,
+            "content": "12. UX and System Architecture Portal Architecture: The system will follow a standard web-app architecture with clear separation of concerns: \u2022 Frontend: Web (React/Angular) and mobile (optional) clients. User-specific views: student dashboard, teacher admin panel, content creator interface. Responsive design for desktop/mobile. \u2022 Backend/API: Microservices or modular services (e.g. Python Flask/Django or Node.js) exposing RESTful or GraphQL APIs. Key services include user management (auth/roles), content management, video generation service, Q&A engine, analytics service, and content filtering service. \u2022 AI/ML Services: Hosted separately (possibly on GPU nodes). For example: \u2022 Video Service: generates videos on demand (queues jobs). \u2022 NLP Service:"
+          },
+          {
+            "chunk_id": 194,
+            "content": "14. Roadmap & Implementation Phases We propose a phased rollout with roughly 3 phases over ~24\u201330 months: \u2022 Phase 1 \u2013 Planning & Prototype (0\u20136 mo): \u2022 Milestones: Requirements gathering, architecture design, initial prototyping. \u2022 Activities: Collect core curriculum data; build basic platform skeleton (user accounts, simple CMS); prototype LLM summarization and Q&A with small models; test video pipeline with manual slide decks. \u2022 Team: Project Manager, 2 ML engineers, 2 software engineers, 1 subject expert, 1 DevOps. \u2022 Phase 2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "fusion_selection",
+      "elapsed_ms": 62.19,
+      "metadata": {
+        "input_ids": [
+          138,
+          173,
+          165,
+          131,
+          194,
+          137,
+          140,
+          49,
+          48,
+          141,
+          188,
+          156,
+          186,
+          187,
+          46,
+          135,
+          203,
+          160
+        ],
+        "selected_ids": [
+          138,
+          48,
+          188,
+          173,
+          156,
+          165,
+          186,
+          131,
+          187,
+          194
+        ],
+        "removal_reason": "rrf_pool_limit",
+        "limit": 10
+      }
+    },
+    {
+      "stage": "reranker_scores",
+      "elapsed_ms": 102.66,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 138,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content": {
+              "chars": 92,
+              "sha256": "b8f3033a83062388fbc4746c5741637fe880f6a767d76a98754dbc29c7e43111"
+            },
+            "selected": true,
+            "rrf_score": 0.03177805800756621,
+            "rerank_score": -1.5651309490203857
+          },
+          {
+            "rank": 2,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "f78bed05cc06020064b3891b202534bc4747f83fa3f3efdf7ba3aa1b2ca98582"
+            },
+            "selected": true,
+            "rrf_score": 0.015625,
+            "rerank_score": -8.289268493652344
+          },
+          {
+            "rank": 3,
+            "chunk_id": 173,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 10,
+            "content": {
+              "chars": 92,
+              "sha256": "42c93eb5f78eadbffdf6ed8383aee9cc20fdfccb8ea0588937271526ad0b5eca"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -9.350345611572266
+          },
+          {
+            "rank": 4,
+            "chunk_id": 156,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 6,
+            "content": {
+              "chars": 92,
+              "sha256": "cc95f9bf1b42716823080d0bcca960e0a6a728128719e6f0486e931d1e00800f"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -10.280363082885742
+          },
+          {
+            "rank": 5,
+            "chunk_id": 186,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content": {
+              "chars": 92,
+              "sha256": "8e496ca70800d7cdca5ed390dc5ed3ac062c555a6bb1675ea38b8c6b103ec709"
+            },
+            "selected": true,
+            "rrf_score": 0.015873015873015872,
+            "rerank_score": -10.929430961608887
+          },
+          {
+            "rank": 6,
+            "chunk_id": 48,
+            "document": "37b731aa-5caa-43a5-bfa8-d0d156afde92",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "c2ee5b26c8c345b6057d939a32ce3d74f4cf966e953c66d3abb724469a27cd31"
+            },
+            "selected": false,
+            "rrf_score": 0.028985507246376812,
+            "rerank_score": -11.045051574707031,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 7,
+            "chunk_id": 187,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 13,
+            "content": {
+              "chars": 92,
+              "sha256": "abc1eb3a83f9cddda762518ce3d020ee858acf484af5f94e8d5987ece93c0dee"
+            },
+            "selected": false,
+            "rrf_score": 0.015625,
+            "rerank_score": -11.134637832641602,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 8,
+            "chunk_id": 194,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "9ff1ffceb2032354b875ffd7d6737565ad11834a06adce5cc89f67b34d4884d7"
+            },
+            "selected": false,
+            "rrf_score": 0.015384615384615385,
+            "rerank_score": -11.15243148803711,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 9,
+            "chunk_id": 188,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 13,
+            "content": {
+              "chars": 92,
+              "sha256": "8430c20e371593cdf56ee26351b7bf757d4c13c6eb1bae938d87c567b0ad00bc"
+            },
+            "selected": false,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -11.287609100341797,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 10,
+            "chunk_id": 165,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content": {
+              "chars": 92,
+              "sha256": "163e94d313b394eb207194ce5634457fa516f1aa5d48b8a9656f5ab29d627b15"
+            },
+            "selected": false,
+            "rrf_score": 0.015873015873015872,
+            "rerank_score": -11.406501770019531,
+            "removal_reason": "rerank_top_k"
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 138,
+            "content": "answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on student performance analytics. \u2022 Live Doubt-Solving Forum: Enable students to post questions for AI or human tutors, with notifications and tracking. \u2022 Progress Tracking & Analytics: Dashboards for students/teachers showing mastery levels, time spent, and topic coverage. \u2022 Gamification: Badges, streaks, leaderboards to motivate engagement. \u2022 Multilingual Support: Extend content to Hindi/other regional languages to broaden accessibility. \u2022 Offline Access & Mobile App: Allow downloading videos/notes for offline study. These features align with common e-learning platform needs (content delivery, assessment,"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 173,
+            "content": "Generation: Can allow a few seconds (like summarization). \u2022 TTS: Near-real-time is needed for video generation pipeline, but since video is pre-composed, it's offline. \u2022 Video Generation: Expected to take minutes per video; this will run as a batch job. We\u2019ll queue jobs and notify when ready. \u2022 Scaling: \u2022 Horizontal Scaling: For stateless inference (Q&A, summarization), replicate instances as users grow. Use GPU autoscaling (e.g. Kubernetes with GPU nodes, or AWS Elastic Inference). \u2022 Batch Jobs: Video and TTS creation jobs can be placed on a work queue (e.g. Celery or AWS SQS), processed by scalable GPU workers. \u2022"
+          },
+          {
+            "chunk_id": 156,
+            "content": "budget permits, proprietary systems (Amazon Polly, Google Cloud TTS) yield very natural voices. We will likely fine-tune a multi-speaker TTS (e.g. Coqui TTS) on English and Hindi speech. \u2022 Automatic Speech Recognition (ASR): To transcribe voice (for indexing videos or enabling voice search), use an open ASR like OpenAI Whisper (multilingual, trained on 700k hours, near-human accuracy\u301033\u2020L118-L124\u3011) or Facebook Wav2Vec 2.0. Whisper supports Hindi/English. For real-time conferencing or captioning, lighter models (Whisper-small or Kaldi/Vosk) can be deployed. \u2022 Natural Language Processing (Notes/Q&A): \u2022 Model: Transformer-based LLM (decoder-only or encoder-decoder). Candidates: Llama 2 (Meta), Mistral, Flan-T5, BLOOM, or custom GPT-3.5/4. We"
+          },
+          {
+            "chunk_id": 186,
+            "content": "user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts for videos). Content should be suitable for all genders/castes (avoid biased examples). \u2022 Compliance: We will audit content regularly. A legal advisor will review terms of service to comply with educational regulations. If partnering with schools, ensure FERPA/COPPA-like child-safety policies (even if India has none, best to be safe). 12"
+          },
+          {
+            "chunk_id": 48,
+            "content": "a hybrid retrieval loop (vector + BM25, RRF, cross-encoder reranking) and guardrails escalating low-confidence answers to a human ticket; validated on a public dataset, then cut to live support data \u2013 Built a full-stack bulk email feature (query-builder UI + Node.js sending job) and a JWT-based auth API with RBAC enforced via role/permission tables \u2013 Co-designed a fully dynamic connector UI rendered at runtime via Monaco Editor scripting; built a FusionCharts ROI dashboard and 30+ component Storybook library, driving code splitting and lazy-loading IAM SaaS - Multi-tenant identity and access management platform \u2013 Engineered a JSON-driven form engine (Formik +"
+          },
+          {
+            "chunk_id": 187,
+            "content": "12. UX and System Architecture Portal Architecture: The system will follow a standard web-app architecture with clear separation of concerns: \u2022 Frontend: Web (React/Angular) and mobile (optional) clients. User-specific views: student dashboard, teacher admin panel, content creator interface. Responsive design for desktop/mobile. \u2022 Backend/API: Microservices or modular services (e.g. Python Flask/Django or Node.js) exposing RESTful or GraphQL APIs. Key services include user management (auth/roles), content management, video generation service, Q&A engine, analytics service, and content filtering service. \u2022 AI/ML Services: Hosted separately (possibly on GPU nodes). For example: \u2022 Video Service: generates videos on demand (queues jobs). \u2022 NLP Service:"
+          },
+          {
+            "chunk_id": 194,
+            "content": "14. Roadmap & Implementation Phases We propose a phased rollout with roughly 3 phases over ~24\u201330 months: \u2022 Phase 1 \u2013 Planning & Prototype (0\u20136 mo): \u2022 Milestones: Requirements gathering, architecture design, initial prototyping. \u2022 Activities: Collect core curriculum data; build basic platform skeleton (user accounts, simple CMS); prototype LLM summarization and Q&A with small models; test video pipeline with manual slide decks. \u2022 Team: Project Manager, 2 ML engineers, 2 software engineers, 1 subject expert, 1 DevOps. \u2022 Phase 2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models"
+          },
+          {
+            "chunk_id": 188,
+            "content": "Hosted separately (possibly on GPU nodes). For example: \u2022 Video Service: generates videos on demand (queues jobs). \u2022 NLP Service: answers queries and generates notes. \u2022 TTS/ASR Service: handles media processing. \u2022 Filtering Service: scans outputs before release. \u2022 Databases: \u2022 Relational DB (PostgreSQL/MySQL): Store user accounts, course metadata, logs. \u2022 Document DB (MongoDB/ElasticSearch): Store learning content (notes, Q/A), for flexible schema and search. \u2022 Object Storage (S3 or on-prem Ceph): For videos, audio files, images. \u2022 LMS Integration: We can support standards like xAPI/SCORM to interoperate with existing Learning Management Systems (e.g. Moodle, Canvas). This allows schools to track"
+          },
+          {
+            "chunk_id": 165,
+            "content": "over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of models and data. 8"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rerank_results",
+      "elapsed_ms": 102.85,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 138,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content": {
+              "chars": 92,
+              "sha256": "b8f3033a83062388fbc4746c5741637fe880f6a767d76a98754dbc29c7e43111"
+            },
+            "selected": true,
+            "rrf_score": 0.03177805800756621,
+            "rerank_score": -1.5651309490203857
+          },
+          {
+            "rank": 2,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "f78bed05cc06020064b3891b202534bc4747f83fa3f3efdf7ba3aa1b2ca98582"
+            },
+            "selected": true,
+            "rrf_score": 0.015625,
+            "rerank_score": -8.289268493652344
+          },
+          {
+            "rank": 3,
+            "chunk_id": 173,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 10,
+            "content": {
+              "chars": 92,
+              "sha256": "42c93eb5f78eadbffdf6ed8383aee9cc20fdfccb8ea0588937271526ad0b5eca"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -9.350345611572266
+          },
+          {
+            "rank": 4,
+            "chunk_id": 156,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 6,
+            "content": {
+              "chars": 92,
+              "sha256": "cc95f9bf1b42716823080d0bcca960e0a6a728128719e6f0486e931d1e00800f"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -10.280363082885742
+          },
+          {
+            "rank": 5,
+            "chunk_id": 186,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content": {
+              "chars": 92,
+              "sha256": "8e496ca70800d7cdca5ed390dc5ed3ac062c555a6bb1675ea38b8c6b103ec709"
+            },
+            "selected": true,
+            "rrf_score": 0.015873015873015872,
+            "rerank_score": -10.929430961608887
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 138,
+            "content": "answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on student performance analytics. \u2022 Live Doubt-Solving Forum: Enable students to post questions for AI or human tutors, with notifications and tracking. \u2022 Progress Tracking & Analytics: Dashboards for students/teachers showing mastery levels, time spent, and topic coverage. \u2022 Gamification: Badges, streaks, leaderboards to motivate engagement. \u2022 Multilingual Support: Extend content to Hindi/other regional languages to broaden accessibility. \u2022 Offline Access & Mobile App: Allow downloading videos/notes for offline study. These features align with common e-learning platform needs (content delivery, assessment,"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 173,
+            "content": "Generation: Can allow a few seconds (like summarization). \u2022 TTS: Near-real-time is needed for video generation pipeline, but since video is pre-composed, it's offline. \u2022 Video Generation: Expected to take minutes per video; this will run as a batch job. We\u2019ll queue jobs and notify when ready. \u2022 Scaling: \u2022 Horizontal Scaling: For stateless inference (Q&A, summarization), replicate instances as users grow. Use GPU autoscaling (e.g. Kubernetes with GPU nodes, or AWS Elastic Inference). \u2022 Batch Jobs: Video and TTS creation jobs can be placed on a work queue (e.g. Celery or AWS SQS), processed by scalable GPU workers. \u2022"
+          },
+          {
+            "chunk_id": 156,
+            "content": "budget permits, proprietary systems (Amazon Polly, Google Cloud TTS) yield very natural voices. We will likely fine-tune a multi-speaker TTS (e.g. Coqui TTS) on English and Hindi speech. \u2022 Automatic Speech Recognition (ASR): To transcribe voice (for indexing videos or enabling voice search), use an open ASR like OpenAI Whisper (multilingual, trained on 700k hours, near-human accuracy\u301033\u2020L118-L124\u3011) or Facebook Wav2Vec 2.0. Whisper supports Hindi/English. For real-time conferencing or captioning, lighter models (Whisper-small or Kaldi/Vosk) can be deployed. \u2022 Natural Language Processing (Notes/Q&A): \u2022 Model: Transformer-based LLM (decoder-only or encoder-decoder). Candidates: Llama 2 (Meta), Mistral, Flan-T5, BLOOM, or custom GPT-3.5/4. We"
+          },
+          {
+            "chunk_id": 186,
+            "content": "user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts for videos). Content should be suitable for all genders/castes (avoid biased examples). \u2022 Compliance: We will audit content regularly. A legal advisor will review terms of service to comply with educational regulations. If partnering with schools, ensure FERPA/COPPA-like child-safety policies (even if India has none, best to be safe). 12"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rerank_selection",
+      "elapsed_ms": 102.93,
+      "metadata": {
+        "status": "ok",
+        "selected_ids": [
+          138,
+          131,
+          173,
+          156,
+          186
+        ],
+        "input_ids": [
+          138,
+          48,
+          188,
+          173,
+          156,
+          165,
+          186,
+          131,
+          187,
+          194
+        ],
+        "rerank_candidate_limit": 10,
+        "output_limit": 5,
+        "removal_reason": "rerank_top_k"
+      }
+    },
+    {
+      "stage": "adaptive_filter",
+      "elapsed_ms": 102.97,
+      "metadata": {
+        "removals": [
+          {
+            "chunk_id": 131,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -8.289268493652344,
+            "threshold": -3.5651309490203857
+          },
+          {
+            "chunk_id": 173,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -9.350345611572266,
+            "threshold": -3.5651309490203857
+          },
+          {
+            "chunk_id": 156,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -10.280363082885742,
+            "threshold": -3.5651309490203857
+          },
+          {
+            "chunk_id": 186,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -10.929430961608887,
+            "threshold": -3.5651309490203857
+          }
+        ],
+        "input_ids": [
+          138,
+          131,
+          173,
+          156,
+          186
+        ],
+        "selected_ids": [
+          138
+        ]
+      }
+    },
+    {
+      "stage": "after_adaptive_filter",
+      "elapsed_ms": 103.0,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 138,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content": {
+              "chars": 92,
+              "sha256": "b8f3033a83062388fbc4746c5741637fe880f6a767d76a98754dbc29c7e43111"
+            },
+            "selected": true,
+            "rrf_score": 0.03177805800756621,
+            "rerank_score": -1.5651309490203857
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 138,
+            "content": "answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on student performance analytics. \u2022 Live Doubt-Solving Forum: Enable students to post questions for AI or human tutors, with notifications and tracking. \u2022 Progress Tracking & Analytics: Dashboards for students/teachers showing mastery levels, time spent, and topic coverage. \u2022 Gamification: Badges, streaks, leaderboards to motivate engagement. \u2022 Multilingual Support: Extend content to Hindi/other regional languages to broaden accessibility. \u2022 Offline Access & Mobile App: Allow downloading videos/notes for offline study. These features align with common e-learning platform needs (content delivery, assessment,"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "page_continuity",
+      "elapsed_ms": 103.03,
+      "metadata": {
+        "recovered_ids": []
+      }
+    },
+    {
+      "stage": "after_page_continuity",
+      "elapsed_ms": 103.03,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 138,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content": {
+              "chars": 92,
+              "sha256": "b8f3033a83062388fbc4746c5741637fe880f6a767d76a98754dbc29c7e43111"
+            },
+            "selected": true,
+            "rrf_score": 0.03177805800756621,
+            "rerank_score": -1.5651309490203857
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 138,
+            "content": "answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on student performance analytics. \u2022 Live Doubt-Solving Forum: Enable students to post questions for AI or human tutors, with notifications and tracking. \u2022 Progress Tracking & Analytics: Dashboards for students/teachers showing mastery levels, time spent, and topic coverage. \u2022 Gamification: Badges, streaks, leaderboards to motivate engagement. \u2022 Multilingual Support: Extend content to Hindi/other regional languages to broaden accessibility. \u2022 Offline Access & Mobile App: Allow downloading videos/notes for offline study. These features align with common e-learning platform needs (content delivery, assessment,"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "final_context",
+      "elapsed_ms": 103.09,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 138,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content": {
+              "chars": 92,
+              "sha256": "b8f3033a83062388fbc4746c5741637fe880f6a767d76a98754dbc29c7e43111"
+            },
+            "selected": true,
+            "rrf_score": 0.03177805800756621,
+            "rerank_score": -1.5651309490203857
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 138,
+            "content": "answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on student performance analytics. \u2022 Live Doubt-Solving Forum: Enable students to post questions for AI or human tutors, with notifications and tracking. \u2022 Progress Tracking & Analytics: Dashboards for students/teachers showing mastery levels, time spent, and topic coverage. \u2022 Gamification: Badges, streaks, leaderboards to motivate engagement. \u2022 Multilingual Support: Extend content to Hindi/other regional languages to broaden accessibility. \u2022 Offline Access & Mobile App: Allow downloading videos/notes for offline study. These features align with common e-learning platform needs (content delivery, assessment,"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "context_packing",
+      "elapsed_ms": 103.11,
+      "metadata": {
+        "total_chars": 778,
+        "max_chars": 12000,
+        "max_chunks": 8,
+        "dropped": [],
+        "truncated": false
+      },
+      "raw": {
+        "context_text": "[S1] Document: e3160c67-ee6d-4983-9029-8273bd35525a | Page: 2 | Chunk: 138\nanswers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on student performance analytics. \u2022 Live Doubt-Solving Forum: Enable students to post questions for AI or human tutors, with notifications and tracking. \u2022 Progress Tracking & Analytics: Dashboards for students/teachers showing mastery levels, time spent, and topic coverage. \u2022 Gamification: Badges, streaks, leaderboards to motivate engagement. \u2022 Multilingual Support: Extend content to Hindi/other regional languages to broaden accessibility. \u2022 Offline Access & Mobile App: Allow downloading videos/notes for offline study. These features align with common e-learning platform needs (content delivery, assessment,"
+      }
+    },
+    {
+      "stage": "generation_skipped",
+      "elapsed_ms": 103.15,
+      "metadata": {
+        "reason": "provider-free stage diagnosis"
+      }
+    },
+    {
+      "stage": "answer_result",
+      "elapsed_ms": 103.16,
+      "metadata": {
+        "status": "unverified",
+        "issues": [
+          "provider_not_run"
+        ],
+        "citations": [],
+        "coverage": null
+      },
+      "raw": {
+        "answer": "NOT_RUN"
+      }
+    }
+  ]
+}

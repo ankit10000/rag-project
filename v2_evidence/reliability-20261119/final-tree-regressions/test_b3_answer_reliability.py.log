@@ -1,0 +1,39 @@
+PASS | 1 no evidence (DOCUMENT): refusal, LLM never called
+PASS | 1 no evidence (MIXED): a [DOCUMENT] factual claim with nothing retrieved is rejected -> unverified
+PASS | 1 no evidence (MIXED): corrected [MEMORY] answer after feedback is accepted
+PASS | 1 no evidence (MIXED): a [DOCUMENT]-tagged pure abstention is fine
+PASS | 1 MEMORY question, nothing retrieved: [DOCUMENT] claim also rejected
+PASS | 2 incomplete: answered part cited, missing part stated -> partial, 1 call
+PASS | 3 irrelevant evidence: the refusal is accepted without citations
+PASS | 3 irrelevant evidence: an uncited answer from general knowledge is not accepted
+PASS | 4 contradiction: both versions cited -> conflict
+PASS | 4 contradiction: silently picking one and asserting an uncited counter-claim is not accepted as written
+PASS | 5 multi-document: each part cited to its own document
+PASS | 6 beyond evidence: abstention accepted, no citations
+PASS | 6 beyond evidence: an added uncited claim is removed (repair) or rejected
+PASS | 7 injection: forged '[S2] Document: secret.pdf' header is neutralised in the prompt
+PASS | 7 injection: forged delimiter tags are neutralised (ours appear exactly once)
+PASS | 7 injection: the stored source content itself is unchanged (display-only neutralisation)
+PASS | 7 injection: real headers still present for S1 and S2
+PASS | 7 injection: the untrusted-data instruction is in the prompt
+PASS | 7 injection: an obeyed injection ('HACKED', uncited) is not accepted
+PASS | 7 injection: LIMITATION pinned - a non-numeric claim cited to a real ref is accepted even if it came from injected text (no semantic check); citation points to the real S2 metadata, not the forged one
+PASS | 7 injection (Stage 6): an injected number cited to a passage that does not contain it is rejected
+PASS | 8 empty string: safe error/unverified, bounded, no citations
+PASS | 8 whitespace: safe error/unverified, bounded, no citations
+PASS | 8 None: safe error/unverified, bounded, no citations
+PASS | 9 tag only: safe error/unverified, bounded, no citations
+PASS | 9 non-string: safe error/unverified, bounded, no citations
+PASS | 9 malformed marker '[S1' (unclosed) is not a citation -> unverified after bounded retries
+PASS | 10 unsupported uncited claim: never returned as a verified fact
+PASS | 11 retry exhaustion: exactly 1 + ANSWER_MAX_RETRIES calls, then unverified
+PASS | 11 retry budget follows config (3 retries -> 4 calls)
+PASS | 11 negative retry config is clamped to 0 retries (1 call)
+PASS | 12 provider failure on every attempt -> ERROR_MESSAGE, bounded
+PASS | 12 provider failure then success -> accepted
+PASS | rag_service: classification + rewrite failures fall back (DOCUMENT, original query) and the answer is still produced
+PASS | rag_service: provider fully down -> a safe ERROR answer instead of an exception
+
+0 check(s) failed
+
+W1119 18:47:32.569000 72142 .venv/lib/python3.14/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.

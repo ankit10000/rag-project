@@ -243,17 +243,10 @@ def run_turn(conversation_id: str, query: str, exclude_memory_ids=None) -> dict:
     # 8. SAVE CONVERSATION MESSAGES
     # ==============================================
 
-    save_message(
-        conversation_id,
-        "user",
-        query,
-    )
-
-    save_message(
-        conversation_id,
-        "assistant",
-        answer,
-    )
+    from services.v2_turn_results import save_committed_turn
+    if not save_committed_turn(conversation_id, query, result):
+        save_message(conversation_id, "user", query)
+        save_message(conversation_id, "assistant", answer)
 
     # ==============================================
     # 9. DISPLAY ANSWER IMMEDIATELY
@@ -368,7 +361,7 @@ def run_turn(conversation_id: str, query: str, exclude_memory_ids=None) -> dict:
             f"failed (will retry): {_error_label(summary_error)}"
         )
 
-    return {
+    response = {
         "kind": "answer",
         "answer": answer,
         "status": result.get("status"),
@@ -379,6 +372,9 @@ def run_turn(conversation_id: str, query: str, exclude_memory_ids=None) -> dict:
         "memory_extraction": extraction_outcome,
         "summary_update": summary_outcome,
     }
+    if result.get("calculation") is not None:
+        response["calculation"] = result["calculation"]
+    return response
 
 
 def main():

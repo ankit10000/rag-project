@@ -1,0 +1,63 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - button "Open Next.js Dev Tools" [ref=e8] [cursor=pointer]:
+    - img [ref=e9]
+  - alert [ref=e12]
+  - generic [ref=e14]:
+    - banner [ref=e15]:
+      - generic [ref=e16]:
+        - button "Toggle navigation" [ref=e17] [cursor=pointer]:
+          - img
+        - link "RAG workspace" [ref=e18] [cursor=pointer]:
+          - /url: /chat
+      - link "Sources" [ref=e19] [cursor=pointer]:
+        - /url: /documents
+        - text: Sources
+        - img [ref=e20]
+    - main [ref=e23]:
+      - region "Chat workspace" [ref=e25]:
+        - generic [ref=e26]:
+          - heading "Chat workspace" [level=1] [ref=e28]
+          - button "New chat" [ref=e29] [cursor=pointer]:
+            - img
+            - text: New chat
+        - log "Conversation messages" [ref=e30]:
+          - generic [ref=e31]:
+            - article [ref=e32]:
+              - heading "You" [level=2] [ref=e34]
+              - paragraph [ref=e35]: According to Morgan Vale’s resume, how did the Atlas project change report preparation time? Also, what telephone number is listed for Morgan?
+            - article [ref=e36]:
+              - generic [ref=e37]:
+                - heading "RAG" [level=2] [ref=e38]
+                - generic [ref=e39]: partial
+              - paragraph [ref=e41]: The Atlas project reduced report preparation time from 40 to 12 minutes [S1]. The provided documents do not contain a telephone number listed for Morgan.
+              - link "Open citation S1 · observatory.pdf · p. 1" [ref=e43] [cursor=pointer]:
+                - /url: /api/v2/documents/d0000000-0000-4000-8000-000000000001/file#page=1
+                - img [ref=e44]
+                - generic [ref=e47]: S1 · observatory.pdf · p. 1
+              - generic [ref=e49]:
+                - button "Copy response" [ref=e50] [cursor=pointer]:
+                  - img
+                - status [ref=e51]
+        - generic [ref=e52]:
+          - generic [ref=e53]:
+            - generic [ref=e54]: Your message
+            - textbox "Your message" [ref=e55]:
+              - /placeholder: Ask anything about your documents
+            - generic [ref=e56]:
+              - generic [ref=e57]:
+                - button "Choose chat PDF" [ref=e58]
+                - button "Attach PDF" [ref=e59] [cursor=pointer]:
+                  - img
+                - button "Browse document sources" [ref=e60] [cursor=pointer]:
+                  - img
+                  - generic [ref=e61]: Sources
+                  - img
+              - button "Send" [disabled]:
+                - img
+          - paragraph [ref=e62]: RAG can make mistakes. Check the original sources.
+```

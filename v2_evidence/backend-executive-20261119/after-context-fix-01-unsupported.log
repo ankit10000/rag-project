@@ -1,0 +1,11 @@
+
+Question type: DOCUMENT
+Retrieval status: ok
+
+Best reranker score: -0.4480
+Adaptive threshold: -2.4480
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: -0.4480 | Chunk: 131 | Page: 1
+Answer status: abstained | citations: [] | attempts: 1

@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "scope": "synthetic functional browser integration, not formal held-out acceptance",
+  "sdk_calls": 11,
+  "models": [
+    "gemini-3.5-flash-lite"
+  ],
+  "api_processes": 2,
+  "ocr_workers": 2,
+  "browser_evidence": "frontend/evidence/v2-browser-aster-20261119T092730Z-466c2d/browser_result.json",
+  "no_provider_rerun": true,
+  "note": "Actual browser source preceded final transport-deadline/log-sanitization hardening; affected paths were then covered by focused deterministic and provider-free browser regressions."
+}

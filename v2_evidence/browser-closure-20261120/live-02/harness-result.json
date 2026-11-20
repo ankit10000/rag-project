@@ -1,0 +1,7 @@
+{
+  "status": "TEST_HARNESS_FAIL",
+  "cause": "headless PDF viewer popup URL becomes colon rather than ordinary page URL; original link and PDF HTTP200 verified",
+  "provider_calls": 2,
+  "education_answer": "supported and answered with original page2 citation",
+  "retained_conversation": "aefb30cb-55a5-4c6f-923a-eb253e1ca1fa"
+}

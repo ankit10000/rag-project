@@ -1,0 +1,220 @@
+{
+  "base": {
+    "root": 925,
+    "body": 720,
+    "client": 720
+  },
+  "positionedMain": {
+    "root": 720,
+    "body": 720,
+    "client": 720
+  },
+  "positionedLog": {
+    "root": 720,
+    "body": 720,
+    "client": 720
+  },
+  "h1": "18px",
+  "textarea": {
+    "border": "0px",
+    "padding": "8px 4px",
+    "background": "rgba(0, 0, 0, 0)"
+  },
+  "abs": [
+    {
+      "tag": "A",
+      "class": "skip-link",
+      "rect": {
+        "x": 16,
+        "y": -80,
+        "width": 141.796875,
+        "height": 48,
+        "top": -80,
+        "right": 157.796875,
+        "bottom": -32,
+        "left": 16
+      },
+      "parent": "BODY"
+    },
+    {
+      "tag": "SCRIPT",
+      "class": "",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "parent": "BODY"
+    },
+    {
+      "tag": "NEXTJS-PORTAL",
+      "class": "",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "parent": "SCRIPT"
+    },
+    {
+      "tag": "NEXT-ROUTE-ANNOUNCER",
+      "class": "",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "parent": "BODY"
+    },
+    {
+      "tag": "SPAN",
+      "class": "sr-only",
+      "rect": {
+        "x": 27,
+        "y": 91.5,
+        "width": 1,
+        "height": 1,
+        "top": 91.5,
+        "right": 28,
+        "bottom": 92.5,
+        "left": 27
+      },
+      "parent": "BODY"
+    },
+    {
+      "tag": "DIV",
+      "class": "mb-2 flex items-center gap-2 sr-only",
+      "rect": {
+        "x": 517.640625,
+        "y": 169,
+        "width": 1,
+        "height": 1,
+        "top": 169,
+        "right": 518.640625,
+        "bottom": 170,
+        "left": 517.640625
+      },
+      "parent": "BODY"
+    },
+    {
+      "tag": "SPAN",
+      "class": "sr-only",
+      "rect": {
+        "x": 345,
+        "y": 375.5,
+        "width": 1,
+        "height": 1,
+        "top": 375.5,
+        "right": 346,
+        "bottom": 376.5,
+        "left": 345
+      },
+      "parent": "BODY"
+    },
+    {
+      "tag": "DIV",
+      "class": "mb-2 flex items-center gap-2 sr-only",
+      "rect": {
+        "x": 517.640625,
+        "y": 443,
+        "width": 1,
+        "height": 1,
+        "top": 443,
+        "right": 518.640625,
+        "bottom": 444,
+        "left": 517.640625
+      },
+      "parent": "BODY"
+    },
+    {
+      "tag": "SPAN",
+      "class": "sr-only",
+      "rect": {
+        "x": 345,
+        "y": 649.5,
+        "width": 1,
+        "height": 1,
+        "top": 649.5,
+        "right": 346,
+        "bottom": 650.5,
+        "left": 345
+      },
+      "parent": "BODY"
+    },
+    {
+      "tag": "DIV",
+      "class": "mb-2 flex items-center gap-2 sr-only",
+      "rect": {
+        "x": 517.640625,
+        "y": 717,
+        "width": 1,
+        "height": 1,
+        "top": 717,
+        "right": 518.640625,
+        "bottom": 718,
+        "left": 517.640625
+      },
+      "parent": "BODY"
+    },
+    {
+      "tag": "SPAN",
+      "class": "sr-only",
+      "rect": {
+        "x": 345,
+        "y": 923.5,
+        "width": 1,
+        "height": 1,
+        "top": 923.5,
+        "right": 346,
+        "bottom": 924.5,
+        "left": 345
+      },
+      "parent": "BODY"
+    },
+    {
+      "tag": "LABEL",
+      "class": "sr-only",
+      "rect": {
+        "x": 354,
+        "y": 564,
+        "width": 1,
+        "height": 1,
+        "top": 564,
+        "right": 355,
+        "bottom": 565,
+        "left": 354
+      },
+      "parent": "BODY"
+    },
+    {
+      "tag": "INPUT",
+      "class": "sr-only",
+      "rect": {
+        "x": 354,
+        "y": 644.5,
+        "width": 1,
+        "height": 1,
+        "top": 644.5,
+        "right": 355,
+        "bottom": 645.5,
+        "left": 354
+      },
+      "parent": "BODY"
+    }
+  ]
+}

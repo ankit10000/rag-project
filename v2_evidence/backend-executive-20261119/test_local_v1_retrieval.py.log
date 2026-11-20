@@ -1,0 +1,2 @@
+
+SAFETY: DATABASE_URL is not set in the environment. Run tests through run_tests.py (or export DATABASE_URL for a scratch DB).

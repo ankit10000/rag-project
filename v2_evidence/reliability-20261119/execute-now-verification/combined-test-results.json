@@ -1,0 +1,188 @@
+{
+  "scope": "Current-tree focused tests executed by assigned agents/lead, deduplicated by script; not a new live evaluation",
+  "unique_scripts_passed": 19,
+  "unittest_passes": 154,
+  "script_assertions_passed": 304,
+  "scripts": [
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "test_v2_evidence_recovery.py"
+      ],
+      "exit_code": 0,
+      "unittest_passes": 24
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "test_v2_page_context.py"
+      ],
+      "exit_code": 0,
+      "unittest_passes": 7
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "test_v2_reliability_runtime.py"
+      ],
+      "exit_code": 0,
+      "unittest_passes": 12
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "test_v2_request_coverage.py"
+      ],
+      "exit_code": 0,
+      "unittest_passes": 27
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "test_v2_answer_completeness.py"
+      ],
+      "exit_code": 0,
+      "unittest_passes": 20
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "test_abstention_contract.py"
+      ],
+      "exit_code": 0,
+      "unittest_passes": 17
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "test_abstention_policy.py"
+      ],
+      "exit_code": 0,
+      "unittest_passes": 7
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "test_local_v1_deadlines.py"
+      ],
+      "exit_code": 0,
+      "unittest_passes": 6
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "test_local_v1_budget.py"
+      ],
+      "exit_code": 0,
+      "unittest_passes": 7
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "test_v2_execute_acceptance.py"
+      ],
+      "exit_code": 0,
+      "unittest_passes": 3
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "test_assignment_flow.py"
+      ],
+      "exit_code": 0,
+      "unittest_passes": 7
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "test_assignment_provenance.py"
+      ],
+      "exit_code": 0,
+      "unittest_passes": 12
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "test_v2_fusion_trace.py"
+      ],
+      "exit_code": 0,
+      "unittest_passes": 5
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "test_stage5_retrieval.py"
+      ],
+      "exit_code": 0,
+      "script_assertions_passed": 47
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "test_stage6_answer.py"
+      ],
+      "exit_code": 0,
+      "script_assertions_passed": 66
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "test_context_and_citations.py"
+      ],
+      "exit_code": 0,
+      "script_assertions_passed": 62
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "test_b3_answer_reliability.py"
+      ],
+      "exit_code": 0,
+      "script_assertions_passed": 35
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "test_p1_d4_delete_decision_errors.py"
+      ],
+      "exit_code": 0,
+      "script_assertions_passed": 54
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-B",
+        "test_p1_d5_delete_ids.py"
+      ],
+      "exit_code": 0,
+      "script_assertions_passed": 40
+    }
+  ],
+  "new_provider_calls": 0,
+  "historical_provider_calls_preserved": 52,
+  "evidence_receipts": [
+    "agent1-gate-summary-01.json",
+    "lead-tests.json",
+    "agent4/summary.json",
+    "agent4/focused-commands.json"
+  ],
+  "agent_reported_commands_note": "Provider-blocked scratch environment was used for legacy tests requiring TESTSAFE; model and DB I/O mocked in deterministic suites. Agent4 records exact child argv and actual guarded read-only scratch checks."
+}

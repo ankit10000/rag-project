@@ -1,0 +1,124 @@
+[
+  {
+    "question": "What is the qualifications of Morgan Vale?",
+    "conversation_id": "f86c3725-60db-4269-bc2b-39a201e6e9f1",
+    "turn_id": "2516e80f-38b7-40d3-bbb1-7b78775e1e44",
+    "answer": "RAG\nanswered\n\nMorgan Vale earned a Bachelor of Engineering in Computer Engineering from Sample Institute of Technology from 2016 to 2020 [S1]. Morgan Vale also holds a PostgreSQL Application Developer Certificate obtained in 2023 [S1].\n\nS1 · Browser_Check_Morgan_Vale.pdf · p. 2",
+    "history": {
+      "conversation_id": "f86c3725-60db-4269-bc2b-39a201e6e9f1",
+      "messages": [
+        {
+          "turn_id": "2516e80f-38b7-40d3-bbb1-7b78775e1e44",
+          "answer_metadata": null,
+          "id": 178,
+          "role": "user",
+          "content": "What is the qualifications of Morgan Vale?"
+        },
+        {
+          "turn_id": "2516e80f-38b7-40d3-bbb1-7b78775e1e44",
+          "answer_metadata": {
+            "conversation_id": "f86c3725-60db-4269-bc2b-39a201e6e9f1",
+            "kind": "answer",
+            "answer": "Morgan Vale earned a Bachelor of Engineering in Computer Engineering from Sample Institute of Technology from 2016 to 2020 [S1]. Morgan Vale also holds a PostgreSQL Application Developer Certificate obtained in 2023 [S1].",
+            "status": "answered",
+            "answer_status": "answered",
+            "citations": [
+              {
+                "ref": "S1",
+                "document": "Browser_Check_Morgan_Vale.pdf",
+                "document_id": "567ee27b-074a-4d09-9af5-5dd796b8667e",
+                "page": 2,
+                "chunk_id": 128
+              }
+            ],
+            "issues": [],
+            "retrieval_status": "ok",
+            "turn_id": "2516e80f-38b7-40d3-bbb1-7b78775e1e44"
+          },
+          "id": 179,
+          "role": "assistant",
+          "content": "Morgan Vale earned a Bachelor of Engineering in Computer Engineering from Sample Institute of Technology from 2016 to 2020 [S1]. Morgan Vale also holds a PostgreSQL Application Developer Certificate obtained in 2023 [S1]."
+        }
+      ]
+    },
+    "disconnect": null,
+    "pdf_http_status": 200,
+    "verified_navigation_target": "/api/v2/documents/567ee27b-074a-4d09-9af5-5dd796b8667e/file#page=2",
+    "retry_status": 200,
+    "retry_message_count": 2,
+    "generation_run": "browser-confirmation-20261120/live-01"
+  },
+  {
+    "question": "In Browser_Check_Morgan_Vale.pdf, what is listed under EDUCATION? Please give the degree, institute and study dates.",
+    "conversation_id": "f3784764-c8ae-43cd-a42a-866563d772ce",
+    "turn_id": "b87a2eeb-e866-453b-8c24-045a833b5d6d",
+    "answer": "RAG\nanswered\n\nUnder EDUCATION, the listed degree is a Bachelor of Engineering in Computer Engineering, the institute is Sample Institute of Technology, and the study dates are 2016 - 2020 [S1].\n\nS1 · Browser_Check_Morgan_Vale.pdf · p. 2",
+    "history": {
+      "conversation_id": "f3784764-c8ae-43cd-a42a-866563d772ce",
+      "messages": [
+        {
+          "turn_id": "b87a2eeb-e866-453b-8c24-045a833b5d6d",
+          "answer_metadata": null,
+          "id": 180,
+          "role": "user",
+          "content": "In Browser_Check_Morgan_Vale.pdf, what is listed under EDUCATION? Please give the degree, institute and study dates."
+        },
+        {
+          "turn_id": "b87a2eeb-e866-453b-8c24-045a833b5d6d",
+          "answer_metadata": {
+            "conversation_id": "f3784764-c8ae-43cd-a42a-866563d772ce",
+            "kind": "answer",
+            "answer": "Under EDUCATION, the listed degree is a Bachelor of Engineering in Computer Engineering, the institute is Sample Institute of Technology, and the study dates are 2016 - 2020 [S1].",
+            "status": "answered",
+            "answer_status": "answered",
+            "citations": [
+              {
+                "ref": "S1",
+                "document": "Browser_Check_Morgan_Vale.pdf",
+                "document_id": "567ee27b-074a-4d09-9af5-5dd796b8667e",
+                "page": 2,
+                "chunk_id": 128
+              }
+            ],
+            "issues": [],
+            "retrieval_status": "ok",
+            "turn_id": "b87a2eeb-e866-453b-8c24-045a833b5d6d"
+          },
+          "id": 181,
+          "role": "assistant",
+          "content": "Under EDUCATION, the listed degree is a Bachelor of Engineering in Computer Engineering, the institute is Sample Institute of Technology, and the study dates are 2016 - 2020 [S1]."
+        }
+      ]
+    },
+    "disconnect": {
+      "cid": "f3784764-c8ae-43cd-a42a-866563d772ce",
+      "turn": "b87a2eeb-e866-453b-8c24-045a833b5d6d",
+      "transport": "AbortError",
+      "disconnected_before_POST_response": true,
+      "saved": {
+        "kind": "answer",
+        "answer": "Under EDUCATION, the listed degree is a Bachelor of Engineering in Computer Engineering, the institute is Sample Institute of Technology, and the study dates are 2016 - 2020 [S1].",
+        "issues": [],
+        "status": "answered",
+        "citations": [
+          {
+            "ref": "S1",
+            "page": 2,
+            "chunk_id": 128,
+            "document": "Browser_Check_Morgan_Vale.pdf",
+            "document_id": "567ee27b-074a-4d09-9af5-5dd796b8667e"
+          }
+        ],
+        "retrieval_status": "ok",
+        "conversation_id": "f3784764-c8ae-43cd-a42a-866563d772ce",
+        "turn_id": "b87a2eeb-e866-453b-8c24-045a833b5d6d",
+        "answer_status": "answered"
+      }
+    },
+    "pdf_http_status": 200,
+    "verified_navigation_target": "/api/v2/documents/567ee27b-074a-4d09-9af5-5dd796b8667e/file#page=2",
+    "retry_status": 200,
+    "retry_message_count": 2,
+    "generation_run": "browser-confirmation-20261120/live-01"
+  }
+]

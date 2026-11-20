@@ -1,0 +1,185 @@
+
+Running 10 tests using 2 workers
+
+(node:34100) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34101) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34100) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34101) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   1 [mobile-chromium] › tests/browser/management-contracts.spec.ts:8:3 › Management UI contracts (mocked API, no database or providers) › PDF validation prevents invalid uploads and shows real processing metadata (3.2s)
+  ✘   2 [desktop-chromium] › tests/browser/management-contracts.spec.ts:8:3 › Management UI contracts (mocked API, no database or providers) › PDF validation prevents invalid uploads and shows real processing metadata (3.2s)
+(node:34171) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34170) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34170) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34171) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 [mobile-chromium] › tests/browser/management-contracts.spec.ts:44:3 › Management UI contracts (mocked API, no database or providers) › saved memory search, provenance and forget confirmation reflect the API (1.7s)
+  ✓   4 [desktop-chromium] › tests/browser/management-contracts.spec.ts:44:3 › Management UI contracts (mocked API, no database or providers) › saved memory search, provenance and forget confirmation reflect the API (1.9s)
+  ✓   6 [desktop-chromium] › tests/browser/management-contracts.spec.ts:119:3 › Management UI contracts (mocked API, no database or providers) › appearance settings persist and provider controls do not imply unsupported edits (1.5s)
+  ✓   5 [mobile-chromium] › tests/browser/management-contracts.spec.ts:119:3 › Management UI contracts (mocked API, no database or providers) › appearance settings persist and provider controls do not imply unsupported edits (1.7s)
+  ✘   8 [mobile-chromium] › tests/browser/management-contracts.spec.ts:145:3 › Management UI contracts (mocked API, no database or providers) › ordinary users cannot see account-administration controls (661ms)
+  ✘   7 [desktop-chromium] › tests/browser/management-contracts.spec.ts:145:3 › Management UI contracts (mocked API, no database or providers) › ordinary users cannot see account-administration controls (707ms)
+(node:34243) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34244) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34243) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34244) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [mobile-chromium] › tests/browser/management-contracts.spec.ts:159:3 › Management UI contracts (mocked API, no database or providers) › administrator account changes require confirmation and refresh returned state (1.1s)
+  ✓   9 [desktop-chromium] › tests/browser/management-contracts.spec.ts:159:3 › Management UI contracts (mocked API, no database or providers) › administrator account changes require confirmation and refresh returned state (1.2s)
+
+
+  1) [desktop-chromium] › tests/browser/management-contracts.spec.ts:8:3 › Management UI contracts (mocked API, no database or providers) › PDF validation prevents invalid uploads and shows real processing metadata 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: getByRole('alert')
+    Expected substring: [32m"Choose a PDF file"[39m
+    Error: strict mode violation: getByRole('alert') resolved to 2 elements:
+        1) <div role="alert" class="rounded-xl border border-destructive/50 bg-destructive/10 px-4 py-3 text-sm text-destructive">Choose a PDF file (.pdf).</div> aka getByText('Choose a PDF file (.pdf)')
+        2) <div role="alert" aria-live="assertive" id="__next-route-announcer__"></div> aka locator('[id="__next-route-announcer__"]')
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('alert')[22m
+
+
+      31 |         buffer: Buffer.from("not PDF"),
+      32 |       });
+    > 33 |     await expect(page.getByRole("alert")).toContainText("Choose a PDF file");
+         |                                           ^
+      34 |     await page
+      35 |       .getByLabel("Choose PDF", { exact: true })
+      36 |       .setInputFiles({
+        at /Volumes/Storage/rag-project/frontend/tests/browser/management-contracts.spec.ts:33:43
+
+    Error Context: test-results/grey-agent5-management/management-contracts-Manag-d1ed7-ws-real-processing-metadata-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/grey-agent5-management/management-contracts-Manag-d1ed7-ws-real-processing-metadata-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/grey-agent5-management/management-contracts-Manag-d1ed7-ws-real-processing-metadata-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › tests/browser/management-contracts.spec.ts:145:3 › Management UI contracts (mocked API, no database or providers) › ordinary users cannot see account-administration controls 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: getByRole('alert')
+    Expected substring: [32m"administrators"[39m
+    Error: strict mode violation: getByRole('alert') resolved to 2 elements:
+        1) <div role="alert" class="rounded-xl border border-border/60 p-6">…</div> aka getByText('Access deniedThis page is')
+        2) <div role="alert" aria-live="assertive" id="__next-route-announcer__"></div> aka locator('[id="__next-route-announcer__"]')
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('alert')[22m
+    [2m    2 × locator resolved to <div role="alert" aria-live="assertive" id="__next-route-announcer__"></div>[22m
+    [2m      - unexpected value ""[22m
+
+
+      151 |     });
+      152 |     await page.goto("/admin");
+    > 153 |     await expect(page.getByRole("alert")).toContainText("administrators");
+          |                                           ^
+      154 |     await expect(page.getByRole("button", { name: /Manage .*@/ })).toHaveCount(
+      155 |       0,
+      156 |     );
+        at /Volumes/Storage/rag-project/frontend/tests/browser/management-contracts.spec.ts:153:43
+
+    Error Context: test-results/grey-agent5-management/management-contracts-Manag-af51d-unt-administration-controls-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/grey-agent5-management/management-contracts-Manag-af51d-unt-administration-controls-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/grey-agent5-management/management-contracts-Manag-af51d-unt-administration-controls-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [mobile-chromium] › tests/browser/management-contracts.spec.ts:8:3 › Management UI contracts (mocked API, no database or providers) › PDF validation prevents invalid uploads and shows real processing metadata 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: getByRole('alert')
+    Expected substring: [32m"Choose a PDF file"[39m
+    Error: strict mode violation: getByRole('alert') resolved to 2 elements:
+        1) <div role="alert" class="rounded-xl border border-destructive/50 bg-destructive/10 px-4 py-3 text-sm text-destructive">Choose a PDF file (.pdf).</div> aka getByText('Choose a PDF file (.pdf)')
+        2) <div role="alert" aria-live="assertive" id="__next-route-announcer__"></div> aka locator('[id="__next-route-announcer__"]')
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('alert')[22m
+
+
+      31 |         buffer: Buffer.from("not PDF"),
+      32 |       });
+    > 33 |     await expect(page.getByRole("alert")).toContainText("Choose a PDF file");
+         |                                           ^
+      34 |     await page
+      35 |       .getByLabel("Choose PDF", { exact: true })
+      36 |       .setInputFiles({
+        at /Volumes/Storage/rag-project/frontend/tests/browser/management-contracts.spec.ts:33:43
+
+    Error Context: test-results/grey-agent5-management/management-contracts-Manag-d1ed7-ws-real-processing-metadata-mobile-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/grey-agent5-management/management-contracts-Manag-d1ed7-ws-real-processing-metadata-mobile-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/grey-agent5-management/management-contracts-Manag-d1ed7-ws-real-processing-metadata-mobile-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [mobile-chromium] › tests/browser/management-contracts.spec.ts:145:3 › Management UI contracts (mocked API, no database or providers) › ordinary users cannot see account-administration controls 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: getByRole('alert')
+    Expected substring: [32m"administrators"[39m
+    Error: strict mode violation: getByRole('alert') resolved to 2 elements:
+        1) <div role="alert" class="rounded-xl border border-border/60 p-6">…</div> aka getByText('Access deniedThis page is')
+        2) <div role="alert" aria-live="assertive" id="__next-route-announcer__"></div> aka locator('[id="__next-route-announcer__"]')
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('alert')[22m
+    [2m    2 × locator resolved to <div role="alert" aria-live="assertive" id="__next-route-announcer__"></div>[22m
+    [2m      - unexpected value ""[22m
+
+
+      151 |     });
+      152 |     await page.goto("/admin");
+    > 153 |     await expect(page.getByRole("alert")).toContainText("administrators");
+          |                                           ^
+      154 |     await expect(page.getByRole("button", { name: /Manage .*@/ })).toHaveCount(
+      155 |       0,
+      156 |     );
+        at /Volumes/Storage/rag-project/frontend/tests/browser/management-contracts.spec.ts:153:43
+
+    Error Context: test-results/grey-agent5-management/management-contracts-Manag-af51d-unt-administration-controls-mobile-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/grey-agent5-management/management-contracts-Manag-af51d-unt-administration-controls-mobile-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/grey-agent5-management/management-contracts-Manag-af51d-unt-administration-controls-mobile-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4 failed
+    [desktop-chromium] › tests/browser/management-contracts.spec.ts:8:3 › Management UI contracts (mocked API, no database or providers) › PDF validation prevents invalid uploads and shows real processing metadata 
+    [desktop-chromium] › tests/browser/management-contracts.spec.ts:145:3 › Management UI contracts (mocked API, no database or providers) › ordinary users cannot see account-administration controls 
+    [mobile-chromium] › tests/browser/management-contracts.spec.ts:8:3 › Management UI contracts (mocked API, no database or providers) › PDF validation prevents invalid uploads and shows real processing metadata 
+    [mobile-chromium] › tests/browser/management-contracts.spec.ts:145:3 › Management UI contracts (mocked API, no database or providers) › ordinary users cannot see account-administration controls 
+  6 passed (16.3s)

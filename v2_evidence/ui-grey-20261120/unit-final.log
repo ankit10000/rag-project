@@ -1,0 +1,34 @@
+
+> rag-v2-web@2.0.0 test
+> node --test tests/*.test.mjs
+
+✔ public errors never disclose a backend message (0.765416ms)
+✔ mutations use readable CSRF cookie and same-origin credentials (130.955583ms)
+✔ provider details in errors are discarded (0.902458ms)
+✔ memory deletion uses owner-scoped conversation route (0.391041ms)
+✔ PDF links stay same-origin and bound page number (0.1535ms)
+✔ document replacement uses the actual multipart PUT contract (0.989458ms)
+✔ stalled body and stalled cancel obey the original short signal deadline (30.185416ms)
+✔ actual bytes are bounded even without Content-Length (0.334166ms)
+✔ ordinary multipart bytes pass unchanged under the same signal (0.885209ms)
+✔ committed turn is recovered despite a failed POST (1.510292ms)
+✔ committed turn wins while post-answer memory work is still running (0.3235ms)
+✔ reopening only reconciles; never resubmits (0.375291ms)
+✔ owner denial is not swallowed (0.886875ms)
+✔ PDF upload accepts the exact25MB boundary and refuses empty, oversize or wrong type (0.79125ms)
+✔ processing labels reflect reported native/OCR evidence, never infer OCR from readiness (0.139666ms)
+✔ progress remains within the real reported percentage bounds (0.069792ms)
+✔ gateway rejects cross-origin authenticated mutation before upstream (51.634167ms)
+✔ gateway does not forward arbitrary cookies or browser bearer credentials (5.833083ms)
+✔ gateway rejects decoded path traversal (1.32375ms)
+✔ gateway hides internal failure response (5.4405ms)
+✔ real loopback Host survives Next internal localhost normalization (2.06425ms)
+✔ gateway aborts stalled body before any upstream mutation (32.3705ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 393.809916

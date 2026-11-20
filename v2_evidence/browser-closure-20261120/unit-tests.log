@@ -1,0 +1,77 @@
+W1120 11:14:50.930000 21986 .venv/lib/python3.14/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+----------------------------------------------------------------------
+Ran 80 tests in 0.065s
+
+OK
+
+Question type: DOCUMENT
+Retrieval status: ok
+
+Best reranker score: 1.0000
+Adaptive threshold: -1.0000
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 1.0000 | Chunk: 2 | Page: 2
+Answer status: answered | citations: ['S1'] | attempts: 1
+Retrieval status: ok
+
+Best reranker score: 4.0000
+Adaptive threshold: 2.0000
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 4.0000 | Chunk: 1 | Page: 1
+Answer status: answered | citations: ['S1'] | attempts: 1
+
+Question type: MEMORY
+Memory question detected. Skipping document retrieval.
+
+--- Reranker Scores ---
+Answer status: abstained | citations: [] | attempts: 1
+Retrieval status: ok
+
+Best reranker score: 4.0000
+Adaptive threshold: 2.0000
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 4.0000 | Chunk: 1 | Page: 1
+Answer status: abstained | citations: [] | attempts: 1
+
+Question type: MEMORY
+Memory question detected. Skipping document retrieval.
+
+--- Reranker Scores ---
+Answer status: abstained | citations: [] | attempts: 1
+
+Question type: MEMORY
+Memory question detected. Skipping document retrieval.
+
+--- Reranker Scores ---
+Answer status: abstained | citations: [] | attempts: 1
+Retrieval status: ok
+
+Best reranker score: 4.0000
+Adaptive threshold: 2.0000
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 4.0000 | Chunk: 1 | Page: 1
+Answer status: answered | citations: ['S1'] | attempts: 1
+
+Question type: MEMORY
+Memory question detected. Skipping document retrieval.
+
+--- Reranker Scores ---
+Answer status: abstained | citations: [] | attempts: 1
+Retrieval status: ok
+
+--- Reranker Scores ---
+Answer status: abstained | citations: [] | attempts: 0
+
+Question type: MEMORY
+Memory question detected. Skipping document retrieval.
+
+--- Reranker Scores ---
+Answer status: answered | citations: [] | attempts: 1

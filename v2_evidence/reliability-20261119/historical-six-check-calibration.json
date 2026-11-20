@@ -1,0 +1,365 @@
+{
+  "scope": "frozen checks applied to preserved six-case original results without new calls",
+  "results": [
+    {
+      "id": "product",
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "AI education portal",
+            "observed": true
+          },
+          {
+            "label": "JEE",
+            "observed": true
+          },
+          {
+            "label": "GATE",
+            "observed": true
+          },
+          {
+            "label": "NEET",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "AI education portal",
+            "observed": true
+          },
+          {
+            "label": "JEE",
+            "observed": true
+          },
+          {
+            "label": "GATE",
+            "observed": true
+          },
+          {
+            "label": "NEET",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          131
+        ],
+        "selected_pages": [
+          1
+        ],
+        "selected_characters": 798,
+        "scope_and_budget_ok": true
+      }
+    },
+    {
+      "id": "estimates",
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "2-3 years",
+            "observed": true
+          },
+          {
+            "label": "10-15 people",
+            "observed": true
+          },
+          {
+            "label": "1M-5M summary budget",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "2-3 years",
+            "observed": true
+          },
+          {
+            "label": "10-15 people",
+            "observed": true
+          },
+          {
+            "label": "1M-5M summary budget",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          197,
+          133
+        ],
+        "selected_pages": [
+          15,
+          1
+        ],
+        "selected_characters": 1165,
+        "scope_and_budget_ok": true
+      }
+    },
+    {
+      "id": "accessibility",
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "Hindi/regional languages",
+            "observed": true
+          },
+          {
+            "label": "offline study",
+            "observed": true
+          },
+          {
+            "label": "videos",
+            "observed": true
+          },
+          {
+            "label": "notes",
+            "observed": true
+          },
+          {
+            "label": "mobile app",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "Hindi/regional languages",
+            "observed": true
+          },
+          {
+            "label": "offline study",
+            "observed": true
+          },
+          {
+            "label": "videos",
+            "observed": true
+          },
+          {
+            "label": "notes",
+            "observed": true
+          },
+          {
+            "label": "mobile app",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          138,
+          131
+        ],
+        "selected_pages": [
+          2,
+          1
+        ],
+        "selected_characters": 1576,
+        "scope_and_budget_ok": true
+      }
+    },
+    {
+      "id": "phases",
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "planning and prototype",
+            "observed": true
+          },
+          {
+            "label": "0-6 months",
+            "observed": true
+          },
+          {
+            "label": "MVP development",
+            "observed": true
+          },
+          {
+            "label": "6-15 months",
+            "observed": true
+          },
+          {
+            "label": "pilot and feedback",
+            "observed": true
+          },
+          {
+            "label": "15-21 months",
+            "observed": true
+          },
+          {
+            "label": "launch and scale",
+            "observed": true
+          },
+          {
+            "label": "21-30 months",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "planning and prototype",
+            "observed": true
+          },
+          {
+            "label": "0-6 months",
+            "observed": true
+          },
+          {
+            "label": "MVP development",
+            "observed": true
+          },
+          {
+            "label": "6-15 months",
+            "observed": true
+          },
+          {
+            "label": "pilot and feedback",
+            "observed": true
+          },
+          {
+            "label": "15-21 months",
+            "observed": true
+          },
+          {
+            "label": "launch and scale",
+            "observed": true
+          },
+          {
+            "label": "21-30 months",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          194,
+          195,
+          196,
+          197
+        ],
+        "selected_pages": [
+          15,
+          15,
+          15,
+          15
+        ],
+        "selected_characters": 2548,
+        "scope_and_budget_ok": true
+      }
+    },
+    {
+      "id": "risks",
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "human review",
+            "observed": true
+          },
+          {
+            "label": "conservative generation",
+            "observed": true
+          },
+          {
+            "label": "early feedback",
+            "observed": true
+          },
+          {
+            "label": "legal review",
+            "observed": true
+          },
+          {
+            "label": "open/public data",
+            "observed": true
+          },
+          {
+            "label": "rephrasing",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "human review",
+            "observed": true
+          },
+          {
+            "label": "conservative generation",
+            "observed": true
+          },
+          {
+            "label": "early feedback",
+            "observed": true
+          },
+          {
+            "label": "legal review",
+            "observed": true
+          },
+          {
+            "label": "open/public data",
+            "observed": true
+          },
+          {
+            "label": "rephrasing",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          199
+        ],
+        "selected_pages": [
+          16
+        ],
+        "selected_characters": 757,
+        "scope_and_budget_ok": true
+      }
+    },
+    {
+      "id": "unsupported",
+      "metrics": {
+        "evidence_coverage": null,
+        "evidence_fact_checks": null,
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "contract information unavailable",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          131
+        ],
+        "selected_pages": [
+          1
+        ],
+        "selected_characters": 798,
+        "scope_and_budget_ok": true
+      }
+    }
+  ],
+  "provider_calls": 0
+}

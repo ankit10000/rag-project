@@ -1,0 +1,6 @@
+{
+  "status": "INTERRUPTED_TEST_HARNESS",
+  "reason": "PDF plugin did not emit normal page load; app answer/history/PDF HTTP200 succeeded before interruption",
+  "calls": 3,
+  "do_not_overwrite": true
+}

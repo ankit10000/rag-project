@@ -1,0 +1,70 @@
+PASS | prompt: every passage is inside the <retrieved_documents> block (evidence separated from instructions)
+PASS | prompt: each source has a stable ref with document, page and chunk metadata
+PASS | prompt: the user question is preserved, and its forged closing tag is neutralised
+PASS | prompt: rules for evidence-only answers, no invented facts, abstention and untrusted data are present
+PASS | prompt: empty context is stated explicitly
+PASS | prompt: context character limit is enforced by assembly
+PASS | prompt: duplicate chunks are not repeated in the context
+PASS | generation: valid response -> answered, one call
+PASS | generation: empty string response -> safe error, bounded, no citations
+PASS | generation: whitespace response -> safe error, bounded, no citations
+PASS | generation: None response -> safe error, bounded, no citations
+PASS | generation: non-string response -> safe error, bounded, no citations
+PASS | generation: tag only response -> safe error, bounded, no citations
+PASS | grounding: supported claim (number present in the cited passage) is accepted
+PASS | grounding: partially supported (cited fact + stated gap) -> partial
+PASS | grounding: invented amount with a valid citation -> unverified after one regeneration
+PASS | grounding: invented date with a valid citation -> unverified after one regeneration
+PASS | grounding: invented money with a valid citation -> unverified after one regeneration
+PASS | grounding: invented derived number (not written in the evidence) with a valid citation -> unverified after one regeneration
+PASS | grounding: a corrected reply after numeric feedback is accepted
+PASS | grounding: a short uncited sentence with an invented number is removed by the repair
+PASS | grounding: a number taken from the question is allowed
+PASS | grounding: an abstention that introduces a number from nowhere is not accepted
+PASS | grounding: regression - 'version 4.0' is supported by 'v4.0' in the passage (no false positive)
+PASS | grounding: page/file mentions are left to the metadata checks, not treated as facts
+PASS | grounding: numbers compare by value (07 = 7, 14.50 = 14.5, 1,200 = 1200)
+PASS | grounding LIMITATION pinned: an invented NAME with a valid citation is accepted (no semantic check)
+PASS | grounding LIMITATION pinned: 'may' turned into 'will always' is accepted (no semantic check)
+PASS | citations 1 correct citation -> answered
+PASS | citations 2 missing citation on a claim -> unverified
+PASS | citations 3 unknown citation id -> unverified
+PASS | citations 4 id not in the supplied context -> unverified
+PASS | citations 5 incorrect source (numeric fact cited to S1, it is in S2) -> unverified
+PASS | citations 6 multiple sources support one claim -> answered
+PASS | citations 7 one source supports several claims -> answered
+PASS | citations 8 no citations at all -> unverified
+PASS | citations 10a malformed: unclosed [S1 -> unverified
+PASS | citations 10b malformed: (S1) -> unverified
+PASS | citations 10c malformed: [Source 1] -> unverified
+PASS | citations 10d duplicate [S1][S1] -> answered
+PASS | citations 9 empty context -> refusal without an LLM call
+PASS | citations: metadata comes from the assembled source, never from the model
+PASS | citations: an invented page number or file name in prose is rejected
+PASS | no-answer: irrelevant context + refusal -> abstained, no citations
+PASS | no-answer: an uncited general-knowledge answer over irrelevant context is not returned
+PASS | no-answer: a fabricated number cited to an irrelevant passage is not returned
+PASS | provider authentication error (401): not retried on other models -> status=error, no fabricated answer, no citations, 3 requests
+PASS | provider authentication error (401): not retried on other models: the API key never appears in output or result
+PASS | provider rate limit (429) on every model: switch, wait, then up to 4 tries on the primary -> status=error, no fabricated answer, no citations, 18 requests
+PASS | provider rate limit (429) on every model: switch, wait, then up to 4 tries on the primary: the API key never appears in output or result
+PASS | provider network timeout on every model -> status=error, no fabricated answer, no citations, 6 requests
+PASS | provider network timeout on every model: the API key never appears in output or result
+PASS | provider provider unavailable (503) on every model: one same-model retry each -> status=error, no fabricated answer, no citations, 12 requests
+PASS | provider provider unavailable (503) on every model: one same-model retry each: the API key never appears in output or result
+PASS | provider empty response from every model -> status=error, no fabricated answer, no citations, 6 requests
+PASS | provider empty response from every model: the API key never appears in output or result
+PASS | provider unexpected response structure (text is not a string) -> status=error, no fabricated answer, no citations, 3 requests
+PASS | provider unexpected response structure (text is not a string): the API key never appears in output or result
+PASS | provider: missing API key -> status=error (not an exception, not an answer)
+PASS | retrieval failure still raises (kept distinct from a generation failure, which returns status=error)
+PASS | retrieval_status 'ok' is returned unchanged; answer behaviour unchanged (status=answered)
+PASS | retrieval_status 'disabled' is returned unchanged; answer behaviour unchanged (status=answered)
+PASS | retrieval_status 'failed:RuntimeError' is returned unchanged; answer behaviour unchanged (status=answered)
+PASS | retrieval_status 'skipped' is returned unchanged; answer behaviour unchanged (status=abstained)
+PASS | ask_question calls hybrid_search_detailed with the wrapper's arguments (query, top_k=FINAL_TOP_K)
+PASS | retrieval_status 'not_run' for a MEMORY question (no retrieval call)
+
+0 check(s) failed
+
+W1119 18:47:26.446000 72072 .venv/lib/python3.14/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.

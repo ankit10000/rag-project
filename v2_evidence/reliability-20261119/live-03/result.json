@@ -1,0 +1,1013 @@
+{
+  "identity": "live-03",
+  "predeclared_sha256": "185d0ab7ad600e65d77ddd672a86bdefd8d660eae417244df40fb8f88aa91a54",
+  "frozen_checks_sha256": "46e4accef77df0901e7c8fc0c786d72d9eacc2b64f512201b6fafa183bdaebbb",
+  "metrics": {
+    "evidence_coverage": {
+      "passed": 4,
+      "total": 4,
+      "percent": 100.0
+    },
+    "answer_factual_completeness": {
+      "passed": 3,
+      "total": 4,
+      "percent": 75.0
+    },
+    "citation_abstention_correctness": {
+      "passed": 4,
+      "total": 4,
+      "percent": 100.0
+    }
+  },
+  "provider_calls": 10,
+  "max_provider_calls": 10,
+  "selected_case_ids": [
+    "conflict",
+    "explicit_negative",
+    "long_section",
+    "partial"
+  ],
+  "aggregate_provider_budget": 52,
+  "prior_provider_calls": 42,
+  "calls": [
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "e09f11801fd3eb4b71e6fab47ba7ac11e330359f93ce5188e0132cdc05be1faa",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 9.545
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "279d823267075fc21a379cd176f2a67c77c0c933dcbae35acb8ec80e5b365007",
+      "response_sha256": "26c2a7d984e501578e2cea9ee92b9f46bfb4e46b2fdcac52e297d7dda2ffae98",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 8.966
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "759374f43b378d50e914aad313d3d46197923d267e077badce419ec08b364cf0",
+      "response_sha256": "18371a6a839a5615f84ae785b70eba1c1339bd05ac281331cce71914453ba366",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 9.403
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "a8a6f8c9317294fa32df2e900f6b1b17bed2d8fcdef6328023fd294e66714404",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 15.893
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "3c0c9bc1c93725ff037548e7d6516f8b3be0f8241e82984806c27a7c32a5a709",
+      "response_sha256": "f24229bf519557d97ed11eebb797389983b0de95d52e5c570681d5cf4ed39653",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 9.87
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "12dc13d96b6a2268c1e2238f6baa8bbc78fc63246878f11463e580350df29a18",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 8.576
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "6524fd58a7fc3eec8fe47b15161bdf3654d5028153c3fcce97a15bd5b4135318",
+      "response_sha256": "b8011a5a9f4644ce37b6566bd30e53aa95d8aff1e4a46630bb6fd91931470512",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 10.369
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "368ed106690f11b18acdbfb863686e8b353103bc029e5ebf93a8bc7118740f86",
+      "response_sha256": "12f9e15ad90a6143735f95e3fef8292d64651116e7cda60d16dce52c3e2266bf",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 11.079
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "11918486cdf9964d5c1ecdad58238cdd8b480fc329927ecd39a72b5dd436c205",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 9.153
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "bad6f2439d98d34bad4095c89abad8c2659d4c304a19c09a991f9cced18c7204",
+      "response_sha256": "c7475635cc4b5d0cdfc9192f138d55facb7d0e8976eb3c31f371590f44ef0a2f",
+      "returned_model": "gemini-3.5-flash-lite",
+      "seconds": 10.229
+    }
+  ],
+  "results": [
+    {
+      "id": "conflict",
+      "question": "In Executive Summary.pdf, does the roadmap stated phase count agree with its listed phases? Report any inconsistency.",
+      "result": {
+        "answer": "The source states roughly 3 phases [S1]. The retrieved passages explicitly list consecutive headings from Phase 1 through Phase 4 [S1][S2][S3]. This presents an inconsistency between the stated phase count and the listed phase headings [S1][S2][S3].",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 194,
+            "ref": "S1"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 195,
+            "ref": "S2"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 196,
+            "ref": "S3"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S1",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 194
+          },
+          {
+            "ref": "S2",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 195
+          },
+          {
+            "ref": "S3",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "chunk_id": 196
+          }
+        ],
+        "status": "conflict",
+        "issues": [
+          "source_bound_count_comparison_fallback"
+        ],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 194,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 15,
+            "retrieval_score": -4.228762626647949
+          },
+          {
+            "ref": "S2",
+            "chunk_id": 195,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 15,
+            "retrieval_score": null
+          },
+          {
+            "ref": "S3",
+            "chunk_id": 196,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 15,
+            "retrieval_score": null
+          }
+        ],
+        "coverage": {
+          "policy": "v2-explicit-request-coverage/3",
+          "mode": "none",
+          "facets": [],
+          "enumeration_count": null,
+          "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+          "concrete_missing": [],
+          "diagnostic_missing": [],
+          "context_unobserved": [],
+          "answer_checked": true,
+          "source_count_comparison": {
+            "policy": "v2-source-bound-phase-count-comparison/1",
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 15,
+            "stated_count": 3,
+            "qualifier": "roughly",
+            "observed_consecutive_headings": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "stated_refs": [
+              "S1"
+            ],
+            "heading_refs": [
+              "S1",
+              "S2",
+              "S3"
+            ],
+            "evidence_refs": [
+              "S1",
+              "S2",
+              "S3"
+            ],
+            "scope": "observed source headings exceed stated count; not exhaustive section discovery"
+          }
+        }
+      },
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "stated three",
+            "observed": true
+          },
+          {
+            "label": "listed fourth phase",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "stated three",
+            "observed": true
+          },
+          {
+            "label": "listed four",
+            "observed": true
+          },
+          {
+            "label": "disagreement disclosure",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          194,
+          195,
+          196
+        ],
+        "selected_pages": [
+          15,
+          15,
+          15
+        ],
+        "selected_characters": 2118,
+        "scope_and_budget_ok": true
+      },
+      "seconds": 29.711,
+      "provider_calls": 3
+    },
+    {
+      "id": "explicit_negative",
+      "question": "According to Executive Summary.pdf, does public cloud require upfront capital expenditure?",
+      "result": {
+        "answer": "According to the provided documents, public cloud has \"no upfront\" cost [S3] or avoids CapEx [S2].",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "chunk_id": 203,
+            "ref": "S3"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "chunk_id": 166,
+            "ref": "S2"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S3",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "chunk_id": 203
+          },
+          {
+            "ref": "S2",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "chunk_id": 166
+          }
+        ],
+        "status": "answered",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 164,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 8,
+            "retrieval_score": -7.485410213470459
+          },
+          {
+            "ref": "S2",
+            "chunk_id": 166,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 9,
+            "retrieval_score": -9.9521484375
+          },
+          {
+            "ref": "S3",
+            "chunk_id": 203,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 17,
+            "retrieval_score": -7.574707508087158
+          }
+        ],
+        "coverage": {
+          "policy": "v2-explicit-request-coverage/3",
+          "mode": "none",
+          "facets": [],
+          "enumeration_count": null,
+          "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+          "concrete_missing": [],
+          "diagnostic_missing": [],
+          "context_unobserved": [],
+          "answer_checked": true
+        }
+      },
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "explicit no upfront",
+            "observed": true
+          },
+          {
+            "label": "usage costs",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": false,
+        "answer_fact_checks": [
+          {
+            "label": "no upfront cost",
+            "observed": true
+          },
+          {
+            "label": "ongoing usage cost",
+            "observed": false
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          164,
+          166,
+          203
+        ],
+        "selected_pages": [
+          8,
+          9,
+          17
+        ],
+        "selected_characters": 2099,
+        "scope_and_budget_ok": true
+      },
+      "seconds": 26.342,
+      "provider_calls": 2
+    },
+    {
+      "id": "long_section",
+      "question": "List all core MVP features and all suggested additional features in Executive Summary.pdf.",
+      "result": {
+        "answer": "- Core / MVP features: AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine [S1]. - Suggested additional features: Adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements [S1]. - AI-generated Video Lessons: Listed as a core feature (MVP) in the narrative [S1], and as an automated topic-based lecture video marked for MVP in the comparison table [S5]. - Adaptive Learning Paths: Listed as an additional feature in the narrative [S1] and suggested additional feature [S2], and marked for later phases in the comparison table [S5]. - Gamification: Listed as an additional feature in the narrative [S1] and suggested additional feature [S2], and marked for later phases in the comparison table [S5]. - Live Doubt-Solving Forum: Listed as a suggested additional feature (enabling students to post questions for AI or human tutors, with notifications and tracking) [S2]. (Note: The comparison table lists \"Q&A and Forum\" under MVP [S5], but explicitly lists \"Live Doubt-Solving Forum\" under suggested additional features [S2]). - Multilingual Support: Listed as a suggested additional feature to extend content to Hindi and other regional languages [S2], and marked for later phases in the comparison table (\"Multilingual Content: English + Hindi (e.g.) materials\") [S5]. - Offline Access & Mobile App: Listed as a suggested additional feature allowing the downloading of videos and notes for offline study [S2]. - Progress Tracking & Analytics: Listed as a suggested additional feature (dashboards showing mastery levels, time spent, and topic coverage) [S2], and as \"Performance Analytics\" (student progress dashboards, teacher reports) with MVP priority in the comparison table [S5]. - Question Bank & Q&A: Listed as a core feature (robust question-answer engine) [S1], a searchable database of Q&A by topic [S3], and included in the \"Q&A and Forum\" MVP feature in the comparison table [S5]. - Test Series & Quizzes: Listed as a core feature (customizable test series) [S1], auto-created practice tests and quizzes [S3], and \"Dynamic Test Series\" for MVP in the comparison table [S5]. - Topic-wise Notes & Summaries: Listed as a core feature (dynamically created summaries/notes) [S1], concise structured notes generated from official content [S3], and \"Topic Summaries/Notes\" for MVP in the comparison table [S5].",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 131,
+            "ref": "S1"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "chunk_id": 139,
+            "ref": "S5"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "chunk_id": 138,
+            "ref": "S2"
+          },
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "chunk_id": 137,
+            "ref": "S3"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S1",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 131
+          },
+          {
+            "ref": "S5",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "chunk_id": 139
+          },
+          {
+            "ref": "S2",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "chunk_id": 138
+          },
+          {
+            "ref": "S3",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "chunk_id": 137
+          }
+        ],
+        "status": "answered",
+        "issues": [
+          "repaired:uncited_claim",
+          "dropped_uncited_sentences:1"
+        ],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 131,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": 5.231591701507568
+          },
+          {
+            "ref": "S2",
+            "chunk_id": 138,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 2,
+            "retrieval_score": -1.884756326675415
+          },
+          {
+            "ref": "S3",
+            "chunk_id": 137,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 2,
+            "retrieval_score": -3.773301362991333
+          },
+          {
+            "ref": "S4",
+            "chunk_id": 204,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 17,
+            "retrieval_score": 2.2513480186462402
+          },
+          {
+            "ref": "S5",
+            "chunk_id": 139,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 2,
+            "retrieval_score": null
+          },
+          {
+            "ref": "S6",
+            "chunk_id": 135,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": 2.0829672813415527
+          },
+          {
+            "ref": "S7",
+            "chunk_id": 132,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": null
+          },
+          {
+            "ref": "S8",
+            "chunk_id": 133,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": null
+          }
+        ],
+        "coverage": {
+          "policy": "v2-explicit-request-coverage/3",
+          "mode": "fields",
+          "facets": [
+            {
+              "id": "core_features",
+              "label": "core / MVP features",
+              "pattern": "\\b(?:core|MVP)\\b",
+              "request_pattern": "\\b(?:core|MVP)\\b(?=.{0,35}\\bfeatures?\\b)|\\bfeatures?\\b(?=.{0,35}\\b(?:core|MVP)\\b)",
+              "query_terms": "core MVP product features",
+              "evidence_refs": [
+                "S1",
+                "S4",
+                "S5",
+                "S6",
+                "S8"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [],
+              "refused_supported_item": false
+            },
+            {
+              "id": "additional_features",
+              "label": "suggested additional features",
+              "pattern": "\\b(?:additional)\\b",
+              "request_pattern": "\\b(?:additional|extended|later)\\b(?=.{0,35}\\bfeatures?\\b)|\\bfeatures?\\b(?=.{0,35}\\b(?:additional|extended|later)\\b)",
+              "query_terms": "additional product features",
+              "evidence_refs": [
+                "S1",
+                "S2",
+                "S3"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_ai_generated_video_lessons",
+              "label": "AI-generated Video Lessons",
+              "pattern": "(?<!\\w)AI(?:[\\W_]+|\\s+and\\s+)generated(?:[\\W_]+|\\s+and\\s+)Video(?:[\\W_]+|\\s+and\\s+)Lessons(?!\\w)",
+              "query_terms": "AI-generated Video Lessons",
+              "literal_titles": [
+                "AI-generated Video Lessons"
+              ],
+              "answer_pattern": "\\bvideo[-\\s]+(?:lessons?|lectures?|tutorials?)\\b|\\b(?:instructional|educational|lecture)\\s+videos?\\b",
+              "repair_checkable": true,
+              "matching_method": "source-triggered vocabulary family",
+              "evidence_refs": [
+                "S6"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "AI-generated Video Lessons"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_adaptive_learning_paths",
+              "label": "Adaptive Learning Paths",
+              "pattern": "(?<!\\w)Adaptive(?:[\\W_]+|\\s+and\\s+)Learning(?:[\\W_]+|\\s+and\\s+)Paths(?!\\w)",
+              "query_terms": "Adaptive Learning Paths",
+              "literal_titles": [
+                "Adaptive Learning Paths"
+              ],
+              "answer_pattern": "\\badaptive\\b.*?\\blearning\\b|\\bpersonali[sz]ed\\s+(?:learning|paths?|recommendations?)\\b",
+              "repair_checkable": true,
+              "matching_method": "source-triggered vocabulary family",
+              "evidence_refs": [
+                "S1",
+                "S2",
+                "S3",
+                "S5"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Adaptive Learning Paths"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_gamification",
+              "label": "Gamification",
+              "pattern": "(?<!\\w)Gamification(?!\\w)",
+              "query_terms": "Gamification",
+              "literal_titles": [
+                "Gamification"
+              ],
+              "answer_pattern": "\\bgamification\\b|\\bbadges?\\b|\\bstreaks?\\b|\\bleaderboards?\\b",
+              "repair_checkable": true,
+              "matching_method": "source-triggered vocabulary family",
+              "evidence_refs": [
+                "S1",
+                "S2",
+                "S5"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Gamification"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_live_doubt_solving_forum",
+              "label": "Live Doubt-Solving Forum",
+              "pattern": "(?<!\\w)Live(?:[\\W_]+|\\s+and\\s+)Doubt(?:[\\W_]+|\\s+and\\s+)Solving(?:[\\W_]+|\\s+and\\s+)Forum(?!\\w)",
+              "query_terms": "Live Doubt-Solving Forum",
+              "literal_titles": [
+                "Live Doubt-Solving Forum"
+              ],
+              "answer_pattern": "\\bforums?\\b|\\bdoubt[-\\s]+solving\\b",
+              "repair_checkable": true,
+              "matching_method": "source-triggered vocabulary family",
+              "evidence_refs": [
+                "S2"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Live Doubt-Solving Forum"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_multilingual_support",
+              "label": "Multilingual Support",
+              "pattern": "(?<!\\w)Multilingual(?:[\\W_]+|\\s+and\\s+)Support(?!\\w)",
+              "query_terms": "Multilingual Support",
+              "literal_titles": [
+                "Multilingual Support"
+              ],
+              "answer_pattern": "\\bmultilingual\\b|\\bHindi\\b|\\bregional\\s+languages?\\b|\\bmultiple\\s+languages?\\b",
+              "repair_checkable": true,
+              "matching_method": "source-triggered vocabulary family",
+              "evidence_refs": [
+                "S2"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Multilingual Support"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_offline_access_mobile_app",
+              "label": "Offline Access & Mobile App",
+              "pattern": "(?<!\\w)Offline(?:[\\W_]+|\\s+and\\s+)Access(?:[\\W_]+|\\s+and\\s+)Mobile(?:[\\W_]+|\\s+and\\s+)App(?!\\w)",
+              "query_terms": "Offline Access & Mobile App",
+              "literal_titles": [
+                "Offline Access & Mobile App"
+              ],
+              "answer_pattern": "\\boffline\\b|\\bdownload(?:ing|s)?\\b|\\bmobile\\s+apps?\\b",
+              "repair_checkable": true,
+              "matching_method": "source-triggered vocabulary family",
+              "evidence_refs": [
+                "S2"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Offline Access & Mobile App"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_progress_tracking_analytics",
+              "label": "Progress Tracking & Analytics",
+              "pattern": "(?<!\\w)Progress(?:[\\W_]+|\\s+and\\s+)Tracking(?:[\\W_]+|\\s+and\\s+)Analytics(?!\\w)",
+              "query_terms": "Progress Tracking & Analytics",
+              "literal_titles": [
+                "Progress Tracking & Analytics"
+              ],
+              "answer_pattern": "\\banalytics\\b|\\bprogress\\s+(?:tracking|dashboards?)\\b",
+              "repair_checkable": true,
+              "matching_method": "source-triggered vocabulary family",
+              "evidence_refs": [
+                "S2"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Progress Tracking & Analytics"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_question_bank_q_a",
+              "label": "Question Bank & Q&A",
+              "pattern": "(?<!\\w)Question(?:[\\W_]+|\\s+and\\s+)Bank(?:[\\W_]+|\\s+and\\s+)Q(?:[\\W_]+|\\s+and\\s+)A(?!\\w)",
+              "query_terms": "Question Bank & Q&A",
+              "literal_titles": [
+                "Question Bank & Q&A"
+              ],
+              "answer_pattern": "\\bquestion\\s+banks?\\b|\\bQ\\s*(?:&|and)\\s*A\\b|\\bquestion[-\\s]+answer(?:ing)?\\b",
+              "repair_checkable": true,
+              "matching_method": "source-triggered vocabulary family",
+              "evidence_refs": [
+                "S3"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Question Bank & Q&A"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_test_series_quizzes",
+              "label": "Test Series & Quizzes",
+              "pattern": "(?<!\\w)Test(?:[\\W_]+|\\s+and\\s+)Series(?:[\\W_]+|\\s+and\\s+)Quizzes(?!\\w)",
+              "query_terms": "Test Series & Quizzes",
+              "literal_titles": [
+                "Test Series & Quizzes"
+              ],
+              "answer_pattern": "\\b(?:tests?|quizzes?|exams?)\\b",
+              "repair_checkable": true,
+              "matching_method": "source-triggered vocabulary family",
+              "evidence_refs": [
+                "S3"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Test Series & Quizzes"
+              ],
+              "refused_supported_item": false
+            },
+            {
+              "id": "heading_topic_wise_notes_summaries",
+              "label": "Topic-wise Notes & Summaries",
+              "pattern": "(?<!\\w)Topic(?:[\\W_]+|\\s+and\\s+)wise(?:[\\W_]+|\\s+and\\s+)Notes(?:[\\W_]+|\\s+and\\s+)Summaries(?!\\w)",
+              "query_terms": "Topic-wise Notes & Summaries",
+              "literal_titles": [
+                "Topic-wise Notes & Summaries"
+              ],
+              "answer_pattern": "\\b(?:notes?|summar(?:y|ies))\\b",
+              "repair_checkable": true,
+              "matching_method": "source-triggered vocabulary family",
+              "evidence_refs": [
+                "S3"
+              ],
+              "observed_in_context": true,
+              "answer_mentions": true,
+              "source_fact_signal": true,
+              "source_titles": [
+                "Topic-wise Notes & Summaries"
+              ],
+              "refused_supported_item": false
+            }
+          ],
+          "enumeration_count": null,
+          "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+          "concrete_missing": [],
+          "diagnostic_missing": [],
+          "context_unobserved": [],
+          "answer_checked": true
+        }
+      },
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "video lessons",
+            "observed": true
+          },
+          {
+            "label": "notes/summaries",
+            "observed": true
+          },
+          {
+            "label": "tests/quizzes",
+            "observed": true
+          },
+          {
+            "label": "question bank/Q&A",
+            "observed": true
+          },
+          {
+            "label": "adaptive learning",
+            "observed": true
+          },
+          {
+            "label": "doubt forum",
+            "observed": true
+          },
+          {
+            "label": "progress analytics",
+            "observed": true
+          },
+          {
+            "label": "gamification",
+            "observed": true
+          },
+          {
+            "label": "multilingual",
+            "observed": true
+          },
+          {
+            "label": "offline/mobile",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "video lessons",
+            "observed": true
+          },
+          {
+            "label": "notes/summaries",
+            "observed": true
+          },
+          {
+            "label": "tests/quizzes",
+            "observed": true
+          },
+          {
+            "label": "question bank/Q&A",
+            "observed": true
+          },
+          {
+            "label": "adaptive learning",
+            "observed": true
+          },
+          {
+            "label": "doubt forum",
+            "observed": true
+          },
+          {
+            "label": "progress analytics",
+            "observed": true
+          },
+          {
+            "label": "gamification",
+            "observed": true
+          },
+          {
+            "label": "multilingual",
+            "observed": true
+          },
+          {
+            "label": "offline/mobile",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          131,
+          138,
+          137,
+          204,
+          139,
+          135,
+          132,
+          133
+        ],
+        "selected_pages": [
+          1,
+          2,
+          2,
+          17,
+          2,
+          1,
+          1,
+          1
+        ],
+        "selected_characters": 6020,
+        "scope_and_budget_ok": true
+      },
+      "seconds": 30.9,
+      "provider_calls": 3
+    },
+    {
+      "id": "partial",
+      "question": "According to Executive Summary.pdf, which entrance exams does the proposed portal target, and what is its signed customer contract number?",
+      "result": {
+        "answer": "The proposed portal targets the JEE, GATE, and NEET entrance exams [S1]. The provided documents do not contain information regarding a signed customer contract number.",
+        "sources": [
+          {
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 131,
+            "ref": "S1"
+          }
+        ],
+        "citations": [
+          {
+            "ref": "S1",
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "chunk_id": 131
+          }
+        ],
+        "status": "partial",
+        "issues": [],
+        "retrieval_status": "ok",
+        "retrieved": [
+          {
+            "ref": "S1",
+            "chunk_id": 131,
+            "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page_number": 1,
+            "retrieval_score": -2.8581175804138184
+          }
+        ],
+        "coverage": {
+          "policy": "v2-explicit-request-coverage/3",
+          "mode": "clauses",
+          "facets": [],
+          "enumeration_count": null,
+          "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+          "decomposition_clauses": [
+            "According to Executive Summary.pdf, which entrance exams does the proposed portal target,",
+            "what is its signed customer contract number?"
+          ],
+          "concrete_missing": [],
+          "diagnostic_missing": [],
+          "context_unobserved": [],
+          "answer_checked": true
+        }
+      },
+      "metrics": {
+        "evidence_coverage": true,
+        "evidence_fact_checks": [
+          {
+            "label": "JEE",
+            "observed": true
+          },
+          {
+            "label": "GATE",
+            "observed": true
+          },
+          {
+            "label": "NEET",
+            "observed": true
+          }
+        ],
+        "answer_factual_completeness": true,
+        "answer_fact_checks": [
+          {
+            "label": "JEE",
+            "observed": true
+          },
+          {
+            "label": "GATE",
+            "observed": true
+          },
+          {
+            "label": "NEET",
+            "observed": true
+          },
+          {
+            "label": "contract information unavailable",
+            "observed": true
+          }
+        ],
+        "citation_abstention_correctness": true,
+        "citation_metadata_matches_owned_source": true,
+        "citation_presence_correct": true,
+        "declared_status_correct": true,
+        "selected_chunks": [
+          131
+        ],
+        "selected_pages": [
+          1
+        ],
+        "selected_characters": 798,
+        "scope_and_budget_ok": true
+      },
+      "seconds": 20.138,
+      "provider_calls": 2
+    }
+  ],
+  "isolation": {
+    "pass": true,
+    "checks": [
+      {
+        "owner": "25973a8a-09db-4a15-a686-304a5c986eec",
+        "has_preexisting_owned_documents": true,
+        "selected_source_visible": true,
+        "selected_chunks_visible": 76
+      },
+      {
+        "owner": "4c4125dc-5f84-4cf5-a6df-82384b03ed7f",
+        "has_preexisting_owned_documents": true,
+        "selected_source_visible": false,
+        "selected_chunks_visible": 0
+      }
+    ],
+    "database_writes": false,
+    "secondary_owner_provenance": "existing v2_evidence/live_smoke_retry1.json resource_ids.owner_ids[0]"
+  },
+  "scope": "development only; no formal acceptance claim",
+  "database_writes": false,
+  "metric_caveat": "Literal fact coverage plus citation-page/status checks; manual source comparison still required for entailment."
+}

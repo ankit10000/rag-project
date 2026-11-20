@@ -1,0 +1,103 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - alert [ref=e3]
+  - generic [ref=e4]:
+    - complementary "Sidebar" [ref=e5]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - link "RAG home" [ref=e8] [cursor=pointer]:
+            - /url: /chat
+            - img [ref=e10]
+            - generic [ref=e12]: RAG
+            - generic [ref=e13]: "2.0"
+          - button "Collapse sidebar" [ref=e14] [cursor=pointer]:
+            - img
+        - generic [ref=e15]:
+          - link "New chat" [ref=e16] [cursor=pointer]:
+            - /url: /chat
+            - img
+            - text: New chat
+          - button "Search conversations" [ref=e18] [cursor=pointer]:
+            - img
+            - text: Search conversations
+        - navigation "Workspace" [ref=e19]:
+          - link "Overview" [ref=e20] [cursor=pointer]:
+            - /url: /dashboard
+            - img [ref=e21]
+            - generic [ref=e26]: Overview
+          - link "Document library" [ref=e27] [cursor=pointer]:
+            - /url: /documents
+            - img [ref=e28]
+            - generic [ref=e32]: Document library
+          - link "Conversations" [ref=e33] [cursor=pointer]:
+            - /url: /conversations
+            - img [ref=e34]
+            - generic [ref=e37]: Conversations
+          - link "Memories" [ref=e38] [cursor=pointer]:
+            - /url: /memories
+            - img [ref=e39]
+            - generic [ref=e47]: Memories
+          - link "Processing activity" [ref=e48] [cursor=pointer]:
+            - /url: /jobs
+            - img [ref=e49]
+            - generic [ref=e51]: Processing activity
+          - link "Settings" [ref=e52] [cursor=pointer]:
+            - /url: /settings
+            - img [ref=e53]
+            - generic [ref=e56]: Settings
+        - region "Recent chats" [ref=e57]:
+          - heading "Recent chats" [level=2] [ref=e58]
+          - generic [ref=e59]:
+            - link "Renamed browser fixture" [ref=e60] [cursor=pointer]:
+              - /url: /chat?conversation=4f2cca25-42fb-42f7-964a-fb1f6f172885
+            - button "Actions for Renamed browser fixture" [ref=e61] [cursor=pointer]:
+              - img
+        - generic [ref=e62]:
+          - generic [ref=e63]:
+            - generic [ref=e64]: BT
+            - generic [ref=e65]:
+              - paragraph [ref=e66]: Browser Tester
+              - paragraph [ref=e67]: Personal workspace
+          - generic [ref=e68]:
+            - button "Use light mode" [ref=e69] [cursor=pointer]:
+              - img
+            - button "Sign out" [ref=e70] [cursor=pointer]:
+              - img
+              - text: Sign out
+    - generic [ref=e71]:
+      - banner [ref=e72]:
+        - link "RAG workspace" [ref=e74] [cursor=pointer]:
+          - /url: /chat
+        - paragraph [ref=e75]: Your sources. Grounded answers.
+      - main [ref=e76]:
+        - generic [ref=e77]:
+          - generic [ref=e78]:
+            - generic [ref=e79]:
+              - heading "Conversations" [level=1] [ref=e80]
+              - paragraph [ref=e81]: Pick up a thought, or start a new one.
+            - link "New chat" [ref=e82] [cursor=pointer]:
+              - /url: /chat
+              - img
+              - text: New chat
+          - generic [ref=e83]:
+            - img
+            - generic [ref=e84]: Search conversation titles
+            - searchbox "Search conversation titles" [ref=e85]
+          - list [ref=e86]:
+            - listitem [ref=e87]:
+              - generic [ref=e88]:
+                - img [ref=e89]
+                - generic [ref=e92]:
+                  - link "Renamed browser fixture" [ref=e93] [cursor=pointer]:
+                    - /url: /chat?conversation=4f2cca25-42fb-42f7-964a-fb1f6f172885
+                  - paragraph [ref=e94]: 0 messages
+              - generic [ref=e95]:
+                - button "Rename Renamed browser fixture" [ref=e96] [cursor=pointer]:
+                  - img
+                - button "Delete Renamed browser fixture" [ref=e97] [cursor=pointer]:
+                  - img
+```

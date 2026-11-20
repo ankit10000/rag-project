@@ -1,0 +1,13 @@
+# No new Python packages: the OCR path uses the existing pinned PyMuPDF==2.0.
+# Backend: PyMuPDF's embedded Tesseract, tessdata_fast 4.1.0 English model.
+# Install the data explicitly outside uploads; never download during requests:
+#   mkdir -p /path/to/tessdata
+#   curl --fail --location https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/4.1.0/eng.traineddata -o /path/to/tessdata/eng.traineddata
+# Required SHA256 (enforced by the worker before OCR):
+#   7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2
+#   export RAG_OCR_TESSDATA=/path/to/tessdata
+# Verified actual OCR on macOS 27.0.1 arm64/Python 3.14.5/PyMuPDF2.0.
+# Uses bounded Python subprocesses; no tesseract executable or Swift needed.
+# No cloud calls. MuPDF's PDF OCR interface does not expose confidence scores.
+# Source: https://pymupdf.readthedocs.io/en/latest/installation.html#enabling-integrated-ocr-support
+PyMuPDF==2.0

@@ -1,0 +1,81 @@
+{
+  "commands": {
+    "unit": {
+      "command": "DATABASE_URL=postgresql:///rag_test_scratch TESTSAFE_BLOCK_NETWORK=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 RAG_V2=0 .venv/bin/python -B -m unittest test_v2_qualification_focus test_v2_source_labels test_v2_answer_completeness test_abstention_contract test_abstention_policy test_v2_routing_recovery test_v2_request_coverage test_assignment_flow test_assignment_provenance test_local_v1_deadlines test_local_v1_budget -q",
+      "tests": 125,
+      "passed": 125,
+      "skipped": 0,
+      "log": "final-unit-tests.log"
+    },
+    "scratch_api": {
+      "command": "RAG_V2_DB_TEST=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 .venv/bin/python -B -m unittest test_v2_browser_contract test_v2_integration -q",
+      "tests": 12,
+      "passed": 12,
+      "skipped": 0,
+      "log": "final-api-tests.log"
+    },
+    "workers_ocr": {
+      "command": "guarded scratch launcher: DATABASE_URL=app_url(), RAG_V2=1 RAG_V2_DB_TESTS=1 RAG_OCR_REAL=1 RAG_OCR_TESSDATA=data/v2_models/tessdata; unittest test_v2_workers test_v2_ocr",
+      "tests": 32,
+      "passed": 32,
+      "skipped": 0,
+      "log": "real-workers-ocr.log"
+    },
+    "test_context_and_citations.py": {
+      "command": "DATABASE_URL=postgresql:///rag_test_scratch TESTSAFE_BLOCK_NETWORK=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 RAG_V2=0 .venv/bin/python -B test_context_and_citations.py",
+      "checks": 62,
+      "failed": 0,
+      "log": "context-citations.log"
+    },
+    "test_stage6_answer.py": {
+      "command": "DATABASE_URL=postgresql:///rag_test_scratch TESTSAFE_BLOCK_NETWORK=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 RAG_V2=0 .venv/bin/python -B test_stage6_answer.py",
+      "checks": 66,
+      "failed": 0,
+      "log": "answer-regression.log"
+    },
+    "test_p1_d4_delete_decision_errors.py": {
+      "command": "DATABASE_URL=postgresql:///rag_test_scratch TESTSAFE_BLOCK_NETWORK=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 RAG_V2=0 .venv/bin/python -B test_p1_d4_delete_decision_errors.py",
+      "checks": 54,
+      "failed": 0,
+      "log": "deletion-decisions.log"
+    },
+    "test_p1_d5_delete_ids.py": {
+      "command": "DATABASE_URL=postgresql:///rag_test_scratch TESTSAFE_BLOCK_NETWORK=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 RAG_V2=0 .venv/bin/python -B test_p1_d5_delete_ids.py",
+      "checks": 40,
+      "failed": 0,
+      "log": "deletion-ids.log"
+    }
+  },
+  "python_tests_passed": 169,
+  "node_tests_passed": 19,
+  "browser_scenarios_passed": 3,
+  "browser_suite_passed": 1,
+  "browser_command": "cd frontend && RAG_BROWSER_CLOSURE=1 RAG_E2E_EXTERNAL=1 node_modules/.bin/playwright test tests/browser/reliability-closure.spec.ts --project=desktop-chromium",
+  "static_checks": [
+    "npm --prefix frontend run typecheck",
+    "npm --prefix frontend run lint"
+  ],
+  "provider": {
+    "browser-closure-20261120": {
+      "actual_calls": 9,
+      "returned_models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "all_receipts_present": true
+    },
+    "browser-confirmation-20261120": {
+      "actual_calls": 6,
+      "returned_models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "all_receipts_present": true
+    },
+    "browser-final-20261120": {
+      "actual_calls": 2,
+      "returned_models": [
+        "gemini-3.5-flash-lite"
+      ],
+      "all_receipts_present": true
+    }
+  }
+}

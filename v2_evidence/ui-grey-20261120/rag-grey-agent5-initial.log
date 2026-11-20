@@ -1,0 +1,107 @@
+
+Running 16 tests using 2 workers
+
+(node:32795) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32794) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32795) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32794) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [desktop-chromium] › tests/browser/workspace.spec.ts:12:3 › Browser UI contract fixtures (not database integration) › login, tenant dashboard, navigation and logout (2.5s)
+  ✓   1 [mobile-chromium] › tests/browser/workspace.spec.ts:12:3 › Browser UI contract fixtures (not database integration) › login, tenant dashboard, navigation and logout (2.6s)
+  ✓   3 [desktop-chromium] › tests/browser/workspace.spec.ts:27:3 › Browser UI contract fixtures (not database integration) › canonical answer status and citation metadata survive reopen and refresh (3.4s)
+  ✓   4 [mobile-chromium] › tests/browser/workspace.spec.ts:27:3 › Browser UI contract fixtures (not database integration) › canonical answer status and citation metadata survive reopen and refresh (3.5s)
+  ✓   6 [mobile-chromium] › tests/browser/workspace.spec.ts:71:3 › Browser UI contract fixtures (not database integration) › permission errors do not render private response details (1.9s)
+  ✓   5 [desktop-chromium] › tests/browser/workspace.spec.ts:71:3 › Browser UI contract fixtures (not database integration) › permission errors do not render private response details (2.1s)
+  ✓   7 [mobile-chromium] › tests/browser/workspace.spec.ts:89:3 › Browser UI contract fixtures (not database integration) › responsive shell supports keyboard skip link and no horizontal overflow (735ms)
+  ✓   8 [desktop-chromium] › tests/browser/workspace.spec.ts:89:3 › Browser UI contract fixtures (not database integration) › responsive shell supports keyboard skip link and no horizontal overflow (694ms)
+  ✓   9 [mobile-chromium] › tests/browser/workspace.spec.ts:106:3 › Browser UI contract fixtures (not database integration) › mobile drawer traps focus and Escape restores its trigger (1.1s)
+  ✓  10 [desktop-chromium] › tests/browser/workspace.spec.ts:106:3 › Browser UI contract fixtures (not database integration) › mobile drawer traps focus and Escape restores its trigger (1.1s)
+  ✓  11 [mobile-chromium] › tests/browser/workspace.spec.ts:132:3 › Browser UI contract fixtures (not database integration) › desktop sidebar collapse and coherent light appearance persist (1.4s)
+  ✓  12 [desktop-chromium] › tests/browser/workspace.spec.ts:132:3 › Browser UI contract fixtures (not database integration) › desktop sidebar collapse and coherent light appearance persist (2.1s)
+  ✘  13 [mobile-chromium] › tests/browser/workspace.spec.ts:153:3 › Browser UI contract fixtures (not database integration) › conversation search, rename and delete use real contract-shaped state (5.8s)
+(node:32953) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  14 [desktop-chromium] › tests/browser/workspace.spec.ts:153:3 › Browser UI contract fixtures (not database integration) › conversation search, rename and delete use real contract-shaped state (5.6s)
+(node:32954) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32953) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32954) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  16 [desktop-chromium] › tests/browser/workspace.spec.ts:209:3 › Browser UI contract fixtures (not database integration) › tablet and phone screens retain readable composer without page overflow (1.8s)
+  ✓  15 [mobile-chromium] › tests/browser/workspace.spec.ts:209:3 › Browser UI contract fixtures (not database integration) › tablet and phone screens retain readable composer without page overflow (2.1s)
+
+
+  1) [desktop-chromium] › tests/browser/workspace.spec.ts:153:3 › Browser UI contract fixtures (not database integration) › conversation search, rename and delete use real contract-shaped state 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('dialog', { name: 'Search conversations' }).getByRole('listitem', { name: 'Orbital research' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('dialog', { name: 'Search conversations' }).getByRole('listitem', { name: 'Orbital research' })[22m
+
+
+      163 |     await expect(
+      164 |       search.getByRole("listitem", { name: "Orbital research" }),
+    > 165 |     ).toBeVisible();
+          |       ^
+      166 |     await expect(
+      167 |       search.getByRole("listitem", { name: "Meeting notes" }),
+      168 |     ).toHaveCount(0);
+        at /Volumes/Storage/rag-project/frontend/tests/browser/workspace.spec.ts:165:7
+
+    Error Context: test-results/grey-agent5-initial/workspace-Browser-UI-contr-b9d5e--real-contract-shaped-state-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/grey-agent5-initial/workspace-Browser-UI-contr-b9d5e--real-contract-shaped-state-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/grey-agent5-initial/workspace-Browser-UI-contr-b9d5e--real-contract-shaped-state-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [mobile-chromium] › tests/browser/workspace.spec.ts:153:3 › Browser UI contract fixtures (not database integration) › conversation search, rename and delete use real contract-shaped state 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('dialog', { name: 'Search conversations' }).getByRole('listitem', { name: 'Orbital research' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('dialog', { name: 'Search conversations' }).getByRole('listitem', { name: 'Orbital research' })[22m
+
+
+      163 |     await expect(
+      164 |       search.getByRole("listitem", { name: "Orbital research" }),
+    > 165 |     ).toBeVisible();
+          |       ^
+      166 |     await expect(
+      167 |       search.getByRole("listitem", { name: "Meeting notes" }),
+      168 |     ).toHaveCount(0);
+        at /Volumes/Storage/rag-project/frontend/tests/browser/workspace.spec.ts:165:7
+
+    Error Context: test-results/grey-agent5-initial/workspace-Browser-UI-contr-b9d5e--real-contract-shaped-state-mobile-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/grey-agent5-initial/workspace-Browser-UI-contr-b9d5e--real-contract-shaped-state-mobile-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/grey-agent5-initial/workspace-Browser-UI-contr-b9d5e--real-contract-shaped-state-mobile-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop-chromium] › tests/browser/workspace.spec.ts:153:3 › Browser UI contract fixtures (not database integration) › conversation search, rename and delete use real contract-shaped state 
+    [mobile-chromium] › tests/browser/workspace.spec.ts:153:3 › Browser UI contract fixtures (not database integration) › conversation search, rename and delete use real contract-shaped state 
+  14 passed (22.8s)

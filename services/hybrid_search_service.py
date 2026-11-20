@@ -6,6 +6,7 @@ from services.fts_service import fts_search
 from services.search_service import semantic_search
 from services.rrf_service import reciprocal_rank_fusion
 from services.reranker_service import rerank_results
+from services.evidence_trace import trace_candidates, trace_event
 
 
 def _interleave(result_lists, top_k):
@@ -81,6 +82,8 @@ def hybrid_search_detailed(
         }
 
     started = time.perf_counter()
+    trace_event('retrieval_scope', metadata={'document_names': document_names,
+                'pages': pages, 'top_k': top_k}, raw={'search_query': query})
     vector_results, keyword_results = [], []
 
     if use_vector:
@@ -90,6 +93,7 @@ def hybrid_search_detailed(
             document_names=document_names, pages=pages,
         )
         timings["vector"] = (time.perf_counter() - t) * 1000
+        trace_candidates('vector_candidates', vector_results)
 
     if use_keyword:
         t = time.perf_counter()
@@ -98,6 +102,7 @@ def hybrid_search_detailed(
             document_names, pages, keyword_backend, drop_stopwords,
         )
         timings["keyword"] = (time.perf_counter() - t) * 1000
+        trace_candidates('lexical_candidates', keyword_results)
 
     t = time.perf_counter()
     lists = [l for l in (keyword_results, vector_results) if l]
@@ -110,6 +115,17 @@ def hybrid_search_detailed(
             lists, k=rrf_k or cfg.RRF_K, top_k=pool
         )
     timings["fusion"] = (time.perf_counter() - t) * 1000
+    trace_candidates('rrf_results', fused)
+    trace_event('fusion_selection', metadata={
+        'algorithm': 'interleave' if fusion == 'interleave' else 'rrf',
+        'input_ids': list(dict.fromkeys(r[0] for batch in lists for r in batch)),
+        'selected_ids': [r['chunk'][0] for r in fused],
+        'removals': ([{'chunk_id': cid, 'reason': 'interleave_pool_limit'}
+                     for cid in dict.fromkeys(r[0] for batch in lists for r in batch)
+                     if cid not in {r['chunk'][0] for r in fused}]
+                     if fusion == 'interleave' else []),
+        'decision_trace_stage': 'fusion_selection' if fusion == 'interleave' else 'rrf_selection',
+        'limit': pool})
 
     if not rerank:
         rerank_status = "disabled"
@@ -130,6 +146,19 @@ def hybrid_search_detailed(
             print(f"Reranker failed ({type(error).__name__}); keeping the RRF order.")
             results = fused[:top_k]
         timings["rerank"] = (time.perf_counter() - t) * 1000
+
+    trace_candidates('rerank_results', results)
+    trace_event('rerank_selection', metadata={
+        'status': rerank_status, 'selected_ids': [r['chunk'][0] for r in results],
+        'input_ids': [r['chunk'][0] for r in fused],
+        'rerank_candidate_limit': rerank_top_k or cfg.RERANK_TOP_K,
+        'removals': [{'chunk_id': item['chunk'][0],
+                      'reason': ('rerank_candidate_limit'
+                                 if rerank_status == 'ok' and rank >= (rerank_top_k or cfg.RERANK_TOP_K)
+                                 else 'rerank_top_k' if rerank_status == 'ok' else 'fusion_top_k')}
+                     for rank, item in enumerate(fused)
+                     if item['chunk'][0] not in {r['chunk'][0] for r in results}],
+        'output_limit': top_k, 'removal_reason': 'rerank_top_k' if rerank_status == 'ok' else 'fusion_top_k'})
 
     timings["total"] = (time.perf_counter() - started) * 1000
 

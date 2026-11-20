@@ -1,0 +1,96 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - button "Open Next.js Dev Tools" [ref=e8] [cursor=pointer]:
+    - img [ref=e9]
+  - alert [ref=e12]
+  - generic [ref=e13]:
+    - complementary [ref=e14]:
+      - link "RAG 2.0" [ref=e16] [cursor=pointer]:
+        - /url: /dashboard
+        - img [ref=e18]
+        - text: RAG
+        - generic [ref=e20]: "2.0"
+      - generic [ref=e21]:
+        - group [ref=e22]:
+          - generic "Workspace" [ref=e23] [cursor=pointer]:
+            - text: Workspace
+            - img [ref=e24]
+          - navigation "Workspace" [ref=e26]:
+            - link "Overview" [ref=e27] [cursor=pointer]:
+              - /url: /dashboard
+              - img [ref=e28]
+              - text: Overview
+            - link "Chat workspace" [ref=e33] [cursor=pointer]:
+              - /url: /chat
+              - img [ref=e34]
+              - text: Chat workspace
+            - link "Documents" [ref=e37] [cursor=pointer]:
+              - /url: /documents
+              - img [ref=e38]
+              - text: Documents
+            - link "Conversations" [ref=e42] [cursor=pointer]:
+              - /url: /conversations
+              - img [ref=e43]
+              - text: Conversations
+            - link "Memory" [ref=e45] [cursor=pointer]:
+              - /url: /memories
+              - img [ref=e46]
+              - text: Memory
+            - link "Activity" [ref=e54] [cursor=pointer]:
+              - /url: /jobs
+              - img [ref=e55]
+              - text: Activity
+            - link "Settings" [ref=e57] [cursor=pointer]:
+              - /url: /settings
+              - img [ref=e58]
+              - text: Settings
+        - generic [ref=e61]:
+          - generic [ref=e62]:
+            - paragraph [ref=e63]: Aster Browser Tester
+            - paragraph [ref=e64]: Personal workspace
+          - generic [ref=e65]:
+            - button "Use dark mode" [ref=e66] [cursor=pointer]:
+              - img
+            - button "Sign out" [ref=e67] [cursor=pointer]:
+              - img
+              - text: Sign out
+    - generic [ref=e68]:
+      - banner [ref=e69]:
+        - generic [ref=e70]: Private knowledge workspace
+        - generic [ref=e71]: Your sources. Grounded answers.
+      - main [ref=e72]:
+        - generic [ref=e73]:
+          - generic [ref=e74]:
+            - heading "Chat workspace" [level=1] [ref=e75]
+            - paragraph [ref=e76]: Ask your sources. Follow every citation.
+          - button "New chat" [ref=e77] [cursor=pointer]:
+            - img
+            - text: New chat
+        - generic [ref=e78]:
+          - log "Conversation messages" [ref=e79]:
+            - article [ref=e80]:
+              - heading "You" [level=2] [ref=e82]
+              - paragraph [ref=e83]: What is the qualifications of Morgan Vale?
+            - article [ref=e84]:
+              - generic [ref=e85]:
+                - heading "RAG" [level=2] [ref=e86]
+                - generic [ref=e87]: answered
+              - paragraph [ref=e88]: Morgan Vale earned a Bachelor of Engineering in Computer Engineering from Sample Institute of Technology from 2016 to 2020 [S1].
+              - link "Open citation S1 · Browser_Check_Morgan_Vale.pdf · p. 2" [active] [ref=e90] [cursor=pointer]:
+                - /url: /api/v2/documents/567ee27b-074a-4d09-9af5-5dd796b8667e/file#page=2
+                - img [ref=e91]
+                - text: S1 · Browser_Check_Morgan_Vale.pdf · p. 2
+          - generic [ref=e94]:
+            - generic [ref=e95]: Your message
+            - textbox "Your message" [ref=e96]:
+              - /placeholder: Ask about your documents…
+            - generic [ref=e97]:
+              - paragraph [ref=e98]: Answers may be incomplete. Check original source pages.
+              - button "Send" [disabled]:
+                - img
+                - text: Send
+```

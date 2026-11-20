@@ -1,0 +1,115 @@
+{
+  "id": "risks",
+  "question": "According to Executive Summary.pdf, how should quality risks and data/copyright risks be mitigated? Cover both.",
+  "result": {
+    "answer": "To mitigate quality risks where AI outputs might be inaccurate or unengaging, the documents recommend maintaining humans-in-the-loop for review, starting with conservative content generation, and gathering student feedback early [S1]. To mitigate data/copyright risks regarding the unauthorized use of licensed content, the documents recommend conducting a legal review of sources, using public or open data, ensuring model outputs are sufficiently rephrased, and citing official guidelines [S1].",
+    "sources": [
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 16,
+        "chunk_id": 199,
+        "ref": "S1"
+      }
+    ],
+    "citations": [
+      {
+        "ref": "S1",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 16,
+        "chunk_id": 199
+      }
+    ],
+    "status": "answered",
+    "issues": [],
+    "retrieval_status": "ok",
+    "retrieved": [
+      {
+        "ref": "S1",
+        "chunk_id": 199,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 16,
+        "retrieval_score": -0.0869041383266449
+      }
+    ],
+    "coverage": {
+      "policy": "v2-explicit-request-coverage/1",
+      "mode": "none",
+      "facets": [],
+      "enumeration_count": null,
+      "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+      "concrete_missing": [],
+      "context_unobserved": [],
+      "answer_checked": true
+    }
+  },
+  "metrics": {
+    "evidence_coverage": true,
+    "evidence_fact_checks": [
+      {
+        "label": "human review",
+        "observed": true
+      },
+      {
+        "label": "conservative generation",
+        "observed": true
+      },
+      {
+        "label": "early feedback",
+        "observed": true
+      },
+      {
+        "label": "legal review",
+        "observed": true
+      },
+      {
+        "label": "open/public data",
+        "observed": true
+      },
+      {
+        "label": "rephrasing",
+        "observed": true
+      }
+    ],
+    "answer_factual_completeness": true,
+    "answer_fact_checks": [
+      {
+        "label": "human review",
+        "observed": true
+      },
+      {
+        "label": "conservative generation",
+        "observed": true
+      },
+      {
+        "label": "early feedback",
+        "observed": true
+      },
+      {
+        "label": "legal review",
+        "observed": true
+      },
+      {
+        "label": "open/public data",
+        "observed": true
+      },
+      {
+        "label": "rephrasing",
+        "observed": true
+      }
+    ],
+    "citation_abstention_correctness": true,
+    "citation_metadata_matches_owned_source": true,
+    "citation_presence_correct": true,
+    "declared_status_correct": true,
+    "selected_chunks": [
+      199
+    ],
+    "selected_pages": [
+      16
+    ],
+    "selected_characters": 757,
+    "scope_and_budget_ok": true
+  },
+  "seconds": 23.752,
+  "provider_calls": 3
+}

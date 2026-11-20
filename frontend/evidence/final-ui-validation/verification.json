@@ -1,0 +1,46 @@
+{
+  "scope": "Final frontend deterministic and provider-free browser verification after deadline/layout fixes",
+  "status": "PASS",
+  "commands": [
+    {
+      "command": "npm run build",
+      "result": "PASS Next16.2.10 production build"
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "PASS strict TypeScript"
+    },
+    {
+      "command": "npm run lint",
+      "result": "PASS zero warnings/errors"
+    },
+    {
+      "command": "npm test",
+      "result": "15 passed,0 failed,0 skipped"
+    },
+    {
+      "command": "RAG_E2E_EXTERNAL=1 RAG_E2E_REAL=1 npm run test:e2e -- tests/browser/workspace.spec.ts tests/browser/real-api.spec.ts --workers=1",
+      "result": "10 passed in26.7seconds;8 API-intercepted UI tests plus2 real scratch-API browser journeys; no providers"
+    },
+    {
+      "command": "node scripts/check-openapi.mjs http://127.0.0.1:8000/api/v2/openapi.json",
+      "result": "24 frontend route/method contracts matched"
+    },
+    {
+      "command": "Configured-secret byte scan of final .next/static JavaScript/map/JSON files",
+      "result": "38files,2configuredsecretvalues,0matches"
+    }
+  ],
+  "live_browser_evidence": "../v2-browser-aster-20261119T092730Z-466c2d/browser_result.json",
+  "live_reexecution": "No provider calls after live PASS; final deadline and layout changes verified with deterministic tests and provider-free browsers.",
+  "screenshots": {
+    "mobile-chromium.png": "de266714c20f9ac5707d8df1e6d770d7a10bb31eedf72b91805a0b0e11684fe5",
+    "desktop-chromium.png": "dbb959f9d4ae07edfae3839db71a38ffe1dc7142c3868a3f05463d276ecbb08a"
+  },
+  "serving": {
+    "frontend": "http://127.0.0.1:3000",
+    "backend_proxy": "http://127.0.0.1:8000",
+    "mode": "production Next server; server-side cookie/CSRF gateway"
+  },
+  "formal_human_evaluation": "Separate; not certified by frontend or synthetic functional tests."
+}

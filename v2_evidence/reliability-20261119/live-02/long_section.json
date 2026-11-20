@@ -1,0 +1,513 @@
+{
+  "id": "long_section",
+  "question": "List all core MVP features and all suggested additional features in Executive Summary.pdf.",
+  "result": {
+    "answer": "- Core / MVP features: AI-generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces [S1]. The narrative notes that core content generation and study tools are prioritized for the MVP [S4], and the comparison table categorizes AI Video Lessons, Topic Summaries/Notes, Dynamic Test Series, Q&A and Forum, and Performance Analytics under the MVP phase [S5].\n- Suggested additional features: Adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements [S1]. The suggested additional features section and comparison table also detail:\n - Adaptive Learning Paths [S2][S5]\n - Live Doubt-Solving Forum [S2][S5]\n - Progress Tracking & Analytics [S2][S5]\n - Gamification [S2][S5]\n - Multilingual Support (or Multilingual Content) [S2][S5]\n - Offline Access & Mobile App [S2][S5]",
+    "sources": [
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 1,
+        "chunk_id": 131,
+        "ref": "S1"
+      },
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 17,
+        "chunk_id": 204,
+        "ref": "S4"
+      },
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 2,
+        "chunk_id": 139,
+        "ref": "S5"
+      },
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 2,
+        "chunk_id": 138,
+        "ref": "S2"
+      }
+    ],
+    "citations": [
+      {
+        "ref": "S1",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 1,
+        "chunk_id": 131
+      },
+      {
+        "ref": "S4",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 17,
+        "chunk_id": 204
+      },
+      {
+        "ref": "S5",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 2,
+        "chunk_id": 139
+      },
+      {
+        "ref": "S2",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 2,
+        "chunk_id": 138
+      }
+    ],
+    "status": "partial",
+    "issues": [
+      "repaired:missing_requested_item:heading_ai_generated_video_lessons,missing_requested_item:heading_question_bank_q_a,missing_requested_item:heading_test_series_quizzes,missing_requested_item:heading_topic_wise_notes_summaries",
+      "missing_requested_item:heading_ai_generated_video_lessons",
+      "missing_requested_item:heading_question_bank_q_a",
+      "missing_requested_item:heading_test_series_quizzes",
+      "missing_requested_item:heading_topic_wise_notes_summaries"
+    ],
+    "retrieval_status": "ok",
+    "retrieved": [
+      {
+        "ref": "S1",
+        "chunk_id": 131,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 1,
+        "retrieval_score": 5.231591701507568
+      },
+      {
+        "ref": "S2",
+        "chunk_id": 138,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 2,
+        "retrieval_score": -1.884756326675415
+      },
+      {
+        "ref": "S3",
+        "chunk_id": 137,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 2,
+        "retrieval_score": -3.773301362991333
+      },
+      {
+        "ref": "S4",
+        "chunk_id": 204,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 17,
+        "retrieval_score": 2.2513480186462402
+      },
+      {
+        "ref": "S5",
+        "chunk_id": 139,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 2,
+        "retrieval_score": null
+      },
+      {
+        "ref": "S6",
+        "chunk_id": 135,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 1,
+        "retrieval_score": 2.0829672813415527
+      },
+      {
+        "ref": "S7",
+        "chunk_id": 132,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 1,
+        "retrieval_score": null
+      },
+      {
+        "ref": "S8",
+        "chunk_id": 133,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 1,
+        "retrieval_score": null
+      }
+    ],
+    "coverage": {
+      "policy": "v2-explicit-request-coverage/2",
+      "mode": "fields",
+      "facets": [
+        {
+          "id": "core_features",
+          "label": "core / MVP features",
+          "pattern": "\\b(?:core|MVP)\\b",
+          "request_pattern": "\\b(?:core|MVP)\\b(?=.{0,35}\\bfeatures?\\b)|\\bfeatures?\\b(?=.{0,35}\\b(?:core|MVP)\\b)",
+          "query_terms": "core MVP product features",
+          "evidence_refs": [
+            "S1",
+            "S4",
+            "S5",
+            "S6",
+            "S8"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": true,
+          "source_fact_signal": true,
+          "source_titles": [],
+          "refused_supported_item": false
+        },
+        {
+          "id": "additional_features",
+          "label": "suggested additional features",
+          "pattern": "\\b(?:additional)\\b",
+          "request_pattern": "\\b(?:additional|extended|later)\\b(?=.{0,35}\\bfeatures?\\b)|\\bfeatures?\\b(?=.{0,35}\\b(?:additional|extended|later)\\b)",
+          "query_terms": "additional product features",
+          "evidence_refs": [
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": true,
+          "source_fact_signal": true,
+          "source_titles": [],
+          "refused_supported_item": false
+        },
+        {
+          "id": "heading_ai_generated_video_lessons",
+          "label": "AI-generated Video Lessons",
+          "pattern": "(?<!\\w)AI(?:[\\W_]+|\\s+and\\s+)generated(?:[\\W_]+|\\s+and\\s+)Video(?:[\\W_]+|\\s+and\\s+)Lessons(?!\\w)",
+          "query_terms": "AI-generated Video Lessons",
+          "literal_titles": [
+            "AI-generated Video Lessons"
+          ],
+          "evidence_refs": [
+            "S6"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": false,
+          "source_fact_signal": true,
+          "source_titles": [
+            "AI-generated Video Lessons"
+          ],
+          "refused_supported_item": false
+        },
+        {
+          "id": "heading_adaptive_learning_paths",
+          "label": "Adaptive Learning Paths",
+          "pattern": "(?<!\\w)Adaptive(?:[\\W_]+|\\s+and\\s+)Learning(?:[\\W_]+|\\s+and\\s+)Paths(?!\\w)",
+          "query_terms": "Adaptive Learning Paths",
+          "literal_titles": [
+            "Adaptive Learning Paths"
+          ],
+          "evidence_refs": [
+            "S1",
+            "S2",
+            "S3",
+            "S5"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": true,
+          "source_fact_signal": true,
+          "source_titles": [
+            "Adaptive Learning Paths"
+          ],
+          "refused_supported_item": false
+        },
+        {
+          "id": "heading_gamification",
+          "label": "Gamification",
+          "pattern": "(?<!\\w)Gamification(?!\\w)",
+          "query_terms": "Gamification",
+          "literal_titles": [
+            "Gamification"
+          ],
+          "evidence_refs": [
+            "S1",
+            "S2",
+            "S5"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": true,
+          "source_fact_signal": true,
+          "source_titles": [
+            "Gamification"
+          ],
+          "refused_supported_item": false
+        },
+        {
+          "id": "heading_live_doubt_solving_forum",
+          "label": "Live Doubt-Solving Forum",
+          "pattern": "(?<!\\w)Live(?:[\\W_]+|\\s+and\\s+)Doubt(?:[\\W_]+|\\s+and\\s+)Solving(?:[\\W_]+|\\s+and\\s+)Forum(?!\\w)",
+          "query_terms": "Live Doubt-Solving Forum",
+          "literal_titles": [
+            "Live Doubt-Solving Forum"
+          ],
+          "evidence_refs": [
+            "S2"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": true,
+          "source_fact_signal": true,
+          "source_titles": [
+            "Live Doubt-Solving Forum"
+          ],
+          "refused_supported_item": false
+        },
+        {
+          "id": "heading_multilingual_support",
+          "label": "Multilingual Support",
+          "pattern": "(?<!\\w)Multilingual(?:[\\W_]+|\\s+and\\s+)Support(?!\\w)",
+          "query_terms": "Multilingual Support",
+          "literal_titles": [
+            "Multilingual Support"
+          ],
+          "evidence_refs": [
+            "S2"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": true,
+          "source_fact_signal": true,
+          "source_titles": [
+            "Multilingual Support"
+          ],
+          "refused_supported_item": false
+        },
+        {
+          "id": "heading_offline_access_mobile_app",
+          "label": "Offline Access & Mobile App",
+          "pattern": "(?<!\\w)Offline(?:[\\W_]+|\\s+and\\s+)Access(?:[\\W_]+|\\s+and\\s+)Mobile(?:[\\W_]+|\\s+and\\s+)App(?!\\w)",
+          "query_terms": "Offline Access & Mobile App",
+          "literal_titles": [
+            "Offline Access & Mobile App"
+          ],
+          "evidence_refs": [
+            "S2"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": true,
+          "source_fact_signal": true,
+          "source_titles": [
+            "Offline Access & Mobile App"
+          ],
+          "refused_supported_item": false
+        },
+        {
+          "id": "heading_progress_tracking_analytics",
+          "label": "Progress Tracking & Analytics",
+          "pattern": "(?<!\\w)Progress(?:[\\W_]+|\\s+and\\s+)Tracking(?:[\\W_]+|\\s+and\\s+)Analytics(?!\\w)",
+          "query_terms": "Progress Tracking & Analytics",
+          "literal_titles": [
+            "Progress Tracking & Analytics"
+          ],
+          "evidence_refs": [
+            "S2"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": true,
+          "source_fact_signal": true,
+          "source_titles": [
+            "Progress Tracking & Analytics"
+          ],
+          "refused_supported_item": false
+        },
+        {
+          "id": "heading_question_bank_q_a",
+          "label": "Question Bank & Q&A",
+          "pattern": "(?<!\\w)Question(?:[\\W_]+|\\s+and\\s+)Bank(?:[\\W_]+|\\s+and\\s+)Q(?:[\\W_]+|\\s+and\\s+)A(?!\\w)",
+          "query_terms": "Question Bank & Q&A",
+          "literal_titles": [
+            "Question Bank & Q&A"
+          ],
+          "evidence_refs": [
+            "S3"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": false,
+          "source_fact_signal": true,
+          "source_titles": [
+            "Question Bank & Q&A"
+          ],
+          "refused_supported_item": false
+        },
+        {
+          "id": "heading_test_series_quizzes",
+          "label": "Test Series & Quizzes",
+          "pattern": "(?<!\\w)Test(?:[\\W_]+|\\s+and\\s+)Series(?:[\\W_]+|\\s+and\\s+)Quizzes(?!\\w)",
+          "query_terms": "Test Series & Quizzes",
+          "literal_titles": [
+            "Test Series & Quizzes"
+          ],
+          "evidence_refs": [
+            "S3"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": false,
+          "source_fact_signal": true,
+          "source_titles": [
+            "Test Series & Quizzes"
+          ],
+          "refused_supported_item": false
+        },
+        {
+          "id": "heading_topic_wise_notes_summaries",
+          "label": "Topic-wise Notes & Summaries",
+          "pattern": "(?<!\\w)Topic(?:[\\W_]+|\\s+and\\s+)wise(?:[\\W_]+|\\s+and\\s+)Notes(?:[\\W_]+|\\s+and\\s+)Summaries(?!\\w)",
+          "query_terms": "Topic-wise Notes & Summaries",
+          "literal_titles": [
+            "Topic-wise Notes & Summaries"
+          ],
+          "evidence_refs": [
+            "S3"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": false,
+          "source_fact_signal": true,
+          "source_titles": [
+            "Topic-wise Notes & Summaries"
+          ],
+          "refused_supported_item": false
+        }
+      ],
+      "enumeration_count": null,
+      "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+      "concrete_missing": [
+        {
+          "id": "heading_ai_generated_video_lessons",
+          "label": "AI-generated Video Lessons",
+          "evidence_refs": [
+            "S6"
+          ]
+        },
+        {
+          "id": "heading_question_bank_q_a",
+          "label": "Question Bank & Q&A",
+          "evidence_refs": [
+            "S3"
+          ]
+        },
+        {
+          "id": "heading_test_series_quizzes",
+          "label": "Test Series & Quizzes",
+          "evidence_refs": [
+            "S3"
+          ]
+        },
+        {
+          "id": "heading_topic_wise_notes_summaries",
+          "label": "Topic-wise Notes & Summaries",
+          "evidence_refs": [
+            "S3"
+          ]
+        }
+      ],
+      "context_unobserved": [],
+      "answer_checked": true
+    }
+  },
+  "metrics": {
+    "evidence_coverage": true,
+    "evidence_fact_checks": [
+      {
+        "label": "video lessons",
+        "observed": true
+      },
+      {
+        "label": "notes/summaries",
+        "observed": true
+      },
+      {
+        "label": "tests/quizzes",
+        "observed": true
+      },
+      {
+        "label": "question bank/Q&A",
+        "observed": true
+      },
+      {
+        "label": "adaptive learning",
+        "observed": true
+      },
+      {
+        "label": "doubt forum",
+        "observed": true
+      },
+      {
+        "label": "progress analytics",
+        "observed": true
+      },
+      {
+        "label": "gamification",
+        "observed": true
+      },
+      {
+        "label": "multilingual",
+        "observed": true
+      },
+      {
+        "label": "offline/mobile",
+        "observed": true
+      }
+    ],
+    "answer_factual_completeness": true,
+    "answer_fact_checks": [
+      {
+        "label": "video lessons",
+        "observed": true
+      },
+      {
+        "label": "notes/summaries",
+        "observed": true
+      },
+      {
+        "label": "tests/quizzes",
+        "observed": true
+      },
+      {
+        "label": "question bank/Q&A",
+        "observed": true
+      },
+      {
+        "label": "adaptive learning",
+        "observed": true
+      },
+      {
+        "label": "doubt forum",
+        "observed": true
+      },
+      {
+        "label": "progress analytics",
+        "observed": true
+      },
+      {
+        "label": "gamification",
+        "observed": true
+      },
+      {
+        "label": "multilingual",
+        "observed": true
+      },
+      {
+        "label": "offline/mobile",
+        "observed": true
+      }
+    ],
+    "citation_abstention_correctness": false,
+    "citation_metadata_matches_owned_source": true,
+    "citation_presence_correct": true,
+    "declared_status_correct": false,
+    "selected_chunks": [
+      131,
+      138,
+      137,
+      204,
+      139,
+      135,
+      132,
+      133
+    ],
+    "selected_pages": [
+      1,
+      2,
+      2,
+      17,
+      2,
+      1,
+      1,
+      1
+    ],
+    "selected_characters": 6020,
+    "scope_and_budget_ok": true
+  },
+  "seconds": 28.31,
+  "provider_calls": 3
+}

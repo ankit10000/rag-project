@@ -1,0 +1,83 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - button "Open Next.js Dev Tools" [ref=e8] [cursor=pointer]:
+    - img [ref=e9]
+  - alert [ref=e12]
+  - generic [ref=e14]:
+    - banner [ref=e15]:
+      - generic [ref=e16]:
+        - button "Toggle navigation" [ref=e17] [cursor=pointer]:
+          - img
+        - link "RAG workspace" [ref=e18] [cursor=pointer]:
+          - /url: /chat
+      - link "Sources" [ref=e19] [cursor=pointer]:
+        - /url: /documents
+        - text: Sources
+        - img [ref=e20]
+    - main [ref=e23]:
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - generic [ref=e26]:
+            - paragraph [ref=e27]: Your sources
+            - heading "Documents" [level=1] [ref=e28]
+            - paragraph [ref=e29]: A private library for grounded answers.
+          - button "Refresh documents" [ref=e30] [cursor=pointer]:
+            - img
+            - text: Refresh
+        - alert [ref=e31]: Choose a PDF file (.pdf).
+        - region "Upload a PDF" [ref=e32]:
+          - generic [ref=e33]:
+            - generic [ref=e34]:
+              - img [ref=e36]
+              - generic [ref=e39]:
+                - heading "Add a source" [level=2] [ref=e40]
+                - paragraph [ref=e41]: Drop a PDF here, or choose a file.
+                - paragraph [ref=e42]: Native and scanned pages · up to 25 MB per PDF
+            - generic [ref=e43]:
+              - generic [ref=e44]: Choose PDF
+              - button "Choose PDF" [ref=e45]
+              - button "Upload PDF" [ref=e46] [cursor=pointer]:
+                - img
+                - text: Upload PDF
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - img
+            - textbox "Search documents" [ref=e49]:
+              - /placeholder: Search documents…
+          - generic [ref=e50]:
+            - generic [ref=e51]: 1 source
+            - generic [ref=e52]: Filter documents by status
+            - combobox "Filter documents by status" [ref=e53]:
+              - option "All statuses" [selected]
+              - option "Ready"
+              - option "Processing"
+              - option "Failed"
+              - option "Cancelled"
+        - table [ref=e56]:
+          - rowgroup [ref=e57]:
+            - row "Document Status Actions" [ref=e58]:
+              - columnheader "Document" [ref=e59]
+              - columnheader "Status" [ref=e60]
+              - columnheader "Actions" [ref=e61]:
+                - generic [ref=e62]: Actions
+          - rowgroup [ref=e63]:
+            - row "observatory.pdf 1 native · 1 OCR page 2 pages Ready Actions for observatory.pdf" [ref=e64]:
+              - cell "observatory.pdf 1 native · 1 OCR page 2 pages" [ref=e65]:
+                - link "observatory.pdf" [ref=e66] [cursor=pointer]:
+                  - /url: /documents/d0000000-0000-4000-8000-000000000001
+                  - img [ref=e67]
+                  - generic [ref=e70]: observatory.pdf
+                - paragraph [ref=e71]: 1 native · 1 OCR page
+                - paragraph [ref=e72]: 2 pages
+              - cell "Ready" [ref=e73]:
+                - generic [ref=e74]:
+                  - img [ref=e75]
+                  - text: Ready
+              - cell "Actions for observatory.pdf" [ref=e77]:
+                - button "Actions for observatory.pdf" [ref=e78] [cursor=pointer]:
+                  - img
+```

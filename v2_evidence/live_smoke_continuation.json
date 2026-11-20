@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "kind": "DETERMINISTIC_POST_LIVE_CONTINUATION",
+  "source_evidence": "v2_evidence/live_smoke_retry1.json",
+  "source_evidence_sha256": "0e2e3ebde93480319ca70020e91ad3245b41ddc2c7fbc14f05015203896343f6",
+  "original_live_status": "FAIL",
+  "original_live_sdk_calls": 11,
+  "additional_provider_calls": 0,
+  "checks": [
+    {
+      "name": "actual_user_supported_provenance",
+      "pass": true,
+      "detail": [
+        [
+          "user",
+          "origin",
+          "user"
+        ],
+        [
+          "user",
+          "origin",
+          "user"
+        ]
+      ]
+    },
+    {
+      "name": "document_remains_deleted",
+      "pass": true
+    },
+    {
+      "name": "stale_lease_cannot_resurrect",
+      "pass": true
+    },
+    {
+      "name": "deleted_chunks_absent",
+      "pass": true
+    },
+    {
+      "name": "coordinated_conversation_delete",
+      "pass": true
+    },
+    {
+      "name": "conversation_memory_sources_cascade",
+      "pass": true,
+      "detail": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "harness_corrections": [
+    "memory link_kind is origin/update/confirmation and source_role must be user, not nonexistent user_source enum",
+    "stale publication embeddings must be a numpy array, matching real generated embedding contract"
+  ],
+  "limits": [
+    "does not overwrite or relabel original live FAIL",
+    "remaining deletion uses same coordinated core as API, not a recreated browser/session"
+  ],
+  "script_sha256": "b0319c814952fb44620feea8da342eca24aa2696bf1e974ee411f3ce9da69566",
+  "finished_at": "2026-11-19T09:14:54.788615+00:00"
+}

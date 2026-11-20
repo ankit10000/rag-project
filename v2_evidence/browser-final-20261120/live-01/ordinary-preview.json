@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "cases": 3,
+  "chat_POSTs": 0,
+  "mode": "ordinary API, no harness patches",
+  "statuses": [
+    "answered",
+    "answered",
+    "partial"
+  ],
+  "original_pages": [
+    2,
+    2,
+    1
+  ]
+}

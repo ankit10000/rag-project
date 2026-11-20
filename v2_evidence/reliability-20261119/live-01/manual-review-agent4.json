@@ -1,0 +1,72 @@
+{
+  "reviewer_type": "AI engineering review; not independent human approval",
+  "automated_metrics_unchanged": true,
+  "reviews": [
+    {
+      "id": "product",
+      "review_verdict": "SUPPORTED_FOR_REQUESTED_FACTS",
+      "note": "Source-bound checks and answer were compared with the declared source facts and citation pages; this is a bounded AI engineering review."
+    },
+    {
+      "id": "estimates",
+      "review_verdict": "SUPPORTED_FOR_REQUESTED_FACTS",
+      "note": "Requested summary duration/team/total-budget values are present. Answer additionally quotes the roadmap three-phase introduction and scoped personnel/hardware components; those extras must not be mistaken for independently consistent totals or phase counts."
+    },
+    {
+      "id": "accessibility",
+      "review_verdict": "SUPPORTED_FOR_REQUESTED_FACTS",
+      "note": "Source-bound checks and answer were compared with the declared source facts and citation pages; this is a bounded AI engineering review."
+    },
+    {
+      "id": "phases",
+      "review_verdict": "SUPPORTED_FOR_REQUESTED_FACTS",
+      "note": "Source-bound checks and answer were compared with the declared source facts and citation pages; this is a bounded AI engineering review."
+    },
+    {
+      "id": "risks",
+      "review_verdict": "SUPPORTED_FOR_REQUESTED_FACTS",
+      "note": "Source-bound checks and answer were compared with the declared source facts and citation pages; this is a bounded AI engineering review."
+    },
+    {
+      "id": "unsupported",
+      "review_verdict": "SUPPORTED_FOR_REQUESTED_FACTS",
+      "note": "Source-bound checks and answer were compared with the declared source facts and citation pages; this is a bounded AI engineering review."
+    },
+    {
+      "id": "cross_page",
+      "review_verdict": "SUPPORTED_FOR_REQUESTED_FACTS",
+      "note": "Source-bound checks and answer were compared with the declared source facts and citation pages; this is a bounded AI engineering review."
+    },
+    {
+      "id": "comparison",
+      "review_verdict": "SUPPORTED_FOR_REQUESTED_FACTS",
+      "note": "Source-bound checks and answer were compared with the declared source facts and citation pages; this is a bounded AI engineering review."
+    },
+    {
+      "id": "follow_up",
+      "review_verdict": "SUPPORTED_FOR_REQUESTED_FACTS",
+      "note": "Source-bound checks and answer were compared with the declared source facts and citation pages; this is a bounded AI engineering review."
+    },
+    {
+      "id": "conflict",
+      "review_verdict": "FAIL_STATUS",
+      "note": "Answer correctly discloses three-versus-four roadmap inconsistency with page15 citations, but declared status is answered rather than conflict."
+    },
+    {
+      "id": "explicit_negative",
+      "review_verdict": "FAIL_FALSE_ABSTENTION",
+      "note": "The public-cloud table supports no upfront cost, and clear cloud prose in source chunk166 was ranked then filtered out. Final answer abstains. Source information is not absent."
+    },
+    {
+      "id": "long_section",
+      "review_verdict": "COVERAGE_PASS_CLASSIFICATION_REVIEW_REQUIRED",
+      "note": "All four core and six suggested additional feature groups are mentioned. Answer also lists analytics/forum among MVP while listing them as additional. Page2 narrative and feature-priority table need a distinction in the lead semantic review; literal coverage alone does not settle category correctness."
+    },
+    {
+      "id": "partial",
+      "review_verdict": "SUPPORTED_FOR_REQUESTED_FACTS",
+      "note": "Source-bound checks and answer were compared with the declared source facts and citation pages; this is a bounded AI engineering review."
+    }
+  ],
+  "provider_calls_for_review": 0
+}

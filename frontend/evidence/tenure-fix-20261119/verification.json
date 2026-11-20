@@ -1,0 +1,74 @@
+{
+  "policy": "v2-verified-employment-months/1",
+  "status": "PASS",
+  "browser_question": "calculate the year of experience in metacube company",
+  "browser_observed": "answered; February2022\u2013November2025; approximately3years9months(45months); resume page1citation",
+  "root_causes": [
+    "Generic semantic retrieval can omit the company/date header.",
+    "Existing numeric validation rejects calculated3/9/45 not literally in cited text and explicitly tells the model not to calculate."
+  ],
+  "fix": "Deterministic closed month/year difference, bound to a unique company/date range in owned ready-source text. Calculation is explicit and approximate; ordinary generated-number validation unchanged.",
+  "scope_limits": [
+    "Closed named-month/year ranges only. Open-ended, ambiguous or missing ranges are not invented.",
+    "An employer interval is not assigned to an undated project.",
+    "Other manual-browser defects remain separately open."
+  ],
+  "tests": {
+    "deterministic": {
+      "passed": 11
+    },
+    "real_guarded_scratch_api": {
+      "passed": 1,
+      "independent_owners": 2
+    },
+    "focused_scripts": [
+      {
+        "file": "test_v2_tenure_calculation.py",
+        "exit_code": 0
+      },
+      {
+        "file": "test_v2_routing_recovery.py",
+        "exit_code": 0
+      },
+      {
+        "file": "test_v2_qualification_focus.py",
+        "exit_code": 0
+      },
+      {
+        "file": "test_stage8_p3_classification.py",
+        "exit_code": 0
+      },
+      {
+        "file": "test_stage6_answer.py",
+        "exit_code": 0
+      },
+      {
+        "file": "test_context_and_citations.py",
+        "exit_code": 0
+      },
+      {
+        "file": "test_b3_answer_reliability.py",
+        "exit_code": 0
+      },
+      {
+        "file": "test_local_v1_retrieval.py",
+        "exit_code": 0
+      },
+      {
+        "file": "test_assignment_flow.py",
+        "exit_code": 0
+      }
+    ]
+  },
+  "source_files": [
+    "services/tenure_calculation.py",
+    "services/rag_service.py",
+    "main.py",
+    "test_v2_tenure_calculation.py"
+  ],
+  "artifacts": [
+    "browser-pass.png",
+    "ui-snapshot.txt"
+  ],
+  "safety": "No schema/productionDB/heldout/scorer changes. New user test chat retained. Credentials not copied to evidence."
+}

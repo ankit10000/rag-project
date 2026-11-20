@@ -1,0 +1,37 @@
+{
+  "identity": "after-context-fix-01",
+  "cases": [
+    {
+      "id": "product",
+      "question": "According to Executive Summary.pdf, what is the proposed product and which three entrance examinations does it target?",
+      "expected": "AI education portal; JEE, GATE, NEET; page 1"
+    },
+    {
+      "id": "estimates",
+      "question": "According to Executive Summary.pdf, what overall development duration, team size and rough budget does the executive summary estimate? Give all three estimates.",
+      "expected": "2\u20133 years; about 10\u201315 people; $1M\u2013$5M over 2 years; page 1"
+    },
+    {
+      "id": "accessibility",
+      "question": "According to Executive Summary.pdf, what multilingual support and offline/mobile access are proposed?",
+      "expected": "Hindi/other regional languages; downloading videos and notes for offline study; mobile app; page 2"
+    },
+    {
+      "id": "phases",
+      "question": "List all four implementation phases and their month ranges from the roadmap in Executive Summary.pdf.",
+      "expected": "Planning & Prototype 0\u20136; MVP Development 6\u201315; Pilot & Feedback 15\u201321; Launch & Scale 21\u201330; page 15"
+    },
+    {
+      "id": "risks",
+      "question": "According to Executive Summary.pdf, how should quality risks and data/copyright risks be mitigated? Cover both.",
+      "expected": "human review/conservative generation/early feedback; legal review/open data/rephrasing; page 16"
+    },
+    {
+      "id": "unsupported",
+      "question": "What is the signed customer contract number for the proposed education portal in Executive Summary.pdf?",
+      "expected": "abstain; no invented contract number"
+    }
+  ],
+  "cap": 24,
+  "scope": "development only; actual tenant-scoped uploaded source; no held-out evaluation"
+}

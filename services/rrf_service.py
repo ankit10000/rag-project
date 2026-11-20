@@ -53,13 +53,15 @@ def reciprocal_rank_fusion(
 
     fused = []
     seen_text = set()
+    removals = []
 
-    for chunk_id, score in ranked_chunks:
+    for index, (chunk_id, score) in enumerate(ranked_chunks):
 
         if dedupe_content:
             key = _content_key(chunks[chunk_id])
 
             if key in seen_text:
+                removals.append({'chunk_id': chunk_id, 'reason': 'duplicate_content'})
                 continue
 
             seen_text.add(key)
@@ -67,6 +69,19 @@ def reciprocal_rank_fusion(
         fused.append({"chunk": chunks[chunk_id], "rrf_score": score})
 
         if len(fused) >= top_k:
+            removals.extend({'chunk_id': cid, 'reason': 'rrf_pool_limit'}
+                            for cid, _ in ranked_chunks[index + 1:])
             break
+
+    # Record the decision where it occurs: content deduplication may remove a
+    # candidate before the pool fills, so absence alone cannot imply a cap.
+    from services.evidence_trace import trace_candidates, trace_event
+    trace_candidates('fusion_rankings', [
+        {'chunk': chunks[cid], 'rrf_score': score} for cid, score in ranked_chunks],
+        selected_ids=[item['chunk'][0] for item in fused],
+        removal_reason={item['chunk_id']: item['reason'] for item in removals})
+    trace_event('rrf_selection', metadata={'algorithm': 'rrf', 'limit': top_k,
+                'dedupe_content': dedupe_content, 'removals': removals,
+                'selected_ids': [item['chunk'][0] for item in fused]})
 
     return fused

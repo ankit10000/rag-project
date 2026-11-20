@@ -1,0 +1,1098 @@
+{
+  "header": {
+    "question": "According to Executive Summary.pdf, does public cloud require upfront capital expenditure?",
+    "authorized_documents": [
+      "e3160c67-ee6d-4983-9029-8273bd35525a"
+    ],
+    "policy": "development-answer-evidence-trace/1"
+  },
+  "raw_enabled": true,
+  "events": [
+    {
+      "stage": "question_category",
+      "elapsed_ms": 0.17,
+      "metadata": {
+        "category": "DOCUMENT",
+        "origin": "predeclared source question; classifier not called"
+      }
+    },
+    {
+      "stage": "retrieval_scope",
+      "elapsed_ms": 0.18,
+      "metadata": {
+        "document_names": null,
+        "pages": null,
+        "top_k": 5
+      },
+      "raw": {
+        "search_query": "According to Executive Summary.pdf, does public cloud require upfront capital expenditure?"
+      }
+    },
+    {
+      "stage": "vector_candidates",
+      "elapsed_ms": 34.77,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 166,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "8587cde65771aec7b9ae70a807dbcbef6be73415a7e437f8c0a1ae1d76174b38"
+            },
+            "selected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": 164,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content": {
+              "chars": 92,
+              "sha256": "77dab37d054296e7e035bac17200ebff651bf2811d3f10d9bbff33de2e257c62"
+            },
+            "selected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": 165,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content": {
+              "chars": 92,
+              "sha256": "163e94d313b394eb207194ce5634457fa516f1aa5d48b8a9656f5ab29d627b15"
+            },
+            "selected": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": 198,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content": {
+              "chars": 92,
+              "sha256": "bebe91c75d16fdd3d43c586e7d0e0a0ea0a94731ec92dfd9b2c505740a6e9625"
+            },
+            "selected": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "51114fa476a8eeb0007a43d5abca8ac16d9e0c9ec88a19a4550e8c158640ba14"
+            },
+            "selected": true
+          },
+          {
+            "rank": 6,
+            "chunk_id": 203,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content": {
+              "chars": 92,
+              "sha256": "417ff67049302e502c60ee36caea8a756ddc3630b37e63084c18754e009798b1"
+            },
+            "selected": true
+          },
+          {
+            "rank": 7,
+            "chunk_id": 204,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content": {
+              "chars": 92,
+              "sha256": "8c5ff69c1579b0749791bae001b49c2234aa26c79bd4c374333b40a116fa5fe6"
+            },
+            "selected": true
+          },
+          {
+            "rank": 8,
+            "chunk_id": 200,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content": {
+              "chars": 92,
+              "sha256": "35cbee6122334d7939965bd4cde11ad753a05116b24b4997f13ee7d3fdab6621"
+            },
+            "selected": true
+          },
+          {
+            "rank": 9,
+            "chunk_id": 46,
+            "document": "37b731aa-5caa-43a5-bfa8-d0d156afde92",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "ad3da45b0e2eb1bf0294533b1446af88596c755d71e88063982e096996c9c776"
+            },
+            "selected": true
+          },
+          {
+            "rank": 10,
+            "chunk_id": 49,
+            "document": "37b731aa-5caa-43a5-bfa8-d0d156afde92",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "894ccef3186f5bcb7d9df5614e5dee751f4529a6bc5b84730a6609f3a9e36a2e"
+            },
+            "selected": true
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 166,
+            "content": "Cloud: Major clouds (AWS/GCP/Azure) offer on-demand GPU instances (e.g. AWS p4d with 8\u00d7A100 at ~\\$32/ hr) and managed ML services. This avoids CapEx but incurs high OpEx. For instance, training a 13B model (~4\u00d7A100 \u00d7 1000 hours) costs ~\\$128K, and a 70B (~32\u00d7A100 \u00d7 2000 hrs) could be >\\$1M. Inference GPUs run \\$3\u2013\\$15/hr per GPU. We may hybridize: use cloud for burst capacity or initial experiments, and move stable workloads on-prem. Cost Comparison: Lenovo shows cloud has \u201cno upfront, pay-as-you-go\u201d but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem"
+          },
+          {
+            "chunk_id": 164,
+            "content": "CogVideo) could be evaluated later. 6. Training Infrastructure & Cost On-Premises: Building an in-house GPU cluster requires significant capital. For example, acquiring NVIDIA A100 or H100 servers (each ~\\$100K\u2013\\$150K for 8\u00d7GPU node) plus networking, storage, and cooling might cost \\$200K\u2013\\$500K upfront. Annual power/cooling can be \\$10K\u2013\\$20K per rack. However, this yields predictable costs for heavy use. Lenovo\u2019s TCO analysis notes that on-premises has \u201chigh initial investment (servers, GPUs) \u2026 [but] cost predictability and efficiency over time\u201d\u301038\u2020L53-L62\u3011\u301038\u2020L74-L82\u3011. We would amortize hardware over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of"
+          },
+          {
+            "chunk_id": 165,
+            "content": "over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of models and data. 8"
+          },
+          {
+            "chunk_id": 198,
+            "content": "\u2022 Misc (licenses, overhead): \\$100K. Total ballpark: \\$1.6M\u2013\\$3M. A more advanced roadmap (larger models, extensive data) could push budgets to the \\$5M level. Milestone Timeline (Mermaid Gantt): Implementation Roadmap Requirements Spec Phase 1: Planning System Architecture & Data Proof-of-Concept AI Models Model Training (NLP, TTS) Phase 2: MVP Development Portal VideoFrontend/BackendPipeline Dev Build Content Filtering Module Phase 3: Pilot & Feedback Internal Pilot Evaluate & Iterate Beta Launch & Fixes Phase 4: Launch & Scale Feature Enhancements (v2) Full Launch Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development"
+          },
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          },
+          {
+            "chunk_id": 203,
+            "content": "living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists) to enforce code quality and reproducibility. 17. Comparison Tables Hosting Options: Option Upfront Cost Scalability Control Recurring Cost Notes High (hardware, Limited by Full (you Low if idle Best if On- infra) purchased own (electricity, consistent Premises \u301038\u2020L53- capacity hardware) maintenance) heavy use L62\u3011 Virtually Less direct Pay-as-you-go Easy to start, Public unlimited None (reliant on (high if used scale; possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost"
+          },
+          {
+            "chunk_id": 204,
+            "content": "possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost (Cloud (some infra + (mix of + cloud + on-demand vs flexibility bursting) cloud) control) overflow) bursts) Table 3. Hosting options (from Lenovo analysis\u301038\u2020L53-L62\u3011\u301038\u2020L74-L82\u3011). Feature Prioritization (MVP vs Later): (See Table 1 above for feature list.) Core content generation and study tools are prioritized for MVP, with personalization, language expansion, and community features in later releases. Model Options: (Key selection factors from previous section summarized in Table 2.) We will continuously benchmark candidate models (e.g. run a small internal evaluation"
+          },
+          {
+            "chunk_id": 200,
+            "content": "Overruns: Training large models can blow budgets. Mitigation: Use open models when possible; optimize with distillation/quantization; consider HPC credits or partnerships. \u2022 Adoption Risk: Students/teachers may distrust AI content. Mitigation: Emphasize quality (pilot studies), build trust via transparency (model cards, citing sources), include teachers in loops. \u2022 Technical Risk: GPU hardware failures or cloud outages. Mitigation: Redundancy, cloud fallback, robust monitoring/alerts. \u2022 Regulatory Risk: New laws (data privacy) may affect operations. Mitigation: Build privacy and security from day one; consult legal experts. Regular risk reviews will be part of project governance. 16. Handoff Deliverables and Templates At each phase we"
+          },
+          {
+            "chunk_id": 46,
+            "content": "CSS, Shadcn/ui, MUI Databases PostgreSQL, pgvector Backend Node.js, Express.js, FastAPI Tools Git, VS Code, Postman, Vite AI / ML Python, LangGraph, RAG, RAGAS Cloud / CI-CD Vercel, Azure SWA, Azure DevOps EXPERIENCE Freelancer Nov 2025 \u2013 Present Freelancer Software Engineer Jaipur, India Sports Management Platform - Backend microservices and voice-driven support \u2013 Built a login microservice and a CRUD microservice (Node.js) as independently deployable services, separating auth from core entity operations \u2013 Built a file upload microservice (Node.js) backed by Azure Blob Storage for scalable file handling \u2013 Built a voice-to-voice RAG engine: Azure Speech Services for STT/TTS, Azure AI"
+          },
+          {
+            "chunk_id": 49,
+            "content": "splitting and lazy-loading IAM SaaS - Multi-tenant identity and access management platform \u2013 Engineered a JSON-driven form engine (Formik + Yup) rendering action-specific forms dynamically; generated Users, Groups, and Mailboxes views from a shared template using SWR for caching \u2013 Delivered 15+ service request features for RBAC, user lifecycle, and entitlement management; built data export interfaces for large paginated datasets and deployed via Azure Static Web Apps with CI/CD Truro Analytics - Dental healthcare SaaS \u2013 Built a conflict-free dental scheduling system using FullCalendar \u2013 editable calendar bookings, patient appointment management, and slot-overlap detection with frontend checks and backend validation"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "lexical_candidates",
+      "elapsed_ms": 58.56,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 203,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content": {
+              "chars": 92,
+              "sha256": "417ff67049302e502c60ee36caea8a756ddc3630b37e63084c18754e009798b1"
+            },
+            "selected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "f78bed05cc06020064b3891b202534bc4747f83fa3f3efdf7ba3aa1b2ca98582"
+            },
+            "selected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": 164,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content": {
+              "chars": 92,
+              "sha256": "77dab37d054296e7e035bac17200ebff651bf2811d3f10d9bbff33de2e257c62"
+            },
+            "selected": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": 166,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "8587cde65771aec7b9ae70a807dbcbef6be73415a7e437f8c0a1ae1d76174b38"
+            },
+            "selected": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": 171,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "4f75108c24404175b7f0e95d17cce99209fc778c1fc4878f939d6c85cf2a9c2d"
+            },
+            "selected": true
+          },
+          {
+            "rank": 6,
+            "chunk_id": 45,
+            "document": "37b731aa-5caa-43a5-bfa8-d0d156afde92",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "2ccc184bee58d79149974517543a1a22e987193cabaf244599f43bb179975a26"
+            },
+            "selected": true
+          },
+          {
+            "rank": 7,
+            "chunk_id": 170,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "bbbe6e2ca49116e9bf9d2e8976b20abe2f0145e5c039f0f9ab4a7c02ad0b722f"
+            },
+            "selected": true
+          },
+          {
+            "rank": 8,
+            "chunk_id": 148,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 4,
+            "content": {
+              "chars": 92,
+              "sha256": "28845082bd439aa8cc2f534bd466a160abf7dd5e400733980e88345005823839"
+            },
+            "selected": true
+          },
+          {
+            "rank": 9,
+            "chunk_id": 132,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "0465d8e196f25edfc8213341f1f8787fb6faed1a7d26aec0acf333c73ddb545d"
+            },
+            "selected": true
+          },
+          {
+            "rank": 10,
+            "chunk_id": 167,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "c6d1e2f9f7849010756bc6b05394fec1aa6933f47089ffa1adbdf4d592211149"
+            },
+            "selected": true
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 203,
+            "content": "living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists) to enforce code quality and reproducibility. 17. Comparison Tables Hosting Options: Option Upfront Cost Scalability Control Recurring Cost Notes High (hardware, Limited by Full (you Low if idle Best if On- infra) purchased own (electricity, consistent Premises \u301038\u2020L53- capacity hardware) maintenance) heavy use L62\u3011 Virtually Less direct Pay-as-you-go Easy to start, Public unlimited None (reliant on (high if used scale; possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 164,
+            "content": "CogVideo) could be evaluated later. 6. Training Infrastructure & Cost On-Premises: Building an in-house GPU cluster requires significant capital. For example, acquiring NVIDIA A100 or H100 servers (each ~\\$100K\u2013\\$150K for 8\u00d7GPU node) plus networking, storage, and cooling might cost \\$200K\u2013\\$500K upfront. Annual power/cooling can be \\$10K\u2013\\$20K per rack. However, this yields predictable costs for heavy use. Lenovo\u2019s TCO analysis notes that on-premises has \u201chigh initial investment (servers, GPUs) \u2026 [but] cost predictability and efficiency over time\u201d\u301038\u2020L53-L62\u3011\u301038\u2020L74-L82\u3011. We would amortize hardware over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of"
+          },
+          {
+            "chunk_id": 166,
+            "content": "Cloud: Major clouds (AWS/GCP/Azure) offer on-demand GPU instances (e.g. AWS p4d with 8\u00d7A100 at ~\\$32/ hr) and managed ML services. This avoids CapEx but incurs high OpEx. For instance, training a 13B model (~4\u00d7A100 \u00d7 1000 hours) costs ~\\$128K, and a 70B (~32\u00d7A100 \u00d7 2000 hrs) could be >\\$1M. Inference GPUs run \\$3\u2013\\$15/hr per GPU. We may hybridize: use cloud for burst capacity or initial experiments, and move stable workloads on-prem. Cost Comparison: Lenovo shows cloud has \u201cno upfront, pay-as-you-go\u201d but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem"
+          },
+          {
+            "chunk_id": 171,
+            "content": "Llama-70B vs 7B\u301040\u2020L39-L41\u3011), but require more GPUs and slow down inference. We may employ quantization (INT8), distillation, or splitting tasks (e.g. smaller model for initial filter, larger for final answer) to optimize. 9"
+          },
+          {
+            "chunk_id": 45,
+            "content": "Ajay Pal Rawat \u0083 +91-9829535768 \u2014 # palrawatajay@gmail.com \u2014 \u00ef linkedin.com/in/ajay-pal-rawat \u2014 * Jaipur, Rajasthan, India SUMMARY \u2014 Full Stack Engineer with 4+ years shipping UI-heavy B2B SaaS products and Node.js microservices; currently Co-Founder at Nexentity building Node.js backends, a Python-based voice-to-voice RAG engine, and React.js frontends. Previously at Metacube Software (Fortune 500 clients), shipping a production RAG agent in Python/LangGraph. Working knowledge of TypeScript, GraphQL, Jest. SKILLS Frontend React.js, TypeScript, Redux, SWR Testing Jest, RTL UI & Styling Tailwind CSS, Shadcn/ui, MUI Databases PostgreSQL, pgvector Backend Node.js, Express.js, FastAPI Tools Git, VS Code, Postman, Vite AI / ML Python,"
+          },
+          {
+            "chunk_id": 170,
+            "content": "order of 7B+ parameters\u30109\u2020L1106-L1114\u3011. If training in-house, we may limit to 5\u201310B. Alternatively, use much smaller architectures (few billion) optimized for lower resolution (e.g. 480p) and short clips. \u2022 Filtering/Classifier Models: Smaller classification models (150M\u20131B) like BERT or fine-tuned Llama can be used for content filtering and policy enforcement. They must run fast (ideally <100ms) so moderate size (a few hundred million) is enough with GPU acceleration. Model size selection balances accuracy and latency. Larger models yield better answers/coverage (e.g. Llama-70B vs 7B\u301040\u2020L39-L41\u3011), but require more GPUs and slow down inference. We may employ quantization (INT8), distillation, or splitting tasks"
+          },
+          {
+            "chunk_id": 148,
+            "content": "from NTA and GATE websites defining the scope of each exam (topics list, blueprint). \u2022 Open Educational Resources: Where possible, use freely licensed content (Khan Academy, MIT OpenCourseWare, etc.) for supplementary examples or visuals to avoid copyrights. \u2022 Multimedia Assets: Public domain or licensed images, diagrams, animations for video backgrounds and slides. E.g. PhET simulations for physics (interactive elements), stock science illustrations. \u2022 Audio Data: (if training TTS) clean speech samples (e.g. LJSpeech, LibriTTS) and optionally teacher voices to clone. Data Collection Strategies: \u2022 Automated Scraping: Download all available PDFs and web resources (syllabi, question PDFs). Use OCR to extract"
+          },
+          {
+            "chunk_id": 132,
+            "content": "safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host our own models (e.g. fine-tuned large language models, text- to-video systems, TTS/ASR engines) to minimize recurring cloud fees and maximize control. Key resources are official curricula (NCERT textbooks, NTA and IIT archival exam materials) for content, and carefully curated datasets (past papers, standard textbooks) for model training. We recommend a hybrid infrastructure (GPU server cluster plus cloud overflow) to balance cost vs scalability. Evaluation will combine standard ML metrics (accuracy, BLEU/ROUGE, etc.) with pedagogical validation (expert reviews, student testing). We"
+          },
+          {
+            "chunk_id": 167,
+            "content": "but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem hardware over first 1\u20132 years. Scaling: Cloud is easier to scale up/down with user demand (auto-scaling for inference). On-prem scaling is limited by purchased capacity (though GPUs can be added gradually). We should monitor utilization: if we rarely use full capacity, cloud may be cheaper; if heavy training/inference is constant, on-prem wins over time. 7. Model Architectures and Sizes Given the tasks, we recommend transformer-based architectures with sizes chosen for performance vs cost: \u2022 Text Models: Encoder-decoder (T5-like) or decoder"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rrf_results",
+      "elapsed_ms": 58.91,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 166,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "8587cde65771aec7b9ae70a807dbcbef6be73415a7e437f8c0a1ae1d76174b38"
+            },
+            "selected": true,
+            "rrf_score": 0.032018442622950824
+          },
+          {
+            "rank": 2,
+            "chunk_id": 164,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content": {
+              "chars": 92,
+              "sha256": "77dab37d054296e7e035bac17200ebff651bf2811d3f10d9bbff33de2e257c62"
+            },
+            "selected": true,
+            "rrf_score": 0.03200204813108039
+          },
+          {
+            "rank": 3,
+            "chunk_id": 203,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content": {
+              "chars": 92,
+              "sha256": "417ff67049302e502c60ee36caea8a756ddc3630b37e63084c18754e009798b1"
+            },
+            "selected": true,
+            "rrf_score": 0.031544957774465976
+          },
+          {
+            "rank": 4,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "f78bed05cc06020064b3891b202534bc4747f83fa3f3efdf7ba3aa1b2ca98582"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516
+          },
+          {
+            "rank": 5,
+            "chunk_id": 165,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content": {
+              "chars": 92,
+              "sha256": "163e94d313b394eb207194ce5634457fa516f1aa5d48b8a9656f5ab29d627b15"
+            },
+            "selected": true,
+            "rrf_score": 0.015873015873015872
+          },
+          {
+            "rank": 6,
+            "chunk_id": 198,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content": {
+              "chars": 92,
+              "sha256": "bebe91c75d16fdd3d43c586e7d0e0a0ea0a94731ec92dfd9b2c505740a6e9625"
+            },
+            "selected": true,
+            "rrf_score": 0.015625
+          },
+          {
+            "rank": 7,
+            "chunk_id": 171,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "4f75108c24404175b7f0e95d17cce99209fc778c1fc4878f939d6c85cf2a9c2d"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385
+          },
+          {
+            "rank": 8,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "51114fa476a8eeb0007a43d5abca8ac16d9e0c9ec88a19a4550e8c158640ba14"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385
+          },
+          {
+            "rank": 9,
+            "chunk_id": 45,
+            "document": "37b731aa-5caa-43a5-bfa8-d0d156afde92",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "2ccc184bee58d79149974517543a1a22e987193cabaf244599f43bb179975a26"
+            },
+            "selected": true,
+            "rrf_score": 0.015151515151515152
+          },
+          {
+            "rank": 10,
+            "chunk_id": 170,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "bbbe6e2ca49116e9bf9d2e8976b20abe2f0145e5c039f0f9ab4a7c02ad0b722f"
+            },
+            "selected": true,
+            "rrf_score": 0.014925373134328358
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 166,
+            "content": "Cloud: Major clouds (AWS/GCP/Azure) offer on-demand GPU instances (e.g. AWS p4d with 8\u00d7A100 at ~\\$32/ hr) and managed ML services. This avoids CapEx but incurs high OpEx. For instance, training a 13B model (~4\u00d7A100 \u00d7 1000 hours) costs ~\\$128K, and a 70B (~32\u00d7A100 \u00d7 2000 hrs) could be >\\$1M. Inference GPUs run \\$3\u2013\\$15/hr per GPU. We may hybridize: use cloud for burst capacity or initial experiments, and move stable workloads on-prem. Cost Comparison: Lenovo shows cloud has \u201cno upfront, pay-as-you-go\u201d but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem"
+          },
+          {
+            "chunk_id": 164,
+            "content": "CogVideo) could be evaluated later. 6. Training Infrastructure & Cost On-Premises: Building an in-house GPU cluster requires significant capital. For example, acquiring NVIDIA A100 or H100 servers (each ~\\$100K\u2013\\$150K for 8\u00d7GPU node) plus networking, storage, and cooling might cost \\$200K\u2013\\$500K upfront. Annual power/cooling can be \\$10K\u2013\\$20K per rack. However, this yields predictable costs for heavy use. Lenovo\u2019s TCO analysis notes that on-premises has \u201chigh initial investment (servers, GPUs) \u2026 [but] cost predictability and efficiency over time\u201d\u301038\u2020L53-L62\u3011\u301038\u2020L74-L82\u3011. We would amortize hardware over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of"
+          },
+          {
+            "chunk_id": 203,
+            "content": "living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists) to enforce code quality and reproducibility. 17. Comparison Tables Hosting Options: Option Upfront Cost Scalability Control Recurring Cost Notes High (hardware, Limited by Full (you Low if idle Best if On- infra) purchased own (electricity, consistent Premises \u301038\u2020L53- capacity hardware) maintenance) heavy use L62\u3011 Virtually Less direct Pay-as-you-go Easy to start, Public unlimited None (reliant on (high if used scale; possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 165,
+            "content": "over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of models and data. 8"
+          },
+          {
+            "chunk_id": 198,
+            "content": "\u2022 Misc (licenses, overhead): \\$100K. Total ballpark: \\$1.6M\u2013\\$3M. A more advanced roadmap (larger models, extensive data) could push budgets to the \\$5M level. Milestone Timeline (Mermaid Gantt): Implementation Roadmap Requirements Spec Phase 1: Planning System Architecture & Data Proof-of-Concept AI Models Model Training (NLP, TTS) Phase 2: MVP Development Portal VideoFrontend/BackendPipeline Dev Build Content Filtering Module Phase 3: Pilot & Feedback Internal Pilot Evaluate & Iterate Beta Launch & Fixes Phase 4: Launch & Scale Feature Enhancements (v2) Full Launch Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development"
+          },
+          {
+            "chunk_id": 171,
+            "content": "Llama-70B vs 7B\u301040\u2020L39-L41\u3011), but require more GPUs and slow down inference. We may employ quantization (INT8), distillation, or splitting tasks (e.g. smaller model for initial filter, larger for final answer) to optimize. 9"
+          },
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          },
+          {
+            "chunk_id": 45,
+            "content": "Ajay Pal Rawat \u0083 +91-9829535768 \u2014 # palrawatajay@gmail.com \u2014 \u00ef linkedin.com/in/ajay-pal-rawat \u2014 * Jaipur, Rajasthan, India SUMMARY \u2014 Full Stack Engineer with 4+ years shipping UI-heavy B2B SaaS products and Node.js microservices; currently Co-Founder at Nexentity building Node.js backends, a Python-based voice-to-voice RAG engine, and React.js frontends. Previously at Metacube Software (Fortune 500 clients), shipping a production RAG agent in Python/LangGraph. Working knowledge of TypeScript, GraphQL, Jest. SKILLS Frontend React.js, TypeScript, Redux, SWR Testing Jest, RTL UI & Styling Tailwind CSS, Shadcn/ui, MUI Databases PostgreSQL, pgvector Backend Node.js, Express.js, FastAPI Tools Git, VS Code, Postman, Vite AI / ML Python,"
+          },
+          {
+            "chunk_id": 170,
+            "content": "order of 7B+ parameters\u30109\u2020L1106-L1114\u3011. If training in-house, we may limit to 5\u201310B. Alternatively, use much smaller architectures (few billion) optimized for lower resolution (e.g. 480p) and short clips. \u2022 Filtering/Classifier Models: Smaller classification models (150M\u20131B) like BERT or fine-tuned Llama can be used for content filtering and policy enforcement. They must run fast (ideally <100ms) so moderate size (a few hundred million) is enough with GPU acceleration. Model size selection balances accuracy and latency. Larger models yield better answers/coverage (e.g. Llama-70B vs 7B\u301040\u2020L39-L41\u3011), but require more GPUs and slow down inference. We may employ quantization (INT8), distillation, or splitting tasks"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "fusion_selection",
+      "elapsed_ms": 59.05,
+      "metadata": {
+        "input_ids": [
+          203,
+          131,
+          164,
+          166,
+          171,
+          45,
+          170,
+          148,
+          132,
+          167,
+          165,
+          198,
+          197,
+          204,
+          200,
+          46,
+          49
+        ],
+        "selected_ids": [
+          166,
+          164,
+          203,
+          131,
+          165,
+          198,
+          171,
+          197,
+          45,
+          170
+        ],
+        "removal_reason": "rrf_pool_limit",
+        "limit": 10
+      }
+    },
+    {
+      "stage": "reranker_scores",
+      "elapsed_ms": 100.95,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 164,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content": {
+              "chars": 92,
+              "sha256": "77dab37d054296e7e035bac17200ebff651bf2811d3f10d9bbff33de2e257c62"
+            },
+            "selected": true,
+            "rrf_score": 0.03200204813108039,
+            "rerank_score": -7.485410213470459
+          },
+          {
+            "rank": 2,
+            "chunk_id": 203,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content": {
+              "chars": 92,
+              "sha256": "417ff67049302e502c60ee36caea8a756ddc3630b37e63084c18754e009798b1"
+            },
+            "selected": true,
+            "rrf_score": 0.031544957774465976,
+            "rerank_score": -7.574707508087158
+          },
+          {
+            "rank": 3,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "f78bed05cc06020064b3891b202534bc4747f83fa3f3efdf7ba3aa1b2ca98582"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -9.65269660949707
+          },
+          {
+            "rank": 4,
+            "chunk_id": 166,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "8587cde65771aec7b9ae70a807dbcbef6be73415a7e437f8c0a1ae1d76174b38"
+            },
+            "selected": true,
+            "rrf_score": 0.032018442622950824,
+            "rerank_score": -9.9521484375
+          },
+          {
+            "rank": 5,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "51114fa476a8eeb0007a43d5abca8ac16d9e0c9ec88a19a4550e8c158640ba14"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385,
+            "rerank_score": -11.214588165283203
+          },
+          {
+            "rank": 6,
+            "chunk_id": 198,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content": {
+              "chars": 92,
+              "sha256": "bebe91c75d16fdd3d43c586e7d0e0a0ea0a94731ec92dfd9b2c505740a6e9625"
+            },
+            "selected": false,
+            "rrf_score": 0.015625,
+            "rerank_score": -11.37059497833252,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 7,
+            "chunk_id": 170,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "bbbe6e2ca49116e9bf9d2e8976b20abe2f0145e5c039f0f9ab4a7c02ad0b722f"
+            },
+            "selected": false,
+            "rrf_score": 0.014925373134328358,
+            "rerank_score": -11.392902374267578,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 8,
+            "chunk_id": 171,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "4f75108c24404175b7f0e95d17cce99209fc778c1fc4878f939d6c85cf2a9c2d"
+            },
+            "selected": false,
+            "rrf_score": 0.015384615384615385,
+            "rerank_score": -11.411176681518555,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 9,
+            "chunk_id": 165,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content": {
+              "chars": 92,
+              "sha256": "163e94d313b394eb207194ce5634457fa516f1aa5d48b8a9656f5ab29d627b15"
+            },
+            "selected": false,
+            "rrf_score": 0.015873015873015872,
+            "rerank_score": -11.414791107177734,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 10,
+            "chunk_id": 45,
+            "document": "37b731aa-5caa-43a5-bfa8-d0d156afde92",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "2ccc184bee58d79149974517543a1a22e987193cabaf244599f43bb179975a26"
+            },
+            "selected": false,
+            "rrf_score": 0.015151515151515152,
+            "rerank_score": -11.435529708862305,
+            "removal_reason": "rerank_top_k"
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 164,
+            "content": "CogVideo) could be evaluated later. 6. Training Infrastructure & Cost On-Premises: Building an in-house GPU cluster requires significant capital. For example, acquiring NVIDIA A100 or H100 servers (each ~\\$100K\u2013\\$150K for 8\u00d7GPU node) plus networking, storage, and cooling might cost \\$200K\u2013\\$500K upfront. Annual power/cooling can be \\$10K\u2013\\$20K per rack. However, this yields predictable costs for heavy use. Lenovo\u2019s TCO analysis notes that on-premises has \u201chigh initial investment (servers, GPUs) \u2026 [but] cost predictability and efficiency over time\u201d\u301038\u2020L53-L62\u3011\u301038\u2020L74-L82\u3011. We would amortize hardware over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of"
+          },
+          {
+            "chunk_id": 203,
+            "content": "living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists) to enforce code quality and reproducibility. 17. Comparison Tables Hosting Options: Option Upfront Cost Scalability Control Recurring Cost Notes High (hardware, Limited by Full (you Low if idle Best if On- infra) purchased own (electricity, consistent Premises \u301038\u2020L53- capacity hardware) maintenance) heavy use L62\u3011 Virtually Less direct Pay-as-you-go Easy to start, Public unlimited None (reliant on (high if used scale; possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 166,
+            "content": "Cloud: Major clouds (AWS/GCP/Azure) offer on-demand GPU instances (e.g. AWS p4d with 8\u00d7A100 at ~\\$32/ hr) and managed ML services. This avoids CapEx but incurs high OpEx. For instance, training a 13B model (~4\u00d7A100 \u00d7 1000 hours) costs ~\\$128K, and a 70B (~32\u00d7A100 \u00d7 2000 hrs) could be >\\$1M. Inference GPUs run \\$3\u2013\\$15/hr per GPU. We may hybridize: use cloud for burst capacity or initial experiments, and move stable workloads on-prem. Cost Comparison: Lenovo shows cloud has \u201cno upfront, pay-as-you-go\u201d but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem"
+          },
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          },
+          {
+            "chunk_id": 198,
+            "content": "\u2022 Misc (licenses, overhead): \\$100K. Total ballpark: \\$1.6M\u2013\\$3M. A more advanced roadmap (larger models, extensive data) could push budgets to the \\$5M level. Milestone Timeline (Mermaid Gantt): Implementation Roadmap Requirements Spec Phase 1: Planning System Architecture & Data Proof-of-Concept AI Models Model Training (NLP, TTS) Phase 2: MVP Development Portal VideoFrontend/BackendPipeline Dev Build Content Filtering Module Phase 3: Pilot & Feedback Internal Pilot Evaluate & Iterate Beta Launch & Fixes Phase 4: Launch & Scale Feature Enhancements (v2) Full Launch Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development"
+          },
+          {
+            "chunk_id": 170,
+            "content": "order of 7B+ parameters\u30109\u2020L1106-L1114\u3011. If training in-house, we may limit to 5\u201310B. Alternatively, use much smaller architectures (few billion) optimized for lower resolution (e.g. 480p) and short clips. \u2022 Filtering/Classifier Models: Smaller classification models (150M\u20131B) like BERT or fine-tuned Llama can be used for content filtering and policy enforcement. They must run fast (ideally <100ms) so moderate size (a few hundred million) is enough with GPU acceleration. Model size selection balances accuracy and latency. Larger models yield better answers/coverage (e.g. Llama-70B vs 7B\u301040\u2020L39-L41\u3011), but require more GPUs and slow down inference. We may employ quantization (INT8), distillation, or splitting tasks"
+          },
+          {
+            "chunk_id": 171,
+            "content": "Llama-70B vs 7B\u301040\u2020L39-L41\u3011), but require more GPUs and slow down inference. We may employ quantization (INT8), distillation, or splitting tasks (e.g. smaller model for initial filter, larger for final answer) to optimize. 9"
+          },
+          {
+            "chunk_id": 165,
+            "content": "over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of models and data. 8"
+          },
+          {
+            "chunk_id": 45,
+            "content": "Ajay Pal Rawat \u0083 +91-9829535768 \u2014 # palrawatajay@gmail.com \u2014 \u00ef linkedin.com/in/ajay-pal-rawat \u2014 * Jaipur, Rajasthan, India SUMMARY \u2014 Full Stack Engineer with 4+ years shipping UI-heavy B2B SaaS products and Node.js microservices; currently Co-Founder at Nexentity building Node.js backends, a Python-based voice-to-voice RAG engine, and React.js frontends. Previously at Metacube Software (Fortune 500 clients), shipping a production RAG agent in Python/LangGraph. Working knowledge of TypeScript, GraphQL, Jest. SKILLS Frontend React.js, TypeScript, Redux, SWR Testing Jest, RTL UI & Styling Tailwind CSS, Shadcn/ui, MUI Databases PostgreSQL, pgvector Backend Node.js, Express.js, FastAPI Tools Git, VS Code, Postman, Vite AI / ML Python,"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rerank_results",
+      "elapsed_ms": 101.19,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 164,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content": {
+              "chars": 92,
+              "sha256": "77dab37d054296e7e035bac17200ebff651bf2811d3f10d9bbff33de2e257c62"
+            },
+            "selected": true,
+            "rrf_score": 0.03200204813108039,
+            "rerank_score": -7.485410213470459
+          },
+          {
+            "rank": 2,
+            "chunk_id": 203,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content": {
+              "chars": 92,
+              "sha256": "417ff67049302e502c60ee36caea8a756ddc3630b37e63084c18754e009798b1"
+            },
+            "selected": true,
+            "rrf_score": 0.031544957774465976,
+            "rerank_score": -7.574707508087158
+          },
+          {
+            "rank": 3,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "f78bed05cc06020064b3891b202534bc4747f83fa3f3efdf7ba3aa1b2ca98582"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -9.65269660949707
+          },
+          {
+            "rank": 4,
+            "chunk_id": 166,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "8587cde65771aec7b9ae70a807dbcbef6be73415a7e437f8c0a1ae1d76174b38"
+            },
+            "selected": true,
+            "rrf_score": 0.032018442622950824,
+            "rerank_score": -9.9521484375
+          },
+          {
+            "rank": 5,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "51114fa476a8eeb0007a43d5abca8ac16d9e0c9ec88a19a4550e8c158640ba14"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385,
+            "rerank_score": -11.214588165283203
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 164,
+            "content": "CogVideo) could be evaluated later. 6. Training Infrastructure & Cost On-Premises: Building an in-house GPU cluster requires significant capital. For example, acquiring NVIDIA A100 or H100 servers (each ~\\$100K\u2013\\$150K for 8\u00d7GPU node) plus networking, storage, and cooling might cost \\$200K\u2013\\$500K upfront. Annual power/cooling can be \\$10K\u2013\\$20K per rack. However, this yields predictable costs for heavy use. Lenovo\u2019s TCO analysis notes that on-premises has \u201chigh initial investment (servers, GPUs) \u2026 [but] cost predictability and efficiency over time\u201d\u301038\u2020L53-L62\u3011\u301038\u2020L74-L82\u3011. We would amortize hardware over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of"
+          },
+          {
+            "chunk_id": 203,
+            "content": "living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists) to enforce code quality and reproducibility. 17. Comparison Tables Hosting Options: Option Upfront Cost Scalability Control Recurring Cost Notes High (hardware, Limited by Full (you Low if idle Best if On- infra) purchased own (electricity, consistent Premises \u301038\u2020L53- capacity hardware) maintenance) heavy use L62\u3011 Virtually Less direct Pay-as-you-go Easy to start, Public unlimited None (reliant on (high if used scale; possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 166,
+            "content": "Cloud: Major clouds (AWS/GCP/Azure) offer on-demand GPU instances (e.g. AWS p4d with 8\u00d7A100 at ~\\$32/ hr) and managed ML services. This avoids CapEx but incurs high OpEx. For instance, training a 13B model (~4\u00d7A100 \u00d7 1000 hours) costs ~\\$128K, and a 70B (~32\u00d7A100 \u00d7 2000 hrs) could be >\\$1M. Inference GPUs run \\$3\u2013\\$15/hr per GPU. We may hybridize: use cloud for burst capacity or initial experiments, and move stable workloads on-prem. Cost Comparison: Lenovo shows cloud has \u201cno upfront, pay-as-you-go\u201d but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem"
+          },
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rerank_selection",
+      "elapsed_ms": 101.29,
+      "metadata": {
+        "status": "ok",
+        "selected_ids": [
+          164,
+          203,
+          131,
+          166,
+          197
+        ],
+        "input_ids": [
+          166,
+          164,
+          203,
+          131,
+          165,
+          198,
+          171,
+          197,
+          45,
+          170
+        ],
+        "rerank_candidate_limit": 10,
+        "output_limit": 5,
+        "removal_reason": "rerank_top_k"
+      }
+    },
+    {
+      "stage": "adaptive_filter",
+      "elapsed_ms": 101.34,
+      "metadata": {
+        "removals": [
+          {
+            "chunk_id": 131,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -9.65269660949707,
+            "threshold": -9.485410213470459
+          },
+          {
+            "chunk_id": 166,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -9.9521484375,
+            "threshold": -9.485410213470459
+          },
+          {
+            "chunk_id": 197,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -11.214588165283203,
+            "threshold": -9.485410213470459
+          }
+        ],
+        "input_ids": [
+          164,
+          203,
+          131,
+          166,
+          197
+        ],
+        "selected_ids": [
+          164,
+          203
+        ]
+      }
+    },
+    {
+      "stage": "after_adaptive_filter",
+      "elapsed_ms": 101.37,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 164,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content": {
+              "chars": 92,
+              "sha256": "77dab37d054296e7e035bac17200ebff651bf2811d3f10d9bbff33de2e257c62"
+            },
+            "selected": true,
+            "rrf_score": 0.03200204813108039,
+            "rerank_score": -7.485410213470459
+          },
+          {
+            "rank": 2,
+            "chunk_id": 203,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content": {
+              "chars": 92,
+              "sha256": "417ff67049302e502c60ee36caea8a756ddc3630b37e63084c18754e009798b1"
+            },
+            "selected": true,
+            "rrf_score": 0.031544957774465976,
+            "rerank_score": -7.574707508087158
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 164,
+            "content": "CogVideo) could be evaluated later. 6. Training Infrastructure & Cost On-Premises: Building an in-house GPU cluster requires significant capital. For example, acquiring NVIDIA A100 or H100 servers (each ~\\$100K\u2013\\$150K for 8\u00d7GPU node) plus networking, storage, and cooling might cost \\$200K\u2013\\$500K upfront. Annual power/cooling can be \\$10K\u2013\\$20K per rack. However, this yields predictable costs for heavy use. Lenovo\u2019s TCO analysis notes that on-premises has \u201chigh initial investment (servers, GPUs) \u2026 [but] cost predictability and efficiency over time\u201d\u301038\u2020L53-L62\u3011\u301038\u2020L74-L82\u3011. We would amortize hardware over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of"
+          },
+          {
+            "chunk_id": 203,
+            "content": "living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists) to enforce code quality and reproducibility. 17. Comparison Tables Hosting Options: Option Upfront Cost Scalability Control Recurring Cost Notes High (hardware, Limited by Full (you Low if idle Best if On- infra) purchased own (electricity, consistent Premises \u301038\u2020L53- capacity hardware) maintenance) heavy use L62\u3011 Virtually Less direct Pay-as-you-go Easy to start, Public unlimited None (reliant on (high if used scale; possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "page_continuity",
+      "elapsed_ms": 101.42,
+      "metadata": {
+        "recovered_ids": []
+      }
+    },
+    {
+      "stage": "after_page_continuity",
+      "elapsed_ms": 101.43,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 164,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content": {
+              "chars": 92,
+              "sha256": "77dab37d054296e7e035bac17200ebff651bf2811d3f10d9bbff33de2e257c62"
+            },
+            "selected": true,
+            "rrf_score": 0.03200204813108039,
+            "rerank_score": -7.485410213470459
+          },
+          {
+            "rank": 2,
+            "chunk_id": 203,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content": {
+              "chars": 92,
+              "sha256": "417ff67049302e502c60ee36caea8a756ddc3630b37e63084c18754e009798b1"
+            },
+            "selected": true,
+            "rrf_score": 0.031544957774465976,
+            "rerank_score": -7.574707508087158
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 164,
+            "content": "CogVideo) could be evaluated later. 6. Training Infrastructure & Cost On-Premises: Building an in-house GPU cluster requires significant capital. For example, acquiring NVIDIA A100 or H100 servers (each ~\\$100K\u2013\\$150K for 8\u00d7GPU node) plus networking, storage, and cooling might cost \\$200K\u2013\\$500K upfront. Annual power/cooling can be \\$10K\u2013\\$20K per rack. However, this yields predictable costs for heavy use. Lenovo\u2019s TCO analysis notes that on-premises has \u201chigh initial investment (servers, GPUs) \u2026 [but] cost predictability and efficiency over time\u201d\u301038\u2020L53-L62\u3011\u301038\u2020L74-L82\u3011. We would amortize hardware over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of"
+          },
+          {
+            "chunk_id": 203,
+            "content": "living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists) to enforce code quality and reproducibility. 17. Comparison Tables Hosting Options: Option Upfront Cost Scalability Control Recurring Cost Notes High (hardware, Limited by Full (you Low if idle Best if On- infra) purchased own (electricity, consistent Premises \u301038\u2020L53- capacity hardware) maintenance) heavy use L62\u3011 Virtually Less direct Pay-as-you-go Easy to start, Public unlimited None (reliant on (high if used scale; possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "final_context",
+      "elapsed_ms": 101.54,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 164,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content": {
+              "chars": 92,
+              "sha256": "77dab37d054296e7e035bac17200ebff651bf2811d3f10d9bbff33de2e257c62"
+            },
+            "selected": true,
+            "rrf_score": 0.03200204813108039,
+            "rerank_score": -7.485410213470459
+          },
+          {
+            "rank": 2,
+            "chunk_id": 203,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content": {
+              "chars": 92,
+              "sha256": "417ff67049302e502c60ee36caea8a756ddc3630b37e63084c18754e009798b1"
+            },
+            "selected": true,
+            "rrf_score": 0.031544957774465976,
+            "rerank_score": -7.574707508087158
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 164,
+            "content": "CogVideo) could be evaluated later. 6. Training Infrastructure & Cost On-Premises: Building an in-house GPU cluster requires significant capital. For example, acquiring NVIDIA A100 or H100 servers (each ~\\$100K\u2013\\$150K for 8\u00d7GPU node) plus networking, storage, and cooling might cost \\$200K\u2013\\$500K upfront. Annual power/cooling can be \\$10K\u2013\\$20K per rack. However, this yields predictable costs for heavy use. Lenovo\u2019s TCO analysis notes that on-premises has \u201chigh initial investment (servers, GPUs) \u2026 [but] cost predictability and efficiency over time\u201d\u301038\u2020L53-L62\u3011\u301038\u2020L74-L82\u3011. We would amortize hardware over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of"
+          },
+          {
+            "chunk_id": 203,
+            "content": "living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists) to enforce code quality and reproducibility. 17. Comparison Tables Hosting Options: Option Upfront Cost Scalability Control Recurring Cost Notes High (hardware, Limited by Full (you Low if idle Best if On- infra) purchased own (electricity, consistent Premises \u301038\u2020L53- capacity hardware) maintenance) heavy use L62\u3011 Virtually Less direct Pay-as-you-go Easy to start, Public unlimited None (reliant on (high if used scale; possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "context_packing",
+      "elapsed_ms": 101.59,
+      "metadata": {
+        "total_chars": 1430,
+        "max_chars": 12000,
+        "max_chunks": 8,
+        "dropped": [],
+        "truncated": false
+      },
+      "raw": {
+        "context_text": "[S1] Document: e3160c67-ee6d-4983-9029-8273bd35525a | Page: 8 | Chunk: 164\nCogVideo) could be evaluated later. 6. Training Infrastructure & Cost On-Premises: Building an in-house GPU cluster requires significant capital. For example, acquiring NVIDIA A100 or H100 servers (each ~\\$100K\u2013\\$150K for 8\u00d7GPU node) plus networking, storage, and cooling might cost \\$200K\u2013\\$500K upfront. Annual power/cooling can be \\$10K\u2013\\$20K per rack. However, this yields predictable costs for heavy use. Lenovo\u2019s TCO analysis notes that on-premises has \u201chigh initial investment (servers, GPUs) \u2026 [but] cost predictability and efficiency over time\u201d\u301038\u2020L53-L62\u3011\u301038\u2020L74-L82\u3011. We would amortize hardware over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of\n\n[S2] Document: e3160c67-ee6d-4983-9029-8273bd35525a | Page: 17 | Chunk: 203\nliving documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists) to enforce code quality and reproducibility. 17. Comparison Tables Hosting Options: Option Upfront Cost Scalability Control Recurring Cost Notes High (hardware, Limited by Full (you Low if idle Best if On- infra) purchased own (electricity, consistent Premises \u301038\u2020L53- capacity hardware) maintenance) heavy use L62\u3011 Virtually Less direct Pay-as-you-go Easy to start, Public unlimited None (reliant on (high if used scale; possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost"
+      }
+    },
+    {
+      "stage": "generation_skipped",
+      "elapsed_ms": 101.63,
+      "metadata": {
+        "reason": "provider-free stage diagnosis"
+      }
+    },
+    {
+      "stage": "answer_result",
+      "elapsed_ms": 101.64,
+      "metadata": {
+        "status": "unverified",
+        "issues": [
+          "provider_not_run"
+        ],
+        "citations": [],
+        "coverage": null
+      },
+      "raw": {
+        "answer": "NOT_RUN"
+      }
+    }
+  ]
+}

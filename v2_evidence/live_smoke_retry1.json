@@ -1,0 +1,432 @@
+{
+  "run_id": "v2-orion-live-20261119T091124Z-f6e5eeb8",
+  "started_at": "2026-11-19T09:11:24.614224+00:00",
+  "predeclared_criteria": {
+    "scope": "synthetic functional integration only; not formal evaluation acceptance",
+    "two_independent_workers": "both separate PIDs use real pinned local OCR and actual cached embeddings",
+    "image_only_pdf": "no native PDF text; original page1 is preserved in indexed chunks/citations",
+    "document_facts": {
+      "permit_cost": 37,
+      "validity_days": 19
+    },
+    "negative_fact": "the gallery does not operate a fax service",
+    "grounding": "answered; facts37 and19; nonempty valid citation belonging only to A document/page1; rerank_status ok",
+    "isolation": "B receives404 for A document/file/job/conversation/memory provenance and cannot list A resources",
+    "memory": "peppermint-tea preference extracted from actual user message, user_source link, followed by real memory recall",
+    "deletion": "document chunks disappear and completed stale lease cannot republish; conversation cascades memory/source removal",
+    "maximum_actual_gemini_sdk_calls": 12,
+    "failure_policy": "preserve raw actual outcome; do not change criteria, retry identity or claim formal acceptance"
+  },
+  "synthetic_sources": {
+    "A": "Orion Gallery visitor policy. A visitor permit costs 37 credits. Every visitor permit is valid for 19 days. The gallery does not operate a fax service.",
+    "B": "Zephyr Archive private member policy. A private member pass costs 88 credits. The Zephyr pass is valid for 8 days. Zephyr operates a members-only reading room."
+  },
+  "script_sha256": "5b2e42b1c3df99d2a0d58fa88ca30a132602298b23359be8df34146fc1af0ae8",
+  "status": "FAIL",
+  "checks": [
+    {
+      "name": "two_independent_real_workers",
+      "pass": true
+    },
+    {
+      "name": "ready_141b215c-7121-4bb1-89e0-684caac70b0d",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "pages": 1,
+        "chunks": 1
+      }
+    },
+    {
+      "name": "real_ocr_141b215c-7121-4bb1-89e0-684caac70b0d",
+      "pass": true
+    },
+    {
+      "name": "ready_f99652b2-6ff0-4e14-848e-b46718400444",
+      "pass": true,
+      "detail": {
+        "status": "ready",
+        "pages": 1,
+        "chunks": 1
+      }
+    },
+    {
+      "name": "real_ocr_f99652b2-6ff0-4e14-848e-b46718400444",
+      "pass": true
+    },
+    {
+      "name": "cross_owner_document_404",
+      "pass": true
+    },
+    {
+      "name": "cross_owner_pdf_404",
+      "pass": true
+    },
+    {
+      "name": "cross_owner_job_404",
+      "pass": true
+    },
+    {
+      "name": "cross_owner_delete_404",
+      "pass": true
+    },
+    {
+      "name": "tenant_document_listing",
+      "pass": true
+    },
+    {
+      "name": "cross_owner_conversation_404",
+      "pass": true
+    },
+    {
+      "name": "chat_http_1",
+      "pass": true,
+      "detail": {
+        "http_status": 200
+      }
+    },
+    {
+      "name": "grounded_document_numbers",
+      "pass": true
+    },
+    {
+      "name": "owner_page_citations",
+      "pass": true
+    },
+    {
+      "name": "actual_reranker_used",
+      "pass": true
+    },
+    {
+      "name": "no_other_owner_fact",
+      "pass": true
+    },
+    {
+      "name": "chat_http_2",
+      "pass": true,
+      "detail": {
+        "http_status": 200
+      }
+    },
+    {
+      "name": "actual_followup_document_answer",
+      "pass": true
+    },
+    {
+      "name": "actual_extraction_checkpoint",
+      "pass": true,
+      "detail": "checkpoint_advanced"
+    },
+    {
+      "name": "chat_http_3",
+      "pass": true,
+      "detail": {
+        "http_status": 200
+      }
+    },
+    {
+      "name": "actual_memory_followup",
+      "pass": true
+    },
+    {
+      "name": "real_user_preference_memory",
+      "pass": true
+    },
+    {
+      "name": "cross_owner_memories_404",
+      "pass": true
+    },
+    {
+      "name": "cross_owner_source_provenance_404",
+      "pass": true
+    },
+    {
+      "name": "user_supported_memory_provenance",
+      "pass": false
+    },
+    {
+      "name": "document_delete",
+      "pass": true
+    }
+  ],
+  "provider_calls": [
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "bf8146f68f97d7e381add0b8e92c7daceb458c6898803f8e5dfa28d90df246f6",
+      "started_at": "2026-11-19T09:11:51.933134+00:00",
+      "outcome": "success",
+      "returned_model": "gemini-3.5-flash-lite",
+      "response_sha256": "d3a933a34d90b2703bbbfee80952ddfc33032f915d242ae6586e7f116d272e12",
+      "seconds": 5.7961
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "7bbf58923e22a868ff09dbd7592c41ab97b8f83abbc8974434481380c5e6fd69",
+      "started_at": "2026-11-19T09:11:58.832898+00:00",
+      "outcome": "success",
+      "returned_model": "gemini-3.5-flash-lite",
+      "response_sha256": "70304467ba5e9fdaea944fd6f6033e25e163c3ca7aa970066b17dc07ffe0256b",
+      "seconds": 5.42
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "31d47b2c4f30dfd83136a1944daf3b9576fe517f2ab5eaad55b38c1565646dcd",
+      "started_at": "2026-11-19T09:12:04.260440+00:00",
+      "outcome": "success",
+      "returned_model": "gemini-3.5-flash-lite",
+      "response_sha256": "00237e1d751531912488ec031599de322d3162af35c6b3d254f44076e8b94ba0",
+      "seconds": 4.6031
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "a332842fb63a3840404d5baff9a796cef9070ac6e3af7d819d7f542abb8eb0dd",
+      "started_at": "2026-11-19T09:12:09.475919+00:00",
+      "outcome": "success",
+      "returned_model": "gemini-3.5-flash-lite",
+      "response_sha256": "33982ec914a251b8019ec16c2b86b2703263ab9edee2d1a4ce8b9aaee54ac0cc",
+      "seconds": 1.2039
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "93e9fc643ecbb830556e24ee10a85c29d36ec30d516ec95a65ad58785c3dd953",
+      "started_at": "2026-11-19T09:12:10.680158+00:00",
+      "outcome": "success",
+      "returned_model": "gemini-3.5-flash-lite",
+      "response_sha256": "e52e1d57122da276f479fa74ab692ccdefb04ca8c9ce88a42ea9626e5589cfd1",
+      "seconds": 0.9607
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "c019dfc9e7ff0e9205220b6cee1613dd96329ccc888284166a4407be18f814b7",
+      "started_at": "2026-11-19T09:12:12.939362+00:00",
+      "outcome": "success",
+      "returned_model": "gemini-3.5-flash-lite",
+      "response_sha256": "59b9d452333c86b9473e96d5636fcb9acbc0792fea7145b41245ff015bc068c3",
+      "seconds": 1.132
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "031c24d80303458e98356f7fbe92bb64eb405ebff601083318f57b824bfb65a5",
+      "started_at": "2026-11-19T09:12:14.074885+00:00",
+      "outcome": "success",
+      "returned_model": "gemini-3.5-flash-lite",
+      "response_sha256": "a219b4d513b9963e956ba0214e13cb5365454db665810a53f486edfca1ab1fbf",
+      "seconds": 1.0315
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "848373ab42883d8db13eee45f7ca7593f4d50f6137b5c9367388c5d9e2b88adb",
+      "started_at": "2026-11-19T09:12:15.571666+00:00",
+      "outcome": "success",
+      "returned_model": "gemini-3.5-flash-lite",
+      "response_sha256": "c9d8ef66740d855b134d8c6752c71880e0914a46b6c2ca9bf1a4b83263f223d8",
+      "seconds": 4.147
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "76058704da7e0133fe060a3e46be9449a5cf1d727e6c1b1fcf625f03e5fb2bcc",
+      "started_at": "2026-11-19T09:12:21.171553+00:00",
+      "outcome": "success",
+      "returned_model": "gemini-3.5-flash-lite",
+      "response_sha256": "a696131447d31211e9ed2d9f597419b93c093683a71956a0e9c2bcbf624fd2d3",
+      "seconds": 0.9484
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "d1704d05d7a1c8625c44f7c345abf8c143d8e8544aef196588cfcc6718e428fc",
+      "started_at": "2026-11-19T09:12:22.121707+00:00",
+      "outcome": "success",
+      "returned_model": "gemini-3.5-flash-lite",
+      "response_sha256": "a266fe9c4d1dcf7ddc52d44db5c955a8db5daac4cb6121e24b2456b48e14ab22",
+      "seconds": 3.7214
+    },
+    {
+      "requested_model": "gemini-3.5-flash-lite",
+      "prompt_sha256": "01f0344d2a6883633e08aede5b9a0e6f5ff1a452bb3286135941b58ea809cd62",
+      "started_at": "2026-11-19T09:12:25.843599+00:00",
+      "outcome": "success",
+      "returned_model": "gemini-3.5-flash-lite",
+      "response_sha256": "0429e17908bf7280d0f749cbd839a6fc1c0d61492f56a326e9cf62d91b9efb1a",
+      "seconds": 0.85
+    }
+  ],
+  "answers": [
+    {
+      "query": "I prefer peppermint tea. According to the Orion Gallery policy, how many credits does a visitor permit cost and for how many days is it valid?",
+      "http_status": 200,
+      "response": {
+        "conversation_id": "c7fffca3-97d7-49f5-b4d0-31a86294e9d8",
+        "kind": "answer",
+        "answer": "I prefer peppermint tea. According to the Orion Gallery policy, a visitor permit costs 37 credits [S1]. It is valid for 19 days [S1].",
+        "status": "answered",
+        "answer_status": "answered",
+        "citations": [
+          {
+            "ref": "S1",
+            "document": "v2-orion-live-20261119T091124Z-f6e5eeb8-a.pdf",
+            "document_id": "141b215c-7121-4bb1-89e0-684caac70b0d",
+            "page": 1,
+            "chunk_id": 15
+          }
+        ],
+        "sources": [
+          {
+            "document": "141b215c-7121-4bb1-89e0-684caac70b0d",
+            "page": 1,
+            "chunk_id": 15,
+            "ref": "S1"
+          }
+        ],
+        "issues": [],
+        "retrieval_status": "ok",
+        "memory_extraction": "skipped",
+        "summary_update": "ok"
+      }
+    },
+    {
+      "query": "For my Orion Gallery visit, remind me how many days the visitor permit lasts. My preferred drink is peppermint tea.",
+      "http_status": 200,
+      "response": {
+        "conversation_id": "c7fffca3-97d7-49f5-b4d0-31a86294e9d8",
+        "kind": "answer",
+        "answer": "I prefer peppermint tea. The visitor permit is valid for 19 days [S1].",
+        "status": "answered",
+        "answer_status": "answered",
+        "citations": [
+          {
+            "ref": "S1",
+            "document": "v2-orion-live-20261119T091124Z-f6e5eeb8-a.pdf",
+            "document_id": "141b215c-7121-4bb1-89e0-684caac70b0d",
+            "page": 1,
+            "chunk_id": 15
+          }
+        ],
+        "sources": [
+          {
+            "document": "141b215c-7121-4bb1-89e0-684caac70b0d",
+            "page": 1,
+            "chunk_id": 15,
+            "ref": "S1"
+          }
+        ],
+        "issues": [],
+        "retrieval_status": "ok",
+        "memory_extraction": "checkpoint_advanced",
+        "summary_update": "ok"
+      }
+    },
+    {
+      "query": "What drink do I prefer?",
+      "http_status": 200,
+      "response": {
+        "conversation_id": "c7fffca3-97d7-49f5-b4d0-31a86294e9d8",
+        "kind": "answer",
+        "answer": "You prefer peppermint tea.",
+        "status": "answered",
+        "answer_status": "answered",
+        "citations": [],
+        "sources": [],
+        "issues": [],
+        "retrieval_status": "not_run",
+        "memory_extraction": "skipped",
+        "summary_update": "ok"
+      }
+    }
+  ],
+  "human_certification": false,
+  "resource_ids": {
+    "owner_ids": [
+      "4c4125dc-5f84-4cf5-a6df-82384b03ed7f",
+      "be8ef85a-5556-4d07-952f-1bca91fd274e"
+    ],
+    "document_ids": [
+      "141b215c-7121-4bb1-89e0-684caac70b0d",
+      "f99652b2-6ff0-4e14-848e-b46718400444"
+    ],
+    "job_ids": [
+      "a7d56249-e0ea-4a5c-a35e-e5acc30cb018",
+      "14593224-a88b-47fa-8713-e545c57d9b6e"
+    ],
+    "conversation_id": "c7fffca3-97d7-49f5-b4d0-31a86294e9d8"
+  },
+  "worker_processes": [
+    {
+      "pid": 81351,
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5e8a1ef8f0d1885ad5fb5d1dca858494f3fcbf9ac4cfe851d5010b248696b4ec"
+    },
+    {
+      "pid": 81352,
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "420db2e75a294d86eee3db1f18c7b418e845c9aead6ae71a9ceed313527b64d2"
+    }
+  ],
+  "document_metadata": [
+    {
+      "id": "141b215c-7121-4bb1-89e0-684caac70b0d",
+      "filename": "v2-orion-live-20261119T091124Z-f6e5eeb8-a.pdf",
+      "status": "ready",
+      "pages": 1,
+      "chunks": 1,
+      "created_at": "2026-11-19T09:11:27.616903Z",
+      "page_metadata": [
+        {
+          "method": "pymupdf-tesseract-fast-4.1.0",
+          "quality": {
+            "languages": [
+              "en-US"
+            ],
+            "mean_confidence": null,
+            "language_data_sha256": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2"
+          },
+          "page_number": 1
+        }
+      ]
+    },
+    {
+      "id": "f99652b2-6ff0-4e14-848e-b46718400444",
+      "filename": "v2-orion-live-20261119T091124Z-f6e5eeb8-b.pdf",
+      "status": "ready",
+      "pages": 1,
+      "chunks": 1,
+      "created_at": "2026-11-19T09:11:27.897315Z",
+      "page_metadata": [
+        {
+          "method": "pymupdf-tesseract-fast-4.1.0",
+          "quality": {
+            "languages": [
+              "en-US"
+            ],
+            "mean_confidence": null,
+            "language_data_sha256": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2"
+          },
+          "page_number": 1
+        }
+      ]
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": 10,
+      "memory": "User prefers peppermint tea.",
+      "category": "preferences",
+      "provenance": "USER_SUPPORTED",
+      "source_message_ids": [
+        35,
+        37
+      ]
+    }
+  ],
+  "error_type": "AttributeError",
+  "sdk_call_count": 11,
+  "elapsed_seconds": 63.0396,
+  "finished_at": "2026-11-19T09:12:27.654234+00:00",
+  "limits": [
+    "synthetic functional smoke, not benchmark/formal acceptance",
+    "no browser automation in this script",
+    "no protected inputs or human certification",
+    "no cleanup of unrelated scratch rows"
+  ]
+}

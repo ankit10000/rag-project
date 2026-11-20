@@ -1,0 +1,89 @@
+{
+  "results": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-B",
+        "v2_evidence/reliability-20261119/execute-now-verification/agent4/blocked-regression-runner.py",
+        "test_v2_execute_acceptance.py"
+      ],
+      "script": "test_v2_execute_acceptance.py",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-B",
+        "v2_evidence/reliability-20261119/execute-now-verification/agent4/blocked-regression-runner.py",
+        "test_v2_reliability_runtime.py"
+      ],
+      "script": "test_v2_reliability_runtime.py",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-B",
+        "v2_evidence/reliability-20261119/execute-now-verification/agent4/blocked-regression-runner.py",
+        "test_assignment_flow.py"
+      ],
+      "script": "test_assignment_flow.py",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-B",
+        "v2_evidence/reliability-20261119/execute-now-verification/agent4/blocked-regression-runner.py",
+        "test_assignment_provenance.py"
+      ],
+      "script": "test_assignment_provenance.py",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-B",
+        "v2_evidence/reliability-20261119/execute-now-verification/agent4/blocked-regression-runner.py",
+        "test_p1_d4_delete_decision_errors.py"
+      ],
+      "script": "test_p1_d4_delete_decision_errors.py",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-B",
+        "v2_evidence/reliability-20261119/execute-now-verification/agent4/blocked-regression-runner.py",
+        "test_p1_d5_delete_ids.py"
+      ],
+      "script": "test_p1_d5_delete_ids.py",
+      "exit_code": 0
+    }
+  ],
+  "provider_calls": 0,
+  "db_connections": 0,
+  "runtime_sha256_start": {
+    "services/answer_service.py": "b6adea6082c4619b5cc9a569396e85539849f8f870616b0747052a4782dd541d",
+    "services/answer_prompt.py": "c91bee195928b4d4214b03ccc6dbf1e1d8b99e5ed7f570e22a014e6482aa80db",
+    "services/answer_semantics.py": "f472342ef0b95ca9c1f3758becfe140732b6abdf5c6b5f3c890bc61a060c980f",
+    "services/evidence_trace.py": "9aa0af8833a2cb1d7fb0d63670f6cac207805a9d8284e52701110445eaa622e4",
+    "services/rrf_service.py": "04602e8c3eb8e6cd7df5c67e0ee8c4dd94e030dc68e88ab2a73ef201b7c725fe",
+    "services/hybrid_search_service.py": "f380a703bcb0f5ced1a260ce480c1e57e4c0118d6619705814b07a3f36bb20b2",
+    "services/rag_service.py": "50a0bdf70d0bd96221c922bd45b88aa290575e0153dc8d62037fd719b829029f",
+    "services/request_coverage.py": "5f117896b2cd4ba865b9159bb9dc93eb7711d94196061b63e9b9a79f220e83f0",
+    "services/source_count_comparison.py": "6c2a9e253114e6a225b76d7de56b55974a20a5b9731b46504885a317572317e8"
+  },
+  "runtime_sha256_end": {
+    "services/answer_service.py": "b6adea6082c4619b5cc9a569396e85539849f8f870616b0747052a4782dd541d",
+    "services/answer_prompt.py": "c91bee195928b4d4214b03ccc6dbf1e1d8b99e5ed7f570e22a014e6482aa80db",
+    "services/answer_semantics.py": "f472342ef0b95ca9c1f3758becfe140732b6abdf5c6b5f3c890bc61a060c980f",
+    "services/evidence_trace.py": "9aa0af8833a2cb1d7fb0d63670f6cac207805a9d8284e52701110445eaa622e4",
+    "services/rrf_service.py": "04602e8c3eb8e6cd7df5c67e0ee8c4dd94e030dc68e88ab2a73ef201b7c725fe",
+    "services/hybrid_search_service.py": "f380a703bcb0f5ced1a260ce480c1e57e4c0118d6619705814b07a3f36bb20b2",
+    "services/rag_service.py": "50a0bdf70d0bd96221c922bd45b88aa290575e0153dc8d62037fd719b829029f",
+    "services/request_coverage.py": "5f117896b2cd4ba865b9159bb9dc93eb7711d94196061b63e9b9a79f220e83f0",
+    "services/source_count_comparison.py": "6c2a9e253114e6a225b76d7de56b55974a20a5b9731b46504885a317572317e8"
+  },
+  "runtime_changed_during_tests": []
+}

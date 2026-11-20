@@ -1,0 +1,17 @@
+{
+  "run_id": "v2-browser-aster-20261119T092730Z-466c2d",
+  "scope": "synthetic browser functional integration, not formal evaluation",
+  "maximum_sdk_calls": 12,
+  "source": "Aster Harbor visitor permit costs 83 credits and remains valid for 17 days.",
+  "criteria": [
+    "real browser login and image-only PDF upload",
+    "two independent local worker processes",
+    "real OCR and cached embeddings/reranking",
+    "Gemini grounded83/17 with owned original-page citations",
+    "memory with user provenance and follow-up",
+    "cross-owner denial",
+    "deletion prevents stale resurrection"
+  ],
+  "provider_identity": "actual returned model recorded per call",
+  "status": "RUNNING"
+}

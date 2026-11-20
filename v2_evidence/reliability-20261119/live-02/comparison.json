@@ -1,0 +1,195 @@
+{
+  "id": "comparison",
+  "question": "Compare on-premises and public cloud hosting in Executive Summary.pdf in terms of upfront cost and scalability. Address both options.",
+  "result": {
+    "answer": "- On-premises:\n - Upfront Cost: High (hardware, infrastructure) [S1]; building an in-house GPU cluster requires significant capital (e.g., $200K\u2013$500K upfront for servers, networking, storage, and cooling) [S2].\n - Scalability: Limited by purchased hardware [S1][S3].\n\n- Public Cloud:\n - Upfront Cost: None (reliant on provider) [S1].\n - Scalability: Virtually unlimited [S1]; easier to scale up and down with user demand (such as auto-scaling for inference) [S3].",
+    "sources": [
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 17,
+        "chunk_id": 203,
+        "ref": "S1"
+      },
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 8,
+        "chunk_id": 164,
+        "ref": "S2"
+      },
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 9,
+        "chunk_id": 167,
+        "ref": "S3"
+      }
+    ],
+    "citations": [
+      {
+        "ref": "S1",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 17,
+        "chunk_id": 203
+      },
+      {
+        "ref": "S2",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 8,
+        "chunk_id": 164
+      },
+      {
+        "ref": "S3",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 9,
+        "chunk_id": 167
+      }
+    ],
+    "status": "answered",
+    "issues": [],
+    "retrieval_status": "ok",
+    "retrieved": [
+      {
+        "ref": "S1",
+        "chunk_id": 203,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 17,
+        "retrieval_score": 3.8212664127349854
+      },
+      {
+        "ref": "S2",
+        "chunk_id": 164,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 8,
+        "retrieval_score": 1.8942691087722778
+      },
+      {
+        "ref": "S3",
+        "chunk_id": 167,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 9,
+        "retrieval_score": 2.5391478538513184
+      },
+      {
+        "ref": "S4",
+        "chunk_id": 197,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 15,
+        "retrieval_score": 0.730148434638977
+      }
+    ],
+    "coverage": {
+      "policy": "v2-explicit-request-coverage/2",
+      "mode": "comparison",
+      "facets": [
+        {
+          "id": "entity_1",
+          "label": "on-premises",
+          "pattern": "(?<!\\w)on[\\s-]+premises(?!\\w)",
+          "query_terms": "on-premises",
+          "evidence_refs": [
+            "S2"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": true,
+          "source_fact_signal": true,
+          "source_titles": [],
+          "refused_supported_item": false
+        },
+        {
+          "id": "entity_2",
+          "label": "public cloud",
+          "pattern": "(?<!\\w)public[\\s-]+cloud(?!\\w)",
+          "query_terms": "public cloud",
+          "evidence_refs": [],
+          "observed_in_context": false,
+          "answer_mentions": true,
+          "source_fact_signal": false,
+          "source_titles": [],
+          "refused_supported_item": false
+        }
+      ],
+      "enumeration_count": null,
+      "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+      "concrete_missing": [],
+      "context_unobserved": [
+        "entity_2"
+      ],
+      "answer_checked": true
+    }
+  },
+  "metrics": {
+    "evidence_coverage": true,
+    "evidence_fact_checks": [
+      {
+        "label": "on-premises option",
+        "observed": true
+      },
+      {
+        "label": "public cloud option",
+        "observed": true
+      },
+      {
+        "label": "high upfront capital",
+        "observed": true
+      },
+      {
+        "label": "bounded on-prem capacity",
+        "observed": true
+      },
+      {
+        "label": "no upfront public cloud",
+        "observed": true
+      },
+      {
+        "label": "cloud scalability",
+        "observed": true
+      }
+    ],
+    "answer_factual_completeness": true,
+    "answer_fact_checks": [
+      {
+        "label": "on-premises option",
+        "observed": true
+      },
+      {
+        "label": "public cloud option",
+        "observed": true
+      },
+      {
+        "label": "high upfront capital",
+        "observed": true
+      },
+      {
+        "label": "bounded on-prem capacity",
+        "observed": true
+      },
+      {
+        "label": "no upfront public cloud",
+        "observed": true
+      },
+      {
+        "label": "cloud scalability",
+        "observed": true
+      }
+    ],
+    "citation_abstention_correctness": true,
+    "citation_metadata_matches_owned_source": true,
+    "citation_presence_correct": true,
+    "declared_status_correct": true,
+    "selected_chunks": [
+      203,
+      164,
+      167,
+      197
+    ],
+    "selected_pages": [
+      17,
+      8,
+      9,
+      15
+    ],
+    "selected_characters": 2570,
+    "scope_and_budget_ok": true
+  },
+  "seconds": 15.25,
+  "provider_calls": 2
+}

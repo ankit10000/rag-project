@@ -1,0 +1,11 @@
+{
+  "branch": "main",
+  "head_unchanged": true,
+  "staged_bytes_preserved": true,
+  "preexisting_files_changed": [
+    "services/rag_service.py"
+  ],
+  "protected_assets_checked": 44,
+  "protected_assets_unchanged": true,
+  "diff_check_exit": 0
+}

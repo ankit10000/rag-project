@@ -1,0 +1,30 @@
+
+test_candidate_lost_before_reranking_is_retrieval_not_rerank_loss (__main__.FusionAttributionTests.test_candidate_lost_before_reranking_is_retrieval_not_rerank_loss) ... ok
+test_metadata_only_trace_hashes_unrecognized_nested_raw_fields (__main__.FusionAttributionTests.test_metadata_only_trace_hashes_unrecognized_nested_raw_fields) ... ok
+test_actual_requested_section_beats_high_rank_overview (__main__.RecoveryTests.test_actual_requested_section_beats_high_rank_overview) ... ok
+test_adjacent_budget_section_recovered_across_page_boundary (__main__.RecoveryTests.test_adjacent_budget_section_recovered_across_page_boundary) ... ok
+test_adjacent_sql_has_source_and_owner_identity_and_bounded_limit (__main__.RecoveryTests.test_adjacent_sql_has_source_and_owner_identity_and_bounded_limit) ... ok
+test_ambiguous_retained_documents_do_not_associate_missing_facts (__main__.RecoveryTests.test_ambiguous_retained_documents_do_not_associate_missing_facts) ... ok
+test_capital_prose_lost_by_margin_is_recovered_without_extra_search (__main__.RecoveryTests.test_capital_prose_lost_by_margin_is_recovered_without_extra_search) ... ok
+test_capital_source_positive_relation_preserved_and_other_cloud_entity_rejected (__main__.RecoveryTests.test_capital_source_positive_relation_preserved_and_other_cloud_entity_rejected) ... ok
+test_capital_synonym_probe_only_when_no_existing_prose_and_scoped (__main__.RecoveryTests.test_capital_synonym_probe_only_when_no_existing_prose_and_scoped) ... ok
+test_capital_term_recovery_does_not_turn_weak_table_into_evidence (__main__.RecoveryTests.test_capital_term_recovery_does_not_turn_weak_table_into_evidence) ... ok
+test_char_budget_preserves_full_complementary_chunks_and_exact_dedup_only (__main__.RecoveryTests.test_char_budget_preserves_full_complementary_chunks_and_exact_dedup_only) ... ok
+test_compound_fields_keep_complementary_low_score_facet_anchor (__main__.RecoveryTests.test_compound_fields_keep_complementary_low_score_facet_anchor) ... ok
+test_explicit_scope_requires_owner_ready_document_and_real_filename (__main__.RecoveryTests.test_explicit_scope_requires_owner_ready_document_and_real_filename) ... ok
+test_failed_facet_rank_never_claimed_as_verified (__main__.RecoveryTests.test_failed_facet_rank_never_claimed_as_verified) ... ok
+test_no_owner_no_recovery_and_simple_question_no_extra_search (__main__.RecoveryTests.test_no_owner_no_recovery_and_simple_question_no_extra_search) ... ok
+test_structural_count_conflict_recovers_second_continuation (__main__.RecoveryTests.test_structural_count_conflict_recovers_second_continuation) ... ok
+test_unavailable_explicit_file_is_closed_scope (__main__.RecoveryTests.test_unavailable_explicit_file_is_closed_scope) ... ok
+test_wrong_document_facet_never_admitted_even_if_search_contract_breaks (__main__.RecoveryTests.test_wrong_document_facet_never_admitted_even_if_search_contract_breaks) ... ok
+test_budget_loss_attribution (__main__.TraceTests.test_budget_loss_attribution) ... ok
+test_default_trace_has_metadata_not_private_text_or_secrets (__main__.TraceTests.test_default_trace_has_metadata_not_private_text_or_secrets) ... ok
+test_exact_filter_reason_and_stage_attribution (__main__.TraceTests.test_exact_filter_reason_and_stage_attribution) ... ok
+test_nested_trace_restores_outer_and_snapshot_is_detached (__main__.TraceTests.test_nested_trace_restores_outer_and_snapshot_is_detached) ... ok
+test_raw_trace_still_redacts_keys_and_writes_private_exclusive_artifact (__main__.TraceTests.test_raw_trace_still_redacts_keys_and_writes_private_exclusive_artifact) ... ok
+test_trace_requires_explicit_development_opt_in (__main__.TraceTests.test_trace_requires_explicit_development_opt_in) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.062s
+
+OK

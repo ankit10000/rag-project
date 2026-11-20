@@ -1,0 +1,19 @@
+
+Running 6 tests using 2 workers
+
+(node:36344) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:36345) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:36344) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:36345) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [desktop-chromium] › tests/browser/chat-composer.spec.ts:111:3 › Chat composer UI fixtures — no DB or provider › Enter sends once, Shift+Enter keeps a newline and completed history remains authoritative (2.2s)
+  ✓  1 [mobile-chromium] › tests/browser/chat-composer.spec.ts:111:3 › Chat composer UI fixtures — no DB or provider › Enter sends once, Shift+Enter keeps a newline and completed history remains authoritative (2.2s)
+  ✓  4 [mobile-chromium] › tests/browser/chat-composer.spec.ts:135:3 › Chat composer UI fixtures — no DB or provider › Markdown/code copy and source citations fit the mobile and desktop composer (1.3s)
+  ✓  3 [desktop-chromium] › tests/browser/chat-composer.spec.ts:135:3 › Chat composer UI fixtures — no DB or provider › Markdown/code copy and source citations fit the mobile and desktop composer (1.4s)
+  ✓  5 [mobile-chromium] › tests/browser/chat-composer.spec.ts:206:3 › Chat composer UI fixtures — no DB or provider › Source menu inserts an honest filename request; uploads show actual processing until ready (3.9s)
+  ✓  6 [desktop-chromium] › tests/browser/chat-composer.spec.ts:206:3 › Chat composer UI fixtures — no DB or provider › Source menu inserts an honest filename request; uploads show actual processing until ready (3.8s)
+
+  6 passed (10.3s)

@@ -1,0 +1,37 @@
+{
+  "reviewer_type": "AI engineering review; not independent human approval",
+  "automated_metrics_unchanged": true,
+  "reviews": [
+    {
+      "id": "unsupported",
+      "verdict": "PASS",
+      "note": "Correct pure abstention without invented contract information or citations."
+    },
+    {
+      "id": "comparison",
+      "verdict": "PASS",
+      "note": "Both hosting alternatives, capital costs and scalability are covered with authorized source citations."
+    },
+    {
+      "id": "conflict",
+      "verdict": "FAIL_FALSE_ABSTENTION_AFTER_CITATION_REPAIR",
+      "note": "Complete page15 context reaches generation. First answer correctly contrasts3versus4 phases, but final inference sentence lacks a citation. Bounded regeneration abandons facts and abstains; coverage plan mode none does not identify the false refusal."
+    },
+    {
+      "id": "explicit_negative",
+      "verdict": "PASS_FOR_ACTUAL_QUESTION_WITH_FROZEN_METRIC_LIMITATION",
+      "note": "Answer states public cloud has no upfront costs with page17 citation and answered status. Frozen factual metric also expected ongoing usage costs, which were not asked; that metric failure is retained, not grounds to force extra content or change checks."
+    },
+    {
+      "id": "long_section",
+      "verdict": "FACT_COVERAGE_PASS_FALSE_PARTIAL_STATUS",
+      "note": "Answer covers core and all six additional feature groups and distinguishes narrative from the priority table. Exact full-heading token checks reject valid concise paraphrases, cause a wasted bounded retry and false partial status. Frozen factual metric passes; status metric correctly records the false partial."
+    },
+    {
+      "id": "partial",
+      "verdict": "PASS",
+      "note": "Supported JEE/GATE/NEET facts cited and contract number explicitly unavailable; partial status correct."
+    }
+  ],
+  "provider_calls_for_review": 0
+}

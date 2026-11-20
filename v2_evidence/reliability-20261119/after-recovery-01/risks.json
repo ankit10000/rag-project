@@ -1,0 +1,1054 @@
+{
+  "header": {
+    "question": "According to Executive Summary.pdf, how should quality risks and data/copyright risks be mitigated? Cover both.",
+    "authorized_documents": [
+      "e3160c67-ee6d-4983-9029-8273bd35525a"
+    ],
+    "policy": "development-answer-evidence-trace/1"
+  },
+  "raw_enabled": true,
+  "events": [
+    {
+      "stage": "question_category",
+      "elapsed_ms": 0.14,
+      "metadata": {
+        "category": "DOCUMENT",
+        "origin": "predeclared source question; classifier not called"
+      }
+    },
+    {
+      "stage": "retrieval_scope",
+      "elapsed_ms": 10.59,
+      "metadata": {
+        "document_names": [
+          "e3160c67-ee6d-4983-9029-8273bd35525a"
+        ],
+        "pages": null,
+        "top_k": 5
+      },
+      "raw": {
+        "search_query": "According to Executive Summary.pdf, how should quality risks and data/copyright risks be mitigated? Cover both."
+      }
+    },
+    {
+      "stage": "vector_candidates",
+      "elapsed_ms": 40.84,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 200,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 744,
+              "sha256": "8c6ccc33c79319b3d10c5881e46e859424095b16300e80c6112fbcdc01867a0f"
+            },
+            "selected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": 201,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 550,
+              "sha256": "de999cb2a7441357ba42873748574db1241d1ab206cb35d0467cd1950c7179f8"
+            },
+            "selected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": 199,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 757,
+              "sha256": "73e6a04c2d7b75bed3850b577ebf1fdb69f4291110a235f48728aa6c16018c28"
+            },
+            "selected": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": 186,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 490,
+              "sha256": "dd79f5388fab92df07ef73c5805b17e5f650cf40cbb9689ad360ebbba2c27c10"
+            },
+            "selected": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": 183,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 731,
+              "sha256": "f04fb7c1643e906d4489a5a3b3c7597fbf5c33481d0c891b8265f17df2eba070"
+            },
+            "selected": true
+          },
+          {
+            "rank": 6,
+            "chunk_id": 133,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 735,
+              "sha256": "f5b9ee0fd328aabdc39bfd7d52cf91cb9f0ff269b862d1e34cd257a812d83fdf"
+            },
+            "selected": true
+          },
+          {
+            "rank": 7,
+            "chunk_id": 182,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 670,
+              "sha256": "fefc1f3e035425b956303b1c43b6123aefd736969c7702bbedab2d40e4ccb3e9"
+            },
+            "selected": true
+          },
+          {
+            "rank": 8,
+            "chunk_id": 203,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content_fingerprint": {
+              "chars": 712,
+              "sha256": "9a9081ddb908b24d56437b5402ade2fff6fe1c92433f2ed468381b7368f88db9"
+            },
+            "selected": true
+          },
+          {
+            "rank": 9,
+            "chunk_id": 135,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 792,
+              "sha256": "4803d5f49bf7f32936e38b7d1edc2f93adb38245a6387f96f34841926a0607fa"
+            },
+            "selected": true
+          },
+          {
+            "rank": 10,
+            "chunk_id": 185,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 711,
+              "sha256": "00c00ac6b016738b99f5c9784cf4e7812ce1a76229e79264ba3328e49d29ae7c"
+            },
+            "selected": true
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 200,
+            "content": "Overruns: Training large models can blow budgets. Mitigation: Use open models when possible; optimize with distillation/quantization; consider HPC credits or partnerships. \u2022 Adoption Risk: Students/teachers may distrust AI content. Mitigation: Emphasize quality (pilot studies), build trust via transparency (model cards, citing sources), include teachers in loops. \u2022 Technical Risk: GPU hardware failures or cloud outages. Mitigation: Redundancy, cloud fallback, robust monitoring/alerts. \u2022 Regulatory Risk: New laws (data privacy) may affect operations. Mitigation: Build privacy and security from day one; consult legal experts. Regular risk reviews will be part of project governance. 16. Handoff Deliverables and Templates At each phase we"
+          },
+          {
+            "chunk_id": 201,
+            "content": "legal experts. Regular risk reviews will be part of project governance. 16. Handoff Deliverables and Templates At each phase we will produce standard documentation to facilitate handoff and continuity: \u2022 Requirements Document: Detailed functional and non-functional requirements, user stories, use cases. \u2022 Architecture Diagrams: High-level and component diagrams (like Figure 1). Merely this document\u2019s figures can serve as a start. \u2022 Data Schema: Definitions for all database tables/collections (e.g. Video, Question, UserProgress) and metadata. 16"
+          },
+          {
+            "chunk_id": 199,
+            "content": "Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development phases (mid-2026 start). 15. Risk Management and Mitigation \u2022 Quality Risk: AI outputs might be inaccurate or unengaging. Mitigation: Maintain humans-in-loop for review, start with conservative content generation, gather student feedback early. \u2022 Data/Copyright Risk: Unauthorized use of licensed content. Mitigation: Legal review of sources, use public/open data, ensure model outputs are sufficiently rephrased. Cite official guidelines\u301045\u2020L75- L84\u3011. \u2022 Cost Overruns: Training large models can blow budgets. Mitigation: Use open models when possible; optimize with distillation/quantization; consider HPC credits or"
+          },
+          {
+            "chunk_id": 186,
+            "content": "user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts for videos). Content should be suitable for all genders/castes (avoid biased examples). \u2022 Compliance: We will audit content regularly. A legal advisor will review terms of service to comply with educational regulations. If partnering with schools, ensure FERPA/COPPA-like child-safety policies (even if India has none, best to be safe). 12"
+          },
+          {
+            "chunk_id": 183,
+            "content": "We will simulate adversarial prompts to test the filter (e.g. attempt to coax off-topic replies). Monitor false positives (overfiltering legitimate content) vs false negatives. \u2022 Validate with educators that no disallowed content slips through. Overall, we will maintain a continuous validation loop: metrics + human feedback guide iterative model improvements. Templates such as model cards (detailing training data, intended use, limitations) and test plans (unit/integration tests for outputs) will document our validation process. 11. Legal, IP, and Compliance \u2022 Copyright & Licensing: Official educational materials (NCERT books, exam papers) are copyrighted. NCERT explicitly forbids unlicensed commercial use of its textbook"
+          },
+          {
+            "chunk_id": 133,
+            "content": "cost vs scalability. Evaluation will combine standard ML metrics (accuracy, BLEU/ROUGE, etc.) with pedagogical validation (expert reviews, student testing). We anticipate phased development over 2\u20133 years, with MVP launch focusing on core video lessons, notes, and quizzes. Estimated team: ~10\u201315 people (AI/ML engineers, software developers, content experts, QA, DevOps, legal). Rough budget: on the order of $1M\u2013$5M (including hardware, personnel, and legal costs) over 2 years, depending on scale. Key risks (model quality, data licensing, engagement) have mitigation plans (human-in-the-loop validation, IP audits, iterative user testing). We include comparison tables (model and hosting options, MVP vs later features) and mermaid"
+          },
+          {
+            "chunk_id": 182,
+            "content": "\u2022 Bias & Fairness: Ensure no cultural or gender bias in examples. Periodically review for content that could disadvantage any group (though STEM topics are less sensitive, we\u2019ll still audit language/ contexts). \u2022 Engagement Metrics: \u2022 Track student activity: time on videos, quiz attempt rates, improvement over time. Use this analytics to infer quality (low engagement could signal boring or inaccurate content). \u2022 Learning Gains: If possible, track score improvements on mock tests over time. \u2022 Content Safety Testing: \u2022 We will simulate adversarial prompts to test the filter (e.g. attempt to coax off-topic replies). Monitor false positives (overfiltering legitimate"
+          },
+          {
+            "chunk_id": 203,
+            "content": "living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists) to enforce code quality and reproducibility. 17. Comparison Tables Hosting Options: Option Upfront Cost Scalability Control Recurring Cost Notes High (hardware, Limited by Full (you Low if idle Best if On- infra) purchased own (electricity, consistent Premises \u301038\u2020L53- capacity hardware) maintenance) heavy use L62\u3011 Virtually Less direct Pay-as-you-go Easy to start, Public unlimited None (reliant on (high if used scale; possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost"
+          },
+          {
+            "chunk_id": 135,
+            "content": "open TTS/ASR systems (e.g. Google WaveNet, Mozilla\u2019s Tacotron/VITS, OpenAI\u2019s Whisper) can provide high-quality audio\u301030\u2020L34-L42\u3011\u301033\u2020L118-L124\u3011. Custom content-filtering is critical in education: as PowerSchool\u2019s AI assistant demonstrates, fine-tuning a model on safe/unsafe examples yields more accurate filtering than generic rules\u301013\u2020L107-L113\u3011\u301013\u2020L176-L184\u3011. We must also heed copyright: NCERT (Indian official textbooks) strictly forbids unlicensed reproduction \u301045\u2020L75-L84\u3011, so all source material use must comply with IP laws. 1. Product Features Core Features (MVP): \u2022 AI-generated Video Lessons: Given a topic or curriculum unit, the system produces a video lecture. This could be an animated slideshow or avatar presentation with synthesized speech. Key elements include synchronized"
+          },
+          {
+            "chunk_id": 185,
+            "content": "JEE/GATE/NEET authorities may restrict use of their questions; we should avoid directly copying exam problems. Instead, we will paraphrase question patterns and create similar problems ourselves. We will check official policies; if needed, obtain permission or use past papers only as inspiration (not republishing answers). \u2022 Privacy and Data Protection: If collecting student data (e.g. usage logs, performance), comply with data privacy norms (in India, forthcoming DPDP Act; at least follow GDPR-like best practices). Store personal data securely and allow user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "lexical_candidates",
+      "elapsed_ms": 64.78,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 133,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 735,
+              "sha256": "f5b9ee0fd328aabdc39bfd7d52cf91cb9f0ff269b862d1e34cd257a812d83fdf"
+            },
+            "selected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": 180,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 11,
+            "content_fingerprint": {
+              "chars": 737,
+              "sha256": "202bbb2fea54248f63047344f8598389a923caccd534d01ddd6a0547f94af7a5"
+            },
+            "selected": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": 199,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 757,
+              "sha256": "73e6a04c2d7b75bed3850b577ebf1fdb69f4291110a235f48728aa6c16018c28"
+            },
+            "selected": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": 186,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 490,
+              "sha256": "dd79f5388fab92df07ef73c5805b17e5f650cf40cbb9689ad360ebbba2c27c10"
+            },
+            "selected": true
+          },
+          {
+            "rank": 6,
+            "chunk_id": 202,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content_fingerprint": {
+              "chars": 723,
+              "sha256": "d6cf64287eba6ea72c571fcc29258a2556db2e0d7ad383877cbe33360fa9cb1a"
+            },
+            "selected": true
+          },
+          {
+            "rank": 7,
+            "chunk_id": 181,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 11,
+            "content_fingerprint": {
+              "chars": 603,
+              "sha256": "30fb6996ee70572f5b8778906fa369b88d0cee1cbc6366d6e5c2c3362c89ca12"
+            },
+            "selected": true
+          },
+          {
+            "rank": 8,
+            "chunk_id": 151,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 5,
+            "content_fingerprint": {
+              "chars": 738,
+              "sha256": "1d1d4f84aa42041e23b3b51b5a6a0874ccfbb1278d0cc07a94252b633caca9ce"
+            },
+            "selected": true
+          },
+          {
+            "rank": 9,
+            "chunk_id": 184,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 708,
+              "sha256": "0c18c217c9a53dd5a5b98ba2e48ad31d71447c58e06e0b87ae1383058a6c8d11"
+            },
+            "selected": true
+          },
+          {
+            "rank": 10,
+            "chunk_id": 179,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 11,
+            "content_fingerprint": {
+              "chars": 689,
+              "sha256": "2759d77739a8d137c32dc5664f6e8c247fe40d3ad3890ccd7ad1c2542ad67fc4"
+            },
+            "selected": true
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 133,
+            "content": "cost vs scalability. Evaluation will combine standard ML metrics (accuracy, BLEU/ROUGE, etc.) with pedagogical validation (expert reviews, student testing). We anticipate phased development over 2\u20133 years, with MVP launch focusing on core video lessons, notes, and quizzes. Estimated team: ~10\u201315 people (AI/ML engineers, software developers, content experts, QA, DevOps, legal). Rough budget: on the order of $1M\u2013$5M (including hardware, personnel, and legal costs) over 2 years, depending on scale. Key risks (model quality, data licensing, engagement) have mitigation plans (human-in-the-loop validation, IP audits, iterative user testing). We include comparison tables (model and hosting options, MVP vs later features) and mermaid"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 180,
+            "content": "both technical performance and educational effectiveness: \u2022 Accuracy/Quality Metrics: \u2022 Text generation: Use ROUGE/BLEU to measure overlap between AI-generated notes/answers and reference answers. Factual accuracy will be checked by experts (fraction of correct statements). \u2022 MCQ correctness: Check generated questions against official answers. Use automatic analysis (e.g. ensure one correct and plausibly wrong distractors). Educator review for semantic relevance. \u2022 Speech: Measure TTS naturalness by Mean Opinion Score (MOS) and ASR accuracy by WER (for transcripts). Whisper\u2019s low WER is expected\u301033\u2020L118-L124\u3011. \u2022 Video: Hard to automate; may measure viewer engagement (e.g. quiz scores after watching) or clarity ratings from test"
+          },
+          {
+            "chunk_id": 199,
+            "content": "Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development phases (mid-2026 start). 15. Risk Management and Mitigation \u2022 Quality Risk: AI outputs might be inaccurate or unengaging. Mitigation: Maintain humans-in-loop for review, start with conservative content generation, gather student feedback early. \u2022 Data/Copyright Risk: Unauthorized use of licensed content. Mitigation: Legal review of sources, use public/open data, ensure model outputs are sufficiently rephrased. Cite official guidelines\u301045\u2020L75- L84\u3011. \u2022 Cost Overruns: Training large models can blow budgets. Mitigation: Use open models when possible; optimize with distillation/quantization; consider HPC credits or"
+          },
+          {
+            "chunk_id": 186,
+            "content": "user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts for videos). Content should be suitable for all genders/castes (avoid biased examples). \u2022 Compliance: We will audit content regularly. A legal advisor will review terms of service to comply with educational regulations. If partnering with schools, ensure FERPA/COPPA-like child-safety policies (even if India has none, best to be safe). 12"
+          },
+          {
+            "chunk_id": 202,
+            "content": "\u2022 Model Cards: For each ML model, a card describing: architecture, training data, performance metrics, intended use, limitations. This ensures transparency (aligned with [13\u2020L107-L113] emphasis on visibility). \u2022 Test Plans: Test cases for unit, integration, and user acceptance (e.g. \u201cTC1: Given topic X, generation returns video <3 min, mentions key formula\u201d). Include evaluation checklists (accuracy, bias, etc.). \u2022 Runbooks: Operational guides (e.g. \u201cHow to restart the inference cluster\u201d, \u201cEmergency contact matrix\u201d). Include troubleshooting steps and escalation paths. These will be living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists)"
+          },
+          {
+            "chunk_id": 181,
+            "content": "expected\u301033\u2020L118-L124\u3011. \u2022 Video: Hard to automate; may measure viewer engagement (e.g. quiz scores after watching) or clarity ratings from test users. \u2022 Pedagogical Quality: \u2022 Expert Review: Subject experts rate how well the content aligns with curriculum and educational standards (e.g. clarity of explanations, depth, examples used). \u2022 A/B Student Testing: Compare student outcomes using AI-generated content vs traditional materials. The cited studies found no performance difference\u30103\u2020L69-L73\u3011 and even better retention \u30104\u2020L110-L118\u3011. We will pilot with small classes to validate similar results. 11"
+          },
+          {
+            "chunk_id": 151,
+            "content": "Augmentation: Techniques like back-translation (English\u2194Hindi), random question reshuffling, variable substitution in math/chemistry (replace numbers/units) to generate new question variants. A research approach is \u201cWikification\u201d \u2013 mapping concepts to Wikipedia links to diversify context\u301025\u2020L259-L268\u3011. \u2022 Balancing: Ensure uniform coverage across subjects and chapters. For instance, if 30% of JEE problems are physics, then ~30% of our question-training set should be physics. Throughout, we maintain a safe content dataset: examples of allowed educational content vs disallowed (e.g. off-topic or inappropriate) to train filters (see section 9). All student data (if any) will be anonymized and protected. 5. AI Model Selection We will"
+          },
+          {
+            "chunk_id": 184,
+            "content": "& Licensing: Official educational materials (NCERT books, exam papers) are copyrighted. NCERT explicitly forbids unlicensed commercial use of its textbook content\u301045\u2020L75-L84\u3011. We will use such sources as training data (fair use argument for education may apply), but all generated outputs must avoid verbatim reproduction. Attribution should be given where necessary (e.g. referring to \u201cNCERT concepts\u201d). If any third-party content is used (images, plots), ensure it is in the public domain or licensed (Creative Commons, purchased rights). \u2022 Exam Board Rules: JEE/GATE/NEET authorities may restrict use of their questions; we should avoid directly copying exam problems. Instead, we will paraphrase question"
+          },
+          {
+            "chunk_id": 179,
+            "content": "an output is wrong or off-topic, the teacher can label it, and the system will learn. By combining these, we aim to guarantee domain adherence: any query or answer outside predefined curriculum lists is disallowed, and any content potentially harmful is blocked. The PowerSchool example shows the importance of custom filters in an educational context\u301013\u2020L107-L113\u3011. We will log all filter hits and review them to continuously improve our models. 10. Evaluation Metrics and Validation We will evaluate our system on both technical performance and educational effectiveness: \u2022 Accuracy/Quality Metrics: \u2022 Text generation: Use ROUGE/BLEU to measure overlap between AI-generated notes/answers"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rrf_results",
+      "elapsed_ms": 65.13,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 133,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 735,
+              "sha256": "f5b9ee0fd328aabdc39bfd7d52cf91cb9f0ff269b862d1e34cd257a812d83fdf"
+            },
+            "selected": true,
+            "rrf_score": 0.031544957774465976
+          },
+          {
+            "rank": 2,
+            "chunk_id": 199,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 757,
+              "sha256": "73e6a04c2d7b75bed3850b577ebf1fdb69f4291110a235f48728aa6c16018c28"
+            },
+            "selected": true,
+            "rrf_score": 0.03149801587301587
+          },
+          {
+            "rank": 3,
+            "chunk_id": 186,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 490,
+              "sha256": "dd79f5388fab92df07ef73c5805b17e5f650cf40cbb9689ad360ebbba2c27c10"
+            },
+            "selected": true,
+            "rrf_score": 0.031009615384615385
+          },
+          {
+            "rank": 4,
+            "chunk_id": 200,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 744,
+              "sha256": "8c6ccc33c79319b3d10c5881e46e859424095b16300e80c6112fbcdc01867a0f"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082
+          },
+          {
+            "rank": 5,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516
+          },
+          {
+            "rank": 6,
+            "chunk_id": 201,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 550,
+              "sha256": "de999cb2a7441357ba42873748574db1241d1ab206cb35d0467cd1950c7179f8"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516
+          },
+          {
+            "rank": 7,
+            "chunk_id": 180,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 11,
+            "content_fingerprint": {
+              "chars": 737,
+              "sha256": "202bbb2fea54248f63047344f8598389a923caccd534d01ddd6a0547f94af7a5"
+            },
+            "selected": true,
+            "rrf_score": 0.015873015873015872
+          },
+          {
+            "rank": 8,
+            "chunk_id": 183,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 731,
+              "sha256": "f04fb7c1643e906d4489a5a3b3c7597fbf5c33481d0c891b8265f17df2eba070"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385
+          },
+          {
+            "rank": 9,
+            "chunk_id": 202,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content_fingerprint": {
+              "chars": 723,
+              "sha256": "d6cf64287eba6ea72c571fcc29258a2556db2e0d7ad383877cbe33360fa9cb1a"
+            },
+            "selected": true,
+            "rrf_score": 0.015151515151515152
+          },
+          {
+            "rank": 10,
+            "chunk_id": 181,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 11,
+            "content_fingerprint": {
+              "chars": 603,
+              "sha256": "30fb6996ee70572f5b8778906fa369b88d0cee1cbc6366d6e5c2c3362c89ca12"
+            },
+            "selected": true,
+            "rrf_score": 0.014925373134328358
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 133,
+            "content": "cost vs scalability. Evaluation will combine standard ML metrics (accuracy, BLEU/ROUGE, etc.) with pedagogical validation (expert reviews, student testing). We anticipate phased development over 2\u20133 years, with MVP launch focusing on core video lessons, notes, and quizzes. Estimated team: ~10\u201315 people (AI/ML engineers, software developers, content experts, QA, DevOps, legal). Rough budget: on the order of $1M\u2013$5M (including hardware, personnel, and legal costs) over 2 years, depending on scale. Key risks (model quality, data licensing, engagement) have mitigation plans (human-in-the-loop validation, IP audits, iterative user testing). We include comparison tables (model and hosting options, MVP vs later features) and mermaid"
+          },
+          {
+            "chunk_id": 199,
+            "content": "Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development phases (mid-2026 start). 15. Risk Management and Mitigation \u2022 Quality Risk: AI outputs might be inaccurate or unengaging. Mitigation: Maintain humans-in-loop for review, start with conservative content generation, gather student feedback early. \u2022 Data/Copyright Risk: Unauthorized use of licensed content. Mitigation: Legal review of sources, use public/open data, ensure model outputs are sufficiently rephrased. Cite official guidelines\u301045\u2020L75- L84\u3011. \u2022 Cost Overruns: Training large models can blow budgets. Mitigation: Use open models when possible; optimize with distillation/quantization; consider HPC credits or"
+          },
+          {
+            "chunk_id": 186,
+            "content": "user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts for videos). Content should be suitable for all genders/castes (avoid biased examples). \u2022 Compliance: We will audit content regularly. A legal advisor will review terms of service to comply with educational regulations. If partnering with schools, ensure FERPA/COPPA-like child-safety policies (even if India has none, best to be safe). 12"
+          },
+          {
+            "chunk_id": 200,
+            "content": "Overruns: Training large models can blow budgets. Mitigation: Use open models when possible; optimize with distillation/quantization; consider HPC credits or partnerships. \u2022 Adoption Risk: Students/teachers may distrust AI content. Mitigation: Emphasize quality (pilot studies), build trust via transparency (model cards, citing sources), include teachers in loops. \u2022 Technical Risk: GPU hardware failures or cloud outages. Mitigation: Redundancy, cloud fallback, robust monitoring/alerts. \u2022 Regulatory Risk: New laws (data privacy) may affect operations. Mitigation: Build privacy and security from day one; consult legal experts. Regular risk reviews will be part of project governance. 16. Handoff Deliverables and Templates At each phase we"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 201,
+            "content": "legal experts. Regular risk reviews will be part of project governance. 16. Handoff Deliverables and Templates At each phase we will produce standard documentation to facilitate handoff and continuity: \u2022 Requirements Document: Detailed functional and non-functional requirements, user stories, use cases. \u2022 Architecture Diagrams: High-level and component diagrams (like Figure 1). Merely this document\u2019s figures can serve as a start. \u2022 Data Schema: Definitions for all database tables/collections (e.g. Video, Question, UserProgress) and metadata. 16"
+          },
+          {
+            "chunk_id": 180,
+            "content": "both technical performance and educational effectiveness: \u2022 Accuracy/Quality Metrics: \u2022 Text generation: Use ROUGE/BLEU to measure overlap between AI-generated notes/answers and reference answers. Factual accuracy will be checked by experts (fraction of correct statements). \u2022 MCQ correctness: Check generated questions against official answers. Use automatic analysis (e.g. ensure one correct and plausibly wrong distractors). Educator review for semantic relevance. \u2022 Speech: Measure TTS naturalness by Mean Opinion Score (MOS) and ASR accuracy by WER (for transcripts). Whisper\u2019s low WER is expected\u301033\u2020L118-L124\u3011. \u2022 Video: Hard to automate; may measure viewer engagement (e.g. quiz scores after watching) or clarity ratings from test"
+          },
+          {
+            "chunk_id": 183,
+            "content": "We will simulate adversarial prompts to test the filter (e.g. attempt to coax off-topic replies). Monitor false positives (overfiltering legitimate content) vs false negatives. \u2022 Validate with educators that no disallowed content slips through. Overall, we will maintain a continuous validation loop: metrics + human feedback guide iterative model improvements. Templates such as model cards (detailing training data, intended use, limitations) and test plans (unit/integration tests for outputs) will document our validation process. 11. Legal, IP, and Compliance \u2022 Copyright & Licensing: Official educational materials (NCERT books, exam papers) are copyrighted. NCERT explicitly forbids unlicensed commercial use of its textbook"
+          },
+          {
+            "chunk_id": 202,
+            "content": "\u2022 Model Cards: For each ML model, a card describing: architecture, training data, performance metrics, intended use, limitations. This ensures transparency (aligned with [13\u2020L107-L113] emphasis on visibility). \u2022 Test Plans: Test cases for unit, integration, and user acceptance (e.g. \u201cTC1: Given topic X, generation returns video <3 min, mentions key formula\u201d). Include evaluation checklists (accuracy, bias, etc.). \u2022 Runbooks: Operational guides (e.g. \u201cHow to restart the inference cluster\u201d, \u201cEmergency contact matrix\u201d). Include troubleshooting steps and escalation paths. These will be living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists)"
+          },
+          {
+            "chunk_id": 181,
+            "content": "expected\u301033\u2020L118-L124\u3011. \u2022 Video: Hard to automate; may measure viewer engagement (e.g. quiz scores after watching) or clarity ratings from test users. \u2022 Pedagogical Quality: \u2022 Expert Review: Subject experts rate how well the content aligns with curriculum and educational standards (e.g. clarity of explanations, depth, examples used). \u2022 A/B Student Testing: Compare student outcomes using AI-generated content vs traditional materials. The cited studies found no performance difference\u30103\u2020L69-L73\u3011 and even better retention \u30104\u2020L110-L118\u3011. We will pilot with small classes to validate similar results. 11"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "fusion_selection",
+      "elapsed_ms": 65.26,
+      "metadata": {
+        "input_ids": [
+          133,
+          131,
+          180,
+          199,
+          186,
+          202,
+          181,
+          151,
+          184,
+          179,
+          200,
+          201,
+          183,
+          182,
+          203,
+          135,
+          185
+        ],
+        "selected_ids": [
+          133,
+          199,
+          186,
+          200,
+          131,
+          201,
+          180,
+          183,
+          202,
+          181
+        ],
+        "removal_reason": "rrf_pool_limit",
+        "limit": 10
+      }
+    },
+    {
+      "stage": "reranker_scores",
+      "elapsed_ms": 103.33,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 199,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 757,
+              "sha256": "73e6a04c2d7b75bed3850b577ebf1fdb69f4291110a235f48728aa6c16018c28"
+            },
+            "selected": true,
+            "rrf_score": 0.03149801587301587,
+            "rerank_score": -0.0869041383266449
+          },
+          {
+            "rank": 2,
+            "chunk_id": 200,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 744,
+              "sha256": "8c6ccc33c79319b3d10c5881e46e859424095b16300e80c6112fbcdc01867a0f"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -4.329995632171631
+          },
+          {
+            "rank": 3,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -8.564624786376953
+          },
+          {
+            "rank": 4,
+            "chunk_id": 133,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 735,
+              "sha256": "f5b9ee0fd328aabdc39bfd7d52cf91cb9f0ff269b862d1e34cd257a812d83fdf"
+            },
+            "selected": true,
+            "rrf_score": 0.031544957774465976,
+            "rerank_score": -9.25360107421875
+          },
+          {
+            "rank": 5,
+            "chunk_id": 201,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 550,
+              "sha256": "de999cb2a7441357ba42873748574db1241d1ab206cb35d0467cd1950c7179f8"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -9.413354873657227
+          },
+          {
+            "rank": 6,
+            "chunk_id": 186,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 490,
+              "sha256": "dd79f5388fab92df07ef73c5805b17e5f650cf40cbb9689ad360ebbba2c27c10"
+            },
+            "selected": false,
+            "rrf_score": 0.031009615384615385,
+            "rerank_score": -9.966608047485352,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 7,
+            "chunk_id": 183,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 731,
+              "sha256": "f04fb7c1643e906d4489a5a3b3c7597fbf5c33481d0c891b8265f17df2eba070"
+            },
+            "selected": false,
+            "rrf_score": 0.015384615384615385,
+            "rerank_score": -10.257124900817871,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 8,
+            "chunk_id": 180,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 11,
+            "content_fingerprint": {
+              "chars": 737,
+              "sha256": "202bbb2fea54248f63047344f8598389a923caccd534d01ddd6a0547f94af7a5"
+            },
+            "selected": false,
+            "rrf_score": 0.015873015873015872,
+            "rerank_score": -10.562016487121582,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 9,
+            "chunk_id": 181,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 11,
+            "content_fingerprint": {
+              "chars": 603,
+              "sha256": "30fb6996ee70572f5b8778906fa369b88d0cee1cbc6366d6e5c2c3362c89ca12"
+            },
+            "selected": false,
+            "rrf_score": 0.014925373134328358,
+            "rerank_score": -11.069305419921875,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 10,
+            "chunk_id": 202,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content_fingerprint": {
+              "chars": 723,
+              "sha256": "d6cf64287eba6ea72c571fcc29258a2556db2e0d7ad383877cbe33360fa9cb1a"
+            },
+            "selected": false,
+            "rrf_score": 0.015151515151515152,
+            "rerank_score": -11.269501686096191,
+            "removal_reason": "rerank_top_k"
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 199,
+            "content": "Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development phases (mid-2026 start). 15. Risk Management and Mitigation \u2022 Quality Risk: AI outputs might be inaccurate or unengaging. Mitigation: Maintain humans-in-loop for review, start with conservative content generation, gather student feedback early. \u2022 Data/Copyright Risk: Unauthorized use of licensed content. Mitigation: Legal review of sources, use public/open data, ensure model outputs are sufficiently rephrased. Cite official guidelines\u301045\u2020L75- L84\u3011. \u2022 Cost Overruns: Training large models can blow budgets. Mitigation: Use open models when possible; optimize with distillation/quantization; consider HPC credits or"
+          },
+          {
+            "chunk_id": 200,
+            "content": "Overruns: Training large models can blow budgets. Mitigation: Use open models when possible; optimize with distillation/quantization; consider HPC credits or partnerships. \u2022 Adoption Risk: Students/teachers may distrust AI content. Mitigation: Emphasize quality (pilot studies), build trust via transparency (model cards, citing sources), include teachers in loops. \u2022 Technical Risk: GPU hardware failures or cloud outages. Mitigation: Redundancy, cloud fallback, robust monitoring/alerts. \u2022 Regulatory Risk: New laws (data privacy) may affect operations. Mitigation: Build privacy and security from day one; consult legal experts. Regular risk reviews will be part of project governance. 16. Handoff Deliverables and Templates At each phase we"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 133,
+            "content": "cost vs scalability. Evaluation will combine standard ML metrics (accuracy, BLEU/ROUGE, etc.) with pedagogical validation (expert reviews, student testing). We anticipate phased development over 2\u20133 years, with MVP launch focusing on core video lessons, notes, and quizzes. Estimated team: ~10\u201315 people (AI/ML engineers, software developers, content experts, QA, DevOps, legal). Rough budget: on the order of $1M\u2013$5M (including hardware, personnel, and legal costs) over 2 years, depending on scale. Key risks (model quality, data licensing, engagement) have mitigation plans (human-in-the-loop validation, IP audits, iterative user testing). We include comparison tables (model and hosting options, MVP vs later features) and mermaid"
+          },
+          {
+            "chunk_id": 201,
+            "content": "legal experts. Regular risk reviews will be part of project governance. 16. Handoff Deliverables and Templates At each phase we will produce standard documentation to facilitate handoff and continuity: \u2022 Requirements Document: Detailed functional and non-functional requirements, user stories, use cases. \u2022 Architecture Diagrams: High-level and component diagrams (like Figure 1). Merely this document\u2019s figures can serve as a start. \u2022 Data Schema: Definitions for all database tables/collections (e.g. Video, Question, UserProgress) and metadata. 16"
+          },
+          {
+            "chunk_id": 186,
+            "content": "user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts for videos). Content should be suitable for all genders/castes (avoid biased examples). \u2022 Compliance: We will audit content regularly. A legal advisor will review terms of service to comply with educational regulations. If partnering with schools, ensure FERPA/COPPA-like child-safety policies (even if India has none, best to be safe). 12"
+          },
+          {
+            "chunk_id": 183,
+            "content": "We will simulate adversarial prompts to test the filter (e.g. attempt to coax off-topic replies). Monitor false positives (overfiltering legitimate content) vs false negatives. \u2022 Validate with educators that no disallowed content slips through. Overall, we will maintain a continuous validation loop: metrics + human feedback guide iterative model improvements. Templates such as model cards (detailing training data, intended use, limitations) and test plans (unit/integration tests for outputs) will document our validation process. 11. Legal, IP, and Compliance \u2022 Copyright & Licensing: Official educational materials (NCERT books, exam papers) are copyrighted. NCERT explicitly forbids unlicensed commercial use of its textbook"
+          },
+          {
+            "chunk_id": 180,
+            "content": "both technical performance and educational effectiveness: \u2022 Accuracy/Quality Metrics: \u2022 Text generation: Use ROUGE/BLEU to measure overlap between AI-generated notes/answers and reference answers. Factual accuracy will be checked by experts (fraction of correct statements). \u2022 MCQ correctness: Check generated questions against official answers. Use automatic analysis (e.g. ensure one correct and plausibly wrong distractors). Educator review for semantic relevance. \u2022 Speech: Measure TTS naturalness by Mean Opinion Score (MOS) and ASR accuracy by WER (for transcripts). Whisper\u2019s low WER is expected\u301033\u2020L118-L124\u3011. \u2022 Video: Hard to automate; may measure viewer engagement (e.g. quiz scores after watching) or clarity ratings from test"
+          },
+          {
+            "chunk_id": 181,
+            "content": "expected\u301033\u2020L118-L124\u3011. \u2022 Video: Hard to automate; may measure viewer engagement (e.g. quiz scores after watching) or clarity ratings from test users. \u2022 Pedagogical Quality: \u2022 Expert Review: Subject experts rate how well the content aligns with curriculum and educational standards (e.g. clarity of explanations, depth, examples used). \u2022 A/B Student Testing: Compare student outcomes using AI-generated content vs traditional materials. The cited studies found no performance difference\u30103\u2020L69-L73\u3011 and even better retention \u30104\u2020L110-L118\u3011. We will pilot with small classes to validate similar results. 11"
+          },
+          {
+            "chunk_id": 202,
+            "content": "\u2022 Model Cards: For each ML model, a card describing: architecture, training data, performance metrics, intended use, limitations. This ensures transparency (aligned with [13\u2020L107-L113] emphasis on visibility). \u2022 Test Plans: Test cases for unit, integration, and user acceptance (e.g. \u201cTC1: Given topic X, generation returns video <3 min, mentions key formula\u201d). Include evaluation checklists (accuracy, bias, etc.). \u2022 Runbooks: Operational guides (e.g. \u201cHow to restart the inference cluster\u201d, \u201cEmergency contact matrix\u201d). Include troubleshooting steps and escalation paths. These will be living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists)"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rerank_results",
+      "elapsed_ms": 103.7,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 199,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 757,
+              "sha256": "73e6a04c2d7b75bed3850b577ebf1fdb69f4291110a235f48728aa6c16018c28"
+            },
+            "selected": true,
+            "rrf_score": 0.03149801587301587,
+            "rerank_score": -0.0869041383266449
+          },
+          {
+            "rank": 2,
+            "chunk_id": 200,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 744,
+              "sha256": "8c6ccc33c79319b3d10c5881e46e859424095b16300e80c6112fbcdc01867a0f"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -4.329995632171631
+          },
+          {
+            "rank": 3,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -8.564624786376953
+          },
+          {
+            "rank": 4,
+            "chunk_id": 133,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 735,
+              "sha256": "f5b9ee0fd328aabdc39bfd7d52cf91cb9f0ff269b862d1e34cd257a812d83fdf"
+            },
+            "selected": true,
+            "rrf_score": 0.031544957774465976,
+            "rerank_score": -9.25360107421875
+          },
+          {
+            "rank": 5,
+            "chunk_id": 201,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 550,
+              "sha256": "de999cb2a7441357ba42873748574db1241d1ab206cb35d0467cd1950c7179f8"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -9.413354873657227
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 199,
+            "content": "Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development phases (mid-2026 start). 15. Risk Management and Mitigation \u2022 Quality Risk: AI outputs might be inaccurate or unengaging. Mitigation: Maintain humans-in-loop for review, start with conservative content generation, gather student feedback early. \u2022 Data/Copyright Risk: Unauthorized use of licensed content. Mitigation: Legal review of sources, use public/open data, ensure model outputs are sufficiently rephrased. Cite official guidelines\u301045\u2020L75- L84\u3011. \u2022 Cost Overruns: Training large models can blow budgets. Mitigation: Use open models when possible; optimize with distillation/quantization; consider HPC credits or"
+          },
+          {
+            "chunk_id": 200,
+            "content": "Overruns: Training large models can blow budgets. Mitigation: Use open models when possible; optimize with distillation/quantization; consider HPC credits or partnerships. \u2022 Adoption Risk: Students/teachers may distrust AI content. Mitigation: Emphasize quality (pilot studies), build trust via transparency (model cards, citing sources), include teachers in loops. \u2022 Technical Risk: GPU hardware failures or cloud outages. Mitigation: Redundancy, cloud fallback, robust monitoring/alerts. \u2022 Regulatory Risk: New laws (data privacy) may affect operations. Mitigation: Build privacy and security from day one; consult legal experts. Regular risk reviews will be part of project governance. 16. Handoff Deliverables and Templates At each phase we"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 133,
+            "content": "cost vs scalability. Evaluation will combine standard ML metrics (accuracy, BLEU/ROUGE, etc.) with pedagogical validation (expert reviews, student testing). We anticipate phased development over 2\u20133 years, with MVP launch focusing on core video lessons, notes, and quizzes. Estimated team: ~10\u201315 people (AI/ML engineers, software developers, content experts, QA, DevOps, legal). Rough budget: on the order of $1M\u2013$5M (including hardware, personnel, and legal costs) over 2 years, depending on scale. Key risks (model quality, data licensing, engagement) have mitigation plans (human-in-the-loop validation, IP audits, iterative user testing). We include comparison tables (model and hosting options, MVP vs later features) and mermaid"
+          },
+          {
+            "chunk_id": 201,
+            "content": "legal experts. Regular risk reviews will be part of project governance. 16. Handoff Deliverables and Templates At each phase we will produce standard documentation to facilitate handoff and continuity: \u2022 Requirements Document: Detailed functional and non-functional requirements, user stories, use cases. \u2022 Architecture Diagrams: High-level and component diagrams (like Figure 1). Merely this document\u2019s figures can serve as a start. \u2022 Data Schema: Definitions for all database tables/collections (e.g. Video, Question, UserProgress) and metadata. 16"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rerank_selection",
+      "elapsed_ms": 103.87,
+      "metadata": {
+        "status": "ok",
+        "selected_ids": [
+          199,
+          200,
+          131,
+          133,
+          201
+        ],
+        "input_ids": [
+          133,
+          199,
+          186,
+          200,
+          131,
+          201,
+          180,
+          183,
+          202,
+          181
+        ],
+        "rerank_candidate_limit": 10,
+        "output_limit": 5,
+        "removal_reason": "rerank_top_k"
+      }
+    },
+    {
+      "stage": "adaptive_filter",
+      "elapsed_ms": 103.94,
+      "metadata": {
+        "removals": [
+          {
+            "chunk_id": 200,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -4.329995632171631,
+            "threshold": -2.086904138326645
+          },
+          {
+            "chunk_id": 131,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -8.564624786376953,
+            "threshold": -2.086904138326645
+          },
+          {
+            "chunk_id": 133,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -9.25360107421875,
+            "threshold": -2.086904138326645
+          },
+          {
+            "chunk_id": 201,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -9.413354873657227,
+            "threshold": -2.086904138326645
+          }
+        ],
+        "input_ids": [
+          199,
+          200,
+          131,
+          133,
+          201
+        ],
+        "selected_ids": [
+          199
+        ]
+      }
+    },
+    {
+      "stage": "after_adaptive_filter",
+      "elapsed_ms": 104.0,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 199,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 757,
+              "sha256": "73e6a04c2d7b75bed3850b577ebf1fdb69f4291110a235f48728aa6c16018c28"
+            },
+            "selected": true,
+            "rrf_score": 0.03149801587301587,
+            "rerank_score": -0.0869041383266449
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 199,
+            "content": "Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development phases (mid-2026 start). 15. Risk Management and Mitigation \u2022 Quality Risk: AI outputs might be inaccurate or unengaging. Mitigation: Maintain humans-in-loop for review, start with conservative content generation, gather student feedback early. \u2022 Data/Copyright Risk: Unauthorized use of licensed content. Mitigation: Legal review of sources, use public/open data, ensure model outputs are sufficiently rephrased. Cite official guidelines\u301045\u2020L75- L84\u3011. \u2022 Cost Overruns: Training large models can blow budgets. Mitigation: Use open models when possible; optimize with distillation/quantization; consider HPC credits or"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "page_continuity",
+      "elapsed_ms": 104.16,
+      "metadata": {
+        "recovered_ids": []
+      }
+    },
+    {
+      "stage": "after_page_continuity",
+      "elapsed_ms": 104.17,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 199,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 757,
+              "sha256": "73e6a04c2d7b75bed3850b577ebf1fdb69f4291110a235f48728aa6c16018c28"
+            },
+            "selected": true,
+            "rrf_score": 0.03149801587301587,
+            "rerank_score": -0.0869041383266449
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 199,
+            "content": "Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development phases (mid-2026 start). 15. Risk Management and Mitigation \u2022 Quality Risk: AI outputs might be inaccurate or unengaging. Mitigation: Maintain humans-in-loop for review, start with conservative content generation, gather student feedback early. \u2022 Data/Copyright Risk: Unauthorized use of licensed content. Mitigation: Legal review of sources, use public/open data, ensure model outputs are sufficiently rephrased. Cite official guidelines\u301045\u2020L75- L84\u3011. \u2022 Cost Overruns: Training large models can blow budgets. Mitigation: Use open models when possible; optimize with distillation/quantization; consider HPC credits or"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "final_context",
+      "elapsed_ms": 104.28,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 199,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 757,
+              "sha256": "73e6a04c2d7b75bed3850b577ebf1fdb69f4291110a235f48728aa6c16018c28"
+            },
+            "selected": true,
+            "rrf_score": 0.03149801587301587,
+            "rerank_score": -0.0869041383266449
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 199,
+            "content": "Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development phases (mid-2026 start). 15. Risk Management and Mitigation \u2022 Quality Risk: AI outputs might be inaccurate or unengaging. Mitigation: Maintain humans-in-loop for review, start with conservative content generation, gather student feedback early. \u2022 Data/Copyright Risk: Unauthorized use of licensed content. Mitigation: Legal review of sources, use public/open data, ensure model outputs are sufficiently rephrased. Cite official guidelines\u301045\u2020L75- L84\u3011. \u2022 Cost Overruns: Training large models can blow budgets. Mitigation: Use open models when possible; optimize with distillation/quantization; consider HPC credits or"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "context_packing",
+      "elapsed_ms": 104.32,
+      "metadata": {
+        "total_chars": 757,
+        "max_chars": 12000,
+        "max_chunks": 8,
+        "dropped": [],
+        "truncated": false
+      },
+      "raw": {
+        "context_text": "[S1] Document: e3160c67-ee6d-4983-9029-8273bd35525a | Page: 16 | Chunk: 199\nMaintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development phases (mid-2026 start). 15. Risk Management and Mitigation \u2022 Quality Risk: AI outputs might be inaccurate or unengaging. Mitigation: Maintain humans-in-loop for review, start with conservative content generation, gather student feedback early. \u2022 Data/Copyright Risk: Unauthorized use of licensed content. Mitigation: Legal review of sources, use public/open data, ensure model outputs are sufficiently rephrased. Cite official guidelines\u301045\u2020L75- L84\u3011. \u2022 Cost Overruns: Training large models can blow budgets. Mitigation: Use open models when possible; optimize with distillation/quantization; consider HPC credits or"
+      }
+    },
+    {
+      "stage": "generation_skipped",
+      "elapsed_ms": 104.4,
+      "metadata": {
+        "reason": "provider-free stage diagnosis"
+      }
+    },
+    {
+      "stage": "answer_result",
+      "elapsed_ms": 104.42,
+      "metadata": {
+        "status": "unverified",
+        "issues": [
+          "provider_not_run"
+        ],
+        "citations": [],
+        "coverage": null
+      },
+      "raw": {
+        "answer": "NOT_RUN"
+      }
+    }
+  ]
+}

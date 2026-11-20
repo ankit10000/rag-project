@@ -1,0 +1,63 @@
+- link "Skip to content":
+  - /url: "#main"
+- alert
+- complementary:
+  - link "RAG 2.0":
+    - /url: /dashboard
+    - text: RAG
+    - generic: "2.0"
+  - button "Toggle navigation":
+- banner:
+  - generic: Private knowledge workspace
+- main:
+  - heading "Chat workspace" [level=1]
+  - paragraph: Ask your sources. Follow every citation.
+  - button "New chat":
+    - text: New chat
+  - log "Conversation messages":
+    - article:
+      - heading "You" [level=2]
+      - paragraph: According to Executive Summary.pdf, what product is proposed and which entrance exams does it target?
+    - article:
+      - heading "RAG" [level=2]
+      - generic: answered
+      - paragraph: The proposed product is an AI-driven education portal that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces [S1]. It targets the JEE, GATE, and NEET entrance exams [S1].
+      - link "Open citation S1 · Executive Summary.pdf · p. 1":
+        - /url: /api/v2/documents/e2d16866-1a15-444f-82b5-b646487e221a/file#page=1
+        - text: S1 · Executive Summary.pdf · p. 1
+    - article:
+      - heading "You" [level=2]
+      - paragraph: According to Executive Summary.pdf, which features are core MVP features, and which are suggested additional features? Keep the two lists separate.
+    - article:
+      - heading "RAG" [level=2]
+      - generic: answered
+      - paragraph: "- Core features: AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine [S1]. - Additional features: Adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements [S1]."
+      - link "Open citation S1 · Executive Summary.pdf · p. 1":
+        - /url: /api/v2/documents/e2d16866-1a15-444f-82b5-b646487e221a/file#page=1
+        - text: S1 · Executive Summary.pdf · p. 1
+    - article:
+      - heading "You" [level=2]
+      - paragraph: What development timeline and team size does Executive Summary.pdf estimate?
+    - article:
+      - heading "RAG" [level=2]
+      - generic: answered
+      - paragraph: The provided documents outline a milestone timeline that includes Phase 1 (Planning & System Architecture, Proof-of-Concept AI Models, Model Training), Phase 2 (MVP Development including Portal Frontend/Backend, Video Pipeline, and Content Filtering Module), Phase 3 (Pilot & Feedback with an Internal Pilot and Beta Launch), and Phase 4 (Launch & Scale with Feature Enhancements, Full Launch, and Maintenance & Expansion) [S2].
+      - link "Open citation S2 · Executive Summary.pdf · p. 16":
+        - /url: /api/v2/documents/e2d16866-1a15-444f-82b5-b646487e221a/file#page=16
+        - text: S2 · Executive Summary.pdf · p. 16
+    - article:
+      - heading "You" [level=2]
+      - paragraph: What does Executive Summary.pdf say about multilingual support and offline or mobile access?
+    - article:
+      - heading "RAG" [level=2]
+      - generic: answered
+      - paragraph: "The documents mention the following suggested additional features: - Multilingual Support: Extend content to Hindi or other regional languages to broaden accessibility [S1]. - Offline Access & Mobile App: Allow downloading videos or notes for offline study [S1]."
+      - link "Open citation S1 · Executive Summary.pdf · p. 2":
+        - /url: /api/v2/documents/e2d16866-1a15-444f-82b5-b646487e221a/file#page=2
+        - text: S1 · Executive Summary.pdf · p. 2
+  - generic: Your message
+  - textbox "Your message":
+    - /placeholder: Ask about your documents…
+  - paragraph: Answers may be incomplete. Check original source pages.
+  - button "Send" [disabled]:
+    - text: Send

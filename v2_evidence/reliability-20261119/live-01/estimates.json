@@ -1,0 +1,193 @@
+{
+  "id": "estimates",
+  "question": "According to Executive Summary.pdf, what overall development duration, team size and rough budget does the executive summary estimate? Give all three estimates.",
+  "result": {
+    "answer": "- **Development duration / timeline:** Phased development over roughly 2\u20133 years (or ~24\u201330 months across ~3 phases) [S3][S4].\n- **Team size / staffing:** Roughly 10\u201315 people (including AI/ML engineers, software developers, content experts, QA, DevOps, and legal), with peak estimates of ~10\u201315 core team members (4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, and part-time roles) [S1][S4].\n- **Budget / cost:** A rough budget on the order of $1M\u2013$5M over 2 years, or specifically $1.2M\u2013$2.0M for personnel over 2 years plus initial hardware of $300K and $200K/year for cloud [S1][S4].",
+    "sources": [
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 15,
+        "chunk_id": 194,
+        "ref": "S3"
+      },
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 1,
+        "chunk_id": 133,
+        "ref": "S4"
+      },
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 15,
+        "chunk_id": 197,
+        "ref": "S1"
+      }
+    ],
+    "citations": [
+      {
+        "ref": "S3",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 15,
+        "chunk_id": 194
+      },
+      {
+        "ref": "S4",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 1,
+        "chunk_id": 133
+      },
+      {
+        "ref": "S1",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 15,
+        "chunk_id": 197
+      }
+    ],
+    "status": "answered",
+    "issues": [],
+    "retrieval_status": "ok",
+    "retrieved": [
+      {
+        "ref": "S1",
+        "chunk_id": 197,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 15,
+        "retrieval_score": -4.646530628204346
+      },
+      {
+        "ref": "S2",
+        "chunk_id": 131,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 1,
+        "retrieval_score": -7.8191351890563965
+      },
+      {
+        "ref": "S3",
+        "chunk_id": 194,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 15,
+        "retrieval_score": -7.736562728881836
+      },
+      {
+        "ref": "S4",
+        "chunk_id": 133,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 1,
+        "retrieval_score": -6.398403167724609
+      }
+    ],
+    "coverage": {
+      "policy": "v2-explicit-request-coverage/1",
+      "mode": "fields",
+      "facets": [
+        {
+          "id": "budget",
+          "label": "budget / cost",
+          "pattern": "\\b(?:budget|costs?|prices?|expenditure)\\b|[$\u20ac\u00a3\u20b9]\\s*\\d",
+          "request_pattern": "\\b(?:budget|costs?|prices?)\\b",
+          "query_terms": "budget cost estimate",
+          "evidence_refs": [
+            "S1",
+            "S4"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": true,
+          "source_fact_signal": true,
+          "source_titles": [],
+          "refused_supported_item": false
+        },
+        {
+          "id": "team",
+          "label": "team size / staffing",
+          "pattern": "\\b(?:team|headcount|staffing|staff|people|members|employees)\\b",
+          "request_pattern": "\\b(?:team|headcount|staffing|staff)\\b",
+          "query_terms": "team size staffing people",
+          "evidence_refs": [
+            "S1",
+            "S3",
+            "S4"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": true,
+          "source_fact_signal": true,
+          "source_titles": [],
+          "refused_supported_item": false
+        },
+        {
+          "id": "duration",
+          "label": "development duration / timeline",
+          "pattern": "\\b(?:duration|timeline|timeframe|years?|months?|weeks?|days?)\\b",
+          "request_pattern": "\\b(?:duration|timeline|timeframe|how long)\\b",
+          "query_terms": "development duration timeline months years",
+          "evidence_refs": [
+            "S1",
+            "S3",
+            "S4"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": true,
+          "source_fact_signal": true,
+          "source_titles": [],
+          "refused_supported_item": false
+        }
+      ],
+      "enumeration_count": null,
+      "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+      "concrete_missing": [],
+      "context_unobserved": [],
+      "answer_checked": true
+    }
+  },
+  "metrics": {
+    "evidence_coverage": true,
+    "evidence_fact_checks": [
+      {
+        "label": "2-3 years",
+        "observed": true
+      },
+      {
+        "label": "10-15 people",
+        "observed": true
+      },
+      {
+        "label": "1M-5M summary budget",
+        "observed": true
+      }
+    ],
+    "answer_factual_completeness": true,
+    "answer_fact_checks": [
+      {
+        "label": "2-3 years",
+        "observed": true
+      },
+      {
+        "label": "10-15 people",
+        "observed": true
+      },
+      {
+        "label": "1M-5M summary budget",
+        "observed": true
+      }
+    ],
+    "citation_abstention_correctness": true,
+    "citation_metadata_matches_owned_source": true,
+    "citation_presence_correct": true,
+    "declared_status_correct": true,
+    "selected_chunks": [
+      197,
+      131,
+      194,
+      133
+    ],
+    "selected_pages": [
+      15,
+      1,
+      15,
+      1
+    ],
+    "selected_characters": 2629,
+    "scope_and_budget_ok": true
+  },
+  "seconds": 19.073,
+  "provider_calls": 2
+}

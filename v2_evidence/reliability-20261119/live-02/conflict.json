@@ -1,0 +1,91 @@
+{
+  "id": "conflict",
+  "question": "In Executive Summary.pdf, does the roadmap stated phase count agree with its listed phases? Report any inconsistency.",
+  "result": {
+    "answer": "I couldn't find sufficient information in the provided documents to answer whether the roadmap stated phase count agrees with its listed phases.",
+    "sources": [],
+    "citations": [],
+    "status": "abstained",
+    "issues": [],
+    "retrieval_status": "ok",
+    "retrieved": [
+      {
+        "ref": "S1",
+        "chunk_id": 194,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 15,
+        "retrieval_score": -4.228762626647949
+      },
+      {
+        "ref": "S2",
+        "chunk_id": 195,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 15,
+        "retrieval_score": null
+      },
+      {
+        "ref": "S3",
+        "chunk_id": 196,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 15,
+        "retrieval_score": null
+      }
+    ],
+    "coverage": {
+      "policy": "v2-explicit-request-coverage/2",
+      "mode": "none",
+      "facets": [],
+      "enumeration_count": null,
+      "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+      "concrete_missing": [],
+      "context_unobserved": [],
+      "answer_checked": true
+    }
+  },
+  "metrics": {
+    "evidence_coverage": true,
+    "evidence_fact_checks": [
+      {
+        "label": "stated three",
+        "observed": true
+      },
+      {
+        "label": "listed fourth phase",
+        "observed": true
+      }
+    ],
+    "answer_factual_completeness": false,
+    "answer_fact_checks": [
+      {
+        "label": "stated three",
+        "observed": false
+      },
+      {
+        "label": "listed four",
+        "observed": false
+      },
+      {
+        "label": "disagreement disclosure",
+        "observed": false
+      }
+    ],
+    "citation_abstention_correctness": false,
+    "citation_metadata_matches_owned_source": true,
+    "citation_presence_correct": false,
+    "declared_status_correct": false,
+    "selected_chunks": [
+      194,
+      195,
+      196
+    ],
+    "selected_pages": [
+      15,
+      15,
+      15
+    ],
+    "selected_characters": 2118,
+    "scope_and_budget_ok": true
+  },
+  "seconds": 24.514,
+  "provider_calls": 3
+}

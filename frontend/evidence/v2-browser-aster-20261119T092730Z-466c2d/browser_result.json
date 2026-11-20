@@ -1,0 +1,115 @@
+{
+  "run_id": "v2-browser-aster-20261119T092730Z-466c2d",
+  "record_type": "EXECUTED_ASSERTION_SUMMARY_NOT_RAW_RESPONSE_CAPTURE",
+  "status": "PASS",
+  "scope": "Synthetic full-browser functional integration only; not formal evaluation acceptance.",
+  "executed_command": "RAG_E2E_EXTERNAL=1 RAG_V2_LIVE_BROWSER=1 RAG_V2_BROWSER_RUN_ID=v2-browser-aster-20261119T092730Z-466c2d npm run test:e2e -- tests/browser/live-core.spec.ts --project=desktop-chromium --workers=1",
+  "result": "1 passed (2.4m), no retries",
+  "actual_sdk_calls": 11,
+  "shared_sdk_limit": 12,
+  "provider_receipts": [
+    {
+      "path": "v2_evidence/v2-browser-aster-20261119T092730Z-466c2d/call-01.json",
+      "sha256": "d11859be346f14644c3ce5ab38c9ee40aabcaeea67f33b4c36b7b581474c50ef",
+      "slot": 1,
+      "status": "ok",
+      "requested_model": "gemini-3.5-flash-lite",
+      "returned_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "path": "v2_evidence/v2-browser-aster-20261119T092730Z-466c2d/call-02.json",
+      "sha256": "2e7910473a3ead2ade3a88a3d1a1760dc1dc899516d602b5016b060f13152938",
+      "slot": 2,
+      "status": "ok",
+      "requested_model": "gemini-3.5-flash-lite",
+      "returned_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "path": "v2_evidence/v2-browser-aster-20261119T092730Z-466c2d/call-03.json",
+      "sha256": "51774495bc34a4d30e1ead09b8f89aa58571fc724d3771a5ecb7a7491e28b791",
+      "slot": 3,
+      "status": "ok",
+      "requested_model": "gemini-3.5-flash-lite",
+      "returned_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "path": "v2_evidence/v2-browser-aster-20261119T092730Z-466c2d/call-04.json",
+      "sha256": "3bdea881ee450708216ad857afd782ed2aa53840fbbedc187994a8fce505ddf2",
+      "slot": 4,
+      "status": "ok",
+      "requested_model": "gemini-3.5-flash-lite",
+      "returned_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "path": "v2_evidence/v2-browser-aster-20261119T092730Z-466c2d/call-05.json",
+      "sha256": "d6db73b70fe29dcc54e2a90dc9bb8380da1d4541f86686a38115aa1a834e5dd0",
+      "slot": 5,
+      "status": "ok",
+      "requested_model": "gemini-3.5-flash-lite",
+      "returned_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "path": "v2_evidence/v2-browser-aster-20261119T092730Z-466c2d/call-06.json",
+      "sha256": "81e38a2a5eba8503c2d5b9075b09b6a1d1f4c5322cd19c83e15e8a3d469e9d8b",
+      "slot": 6,
+      "status": "ok",
+      "requested_model": "gemini-3.5-flash-lite",
+      "returned_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "path": "v2_evidence/v2-browser-aster-20261119T092730Z-466c2d/call-07.json",
+      "sha256": "dd68314b1f3df9f463aed13b5166878adde6d74ad2ea32c402bbb7f0a2bc1ea6",
+      "slot": 7,
+      "status": "ok",
+      "requested_model": "gemini-3.5-flash-lite",
+      "returned_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "path": "v2_evidence/v2-browser-aster-20261119T092730Z-466c2d/call-08.json",
+      "sha256": "7518f390a33dca58f2188621458a9e2bca2f4e4e6e2225ba8770eee8c311e200",
+      "slot": 8,
+      "status": "ok",
+      "requested_model": "gemini-3.5-flash-lite",
+      "returned_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "path": "v2_evidence/v2-browser-aster-20261119T092730Z-466c2d/call-09.json",
+      "sha256": "1fd8e597ddc753af74c9ca5d11329cbc0d489f7656b90976270566fc3153d2a4",
+      "slot": 9,
+      "status": "ok",
+      "requested_model": "gemini-3.5-flash-lite",
+      "returned_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "path": "v2_evidence/v2-browser-aster-20261119T092730Z-466c2d/call-10.json",
+      "sha256": "d4100104cde36c02c988fe343849179ae01c42631c3d4320ebb8ac42c18d8a78",
+      "slot": 10,
+      "status": "ok",
+      "requested_model": "gemini-3.5-flash-lite",
+      "returned_model": "gemini-3.5-flash-lite"
+    },
+    {
+      "path": "v2_evidence/v2-browser-aster-20261119T092730Z-466c2d/call-11.json",
+      "sha256": "824c12ad1478dabc37dba37af697ca141c561bd51abe712262b3d5cca8b4ef5d",
+      "slot": 11,
+      "status": "ok",
+      "requested_model": "gemini-3.5-flash-lite",
+      "returned_model": "gemini-3.5-flash-lite"
+    }
+  ],
+  "asserted_gates": [
+    "instrumented run identity matched before any provider call",
+    "image-only PDF uploaded through browser, tenant-owned job reached ready",
+    "original page1, one chunk, pymupdf-tesseract-fast-4.1.0 metadata",
+    "actual hybrid retrieval and reranking reported ok",
+    "actual Gemini answer contained grounded83credits/17days and valid tenant-owned page1 citations",
+    "browser citation chip opened original PDF/page1 in new window",
+    "second actual turn advanced extraction checkpoint, supported chamomile preference had user-message provenance",
+    "third actual Gemini memory follow-up recalled chamomile",
+    "independent second user denied document/file/conversation/job/source provenance with404",
+    "browser document and conversation deletion succeeded and resources remained unavailable"
+  ],
+  "screenshot_sha256": "faacfb5d5f965c4a94b9f0d51337c9e72350e9b68555cdbc9bce066d9e9a4666",
+  "fixture_sha256": "67d965079325f2013183d2d69137aaf4b22af80c56417510778c1cfb46b0e0c5",
+  "capture_limitations": "Successful list reporter did not persist the in-memory JSON attachment. No raw response JSON is reconstructed. The retained screenshot is actual rendered response evidence; SDK receipts bind prompt/response hashes. Both zero-provider failed attempts are preserved separately."
+}

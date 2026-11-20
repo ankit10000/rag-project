@@ -1,0 +1,19 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "owner": "25973a8a-09db-4a15-a686-304a5c986eec",
+      "has_preexisting_owned_documents": true,
+      "selected_source_visible": true,
+      "selected_chunks_visible": 76
+    },
+    {
+      "owner": "4c4125dc-5f84-4cf5-a6df-82384b03ed7f",
+      "has_preexisting_owned_documents": true,
+      "selected_source_visible": false,
+      "selected_chunks_visible": 0
+    }
+  ],
+  "database_writes": false,
+  "secondary_owner_provenance": "existing v2_evidence/live_smoke_retry1.json resource_ids.owner_ids[0]"
+}

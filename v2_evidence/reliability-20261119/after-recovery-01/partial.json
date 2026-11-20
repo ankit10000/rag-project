@@ -1,0 +1,2818 @@
+{
+  "header": {
+    "question": "According to Executive Summary.pdf, which entrance exams does the proposed portal target, and what is its signed customer contract number?",
+    "authorized_documents": [
+      "e3160c67-ee6d-4983-9029-8273bd35525a"
+    ],
+    "policy": "development-answer-evidence-trace/1"
+  },
+  "raw_enabled": true,
+  "events": [
+    {
+      "stage": "question_category",
+      "elapsed_ms": 0.27,
+      "metadata": {
+        "category": "DOCUMENT",
+        "origin": "predeclared source question; classifier not called"
+      }
+    },
+    {
+      "stage": "retrieval_scope",
+      "elapsed_ms": 18.59,
+      "metadata": {
+        "document_names": [
+          "e3160c67-ee6d-4983-9029-8273bd35525a"
+        ],
+        "pages": null,
+        "top_k": 5
+      },
+      "raw": {
+        "search_query": "According to Executive Summary.pdf, which entrance exams does the proposed portal target, and what is its signed customer contract number?"
+      }
+    },
+    {
+      "stage": "vector_candidates",
+      "elapsed_ms": 58.83,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 147,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 4,
+            "content_fingerprint": {
+              "chars": 725,
+              "sha256": "b6bdcc0244ee264a72bd218eabd2738b85899e07780a6918e29c2c8e9ecf413f"
+            },
+            "selected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": 185,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 711,
+              "sha256": "00c00ac6b016738b99f5c9784cf4e7812ce1a76229e79264ba3328e49d29ae7c"
+            },
+            "selected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": 137,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content_fingerprint": {
+              "chars": 703,
+              "sha256": "7b740438b27c2de9f1a054b44b62f88c024a0876b61b7edcf6ba15e253cf29a5"
+            },
+            "selected": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": 143,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 760,
+              "sha256": "b4c67e3523fe87bd07e1a34a9230606b075f6cbe112f7ed1155733ff85e92ace"
+            },
+            "selected": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": 195,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content_fingerprint": {
+              "chars": 704,
+              "sha256": "2b62624bdfa21f638d658d739abfcba07a29898d35b5b0b2e58183360e3b13f1"
+            },
+            "selected": true
+          },
+          {
+            "rank": 6,
+            "chunk_id": 184,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 708,
+              "sha256": "0c18c217c9a53dd5a5b98ba2e48ad31d71447c58e06e0b87ae1383058a6c8d11"
+            },
+            "selected": true
+          },
+          {
+            "rank": 7,
+            "chunk_id": 141,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 729,
+              "sha256": "1e343f84930d7bbd13d326559cd9d0916fcd6fed9d8e2f14769db28b9db6817e"
+            },
+            "selected": true
+          },
+          {
+            "rank": 8,
+            "chunk_id": 145,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 4,
+            "content_fingerprint": {
+              "chars": 713,
+              "sha256": "f66d99152828442255b58fdc1d3a069fe61629a83438e5c15e1c8fbe7017ab96"
+            },
+            "selected": true
+          },
+          {
+            "rank": 9,
+            "chunk_id": 198,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 713,
+              "sha256": "99a3406ec09438411fb459b080050defa474f376ba05e8903afd0c1911657c99"
+            },
+            "selected": true
+          },
+          {
+            "rank": 10,
+            "chunk_id": 186,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 490,
+              "sha256": "dd79f5388fab92df07ef73c5805b17e5f650cf40cbb9689ad360ebbba2c27c10"
+            },
+            "selected": true
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 147,
+            "content": "plus biology) and recommended coaching materials. These provide canonical explanations and examples. Note: NCERT content is copyrighted; we will use it as training input but ensure outputs paraphrase properly to avoid infringement\u301045\u2020L75-L84\u3011. \u2022 Past Exam Papers: Extensive archives of JEE (Mains/Advanced), NEET, and GATE questions. For example, NTA\u2019s JEE Main archive lists papers and answer keys\u301023\u2020L78-L86\u3011, and IIT websites host JEE Advanced and GATE archives. These give question formats, difficulty distribution, and official language styles. \u2022 Syllabus/Info Bulletins: Downloadable PDFs from NTA and GATE websites defining the scope of each exam (topics list, blueprint). \u2022 Open Educational Resources: Where possible,"
+          },
+          {
+            "chunk_id": 185,
+            "content": "JEE/GATE/NEET authorities may restrict use of their questions; we should avoid directly copying exam problems. Instead, we will paraphrase question patterns and create similar problems ourselves. We will check official policies; if needed, obtain permission or use past papers only as inspiration (not republishing answers). \u2022 Privacy and Data Protection: If collecting student data (e.g. usage logs, performance), comply with data privacy norms (in India, forthcoming DPDP Act; at least follow GDPR-like best practices). Store personal data securely and allow user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts"
+          },
+          {
+            "chunk_id": 137,
+            "content": "\u2022 Topic-wise Notes & Summaries: The portal generates concise, structured notes from official content. For each topic, it creates explanations, key definitions, worked examples, and formula summaries. \u2022 Test Series & Quizzes: The system auto-creates practice tests and quizzes. It can generate multiple- choice questions (MCQs), short-answer problems, and full mock exams aligned to JEE/GATE/NEET pattern. \u2022 Question Bank & Q&A: A searchable database of Q&A by topic. Students can ask the AI questions in natural language and get precise answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on"
+          },
+          {
+            "chunk_id": 143,
+            "content": "ensuring pedagogical correctness. They will use backend tools for data labeling, curriculum mapping, and QA. Each persona has different workflows: e.g. a student browsing topics, a teacher reviewing scores, and an admin overseeing system health. UX/UI must accommodate these roles (distinct dashboards and permission levels). 3. Curriculum & Content Mapping The portal\u2019s content must directly align with the official syllabi of JEE (Main/Advanced), NEET, and GATE. Generally: \u2022 JEE Main/Advanced: Covers Physics, Chemistry, Mathematics (11th & 12th grade). Syllabus is defined by NTA and IIT, largely reflecting CBSE/NCERT curriculum\u301019\u2020L70-L78\u3011. Topics include mechanics, electromagnetism, organic/inorganic/physical chemistry, algebra, calculus, etc. \u2022 NEET:"
+          },
+          {
+            "chunk_id": 195,
+            "content": "2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models (NLP, TTS); implement video generation pipeline; integrate content filtering; develop the portal frontend (video player, note display, quiz modules); deploy on test servers; iterate with internal feedback. \u2022 Team: +2 ML engineers (video/TTS specialists), +2 frontend devs, +1 UX designer, continuing content experts. \u2022 Phase 3 \u2013 Pilot & Feedback (15\u201321 mo): \u2022 Milestones: Internal pilot with select students/teachers; evaluation; improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics"
+          },
+          {
+            "chunk_id": 184,
+            "content": "& Licensing: Official educational materials (NCERT books, exam papers) are copyrighted. NCERT explicitly forbids unlicensed commercial use of its textbook content\u301045\u2020L75-L84\u3011. We will use such sources as training data (fair use argument for education may apply), but all generated outputs must avoid verbatim reproduction. Attribution should be given where necessary (e.g. referring to \u201cNCERT concepts\u201d). If any third-party content is used (images, plots), ensure it is in the public domain or licensed (Creative Commons, purchased rights). \u2022 Exam Board Rules: JEE/GATE/NEET authorities may restrict use of their questions; we should avoid directly copying exam problems. Instead, we will paraphrase question"
+          },
+          {
+            "chunk_id": 141,
+            "content": "2. User Personas \u2022 Students (JEE/GATE/NEET aspirants): Typically high-school (17\u201318 yrs) or graduate (21+ yrs) students. They want clear, focused preparation material for Physics, Chemistry, Math and (for NEET) Biology, mapped to exam syllabus. They value mobile/online access, self-paced learning, and interactive assessments. We will support user journeys like \u201creview Chapter X, watch video, take quiz, review mistakes.\u201d \u2022 Teachers/Tutors: Education professionals preparing content or monitoring students. They need tools to assign topics, track class progress, and generate new materials. They might use the portal to supplement in-class teaching, or to personalize tasks. Teachers might curate AI-generated content or upload"
+          },
+          {
+            "chunk_id": 145,
+            "content": "Content Types: \u2022 Lecture Material: Aligned with chapters of NCERT and standard reference books. \u2022 Theory Notes: Core definitions, laws, formulas (often NCERT provides fundamental theory\u301017\u2020L70- L78\u3011). \u2022 Problem Sets: Algorithmic/numerical practice similar to past papers. \u2022 Concept Explanations: Visual aids and intuition (e.g. diagrams, simulations for physics). \u2022 Exam Patterns: Official marking schemes, difficulty levels. We will build a curriculum ontology that tags all content by subject, chapter, topic, subtopic, difficulty. This ensures the AI can generate content \u201cper topic\u201d on demand. Source mapping will rely on official lists (e.g. JEE syllabus PDFs, NTA info bulletins) and authoritative textbooks"
+          },
+          {
+            "chunk_id": 198,
+            "content": "\u2022 Misc (licenses, overhead): \\$100K. Total ballpark: \\$1.6M\u2013\\$3M. A more advanced roadmap (larger models, extensive data) could push budgets to the \\$5M level. Milestone Timeline (Mermaid Gantt): Implementation Roadmap Requirements Spec Phase 1: Planning System Architecture & Data Proof-of-Concept AI Models Model Training (NLP, TTS) Phase 2: MVP Development Portal VideoFrontend/BackendPipeline Dev Build Content Filtering Module Phase 3: Pilot & Feedback Internal Pilot Evaluate & Iterate Beta Launch & Fixes Phase 4: Launch & Scale Feature Enhancements (v2) Full Launch Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development"
+          },
+          {
+            "chunk_id": 186,
+            "content": "user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts for videos). Content should be suitable for all genders/castes (avoid biased examples). \u2022 Compliance: We will audit content regularly. A legal advisor will review terms of service to comply with educational regulations. If partnering with schools, ensure FERPA/COPPA-like child-safety policies (even if India has none, best to be safe). 12"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "lexical_candidates",
+      "elapsed_ms": 86.11,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": 137,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content_fingerprint": {
+              "chars": 703,
+              "sha256": "7b740438b27c2de9f1a054b44b62f88c024a0876b61b7edcf6ba15e253cf29a5"
+            },
+            "selected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": 198,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 713,
+              "sha256": "99a3406ec09438411fb459b080050defa474f376ba05e8903afd0c1911657c99"
+            },
+            "selected": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": 184,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 708,
+              "sha256": "0c18c217c9a53dd5a5b98ba2e48ad31d71447c58e06e0b87ae1383058a6c8d11"
+            },
+            "selected": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": 144,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 814,
+              "sha256": "5642fdef7974cda7fc26505d14faef1618e08b9646810a614503ce21d4028aa5"
+            },
+            "selected": true
+          },
+          {
+            "rank": 6,
+            "chunk_id": 183,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 731,
+              "sha256": "f04fb7c1643e906d4489a5a3b3c7597fbf5c33481d0c891b8265f17df2eba070"
+            },
+            "selected": true
+          },
+          {
+            "rank": 7,
+            "chunk_id": 179,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 11,
+            "content_fingerprint": {
+              "chars": 689,
+              "sha256": "2759d77739a8d137c32dc5664f6e8c247fe40d3ad3890ccd7ad1c2542ad67fc4"
+            },
+            "selected": true
+          },
+          {
+            "rank": 8,
+            "chunk_id": 143,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 760,
+              "sha256": "b4c67e3523fe87bd07e1a34a9230606b075f6cbe112f7ed1155733ff85e92ace"
+            },
+            "selected": true
+          },
+          {
+            "rank": 9,
+            "chunk_id": 139,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content_fingerprint": {
+              "chars": 742,
+              "sha256": "f13525f555a3a5c81174662ab87ce6ce6769ccbd52ef11512045713b6274bc29"
+            },
+            "selected": true
+          },
+          {
+            "rank": 10,
+            "chunk_id": 178,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 11,
+            "content_fingerprint": {
+              "chars": 694,
+              "sha256": "9a310911f2426fe3cfe74ece73f46430325c5cb2cd9c73181250967dd6bfe6f5"
+            },
+            "selected": true
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 137,
+            "content": "\u2022 Topic-wise Notes & Summaries: The portal generates concise, structured notes from official content. For each topic, it creates explanations, key definitions, worked examples, and formula summaries. \u2022 Test Series & Quizzes: The system auto-creates practice tests and quizzes. It can generate multiple- choice questions (MCQs), short-answer problems, and full mock exams aligned to JEE/GATE/NEET pattern. \u2022 Question Bank & Q&A: A searchable database of Q&A by topic. Students can ask the AI questions in natural language and get precise answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on"
+          },
+          {
+            "chunk_id": 198,
+            "content": "\u2022 Misc (licenses, overhead): \\$100K. Total ballpark: \\$1.6M\u2013\\$3M. A more advanced roadmap (larger models, extensive data) could push budgets to the \\$5M level. Milestone Timeline (Mermaid Gantt): Implementation Roadmap Requirements Spec Phase 1: Planning System Architecture & Data Proof-of-Concept AI Models Model Training (NLP, TTS) Phase 2: MVP Development Portal VideoFrontend/BackendPipeline Dev Build Content Filtering Module Phase 3: Pilot & Feedback Internal Pilot Evaluate & Iterate Beta Launch & Fixes Phase 4: Launch & Scale Feature Enhancements (v2) Full Launch Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development"
+          },
+          {
+            "chunk_id": 184,
+            "content": "& Licensing: Official educational materials (NCERT books, exam papers) are copyrighted. NCERT explicitly forbids unlicensed commercial use of its textbook content\u301045\u2020L75-L84\u3011. We will use such sources as training data (fair use argument for education may apply), but all generated outputs must avoid verbatim reproduction. Attribution should be given where necessary (e.g. referring to \u201cNCERT concepts\u201d). If any third-party content is used (images, plots), ensure it is in the public domain or licensed (Creative Commons, purchased rights). \u2022 Exam Board Rules: JEE/GATE/NEET authorities may restrict use of their questions; we should avoid directly copying exam problems. Instead, we will paraphrase question"
+          },
+          {
+            "chunk_id": 144,
+            "content": "defined by NTA and IIT, largely reflecting CBSE/NCERT curriculum\u301019\u2020L70-L78\u3011. Topics include mechanics, electromagnetism, organic/inorganic/physical chemistry, algebra, calculus, etc. \u2022 NEET: Covers Physics, Chemistry, and Biology (Botany & Zoology) of classes 11\u201312, following NCERT textbooks (medical entrance is heavily NCERT-based). Emphasis is on fundamentals and detailed biology (botany, zoology) as per NTA\u2019s NEET syllabus. \u2022 GATE (Graduate Aptitude Test): Technical subjects by engineering discipline. For example, Electrical Engineering covers circuits, signals, systems, controls; Computer Science covers algorithms, OS, databases; Chemical Engineering covers thermodynamics, reaction engineering, etc. Official GATE syllabi (provided by IITs/IISc) and past question archives will guide content scope. 3"
+          },
+          {
+            "chunk_id": 183,
+            "content": "We will simulate adversarial prompts to test the filter (e.g. attempt to coax off-topic replies). Monitor false positives (overfiltering legitimate content) vs false negatives. \u2022 Validate with educators that no disallowed content slips through. Overall, we will maintain a continuous validation loop: metrics + human feedback guide iterative model improvements. Templates such as model cards (detailing training data, intended use, limitations) and test plans (unit/integration tests for outputs) will document our validation process. 11. Legal, IP, and Compliance \u2022 Copyright & Licensing: Official educational materials (NCERT books, exam papers) are copyrighted. NCERT explicitly forbids unlicensed commercial use of its textbook"
+          },
+          {
+            "chunk_id": 179,
+            "content": "an output is wrong or off-topic, the teacher can label it, and the system will learn. By combining these, we aim to guarantee domain adherence: any query or answer outside predefined curriculum lists is disallowed, and any content potentially harmful is blocked. The PowerSchool example shows the importance of custom filters in an educational context\u301013\u2020L107-L113\u3011. We will log all filter hits and review them to continuously improve our models. 10. Evaluation Metrics and Validation We will evaluate our system on both technical performance and educational effectiveness: \u2022 Accuracy/Quality Metrics: \u2022 Text generation: Use ROUGE/BLEU to measure overlap between AI-generated notes/answers"
+          },
+          {
+            "chunk_id": 143,
+            "content": "ensuring pedagogical correctness. They will use backend tools for data labeling, curriculum mapping, and QA. Each persona has different workflows: e.g. a student browsing topics, a teacher reviewing scores, and an admin overseeing system health. UX/UI must accommodate these roles (distinct dashboards and permission levels). 3. Curriculum & Content Mapping The portal\u2019s content must directly align with the official syllabi of JEE (Main/Advanced), NEET, and GATE. Generally: \u2022 JEE Main/Advanced: Covers Physics, Chemistry, Mathematics (11th & 12th grade). Syllabus is defined by NTA and IIT, largely reflecting CBSE/NCERT curriculum\u301019\u2020L70-L78\u3011. Topics include mechanics, electromagnetism, organic/inorganic/physical chemistry, algebra, calculus, etc. \u2022 NEET:"
+          },
+          {
+            "chunk_id": 139,
+            "content": "& Mobile App: Allow downloading videos/notes for offline study. These features align with common e-learning platform needs (content delivery, assessment, analytics). Comparison table (below) lists prioritized features for MVP vs later phases: Feature Description MVP Later AI Video Lessons Automated topic-based lecture videos \u2713 Topic Summaries/Notes Generated concise study notes per topic \u2713 Dynamic Test Series Auto-generated quizzes/exams aligned to syllabus \u2713 Q&A and Forum AI Q&A chatbot; discussion forum \u2713 Performance Analytics Student progress dashboards, teacher reports \u2713 Adaptive Learning Paths Personalized topic recommendations \u2713 Multilingual Content English + Hindi (e.g.) materials \u2713 Gamification Badges, points, streaks \u2713 Live"
+          },
+          {
+            "chunk_id": 178,
+            "content": "can employ an alignment process: gather feedback from educators on model outputs (rated by relevance and correctness) and fine- tune with RL to prefer helpful, on-topic responses. This is similar to ChatGPT\u2019s training. 4. Groundedness Checks: Ensure factual accuracy by referencing trusted sources. For instance, if the AI hallucinates a formula, a \u201cgroundedness\u201d model (per Microsoft Foundry) could flag unsubstantiated statements\u301011\u2020L148-L156\u3011. 5. Human Review: Especially in early phases, have educators review AI-generated content before publishing. Incorporate a feedback loop: if an output is wrong or off-topic, the teacher can label it, and the system will learn. By combining these, we"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rrf_results",
+      "elapsed_ms": 86.47,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 137,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content_fingerprint": {
+              "chars": 703,
+              "sha256": "7b740438b27c2de9f1a054b44b62f88c024a0876b61b7edcf6ba15e253cf29a5"
+            },
+            "selected": true,
+            "rrf_score": 0.03200204813108039
+          },
+          {
+            "rank": 2,
+            "chunk_id": 184,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 708,
+              "sha256": "0c18c217c9a53dd5a5b98ba2e48ad31d71447c58e06e0b87ae1383058a6c8d11"
+            },
+            "selected": true,
+            "rrf_score": 0.030776515151515152
+          },
+          {
+            "rank": 3,
+            "chunk_id": 198,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 713,
+              "sha256": "99a3406ec09438411fb459b080050defa474f376ba05e8903afd0c1911657c99"
+            },
+            "selected": true,
+            "rrf_score": 0.03036576949620428
+          },
+          {
+            "rank": 4,
+            "chunk_id": 143,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 760,
+              "sha256": "b4c67e3523fe87bd07e1a34a9230606b075f6cbe112f7ed1155733ff85e92ace"
+            },
+            "selected": true,
+            "rrf_score": 0.030330882352941176
+          },
+          {
+            "rank": 5,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082
+          },
+          {
+            "rank": 6,
+            "chunk_id": 147,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 4,
+            "content_fingerprint": {
+              "chars": 725,
+              "sha256": "b6bdcc0244ee264a72bd218eabd2738b85899e07780a6918e29c2c8e9ecf413f"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082
+          },
+          {
+            "rank": 7,
+            "chunk_id": 185,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 711,
+              "sha256": "00c00ac6b016738b99f5c9784cf4e7812ce1a76229e79264ba3328e49d29ae7c"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516
+          },
+          {
+            "rank": 8,
+            "chunk_id": 144,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 814,
+              "sha256": "5642fdef7974cda7fc26505d14faef1618e08b9646810a614503ce21d4028aa5"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385
+          },
+          {
+            "rank": 9,
+            "chunk_id": 195,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content_fingerprint": {
+              "chars": 704,
+              "sha256": "2b62624bdfa21f638d658d739abfcba07a29898d35b5b0b2e58183360e3b13f1"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385
+          },
+          {
+            "rank": 10,
+            "chunk_id": 183,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 731,
+              "sha256": "f04fb7c1643e906d4489a5a3b3c7597fbf5c33481d0c891b8265f17df2eba070"
+            },
+            "selected": true,
+            "rrf_score": 0.015151515151515152
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 137,
+            "content": "\u2022 Topic-wise Notes & Summaries: The portal generates concise, structured notes from official content. For each topic, it creates explanations, key definitions, worked examples, and formula summaries. \u2022 Test Series & Quizzes: The system auto-creates practice tests and quizzes. It can generate multiple- choice questions (MCQs), short-answer problems, and full mock exams aligned to JEE/GATE/NEET pattern. \u2022 Question Bank & Q&A: A searchable database of Q&A by topic. Students can ask the AI questions in natural language and get precise answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on"
+          },
+          {
+            "chunk_id": 184,
+            "content": "& Licensing: Official educational materials (NCERT books, exam papers) are copyrighted. NCERT explicitly forbids unlicensed commercial use of its textbook content\u301045\u2020L75-L84\u3011. We will use such sources as training data (fair use argument for education may apply), but all generated outputs must avoid verbatim reproduction. Attribution should be given where necessary (e.g. referring to \u201cNCERT concepts\u201d). If any third-party content is used (images, plots), ensure it is in the public domain or licensed (Creative Commons, purchased rights). \u2022 Exam Board Rules: JEE/GATE/NEET authorities may restrict use of their questions; we should avoid directly copying exam problems. Instead, we will paraphrase question"
+          },
+          {
+            "chunk_id": 198,
+            "content": "\u2022 Misc (licenses, overhead): \\$100K. Total ballpark: \\$1.6M\u2013\\$3M. A more advanced roadmap (larger models, extensive data) could push budgets to the \\$5M level. Milestone Timeline (Mermaid Gantt): Implementation Roadmap Requirements Spec Phase 1: Planning System Architecture & Data Proof-of-Concept AI Models Model Training (NLP, TTS) Phase 2: MVP Development Portal VideoFrontend/BackendPipeline Dev Build Content Filtering Module Phase 3: Pilot & Feedback Internal Pilot Evaluate & Iterate Beta Launch & Fixes Phase 4: Launch & Scale Feature Enhancements (v2) Full Launch Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development"
+          },
+          {
+            "chunk_id": 143,
+            "content": "ensuring pedagogical correctness. They will use backend tools for data labeling, curriculum mapping, and QA. Each persona has different workflows: e.g. a student browsing topics, a teacher reviewing scores, and an admin overseeing system health. UX/UI must accommodate these roles (distinct dashboards and permission levels). 3. Curriculum & Content Mapping The portal\u2019s content must directly align with the official syllabi of JEE (Main/Advanced), NEET, and GATE. Generally: \u2022 JEE Main/Advanced: Covers Physics, Chemistry, Mathematics (11th & 12th grade). Syllabus is defined by NTA and IIT, largely reflecting CBSE/NCERT curriculum\u301019\u2020L70-L78\u3011. Topics include mechanics, electromagnetism, organic/inorganic/physical chemistry, algebra, calculus, etc. \u2022 NEET:"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 147,
+            "content": "plus biology) and recommended coaching materials. These provide canonical explanations and examples. Note: NCERT content is copyrighted; we will use it as training input but ensure outputs paraphrase properly to avoid infringement\u301045\u2020L75-L84\u3011. \u2022 Past Exam Papers: Extensive archives of JEE (Mains/Advanced), NEET, and GATE questions. For example, NTA\u2019s JEE Main archive lists papers and answer keys\u301023\u2020L78-L86\u3011, and IIT websites host JEE Advanced and GATE archives. These give question formats, difficulty distribution, and official language styles. \u2022 Syllabus/Info Bulletins: Downloadable PDFs from NTA and GATE websites defining the scope of each exam (topics list, blueprint). \u2022 Open Educational Resources: Where possible,"
+          },
+          {
+            "chunk_id": 185,
+            "content": "JEE/GATE/NEET authorities may restrict use of their questions; we should avoid directly copying exam problems. Instead, we will paraphrase question patterns and create similar problems ourselves. We will check official policies; if needed, obtain permission or use past papers only as inspiration (not republishing answers). \u2022 Privacy and Data Protection: If collecting student data (e.g. usage logs, performance), comply with data privacy norms (in India, forthcoming DPDP Act; at least follow GDPR-like best practices). Store personal data securely and allow user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts"
+          },
+          {
+            "chunk_id": 144,
+            "content": "defined by NTA and IIT, largely reflecting CBSE/NCERT curriculum\u301019\u2020L70-L78\u3011. Topics include mechanics, electromagnetism, organic/inorganic/physical chemistry, algebra, calculus, etc. \u2022 NEET: Covers Physics, Chemistry, and Biology (Botany & Zoology) of classes 11\u201312, following NCERT textbooks (medical entrance is heavily NCERT-based). Emphasis is on fundamentals and detailed biology (botany, zoology) as per NTA\u2019s NEET syllabus. \u2022 GATE (Graduate Aptitude Test): Technical subjects by engineering discipline. For example, Electrical Engineering covers circuits, signals, systems, controls; Computer Science covers algorithms, OS, databases; Chemical Engineering covers thermodynamics, reaction engineering, etc. Official GATE syllabi (provided by IITs/IISc) and past question archives will guide content scope. 3"
+          },
+          {
+            "chunk_id": 195,
+            "content": "2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models (NLP, TTS); implement video generation pipeline; integrate content filtering; develop the portal frontend (video player, note display, quiz modules); deploy on test servers; iterate with internal feedback. \u2022 Team: +2 ML engineers (video/TTS specialists), +2 frontend devs, +1 UX designer, continuing content experts. \u2022 Phase 3 \u2013 Pilot & Feedback (15\u201321 mo): \u2022 Milestones: Internal pilot with select students/teachers; evaluation; improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics"
+          },
+          {
+            "chunk_id": 183,
+            "content": "We will simulate adversarial prompts to test the filter (e.g. attempt to coax off-topic replies). Monitor false positives (overfiltering legitimate content) vs false negatives. \u2022 Validate with educators that no disallowed content slips through. Overall, we will maintain a continuous validation loop: metrics + human feedback guide iterative model improvements. Templates such as model cards (detailing training data, intended use, limitations) and test plans (unit/integration tests for outputs) will document our validation process. 11. Legal, IP, and Compliance \u2022 Copyright & Licensing: Official educational materials (NCERT books, exam papers) are copyrighted. NCERT explicitly forbids unlicensed commercial use of its textbook"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "fusion_selection",
+      "elapsed_ms": 86.6,
+      "metadata": {
+        "input_ids": [
+          131,
+          137,
+          198,
+          184,
+          144,
+          183,
+          179,
+          143,
+          139,
+          178,
+          147,
+          185,
+          195,
+          141,
+          145,
+          186
+        ],
+        "selected_ids": [
+          137,
+          184,
+          198,
+          143,
+          131,
+          147,
+          185,
+          144,
+          195,
+          183
+        ],
+        "removal_reason": "rrf_pool_limit",
+        "limit": 10
+      }
+    },
+    {
+      "stage": "reranker_scores",
+      "elapsed_ms": 126.28,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -2.8581175804138184
+          },
+          {
+            "rank": 2,
+            "chunk_id": 137,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content_fingerprint": {
+              "chars": 703,
+              "sha256": "7b740438b27c2de9f1a054b44b62f88c024a0876b61b7edcf6ba15e253cf29a5"
+            },
+            "selected": true,
+            "rrf_score": 0.03200204813108039,
+            "rerank_score": -9.930709838867188
+          },
+          {
+            "rank": 3,
+            "chunk_id": 185,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 711,
+              "sha256": "00c00ac6b016738b99f5c9784cf4e7812ce1a76229e79264ba3328e49d29ae7c"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -10.320788383483887
+          },
+          {
+            "rank": 4,
+            "chunk_id": 143,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 760,
+              "sha256": "b4c67e3523fe87bd07e1a34a9230606b075f6cbe112f7ed1155733ff85e92ace"
+            },
+            "selected": true,
+            "rrf_score": 0.030330882352941176,
+            "rerank_score": -10.585728645324707
+          },
+          {
+            "rank": 5,
+            "chunk_id": 147,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 4,
+            "content_fingerprint": {
+              "chars": 725,
+              "sha256": "b6bdcc0244ee264a72bd218eabd2738b85899e07780a6918e29c2c8e9ecf413f"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -10.762748718261719
+          },
+          {
+            "rank": 6,
+            "chunk_id": 198,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 713,
+              "sha256": "99a3406ec09438411fb459b080050defa474f376ba05e8903afd0c1911657c99"
+            },
+            "selected": false,
+            "rrf_score": 0.03036576949620428,
+            "rerank_score": -10.822894096374512,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 7,
+            "chunk_id": 195,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content_fingerprint": {
+              "chars": 704,
+              "sha256": "2b62624bdfa21f638d658d739abfcba07a29898d35b5b0b2e58183360e3b13f1"
+            },
+            "selected": false,
+            "rrf_score": 0.015384615384615385,
+            "rerank_score": -11.009481430053711,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 8,
+            "chunk_id": 144,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 814,
+              "sha256": "5642fdef7974cda7fc26505d14faef1618e08b9646810a614503ce21d4028aa5"
+            },
+            "selected": false,
+            "rrf_score": 0.015384615384615385,
+            "rerank_score": -11.255379676818848,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 9,
+            "chunk_id": 184,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 708,
+              "sha256": "0c18c217c9a53dd5a5b98ba2e48ad31d71447c58e06e0b87ae1383058a6c8d11"
+            },
+            "selected": false,
+            "rrf_score": 0.030776515151515152,
+            "rerank_score": -11.307689666748047,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 10,
+            "chunk_id": 183,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 731,
+              "sha256": "f04fb7c1643e906d4489a5a3b3c7597fbf5c33481d0c891b8265f17df2eba070"
+            },
+            "selected": false,
+            "rrf_score": 0.015151515151515152,
+            "rerank_score": -11.37129020690918,
+            "removal_reason": "rerank_top_k"
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 137,
+            "content": "\u2022 Topic-wise Notes & Summaries: The portal generates concise, structured notes from official content. For each topic, it creates explanations, key definitions, worked examples, and formula summaries. \u2022 Test Series & Quizzes: The system auto-creates practice tests and quizzes. It can generate multiple- choice questions (MCQs), short-answer problems, and full mock exams aligned to JEE/GATE/NEET pattern. \u2022 Question Bank & Q&A: A searchable database of Q&A by topic. Students can ask the AI questions in natural language and get precise answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on"
+          },
+          {
+            "chunk_id": 185,
+            "content": "JEE/GATE/NEET authorities may restrict use of their questions; we should avoid directly copying exam problems. Instead, we will paraphrase question patterns and create similar problems ourselves. We will check official policies; if needed, obtain permission or use past papers only as inspiration (not republishing answers). \u2022 Privacy and Data Protection: If collecting student data (e.g. usage logs, performance), comply with data privacy norms (in India, forthcoming DPDP Act; at least follow GDPR-like best practices). Store personal data securely and allow user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts"
+          },
+          {
+            "chunk_id": 143,
+            "content": "ensuring pedagogical correctness. They will use backend tools for data labeling, curriculum mapping, and QA. Each persona has different workflows: e.g. a student browsing topics, a teacher reviewing scores, and an admin overseeing system health. UX/UI must accommodate these roles (distinct dashboards and permission levels). 3. Curriculum & Content Mapping The portal\u2019s content must directly align with the official syllabi of JEE (Main/Advanced), NEET, and GATE. Generally: \u2022 JEE Main/Advanced: Covers Physics, Chemistry, Mathematics (11th & 12th grade). Syllabus is defined by NTA and IIT, largely reflecting CBSE/NCERT curriculum\u301019\u2020L70-L78\u3011. Topics include mechanics, electromagnetism, organic/inorganic/physical chemistry, algebra, calculus, etc. \u2022 NEET:"
+          },
+          {
+            "chunk_id": 147,
+            "content": "plus biology) and recommended coaching materials. These provide canonical explanations and examples. Note: NCERT content is copyrighted; we will use it as training input but ensure outputs paraphrase properly to avoid infringement\u301045\u2020L75-L84\u3011. \u2022 Past Exam Papers: Extensive archives of JEE (Mains/Advanced), NEET, and GATE questions. For example, NTA\u2019s JEE Main archive lists papers and answer keys\u301023\u2020L78-L86\u3011, and IIT websites host JEE Advanced and GATE archives. These give question formats, difficulty distribution, and official language styles. \u2022 Syllabus/Info Bulletins: Downloadable PDFs from NTA and GATE websites defining the scope of each exam (topics list, blueprint). \u2022 Open Educational Resources: Where possible,"
+          },
+          {
+            "chunk_id": 198,
+            "content": "\u2022 Misc (licenses, overhead): \\$100K. Total ballpark: \\$1.6M\u2013\\$3M. A more advanced roadmap (larger models, extensive data) could push budgets to the \\$5M level. Milestone Timeline (Mermaid Gantt): Implementation Roadmap Requirements Spec Phase 1: Planning System Architecture & Data Proof-of-Concept AI Models Model Training (NLP, TTS) Phase 2: MVP Development Portal VideoFrontend/BackendPipeline Dev Build Content Filtering Module Phase 3: Pilot & Feedback Internal Pilot Evaluate & Iterate Beta Launch & Fixes Phase 4: Launch & Scale Feature Enhancements (v2) Full Launch Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development"
+          },
+          {
+            "chunk_id": 195,
+            "content": "2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models (NLP, TTS); implement video generation pipeline; integrate content filtering; develop the portal frontend (video player, note display, quiz modules); deploy on test servers; iterate with internal feedback. \u2022 Team: +2 ML engineers (video/TTS specialists), +2 frontend devs, +1 UX designer, continuing content experts. \u2022 Phase 3 \u2013 Pilot & Feedback (15\u201321 mo): \u2022 Milestones: Internal pilot with select students/teachers; evaluation; improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics"
+          },
+          {
+            "chunk_id": 144,
+            "content": "defined by NTA and IIT, largely reflecting CBSE/NCERT curriculum\u301019\u2020L70-L78\u3011. Topics include mechanics, electromagnetism, organic/inorganic/physical chemistry, algebra, calculus, etc. \u2022 NEET: Covers Physics, Chemistry, and Biology (Botany & Zoology) of classes 11\u201312, following NCERT textbooks (medical entrance is heavily NCERT-based). Emphasis is on fundamentals and detailed biology (botany, zoology) as per NTA\u2019s NEET syllabus. \u2022 GATE (Graduate Aptitude Test): Technical subjects by engineering discipline. For example, Electrical Engineering covers circuits, signals, systems, controls; Computer Science covers algorithms, OS, databases; Chemical Engineering covers thermodynamics, reaction engineering, etc. Official GATE syllabi (provided by IITs/IISc) and past question archives will guide content scope. 3"
+          },
+          {
+            "chunk_id": 184,
+            "content": "& Licensing: Official educational materials (NCERT books, exam papers) are copyrighted. NCERT explicitly forbids unlicensed commercial use of its textbook content\u301045\u2020L75-L84\u3011. We will use such sources as training data (fair use argument for education may apply), but all generated outputs must avoid verbatim reproduction. Attribution should be given where necessary (e.g. referring to \u201cNCERT concepts\u201d). If any third-party content is used (images, plots), ensure it is in the public domain or licensed (Creative Commons, purchased rights). \u2022 Exam Board Rules: JEE/GATE/NEET authorities may restrict use of their questions; we should avoid directly copying exam problems. Instead, we will paraphrase question"
+          },
+          {
+            "chunk_id": 183,
+            "content": "We will simulate adversarial prompts to test the filter (e.g. attempt to coax off-topic replies). Monitor false positives (overfiltering legitimate content) vs false negatives. \u2022 Validate with educators that no disallowed content slips through. Overall, we will maintain a continuous validation loop: metrics + human feedback guide iterative model improvements. Templates such as model cards (detailing training data, intended use, limitations) and test plans (unit/integration tests for outputs) will document our validation process. 11. Legal, IP, and Compliance \u2022 Copyright & Licensing: Official educational materials (NCERT books, exam papers) are copyrighted. NCERT explicitly forbids unlicensed commercial use of its textbook"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rerank_results",
+      "elapsed_ms": 126.59,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -2.8581175804138184
+          },
+          {
+            "rank": 2,
+            "chunk_id": 137,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content_fingerprint": {
+              "chars": 703,
+              "sha256": "7b740438b27c2de9f1a054b44b62f88c024a0876b61b7edcf6ba15e253cf29a5"
+            },
+            "selected": true,
+            "rrf_score": 0.03200204813108039,
+            "rerank_score": -9.930709838867188
+          },
+          {
+            "rank": 3,
+            "chunk_id": 185,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 711,
+              "sha256": "00c00ac6b016738b99f5c9784cf4e7812ce1a76229e79264ba3328e49d29ae7c"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -10.320788383483887
+          },
+          {
+            "rank": 4,
+            "chunk_id": 143,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 760,
+              "sha256": "b4c67e3523fe87bd07e1a34a9230606b075f6cbe112f7ed1155733ff85e92ace"
+            },
+            "selected": true,
+            "rrf_score": 0.030330882352941176,
+            "rerank_score": -10.585728645324707
+          },
+          {
+            "rank": 5,
+            "chunk_id": 147,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 4,
+            "content_fingerprint": {
+              "chars": 725,
+              "sha256": "b6bdcc0244ee264a72bd218eabd2738b85899e07780a6918e29c2c8e9ecf413f"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -10.762748718261719
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 137,
+            "content": "\u2022 Topic-wise Notes & Summaries: The portal generates concise, structured notes from official content. For each topic, it creates explanations, key definitions, worked examples, and formula summaries. \u2022 Test Series & Quizzes: The system auto-creates practice tests and quizzes. It can generate multiple- choice questions (MCQs), short-answer problems, and full mock exams aligned to JEE/GATE/NEET pattern. \u2022 Question Bank & Q&A: A searchable database of Q&A by topic. Students can ask the AI questions in natural language and get precise answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on"
+          },
+          {
+            "chunk_id": 185,
+            "content": "JEE/GATE/NEET authorities may restrict use of their questions; we should avoid directly copying exam problems. Instead, we will paraphrase question patterns and create similar problems ourselves. We will check official policies; if needed, obtain permission or use past papers only as inspiration (not republishing answers). \u2022 Privacy and Data Protection: If collecting student data (e.g. usage logs, performance), comply with data privacy norms (in India, forthcoming DPDP Act; at least follow GDPR-like best practices). Store personal data securely and allow user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts"
+          },
+          {
+            "chunk_id": 143,
+            "content": "ensuring pedagogical correctness. They will use backend tools for data labeling, curriculum mapping, and QA. Each persona has different workflows: e.g. a student browsing topics, a teacher reviewing scores, and an admin overseeing system health. UX/UI must accommodate these roles (distinct dashboards and permission levels). 3. Curriculum & Content Mapping The portal\u2019s content must directly align with the official syllabi of JEE (Main/Advanced), NEET, and GATE. Generally: \u2022 JEE Main/Advanced: Covers Physics, Chemistry, Mathematics (11th & 12th grade). Syllabus is defined by NTA and IIT, largely reflecting CBSE/NCERT curriculum\u301019\u2020L70-L78\u3011. Topics include mechanics, electromagnetism, organic/inorganic/physical chemistry, algebra, calculus, etc. \u2022 NEET:"
+          },
+          {
+            "chunk_id": 147,
+            "content": "plus biology) and recommended coaching materials. These provide canonical explanations and examples. Note: NCERT content is copyrighted; we will use it as training input but ensure outputs paraphrase properly to avoid infringement\u301045\u2020L75-L84\u3011. \u2022 Past Exam Papers: Extensive archives of JEE (Mains/Advanced), NEET, and GATE questions. For example, NTA\u2019s JEE Main archive lists papers and answer keys\u301023\u2020L78-L86\u3011, and IIT websites host JEE Advanced and GATE archives. These give question formats, difficulty distribution, and official language styles. \u2022 Syllabus/Info Bulletins: Downloadable PDFs from NTA and GATE websites defining the scope of each exam (topics list, blueprint). \u2022 Open Educational Resources: Where possible,"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rerank_selection",
+      "elapsed_ms": 126.73,
+      "metadata": {
+        "status": "ok",
+        "selected_ids": [
+          131,
+          137,
+          185,
+          143,
+          147
+        ],
+        "input_ids": [
+          137,
+          184,
+          198,
+          143,
+          131,
+          147,
+          185,
+          144,
+          195,
+          183
+        ],
+        "rerank_candidate_limit": 10,
+        "output_limit": 5,
+        "removal_reason": "rerank_top_k"
+      }
+    },
+    {
+      "stage": "adaptive_filter",
+      "elapsed_ms": 126.8,
+      "metadata": {
+        "removals": [
+          {
+            "chunk_id": 137,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -9.930709838867188,
+            "threshold": -4.858117580413818
+          },
+          {
+            "chunk_id": 185,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -10.320788383483887,
+            "threshold": -4.858117580413818
+          },
+          {
+            "chunk_id": 143,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -10.585728645324707,
+            "threshold": -4.858117580413818
+          },
+          {
+            "chunk_id": 147,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -10.762748718261719,
+            "threshold": -4.858117580413818
+          }
+        ],
+        "input_ids": [
+          131,
+          137,
+          185,
+          143,
+          147
+        ],
+        "selected_ids": [
+          131
+        ]
+      }
+    },
+    {
+      "stage": "after_adaptive_filter",
+      "elapsed_ms": 126.85,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -2.8581175804138184
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "retrieval_scope",
+      "elapsed_ms": 127.02,
+      "metadata": {
+        "document_names": [
+          "e3160c67-ee6d-4983-9029-8273bd35525a"
+        ],
+        "pages": null,
+        "top_k": 3
+      },
+      "raw": {
+        "search_query": "According to Executive Summary.pdf: which entrance exams does the proposed portal target"
+      }
+    },
+    {
+      "stage": "vector_candidates",
+      "elapsed_ms": 163.05,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 185,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 711,
+              "sha256": "00c00ac6b016738b99f5c9784cf4e7812ce1a76229e79264ba3328e49d29ae7c"
+            },
+            "selected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": 147,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 4,
+            "content_fingerprint": {
+              "chars": 725,
+              "sha256": "b6bdcc0244ee264a72bd218eabd2738b85899e07780a6918e29c2c8e9ecf413f"
+            },
+            "selected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": 137,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content_fingerprint": {
+              "chars": 703,
+              "sha256": "7b740438b27c2de9f1a054b44b62f88c024a0876b61b7edcf6ba15e253cf29a5"
+            },
+            "selected": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": 141,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 729,
+              "sha256": "1e343f84930d7bbd13d326559cd9d0916fcd6fed9d8e2f14769db28b9db6817e"
+            },
+            "selected": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": 143,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 760,
+              "sha256": "b4c67e3523fe87bd07e1a34a9230606b075f6cbe112f7ed1155733ff85e92ace"
+            },
+            "selected": true
+          },
+          {
+            "rank": 6,
+            "chunk_id": 148,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 4,
+            "content_fingerprint": {
+              "chars": 715,
+              "sha256": "8c5e4ca52717ad40e134143eb87089cf38b6fa462805a39508d883848e0cbb2c"
+            },
+            "selected": true
+          },
+          {
+            "rank": 7,
+            "chunk_id": 195,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content_fingerprint": {
+              "chars": 704,
+              "sha256": "2b62624bdfa21f638d658d739abfcba07a29898d35b5b0b2e58183360e3b13f1"
+            },
+            "selected": true
+          },
+          {
+            "rank": 8,
+            "chunk_id": 186,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 490,
+              "sha256": "dd79f5388fab92df07ef73c5805b17e5f650cf40cbb9689ad360ebbba2c27c10"
+            },
+            "selected": true
+          },
+          {
+            "rank": 9,
+            "chunk_id": 139,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content_fingerprint": {
+              "chars": 742,
+              "sha256": "f13525f555a3a5c81174662ab87ce6ce6769ccbd52ef11512045713b6274bc29"
+            },
+            "selected": true
+          },
+          {
+            "rank": 10,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 185,
+            "content": "JEE/GATE/NEET authorities may restrict use of their questions; we should avoid directly copying exam problems. Instead, we will paraphrase question patterns and create similar problems ourselves. We will check official policies; if needed, obtain permission or use past papers only as inspiration (not republishing answers). \u2022 Privacy and Data Protection: If collecting student data (e.g. usage logs, performance), comply with data privacy norms (in India, forthcoming DPDP Act; at least follow GDPR-like best practices). Store personal data securely and allow user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts"
+          },
+          {
+            "chunk_id": 147,
+            "content": "plus biology) and recommended coaching materials. These provide canonical explanations and examples. Note: NCERT content is copyrighted; we will use it as training input but ensure outputs paraphrase properly to avoid infringement\u301045\u2020L75-L84\u3011. \u2022 Past Exam Papers: Extensive archives of JEE (Mains/Advanced), NEET, and GATE questions. For example, NTA\u2019s JEE Main archive lists papers and answer keys\u301023\u2020L78-L86\u3011, and IIT websites host JEE Advanced and GATE archives. These give question formats, difficulty distribution, and official language styles. \u2022 Syllabus/Info Bulletins: Downloadable PDFs from NTA and GATE websites defining the scope of each exam (topics list, blueprint). \u2022 Open Educational Resources: Where possible,"
+          },
+          {
+            "chunk_id": 137,
+            "content": "\u2022 Topic-wise Notes & Summaries: The portal generates concise, structured notes from official content. For each topic, it creates explanations, key definitions, worked examples, and formula summaries. \u2022 Test Series & Quizzes: The system auto-creates practice tests and quizzes. It can generate multiple- choice questions (MCQs), short-answer problems, and full mock exams aligned to JEE/GATE/NEET pattern. \u2022 Question Bank & Q&A: A searchable database of Q&A by topic. Students can ask the AI questions in natural language and get precise answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on"
+          },
+          {
+            "chunk_id": 141,
+            "content": "2. User Personas \u2022 Students (JEE/GATE/NEET aspirants): Typically high-school (17\u201318 yrs) or graduate (21+ yrs) students. They want clear, focused preparation material for Physics, Chemistry, Math and (for NEET) Biology, mapped to exam syllabus. They value mobile/online access, self-paced learning, and interactive assessments. We will support user journeys like \u201creview Chapter X, watch video, take quiz, review mistakes.\u201d \u2022 Teachers/Tutors: Education professionals preparing content or monitoring students. They need tools to assign topics, track class progress, and generate new materials. They might use the portal to supplement in-class teaching, or to personalize tasks. Teachers might curate AI-generated content or upload"
+          },
+          {
+            "chunk_id": 143,
+            "content": "ensuring pedagogical correctness. They will use backend tools for data labeling, curriculum mapping, and QA. Each persona has different workflows: e.g. a student browsing topics, a teacher reviewing scores, and an admin overseeing system health. UX/UI must accommodate these roles (distinct dashboards and permission levels). 3. Curriculum & Content Mapping The portal\u2019s content must directly align with the official syllabi of JEE (Main/Advanced), NEET, and GATE. Generally: \u2022 JEE Main/Advanced: Covers Physics, Chemistry, Mathematics (11th & 12th grade). Syllabus is defined by NTA and IIT, largely reflecting CBSE/NCERT curriculum\u301019\u2020L70-L78\u3011. Topics include mechanics, electromagnetism, organic/inorganic/physical chemistry, algebra, calculus, etc. \u2022 NEET:"
+          },
+          {
+            "chunk_id": 148,
+            "content": "from NTA and GATE websites defining the scope of each exam (topics list, blueprint). \u2022 Open Educational Resources: Where possible, use freely licensed content (Khan Academy, MIT OpenCourseWare, etc.) for supplementary examples or visuals to avoid copyrights. \u2022 Multimedia Assets: Public domain or licensed images, diagrams, animations for video backgrounds and slides. E.g. PhET simulations for physics (interactive elements), stock science illustrations. \u2022 Audio Data: (if training TTS) clean speech samples (e.g. LJSpeech, LibriTTS) and optionally teacher voices to clone. Data Collection Strategies: \u2022 Automated Scraping: Download all available PDFs and web resources (syllabi, question PDFs). Use OCR to extract"
+          },
+          {
+            "chunk_id": 195,
+            "content": "2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models (NLP, TTS); implement video generation pipeline; integrate content filtering; develop the portal frontend (video player, note display, quiz modules); deploy on test servers; iterate with internal feedback. \u2022 Team: +2 ML engineers (video/TTS specialists), +2 frontend devs, +1 UX designer, continuing content experts. \u2022 Phase 3 \u2013 Pilot & Feedback (15\u201321 mo): \u2022 Milestones: Internal pilot with select students/teachers; evaluation; improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics"
+          },
+          {
+            "chunk_id": 186,
+            "content": "user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts for videos). Content should be suitable for all genders/castes (avoid biased examples). \u2022 Compliance: We will audit content regularly. A legal advisor will review terms of service to comply with educational regulations. If partnering with schools, ensure FERPA/COPPA-like child-safety policies (even if India has none, best to be safe). 12"
+          },
+          {
+            "chunk_id": 139,
+            "content": "& Mobile App: Allow downloading videos/notes for offline study. These features align with common e-learning platform needs (content delivery, assessment, analytics). Comparison table (below) lists prioritized features for MVP vs later phases: Feature Description MVP Later AI Video Lessons Automated topic-based lecture videos \u2713 Topic Summaries/Notes Generated concise study notes per topic \u2713 Dynamic Test Series Auto-generated quizzes/exams aligned to syllabus \u2713 Q&A and Forum AI Q&A chatbot; discussion forum \u2713 Performance Analytics Student progress dashboards, teacher reports \u2713 Adaptive Learning Paths Personalized topic recommendations \u2713 Multilingual Content English + Hindi (e.g.) materials \u2713 Gamification Badges, points, streaks \u2713 Live"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "lexical_candidates",
+      "elapsed_ms": 186.37,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": 137,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content_fingerprint": {
+              "chars": 703,
+              "sha256": "7b740438b27c2de9f1a054b44b62f88c024a0876b61b7edcf6ba15e253cf29a5"
+            },
+            "selected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": 198,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 713,
+              "sha256": "99a3406ec09438411fb459b080050defa474f376ba05e8903afd0c1911657c99"
+            },
+            "selected": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": 186,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 490,
+              "sha256": "dd79f5388fab92df07ef73c5805b17e5f650cf40cbb9689ad360ebbba2c27c10"
+            },
+            "selected": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": 139,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content_fingerprint": {
+              "chars": 742,
+              "sha256": "f13525f555a3a5c81174662ab87ce6ce6769ccbd52ef11512045713b6274bc29"
+            },
+            "selected": true
+          },
+          {
+            "rank": 6,
+            "chunk_id": 144,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 814,
+              "sha256": "5642fdef7974cda7fc26505d14faef1618e08b9646810a614503ce21d4028aa5"
+            },
+            "selected": true
+          },
+          {
+            "rank": 7,
+            "chunk_id": 141,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 729,
+              "sha256": "1e343f84930d7bbd13d326559cd9d0916fcd6fed9d8e2f14769db28b9db6817e"
+            },
+            "selected": true
+          },
+          {
+            "rank": 8,
+            "chunk_id": 142,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 719,
+              "sha256": "caf0e133160898173a09c023a7d7a358079115ed09b4b4ee023e86065ab8a847"
+            },
+            "selected": true
+          },
+          {
+            "rank": 9,
+            "chunk_id": 195,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content_fingerprint": {
+              "chars": 704,
+              "sha256": "2b62624bdfa21f638d658d739abfcba07a29898d35b5b0b2e58183360e3b13f1"
+            },
+            "selected": true
+          },
+          {
+            "rank": 10,
+            "chunk_id": 199,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 757,
+              "sha256": "73e6a04c2d7b75bed3850b577ebf1fdb69f4291110a235f48728aa6c16018c28"
+            },
+            "selected": true
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 137,
+            "content": "\u2022 Topic-wise Notes & Summaries: The portal generates concise, structured notes from official content. For each topic, it creates explanations, key definitions, worked examples, and formula summaries. \u2022 Test Series & Quizzes: The system auto-creates practice tests and quizzes. It can generate multiple- choice questions (MCQs), short-answer problems, and full mock exams aligned to JEE/GATE/NEET pattern. \u2022 Question Bank & Q&A: A searchable database of Q&A by topic. Students can ask the AI questions in natural language and get precise answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on"
+          },
+          {
+            "chunk_id": 198,
+            "content": "\u2022 Misc (licenses, overhead): \\$100K. Total ballpark: \\$1.6M\u2013\\$3M. A more advanced roadmap (larger models, extensive data) could push budgets to the \\$5M level. Milestone Timeline (Mermaid Gantt): Implementation Roadmap Requirements Spec Phase 1: Planning System Architecture & Data Proof-of-Concept AI Models Model Training (NLP, TTS) Phase 2: MVP Development Portal VideoFrontend/BackendPipeline Dev Build Content Filtering Module Phase 3: Pilot & Feedback Internal Pilot Evaluate & Iterate Beta Launch & Fixes Phase 4: Launch & Scale Feature Enhancements (v2) Full Launch Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development"
+          },
+          {
+            "chunk_id": 186,
+            "content": "user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts for videos). Content should be suitable for all genders/castes (avoid biased examples). \u2022 Compliance: We will audit content regularly. A legal advisor will review terms of service to comply with educational regulations. If partnering with schools, ensure FERPA/COPPA-like child-safety policies (even if India has none, best to be safe). 12"
+          },
+          {
+            "chunk_id": 139,
+            "content": "& Mobile App: Allow downloading videos/notes for offline study. These features align with common e-learning platform needs (content delivery, assessment, analytics). Comparison table (below) lists prioritized features for MVP vs later phases: Feature Description MVP Later AI Video Lessons Automated topic-based lecture videos \u2713 Topic Summaries/Notes Generated concise study notes per topic \u2713 Dynamic Test Series Auto-generated quizzes/exams aligned to syllabus \u2713 Q&A and Forum AI Q&A chatbot; discussion forum \u2713 Performance Analytics Student progress dashboards, teacher reports \u2713 Adaptive Learning Paths Personalized topic recommendations \u2713 Multilingual Content English + Hindi (e.g.) materials \u2713 Gamification Badges, points, streaks \u2713 Live"
+          },
+          {
+            "chunk_id": 144,
+            "content": "defined by NTA and IIT, largely reflecting CBSE/NCERT curriculum\u301019\u2020L70-L78\u3011. Topics include mechanics, electromagnetism, organic/inorganic/physical chemistry, algebra, calculus, etc. \u2022 NEET: Covers Physics, Chemistry, and Biology (Botany & Zoology) of classes 11\u201312, following NCERT textbooks (medical entrance is heavily NCERT-based). Emphasis is on fundamentals and detailed biology (botany, zoology) as per NTA\u2019s NEET syllabus. \u2022 GATE (Graduate Aptitude Test): Technical subjects by engineering discipline. For example, Electrical Engineering covers circuits, signals, systems, controls; Computer Science covers algorithms, OS, databases; Chemical Engineering covers thermodynamics, reaction engineering, etc. Official GATE syllabi (provided by IITs/IISc) and past question archives will guide content scope. 3"
+          },
+          {
+            "chunk_id": 141,
+            "content": "2. User Personas \u2022 Students (JEE/GATE/NEET aspirants): Typically high-school (17\u201318 yrs) or graduate (21+ yrs) students. They want clear, focused preparation material for Physics, Chemistry, Math and (for NEET) Biology, mapped to exam syllabus. They value mobile/online access, self-paced learning, and interactive assessments. We will support user journeys like \u201creview Chapter X, watch video, take quiz, review mistakes.\u201d \u2022 Teachers/Tutors: Education professionals preparing content or monitoring students. They need tools to assign topics, track class progress, and generate new materials. They might use the portal to supplement in-class teaching, or to personalize tasks. Teachers might curate AI-generated content or upload"
+          },
+          {
+            "chunk_id": 142,
+            "content": "They might use the portal to supplement in-class teaching, or to personalize tasks. Teachers might curate AI-generated content or upload their own, so we need authoring and review UIs. \u2022 Administrators: System operators and content curators (school coordinators or company admins). They manage user accounts, content taxonomy, system settings and compliance. They might be responsible for approving AI-generated content, monitoring filter logs, and ensuring curriculum alignment. \u2022 Content Experts/Editors: (could be teachers or SMEs) who validate and annotate AI outputs, ensuring pedagogical correctness. They will use backend tools for data labeling, curriculum mapping, and QA. Each persona has different workflows:"
+          },
+          {
+            "chunk_id": 195,
+            "content": "2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models (NLP, TTS); implement video generation pipeline; integrate content filtering; develop the portal frontend (video player, note display, quiz modules); deploy on test servers; iterate with internal feedback. \u2022 Team: +2 ML engineers (video/TTS specialists), +2 frontend devs, +1 UX designer, continuing content experts. \u2022 Phase 3 \u2013 Pilot & Feedback (15\u201321 mo): \u2022 Milestones: Internal pilot with select students/teachers; evaluation; improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics"
+          },
+          {
+            "chunk_id": 199,
+            "content": "Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development phases (mid-2026 start). 15. Risk Management and Mitigation \u2022 Quality Risk: AI outputs might be inaccurate or unengaging. Mitigation: Maintain humans-in-loop for review, start with conservative content generation, gather student feedback early. \u2022 Data/Copyright Risk: Unauthorized use of licensed content. Mitigation: Legal review of sources, use public/open data, ensure model outputs are sufficiently rephrased. Cite official guidelines\u301045\u2020L75- L84\u3011. \u2022 Cost Overruns: Training large models can blow budgets. Mitigation: Use open models when possible; optimize with distillation/quantization; consider HPC credits or"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rrf_results",
+      "elapsed_ms": 186.74,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 137,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content_fingerprint": {
+              "chars": 703,
+              "sha256": "7b740438b27c2de9f1a054b44b62f88c024a0876b61b7edcf6ba15e253cf29a5"
+            },
+            "selected": true,
+            "rrf_score": 0.03200204813108039
+          },
+          {
+            "rank": 2,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true,
+            "rrf_score": 0.030679156908665108
+          },
+          {
+            "rank": 3,
+            "chunk_id": 141,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 729,
+              "sha256": "1e343f84930d7bbd13d326559cd9d0916fcd6fed9d8e2f14769db28b9db6817e"
+            },
+            "selected": true,
+            "rrf_score": 0.03055037313432836
+          },
+          {
+            "rank": 4,
+            "chunk_id": 186,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 490,
+              "sha256": "dd79f5388fab92df07ef73c5805b17e5f650cf40cbb9689ad360ebbba2c27c10"
+            },
+            "selected": true,
+            "rrf_score": 0.030330882352941176
+          },
+          {
+            "rank": 5,
+            "chunk_id": 139,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content_fingerprint": {
+              "chars": 742,
+              "sha256": "f13525f555a3a5c81174662ab87ce6ce6769ccbd52ef11512045713b6274bc29"
+            },
+            "selected": true,
+            "rrf_score": 0.029877369007803793
+          },
+          {
+            "rank": 6,
+            "chunk_id": 195,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content_fingerprint": {
+              "chars": 704,
+              "sha256": "2b62624bdfa21f638d658d739abfcba07a29898d35b5b0b2e58183360e3b13f1"
+            },
+            "selected": true,
+            "rrf_score": 0.029418126757516764
+          },
+          {
+            "rank": 7,
+            "chunk_id": 185,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 711,
+              "sha256": "00c00ac6b016738b99f5c9784cf4e7812ce1a76229e79264ba3328e49d29ae7c"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082
+          },
+          {
+            "rank": 8,
+            "chunk_id": 147,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 4,
+            "content_fingerprint": {
+              "chars": 725,
+              "sha256": "b6bdcc0244ee264a72bd218eabd2738b85899e07780a6918e29c2c8e9ecf413f"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516
+          },
+          {
+            "rank": 9,
+            "chunk_id": 198,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 713,
+              "sha256": "99a3406ec09438411fb459b080050defa474f376ba05e8903afd0c1911657c99"
+            },
+            "selected": true,
+            "rrf_score": 0.015873015873015872
+          },
+          {
+            "rank": 10,
+            "chunk_id": 143,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 760,
+              "sha256": "b4c67e3523fe87bd07e1a34a9230606b075f6cbe112f7ed1155733ff85e92ace"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 137,
+            "content": "\u2022 Topic-wise Notes & Summaries: The portal generates concise, structured notes from official content. For each topic, it creates explanations, key definitions, worked examples, and formula summaries. \u2022 Test Series & Quizzes: The system auto-creates practice tests and quizzes. It can generate multiple- choice questions (MCQs), short-answer problems, and full mock exams aligned to JEE/GATE/NEET pattern. \u2022 Question Bank & Q&A: A searchable database of Q&A by topic. Students can ask the AI questions in natural language and get precise answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 141,
+            "content": "2. User Personas \u2022 Students (JEE/GATE/NEET aspirants): Typically high-school (17\u201318 yrs) or graduate (21+ yrs) students. They want clear, focused preparation material for Physics, Chemistry, Math and (for NEET) Biology, mapped to exam syllabus. They value mobile/online access, self-paced learning, and interactive assessments. We will support user journeys like \u201creview Chapter X, watch video, take quiz, review mistakes.\u201d \u2022 Teachers/Tutors: Education professionals preparing content or monitoring students. They need tools to assign topics, track class progress, and generate new materials. They might use the portal to supplement in-class teaching, or to personalize tasks. Teachers might curate AI-generated content or upload"
+          },
+          {
+            "chunk_id": 186,
+            "content": "user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts for videos). Content should be suitable for all genders/castes (avoid biased examples). \u2022 Compliance: We will audit content regularly. A legal advisor will review terms of service to comply with educational regulations. If partnering with schools, ensure FERPA/COPPA-like child-safety policies (even if India has none, best to be safe). 12"
+          },
+          {
+            "chunk_id": 139,
+            "content": "& Mobile App: Allow downloading videos/notes for offline study. These features align with common e-learning platform needs (content delivery, assessment, analytics). Comparison table (below) lists prioritized features for MVP vs later phases: Feature Description MVP Later AI Video Lessons Automated topic-based lecture videos \u2713 Topic Summaries/Notes Generated concise study notes per topic \u2713 Dynamic Test Series Auto-generated quizzes/exams aligned to syllabus \u2713 Q&A and Forum AI Q&A chatbot; discussion forum \u2713 Performance Analytics Student progress dashboards, teacher reports \u2713 Adaptive Learning Paths Personalized topic recommendations \u2713 Multilingual Content English + Hindi (e.g.) materials \u2713 Gamification Badges, points, streaks \u2713 Live"
+          },
+          {
+            "chunk_id": 195,
+            "content": "2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models (NLP, TTS); implement video generation pipeline; integrate content filtering; develop the portal frontend (video player, note display, quiz modules); deploy on test servers; iterate with internal feedback. \u2022 Team: +2 ML engineers (video/TTS specialists), +2 frontend devs, +1 UX designer, continuing content experts. \u2022 Phase 3 \u2013 Pilot & Feedback (15\u201321 mo): \u2022 Milestones: Internal pilot with select students/teachers; evaluation; improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics"
+          },
+          {
+            "chunk_id": 185,
+            "content": "JEE/GATE/NEET authorities may restrict use of their questions; we should avoid directly copying exam problems. Instead, we will paraphrase question patterns and create similar problems ourselves. We will check official policies; if needed, obtain permission or use past papers only as inspiration (not republishing answers). \u2022 Privacy and Data Protection: If collecting student data (e.g. usage logs, performance), comply with data privacy norms (in India, forthcoming DPDP Act; at least follow GDPR-like best practices). Store personal data securely and allow user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts"
+          },
+          {
+            "chunk_id": 147,
+            "content": "plus biology) and recommended coaching materials. These provide canonical explanations and examples. Note: NCERT content is copyrighted; we will use it as training input but ensure outputs paraphrase properly to avoid infringement\u301045\u2020L75-L84\u3011. \u2022 Past Exam Papers: Extensive archives of JEE (Mains/Advanced), NEET, and GATE questions. For example, NTA\u2019s JEE Main archive lists papers and answer keys\u301023\u2020L78-L86\u3011, and IIT websites host JEE Advanced and GATE archives. These give question formats, difficulty distribution, and official language styles. \u2022 Syllabus/Info Bulletins: Downloadable PDFs from NTA and GATE websites defining the scope of each exam (topics list, blueprint). \u2022 Open Educational Resources: Where possible,"
+          },
+          {
+            "chunk_id": 198,
+            "content": "\u2022 Misc (licenses, overhead): \\$100K. Total ballpark: \\$1.6M\u2013\\$3M. A more advanced roadmap (larger models, extensive data) could push budgets to the \\$5M level. Milestone Timeline (Mermaid Gantt): Implementation Roadmap Requirements Spec Phase 1: Planning System Architecture & Data Proof-of-Concept AI Models Model Training (NLP, TTS) Phase 2: MVP Development Portal VideoFrontend/BackendPipeline Dev Build Content Filtering Module Phase 3: Pilot & Feedback Internal Pilot Evaluate & Iterate Beta Launch & Fixes Phase 4: Launch & Scale Feature Enhancements (v2) Full Launch Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development"
+          },
+          {
+            "chunk_id": 143,
+            "content": "ensuring pedagogical correctness. They will use backend tools for data labeling, curriculum mapping, and QA. Each persona has different workflows: e.g. a student browsing topics, a teacher reviewing scores, and an admin overseeing system health. UX/UI must accommodate these roles (distinct dashboards and permission levels). 3. Curriculum & Content Mapping The portal\u2019s content must directly align with the official syllabi of JEE (Main/Advanced), NEET, and GATE. Generally: \u2022 JEE Main/Advanced: Covers Physics, Chemistry, Mathematics (11th & 12th grade). Syllabus is defined by NTA and IIT, largely reflecting CBSE/NCERT curriculum\u301019\u2020L70-L78\u3011. Topics include mechanics, electromagnetism, organic/inorganic/physical chemistry, algebra, calculus, etc. \u2022 NEET:"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "fusion_selection",
+      "elapsed_ms": 186.88,
+      "metadata": {
+        "input_ids": [
+          131,
+          137,
+          198,
+          186,
+          139,
+          144,
+          141,
+          142,
+          195,
+          199,
+          185,
+          147,
+          143,
+          148
+        ],
+        "selected_ids": [
+          137,
+          131,
+          141,
+          186,
+          139,
+          195,
+          185,
+          147,
+          198,
+          143
+        ],
+        "removal_reason": "rrf_pool_limit",
+        "limit": 10
+      }
+    },
+    {
+      "stage": "reranker_scores",
+      "elapsed_ms": 224.31,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true,
+            "rrf_score": 0.030679156908665108,
+            "rerank_score": 0.8889725804328918
+          },
+          {
+            "rank": 2,
+            "chunk_id": 137,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content_fingerprint": {
+              "chars": 703,
+              "sha256": "7b740438b27c2de9f1a054b44b62f88c024a0876b61b7edcf6ba15e253cf29a5"
+            },
+            "selected": true,
+            "rrf_score": 0.03200204813108039,
+            "rerank_score": -8.092391967773438
+          },
+          {
+            "rank": 3,
+            "chunk_id": 143,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 760,
+              "sha256": "b4c67e3523fe87bd07e1a34a9230606b075f6cbe112f7ed1155733ff85e92ace"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385,
+            "rerank_score": -9.872523307800293
+          },
+          {
+            "rank": 4,
+            "chunk_id": 185,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 711,
+              "sha256": "00c00ac6b016738b99f5c9784cf4e7812ce1a76229e79264ba3328e49d29ae7c"
+            },
+            "selected": false,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -9.994726181030273,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 5,
+            "chunk_id": 141,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 729,
+              "sha256": "1e343f84930d7bbd13d326559cd9d0916fcd6fed9d8e2f14769db28b9db6817e"
+            },
+            "selected": false,
+            "rrf_score": 0.03055037313432836,
+            "rerank_score": -10.037514686584473,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 6,
+            "chunk_id": 186,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 490,
+              "sha256": "dd79f5388fab92df07ef73c5805b17e5f650cf40cbb9689ad360ebbba2c27c10"
+            },
+            "selected": false,
+            "rrf_score": 0.030330882352941176,
+            "rerank_score": -10.420158386230469,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 7,
+            "chunk_id": 198,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 713,
+              "sha256": "99a3406ec09438411fb459b080050defa474f376ba05e8903afd0c1911657c99"
+            },
+            "selected": false,
+            "rrf_score": 0.015873015873015872,
+            "rerank_score": -10.568532943725586,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 8,
+            "chunk_id": 195,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content_fingerprint": {
+              "chars": 704,
+              "sha256": "2b62624bdfa21f638d658d739abfcba07a29898d35b5b0b2e58183360e3b13f1"
+            },
+            "selected": false,
+            "rrf_score": 0.029418126757516764,
+            "rerank_score": -10.685152053833008,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 9,
+            "chunk_id": 147,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 4,
+            "content_fingerprint": {
+              "chars": 725,
+              "sha256": "b6bdcc0244ee264a72bd218eabd2738b85899e07780a6918e29c2c8e9ecf413f"
+            },
+            "selected": false,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -10.726388931274414,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 10,
+            "chunk_id": 139,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content_fingerprint": {
+              "chars": 742,
+              "sha256": "f13525f555a3a5c81174662ab87ce6ce6769ccbd52ef11512045713b6274bc29"
+            },
+            "selected": false,
+            "rrf_score": 0.029877369007803793,
+            "rerank_score": -11.401617050170898,
+            "removal_reason": "rerank_top_k"
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 137,
+            "content": "\u2022 Topic-wise Notes & Summaries: The portal generates concise, structured notes from official content. For each topic, it creates explanations, key definitions, worked examples, and formula summaries. \u2022 Test Series & Quizzes: The system auto-creates practice tests and quizzes. It can generate multiple- choice questions (MCQs), short-answer problems, and full mock exams aligned to JEE/GATE/NEET pattern. \u2022 Question Bank & Q&A: A searchable database of Q&A by topic. Students can ask the AI questions in natural language and get precise answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on"
+          },
+          {
+            "chunk_id": 143,
+            "content": "ensuring pedagogical correctness. They will use backend tools for data labeling, curriculum mapping, and QA. Each persona has different workflows: e.g. a student browsing topics, a teacher reviewing scores, and an admin overseeing system health. UX/UI must accommodate these roles (distinct dashboards and permission levels). 3. Curriculum & Content Mapping The portal\u2019s content must directly align with the official syllabi of JEE (Main/Advanced), NEET, and GATE. Generally: \u2022 JEE Main/Advanced: Covers Physics, Chemistry, Mathematics (11th & 12th grade). Syllabus is defined by NTA and IIT, largely reflecting CBSE/NCERT curriculum\u301019\u2020L70-L78\u3011. Topics include mechanics, electromagnetism, organic/inorganic/physical chemistry, algebra, calculus, etc. \u2022 NEET:"
+          },
+          {
+            "chunk_id": 185,
+            "content": "JEE/GATE/NEET authorities may restrict use of their questions; we should avoid directly copying exam problems. Instead, we will paraphrase question patterns and create similar problems ourselves. We will check official policies; if needed, obtain permission or use past papers only as inspiration (not republishing answers). \u2022 Privacy and Data Protection: If collecting student data (e.g. usage logs, performance), comply with data privacy norms (in India, forthcoming DPDP Act; at least follow GDPR-like best practices). Store personal data securely and allow user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts"
+          },
+          {
+            "chunk_id": 141,
+            "content": "2. User Personas \u2022 Students (JEE/GATE/NEET aspirants): Typically high-school (17\u201318 yrs) or graduate (21+ yrs) students. They want clear, focused preparation material for Physics, Chemistry, Math and (for NEET) Biology, mapped to exam syllabus. They value mobile/online access, self-paced learning, and interactive assessments. We will support user journeys like \u201creview Chapter X, watch video, take quiz, review mistakes.\u201d \u2022 Teachers/Tutors: Education professionals preparing content or monitoring students. They need tools to assign topics, track class progress, and generate new materials. They might use the portal to supplement in-class teaching, or to personalize tasks. Teachers might curate AI-generated content or upload"
+          },
+          {
+            "chunk_id": 186,
+            "content": "user control over their data. \u2022 Accessibility & Standards: Ensure the portal meets accessibility guidelines (text alternatives for images, transcripts for videos). Content should be suitable for all genders/castes (avoid biased examples). \u2022 Compliance: We will audit content regularly. A legal advisor will review terms of service to comply with educational regulations. If partnering with schools, ensure FERPA/COPPA-like child-safety policies (even if India has none, best to be safe). 12"
+          },
+          {
+            "chunk_id": 198,
+            "content": "\u2022 Misc (licenses, overhead): \\$100K. Total ballpark: \\$1.6M\u2013\\$3M. A more advanced roadmap (larger models, extensive data) could push budgets to the \\$5M level. Milestone Timeline (Mermaid Gantt): Implementation Roadmap Requirements Spec Phase 1: Planning System Architecture & Data Proof-of-Concept AI Models Model Training (NLP, TTS) Phase 2: MVP Development Portal VideoFrontend/BackendPipeline Dev Build Content Filtering Module Phase 3: Pilot & Feedback Internal Pilot Evaluate & Iterate Beta Launch & Fixes Phase 4: Launch & Scale Feature Enhancements (v2) Full Launch Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development"
+          },
+          {
+            "chunk_id": 195,
+            "content": "2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models (NLP, TTS); implement video generation pipeline; integrate content filtering; develop the portal frontend (video player, note display, quiz modules); deploy on test servers; iterate with internal feedback. \u2022 Team: +2 ML engineers (video/TTS specialists), +2 frontend devs, +1 UX designer, continuing content experts. \u2022 Phase 3 \u2013 Pilot & Feedback (15\u201321 mo): \u2022 Milestones: Internal pilot with select students/teachers; evaluation; improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics"
+          },
+          {
+            "chunk_id": 147,
+            "content": "plus biology) and recommended coaching materials. These provide canonical explanations and examples. Note: NCERT content is copyrighted; we will use it as training input but ensure outputs paraphrase properly to avoid infringement\u301045\u2020L75-L84\u3011. \u2022 Past Exam Papers: Extensive archives of JEE (Mains/Advanced), NEET, and GATE questions. For example, NTA\u2019s JEE Main archive lists papers and answer keys\u301023\u2020L78-L86\u3011, and IIT websites host JEE Advanced and GATE archives. These give question formats, difficulty distribution, and official language styles. \u2022 Syllabus/Info Bulletins: Downloadable PDFs from NTA and GATE websites defining the scope of each exam (topics list, blueprint). \u2022 Open Educational Resources: Where possible,"
+          },
+          {
+            "chunk_id": 139,
+            "content": "& Mobile App: Allow downloading videos/notes for offline study. These features align with common e-learning platform needs (content delivery, assessment, analytics). Comparison table (below) lists prioritized features for MVP vs later phases: Feature Description MVP Later AI Video Lessons Automated topic-based lecture videos \u2713 Topic Summaries/Notes Generated concise study notes per topic \u2713 Dynamic Test Series Auto-generated quizzes/exams aligned to syllabus \u2713 Q&A and Forum AI Q&A chatbot; discussion forum \u2713 Performance Analytics Student progress dashboards, teacher reports \u2713 Adaptive Learning Paths Personalized topic recommendations \u2713 Multilingual Content English + Hindi (e.g.) materials \u2713 Gamification Badges, points, streaks \u2713 Live"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rerank_results",
+      "elapsed_ms": 224.51,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true,
+            "rrf_score": 0.030679156908665108,
+            "rerank_score": 0.8889725804328918
+          },
+          {
+            "rank": 2,
+            "chunk_id": 137,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content_fingerprint": {
+              "chars": 703,
+              "sha256": "7b740438b27c2de9f1a054b44b62f88c024a0876b61b7edcf6ba15e253cf29a5"
+            },
+            "selected": true,
+            "rrf_score": 0.03200204813108039,
+            "rerank_score": -8.092391967773438
+          },
+          {
+            "rank": 3,
+            "chunk_id": 143,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 760,
+              "sha256": "b4c67e3523fe87bd07e1a34a9230606b075f6cbe112f7ed1155733ff85e92ace"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385,
+            "rerank_score": -9.872523307800293
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 137,
+            "content": "\u2022 Topic-wise Notes & Summaries: The portal generates concise, structured notes from official content. For each topic, it creates explanations, key definitions, worked examples, and formula summaries. \u2022 Test Series & Quizzes: The system auto-creates practice tests and quizzes. It can generate multiple- choice questions (MCQs), short-answer problems, and full mock exams aligned to JEE/GATE/NEET pattern. \u2022 Question Bank & Q&A: A searchable database of Q&A by topic. Students can ask the AI questions in natural language and get precise answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on"
+          },
+          {
+            "chunk_id": 143,
+            "content": "ensuring pedagogical correctness. They will use backend tools for data labeling, curriculum mapping, and QA. Each persona has different workflows: e.g. a student browsing topics, a teacher reviewing scores, and an admin overseeing system health. UX/UI must accommodate these roles (distinct dashboards and permission levels). 3. Curriculum & Content Mapping The portal\u2019s content must directly align with the official syllabi of JEE (Main/Advanced), NEET, and GATE. Generally: \u2022 JEE Main/Advanced: Covers Physics, Chemistry, Mathematics (11th & 12th grade). Syllabus is defined by NTA and IIT, largely reflecting CBSE/NCERT curriculum\u301019\u2020L70-L78\u3011. Topics include mechanics, electromagnetism, organic/inorganic/physical chemistry, algebra, calculus, etc. \u2022 NEET:"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rerank_selection",
+      "elapsed_ms": 224.57,
+      "metadata": {
+        "status": "ok",
+        "selected_ids": [
+          131,
+          137,
+          143
+        ],
+        "input_ids": [
+          137,
+          131,
+          141,
+          186,
+          139,
+          195,
+          185,
+          147,
+          198,
+          143
+        ],
+        "rerank_candidate_limit": 10,
+        "output_limit": 3,
+        "removal_reason": "rerank_top_k"
+      }
+    },
+    {
+      "stage": "facet_retained",
+      "elapsed_ms": 224.59,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true,
+            "rrf_score": 0.030679156908665108,
+            "rerank_score": 0.8889725804328918
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "retrieval_scope",
+      "elapsed_ms": 224.61,
+      "metadata": {
+        "document_names": [
+          "e3160c67-ee6d-4983-9029-8273bd35525a"
+        ],
+        "pages": null,
+        "top_k": 3
+      },
+      "raw": {
+        "search_query": "According to Executive Summary.pdf: what is its signed customer contract number?"
+      }
+    },
+    {
+      "stage": "vector_candidates",
+      "elapsed_ms": 257.72,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 201,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 550,
+              "sha256": "de999cb2a7441357ba42873748574db1241d1ab206cb35d0467cd1950c7179f8"
+            },
+            "selected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": 203,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content_fingerprint": {
+              "chars": 712,
+              "sha256": "9a9081ddb908b24d56437b5402ade2fff6fe1c92433f2ed468381b7368f88db9"
+            },
+            "selected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": 196,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content_fingerprint": {
+              "chars": 748,
+              "sha256": "3adf9e4439d6102cfa46c5d8b85d59e249b55eb6edec291a54303c92cfdf794e"
+            },
+            "selected": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": 165,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content_fingerprint": {
+              "chars": 131,
+              "sha256": "0567afb6c785c300d8552f6455079def3557a6cf35c4948cfae175b0aaba9141"
+            },
+            "selected": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content_fingerprint": {
+              "chars": 430,
+              "sha256": "1e375a5da0e8b4eb4ec59ec25781f8069bd6a4aa3526a6ccbc2d2939da1dd270"
+            },
+            "selected": true
+          },
+          {
+            "rank": 6,
+            "chunk_id": 198,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 713,
+              "sha256": "99a3406ec09438411fb459b080050defa474f376ba05e8903afd0c1911657c99"
+            },
+            "selected": true
+          },
+          {
+            "rank": 7,
+            "chunk_id": 202,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content_fingerprint": {
+              "chars": 723,
+              "sha256": "d6cf64287eba6ea72c571fcc29258a2556db2e0d7ad383877cbe33360fa9cb1a"
+            },
+            "selected": true
+          },
+          {
+            "rank": 8,
+            "chunk_id": 181,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 11,
+            "content_fingerprint": {
+              "chars": 603,
+              "sha256": "30fb6996ee70572f5b8778906fa369b88d0cee1cbc6366d6e5c2c3362c89ca12"
+            },
+            "selected": true
+          },
+          {
+            "rank": 9,
+            "chunk_id": 145,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 4,
+            "content_fingerprint": {
+              "chars": 713,
+              "sha256": "f66d99152828442255b58fdc1d3a069fe61629a83438e5c15e1c8fbe7017ab96"
+            },
+            "selected": true
+          },
+          {
+            "rank": 10,
+            "chunk_id": 144,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content_fingerprint": {
+              "chars": 814,
+              "sha256": "5642fdef7974cda7fc26505d14faef1618e08b9646810a614503ce21d4028aa5"
+            },
+            "selected": true
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 201,
+            "content": "legal experts. Regular risk reviews will be part of project governance. 16. Handoff Deliverables and Templates At each phase we will produce standard documentation to facilitate handoff and continuity: \u2022 Requirements Document: Detailed functional and non-functional requirements, user stories, use cases. \u2022 Architecture Diagrams: High-level and component diagrams (like Figure 1). Merely this document\u2019s figures can serve as a start. \u2022 Data Schema: Definitions for all database tables/collections (e.g. Video, Question, UserProgress) and metadata. 16"
+          },
+          {
+            "chunk_id": 203,
+            "content": "living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists) to enforce code quality and reproducibility. 17. Comparison Tables Hosting Options: Option Upfront Cost Scalability Control Recurring Cost Notes High (hardware, Limited by Full (you Low if idle Best if On- infra) purchased own (electricity, consistent Premises \u301038\u2020L53- capacity hardware) maintenance) heavy use L62\u3011 Virtually Less direct Pay-as-you-go Easy to start, Public unlimited None (reliant on (high if used scale; possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost"
+          },
+          {
+            "chunk_id": 196,
+            "content": "improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics dashboard, improve filtering). Begin legal/compliance review. \u2022 Team: Same core, +2 QA testers, +1 security auditor. \u2022 Phase 4 \u2013 Launch & Scale (21\u201330 mo): \u2022 Milestones: Public launch; monitoring; content expansion. \u2022 Activities: Scale up infrastructure; add more features (multilingual support, gamification, third-party integrations); marketing; ongoing operations; formalizing handoff docs (architecture diagrams, requirements, model cards, test plans, runbooks). \u2022 Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at"
+          },
+          {
+            "chunk_id": 165,
+            "content": "over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of models and data. 8"
+          },
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          },
+          {
+            "chunk_id": 198,
+            "content": "\u2022 Misc (licenses, overhead): \\$100K. Total ballpark: \\$1.6M\u2013\\$3M. A more advanced roadmap (larger models, extensive data) could push budgets to the \\$5M level. Milestone Timeline (Mermaid Gantt): Implementation Roadmap Requirements Spec Phase 1: Planning System Architecture & Data Proof-of-Concept AI Models Model Training (NLP, TTS) Phase 2: MVP Development Portal VideoFrontend/BackendPipeline Dev Build Content Filtering Module Phase 3: Pilot & Feedback Internal Pilot Evaluate & Iterate Beta Launch & Fixes Phase 4: Launch & Scale Feature Enhancements (v2) Full Launch Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development"
+          },
+          {
+            "chunk_id": 202,
+            "content": "\u2022 Model Cards: For each ML model, a card describing: architecture, training data, performance metrics, intended use, limitations. This ensures transparency (aligned with [13\u2020L107-L113] emphasis on visibility). \u2022 Test Plans: Test cases for unit, integration, and user acceptance (e.g. \u201cTC1: Given topic X, generation returns video <3 min, mentions key formula\u201d). Include evaluation checklists (accuracy, bias, etc.). \u2022 Runbooks: Operational guides (e.g. \u201cHow to restart the inference cluster\u201d, \u201cEmergency contact matrix\u201d). Include troubleshooting steps and escalation paths. These will be living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists)"
+          },
+          {
+            "chunk_id": 181,
+            "content": "expected\u301033\u2020L118-L124\u3011. \u2022 Video: Hard to automate; may measure viewer engagement (e.g. quiz scores after watching) or clarity ratings from test users. \u2022 Pedagogical Quality: \u2022 Expert Review: Subject experts rate how well the content aligns with curriculum and educational standards (e.g. clarity of explanations, depth, examples used). \u2022 A/B Student Testing: Compare student outcomes using AI-generated content vs traditional materials. The cited studies found no performance difference\u30103\u2020L69-L73\u3011 and even better retention \u30104\u2020L110-L118\u3011. We will pilot with small classes to validate similar results. 11"
+          },
+          {
+            "chunk_id": 145,
+            "content": "Content Types: \u2022 Lecture Material: Aligned with chapters of NCERT and standard reference books. \u2022 Theory Notes: Core definitions, laws, formulas (often NCERT provides fundamental theory\u301017\u2020L70- L78\u3011). \u2022 Problem Sets: Algorithmic/numerical practice similar to past papers. \u2022 Concept Explanations: Visual aids and intuition (e.g. diagrams, simulations for physics). \u2022 Exam Patterns: Official marking schemes, difficulty levels. We will build a curriculum ontology that tags all content by subject, chapter, topic, subtopic, difficulty. This ensures the AI can generate content \u201cper topic\u201d on demand. Source mapping will rely on official lists (e.g. JEE syllabus PDFs, NTA info bulletins) and authoritative textbooks"
+          },
+          {
+            "chunk_id": 144,
+            "content": "defined by NTA and IIT, largely reflecting CBSE/NCERT curriculum\u301019\u2020L70-L78\u3011. Topics include mechanics, electromagnetism, organic/inorganic/physical chemistry, algebra, calculus, etc. \u2022 NEET: Covers Physics, Chemistry, and Biology (Botany & Zoology) of classes 11\u201312, following NCERT textbooks (medical entrance is heavily NCERT-based). Emphasis is on fundamentals and detailed biology (botany, zoology) as per NTA\u2019s NEET syllabus. \u2022 GATE (Graduate Aptitude Test): Technical subjects by engineering discipline. For example, Electrical Engineering covers circuits, signals, systems, controls; Computer Science covers algorithms, OS, databases; Chemical Engineering covers thermodynamics, reaction engineering, etc. Official GATE syllabi (provided by IITs/IISc) and past question archives will guide content scope. 3"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "lexical_candidates",
+      "elapsed_ms": 280.96,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": 184,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 708,
+              "sha256": "0c18c217c9a53dd5a5b98ba2e48ad31d71447c58e06e0b87ae1383058a6c8d11"
+            },
+            "selected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": 183,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 731,
+              "sha256": "f04fb7c1643e906d4489a5a3b3c7597fbf5c33481d0c891b8265f17df2eba070"
+            },
+            "selected": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": 179,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 11,
+            "content_fingerprint": {
+              "chars": 689,
+              "sha256": "2759d77739a8d137c32dc5664f6e8c247fe40d3ad3890ccd7ad1c2542ad67fc4"
+            },
+            "selected": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": 167,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content_fingerprint": {
+              "chars": 710,
+              "sha256": "7a905d945f52b6e9efc14fcb5d454599b85a5396995e67a0a84ae89fdb1c67a7"
+            },
+            "selected": true
+          },
+          {
+            "rank": 6,
+            "chunk_id": 178,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 11,
+            "content_fingerprint": {
+              "chars": 694,
+              "sha256": "9a310911f2426fe3cfe74ece73f46430325c5cb2cd9c73181250967dd6bfe6f5"
+            },
+            "selected": true
+          },
+          {
+            "rank": 7,
+            "chunk_id": 169,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content_fingerprint": {
+              "chars": 691,
+              "sha256": "f4ac5dc1a1d405e22f4ef0427a6f25dc636b8a66d82a472330eda2cff0fbcbe8"
+            },
+            "selected": true
+          },
+          {
+            "rank": 8,
+            "chunk_id": 173,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 10,
+            "content_fingerprint": {
+              "chars": 622,
+              "sha256": "bb12109e8f54a54bcd96e40c0cdc76f2b8552c1bfc3ac65b4a2681b1bdb2c560"
+            },
+            "selected": true
+          },
+          {
+            "rank": 9,
+            "chunk_id": 154,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 5,
+            "content_fingerprint": {
+              "chars": 775,
+              "sha256": "668cfda34a2d22b79ced09c11965d4077ff52f32a2a7083703ab135eb4f0632e"
+            },
+            "selected": true
+          },
+          {
+            "rank": 10,
+            "chunk_id": 151,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 5,
+            "content_fingerprint": {
+              "chars": 738,
+              "sha256": "1d1d4f84aa42041e23b3b51b5a6a0874ccfbb1278d0cc07a94252b633caca9ce"
+            },
+            "selected": true
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 184,
+            "content": "& Licensing: Official educational materials (NCERT books, exam papers) are copyrighted. NCERT explicitly forbids unlicensed commercial use of its textbook content\u301045\u2020L75-L84\u3011. We will use such sources as training data (fair use argument for education may apply), but all generated outputs must avoid verbatim reproduction. Attribution should be given where necessary (e.g. referring to \u201cNCERT concepts\u201d). If any third-party content is used (images, plots), ensure it is in the public domain or licensed (Creative Commons, purchased rights). \u2022 Exam Board Rules: JEE/GATE/NEET authorities may restrict use of their questions; we should avoid directly copying exam problems. Instead, we will paraphrase question"
+          },
+          {
+            "chunk_id": 183,
+            "content": "We will simulate adversarial prompts to test the filter (e.g. attempt to coax off-topic replies). Monitor false positives (overfiltering legitimate content) vs false negatives. \u2022 Validate with educators that no disallowed content slips through. Overall, we will maintain a continuous validation loop: metrics + human feedback guide iterative model improvements. Templates such as model cards (detailing training data, intended use, limitations) and test plans (unit/integration tests for outputs) will document our validation process. 11. Legal, IP, and Compliance \u2022 Copyright & Licensing: Official educational materials (NCERT books, exam papers) are copyrighted. NCERT explicitly forbids unlicensed commercial use of its textbook"
+          },
+          {
+            "chunk_id": 179,
+            "content": "an output is wrong or off-topic, the teacher can label it, and the system will learn. By combining these, we aim to guarantee domain adherence: any query or answer outside predefined curriculum lists is disallowed, and any content potentially harmful is blocked. The PowerSchool example shows the importance of custom filters in an educational context\u301013\u2020L107-L113\u3011. We will log all filter hits and review them to continuously improve our models. 10. Evaluation Metrics and Validation We will evaluate our system on both technical performance and educational effectiveness: \u2022 Accuracy/Quality Metrics: \u2022 Text generation: Use ROUGE/BLEU to measure overlap between AI-generated notes/answers"
+          },
+          {
+            "chunk_id": 167,
+            "content": "but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem hardware over first 1\u20132 years. Scaling: Cloud is easier to scale up/down with user demand (auto-scaling for inference). On-prem scaling is limited by purchased capacity (though GPUs can be added gradually). We should monitor utilization: if we rarely use full capacity, cloud may be cheaper; if heavy training/inference is constant, on-prem wins over time. 7. Model Architectures and Sizes Given the tasks, we recommend transformer-based architectures with sizes chosen for performance vs cost: \u2022 Text Models: Encoder-decoder (T5-like) or decoder"
+          },
+          {
+            "chunk_id": 178,
+            "content": "can employ an alignment process: gather feedback from educators on model outputs (rated by relevance and correctness) and fine- tune with RL to prefer helpful, on-topic responses. This is similar to ChatGPT\u2019s training. 4. Groundedness Checks: Ensure factual accuracy by referencing trusted sources. For instance, if the AI hallucinates a formula, a \u201cgroundedness\u201d model (per Microsoft Foundry) could flag unsubstantiated statements\u301011\u2020L148-L156\u3011. 5. Human Review: Especially in early phases, have educators review AI-generated content before publishing. Incorporate a feedback loop: if an output is wrong or off-topic, the teacher can label it, and the system will learn. By combining these, we"
+          },
+          {
+            "chunk_id": 169,
+            "content": "Flan-T5 (seq2seq) are strong candidates. \u2022 Speech Models: TTS models range 50\u2013150M parameters (Tacotron2, VITS). This is manageable on a single GPU for training/inference. ASR models (Whisper) have 97M (tiny) to 1.5B (large) versions; we will likely use medium (700M-1.5B) for accuracy with acceptable latency. These fit on a single high- end GPU at inference. \u2022 Video Models: State-of-art video diffusion models are huge (billions of parameters) and need multi- GPU training\u30109\u2020L1098-L1110\u3011. Open-Sora 2.0, for example, is likely on the order of 7B+ parameters\u30109\u2020L1106-L1114\u3011. If training in-house, we may limit to 5\u201310B. Alternatively, use much smaller architectures (few billion) optimized"
+          },
+          {
+            "chunk_id": 173,
+            "content": "Generation: Can allow a few seconds (like summarization). \u2022 TTS: Near-real-time is needed for video generation pipeline, but since video is pre-composed, it's offline. \u2022 Video Generation: Expected to take minutes per video; this will run as a batch job. We\u2019ll queue jobs and notify when ready. \u2022 Scaling: \u2022 Horizontal Scaling: For stateless inference (Q&A, summarization), replicate instances as users grow. Use GPU autoscaling (e.g. Kubernetes with GPU nodes, or AWS Elastic Inference). \u2022 Batch Jobs: Video and TTS creation jobs can be placed on a work queue (e.g. Celery or AWS SQS), processed by scalable GPU workers. \u2022"
+          },
+          {
+            "chunk_id": 154,
+            "content": "video clips. \u2022 Avatar Models: Platforms like Synthesia use 3D avatars; these are typically closed-source. We could simulate by animating 2D characters with lip-sync (e.g. DeepFaceLab, Wav2Lip). Considerations: Generating high-quality full-motion video is resource-intensive\u301027\u2020L88-L97\u3011. A practical compromise is animated slides with TTS, possibly a static or slightly animated \u201cinstructor\u201d image. Citing Stanford\u2019s study, even text+voice videos without a live instructor produced good outcomes\u30105\u2020L164-L172\u3011. \u2022 Text-to-Speech (TTS): Choose an open neural TTS for natural narration. Options include Mozilla TTS/VITS, Google\u2019s Tacotron 2 (TensorFlow), and newer large models (Higgs Audio, Kokoro) noted by 2025 surveys \u301030\u2020L34-L42\u3011. For high fidelity, WaveNet-style vocoders or"
+          },
+          {
+            "chunk_id": 151,
+            "content": "Augmentation: Techniques like back-translation (English\u2194Hindi), random question reshuffling, variable substitution in math/chemistry (replace numbers/units) to generate new question variants. A research approach is \u201cWikification\u201d \u2013 mapping concepts to Wikipedia links to diversify context\u301025\u2020L259-L268\u3011. \u2022 Balancing: Ensure uniform coverage across subjects and chapters. For instance, if 30% of JEE problems are physics, then ~30% of our question-training set should be physics. Throughout, we maintain a safe content dataset: examples of allowed educational content vs disallowed (e.g. off-topic or inappropriate) to train filters (see section 9). All student data (if any) will be anonymized and protected. 5. AI Model Selection We will"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rrf_results",
+      "elapsed_ms": 281.3,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082
+          },
+          {
+            "rank": 2,
+            "chunk_id": 201,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 550,
+              "sha256": "de999cb2a7441357ba42873748574db1241d1ab206cb35d0467cd1950c7179f8"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082
+          },
+          {
+            "rank": 3,
+            "chunk_id": 184,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 708,
+              "sha256": "0c18c217c9a53dd5a5b98ba2e48ad31d71447c58e06e0b87ae1383058a6c8d11"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516
+          },
+          {
+            "rank": 4,
+            "chunk_id": 203,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content_fingerprint": {
+              "chars": 712,
+              "sha256": "9a9081ddb908b24d56437b5402ade2fff6fe1c92433f2ed468381b7368f88db9"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516
+          },
+          {
+            "rank": 5,
+            "chunk_id": 183,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 731,
+              "sha256": "f04fb7c1643e906d4489a5a3b3c7597fbf5c33481d0c891b8265f17df2eba070"
+            },
+            "selected": true,
+            "rrf_score": 0.015873015873015872
+          },
+          {
+            "rank": 6,
+            "chunk_id": 196,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content_fingerprint": {
+              "chars": 748,
+              "sha256": "3adf9e4439d6102cfa46c5d8b85d59e249b55eb6edec291a54303c92cfdf794e"
+            },
+            "selected": true,
+            "rrf_score": 0.015873015873015872
+          },
+          {
+            "rank": 7,
+            "chunk_id": 179,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 11,
+            "content_fingerprint": {
+              "chars": 689,
+              "sha256": "2759d77739a8d137c32dc5664f6e8c247fe40d3ad3890ccd7ad1c2542ad67fc4"
+            },
+            "selected": true,
+            "rrf_score": 0.015625
+          },
+          {
+            "rank": 8,
+            "chunk_id": 165,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content_fingerprint": {
+              "chars": 131,
+              "sha256": "0567afb6c785c300d8552f6455079def3557a6cf35c4948cfae175b0aaba9141"
+            },
+            "selected": true,
+            "rrf_score": 0.015625
+          },
+          {
+            "rank": 9,
+            "chunk_id": 167,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content_fingerprint": {
+              "chars": 710,
+              "sha256": "7a905d945f52b6e9efc14fcb5d454599b85a5396995e67a0a84ae89fdb1c67a7"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385
+          },
+          {
+            "rank": 10,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content_fingerprint": {
+              "chars": 430,
+              "sha256": "1e375a5da0e8b4eb4ec59ec25781f8069bd6a4aa3526a6ccbc2d2939da1dd270"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 201,
+            "content": "legal experts. Regular risk reviews will be part of project governance. 16. Handoff Deliverables and Templates At each phase we will produce standard documentation to facilitate handoff and continuity: \u2022 Requirements Document: Detailed functional and non-functional requirements, user stories, use cases. \u2022 Architecture Diagrams: High-level and component diagrams (like Figure 1). Merely this document\u2019s figures can serve as a start. \u2022 Data Schema: Definitions for all database tables/collections (e.g. Video, Question, UserProgress) and metadata. 16"
+          },
+          {
+            "chunk_id": 184,
+            "content": "& Licensing: Official educational materials (NCERT books, exam papers) are copyrighted. NCERT explicitly forbids unlicensed commercial use of its textbook content\u301045\u2020L75-L84\u3011. We will use such sources as training data (fair use argument for education may apply), but all generated outputs must avoid verbatim reproduction. Attribution should be given where necessary (e.g. referring to \u201cNCERT concepts\u201d). If any third-party content is used (images, plots), ensure it is in the public domain or licensed (Creative Commons, purchased rights). \u2022 Exam Board Rules: JEE/GATE/NEET authorities may restrict use of their questions; we should avoid directly copying exam problems. Instead, we will paraphrase question"
+          },
+          {
+            "chunk_id": 203,
+            "content": "living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists) to enforce code quality and reproducibility. 17. Comparison Tables Hosting Options: Option Upfront Cost Scalability Control Recurring Cost Notes High (hardware, Limited by Full (you Low if idle Best if On- infra) purchased own (electricity, consistent Premises \u301038\u2020L53- capacity hardware) maintenance) heavy use L62\u3011 Virtually Less direct Pay-as-you-go Easy to start, Public unlimited None (reliant on (high if used scale; possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost"
+          },
+          {
+            "chunk_id": 183,
+            "content": "We will simulate adversarial prompts to test the filter (e.g. attempt to coax off-topic replies). Monitor false positives (overfiltering legitimate content) vs false negatives. \u2022 Validate with educators that no disallowed content slips through. Overall, we will maintain a continuous validation loop: metrics + human feedback guide iterative model improvements. Templates such as model cards (detailing training data, intended use, limitations) and test plans (unit/integration tests for outputs) will document our validation process. 11. Legal, IP, and Compliance \u2022 Copyright & Licensing: Official educational materials (NCERT books, exam papers) are copyrighted. NCERT explicitly forbids unlicensed commercial use of its textbook"
+          },
+          {
+            "chunk_id": 196,
+            "content": "improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics dashboard, improve filtering). Begin legal/compliance review. \u2022 Team: Same core, +2 QA testers, +1 security auditor. \u2022 Phase 4 \u2013 Launch & Scale (21\u201330 mo): \u2022 Milestones: Public launch; monitoring; content expansion. \u2022 Activities: Scale up infrastructure; add more features (multilingual support, gamification, third-party integrations); marketing; ongoing operations; formalizing handoff docs (architecture diagrams, requirements, model cards, test plans, runbooks). \u2022 Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at"
+          },
+          {
+            "chunk_id": 179,
+            "content": "an output is wrong or off-topic, the teacher can label it, and the system will learn. By combining these, we aim to guarantee domain adherence: any query or answer outside predefined curriculum lists is disallowed, and any content potentially harmful is blocked. The PowerSchool example shows the importance of custom filters in an educational context\u301013\u2020L107-L113\u3011. We will log all filter hits and review them to continuously improve our models. 10. Evaluation Metrics and Validation We will evaluate our system on both technical performance and educational effectiveness: \u2022 Accuracy/Quality Metrics: \u2022 Text generation: Use ROUGE/BLEU to measure overlap between AI-generated notes/answers"
+          },
+          {
+            "chunk_id": 165,
+            "content": "over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of models and data. 8"
+          },
+          {
+            "chunk_id": 167,
+            "content": "but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem hardware over first 1\u20132 years. Scaling: Cloud is easier to scale up/down with user demand (auto-scaling for inference). On-prem scaling is limited by purchased capacity (though GPUs can be added gradually). We should monitor utilization: if we rarely use full capacity, cloud may be cheaper; if heavy training/inference is constant, on-prem wins over time. 7. Model Architectures and Sizes Given the tasks, we recommend transformer-based architectures with sizes chosen for performance vs cost: \u2022 Text Models: Encoder-decoder (T5-like) or decoder"
+          },
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "fusion_selection",
+      "elapsed_ms": 281.43,
+      "metadata": {
+        "input_ids": [
+          131,
+          184,
+          183,
+          179,
+          167,
+          178,
+          169,
+          173,
+          154,
+          151,
+          201,
+          203,
+          196,
+          165,
+          197,
+          198,
+          202,
+          181,
+          145,
+          144
+        ],
+        "selected_ids": [
+          131,
+          201,
+          184,
+          203,
+          183,
+          196,
+          179,
+          165,
+          167,
+          197
+        ],
+        "removal_reason": "rrf_pool_limit",
+        "limit": 10
+      }
+    },
+    {
+      "stage": "reranker_scores",
+      "elapsed_ms": 317.06,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -8.85333251953125
+          },
+          {
+            "rank": 2,
+            "chunk_id": 196,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content_fingerprint": {
+              "chars": 748,
+              "sha256": "3adf9e4439d6102cfa46c5d8b85d59e249b55eb6edec291a54303c92cfdf794e"
+            },
+            "selected": true,
+            "rrf_score": 0.015873015873015872,
+            "rerank_score": -11.371286392211914
+          },
+          {
+            "rank": 3,
+            "chunk_id": 167,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content_fingerprint": {
+              "chars": 710,
+              "sha256": "7a905d945f52b6e9efc14fcb5d454599b85a5396995e67a0a84ae89fdb1c67a7"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385,
+            "rerank_score": -11.381570816040039
+          },
+          {
+            "rank": 4,
+            "chunk_id": 184,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 708,
+              "sha256": "0c18c217c9a53dd5a5b98ba2e48ad31d71447c58e06e0b87ae1383058a6c8d11"
+            },
+            "selected": false,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -11.385177612304688,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 5,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content_fingerprint": {
+              "chars": 430,
+              "sha256": "1e375a5da0e8b4eb4ec59ec25781f8069bd6a4aa3526a6ccbc2d2939da1dd270"
+            },
+            "selected": false,
+            "rrf_score": 0.015384615384615385,
+            "rerank_score": -11.394811630249023,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 6,
+            "chunk_id": 183,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 12,
+            "content_fingerprint": {
+              "chars": 731,
+              "sha256": "f04fb7c1643e906d4489a5a3b3c7597fbf5c33481d0c891b8265f17df2eba070"
+            },
+            "selected": false,
+            "rrf_score": 0.015873015873015872,
+            "rerank_score": -11.397514343261719,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 7,
+            "chunk_id": 179,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 11,
+            "content_fingerprint": {
+              "chars": 689,
+              "sha256": "2759d77739a8d137c32dc5664f6e8c247fe40d3ad3890ccd7ad1c2542ad67fc4"
+            },
+            "selected": false,
+            "rrf_score": 0.015625,
+            "rerank_score": -11.418754577636719,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 8,
+            "chunk_id": 203,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content_fingerprint": {
+              "chars": 712,
+              "sha256": "9a9081ddb908b24d56437b5402ade2fff6fe1c92433f2ed468381b7368f88db9"
+            },
+            "selected": false,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -11.423026084899902,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 9,
+            "chunk_id": 201,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content_fingerprint": {
+              "chars": 550,
+              "sha256": "de999cb2a7441357ba42873748574db1241d1ab206cb35d0467cd1950c7179f8"
+            },
+            "selected": false,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -11.437202453613281,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 10,
+            "chunk_id": 165,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content_fingerprint": {
+              "chars": 131,
+              "sha256": "0567afb6c785c300d8552f6455079def3557a6cf35c4948cfae175b0aaba9141"
+            },
+            "selected": false,
+            "rrf_score": 0.015625,
+            "rerank_score": -11.448522567749023,
+            "removal_reason": "rerank_top_k"
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 196,
+            "content": "improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics dashboard, improve filtering). Begin legal/compliance review. \u2022 Team: Same core, +2 QA testers, +1 security auditor. \u2022 Phase 4 \u2013 Launch & Scale (21\u201330 mo): \u2022 Milestones: Public launch; monitoring; content expansion. \u2022 Activities: Scale up infrastructure; add more features (multilingual support, gamification, third-party integrations); marketing; ongoing operations; formalizing handoff docs (architecture diagrams, requirements, model cards, test plans, runbooks). \u2022 Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at"
+          },
+          {
+            "chunk_id": 167,
+            "content": "but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem hardware over first 1\u20132 years. Scaling: Cloud is easier to scale up/down with user demand (auto-scaling for inference). On-prem scaling is limited by purchased capacity (though GPUs can be added gradually). We should monitor utilization: if we rarely use full capacity, cloud may be cheaper; if heavy training/inference is constant, on-prem wins over time. 7. Model Architectures and Sizes Given the tasks, we recommend transformer-based architectures with sizes chosen for performance vs cost: \u2022 Text Models: Encoder-decoder (T5-like) or decoder"
+          },
+          {
+            "chunk_id": 184,
+            "content": "& Licensing: Official educational materials (NCERT books, exam papers) are copyrighted. NCERT explicitly forbids unlicensed commercial use of its textbook content\u301045\u2020L75-L84\u3011. We will use such sources as training data (fair use argument for education may apply), but all generated outputs must avoid verbatim reproduction. Attribution should be given where necessary (e.g. referring to \u201cNCERT concepts\u201d). If any third-party content is used (images, plots), ensure it is in the public domain or licensed (Creative Commons, purchased rights). \u2022 Exam Board Rules: JEE/GATE/NEET authorities may restrict use of their questions; we should avoid directly copying exam problems. Instead, we will paraphrase question"
+          },
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          },
+          {
+            "chunk_id": 183,
+            "content": "We will simulate adversarial prompts to test the filter (e.g. attempt to coax off-topic replies). Monitor false positives (overfiltering legitimate content) vs false negatives. \u2022 Validate with educators that no disallowed content slips through. Overall, we will maintain a continuous validation loop: metrics + human feedback guide iterative model improvements. Templates such as model cards (detailing training data, intended use, limitations) and test plans (unit/integration tests for outputs) will document our validation process. 11. Legal, IP, and Compliance \u2022 Copyright & Licensing: Official educational materials (NCERT books, exam papers) are copyrighted. NCERT explicitly forbids unlicensed commercial use of its textbook"
+          },
+          {
+            "chunk_id": 179,
+            "content": "an output is wrong or off-topic, the teacher can label it, and the system will learn. By combining these, we aim to guarantee domain adherence: any query or answer outside predefined curriculum lists is disallowed, and any content potentially harmful is blocked. The PowerSchool example shows the importance of custom filters in an educational context\u301013\u2020L107-L113\u3011. We will log all filter hits and review them to continuously improve our models. 10. Evaluation Metrics and Validation We will evaluate our system on both technical performance and educational effectiveness: \u2022 Accuracy/Quality Metrics: \u2022 Text generation: Use ROUGE/BLEU to measure overlap between AI-generated notes/answers"
+          },
+          {
+            "chunk_id": 203,
+            "content": "living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists) to enforce code quality and reproducibility. 17. Comparison Tables Hosting Options: Option Upfront Cost Scalability Control Recurring Cost Notes High (hardware, Limited by Full (you Low if idle Best if On- infra) purchased own (electricity, consistent Premises \u301038\u2020L53- capacity hardware) maintenance) heavy use L62\u3011 Virtually Less direct Pay-as-you-go Easy to start, Public unlimited None (reliant on (high if used scale; possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost"
+          },
+          {
+            "chunk_id": 201,
+            "content": "legal experts. Regular risk reviews will be part of project governance. 16. Handoff Deliverables and Templates At each phase we will produce standard documentation to facilitate handoff and continuity: \u2022 Requirements Document: Detailed functional and non-functional requirements, user stories, use cases. \u2022 Architecture Diagrams: High-level and component diagrams (like Figure 1). Merely this document\u2019s figures can serve as a start. \u2022 Data Schema: Definitions for all database tables/collections (e.g. Video, Question, UserProgress) and metadata. 16"
+          },
+          {
+            "chunk_id": 165,
+            "content": "over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of models and data. 8"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rerank_results",
+      "elapsed_ms": 317.39,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -8.85333251953125
+          },
+          {
+            "rank": 2,
+            "chunk_id": 196,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content_fingerprint": {
+              "chars": 748,
+              "sha256": "3adf9e4439d6102cfa46c5d8b85d59e249b55eb6edec291a54303c92cfdf794e"
+            },
+            "selected": true,
+            "rrf_score": 0.015873015873015872,
+            "rerank_score": -11.371286392211914
+          },
+          {
+            "rank": 3,
+            "chunk_id": 167,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content_fingerprint": {
+              "chars": 710,
+              "sha256": "7a905d945f52b6e9efc14fcb5d454599b85a5396995e67a0a84ae89fdb1c67a7"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385,
+            "rerank_score": -11.381570816040039
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 196,
+            "content": "improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics dashboard, improve filtering). Begin legal/compliance review. \u2022 Team: Same core, +2 QA testers, +1 security auditor. \u2022 Phase 4 \u2013 Launch & Scale (21\u201330 mo): \u2022 Milestones: Public launch; monitoring; content expansion. \u2022 Activities: Scale up infrastructure; add more features (multilingual support, gamification, third-party integrations); marketing; ongoing operations; formalizing handoff docs (architecture diagrams, requirements, model cards, test plans, runbooks). \u2022 Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at"
+          },
+          {
+            "chunk_id": 167,
+            "content": "but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem hardware over first 1\u20132 years. Scaling: Cloud is easier to scale up/down with user demand (auto-scaling for inference). On-prem scaling is limited by purchased capacity (though GPUs can be added gradually). We should monitor utilization: if we rarely use full capacity, cloud may be cheaper; if heavy training/inference is constant, on-prem wins over time. 7. Model Architectures and Sizes Given the tasks, we recommend transformer-based architectures with sizes chosen for performance vs cost: \u2022 Text Models: Encoder-decoder (T5-like) or decoder"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rerank_selection",
+      "elapsed_ms": 317.48,
+      "metadata": {
+        "status": "ok",
+        "selected_ids": [
+          131,
+          196,
+          167
+        ],
+        "input_ids": [
+          131,
+          201,
+          184,
+          203,
+          183,
+          196,
+          179,
+          165,
+          167,
+          197
+        ],
+        "rerank_candidate_limit": 10,
+        "output_limit": 3,
+        "removal_reason": "rerank_top_k"
+      }
+    },
+    {
+      "stage": "facet_retained",
+      "elapsed_ms": 317.52,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -8.85333251953125
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "complementary_recovery",
+      "elapsed_ms": 317.6,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -2.8581175804138184
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "evidence_recovery",
+      "elapsed_ms": 317.64,
+      "metadata": {
+        "policy": "v2-bounded-complementary-evidence/1",
+        "scope": [
+          "e3160c67-ee6d-4983-9029-8273bd35525a"
+        ],
+        "before_ids": [
+          131
+        ],
+        "after_ids": [
+          131
+        ],
+        "facet_queries": 2,
+        "facet_rerank_statuses": [
+          "ok",
+          "ok"
+        ],
+        "budget_dropped": []
+      }
+    },
+    {
+      "stage": "page_continuity",
+      "elapsed_ms": 317.68,
+      "metadata": {
+        "recovered_ids": []
+      }
+    },
+    {
+      "stage": "after_page_continuity",
+      "elapsed_ms": 317.69,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -2.8581175804138184
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "final_context",
+      "elapsed_ms": 317.78,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content_fingerprint": {
+              "chars": 798,
+              "sha256": "1e04a1223b659af79a9d0eacfdc82684c9aec79b41616c3e83190a12b4625243"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -2.8581175804138184
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "context_packing",
+      "elapsed_ms": 317.81,
+      "metadata": {
+        "total_chars": 798,
+        "max_chars": 12000,
+        "max_chunks": 8,
+        "dropped": [],
+        "truncated": false
+      },
+      "raw": {
+        "context_text": "[S1] Document: e3160c67-ee6d-4983-9029-8273bd35525a | Page: 1 | Chunk: 131\nExecutive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+      }
+    },
+    {
+      "stage": "generation_skipped",
+      "elapsed_ms": 317.88,
+      "metadata": {
+        "reason": "provider-free stage diagnosis"
+      }
+    },
+    {
+      "stage": "answer_result",
+      "elapsed_ms": 317.9,
+      "metadata": {
+        "status": "unverified",
+        "issues": [
+          "provider_not_run"
+        ],
+        "citations": [],
+        "coverage": null
+      },
+      "raw": {
+        "answer": "NOT_RUN"
+      }
+    }
+  ]
+}

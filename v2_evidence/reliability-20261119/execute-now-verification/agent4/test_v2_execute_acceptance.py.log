@@ -1,0 +1,9 @@
+
+test_all_thirteen_recorded_bundles_match_current_contract (__main__.ExecuteAcceptanceTests.test_all_thirteen_recorded_bundles_match_current_contract) ... ok
+test_golden_hashes_and_historical_provider_cap_are_unchanged (__main__.ExecuteAcceptanceTests.test_golden_hashes_and_historical_provider_cap_are_unchanged) ... ok
+test_three_metrics_remain_separate_and_strict_failure_is_retained (__main__.ExecuteAcceptanceTests.test_three_metrics_remain_separate_and_strict_failure_is_retained) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.102s
+
+OK

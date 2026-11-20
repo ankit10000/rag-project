@@ -1,0 +1,17 @@
+{
+  "identity": "browser-final-20261120-live-01",
+  "max_sdk_calls": 3,
+  "aggregate_family_budget": 3,
+  "purpose": "partial reporting-head correction",
+  "previous_calls": 0,
+  "questions": [
+    "What is the qualifications of Morgan Vale?",
+    "In Browser_Check_Morgan_Vale.pdf, what is listed under EDUCATION? Please give the degree, institute and study dates.",
+    "According to Morgan Vale\u2019s resume, how did the Atlas project change report preparation time? Also, what telephone number is listed for Morgan?"
+  ],
+  "source_document": "567ee27b-074a-4d09-9af5-5dd796b8667e",
+  "expected_education": "Bachelor of Engineering in Computer Engineering; Sample Institute of Technology; 2016\u20132020; page2",
+  "expected_partial": "40\u219212minutes; no phone invented; partial; original page citations",
+  "controlled_postcommit_delay_seconds": 5,
+  "scope": "development only, no held-out evaluation"
+}

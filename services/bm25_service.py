@@ -68,7 +68,9 @@ def _fingerprint(conn, where, params):
 def _get_index(document_names, pages, drop_stopwords):
     scope_sql, scope_params = build_scope_filter(document_names, pages)
     where = f"WHERE {scope_sql}" if scope_sql else ""
+    from services.tenant_context import current_owner
     key = (
+        current_owner(),
         tuple(sorted(document_names)) if document_names else None,
         # Stage 5: same int() normalisation as build_scope_filter, so [2] and
         # ["2"] share one entry and mixed types cannot raise TypeError in sorted().

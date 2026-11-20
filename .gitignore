@@ -19,3 +19,7 @@ api_token
 *.sql.gz
 venv/
 .pytest_cache/
+
+# v2 private originals and local OCR model cache
+data/v2_uploads/
+data/v2_models/

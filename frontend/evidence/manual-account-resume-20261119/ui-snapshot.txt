@@ -1,0 +1,60 @@
+- link "Skip to content":
+  - /url: "#main"
+- alert
+- complementary:
+  - link "RAG 2.0":
+    - /url: /dashboard
+    - text: RAG
+    - generic: "2.0"
+  - button "Toggle navigation":
+- banner:
+  - generic: Private knowledge workspace
+- main:
+  - heading "Chat workspace" [level=1]
+  - paragraph: Ask your sources. Follow every citation.
+  - button "New chat":
+    - text: New chat
+  - log "Conversation messages":
+    - article:
+      - heading "You" [level=2]
+      - paragraph: how much year of experience in metacube company
+    - article:
+      - heading "RAG" [level=2]
+      - generic: abstained
+      - paragraph: I couldn't find sufficient information in the provided documents.
+    - article:
+      - heading "You" [level=2]
+      - paragraph: According to Ajay_Resume_latest.pdf, what start month/year and end month/year are shown for Metacube Software Pvt. Ltd.?
+    - article:
+      - heading "RAG" [level=2]
+      - generic: answered
+      - paragraph: Ltd. is February 2022, and the end month and year is November 2025 [S1].
+      - link "Open citation S1 · Ajay_Resume_latest.pdf · p. 1":
+        - /url: /api/v2/documents/37b731aa-5caa-43a5-bfa8-d0d156afde92/file#page=1
+        - text: S1 · Ajay_Resume_latest.pdf · p. 1
+    - article:
+      - heading "You" [level=2]
+      - paragraph: Using those employment dates, calculate the Metacube duration in years and months. Clearly label it as a calculation from the dates.
+    - article:
+      - heading "RAG" [level=2]
+      - generic: abstained
+      - paragraph: I couldn't find sufficient information in the provided documents to calculate the duration [S1].
+      - link "Open citation S1 · Ajay_Resume_latest.pdf · p. 1":
+        - /url: /api/v2/documents/37b731aa-5caa-43a5-bfa8-d0d156afde92/file#page=1
+        - text: S1 · Ajay_Resume_latest.pdf · p. 1
+    - article:
+      - heading "You" [level=2]
+      - paragraph: In Ajay’s resume, is Readibots a project under Metacube? Are separate start and end dates stated for Readibots itself?
+    - article:
+      - heading "RAG" [level=2]
+      - generic: partial
+      - paragraph: The provided documents do not state whether Readibots is a project under Metacube [S1]. Separate start and end dates are not stated for Readibots itself [S1].
+      - link "Open citation S1 · Ajay_Resume_latest.pdf · p. 1":
+        - /url: /api/v2/documents/37b731aa-5caa-43a5-bfa8-d0d156afde92/file#page=1
+        - text: S1 · Ajay_Resume_latest.pdf · p. 1
+  - generic: Your message
+  - textbox "Your message":
+    - /placeholder: Ask about your documents…
+  - paragraph: Answers may be incomplete. Check original source pages.
+  - button "Send" [disabled]:
+    - text: Send

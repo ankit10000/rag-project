@@ -1,0 +1,248 @@
+{
+  "id": "phases",
+  "question": "List all four implementation phases and their month ranges from the roadmap in Executive Summary.pdf.",
+  "result": {
+    "answer": "- Phase 1 (Planning & Prototype): 0\u20136 months [S1].\n- Phase 2 (MVP Development): 6\u201315 months [S1][S2].\n- Phase 3 (Pilot & Feedback): 15\u201321 months [S2][S3].\n- Phase 4 (Launch & Scale): 21\u201330 months [S3].",
+    "sources": [
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 15,
+        "chunk_id": 194,
+        "ref": "S1"
+      },
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 15,
+        "chunk_id": 195,
+        "ref": "S2"
+      },
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 15,
+        "chunk_id": 196,
+        "ref": "S3"
+      }
+    ],
+    "citations": [
+      {
+        "ref": "S1",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 15,
+        "chunk_id": 194
+      },
+      {
+        "ref": "S2",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 15,
+        "chunk_id": 195
+      },
+      {
+        "ref": "S3",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 15,
+        "chunk_id": 196
+      }
+    ],
+    "status": "answered",
+    "issues": [],
+    "retrieval_status": "ok",
+    "retrieved": [
+      {
+        "ref": "S1",
+        "chunk_id": 194,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 15,
+        "retrieval_score": 2.298518180847168
+      },
+      {
+        "ref": "S2",
+        "chunk_id": 195,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 15,
+        "retrieval_score": null
+      },
+      {
+        "ref": "S3",
+        "chunk_id": 196,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 15,
+        "retrieval_score": null
+      },
+      {
+        "ref": "S4",
+        "chunk_id": 197,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 15,
+        "retrieval_score": null
+      }
+    ],
+    "coverage": {
+      "policy": "v2-explicit-request-coverage/1",
+      "mode": "enumeration",
+      "facets": [
+        {
+          "id": "phase_1",
+          "label": "Phase 1",
+          "pattern": "\\bphase\\s+1\\b",
+          "query_terms": "phase 1",
+          "evidence_refs": [
+            "S1"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": true,
+          "source_fact_signal": true,
+          "source_titles": [
+            "Planning & Prototype"
+          ],
+          "refused_supported_item": false
+        },
+        {
+          "id": "phase_2",
+          "label": "Phase 2",
+          "pattern": "\\bphase\\s+2\\b",
+          "query_terms": "phase 2",
+          "evidence_refs": [
+            "S1"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": true,
+          "source_fact_signal": true,
+          "source_titles": [
+            "MVP Development"
+          ],
+          "refused_supported_item": false
+        },
+        {
+          "id": "phase_3",
+          "label": "Phase 3",
+          "pattern": "\\bphase\\s+3\\b",
+          "query_terms": "phase 3",
+          "evidence_refs": [
+            "S2"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": true,
+          "source_fact_signal": true,
+          "source_titles": [
+            "Pilot & Feedback"
+          ],
+          "refused_supported_item": false
+        },
+        {
+          "id": "phase_4",
+          "label": "Phase 4",
+          "pattern": "\\bphase\\s+4\\b",
+          "query_terms": "phase 4",
+          "evidence_refs": [
+            "S3"
+          ],
+          "observed_in_context": true,
+          "answer_mentions": true,
+          "source_fact_signal": true,
+          "source_titles": [
+            "Launch & Scale"
+          ],
+          "refused_supported_item": false
+        }
+      ],
+      "enumeration_count": 4,
+      "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+      "enumeration_kind": "phase",
+      "concrete_missing": [],
+      "context_unobserved": [],
+      "answer_checked": true
+    }
+  },
+  "metrics": {
+    "evidence_coverage": true,
+    "evidence_fact_checks": [
+      {
+        "label": "planning and prototype",
+        "observed": true
+      },
+      {
+        "label": "0-6 months",
+        "observed": true
+      },
+      {
+        "label": "MVP development",
+        "observed": true
+      },
+      {
+        "label": "6-15 months",
+        "observed": true
+      },
+      {
+        "label": "pilot and feedback",
+        "observed": true
+      },
+      {
+        "label": "15-21 months",
+        "observed": true
+      },
+      {
+        "label": "launch and scale",
+        "observed": true
+      },
+      {
+        "label": "21-30 months",
+        "observed": true
+      }
+    ],
+    "answer_factual_completeness": true,
+    "answer_fact_checks": [
+      {
+        "label": "planning and prototype",
+        "observed": true
+      },
+      {
+        "label": "0-6 months",
+        "observed": true
+      },
+      {
+        "label": "MVP development",
+        "observed": true
+      },
+      {
+        "label": "6-15 months",
+        "observed": true
+      },
+      {
+        "label": "pilot and feedback",
+        "observed": true
+      },
+      {
+        "label": "15-21 months",
+        "observed": true
+      },
+      {
+        "label": "launch and scale",
+        "observed": true
+      },
+      {
+        "label": "21-30 months",
+        "observed": true
+      }
+    ],
+    "citation_abstention_correctness": true,
+    "citation_metadata_matches_owned_source": true,
+    "citation_presence_correct": true,
+    "declared_status_correct": true,
+    "selected_chunks": [
+      194,
+      195,
+      196,
+      197
+    ],
+    "selected_pages": [
+      15,
+      15,
+      15,
+      15
+    ],
+    "selected_characters": 2548,
+    "scope_and_budget_ok": true
+  },
+  "seconds": 17.044,
+  "provider_calls": 2
+}

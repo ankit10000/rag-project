@@ -1,0 +1,10 @@
+
+Running 1 test using 1 worker
+
+(node:43630) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:43630) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop-chromium] › tests/browser/ui-live.spec.ts:6:1 › grey workspace real scratch journey: OCR, Gemini, source/history, two-user isolation and deletion (22.2s)
+
+  1 passed (25.2s)

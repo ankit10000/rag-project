@@ -1,0 +1,11 @@
+
+Explicit memory deletion request detected.
+
+Explicit memory deletion request detected.
+
+W1119 21:50:33.820000 28610 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.015s
+
+OK

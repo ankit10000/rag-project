@@ -61,4 +61,9 @@ def rerank_results(query: str, results: list, top_k: int = 5):
         reverse=True
     )
 
+    from services.evidence_trace import trace_candidates
+    trace_candidates('reranker_scores', reranked,
+                     selected_ids=[item['chunk'][0] for item in reranked[:top_k]],
+                     removal_reason='rerank_top_k')
+
     return reranked[:top_k]

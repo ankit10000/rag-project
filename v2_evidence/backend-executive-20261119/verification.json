@@ -1,0 +1,70 @@
+{
+  "status": "PASS for bounded six-question backend development test",
+  "source_document_id": "e3160c67-ee6d-4983-9029-8273bd35525a",
+  "source_filename": "Executive Summary.pdf",
+  "pages": 18,
+  "chunks": 76,
+  "source_sha256": "af9b4d20304baeaba3195cf3aed7e1465dd79ae1ad3724a5193994e10dc8df60",
+  "results": [
+    {
+      "id": "product",
+      "fact_checks_pass": true,
+      "citation_metadata_matches_owned_source": true,
+      "verdict": "PASS"
+    },
+    {
+      "id": "estimates",
+      "fact_checks_pass": true,
+      "citation_metadata_matches_owned_source": true,
+      "verdict": "PASS"
+    },
+    {
+      "id": "accessibility",
+      "fact_checks_pass": true,
+      "citation_metadata_matches_owned_source": true,
+      "verdict": "PASS"
+    },
+    {
+      "id": "phases",
+      "fact_checks_pass": true,
+      "citation_metadata_matches_owned_source": true,
+      "verdict": "PASS"
+    },
+    {
+      "id": "risks",
+      "fact_checks_pass": true,
+      "citation_metadata_matches_owned_source": true,
+      "verdict": "PASS"
+    },
+    {
+      "id": "unsupported",
+      "fact_checks_pass": true,
+      "citation_metadata_matches_owned_source": true,
+      "verdict": "PASS"
+    }
+  ],
+  "provider_calls": 12,
+  "models": [
+    "gemini-3.5-flash-lite"
+  ],
+  "policy": "v2-enumeration-page-continuity/1",
+  "before_after_evidence": {
+    "baseline_missing_phases": [
+      3,
+      4
+    ],
+    "after_context_contains_all_four": true
+  },
+  "runtime_seconds": 68.67,
+  "limitations": [
+    "Direct ask_question service calls, not HTTP/UI or complete memory lifecycle",
+    "Only these six development questions tested; not formal evaluation acceptance",
+    "One optional separate scratch test skipped; actual uploaded-source scratch reads and citations verified"
+  ],
+  "safety": {
+    "database": "rag_test_scratch only; current_database checked before every service connection",
+    "database_writes": false,
+    "ui_used": false,
+    "held_out_evaluation": false
+  }
+}

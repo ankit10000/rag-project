@@ -1,0 +1,51 @@
+[
+  {
+    "question": "What is the qualifications of Morgan Vale?",
+    "conversation_id": "aefb30cb-55a5-4c6f-923a-eb253e1ca1fa",
+    "turn_id": "fbe4ca4c-d157-41aa-9649-bb5212d19e03",
+    "answer": "RAG\nanswered\n\nMorgan Vale earned a Bachelor of Engineering in Computer Engineering from Sample Institute of Technology from 2016 to 2020 [S1].\n\nS1 · Browser_Check_Morgan_Vale.pdf · p. 2",
+    "history": {
+      "conversation_id": "aefb30cb-55a5-4c6f-923a-eb253e1ca1fa",
+      "messages": [
+        {
+          "turn_id": "fbe4ca4c-d157-41aa-9649-bb5212d19e03",
+          "answer_metadata": null,
+          "id": 157,
+          "role": "user",
+          "content": "What is the qualifications of Morgan Vale?"
+        },
+        {
+          "turn_id": "fbe4ca4c-d157-41aa-9649-bb5212d19e03",
+          "answer_metadata": {
+            "conversation_id": "aefb30cb-55a5-4c6f-923a-eb253e1ca1fa",
+            "kind": "answer",
+            "answer": "Morgan Vale earned a Bachelor of Engineering in Computer Engineering from Sample Institute of Technology from 2016 to 2020 [S1].",
+            "status": "answered",
+            "answer_status": "answered",
+            "citations": [
+              {
+                "ref": "S1",
+                "document": "Browser_Check_Morgan_Vale.pdf",
+                "document_id": "567ee27b-074a-4d09-9af5-5dd796b8667e",
+                "page": 2,
+                "chunk_id": 128
+              }
+            ],
+            "issues": [],
+            "retrieval_status": "ok",
+            "turn_id": "fbe4ca4c-d157-41aa-9649-bb5212d19e03"
+          },
+          "id": 158,
+          "role": "assistant",
+          "content": "Morgan Vale earned a Bachelor of Engineering in Computer Engineering from Sample Institute of Technology from 2016 to 2020 [S1]."
+        }
+      ]
+    },
+    "disconnect": null,
+    "pdf_http_status": 200,
+    "verified_navigation_target": "/api/v2/documents/567ee27b-074a-4d09-9af5-5dd796b8667e/file#page=2",
+    "retry_status": 200,
+    "retry_message_count": 2,
+    "generation_run": "live-02"
+  }
+]

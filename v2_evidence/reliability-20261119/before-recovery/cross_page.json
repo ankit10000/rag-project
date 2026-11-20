@@ -1,0 +1,1099 @@
+{
+  "header": {
+    "question": "In Executive Summary.pdf, which database stores user accounts and what is the proposed annual cloud budget?",
+    "authorized_documents": [
+      "e3160c67-ee6d-4983-9029-8273bd35525a"
+    ],
+    "policy": "development-answer-evidence-trace/1"
+  },
+  "raw_enabled": true,
+  "events": [
+    {
+      "stage": "question_category",
+      "elapsed_ms": 0.17,
+      "metadata": {
+        "category": "DOCUMENT",
+        "origin": "predeclared source question; classifier not called"
+      }
+    },
+    {
+      "stage": "retrieval_scope",
+      "elapsed_ms": 0.18,
+      "metadata": {
+        "document_names": null,
+        "pages": null,
+        "top_k": 5
+      },
+      "raw": {
+        "search_query": "In Executive Summary.pdf, which database stores user accounts and what is the proposed annual cloud budget?"
+      }
+    },
+    {
+      "stage": "vector_candidates",
+      "elapsed_ms": 47.37,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 165,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content": {
+              "chars": 92,
+              "sha256": "163e94d313b394eb207194ce5634457fa516f1aa5d48b8a9656f5ab29d627b15"
+            },
+            "selected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": 203,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content": {
+              "chars": 92,
+              "sha256": "417ff67049302e502c60ee36caea8a756ddc3630b37e63084c18754e009798b1"
+            },
+            "selected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "51114fa476a8eeb0007a43d5abca8ac16d9e0c9ec88a19a4550e8c158640ba14"
+            },
+            "selected": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": 198,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content": {
+              "chars": 92,
+              "sha256": "bebe91c75d16fdd3d43c586e7d0e0a0ea0a94731ec92dfd9b2c505740a6e9625"
+            },
+            "selected": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": 204,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content": {
+              "chars": 92,
+              "sha256": "8c5ff69c1579b0749791bae001b49c2234aa26c79bd4c374333b40a116fa5fe6"
+            },
+            "selected": true
+          },
+          {
+            "rank": 6,
+            "chunk_id": 49,
+            "document": "37b731aa-5caa-43a5-bfa8-d0d156afde92",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "894ccef3186f5bcb7d9df5614e5dee751f4529a6bc5b84730a6609f3a9e36a2e"
+            },
+            "selected": true
+          },
+          {
+            "rank": 7,
+            "chunk_id": 188,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 13,
+            "content": {
+              "chars": 92,
+              "sha256": "8430c20e371593cdf56ee26351b7bf757d4c13c6eb1bae938d87c567b0ad00bc"
+            },
+            "selected": true
+          },
+          {
+            "rank": 8,
+            "chunk_id": 193,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 14,
+            "content": {
+              "chars": 92,
+              "sha256": "5bbea24795c2535527b14766273220d3bb4f77dd137c01dd6e4df797cd5fcdff"
+            },
+            "selected": true
+          },
+          {
+            "rank": 9,
+            "chunk_id": 48,
+            "document": "37b731aa-5caa-43a5-bfa8-d0d156afde92",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "c2ee5b26c8c345b6057d939a32ce3d74f4cf966e953c66d3abb724469a27cd31"
+            },
+            "selected": true
+          },
+          {
+            "rank": 10,
+            "chunk_id": 196,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "7756c16ee42d986eab054bdb477052c0b649162e67d6c48ba17d1ad724561294"
+            },
+            "selected": true
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 165,
+            "content": "over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of models and data. 8"
+          },
+          {
+            "chunk_id": 203,
+            "content": "living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists) to enforce code quality and reproducibility. 17. Comparison Tables Hosting Options: Option Upfront Cost Scalability Control Recurring Cost Notes High (hardware, Limited by Full (you Low if idle Best if On- infra) purchased own (electricity, consistent Premises \u301038\u2020L53- capacity hardware) maintenance) heavy use L62\u3011 Virtually Less direct Pay-as-you-go Easy to start, Public unlimited None (reliant on (high if used scale; possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost"
+          },
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          },
+          {
+            "chunk_id": 198,
+            "content": "\u2022 Misc (licenses, overhead): \\$100K. Total ballpark: \\$1.6M\u2013\\$3M. A more advanced roadmap (larger models, extensive data) could push budgets to the \\$5M level. Milestone Timeline (Mermaid Gantt): Implementation Roadmap Requirements Spec Phase 1: Planning System Architecture & Data Proof-of-Concept AI Models Model Training (NLP, TTS) Phase 2: MVP Development Portal VideoFrontend/BackendPipeline Dev Build Content Filtering Module Phase 3: Pilot & Feedback Internal Pilot Evaluate & Iterate Beta Launch & Fixes Phase 4: Launch & Scale Feature Enhancements (v2) Full Launch Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development"
+          },
+          {
+            "chunk_id": 204,
+            "content": "possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost (Cloud (some infra + (mix of + cloud + on-demand vs flexibility bursting) cloud) control) overflow) bursts) Table 3. Hosting options (from Lenovo analysis\u301038\u2020L53-L62\u3011\u301038\u2020L74-L82\u3011). Feature Prioritization (MVP vs Later): (See Table 1 above for feature list.) Core content generation and study tools are prioritized for MVP, with personalization, language expansion, and community features in later releases. Model Options: (Key selection factors from previous section summarized in Table 2.) We will continuously benchmark candidate models (e.g. run a small internal evaluation"
+          },
+          {
+            "chunk_id": 49,
+            "content": "splitting and lazy-loading IAM SaaS - Multi-tenant identity and access management platform \u2013 Engineered a JSON-driven form engine (Formik + Yup) rendering action-specific forms dynamically; generated Users, Groups, and Mailboxes views from a shared template using SWR for caching \u2013 Delivered 15+ service request features for RBAC, user lifecycle, and entitlement management; built data export interfaces for large paginated datasets and deployed via Azure Static Web Apps with CI/CD Truro Analytics - Dental healthcare SaaS \u2013 Built a conflict-free dental scheduling system using FullCalendar \u2013 editable calendar bookings, patient appointment management, and slot-overlap detection with frontend checks and backend validation"
+          },
+          {
+            "chunk_id": 188,
+            "content": "Hosted separately (possibly on GPU nodes). For example: \u2022 Video Service: generates videos on demand (queues jobs). \u2022 NLP Service: answers queries and generates notes. \u2022 TTS/ASR Service: handles media processing. \u2022 Filtering Service: scans outputs before release. \u2022 Databases: \u2022 Relational DB (PostgreSQL/MySQL): Store user accounts, course metadata, logs. \u2022 Document DB (MongoDB/ElasticSearch): Store learning content (notes, Q/A), for flexible schema and search. \u2022 Object Storage (S3 or on-prem Ceph): For videos, audio files, images. \u2022 LMS Integration: We can support standards like xAPI/SCORM to interoperate with existing Learning Management Systems (e.g. Moodle, Canvas). This allows schools to track"
+          },
+          {
+            "chunk_id": 193,
+            "content": "of data. Use secret management for credentials (HashiCorp Vault or cloud KMS). \u2022 User Data: Back up user progress data daily. Implement rate-limiting and CAPTCHA to prevent abuse. \u2022 Quality Assurance: In addition to automated tests, have a QA team conduct manual testing of user flows and AI output quality. 14"
+          },
+          {
+            "chunk_id": 48,
+            "content": "a hybrid retrieval loop (vector + BM25, RRF, cross-encoder reranking) and guardrails escalating low-confidence answers to a human ticket; validated on a public dataset, then cut to live support data \u2013 Built a full-stack bulk email feature (query-builder UI + Node.js sending job) and a JWT-based auth API with RBAC enforced via role/permission tables \u2013 Co-designed a fully dynamic connector UI rendered at runtime via Monaco Editor scripting; built a FusionCharts ROI dashboard and 30+ component Storybook library, driving code splitting and lazy-loading IAM SaaS - Multi-tenant identity and access management platform \u2013 Engineered a JSON-driven form engine (Formik +"
+          },
+          {
+            "chunk_id": 196,
+            "content": "improvements. \u2022 Activities: Beta release to limited users; collect usage data and feedback; fix bugs; enhance features (e.g. add analytics dashboard, improve filtering). Begin legal/compliance review. \u2022 Team: Same core, +2 QA testers, +1 security auditor. \u2022 Phase 4 \u2013 Launch & Scale (21\u201330 mo): \u2022 Milestones: Public launch; monitoring; content expansion. \u2022 Activities: Scale up infrastructure; add more features (multilingual support, gamification, third-party integrations); marketing; ongoing operations; formalizing handoff docs (architecture diagrams, requirements, model cards, test plans, runbooks). \u2022 Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "lexical_candidates",
+      "elapsed_ms": 76.09,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 167,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "c6d1e2f9f7849010756bc6b05394fec1aa6933f47089ffa1adbdf4d592211149"
+            },
+            "selected": true
+          },
+          {
+            "rank": 2,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "f78bed05cc06020064b3891b202534bc4747f83fa3f3efdf7ba3aa1b2ca98582"
+            },
+            "selected": true
+          },
+          {
+            "rank": 3,
+            "chunk_id": 142,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content": {
+              "chars": 92,
+              "sha256": "0384a5cc354020fd46d048d7385c2b66b54d2830161b26c230f9215185919e7a"
+            },
+            "selected": true
+          },
+          {
+            "rank": 4,
+            "chunk_id": 193,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 14,
+            "content": {
+              "chars": 92,
+              "sha256": "5bbea24795c2535527b14766273220d3bb4f77dd137c01dd6e4df797cd5fcdff"
+            },
+            "selected": true
+          },
+          {
+            "rank": 5,
+            "chunk_id": 166,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "8587cde65771aec7b9ae70a807dbcbef6be73415a7e437f8c0a1ae1d76174b38"
+            },
+            "selected": true
+          },
+          {
+            "rank": 6,
+            "chunk_id": 133,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "726d47cea9a9b85a821c137fc9213e7270a1da99efd2752b95feed0d79c4e820"
+            },
+            "selected": true
+          },
+          {
+            "rank": 7,
+            "chunk_id": 137,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 2,
+            "content": {
+              "chars": 92,
+              "sha256": "68539222dda1f6a83fabbf658ad3ac1af83d3baf90da30ac7dc0a8ce385786a2"
+            },
+            "selected": true
+          },
+          {
+            "rank": 8,
+            "chunk_id": 201,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content": {
+              "chars": 92,
+              "sha256": "f45c8618b30b83cecd7d69ec8e7f85851b74f2fa8a692888b43703bc68d84fbf"
+            },
+            "selected": true
+          },
+          {
+            "rank": 9,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "51114fa476a8eeb0007a43d5abca8ac16d9e0c9ec88a19a4550e8c158640ba14"
+            },
+            "selected": true
+          },
+          {
+            "rank": 10,
+            "chunk_id": 194,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "9ff1ffceb2032354b875ffd7d6737565ad11834a06adce5cc89f67b34d4884d7"
+            },
+            "selected": true
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 167,
+            "content": "but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem hardware over first 1\u20132 years. Scaling: Cloud is easier to scale up/down with user demand (auto-scaling for inference). On-prem scaling is limited by purchased capacity (though GPUs can be added gradually). We should monitor utilization: if we rarely use full capacity, cloud may be cheaper; if heavy training/inference is constant, on-prem wins over time. 7. Model Architectures and Sizes Given the tasks, we recommend transformer-based architectures with sizes chosen for performance vs cost: \u2022 Text Models: Encoder-decoder (T5-like) or decoder"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 142,
+            "content": "They might use the portal to supplement in-class teaching, or to personalize tasks. Teachers might curate AI-generated content or upload their own, so we need authoring and review UIs. \u2022 Administrators: System operators and content curators (school coordinators or company admins). They manage user accounts, content taxonomy, system settings and compliance. They might be responsible for approving AI-generated content, monitoring filter logs, and ensuring curriculum alignment. \u2022 Content Experts/Editors: (could be teachers or SMEs) who validate and annotate AI outputs, ensuring pedagogical correctness. They will use backend tools for data labeling, curriculum mapping, and QA. Each persona has different workflows:"
+          },
+          {
+            "chunk_id": 193,
+            "content": "of data. Use secret management for credentials (HashiCorp Vault or cloud KMS). \u2022 User Data: Back up user progress data daily. Implement rate-limiting and CAPTCHA to prevent abuse. \u2022 Quality Assurance: In addition to automated tests, have a QA team conduct manual testing of user flows and AI output quality. 14"
+          },
+          {
+            "chunk_id": 166,
+            "content": "Cloud: Major clouds (AWS/GCP/Azure) offer on-demand GPU instances (e.g. AWS p4d with 8\u00d7A100 at ~\\$32/ hr) and managed ML services. This avoids CapEx but incurs high OpEx. For instance, training a 13B model (~4\u00d7A100 \u00d7 1000 hours) costs ~\\$128K, and a 70B (~32\u00d7A100 \u00d7 2000 hrs) could be >\\$1M. Inference GPUs run \\$3\u2013\\$15/hr per GPU. We may hybridize: use cloud for burst capacity or initial experiments, and move stable workloads on-prem. Cost Comparison: Lenovo shows cloud has \u201cno upfront, pay-as-you-go\u201d but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem"
+          },
+          {
+            "chunk_id": 133,
+            "content": "cost vs scalability. Evaluation will combine standard ML metrics (accuracy, BLEU/ROUGE, etc.) with pedagogical validation (expert reviews, student testing). We anticipate phased development over 2\u20133 years, with MVP launch focusing on core video lessons, notes, and quizzes. Estimated team: ~10\u201315 people (AI/ML engineers, software developers, content experts, QA, DevOps, legal). Rough budget: on the order of $1M\u2013$5M (including hardware, personnel, and legal costs) over 2 years, depending on scale. Key risks (model quality, data licensing, engagement) have mitigation plans (human-in-the-loop validation, IP audits, iterative user testing). We include comparison tables (model and hosting options, MVP vs later features) and mermaid"
+          },
+          {
+            "chunk_id": 137,
+            "content": "\u2022 Topic-wise Notes & Summaries: The portal generates concise, structured notes from official content. For each topic, it creates explanations, key definitions, worked examples, and formula summaries. \u2022 Test Series & Quizzes: The system auto-creates practice tests and quizzes. It can generate multiple- choice questions (MCQs), short-answer problems, and full mock exams aligned to JEE/GATE/NEET pattern. \u2022 Question Bank & Q&A: A searchable database of Q&A by topic. Students can ask the AI questions in natural language and get precise answers, or browse curated question collections. Suggested Additional Features: \u2022 Adaptive Learning Paths: Personalize recommendations (next topics, reviews) based on"
+          },
+          {
+            "chunk_id": 201,
+            "content": "legal experts. Regular risk reviews will be part of project governance. 16. Handoff Deliverables and Templates At each phase we will produce standard documentation to facilitate handoff and continuity: \u2022 Requirements Document: Detailed functional and non-functional requirements, user stories, use cases. \u2022 Architecture Diagrams: High-level and component diagrams (like Figure 1). Merely this document\u2019s figures can serve as a start. \u2022 Data Schema: Definitions for all database tables/collections (e.g. Video, Question, UserProgress) and metadata. 16"
+          },
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          },
+          {
+            "chunk_id": 194,
+            "content": "14. Roadmap & Implementation Phases We propose a phased rollout with roughly 3 phases over ~24\u201330 months: \u2022 Phase 1 \u2013 Planning & Prototype (0\u20136 mo): \u2022 Milestones: Requirements gathering, architecture design, initial prototyping. \u2022 Activities: Collect core curriculum data; build basic platform skeleton (user accounts, simple CMS); prototype LLM summarization and Q&A with small models; test video pipeline with manual slide decks. \u2022 Team: Project Manager, 2 ML engineers, 2 software engineers, 1 subject expert, 1 DevOps. \u2022 Phase 2 \u2013 MVP Development (6\u201315 mo): \u2022 Milestones: Develop core AI modules and UI for students/teachers. \u2022 Activities: Train/fine-tune models"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rrf_results",
+      "elapsed_ms": 76.54,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "51114fa476a8eeb0007a43d5abca8ac16d9e0c9ec88a19a4550e8c158640ba14"
+            },
+            "selected": true,
+            "rrf_score": 0.03036576949620428
+          },
+          {
+            "rank": 2,
+            "chunk_id": 193,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 14,
+            "content": {
+              "chars": 92,
+              "sha256": "5bbea24795c2535527b14766273220d3bb4f77dd137c01dd6e4df797cd5fcdff"
+            },
+            "selected": true,
+            "rrf_score": 0.030330882352941176
+          },
+          {
+            "rank": 3,
+            "chunk_id": 167,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "c6d1e2f9f7849010756bc6b05394fec1aa6933f47089ffa1adbdf4d592211149"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082
+          },
+          {
+            "rank": 4,
+            "chunk_id": 165,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content": {
+              "chars": 92,
+              "sha256": "163e94d313b394eb207194ce5634457fa516f1aa5d48b8a9656f5ab29d627b15"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082
+          },
+          {
+            "rank": 5,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "f78bed05cc06020064b3891b202534bc4747f83fa3f3efdf7ba3aa1b2ca98582"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516
+          },
+          {
+            "rank": 6,
+            "chunk_id": 203,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content": {
+              "chars": 92,
+              "sha256": "417ff67049302e502c60ee36caea8a756ddc3630b37e63084c18754e009798b1"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516
+          },
+          {
+            "rank": 7,
+            "chunk_id": 142,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content": {
+              "chars": 92,
+              "sha256": "0384a5cc354020fd46d048d7385c2b66b54d2830161b26c230f9215185919e7a"
+            },
+            "selected": true,
+            "rrf_score": 0.015873015873015872
+          },
+          {
+            "rank": 8,
+            "chunk_id": 198,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content": {
+              "chars": 92,
+              "sha256": "bebe91c75d16fdd3d43c586e7d0e0a0ea0a94731ec92dfd9b2c505740a6e9625"
+            },
+            "selected": true,
+            "rrf_score": 0.015625
+          },
+          {
+            "rank": 9,
+            "chunk_id": 166,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "8587cde65771aec7b9ae70a807dbcbef6be73415a7e437f8c0a1ae1d76174b38"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385
+          },
+          {
+            "rank": 10,
+            "chunk_id": 204,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content": {
+              "chars": 92,
+              "sha256": "8c5ff69c1579b0749791bae001b49c2234aa26c79bd4c374333b40a116fa5fe6"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          },
+          {
+            "chunk_id": 193,
+            "content": "of data. Use secret management for credentials (HashiCorp Vault or cloud KMS). \u2022 User Data: Back up user progress data daily. Implement rate-limiting and CAPTCHA to prevent abuse. \u2022 Quality Assurance: In addition to automated tests, have a QA team conduct manual testing of user flows and AI output quality. 14"
+          },
+          {
+            "chunk_id": 167,
+            "content": "but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem hardware over first 1\u20132 years. Scaling: Cloud is easier to scale up/down with user demand (auto-scaling for inference). On-prem scaling is limited by purchased capacity (though GPUs can be added gradually). We should monitor utilization: if we rarely use full capacity, cloud may be cheaper; if heavy training/inference is constant, on-prem wins over time. 7. Model Architectures and Sizes Given the tasks, we recommend transformer-based architectures with sizes chosen for performance vs cost: \u2022 Text Models: Encoder-decoder (T5-like) or decoder"
+          },
+          {
+            "chunk_id": 165,
+            "content": "over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of models and data. 8"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 203,
+            "content": "living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists) to enforce code quality and reproducibility. 17. Comparison Tables Hosting Options: Option Upfront Cost Scalability Control Recurring Cost Notes High (hardware, Limited by Full (you Low if idle Best if On- infra) purchased own (electricity, consistent Premises \u301038\u2020L53- capacity hardware) maintenance) heavy use L62\u3011 Virtually Less direct Pay-as-you-go Easy to start, Public unlimited None (reliant on (high if used scale; possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost"
+          },
+          {
+            "chunk_id": 142,
+            "content": "They might use the portal to supplement in-class teaching, or to personalize tasks. Teachers might curate AI-generated content or upload their own, so we need authoring and review UIs. \u2022 Administrators: System operators and content curators (school coordinators or company admins). They manage user accounts, content taxonomy, system settings and compliance. They might be responsible for approving AI-generated content, monitoring filter logs, and ensuring curriculum alignment. \u2022 Content Experts/Editors: (could be teachers or SMEs) who validate and annotate AI outputs, ensuring pedagogical correctness. They will use backend tools for data labeling, curriculum mapping, and QA. Each persona has different workflows:"
+          },
+          {
+            "chunk_id": 198,
+            "content": "\u2022 Misc (licenses, overhead): \\$100K. Total ballpark: \\$1.6M\u2013\\$3M. A more advanced roadmap (larger models, extensive data) could push budgets to the \\$5M level. Milestone Timeline (Mermaid Gantt): Implementation Roadmap Requirements Spec Phase 1: Planning System Architecture & Data Proof-of-Concept AI Models Model Training (NLP, TTS) Phase 2: MVP Development Portal VideoFrontend/BackendPipeline Dev Build Content Filtering Module Phase 3: Pilot & Feedback Internal Pilot Evaluate & Iterate Beta Launch & Fixes Phase 4: Launch & Scale Feature Enhancements (v2) Full Launch Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development"
+          },
+          {
+            "chunk_id": 166,
+            "content": "Cloud: Major clouds (AWS/GCP/Azure) offer on-demand GPU instances (e.g. AWS p4d with 8\u00d7A100 at ~\\$32/ hr) and managed ML services. This avoids CapEx but incurs high OpEx. For instance, training a 13B model (~4\u00d7A100 \u00d7 1000 hours) costs ~\\$128K, and a 70B (~32\u00d7A100 \u00d7 2000 hrs) could be >\\$1M. Inference GPUs run \\$3\u2013\\$15/hr per GPU. We may hybridize: use cloud for burst capacity or initial experiments, and move stable workloads on-prem. Cost Comparison: Lenovo shows cloud has \u201cno upfront, pay-as-you-go\u201d but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem"
+          },
+          {
+            "chunk_id": 204,
+            "content": "possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost (Cloud (some infra + (mix of + cloud + on-demand vs flexibility bursting) cloud) control) overflow) bursts) Table 3. Hosting options (from Lenovo analysis\u301038\u2020L53-L62\u3011\u301038\u2020L74-L82\u3011). Feature Prioritization (MVP vs Later): (See Table 1 above for feature list.) Core content generation and study tools are prioritized for MVP, with personalization, language expansion, and community features in later releases. Model Options: (Key selection factors from previous section summarized in Table 2.) We will continuously benchmark candidate models (e.g. run a small internal evaluation"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "fusion_selection",
+      "elapsed_ms": 76.7,
+      "metadata": {
+        "input_ids": [
+          167,
+          131,
+          142,
+          193,
+          166,
+          133,
+          137,
+          201,
+          197,
+          194,
+          165,
+          203,
+          198,
+          204,
+          49,
+          188,
+          48,
+          196
+        ],
+        "selected_ids": [
+          197,
+          193,
+          167,
+          165,
+          131,
+          203,
+          142,
+          198,
+          166,
+          204
+        ],
+        "removal_reason": "rrf_pool_limit",
+        "limit": 10
+      }
+    },
+    {
+      "stage": "reranker_scores",
+      "elapsed_ms": 121.06,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 167,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "c6d1e2f9f7849010756bc6b05394fec1aa6933f47089ffa1adbdf4d592211149"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -6.9081196784973145
+          },
+          {
+            "rank": 2,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "f78bed05cc06020064b3891b202534bc4747f83fa3f3efdf7ba3aa1b2ca98582"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -7.865070343017578
+          },
+          {
+            "rank": 3,
+            "chunk_id": 193,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 14,
+            "content": {
+              "chars": 92,
+              "sha256": "5bbea24795c2535527b14766273220d3bb4f77dd137c01dd6e4df797cd5fcdff"
+            },
+            "selected": true,
+            "rrf_score": 0.030330882352941176,
+            "rerank_score": -9.339424133300781
+          },
+          {
+            "rank": 4,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "51114fa476a8eeb0007a43d5abca8ac16d9e0c9ec88a19a4550e8c158640ba14"
+            },
+            "selected": true,
+            "rrf_score": 0.03036576949620428,
+            "rerank_score": -9.879273414611816
+          },
+          {
+            "rank": 5,
+            "chunk_id": 166,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "8587cde65771aec7b9ae70a807dbcbef6be73415a7e437f8c0a1ae1d76174b38"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385,
+            "rerank_score": -10.947245597839355
+          },
+          {
+            "rank": 6,
+            "chunk_id": 165,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 8,
+            "content": {
+              "chars": 92,
+              "sha256": "163e94d313b394eb207194ce5634457fa516f1aa5d48b8a9656f5ab29d627b15"
+            },
+            "selected": false,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -11.0184326171875,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 7,
+            "chunk_id": 204,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content": {
+              "chars": 92,
+              "sha256": "8c5ff69c1579b0749791bae001b49c2234aa26c79bd4c374333b40a116fa5fe6"
+            },
+            "selected": false,
+            "rrf_score": 0.015384615384615385,
+            "rerank_score": -11.032732963562012,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 8,
+            "chunk_id": 142,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 3,
+            "content": {
+              "chars": 92,
+              "sha256": "0384a5cc354020fd46d048d7385c2b66b54d2830161b26c230f9215185919e7a"
+            },
+            "selected": false,
+            "rrf_score": 0.015873015873015872,
+            "rerank_score": -11.048962593078613,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 9,
+            "chunk_id": 203,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 17,
+            "content": {
+              "chars": 92,
+              "sha256": "417ff67049302e502c60ee36caea8a756ddc3630b37e63084c18754e009798b1"
+            },
+            "selected": false,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -11.08309268951416,
+            "removal_reason": "rerank_top_k"
+          },
+          {
+            "rank": 10,
+            "chunk_id": 198,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 16,
+            "content": {
+              "chars": 92,
+              "sha256": "bebe91c75d16fdd3d43c586e7d0e0a0ea0a94731ec92dfd9b2c505740a6e9625"
+            },
+            "selected": false,
+            "rrf_score": 0.015625,
+            "rerank_score": -11.25483226776123,
+            "removal_reason": "rerank_top_k"
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 167,
+            "content": "but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem hardware over first 1\u20132 years. Scaling: Cloud is easier to scale up/down with user demand (auto-scaling for inference). On-prem scaling is limited by purchased capacity (though GPUs can be added gradually). We should monitor utilization: if we rarely use full capacity, cloud may be cheaper; if heavy training/inference is constant, on-prem wins over time. 7. Model Architectures and Sizes Given the tasks, we recommend transformer-based architectures with sizes chosen for performance vs cost: \u2022 Text Models: Encoder-decoder (T5-like) or decoder"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 193,
+            "content": "of data. Use secret management for credentials (HashiCorp Vault or cloud KMS). \u2022 User Data: Back up user progress data daily. Implement rate-limiting and CAPTCHA to prevent abuse. \u2022 Quality Assurance: In addition to automated tests, have a QA team conduct manual testing of user flows and AI output quality. 14"
+          },
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          },
+          {
+            "chunk_id": 166,
+            "content": "Cloud: Major clouds (AWS/GCP/Azure) offer on-demand GPU instances (e.g. AWS p4d with 8\u00d7A100 at ~\\$32/ hr) and managed ML services. This avoids CapEx but incurs high OpEx. For instance, training a 13B model (~4\u00d7A100 \u00d7 1000 hours) costs ~\\$128K, and a 70B (~32\u00d7A100 \u00d7 2000 hrs) could be >\\$1M. Inference GPUs run \\$3\u2013\\$15/hr per GPU. We may hybridize: use cloud for burst capacity or initial experiments, and move stable workloads on-prem. Cost Comparison: Lenovo shows cloud has \u201cno upfront, pay-as-you-go\u201d but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem"
+          },
+          {
+            "chunk_id": 165,
+            "content": "over ~3\u20135 years. Own data center space and IT staff (e.g. 1\u20132 sysadmins) add overhead, but allow full control of models and data. 8"
+          },
+          {
+            "chunk_id": 204,
+            "content": "possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost (Cloud (some infra + (mix of + cloud + on-demand vs flexibility bursting) cloud) control) overflow) bursts) Table 3. Hosting options (from Lenovo analysis\u301038\u2020L53-L62\u3011\u301038\u2020L74-L82\u3011). Feature Prioritization (MVP vs Later): (See Table 1 above for feature list.) Core content generation and study tools are prioritized for MVP, with personalization, language expansion, and community features in later releases. Model Options: (Key selection factors from previous section summarized in Table 2.) We will continuously benchmark candidate models (e.g. run a small internal evaluation"
+          },
+          {
+            "chunk_id": 142,
+            "content": "They might use the portal to supplement in-class teaching, or to personalize tasks. Teachers might curate AI-generated content or upload their own, so we need authoring and review UIs. \u2022 Administrators: System operators and content curators (school coordinators or company admins). They manage user accounts, content taxonomy, system settings and compliance. They might be responsible for approving AI-generated content, monitoring filter logs, and ensuring curriculum alignment. \u2022 Content Experts/Editors: (could be teachers or SMEs) who validate and annotate AI outputs, ensuring pedagogical correctness. They will use backend tools for data labeling, curriculum mapping, and QA. Each persona has different workflows:"
+          },
+          {
+            "chunk_id": 203,
+            "content": "living documents (e.g. in Confluence or GitHub) and updated each sprint. We will also maintain templates (e.g. pull request checklists) to enforce code quality and reproducibility. 17. Comparison Tables Hosting Options: Option Upfront Cost Scalability Control Recurring Cost Notes High (hardware, Limited by Full (you Low if idle Best if On- infra) purchased own (electricity, consistent Premises \u301038\u2020L53- capacity hardware) maintenance) heavy use L62\u3011 Virtually Less direct Pay-as-you-go Easy to start, Public unlimited None (reliant on (high if used scale; possible Cloud \u301038\u2020L53- provider) constantly) vendor lock-in L62\u3011 Flexible (on- Mixed Hybrid Moderate Medium prem capacity (predictable base Balance cost"
+          },
+          {
+            "chunk_id": 198,
+            "content": "\u2022 Misc (licenses, overhead): \\$100K. Total ballpark: \\$1.6M\u2013\\$3M. A more advanced roadmap (larger models, extensive data) could push budgets to the \\$5M level. Milestone Timeline (Mermaid Gantt): Implementation Roadmap Requirements Spec Phase 1: Planning System Architecture & Data Proof-of-Concept AI Models Model Training (NLP, TTS) Phase 2: MVP Development Portal VideoFrontend/BackendPipeline Dev Build Content Filtering Module Phase 3: Pilot & Feedback Internal Pilot Evaluate & Iterate Beta Launch & Fixes Phase 4: Launch & Scale Feature Enhancements (v2) Full Launch Maintenance & Expansion -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 -01-01 -04-01 -07-01 -10-01 Figure 2. Gantt chart of proposed development"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rerank_results",
+      "elapsed_ms": 121.28,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 167,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "c6d1e2f9f7849010756bc6b05394fec1aa6933f47089ffa1adbdf4d592211149"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -6.9081196784973145
+          },
+          {
+            "rank": 2,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "f78bed05cc06020064b3891b202534bc4747f83fa3f3efdf7ba3aa1b2ca98582"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -7.865070343017578
+          },
+          {
+            "rank": 3,
+            "chunk_id": 193,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 14,
+            "content": {
+              "chars": 92,
+              "sha256": "5bbea24795c2535527b14766273220d3bb4f77dd137c01dd6e4df797cd5fcdff"
+            },
+            "selected": true,
+            "rrf_score": 0.030330882352941176,
+            "rerank_score": -9.339424133300781
+          },
+          {
+            "rank": 4,
+            "chunk_id": 197,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 15,
+            "content": {
+              "chars": 92,
+              "sha256": "51114fa476a8eeb0007a43d5abca8ac16d9e0c9ec88a19a4550e8c158640ba14"
+            },
+            "selected": true,
+            "rrf_score": 0.03036576949620428,
+            "rerank_score": -9.879273414611816
+          },
+          {
+            "rank": 5,
+            "chunk_id": 166,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "8587cde65771aec7b9ae70a807dbcbef6be73415a7e437f8c0a1ae1d76174b38"
+            },
+            "selected": true,
+            "rrf_score": 0.015384615384615385,
+            "rerank_score": -10.947245597839355
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 167,
+            "content": "but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem hardware over first 1\u20132 years. Scaling: Cloud is easier to scale up/down with user demand (auto-scaling for inference). On-prem scaling is limited by purchased capacity (though GPUs can be added gradually). We should monitor utilization: if we rarely use full capacity, cloud may be cheaper; if heavy training/inference is constant, on-prem wins over time. 7. Model Architectures and Sizes Given the tasks, we recommend transformer-based architectures with sizes chosen for performance vs cost: \u2022 Text Models: Encoder-decoder (T5-like) or decoder"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          },
+          {
+            "chunk_id": 193,
+            "content": "of data. Use secret management for credentials (HashiCorp Vault or cloud KMS). \u2022 User Data: Back up user progress data daily. Implement rate-limiting and CAPTCHA to prevent abuse. \u2022 Quality Assurance: In addition to automated tests, have a QA team conduct manual testing of user flows and AI output quality. 14"
+          },
+          {
+            "chunk_id": 197,
+            "content": "Team: +1 product manager, +1 community manager, maintain support staff. Resource Estimates: Overall, we estimate ~10\u201315 core team members at peak: 4\u20136 ML engineers, 4\u20136 software engineers, 2\u20133 content specialists/educators, 2 QA/SysOps, plus part-time roles (designer, legal, PM). Budget Range: \u2022 Personnel (~\\$150K/person-year): \\$1.2M\u2013\\$2.0M over 2 years. \u2022 Hardware/Cloud: initial \\$300K (GPUs, servers) + \\$200K/year cloud. 15"
+          },
+          {
+            "chunk_id": 166,
+            "content": "Cloud: Major clouds (AWS/GCP/Azure) offer on-demand GPU instances (e.g. AWS p4d with 8\u00d7A100 at ~\\$32/ hr) and managed ML services. This avoids CapEx but incurs high OpEx. For instance, training a 13B model (~4\u00d7A100 \u00d7 1000 hours) costs ~\\$128K, and a 70B (~32\u00d7A100 \u00d7 2000 hrs) could be >\\$1M. Inference GPUs run \\$3\u2013\\$15/hr per GPU. We may hybridize: use cloud for burst capacity or initial experiments, and move stable workloads on-prem. Cost Comparison: Lenovo shows cloud has \u201cno upfront, pay-as-you-go\u201d but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "rerank_selection",
+      "elapsed_ms": 121.35,
+      "metadata": {
+        "status": "ok",
+        "selected_ids": [
+          167,
+          131,
+          193,
+          197,
+          166
+        ],
+        "input_ids": [
+          197,
+          193,
+          167,
+          165,
+          131,
+          203,
+          142,
+          198,
+          166,
+          204
+        ],
+        "rerank_candidate_limit": 10,
+        "output_limit": 5,
+        "removal_reason": "rerank_top_k"
+      }
+    },
+    {
+      "stage": "adaptive_filter",
+      "elapsed_ms": 121.52,
+      "metadata": {
+        "removals": [
+          {
+            "chunk_id": 193,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -9.339424133300781,
+            "threshold": -8.908119678497314
+          },
+          {
+            "chunk_id": 197,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -9.879273414611816,
+            "threshold": -8.908119678497314
+          },
+          {
+            "chunk_id": 166,
+            "reason": "below_adaptive_rerank_margin",
+            "score": -10.947245597839355,
+            "threshold": -8.908119678497314
+          }
+        ],
+        "input_ids": [
+          167,
+          131,
+          193,
+          197,
+          166
+        ],
+        "selected_ids": [
+          167,
+          131
+        ]
+      }
+    },
+    {
+      "stage": "after_adaptive_filter",
+      "elapsed_ms": 121.56,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 167,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "c6d1e2f9f7849010756bc6b05394fec1aa6933f47089ffa1adbdf4d592211149"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -6.9081196784973145
+          },
+          {
+            "rank": 2,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "f78bed05cc06020064b3891b202534bc4747f83fa3f3efdf7ba3aa1b2ca98582"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -7.865070343017578
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 167,
+            "content": "but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem hardware over first 1\u20132 years. Scaling: Cloud is easier to scale up/down with user demand (auto-scaling for inference). On-prem scaling is limited by purchased capacity (though GPUs can be added gradually). We should monitor utilization: if we rarely use full capacity, cloud may be cheaper; if heavy training/inference is constant, on-prem wins over time. 7. Model Architectures and Sizes Given the tasks, we recommend transformer-based architectures with sizes chosen for performance vs cost: \u2022 Text Models: Encoder-decoder (T5-like) or decoder"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "page_continuity",
+      "elapsed_ms": 121.63,
+      "metadata": {
+        "recovered_ids": []
+      }
+    },
+    {
+      "stage": "after_page_continuity",
+      "elapsed_ms": 121.63,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 167,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "c6d1e2f9f7849010756bc6b05394fec1aa6933f47089ffa1adbdf4d592211149"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -6.9081196784973145
+          },
+          {
+            "rank": 2,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "f78bed05cc06020064b3891b202534bc4747f83fa3f3efdf7ba3aa1b2ca98582"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -7.865070343017578
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 167,
+            "content": "but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem hardware over first 1\u20132 years. Scaling: Cloud is easier to scale up/down with user demand (auto-scaling for inference). On-prem scaling is limited by purchased capacity (though GPUs can be added gradually). We should monitor utilization: if we rarely use full capacity, cloud may be cheaper; if heavy training/inference is constant, on-prem wins over time. 7. Model Architectures and Sizes Given the tasks, we recommend transformer-based architectures with sizes chosen for performance vs cost: \u2022 Text Models: Encoder-decoder (T5-like) or decoder"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "final_context",
+      "elapsed_ms": 121.76,
+      "metadata": {
+        "candidates": [
+          {
+            "rank": 1,
+            "chunk_id": 167,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 9,
+            "content": {
+              "chars": 92,
+              "sha256": "c6d1e2f9f7849010756bc6b05394fec1aa6933f47089ffa1adbdf4d592211149"
+            },
+            "selected": true,
+            "rrf_score": 0.01639344262295082,
+            "rerank_score": -6.9081196784973145
+          },
+          {
+            "rank": 2,
+            "chunk_id": 131,
+            "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+            "page": 1,
+            "content": {
+              "chars": 92,
+              "sha256": "f78bed05cc06020064b3891b202534bc4747f83fa3f3efdf7ba3aa1b2ca98582"
+            },
+            "selected": true,
+            "rrf_score": 0.016129032258064516,
+            "rerank_score": -7.865070343017578
+          }
+        ]
+      },
+      "raw": {
+        "passages": [
+          {
+            "chunk_id": 167,
+            "content": "but ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem hardware over first 1\u20132 years. Scaling: Cloud is easier to scale up/down with user demand (auto-scaling for inference). On-prem scaling is limited by purchased capacity (though GPUs can be added gradually). We should monitor utilization: if we rarely use full capacity, cloud may be cheaper; if heavy training/inference is constant, on-prem wins over time. 7. Model Architectures and Sizes Given the tasks, we recommend transformer-based architectures with sizes chosen for performance vs cost: \u2022 Text Models: Encoder-decoder (T5-like) or decoder"
+          },
+          {
+            "chunk_id": 131,
+            "content": "Executive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+          }
+        ]
+      }
+    },
+    {
+      "stage": "context_packing",
+      "elapsed_ms": 121.79,
+      "metadata": {
+        "total_chars": 1508,
+        "max_chars": 12000,
+        "max_chunks": 8,
+        "dropped": [],
+        "truncated": false
+      },
+      "raw": {
+        "context_text": "[S1] Document: e3160c67-ee6d-4983-9029-8273bd35525a | Page: 9 | Chunk: 167\nbut ongoing subscription/bandwidth costs\u301038\u2020L53-L62\u3011. We plan an initial cloud budget of ~\\$200K/year, scalable as needed; and potentially \\$300K\u2013\\$500K in on-prem hardware over first 1\u20132 years. Scaling: Cloud is easier to scale up/down with user demand (auto-scaling for inference). On-prem scaling is limited by purchased capacity (though GPUs can be added gradually). We should monitor utilization: if we rarely use full capacity, cloud may be cheaper; if heavy training/inference is constant, on-prem wins over time. 7. Model Architectures and Sizes Given the tasks, we recommend transformer-based architectures with sizes chosen for performance vs cost: \u2022 Text Models: Encoder-decoder (T5-like) or decoder\n\n[S2] Document: e3160c67-ee6d-4983-9029-8273bd35525a | Page: 1 | Chunk: 131\nExecutive Summary We propose an AI-driven education portal for JEE/GATE/NEET that offers automatically generated video lectures, topic-wise notes, quizzes, and question banks, supported by teacher and administrator interfaces. Core features include AI-produced instructional videos (with synthesized speech and optional avatar), dynamically created summaries/notes, customizable test series, and a robust question-answer engine. Additional features could include adaptive learning paths, student analytics dashboards, peer Q&A forums, and gamification elements. All content will be strictly constrained to the relevant syllabus through a layered safety system (rules, classifiers, and possible reinforcement learning fine-tuning) to prevent off-topic or inappropriate output. We will train and host"
+      }
+    },
+    {
+      "stage": "generation_skipped",
+      "elapsed_ms": 121.86,
+      "metadata": {
+        "reason": "provider-free stage diagnosis"
+      }
+    },
+    {
+      "stage": "answer_result",
+      "elapsed_ms": 121.87,
+      "metadata": {
+        "status": "unverified",
+        "issues": [
+          "provider_not_run"
+        ],
+        "citations": [],
+        "coverage": null
+      },
+      "raw": {
+        "answer": "NOT_RUN"
+      }
+    }
+  ]
+}

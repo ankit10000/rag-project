@@ -1,0 +1,79 @@
+
+Running 22 tests using 4 workers
+
+(node:33439) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:33438) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:33436) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:33437) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:33436) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:33439) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:33438) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:33437) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   4 [desktop-chromium] › tests/browser/workspace.spec.ts:12:3 › Browser UI contract fixtures (not database integration) › login, tenant dashboard, navigation and logout (2.4s)
+  ✓   2 [mobile-chromium] › tests/browser/workspace.spec.ts:12:3 › Browser UI contract fixtures (not database integration) › login, tenant dashboard, navigation and logout (2.5s)
+  ✓   1 [desktop-chromium] › tests/browser/chat-composer.spec.ts:111:3 › Chat composer UI fixtures — no DB or provider › Enter sends once, Shift+Enter keeps a newline and completed history remains authoritative (3.1s)
+  ✓   3 [mobile-chromium] › tests/browser/chat-composer.spec.ts:111:3 › Chat composer UI fixtures — no DB or provider › Enter sends once, Shift+Enter keeps a newline and completed history remains authoritative (3.2s)
+  ✓   8 [mobile-chromium] › tests/browser/chat-composer.spec.ts:135:3 › Chat composer UI fixtures — no DB or provider › Markdown/code copy and source citations fit the mobile and desktop composer (1.6s)
+  ✓   6 [mobile-chromium] › tests/browser/workspace.spec.ts:27:3 › Browser UI contract fixtures (not database integration) › canonical answer status and citation metadata survive reopen and refresh (3.1s)
+  ✓   5 [desktop-chromium] › tests/browser/workspace.spec.ts:27:3 › Browser UI contract fixtures (not database integration) › canonical answer status and citation metadata survive reopen and refresh (3.3s)
+  ✓  10 [mobile-chromium] › tests/browser/workspace.spec.ts:71:3 › Browser UI contract fixtures (not database integration) › permission errors do not render private response details (616ms)
+  ✓  11 [desktop-chromium] › tests/browser/workspace.spec.ts:71:3 › Browser UI contract fixtures (not database integration) › permission errors do not render private response details (577ms)
+  ✓  12 [mobile-chromium] › tests/browser/workspace.spec.ts:89:3 › Browser UI contract fixtures (not database integration) › responsive shell supports keyboard skip link and no horizontal overflow (490ms)
+  ✓  13 [desktop-chromium] › tests/browser/workspace.spec.ts:89:3 › Browser UI contract fixtures (not database integration) › responsive shell supports keyboard skip link and no horizontal overflow (615ms)
+  ✓  14 [mobile-chromium] › tests/browser/workspace.spec.ts:106:3 › Browser UI contract fixtures (not database integration) › mobile drawer traps focus and Escape restores its trigger (928ms)
+  ✓  15 [desktop-chromium] › tests/browser/workspace.spec.ts:106:3 › Browser UI contract fixtures (not database integration) › mobile drawer traps focus and Escape restores its trigger (817ms)
+  ✓   9 [mobile-chromium] › tests/browser/chat-composer.spec.ts:179:3 › Chat composer UI fixtures — no DB or provider › Source menu inserts an honest filename request; uploads show actual processing until ready (4.0s)
+  ✓  16 [mobile-chromium] › tests/browser/workspace.spec.ts:132:3 › Browser UI contract fixtures (not database integration) › desktop sidebar collapse and coherent light appearance persist (1.3s)
+  ✘   7 [desktop-chromium] › tests/browser/chat-composer.spec.ts:135:3 › Chat composer UI fixtures — no DB or provider › Markdown/code copy and source citations fit the mobile and desktop composer (6.0s)
+  ✓  17 [desktop-chromium] › tests/browser/workspace.spec.ts:132:3 › Browser UI contract fixtures (not database integration) › desktop sidebar collapse and coherent light appearance persist (1.6s)
+(node:33539) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  18 [mobile-chromium] › tests/browser/workspace.spec.ts:153:3 › Browser UI contract fixtures (not database integration) › conversation search, rename and delete use real contract-shaped state (1.4s)
+(node:33539) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  19 [desktop-chromium] › tests/browser/workspace.spec.ts:153:3 › Browser UI contract fixtures (not database integration) › conversation search, rename and delete use real contract-shaped state (1.4s)
+  ✓  20 [mobile-chromium] › tests/browser/workspace.spec.ts:209:3 › Browser UI contract fixtures (not database integration) › tablet and phone screens retain readable composer without page overflow (1.5s)
+  ✓  22 [desktop-chromium] › tests/browser/workspace.spec.ts:209:3 › Browser UI contract fixtures (not database integration) › tablet and phone screens retain readable composer without page overflow (1.7s)
+  ✓  21 [desktop-chromium] › tests/browser/chat-composer.spec.ts:179:3 › Chat composer UI fixtures — no DB or provider › Source menu inserts an honest filename request; uploads show actual processing until ready (3.5s)
+
+
+  1) [desktop-chromium] › tests/browser/chat-composer.spec.ts:135:3 › Chat composer UI fixtures — no DB or provider › Markdown/code copy and source citations fit the mobile and desktop composer 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      162 |       ),
+      163 |     ).toBe(true);
+    > 164 |     await expect
+          |     ^
+      165 |       .poll(async () => {
+      166 |         const answer = await page
+      167 |           .getByRole("log")
+        at /Volumes/Storage/rag-project/frontend/tests/browser/chat-composer.spec.ts:164:5
+
+    Error Context: test-results/grey-agent5-verified/chat-composer-Chat-compose-6063b-mobile-and-desktop-composer-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/grey-agent5-verified/chat-composer-Chat-compose-6063b-mobile-and-desktop-composer-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/grey-agent5-verified/chat-composer-Chat-compose-6063b-mobile-and-desktop-composer-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop-chromium] › tests/browser/chat-composer.spec.ts:135:3 › Chat composer UI fixtures — no DB or provider › Markdown/code copy and source citations fit the mobile and desktop composer 
+  21 passed (17.4s)

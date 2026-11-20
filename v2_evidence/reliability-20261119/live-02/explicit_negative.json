@@ -1,0 +1,101 @@
+{
+  "id": "explicit_negative",
+  "question": "According to Executive Summary.pdf, does public cloud require upfront capital expenditure?",
+  "result": {
+    "answer": "According to the provided documents, public cloud has \"no upfront\" costs [S3].",
+    "sources": [
+      {
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 17,
+        "chunk_id": 203,
+        "ref": "S3"
+      }
+    ],
+    "citations": [
+      {
+        "ref": "S3",
+        "document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page": 17,
+        "chunk_id": 203
+      }
+    ],
+    "status": "answered",
+    "issues": [],
+    "retrieval_status": "ok",
+    "retrieved": [
+      {
+        "ref": "S1",
+        "chunk_id": 164,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 8,
+        "retrieval_score": -7.485410213470459
+      },
+      {
+        "ref": "S2",
+        "chunk_id": 166,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 9,
+        "retrieval_score": -9.9521484375
+      },
+      {
+        "ref": "S3",
+        "chunk_id": 203,
+        "document_name": "e3160c67-ee6d-4983-9029-8273bd35525a",
+        "page_number": 17,
+        "retrieval_score": -7.574707508087158
+      }
+    ],
+    "coverage": {
+      "policy": "v2-explicit-request-coverage/2",
+      "mode": "none",
+      "facets": [],
+      "enumeration_count": null,
+      "caveat": "Literal presence checks only; not semantic entailment or full-source absence proof.",
+      "concrete_missing": [],
+      "context_unobserved": [],
+      "answer_checked": true
+    }
+  },
+  "metrics": {
+    "evidence_coverage": true,
+    "evidence_fact_checks": [
+      {
+        "label": "explicit no upfront",
+        "observed": true
+      },
+      {
+        "label": "usage costs",
+        "observed": true
+      }
+    ],
+    "answer_factual_completeness": false,
+    "answer_fact_checks": [
+      {
+        "label": "no upfront cost",
+        "observed": true
+      },
+      {
+        "label": "ongoing usage cost",
+        "observed": false
+      }
+    ],
+    "citation_abstention_correctness": true,
+    "citation_metadata_matches_owned_source": true,
+    "citation_presence_correct": true,
+    "declared_status_correct": true,
+    "selected_chunks": [
+      164,
+      166,
+      203
+    ],
+    "selected_pages": [
+      8,
+      9,
+      17
+    ],
+    "selected_characters": 2099,
+    "scope_and_budget_ok": true
+  },
+  "seconds": 14.718,
+  "provider_calls": 2
+}

@@ -1,0 +1,25 @@
+
+Question type: MEMORY
+Memory question detected. Skipping document retrieval.
+
+--- Reranker Scores ---
+Answer status: answered | citations: [] | attempts: 1
+
+test_two_owner_same_company_dates_remain_isolated_through_chat (__main__.TenureIntegration.test_two_owner_same_company_dates_remain_isolated_through_chat) ... skipped 'explicit guarded scratch integration required'
+test_ambiguous_documents_or_multiple_stints_require_clarification (__main__.TenureTests.test_ambiguous_documents_or_multiple_stints_require_clarification) ... ok
+test_duplicate_overlapping_chunks_do_not_make_second_job (__main__.TenureTests.test_duplicate_overlapping_chunks_do_not_make_second_job) ... ok
+test_duration_route_uses_no_model_and_legacy_route_does_not_use_tool (__main__.TenureTests.test_duration_route_uses_no_model_and_legacy_route_does_not_use_tool) ... W1119 18:35:21.802000 66127 .venv/lib/python3.14/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+ok
+test_exact_closed_month_difference_and_citation (__main__.TenureTests.test_exact_closed_month_difference_and_citation) ... ok
+test_generated_arbitrary_numbers_remain_blocked (__main__.TenureTests.test_generated_arbitrary_numbers_remain_blocked) ... ok
+test_history_supplies_referent_not_date_evidence (__main__.TenureTests.test_history_supplies_referent_not_date_evidence) ... ok
+test_lookup_is_owner_scoped_and_refuses_missing_context (__main__.TenureTests.test_lookup_is_owner_scoped_and_refuses_missing_context) ... ok
+test_missing_open_or_reverse_dates_are_not_invented (__main__.TenureTests.test_missing_open_or_reverse_dates_are_not_invented) ... ok
+test_never_borrows_other_employer_or_project_dates (__main__.TenureTests.test_never_borrows_other_employer_or_project_dates) ... ok
+test_no_rounding_or_inclusive_year_overcount (__main__.TenureTests.test_no_rounding_or_inclusive_year_overcount) ... ok
+test_original_grammar_and_generic_employers (__main__.TenureTests.test_original_grammar_and_generic_employers) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 3.678s
+
+OK (skipped=1)

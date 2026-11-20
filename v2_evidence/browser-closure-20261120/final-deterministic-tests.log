@@ -1,0 +1,88 @@
+W1120 11:18:01.901000 23169 .venv/lib/python3.14/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+2026-11-20 11:18:03.651 Python[23169:129041] 2026-11-20 11:18:03.651612 [W:onnxruntime:Default, telemetry_1ds.cc:613 operator()] Failed to persist telemetry device ID; using an in-memory identifier
+----------------------------------------------------------------------
+Ran 127 tests in 1.026s
+
+OK (skipped=1)
+
+Question type: DOCUMENT
+Retrieval status: ok
+
+Best reranker score: 1.0000
+Adaptive threshold: -1.0000
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 1.0000 | Chunk: 2 | Page: 2
+Answer status: answered | citations: ['S1'] | attempts: 1
+Retrieval status: ok
+
+Best reranker score: 4.0000
+Adaptive threshold: 2.0000
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 4.0000 | Chunk: 1 | Page: 1
+Answer status: answered | citations: ['S1'] | attempts: 1
+
+Question type: MEMORY
+Memory question detected. Skipping document retrieval.
+
+--- Reranker Scores ---
+Answer status: abstained | citations: [] | attempts: 1
+Retrieval status: ok
+
+Best reranker score: 4.0000
+Adaptive threshold: 2.0000
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 4.0000 | Chunk: 1 | Page: 1
+Answer status: abstained | citations: [] | attempts: 1
+
+Question type: MEMORY
+Memory question detected. Skipping document retrieval.
+
+--- Reranker Scores ---
+Answer status: abstained | citations: [] | attempts: 1
+
+Question type: MEMORY
+Memory question detected. Skipping document retrieval.
+
+--- Reranker Scores ---
+Answer status: abstained | citations: [] | attempts: 1
+Retrieval status: ok
+
+Best reranker score: 4.0000
+Adaptive threshold: 2.0000
+Relevant chunks retained: 1
+
+--- Reranker Scores ---
+Score: 4.0000 | Chunk: 1 | Page: 1
+Answer status: answered | citations: ['S1'] | attempts: 1
+
+Question type: MEMORY
+Memory question detected. Skipping document retrieval.
+
+--- Reranker Scores ---
+Answer status: abstained | citations: [] | attempts: 1
+Retrieval status: ok
+
+--- Reranker Scores ---
+Answer status: abstained | citations: [] | attempts: 0
+
+Question type: MEMORY
+Memory question detected. Skipping document retrieval.
+
+--- Reranker Scores ---
+Answer status: answered | citations: [] | attempts: 1
+
+Explicit memory deletion request detected.
+
+Explicit memory deletion request detected.
+Memory saved successfully.
+Memory deleted, historical cleanup incomplete: source provenance is unavailable; the summary was cleared and both checkpoints were advanced past current history.
+Memory deleted, historical cleanup incomplete: source provenance is unavailable; the summary was cleared and both checkpoints were advanced past current history.
+Gemini model 'fake' failed (429); trying next model...
+All Gemini models are out of quota; waiting 5s before retrying...
+Gemini temporary error 503. Retrying in 1s (1/3)...

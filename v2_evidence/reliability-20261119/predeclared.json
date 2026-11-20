@@ -1,0 +1,113 @@
+{
+  "identity": "reliability-20261119",
+  "scope": "development only, not held-out or formal acceptance",
+  "source_document": "e3160c67-ee6d-4983-9029-8273bd35525a",
+  "owner": "25973a8a-09db-4a15-a686-304a5c986eec",
+  "existing_six_case_expectations_unchanged": true,
+  "cases": [
+    {
+      "id": "product",
+      "question": "According to Executive Summary.pdf, what is the proposed product and which three entrance examinations does it target?",
+      "expected": "AI education portal; JEE, GATE, NEET; page 1"
+    },
+    {
+      "id": "estimates",
+      "question": "According to Executive Summary.pdf, what overall development duration, team size and rough budget does the executive summary estimate? Give all three estimates.",
+      "expected": "2\u20133 years; about 10\u201315 people; $1M\u2013$5M over 2 years; page 1"
+    },
+    {
+      "id": "accessibility",
+      "question": "According to Executive Summary.pdf, what multilingual support and offline/mobile access are proposed?",
+      "expected": "Hindi/other regional languages; downloading videos and notes for offline study; mobile app; page 2"
+    },
+    {
+      "id": "phases",
+      "question": "List all four implementation phases and their month ranges from the roadmap in Executive Summary.pdf.",
+      "expected": "Planning & Prototype 0\u20136; MVP Development 6\u201315; Pilot & Feedback 15\u201321; Launch & Scale 21\u201330; page 15"
+    },
+    {
+      "id": "risks",
+      "question": "According to Executive Summary.pdf, how should quality risks and data/copyright risks be mitigated? Cover both.",
+      "expected": "human review/conservative generation/early feedback; legal review/open data/rephrasing; page 16"
+    },
+    {
+      "id": "unsupported",
+      "question": "What is the signed customer contract number for the proposed education portal in Executive Summary.pdf?",
+      "expected": "abstain; no invented contract number"
+    },
+    {
+      "id": "cross_page",
+      "question": "In Executive Summary.pdf, which database stores user accounts and what is the proposed annual cloud budget?",
+      "expected": "PostgreSQL/MySQL relational database (p13); approximately $200K/year cloud (p9 or15)",
+      "category": "multi-page synthesis",
+      "evidence_groups": [
+        [
+          "PostgreSQL",
+          "MySQL"
+        ],
+        [
+          "200K",
+          "year"
+        ]
+      ]
+    },
+    {
+      "id": "comparison",
+      "question": "Compare on-premises and public cloud hosting in Executive Summary.pdf in terms of upfront cost and scalability. Address both options.",
+      "expected": "On-prem high upfront hardware cost and scaling limited by purchased capacity; public cloud no upfront and elastic/virtually unlimited scaling (p8,9,17)",
+      "category": "comparison"
+    },
+    {
+      "id": "follow_up",
+      "question": "And which languages and offline access does it propose?",
+      "history": [
+        {
+          "role": "user",
+          "content": "According to Executive Summary.pdf, what is the proposed product and which three entrance examinations does it target?"
+        },
+        {
+          "role": "assistant",
+          "content": "The proposed product is an AI education portal for JEE, GATE and NEET."
+        }
+      ],
+      "expected": "Hindi/other regional languages and downloading videos/notes for offline study/mobile app (p2)",
+      "category": "follow-up"
+    },
+    {
+      "id": "conflict",
+      "question": "In Executive Summary.pdf, does the roadmap stated phase count agree with its listed phases? Report any inconsistency.",
+      "expected": "Roadmap introduction says roughly 3 phases but enumerates 4 phases (p15); disclose inconsistency",
+      "category": "source conflict"
+    },
+    {
+      "id": "explicit_negative",
+      "question": "According to Executive Summary.pdf, does public cloud require upfront capital expenditure?",
+      "expected": "No upfront cost/avoids CapEx; pay-as-you-go ongoing costs (p9 or17). Grounded negative answer, not abstention.",
+      "category": "explicit negative"
+    },
+    {
+      "id": "long_section",
+      "question": "List all core MVP features and all suggested additional features in Executive Summary.pdf.",
+      "expected": "Core video lessons, notes/summaries, test series/quizzes, question bank/Q&A; additional adaptive learning, live doubt forum, analytics, gamification, multilingual Hindi/regional, offline/mobile (p1-2)",
+      "category": "long section and enumeration"
+    },
+    {
+      "id": "partial",
+      "question": "According to Executive Summary.pdf, which entrance exams does the proposed portal target, and what is its signed customer contract number?",
+      "expected": "JEE/GATE/NEET supported (p1); contract number unavailable; partial status, no invented number",
+      "category": "compound supported and unavailable"
+    }
+  ],
+  "metrics": [
+    "evidence retrieval/coverage",
+    "final answer factual completeness",
+    "citation and abstention correctness"
+  ],
+  "max_provider_calls": 52,
+  "request_budget_seconds": 60,
+  "offline_additional_cases": [
+    "two-user isolation",
+    "ambiguous bare qualification request classified QUESTION_AMBIGUOUS without a guessed subject"
+  ],
+  "expectation_policy": "Source-review labels and deterministic checks plus separately identified manual source comparison; no LLM judge claimed definitive"
+}

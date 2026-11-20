@@ -434,7 +434,9 @@ def delete_matching_memories(
         and memory_id in valid_ids
     ))
 
-    print("\nGemini deletion decision:", decision)
+    from services.request_budget import output_suppressed
+    if not output_suppressed():
+        print("\nGemini deletion decision:", decision)
 
     # Ambiguous request: do not delete anything.
     if decision_status == "UNCERTAIN":
@@ -449,7 +451,8 @@ def delete_matching_memories(
     # Only an explicit DELETE may proceed. Unknown, missing or malformed
     # statuses (e.g. "MAYBE", None, a list) are treated as UNCERTAIN.
     if decision_status not in ("DELETE", "NO_MATCH"):
-        print(f"Unrecognised classifier status {decision_status!r}: nothing deleted.")
+        if not output_suppressed():
+            print(f"Unrecognised classifier status {decision_status!r}: nothing deleted.")
         return {
             "status": "UNCERTAIN",
             "deleted_ids": [],
@@ -506,7 +509,8 @@ def delete_matching_memories(
 
         except Exception as exc:
             failed_ids.append(memory_id)
-            print(f"Deletion error for ID {memory_id}: {exc}")
+            if not output_suppressed():
+                print(f"Deletion error for ID {memory_id}: {exc}")
 
     print("\n===== MULTI-MEMORY DELETION SUMMARY =====")
     print(f"Deleted: {len(deleted_ids)}")

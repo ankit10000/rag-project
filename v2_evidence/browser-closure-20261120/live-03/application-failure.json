@@ -1,0 +1,10 @@
+{
+  "status": "FAIL",
+  "question": "In Browser_Check_Morgan_Vale.pdf, what is listed under EDUCATION? Please give the degree, institute and study dates.",
+  "actual": "abstained despite retained chunk128/page2",
+  "root_cause": "generation source header only UUID while question names filename",
+  "controlled_disconnect_recovery": "PASS: real AbortError after committed result; UI reopened saved answer",
+  "sdk_calls": 4,
+  "family_total_calls": 9,
+  "family_stopped_before_cap12": true
+}

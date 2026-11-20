@@ -1,0 +1,7 @@
+{
+  "frontend_api_status": 200,
+  "body": {
+    "status": "ok"
+  },
+  "test_harness_header_absent": true
+}

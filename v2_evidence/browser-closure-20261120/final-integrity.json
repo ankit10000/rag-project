@@ -1,0 +1,41 @@
+{
+  "branch": "main",
+  "head_unchanged": true,
+  "staged_bytes_preserved": true,
+  "baseline_files_checked": 1076,
+  "only_authorized_preexisting_paths_changed": [
+    "RAG_V2_IMPLEMENTATION_STATUS.md",
+    "backend/v2/app.py",
+    "backend/v2/schemas.py",
+    "frontend/components/chat-workspace.tsx",
+    "frontend/lib/api.ts",
+    "frontend/lib/openapi.d.ts",
+    "main.py",
+    "scripts/v2_scratch.py",
+    "services/answer_semantics.py",
+    "services/rag_service.py",
+    "services/v2_routing.py",
+    "test_v2_answer_completeness.py",
+    "test_v2_qualification_focus.py"
+  ],
+  "all_other_preexisting_files_preserved": true,
+  "protected_assets_unchanged": 44,
+  "historical_evidence_files_preserved": 313,
+  "diff_check_exit": 0,
+  "provider_calls_new": 17,
+  "historical_provider_receipts_unchanged": 52,
+  "database": "verified rag_test_scratch only",
+  "production_database_access": false,
+  "held_out_execution": false,
+  "commits": false,
+  "pushes": false,
+  "normal_api_parent_pid": 26078,
+  "normal_api_worker_pids": [
+    26082,
+    26083
+  ],
+  "durable_worker_pids": [
+    26091,
+    26106
+  ]
+}

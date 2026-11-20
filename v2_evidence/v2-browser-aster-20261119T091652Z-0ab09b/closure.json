@@ -1,0 +1,6 @@
+{
+  "status": "FAIL_BEFORE_PROVIDER_CALLS",
+  "sdk_calls": 0,
+  "reason": "browser bounded GET polling encountered transport ECONNRESET; no chat submitted",
+  "sanitized_browser_evidence": "frontend/evidence/v2-browser-aster-20261119T091652Z-0ab09b/browser_result.json"
+}

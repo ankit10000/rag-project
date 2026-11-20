@@ -1,0 +1,26 @@
+{
+  "viewport": 720,
+  "documentHeight": 720,
+  "bodyHeight": 720,
+  "bodyRect": {
+    "x": 0,
+    "y": 0,
+    "width": 1280,
+    "height": 720,
+    "top": 0,
+    "right": 1280,
+    "bottom": 720,
+    "left": 0
+  },
+  "h1": {
+    "font": "30px",
+    "class": "text-base font-medium tracking-normal sm:text-lg"
+  },
+  "textarea": {
+    "border": "1px",
+    "padding": "10.4px",
+    "background": "rgb(48, 48, 48)",
+    "class": "max-h-[180px] min-h-12 w-full resize-none border-0 bg-transparent px-1 py-2 text-[15px] leading-7 outline-none placeholder:text-muted-foreground focus-visible:outline-none disabled:opacity-60"
+  },
+  "outside": []
+}

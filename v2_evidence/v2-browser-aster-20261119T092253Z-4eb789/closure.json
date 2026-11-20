@@ -1,0 +1,6 @@
+{
+  "status": "FAIL_BEFORE_PROVIDER_CALLS",
+  "sdk_calls": 0,
+  "reason": "stale browser harness expected document status indexed; actual API contract ready; OCR job succeeded",
+  "application_document_status": "ready"
+}

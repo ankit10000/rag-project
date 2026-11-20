@@ -1,0 +1,214 @@
+{
+  "before-recovery": {
+    "passed": 8,
+    "total": 12,
+    "cases": [
+      {
+        "id": "product",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "estimates",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "accessibility",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "phases",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "risks",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "cross_page",
+        "coverage_signals_pass": false,
+        "missing_labels": [
+          "relational database"
+        ]
+      },
+      {
+        "id": "comparison",
+        "coverage_signals_pass": false,
+        "missing_labels": [
+          "cloud scalability"
+        ]
+      },
+      {
+        "id": "follow_up",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "conflict",
+        "coverage_signals_pass": false,
+        "missing_labels": [
+          "listed fourth phase"
+        ]
+      },
+      {
+        "id": "explicit_negative",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "long_section",
+        "coverage_signals_pass": false,
+        "missing_labels": [
+          "doubt forum",
+          "multilingual",
+          "offline/mobile"
+        ]
+      },
+      {
+        "id": "partial",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      }
+    ]
+  },
+  "after-recovery-01": {
+    "passed": 11,
+    "total": 12,
+    "cases": [
+      {
+        "id": "product",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "estimates",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "accessibility",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "phases",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "risks",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "cross_page",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "comparison",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "follow_up",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "conflict",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "explicit_negative",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "long_section",
+        "coverage_signals_pass": false,
+        "missing_labels": [
+          "doubt forum",
+          "multilingual",
+          "offline/mobile"
+        ]
+      },
+      {
+        "id": "partial",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      }
+    ]
+  },
+  "after-recovery-02": {
+    "passed": 12,
+    "total": 12,
+    "cases": [
+      {
+        "id": "product",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "estimates",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "accessibility",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "phases",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "risks",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "cross_page",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "comparison",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "follow_up",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "conflict",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "explicit_negative",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "long_section",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      },
+      {
+        "id": "partial",
+        "coverage_signals_pass": true,
+        "missing_labels": []
+      }
+    ]
+  }
+}
