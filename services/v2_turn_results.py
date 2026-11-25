@@ -35,7 +35,17 @@ def safe_result(c,metadata,conversation_id,turn_id=None):
         except (ValueError,KeyError,TypeError):continue
         row=c.execute("SELECT d.filename FROM documents d JOIN document_chunks ch ON ch.document_id=d.id AND ch.owner_id=d.owner_id WHERE d.id=%s AND d.status='ready' AND ch.id=%s AND ch.page_number=%s",(did,item.get('chunk_id'),item.get('page'))).fetchone()
         if row:citations.append({**item,'document_id':did,'document':row[0]})
-    return {**metadata,'conversation_id':str(conversation_id),'turn_id':str(turn_id) if turn_id else None,'answer_status':metadata.get('status'),'citations':citations}
+    result={**metadata,'conversation_id':str(conversation_id),'turn_id':str(turn_id) if turn_id else None,'answer_status':metadata.get('status'),'citations':citations}
+    proof=metadata.get('calculation')
+    if isinstance(proof,dict):
+        live={(item['ref'],item['document_id'],item['page'],item['chunk_id']) for item in citations}
+        operands={(proof.get('source_ref'),proof.get('source_document'),proof.get('source_page'),proof.get('source_chunk_id'))}
+        person=proof.get('person_evidence')
+        if isinstance(person,dict):
+            operands.add((person.get('ref'),person.get('document'),person.get('page'),person.get('chunk_id')))
+        if not operands.issubset(live):
+            result.pop('calculation')
+    return result
 
 def committed_result(conversation_id,turn_id,question=None):
     with get_connection() as c:

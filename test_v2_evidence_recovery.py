@@ -90,12 +90,12 @@ class RecoveryTests(unittest.TestCase):
                                                    document_names=scope, **kw)
 
     def test_explicit_scope_requires_owner_ready_document_and_real_filename(self):
-        conn = MagicMock(); conn.execute.return_value.fetchall.return_value = [(DOC,)]
+        conn = MagicMock(); conn.execute.return_value.fetchall.return_value = [(DOC, 'Executive Summary.pdf', 'ready')]
         with tenant_scope(OWNER), patch('services.database.get_connection') as connect:
             connect.return_value.__enter__.return_value = conn
             self.assertEqual(explicit_document_scope('What is in Executive Summary.pdf?'), [DOC])
         sql, args = conn.execute.call_args.args
-        self.assertIn("status='ready'", sql); self.assertIn('owner_id=%s', sql)
+        self.assertIn("status<>'deleted'", sql); self.assertIn('owner_id=%s', sql)
         self.assertEqual(args[0], OWNER)
         with patch('services.database.get_connection') as connect:
             self.assertIsNone(explicit_document_scope('Executive Summary.pdf'))

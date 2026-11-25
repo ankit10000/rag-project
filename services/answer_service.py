@@ -13,7 +13,10 @@ from services.citation_service import (
     answer_with_citations,
     drop_uncited_claims,
     evidence_profile,
+    extract_citation_refs,
     remove_invalid_refs,
+    split_sentences,
+    strip_citations,
     uncited_claim_sentences,
     validate_answer_citations,
 )
@@ -30,11 +33,16 @@ UNVERIFIED_MESSAGE = (
 ERROR_MESSAGE = (
     "I couldn't generate a reliable answer right now. Please try again."
 )
+BOUNDED_REFUSAL = "I couldn't establish that from the available evidence."
 
 _TAG_RE = re.compile(r"^\s*\[(DOCUMENT|MEMORY|MIXED)\]\s*", re.I)
 
 _ABSTAIN_PHRASES = ABSTAIN_PHRASES      # single shared list (citation_service)
 _CONFLICT_PHRASES = ("disagree", "conflict", "differ", "inconsistent", "contradict")
+_EMPLOYMENT = re.compile(r'\b(?:employ(?:ed|ment)|work(?:ed|ing)?|tenure|experience)\b', re.I)
+_DURATION_VALUE = re.compile(
+    r'\b(?:\d+(?:\.\d+)?|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)'
+    r'\s*[- ]\s*(?:months?|years?|weeks?|days?)\b', re.I)
 _SOURCE_DISAGREEMENT = re.compile(
     r'\b(?:sources?|passages?|documents?|reports?|roadmap|sections?|header|list)\b'
     r'[^.!?]{0,100}\b(?:disagree|conflict|contradict|(?:is|are|appears?|seems?)\s+(?:internally\s+)?inconsistent)\b'
@@ -55,7 +63,8 @@ def classify_status(answer: str, cited_docs: set, has_citations: bool, sources=N
 
     lowered = answer.lower()
 
-    if has_citations and len(cited_docs) >= 2 and any(p in lowered for p in _CONFLICT_PHRASES):
+    if (os.getenv('RAG_V2') != '1' and has_citations and len(cited_docs) >= 2
+            and any(p in lowered for p in _CONFLICT_PHRASES)):
         return "conflict"
     if (os.getenv('RAG_V2') == '1' and has_citations and not missing
             and _SOURCE_DISAGREEMENT.search(answer)
@@ -156,6 +165,24 @@ def _with_coverage(result, question, sources):
             # bounded generation as proof that the information is absent.
             result['answer'] = UNVERIFIED_MESSAGE
             result['status'] = 'unverified'
+            result['citations'] = []
+            result['sources'] = []
+    if result['status'] in {'answered', 'partial'}:
+        # An absent requested field can be disclosed without spending a
+        # provider retry. The statement applies only to the selected evidence.
+        unresolved = [item for item in report['facets']
+                      if item['answer_mentions'] is False and not item.get('refused_supported_item')
+                      and report['mode'] in {'fields', 'comparison'}
+                      and (item['id'] in report['context_unobserved']
+                           or any(item['id'] == missing['id'] for missing in report['concrete_missing']))]
+        if unresolved:
+            labels = ', '.join(item['label'] for item in unresolved)
+            result['answer'] += (
+                " I couldn't establish the following requested information from "
+                f"the available evidence: {labels}."
+            )
+            result['status'] = 'partial'
+            result['issues'] += ['unresolved_requested_item:' + item['id'] for item in unresolved]
     from services.evidence_trace import trace_event
     trace_event('answer_coverage', {
         'mode': report.get('mode'), 'status': result['status'],
@@ -163,6 +190,26 @@ def _with_coverage(result, question, sources):
         'caveat': report.get('caveat'),
     }, raw={'coverage': report, 'answer': result['answer']})
     return result
+
+
+def with_source_locations(result):
+    """Render only identities validated on the current, freshly resolved turn."""
+    if result.get('status') not in {'answered', 'partial', 'conflict'}:
+        return result
+    citations = result.get('citations') or []
+    refs = set(extract_citation_refs(result.get('answer', '')))
+    locations = []
+    for citation in citations:
+        page, ref = citation.get('page'), citation.get('ref')
+        if type(page) is not int or page < 1 or ref not in refs:
+            continue
+        # Keep two independent source identities even for the same page number.
+        if (ref, page) not in locations:
+            locations.append((ref, page))
+    if not locations:
+        return result
+    text = ', '.join(f'page {page} [{ref}]' for ref, page in locations)
+    return {**result, 'answer': result['answer'] + ' Source location: ' + text + '.'}
 
 
 def _parse(raw):
@@ -183,7 +230,6 @@ def _render_verified_duration(body, calculation, sources):
     """Only the deterministic renderer may add derived numbers, never the model."""
     if calculation is None:
         return body
-    from services.citation_service import split_sentences
     kept=[]
     for sentence in split_sentences(body):
         missing,facts=evidence_profile(sentence,sources)
@@ -193,6 +239,68 @@ def _render_verified_duration(body, calculation, sources):
         if not duration_gap:
             kept.append(sentence)
     return ' '.join(kept+[calculation['answer']])
+
+
+def _employment_claim(sentence):
+    if _EMPLOYMENT.search(sentence) or re.search(r'\b(?:spent|duration|lasted|joined|start date)\b', sentence, re.I):
+        return True
+    timing = re.sub(r'^(?:it (?:is|was) |approximately |about )+', '',
+                    strip_citations(sentence).strip(' .'), flags=re.I)
+    return bool(_DURATION_VALUE.fullmatch(timing))
+
+
+def _unsupported_employment_sentences(body, question, sources, calculation, incompatible_refs):
+    """A model cannot turn a digit elsewhere in a passage into a work duration."""
+    from services.tenure_calculation import duration_intent, joining_intent, employer_hint
+    if not ((duration_intent(question) and _EMPLOYMENT.search(question)) or joining_intent(question)):
+        return []
+    by_ref = source_index(sources)
+    employer = ' '.join(employer_hint(question) or [])
+    bad = []
+    for sentence in split_sentences(body):
+        refs = set(extract_citation_refs(sentence))
+        if not _employment_claim(sentence):
+            continue
+        if refs & incompatible_refs:
+            bad.append(sentence)
+            continue
+        quantities = _DURATION_VALUE.findall(sentence)
+        if not quantities:
+            continue
+        if calculation is not None:
+            # The model was asked for the other fields only. Render all such
+            # quantities through the verified calculator, including when the
+            # same digit incidentally occurs in the source for another fact.
+            bad.append(sentence)
+            continue
+        cited = [clause for ref in refs if ref in by_ref
+                 for clause in re.split(r'(?<=[.!?])\s+|[;\n]+', by_ref[ref]['content'])
+                 if (_EMPLOYMENT.search(clause) or (employer and employer in clause.casefold()))
+                 and (not employer or employer in clause.casefold())]
+        if not all(any(quantity.casefold() in passage.casefold() for passage in cited)
+                   for quantity in quantities):
+            bad.append(sentence)
+    return bad
+
+
+def _complete_document_task(result, question, sources, calculation):
+    from services.tenure_calculation import duration_intent, has_additional_requests
+    if (os.getenv('RAG_V2') == '1' and result['status'] in {'answered', 'partial'}
+            and calculation is None and duration_intent(question) and _EMPLOYMENT.search(question)
+            and not any(_DURATION_VALUE.search(sentence) and _employment_claim(sentence)
+                        for sentence in split_sentences(result['answer']))):
+        # A verified sourcing of dates is useful to a multi-part question,
+        # but those operands do not by themselves fulfill a duration request.
+        asks_other = has_additional_requests(question) or bool(re.search(
+            r'\b(?:when|start and end dates?|start date|joining date)\b', question, re.I))
+        if asks_other:
+            result['status'] = 'partial'
+            if not has_abstention_language(result['answer']):
+                result['answer'] += " I couldn't establish the employment duration from the available evidence."
+        else:
+            result = _result(BOUNDED_REFUSAL, 'abstained', 'DOCUMENT', attempts=result['attempts'],
+                             issues=result['issues'] + ['requested_duration_not_established'])
+    return _with_coverage(result, question, sources)
 
 
 def _with_verified_duration(result, calculation, sources, question):
@@ -223,20 +331,36 @@ def generate_grounded_answer(
     generate_fn,
     history: list | None = None,
     memory_summary: str = "",
+    *,
+    as_of=None,
 ) -> dict:
+    check_deadline()
     sources = bundle.get("sources", [])
     context_text = bundle.get("context_text", "")
     calculation=None
-    if os.getenv('RAG_V2')=='1' and question_type!='MEMORY':
-        from services.tenure_calculation import calculation_from_sources
-        calculation=calculation_from_sources(question,sources,history)
+    incompatible_refs = set()
+    v2_grounded = os.getenv('RAG_V2') == '1' and question_type != 'MEMORY'
+    grounding_question = '' if v2_grounded else question
+    if v2_grounded:
+        from services.tenure_calculation import calculation_from_sources, incompatible_employment_refs
+        calculation = calculation_from_sources(question, sources, history, as_of=as_of)
+        incompatible_refs = set(incompatible_employment_refs(question, sources, history))
 
     # Nothing retrieved for a document question: never ask the model to
     # "answer anyway" (that is where general knowledge leaks in).
     if question_type == "DOCUMENT" and not sources:
-        return _result(REFUSAL_MESSAGE, "abstained", tag="DOCUMENT")
+        return _result(BOUNDED_REFUSAL if v2_grounded else REFUSAL_MESSAGE, "abstained", tag="DOCUMENT")
+    if v2_grounded:
+        from services.explicit_source_update import current_amount_answer
+        update = current_amount_answer(question, sources)
+        if update:
+            checked = answer_with_citations(update, sources)
+            if checked['validation']['valid'] and not unsupported_numbers(update, sources):
+                return _result(update, 'answered', 'DOCUMENT', checked['citations'],
+                               checked['validation'], issues=['explicit_source_update'])
 
-    attempts = 1 + max(0, cfg.ANSWER_MAX_RETRIES)
+    retries = max(0, cfg.ANSWER_MAX_RETRIES)
+    attempts = 1 + (min(1, retries) if v2_grounded else retries)
     feedback = None
     last_issues = []
     last_body, last_tag = "", None
@@ -261,6 +385,8 @@ def generate_grounded_answer(
             raise
         except Exception as error:   # retry/fallback already happened inside generate_answer
             last_issues = [f"generation_error: {type(error).__name__}"]
+            if v2_grounded:
+                return _result(ERROR_MESSAGE, "error", None, [], None, attempt, last_issues)
             feedback = None
             continue
         trace_event('answer_generated', {'attempt': attempt}, raw={'answer': raw})
@@ -273,7 +399,7 @@ def generate_grounded_answer(
             continue
 
         last_tag, last_body = tag, body
-        is_refusal = body.strip() == REFUSAL_MESSAGE
+        is_refusal = body.strip() == REFUSAL_MESSAGE or (v2_grounded and body.strip() == BOUNDED_REFUSAL)
         # A DOCUMENT/MIXED question with retrieved sources needs citations,
         # whatever tag the model chose (a [MEMORY] tag must not bypass grounding).
         needs_citations = bool(sources) and question_type != "MEMORY" and not is_refusal
@@ -306,13 +432,25 @@ def generate_grounded_answer(
         validation = validate_answer_citations(body, sources, require_citations=needs_citations)
 
         # Stage 6: every number must be written in the passage it cites (or in the question).
-        ungrounded = unsupported_numbers(body, sources, question, check_uncited=check_uncited_numbers)
+        # For document answers an assertion in the question is never numerical
+        # evidence. Application-derived values are added only after this check.
+        ungrounded = unsupported_numbers(body, sources, grounding_question, check_uncited=check_uncited_numbers)
         if ungrounded:
             validation = {**validation, "valid": False,
                           "issues": validation["issues"] + ["unsupported_number"]}
+        bad_duration = (_unsupported_employment_sentences(body, question, sources, calculation, incompatible_refs)
+                        if v2_grounded else [])
+        if bad_duration:
+            validation = {**validation, 'valid': False,
+                          'issues': validation['issues'] + ['unverified_employment_duration']}
 
         coverage = _coverage(question, sources, _render_verified_duration(body,calculation,sources)) if question_type != 'MEMORY' else None
         coverage_missing = coverage.get('concrete_missing', []) if coverage else []
+        invalid_fields = [item['id'] for item in (coverage or {}).get('facets', [])
+                          if item.get('unsupported_answer_clauses')]
+        if invalid_fields:
+            validation = {**validation, 'valid': False, 'issues': validation['issues'] +
+                          ['unsupported_requested_value:' + field for field in invalid_fields]}
         if coverage_missing:
             validation = {**validation, 'valid': False,
                           'issues': validation['issues'] + ['missing_requested_item:' + item['id'] for item in coverage_missing]}
@@ -329,7 +467,7 @@ def generate_grounded_answer(
             result = _result(checked["text"], status, final_tag,
                              checked["citations"], validation, attempt)
             result = _with_verified_duration(result,calculation,sources,question)
-            return _with_coverage(result, question, sources) if question_type != 'MEMORY' else result
+            return _complete_document_task(result, question, sources, calculation) if question_type != 'MEMORY' else result
 
         last_issues = validation["issues"]
         feedback = (
@@ -341,6 +479,13 @@ def generate_grounded_answer(
         if coverage_missing:
             from services.request_coverage import coverage_feedback
             feedback += ' ' + coverage_feedback(coverage)
+        if bad_duration:
+            feedback += (' State work duration only when directly given with its units in the cited '
+                         'passage. When the application has verified an employment calculation, '
+                         'leave the duration to the application and answer the other requested parts.')
+        if invalid_fields:
+            feedback += (' Check the cited value and units for ' + ', '.join(invalid_fields) +
+                         '. A component or an unrelated amount cannot establish the requested value.')
         if ungrounded:
             numbers = sorted({n for _, missing in ungrounded for n in missing})
             feedback += (
@@ -357,9 +502,24 @@ def generate_grounded_answer(
             comparison = _count_comparison_fallback(question, sources, attempts, last_issues)
             if comparison is not None:
                 return _with_coverage(comparison, question, sources)
-        result = _fallback(last_body, last_tag, last_issues, sources, question, attempts)
+        rejected_sentences = set(_unsupported_employment_sentences(last_body, question, sources, calculation, incompatible_refs)
+                                 if v2_grounded else [])
+        if v2_grounded:
+            rejected_sentences.update(clause for item in (_coverage(question, sources, last_body) or {}).get('facets', [])
+                                      for clause in item.get('unsupported_answer_clauses', []))
+        if rejected_sentences:
+            last_body = ' '.join(s for s in split_sentences(last_body) if s not in rejected_sentences)
+        if not last_body and calculation is not None:
+            from services.tenure_calculation import has_additional_requests
+            result = _with_verified_duration(_result('', 'answered', 'DOCUMENT', attempts=attempts,
+                                                      issues=last_issues), calculation, sources, question)
+            if has_additional_requests(question):
+                result['answer'] += " I couldn't establish the remaining requested details from the available evidence."
+                result['status'] = 'partial'
+            return _with_coverage(result, question, sources)
+        result = _fallback(last_body, last_tag, last_issues, sources, grounding_question, attempts)
         result = _with_verified_duration(result,calculation,sources,question)
-        return _with_coverage(result, question, sources) if question_type != 'MEMORY' else result
+        return _complete_document_task(result, question, sources, calculation) if question_type != 'MEMORY' else result
 
     return _result(ERROR_MESSAGE, "error", None, [], None, attempts, last_issues)
 

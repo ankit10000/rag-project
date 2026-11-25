@@ -27,15 +27,43 @@ def explicit_document_scope(question):
         return None
     from services.database import get_connection
     with get_connection() as conn:
-        rows = conn.execute('''SELECT id FROM documents
-            WHERE owner_id=%s AND status='ready'
+        rows = conn.execute('''SELECT id, filename, status FROM documents
+            WHERE owner_id=%s AND status<>'deleted'
                 AND strpos(lower(%s), lower(filename)) > 0
             ORDER BY id LIMIT 5''', (owner, question)).fetchall()
-    if not rows or len(rows) > 3:
+    if not rows or len(rows) >= 5:
         # An explicit file reference that cannot be authorized is a closed
         # scope, not permission to search every other document in the account.
         return []
-    return [str(row[0]) for row in rows]
+    # Candidate matching in SQL is deliberately coarse. "Draft Plan.pdf"
+    # must not select an owned "Plan.pdf"; nor can one recognized filename
+    # authorize a request also naming a missing/deleted second PDF.
+    mentions = {m.end() for m in re.finditer(r'\.pdf\b', question, re.I)}
+    matched = {}
+    states = {}
+    for document_id, filename, status in rows:
+        states[str(document_id)] = status
+        for hit in re.finditer(re.escape(filename), question, re.I):
+            before = question[:hit.start()].rstrip()
+            if hit.start() and (question[hit.start() - 1].isalnum() or question[hit.start() - 1] in '_-./'):
+                continue
+            if before and before[-1] not in """\"'“‘(:;,[""" and not re.search(
+                r'\b(?:in|from|of|to|with|using|only|per|the|is|are|about|and|or|vs|versus|does|did|use|check|'
+                r'read|compare|summari[sz]e|review|document|file|pdf)\s*$', before, re.I
+            ):
+                continue
+            if hit.end() in mentions:
+                matched.setdefault(hit.end(), []).append((len(filename), str(document_id)))
+    if not mentions or matched.keys() != mentions:
+        return []
+    selected = {doc for candidates in matched.values() for length, doc in candidates
+                if length == max(size for size, _ in candidates)}
+    if len(selected) > 3:
+        return []
+    if any(states[did] != 'ready' for did in selected):
+        from backend.errors import ApiError
+        raise ApiError(503, 'document_not_ready', 'A selected document is not ready for retrieval.')
+    return sorted(selected)
 
 
 def _terms(text):
@@ -182,7 +210,7 @@ def recover_complementary_evidence(question, search_query, retained, initial,
     from services.request_budget import check_deadline
     owner = current_owner()
     unchanged = {'results': retained, 'policy': POLICY, 'changed': False, 'facet_queries': 0}
-    if owner is None or not retained or max_chunks <= 0:
+    if owner is None or (not retained and not document_names) or max_chunks <= 0:
         return unchanged
     facets = decompose_question(search_query or question, max_facets=3)
     structural_count = _structural_count_request(question)
@@ -201,8 +229,12 @@ def recover_complementary_evidence(question, search_query, retained, initial,
         scope = sorted(sources)
     scope = list(scope)
     originals = [item for item in retained if item['chunk'][1] in scope]
-    if not originals:
+    if not originals and (retained or not facets):
         return unchanged
+    if not originals:
+        # No surviving first-pass anchor: only independent scoped facet hits
+        # may seed continuity. Never resurrect a rejected low-scoring passage.
+        initial = {**initial, 'results': []}
     primary, secondary, statuses, facet_status_by_id, facet_candidates = [], [], [], {}, []
     capital_matches = (_capital_prose_candidates(capital_subject, initial.get('results', []), scope)
                        if capital_subject else [])
@@ -219,7 +251,7 @@ def recover_complementary_evidence(question, search_query, retained, initial,
         facet_rows = [item for item in _facet_retained(retrieval, cfg.RERANK_SCORE_MARGIN, cfg.RERANK_MIN_SCORE)
                       if item['chunk'][1] in scope]
         statuses.append(retrieval['rerank_status'])
-        facet_candidates.extend(retrieval['results'])
+        facet_candidates.extend(retrieval['results'] if originals else facet_rows)
         for item in retrieval['results']:
             facet_status_by_id[item['chunk'][0]] = retrieval['rerank_status']
         if facet == capital_probe:
@@ -268,6 +300,8 @@ def recover_complementary_evidence(question, search_query, retained, initial,
     admitted_statuses = [facet_status_by_id[item['chunk'][0]] for item in chosen
                          if item['chunk'][0] not in original_ids and item['chunk'][0] in facet_status_by_id]
     merged_status = initial.get('rerank_status', 'skipped')
+    if not originals and admitted_statuses:
+        merged_status = admitted_statuses[0]
     degraded = [status for status in admitted_statuses if status != 'ok']
     if degraded:
         merged_status = next((status for status in degraded if status.startswith('failed:')), degraded[0])

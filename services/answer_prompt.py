@@ -1,4 +1,5 @@
 """Prompt construction for grounded answer generation (no LLM calls here)."""
+import os
 import re
 
 from services import retrieval_config as cfg
@@ -66,16 +67,25 @@ CORRECTION REQUIRED (your previous attempt was rejected):
 """
 
     focus = ""
-    import os
+    refusal = REFUSAL_MESSAGE
     if os.getenv("RAG_V2") == "1":
+        refusal = "I couldn't establish that from the available evidence."
+        focus = ("- Answer the requested task first. Separate total amounts from components. "
+                 "For a list, give the supported items and identify known coverage limits. "
+                 "Prefer a revision only when the evidence establishes what it supersedes.\n")
         from services.v2_routing import qualification_subject
         if qualification_subject(question) is not None:
-            focus = ("- This asks for academic qualifications: state the degree, field, institution "
+            focus += ("- This asks for academic qualifications: state the degree, field, institution "
                      "and dates when supported. Do not substitute professional experience, "
                      "job titles or a skills list for education. If academic details are absent, "
                      "say that the provided evidence does not establish them.\n")
         from services.request_coverage import request_coverage, coverage_prompt
-        checklist = coverage_prompt(request_coverage(question, sources))
+        from services.evidence_trace import trace_event
+        coverage = request_coverage(question, sources)
+        trace_event('field_evidence', metadata={'field_count': len(coverage['facets']),
+                    'states': [field['evidence_state'] for field in coverage['facets']]},
+                    raw={'fields': coverage['facets']})
+        checklist = coverage_prompt(coverage)
         if checklist:
             focus += checklist + '\n'
         if calculation_managed:
@@ -106,7 +116,7 @@ ANSWERING RULES
   documents. A high-looking match is not proof: if the passages are related
   but do not actually contain the answer, say so.
 - If nothing relevant is present, respond exactly:
-  "{REFUSAL_MESSAGE}"
+  "{refusal}"
 - Every sentence that states a document fact must end with the reference
   tag(s) of the passage(s) that support it, for example [S1] or [S1][S3].
   Use ONLY these references: {refs}. Never invent a reference, filename or

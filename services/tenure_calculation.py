@@ -125,6 +125,7 @@ class Period:
     employer:str
     start:tuple[int,int]
     end:tuple[int,int]
+    date_span:tuple[int,int]
     is_current:bool=False
 
 
@@ -156,7 +157,8 @@ def periods_in_rows(rows,tokens,as_of=None):
             end=(as_of.year,as_of.month) if is_current else (int(date_range['ey']),_MONTHS[date_range['em'].casefold()])
             if not 1900<=start[0]<=end[0]<=2199 or end<start:continue
             employer=re.sub(r'\s+',' ',content[entity.start():entity.end()]+header_bridge).strip(' .:–—-|·')
-            periods.append(Period(cid,str(document),int(page),content,employer,start,end,is_current))
+            date_span=(entity.end()+date_range.start(),entity.end()+date_range.end())
+            periods.append(Period(cid,str(document),int(page),content,employer,start,end,date_span,is_current))
     return periods
 
 
@@ -164,18 +166,94 @@ def _source(period,ref):
     return {'ref':ref,'chunk_id':period.chunk_id,'document_name':period.document,'page_number':period.page,'content':period.content,'retrieval_score':None}
 
 
-def _result_for_employer(rows,tokens,question,*,as_of,start_only=False,history=None):
+_PERSON_LABEL = re.compile(r'\b(?:employee|candidate|name)\s*:\s*([^.:;|,\n]{2,65}?)(?=\s+(?:employer|position|role)\s*:|[.:;|,\n]|$)', re.I)
+
+
+def _name_matches(person, name):
+    requested = re.findall(r"[\w'-]+", person.casefold())
+    words = re.findall(r"[\w'-]+", name.casefold())
+    return bool(requested and words[:len(requested)] == requested)
+
+
+def _personal_heading(person, row):
+    if row[2] != 1:
+        return False
+    start = re.sub(r'^\s*(?:(?:curriculum vitae|r[eé]sum[eé]|CV)\s*[:|–—-]?\s*)?', '', row[3], flags=re.I)
+    match = re.match(r"([\w'-]+(?: [\w'-]+){0,3}?)\s*(?:\n|[|·]|[–—]\s+|\s+(?=Full Stack|Software Engineer|Email:))", start)
+    return bool(match and _name_matches(person, match[1]))
+
+
+def _person_rows(rows, person, headers):
+    """Bind employment rows to a labeled person or their resume heading."""
+    labels = {}
+    for row in [*headers, *rows]:
+        labels.setdefault(str(row[1]), set()).update(m[1].strip().casefold() for m in _PERSON_LABEL.finditer(row[3]))
+    result, anchors = [], {}
+    for row in rows:
+        doc = str(row[1])
+        # Multiple named people make a document-level binding unsafe.
+        if len(labels[doc]) > 1 or any(not _name_matches(person, label) for label in labels[doc]):
+            continue
+        candidates = [row, *(h for h in headers if str(h[1]) == doc)]
+        for candidate in candidates:
+            if (any(_name_matches(person, m[1]) for m in _PERSON_LABEL.finditer(candidate[3]))
+                    or _personal_heading(person, candidate)):
+                result.append(row)
+                anchors[row[0]] = candidate
+                break
+    return result, anchors
+
+
+def incompatible_employment_refs(question, sources, history=None):
+    """Refs with an explicitly different employee for a requested employment fact."""
+    if not (duration_intent(question) or joining_intent(question)):
+        return []
+    from services.v2_request_contract import employment_subject
+    person=employment_subject(question,history)
+    if not person:return []
+    return [s['ref'] for s in sources if s.get('ref') and
+            any(not _name_matches(person,m[1]) for m in _PERSON_LABEL.finditer(s.get('content','')))]
+
+
+def _result_for_employer(rows,tokens,question,*,as_of,start_only=False,history=None,headers=()):
+    from services.v2_request_contract import employment_subject
+    person = employment_subject(question,history)
+    anchors = {}
+    if person and rows:
+        rows, anchors = _person_rows(rows,person,headers)
+        if not rows:
+            return {'answer':"I couldn't establish this person's employment at the requested employer from the available evidence.",
+                    'status':'abstained','sources':[],'citations':[],'issues':['employment_person_not_verified'],
+                    'retrieval_status':'source_lookup','retrieved':[],'routing_policy':POLICY}
     requested=_literal_employer(question,history)
     if requested and requested!=tokens:
         exact=re.compile(r'\b'+r'\s+'.join(re.escape(t) for t in requested)+r'\b',re.I)
         if any(exact.search(row[3]) for row in rows):
             # A literal employer always wins, even if its dates are missing.
             # Never overwrite a real GO Productions record with a GOC guess.
-            return result_from_rows(rows,requested,as_of=as_of,start_only=start_only)
+            tokens=requested
     result=result_from_rows(rows,tokens,as_of=as_of,start_only=start_only)
     if result and requested and requested!=tokens and 'calculation' in result:
         result['calculation']['requested_employer_hint']=' '.join(requested)
         result['calculation']['resolved_employer_hint']=' '.join(tokens)
+    if result and result.get('citations') and person:
+        citation=result['citations'][0]
+        anchor=anchors[citation['chunk_id']]
+        ref=citation['ref']
+        if anchor[0]!=citation['chunk_id']:
+            ref='S2'
+            source={'ref':ref,'chunk_id':anchor[0],'document':str(anchor[1]),'page':anchor[2]}
+            result['answer']+=f' The résumé identifies {person} [{ref}].'
+            result['citations'].append(source)
+            result['sources'].append(source.copy())
+            result['retrieved'].append({'ref':ref,'chunk_id':anchor[0],'document_name':str(anchor[1]),
+                                        'page_number':anchor[2],'retrieval_score':None})
+            from services.citation_service import validate_answer_citations
+            result['validation']=validate_answer_citations(result['answer'],result['retrieved'],require_citations=True)
+            if not result['validation']['valid']:
+                raise ValueError('employment identity citation validation failed')
+        if 'calculation' in result:
+            result['calculation']['person_evidence']={'ref':ref,'document':str(anchor[1]),'page':anchor[2],'chunk_id':anchor[0]}
     return result
 
 
@@ -191,7 +269,8 @@ def result_from_rows(rows,tokens,*,as_of=None,start_only=False):
                 'status':'abstained','sources':[],'citations':[],'issues':['ambiguous_employment_period'],'retrieval_status':'source_lookup','retrieved':[],'routing_policy':POLICY}
     p=next(iter(unique.values()))
     # Reverify the exact range against the original cited content before rendering.
-    assert p in periods_in_rows([(p.chunk_id,p.document,p.page,p.content)],tokens,as_of)
+    if p not in periods_in_rows([(p.chunk_id,p.document,p.page,p.content)],tokens,as_of):
+        raise ValueError('employment source range did not revalidate')
     months=(p.end[0]-p.start[0])*12+p.end[1]-p.start[1]
     years,remainder=divmod(months,12)
     start=f'{calendar.month_name[p.start[1]]} {p.start[0]}'
@@ -217,7 +296,8 @@ def result_from_rows(rows,tokens,*,as_of=None,start_only=False):
     proof={'policy':POLICY,'method':'(end_year-start_year)*12 + end_month-start_month',
            'start':f'{p.start[0]:04d}-{p.start[1]:02d}','end':f'{p.end[0]:04d}-{p.end[1]:02d}',
            'total_months':months,'years':years,'remaining_months':remainder,'precision':'month; approximate elapsed duration',
-           'source_ref':'S1','source_chunk_id':p.chunk_id,'source_document':p.document,'source_page':p.page}
+           'source_ref':'S1','source_chunk_id':p.chunk_id,'source_document':p.document,'source_page':p.page,
+           'date_span_in_analyzed_chunk':list(p.date_span)}
     if p.is_current:proof.update(as_of=as_of.isoformat(),end_source='application_clock_for_explicit_present',source_end='Present')
     result={'answer':checked['text'],'status':'answered','citations':checked['citations'],
             'sources':[{'document':p.document,'page':p.page,'chunk_id':p.chunk_id,'ref':'S1'}],
@@ -227,32 +307,45 @@ def result_from_rows(rows,tokens,*,as_of=None,start_only=False):
     return result
 
 
-def calculation_from_sources(question,sources,history=None):
+def calculation_from_sources(question,sources,history=None,*,as_of=None):
     """Derive only from final selected context, retaining its original reference."""
     if not duration_intent(question):return None
     tokens=resolve_employer(question,history)
     if tokens is None:return None
     rows=[(s['chunk_id'],s['document_name'],s['page_number'],s['content']) for s in sources]
-    result=_result_for_employer(rows,tokens,question,as_of=_as_of_date(),history=history)
+    result=_result_for_employer(rows,tokens,question,as_of=as_of or _as_of_date(),history=history,headers=rows)
     if not result or 'calculation' not in result:return None
     proof=result['calculation']
     source=next(s for s in sources if s['chunk_id']==proof['source_chunk_id']
                 and s['document_name']==proof['source_document'] and s['page_number']==proof['source_page'])
-    result['answer']=result['answer'].replace('[S1]',f"[{source['ref']}]")
+    # Remap all refs simultaneously: the identity anchor can itself be S1.
+    remap = {citation['ref']: next(s['ref'] for s in sources if s['chunk_id']==citation['chunk_id']
+             and s['document_name']==citation['document'] and s['page_number']==citation['page'])
+             for citation in result['citations']}
+    result['answer']=re.sub(r'\[(S\d+)\]',lambda m:f'[{remap[m[1]]}]',result['answer'])
+    if 'person_evidence' in proof:proof['person_evidence']['ref']=remap[proof['person_evidence']['ref']]
     proof['source_ref']=source['ref']
+    for collection in ('citations','sources','retrieved'):
+        result[collection]=[{**item,'ref':remap[item['ref']]} for item in result[collection]]
+    from services.citation_service import validate_answer_citations
+    result['validation']=validate_answer_citations(result['answer'],sources,require_citations=True)
+    if not result['validation']['valid']:raise ValueError('selected employment citation validation failed')
     return result
 
 
-def answer_employment_duration(question,history=None):
+def answer_employment_duration(question,history=None,*,scope=None,as_of=None):
     tokens=resolve_employer(question,history)
     if tokens is None:return None
     from services.tenant_context import current_owner
     owner=current_owner()
     if owner is None:raise PermissionError('authenticated tenant required')
     from services.v2_evidence_recovery import explicit_document_scope
-    scope=explicit_document_scope(question)
+    if scope is None:scope=explicit_document_scope(question)
     if scope==[]:return None
     from services.database import get_connection
+    from services.v2_request_contract import employment_subject
+    person=employment_subject(question,history)
+    headers=[]
     with get_connection() as conn:
         scope_sql=' AND dc.document_name=ANY(%s)' if scope else ''
         requested=_literal_employer(question,history)
@@ -263,5 +356,14 @@ def answer_employment_duration(question,history=None):
             FROM document_chunks dc JOIN documents d ON d.id=dc.document_id AND d.owner_id=dc.owner_id
             WHERE dc.owner_id=%s AND d.status='ready' AND ('''+prefix_sql+')'+scope_sql+'''
             ORDER BY dc.document_name,dc.page_number,dc.chunk_id LIMIT 101''',params).fetchall()
+        if (person and 0<len(rows)<=100 and
+                any(not _PERSON_LABEL.search(row[3]) and not _personal_heading(person,row) for row in rows)):
+            ids=list(dict.fromkeys(row[1] for row in rows))
+            if len(ids)<=3:
+                headers=conn.execute('''SELECT DISTINCT ON (dc.document_name)
+                    dc.id,dc.document_name,dc.page_number,dc.content
+                    FROM document_chunks dc JOIN documents d ON d.id=dc.document_id AND d.owner_id=dc.owner_id
+                    WHERE dc.owner_id=%s AND d.status='ready' AND dc.document_name=ANY(%s) AND dc.page_number=1
+                    ORDER BY dc.document_name,dc.chunk_id''',(owner,ids)).fetchall()
     if len(rows)>100:return None
-    return _result_for_employer(rows,tokens,question,as_of=_as_of_date(),start_only=joining_intent(question) and not duration_intent(question),history=history)
+    return _result_for_employer(rows,tokens,question,as_of=as_of or _as_of_date(),start_only=joining_intent(question) and not duration_intent(question),history=history,headers=headers)

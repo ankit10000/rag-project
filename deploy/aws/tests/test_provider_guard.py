@@ -44,6 +44,20 @@ class ProviderGuardTests(unittest.TestCase):
         install_guard(OtherSDK,self.policy,self.receipts)
         with self.assertRaisesRegex(RuntimeError,'exhausted'):
             OtherSDK().generate_content(model='gemini-3.5-flash-lite',contents='anything')
+    def test_conversation_scope_leaves_other_traffic_and_its_data_alone(self):
+        from contextvars import ContextVar
+        selected=ContextVar('selected',default=False)
+        install_guard(self.SDK,self.policy,self.receipts,active=selected.get)
+        self.call()
+        self.assertFalse(list(self.receipts.glob('call*')))
+        token=selected.set(True)
+        try:
+            self.call();self.call()
+            with self.assertRaisesRegex(RuntimeError,'exhausted'):self.call()
+        finally:selected.reset(token)
+        self.call()
+        self.assertEqual(len(self.calls),4)
+        self.assertEqual(len(list(self.receipts.glob('call-*.claim'))),2)
     def test_parallel_claims_never_exceed_cap(self):
         install_guard(self.SDK,self.policy,self.receipts)
         errors=[]

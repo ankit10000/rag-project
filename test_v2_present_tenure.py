@@ -13,7 +13,9 @@ from services.tenure_calculation import (duration_intent,joining_intent,resolve_
 from services.tenant_context import tenant_scope
 
 AS_OF=date(2026,11,25)
-TEXT='Full Stack Developer | GOC Productions | Apr 2026 – Present · Full-time'
+# Retain the original date header together with the first-page identity used
+# in a named-person question. An anonymous employer header alone is insufficient.
+TEXT='Ankit Jangid\nFull Stack Developer | GOC Productions | Apr 2026 – Present · Full-time'
 ROWS=[(31,'owned-resume',1,TEXT)]
 OWNER='00000000-0000-4000-8000-000000000001'
 EXPERIENCE='how much experience to Ankit in GOC Productions'
@@ -43,6 +45,8 @@ class PresentTenureTests(unittest.TestCase):
         out=result_from_rows(ROWS,['goc','productions'],as_of=AS_OF)
         self.assertEqual(out['status'],'answered')
         self.assertEqual(out['calculation']['total_months'],7)
+        lo,hi=out['calculation']['date_span_in_analyzed_chunk']
+        self.assertEqual(TEXT[lo:hi],'Apr 2026 – Present')
         self.assertEqual(out['calculation']['years'],0)
         self.assertEqual(out['calculation']['remaining_months'],7)
         self.assertEqual(out['calculation']['as_of'],'2026-11-25')

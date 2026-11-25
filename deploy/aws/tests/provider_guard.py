@@ -4,6 +4,7 @@ Only prompt/response hashes and usage counts enter receipts. The fixed directory
 is reused across process restarts, so a failed experiment cannot reset its cap.
 """
 from __future__ import annotations
+from contextvars import ContextVar
 from datetime import datetime,timezone
 import hashlib
 import json
@@ -11,6 +12,7 @@ import os
 from pathlib import Path
 import re
 import time
+from uuid import UUID
 
 
 def _hash(value):
@@ -23,7 +25,7 @@ def _write(path,value):
         json.dump(value,output,indent=2);output.write('\n')
 
 
-def install_guard(models_class,policy_path:Path,receipts:Path):
+def install_guard(models_class,policy_path:Path,receipts:Path,*,active=None):
     policy=json.loads(policy_path.read_text())
     if (policy.get('version')!='aws-demo-development-acceptance/1'
         or type(policy.get('maximum_sdk_calls')) is not int
@@ -46,6 +48,8 @@ def install_guard(models_class,policy_path:Path,receipts:Path):
         raise RuntimeError('provider guard already installed')
 
     def bounded(self,*args,**kwargs):
+        if active is not None and not active():
+            return original(self,*args,**kwargs)
         if os.getenv('RAG_AWS_PROVIDER_DISABLED')=='1':
             raise RuntimeError('live provider calls are disabled for remaining verification')
         model=kwargs.get('model')
@@ -85,10 +89,22 @@ def build_app():
     if os.getenv('RAG_DATABASE_NAME') not in {'rag_v2_demo','rag_aws_scratch'}:
         raise RuntimeError('test API requires the dedicated demonstration/scratch database')
     from google.genai.models import Models
+    from backend.v2 import app as api
+    selected=os.getenv('RAG_AWS_ACCEPTANCE_CONVERSATION')
+    active=None
+    if selected:
+        selected=str(UUID(selected))
+        test_turn=ContextVar('metered_development_turn',default=False)
+        ordinary_turn=api._run_limited_turn
+        def scoped_turn(conversation_id,message,slots):
+            token=test_turn.set(conversation_id==selected)
+            try:return ordinary_turn(conversation_id,message,slots)
+            finally:test_turn.reset(token)
+        api._run_limited_turn=scoped_turn
+        active=test_turn.get
     identity=install_guard(Models,Path(os.environ['RAG_AWS_ACCEPTANCE_POLICY']),
-                  Path(os.environ['RAG_AWS_PROVIDER_RECEIPTS']))
-    from backend.v2.app import create_app
-    app=create_app()
+                  Path(os.environ['RAG_AWS_PROVIDER_RECEIPTS']),active=active)
+    app=api.create_app()
     @app.middleware('http')
     async def experiment_identity(request,call_next):
         response=await call_next(request)

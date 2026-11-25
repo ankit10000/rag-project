@@ -100,6 +100,11 @@ def is_insufficiency_clause(text, cited_contents=()):
         return True
     if _FIRST_PERSON.match(core) or _FRAGMENT.match(core):
         return True
+    if os.getenv('RAG_V2') == '1' and re.fullmatch(
+        r"(?:i|we) (?:could(?:n't| not)|can(?:not|'t)) establish (?:that|the following requested information)"
+        r" from the available evidence(?:\s*:\s*[^.!?]+)?", core, re.I
+    ):
+        return True
     if re.match(r"^(?:no|not enough|insufficient)\s+(?:information|evidence|details?)\b", core, re.I):
         return True
     no_information = re.match(r"^(?P<subject>.+?)\s+(?:provides?|gives?|contains?)\s+no\s+(?:information|evidence|details?)\b", core, re.I)

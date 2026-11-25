@@ -1,0 +1,47 @@
+{
+  "version": "aws-demo-development-acceptance/1",
+  "run_id": "aws-demo-20261125-live-01",
+  "maximum_sdk_calls": 12,
+  "allowed_models": ["gemini-3.5-flash-lite"],
+  "scope": "Synthetic development only; one POST per question; count SDK slots including housekeeping across the entire run. Stop on transport ambiguity or guard loss.",
+  "document": {
+    "id": "a68a33a8-5bf5-4391-b074-5ab10866655b",
+    "filename": "RAG_E2E_Check_20261125.pdf",
+    "sha256": "5b093fe2766e91ad01dd345e65aba00bedec2fdeed1ff0301d3e47494c411b49"
+  },
+  "questions": [
+    {"id":"joining","question":"When did Mira join Cedarbridge Labs?","status":"answered","required":["February 2022"],"pages":[1]},
+    {"id":"months","question":"How many months?","status":"answered","required":["45 months"],"pages":[1]},
+    {"id":"challenge","question":"Are you sure?","status":"answered","required":["45 months"],"pages":[1]},
+    {"id":"two-fields","question":"Using only RAG_E2E_Check_20261125.pdf, what are the total project budget and the project team size?","status":"partial","required":["83,?000","credits","team|headcount","not|unavailable|unresolved|unknown|cannot|couldn.t|unable|missing|unspecified"],"pages":[2]}
+  ],
+  "metrics": ["evidence from the expected source pages", "requested values or an explicit gap for each requested field", "source identities and PDF link integrity", "answer status", "latency to visible answer", "actual SDK attempt receipts"],
+  "offline_matrix": [
+    ["direct fact","Answer the supported statement with its source.","test_v2_answer_completeness.AnswerCompletenessTests.test_complete_answer_uses_one_generation"],
+    ["joining date","Return the employment start at month precision.","test_v2_present_tenure.PresentTenureTests.test_joining_question_returns_source_start_without_unasked_duration"],
+    ["closed duration","Recompute the month difference and preserve the source ID.","test_v2_tenure_calculation.TenureTests.test_exact_closed_month_difference_and_citation"],
+    ["ongoing duration","Use a fixed trusted clock and qualify the source's ongoing entry.","test_v2_present_tenure.PresentTenureTests.test_present_requires_an_explicit_trusted_as_of_date"],
+    ["bare months","Recompute from authorized synthetic source rows.","test_v2_request_journey.RequestJourneyTests.test_followup_and_challenge_recheck_source_in_current_turn"],
+    ["employer switch","Current employer overrides a previously discussed employer.","test_v2_request_journey.RequestJourneyTests.test_switch_employer_then_use_new_subject"],
+    ["unambiguous typo","Recover only a unique recent user referent.","test_v2_present_tenure.PresentTenureTests.test_pronoun_typo_followup_has_one_unique_recent_user_reference"],
+    ["ambiguous entity","Ask for disambiguation without choosing a period.","test_v2_tenure_calculation.TenureTests.test_ambiguous_documents_or_multiple_stints_require_clarification"],
+    ["multiple fields","Retain each directly supported requested field after bounded repair.","test_v2_answer_completeness.AnswerCompletenessTests.test_concrete_omission_repairs_with_existing_retry_only"],
+    ["multi-page enumeration","Recover original split items without creating scores or page identities.","test_v2_page_context.PageContinuityTests.test_recovers_split_list_without_inventing_rank_scores"],
+    ["comparison","Track each explicitly compared entity.","test_v2_request_coverage.CoverageTests.test_comparison_retains_entity_identity"],
+    ["explicit erratum","When the final evidence contains a specific superseding value, do not certify the obsolete sole answer.","test_v2_request_journey.RequestJourneyTests.test_obsolete_value_with_explicit_authoritative_erratum"],
+    ["unresolved contradiction","Surface the source disagreement and identify its evidence.","test_v2_answer_completeness.AnswerCompletenessTests.test_same_document_source_disagreement_is_reported"],
+    ["explicit negative","A supported negative fact is a cited answer.","test_abstention_contract.AbstentionContractTests.test_explicit_negative_service_fact_stays_answered_and_cited"],
+    ["missing information","Do not invent an unavailable value or force a citation.","test_v2_answer_completeness.AnswerCompletenessTests.test_absent_information_does_not_require_fabrication_or_extra_call"],
+    ["mixed answerability","Identify the unresolved requested field and retain citations for the supported part.","test_v2_answer_completeness.AnswerCompletenessTests.test_saved_prefaced_phone_gap_is_partial"],
+    ["challenge","Recheck evidence instead of parroting the last assistant message.","test_v2_request_journey.RequestJourneyTests.test_followup_and_challenge_recheck_source_in_current_turn"],
+    ["stale history","Never use dates in assistant history as calculation operands.","test_v2_tenure_calculation.TenureTests.test_history_supplies_referent_not_date_evidence"],
+    ["replacement across turns","Use only the current version's range and original citation.","test_v2_request_journey.RequestJourneyTests.test_followup_and_challenge_recheck_source_in_current_turn"],
+    ["deleted source","A deleted anchor must add no current evidence.","test_v2_page_context.PageContinuityTests.test_absent_or_deleted_anchor_adds_no_evidence"],
+    ["invalid citation","Reject unknown IDs even when the answer abstains.","test_abstention_contract.AbstentionContractTests.test_unknown_citations_do_not_turn_into_valid_abstentions"],
+    ["unsupported arithmetic","Reject model-supplied unverified numbers.","test_v2_answer_reliability_hotfix.BrowserReliabilityHotfixTests.test_arbitrary_model_numbers_are_still_rejected"],
+    ["retrieval failure","A failed evidence search must not produce a source-absence verdict.","test_v2_request_journey.RequestJourneyTests.test_failed_search_is_not_source_absence"],
+    ["provider failure","Propagate the operational exception or return an explicit failure status.","test_v2_request_journey.RequestJourneyTests.test_provider_failure_is_not_source_absence"],
+    ["deadline exhaustion","Do not repair beyond the original deadline.","test_v2_answer_completeness.AnswerCompletenessTests.test_answer_stage_does_not_start_repair_after_original_deadline"],
+    ["tenant isolation","Require current owner and ready matching document for a scoped answer.","test_v2_evidence_recovery.RecoveryTests.test_explicit_scope_requires_owner_ready_document_and_real_filename"]
+  ]
+}

@@ -6,7 +6,7 @@ has no answer, or treats an LLM coverage judgement as proof of correctness.
 """
 import re
 
-POLICY = 'v2-explicit-request-coverage/3'
+POLICY = 'v2-explicit-request-coverage/4'
 _WORD_NUMBERS = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5,
                  'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10,
                  'eleven': 11, 'twelve': 12}
@@ -53,6 +53,11 @@ def _entity_regex(label):
     # Spaces and hyphens are interchangeable in ordinary entity labels.
     tokens = re.findall(r'\w+', label.casefold())
     return r'(?<!\w)' + r'[\s-]+'.join(re.escape(x) for x in tokens) + r'(?!\w)'
+
+
+def explicit_field_ids(question):
+    """Requested dimensions, including a single field, without decomposing retrieval."""
+    return [name for name, _, requested, _, _ in _FIELDS if re.search(requested, question, re.I)]
 
 
 def _comparison_entities(question):
@@ -132,7 +137,8 @@ def build_request_plan(question):
         facet['pattern'] = r'\b(?:' + '|'.join(groups) + r')\b'
         if groups == ['additional'] and re.search(r'\bsuggested\s+additional\b', question, re.I):
             facet['label'] = 'suggested additional features'
-    if len(facets) >= 2:
+    if len(facets) >= 2 or (facets and re.search(
+            r'\b(?:total|overall|aggregate)(?:\s+(?:project|program|programme))?\s+(?:budget|cost|price)\b', question, re.I)):
         result.update(mode='fields', facets=facets[:6])
     else:
         clauses = re.split(r'\s+and\s+(?=(?:what|which|how|why|when|where|who)\b)', question, flags=re.I)
@@ -281,6 +287,91 @@ def _feature_vocabulary_family(heading):
     return None
 
 
+_NUM = r'\d+(?:,\d{3})*(?:\.\d+)?'
+_RANGE = rf'{_NUM}(?:\s*[-–—]\s*{_NUM})?'
+_MONEY = rf'(?:[$€£₹]\s*{_NUM}(?:\s*(?:[kKmMbB]\b|million\b|billion\b|thousand\b))?(?:\s*[-–—]\s*[$€£₹]?\s*{_NUM}(?:\s*(?:[kKmMbB]\b|million\b|billion\b|thousand\b))?)?|{_RANGE}\s+(?:credits?|dollars?|euros?|rupees?|USD|EUR|INR)\b)'
+_FIELD_QUANTITIES = {
+    'budget': (r'(?:budget|cost|price)', _MONEY),
+    'team': (r'(?:team(?:\s+size)?|headcount|staffing)', rf'{_RANGE}(?:\s+(?:people|members?|employees?|engineers?|developers?))?'),
+    'duration': (r'(?:duration|timeline|timeframe|development)', rf'{_RANGE}\s+(?:months?|years?|weeks?|days?)'),
+}
+_QUANTITY_LINK = r'\s*(?:[:=–—-]\s*)?(?:(?:is|was|of|has|had|takes?|lasts?|is estimated at|estimated at|stands at|consists? of|includes?)\s+)?'
+
+
+def _quantity_key(value, field):
+    value = re.sub(r'\s+', ' ', value.strip().casefold()).replace(',', '')
+    value = re.sub(r'\s*[-–—]\s*', '-', value)
+    if field == 'team':
+        return re.match(_RANGE, value)[0]
+    return re.sub(r'([$€£₹])\s+', r'\1', value)
+
+
+def _quantities(field, text, *, require_total=False):
+    label, quantity = _FIELD_QUANTITIES[field]
+    matches = []
+    for match in re.finditer(rf'\b{label}\b{_QUANTITY_LINK}(?P<value>{quantity})(?!\w)', text, re.I):
+        prefix = text[max(0, match.start()-50):match.start()]
+        if require_total and not re.search(r'\b(?:total|overall|aggregate)(?:\s+(?:project|program|programme))?\s*$', prefix, re.I):
+            continue
+        # Conditionals, negations, limits and estimates describe different
+        # propositions and cannot establish an unqualified exact value.
+        clause_prefix = re.split(r'[.!?;\n]', prefix)[-1]
+        if re.search(r"\b(?:if|unless|not|never|assume|example|hypothetical)\b", clause_prefix, re.I):
+            continue
+        matches.append(match)
+    return matches
+
+
+def _typed_field(question, facet, sources, answer):
+    from services.citation_service import extract_citation_refs, split_sentences, strip_citations
+    field = facet['id']
+    require_total = field == 'budget' and bool(re.search(
+        r'\b(?:total|overall|aggregate)(?:\s+(?:project|program|programme))?\s+(?:budget|cost|price)\b', question, re.I))
+    records = []
+    for source in sources:
+        if not source.get('ref'):
+            continue
+        for hit in _quantities(field, source['content'], require_total=require_total):
+            qualifier = re.search(r"\b[Pp]roject\s+([A-Z][\w'-]*(?: [A-Z][\w'-]*){0,2})(?:['’]s)?\s+"
+                                  r"(?:(?:total|overall)\s+)?$", source['content'][max(0,hit.start()-100):hit.start()])
+            records.append({'ref': source['ref'], 'document': source.get('document_name'), 'page': source.get('page_number'),
+                            'chunk_id': source.get('chunk_id'), 'span': hit.span('value'), 'value': hit['value'],
+                            'entity': qualifier[1].casefold() if qualifier else None})
+    values = {_quantity_key(record['value'], field) for record in records}
+    if not records:
+        return None
+    # Different values do not prove a contradiction across unrelated entities
+    # or documents. Report the distinct bindings without selecting by rank.
+    entities = {r['entity'] for r in records}
+    shared_entity = len(entities) == 1 and None not in entities
+    state = 'SUPPORTED_DIRECT' if len(values) == 1 else ('CONFLICTING' if shared_entity else 'AMBIGUOUS')
+    evidence = {'evidence_state': state, 'evidence_reason': 'explicit field/value binding' if len(values)==1 else 'multiple visible field/value bindings',
+                'evidence_records': records, 'supported_values': list(dict.fromkeys(r['value'] for r in records)),
+                'evidence_refs': list(dict.fromkeys(r['ref'] for r in records)), 'unsupported_answer_clauses': []}
+    if answer is None or len(values) != 1:
+        return evidence
+    matched = False
+    for sentence in split_sentences(answer):
+        raw = strip_citations(sentence)
+        refs = extract_citation_refs(sentence)
+        claims = [hit['value'] for hit in _quantities(field, raw)]
+        if not claims:
+            # Terse answers may put only a typed value on a line. A number
+            # occurring anywhere in an unrelated sentence is not a binding.
+            standalone = re.fullmatch(r'\s*(' + _FIELD_QUANTITIES[field][1] + r')\s*[.!]?\s*', raw, re.I)
+            if standalone and (field != 'team' or re.search(r'[A-Za-z]', standalone[1])):
+                claims = [standalone[1]]
+        if not claims or _gap_clause(raw):
+            continue
+        if all(_quantity_key(value, field) in values for value in claims) and (
+                not refs or any(ref in evidence['evidence_refs'] for ref in refs)):
+            matched = True
+        else:
+            evidence['unsupported_answer_clauses'].append(sentence)
+    evidence['answer_mentions'] = matched and not evidence['unsupported_answer_clauses']
+    return evidence
+
+
 def request_coverage(question, sources, answer=None):
     """Compare requested labels to actual context and optionally answer text.
 
@@ -325,11 +416,29 @@ def request_coverage(question, sources, answer=None):
                                       and all(_gap_clause(clause) for clause in answer_clauses))
         if refused_supported_item:
             mentions = False
+        details = {'evidence_state': 'AMBIGUOUS' if refs and source_fact_signal else 'NOT_FOUND_IN_SEARCHED_SCOPE',
+                   'evidence_reason': 'lexical candidate only' if refs and source_fact_signal else 'no affirmative binding in supplied passages',
+                   'supported_values': [], 'unsupported_answer_clauses': []}
+        if facet['id'] in _FIELD_QUANTITIES:
+            typed = _typed_field(question, facet, sources, answer)
+            if typed:
+                details.update(typed)
+            elif facet['id'] == 'budget' and re.search(r'\b(?:total|overall|aggregate)\s+(?:project\s+)?budget\b', question, re.I):
+                components = [s['ref'] for s in sources if s.get('ref') and re.search(
+                    r'\b(?:component|department|staffing|hardware|software)\s+budget\b', s['content'], re.I)]
+                if components and not any(re.search(r'\b(?:total|overall|aggregate)\b', s['content'], re.I) for s in sources):
+                    details.update(evidence_state='NOT_FOUND_IN_SEARCHED_SCOPE', evidence_reason='only component budgets are bound',
+                                   observed_in_context=False, evidence_refs=[], source_fact_signal=False)
+                    if answer is not None:
+                        from services.citation_service import split_sentences
+                        details['unsupported_answer_clauses'] = [s for s in split_sentences(answer)
+                            if _quantities('budget', s) and not _gap_clause(s) and not re.search(
+                                r'\b(?:component|department|staffing|hardware|software)\s+budget\b', s, re.I)]
         output.append({**facet, 'evidence_refs': list(dict.fromkeys(refs)),
                        'observed_in_context': bool(refs), 'answer_mentions': mentions,
                        'source_fact_signal': source_fact_signal,
                        'source_titles': source_titles,
-                       'refused_supported_item': refused_supported_item})
+                       'refused_supported_item': refused_supported_item, **details})
     concrete = [{'id': item['id'], 'label': item['label'], 'evidence_refs': item['evidence_refs']}
                 for item in output if item['observed_in_context'] and item['answer_mentions'] is False
                 and item.get('repair_checkable', True)]
