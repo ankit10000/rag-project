@@ -1,0 +1,245 @@
+{
+  "status": "LOCAL_LINUX_CAPACITY_PASS",
+  "date": "2026-11-23",
+  "platform": {
+    "deployment": "linux/amd64",
+    "local_host": "macOS arm64 Docker Desktop; Linux x86_64 emulation",
+    "kernel": "Linux-7.0.14-linuxkit-x86_64-with-glibc2.36",
+    "python": "3.14.10",
+    "node": "24.22.3",
+    "torch": "2.15.0+cpu",
+    "cuda_available": false,
+    "vm_memory_bytes": 4106539008,
+    "shared_service_cpu_set": "0,1",
+    "physical_cores_available_to_services": 2
+  },
+  "images": {
+    "backend": {
+      "tag": "rag-v2-backend:local",
+      "id": "sha256:fc743e239ebb45318f9d7e24b1d4c5799746fce7e3d05b02a8788501fd062cde"
+    },
+    "frontend": {
+      "tag": "rag-v2-frontend:local",
+      "id": "sha256:2e080c7c9db27194cf78f1c50d503edafa07b8ba61b7a3e4611182fec6b23ff6"
+    },
+    "source_verification": {
+      "matching_runtime_source_files": 100,
+      "mismatches": [],
+      "private_files": [],
+      "embedded_model_files": [],
+      "uid": 10001
+    },
+    "dependency_lock_sha256": "25a0519508369a9377b40e87ba3ed2948d60271797f5bf888ce3eb5581694da6",
+    "note": "profile_host.py is staged separately as a host-side tool; it was added after this image context capture."
+  },
+  "workloads": {
+    "api": {
+      "role": "api",
+      "platform": "Linux-7.0.14-linuxkit-x86_64-with-glibc2.36",
+      "machine": "x86_64",
+      "python": "3.14.10",
+      "torch": "2.15.0+cpu",
+      "cuda_available": false,
+      "rounds": 3,
+      "embedding_shape": [
+        8,
+        384
+      ],
+      "embedding_round_seconds": [
+        5.061,
+        0.465,
+        0.379
+      ],
+      "reranked_candidates": 10,
+      "warm_work_seconds": 1.563,
+      "work_seconds": 38.899,
+      "process_peak_rss_bytes": 711712768,
+      "memory.current": 850165760,
+      "memory.peak": 850165760,
+      "memory.max": 1207959552,
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+      "cpu.stat": "usage_usec 42042450\nuser_usec 33654188\nsystem_usec 8388262\nnice_usec 0\nnr_periods 1007\nnr_throttled 15\nthrottled_usec 105809\nnr_bursts 0\nburst_usec 0"
+    },
+    "worker": {
+      "role": "worker",
+      "platform": "Linux-7.0.14-linuxkit-x86_64-with-glibc2.36",
+      "machine": "x86_64",
+      "python": "3.14.10",
+      "torch": "2.15.0+cpu",
+      "cuda_available": false,
+      "rounds": 3,
+      "embedding_shape": [
+        8,
+        384
+      ],
+      "embedding_round_seconds": [
+        5.075,
+        0.551,
+        0.468
+      ],
+      "warm_work_seconds": 10.274,
+      "ocr_pages": 1,
+      "warm_ocr_pages": 1,
+      "ocr_method": "pymupdf-tesseract-fast-4.1.0",
+      "work_seconds": 70.928,
+      "process_peak_rss_bytes": 911994880,
+      "memory.current": 960253952,
+      "memory.peak": 1225428992,
+      "memory.max": 1476395008,
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+      "cpu.stat": "usage_usec 72133614\nuser_usec 56114861\nsystem_usec 16018752\nnice_usec 0\nnr_periods 1120\nnr_throttled 250\nthrottled_usec 8586254\nnr_bursts 0\nburst_usec 0"
+    },
+    "api_final": {
+      "role": "api",
+      "final": {
+        "process_peak_rss_bytes": 711712768,
+        "memory.current": 809467904,
+        "memory.peak": 857628672,
+        "memory.max": 1207959552,
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "cpu.stat": "usage_usec 48956572\nuser_usec 39302025\nsystem_usec 9654547\nnice_usec 0\nnr_periods 1613\nnr_throttled 15\nthrottled_usec 105809\nnr_bursts 0\nburst_usec 0"
+      }
+    },
+    "worker_final": {
+      "role": "worker",
+      "final": {
+        "process_peak_rss_bytes": 911994880,
+        "memory.current": 940085248,
+        "memory.peak": 1225428992,
+        "memory.max": 1476395008,
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+        "cpu.stat": "usage_usec 77150281\nuser_usec 60805996\nsystem_usec 16344285\nnice_usec 0\nnr_periods 1502\nnr_throttled 254\nthrottled_usec 8594423\nnr_bursts 0\nburst_usec 0"
+      }
+    },
+    "resident_hold_seconds_each": 90,
+    "overlap": "Both model workloads stayed resident together after completion; the first successful 180-second sampler captured approximately 42 seconds of this overlap. The rebalanced run also held both roles resident; its continuous stats recorder was interrupted by deliberate Caddy recreation."
+  },
+  "services": [
+    {
+      "service": "rag-aws-capacity-db-1",
+      "memory_limit_bytes": 402653184,
+      "memory_swap_limit_bytes": 402653184,
+      "cpuset_cpus": "0,1",
+      "cpu_quota_cores": 0.5,
+      "cgroup_memory_peak_bytes": 111239168,
+      "cgroup_oom": 0,
+      "cgroup_oom_kill": 0,
+      "health": "healthy",
+      "running": true
+    },
+    {
+      "service": "rag-aws-capacity-api-1",
+      "memory_limit_bytes": 1207959552,
+      "memory_swap_limit_bytes": 1207959552,
+      "cpuset_cpus": "0,1",
+      "cpu_quota_cores": 1.25,
+      "cgroup_memory_peak_bytes": 857628672,
+      "cgroup_oom": 0,
+      "cgroup_oom_kill": 0,
+      "health": "healthy",
+      "running": true
+    },
+    {
+      "service": "rag-aws-capacity-worker-1",
+      "memory_limit_bytes": 1476395008,
+      "memory_swap_limit_bytes": 1476395008,
+      "cpuset_cpus": "0,1",
+      "cpu_quota_cores": 1.0,
+      "cgroup_memory_peak_bytes": 1225428992,
+      "cgroup_oom": 0,
+      "cgroup_oom_kill": 0,
+      "health": "healthy",
+      "running": true
+    },
+    {
+      "service": "rag-aws-capacity-frontend-1",
+      "memory_limit_bytes": 402653184,
+      "memory_swap_limit_bytes": 402653184,
+      "cpuset_cpus": "0,1",
+      "cpu_quota_cores": 0.5,
+      "cgroup_memory_peak_bytes": 277905408,
+      "cgroup_oom": 0,
+      "cgroup_oom_kill": 0,
+      "health": "healthy",
+      "running": true
+    },
+    {
+      "service": "rag-aws-capacity-caddy-1",
+      "memory_limit_bytes": 100663296,
+      "memory_swap_limit_bytes": 100663296,
+      "cpuset_cpus": "0,1",
+      "cpu_quota_cores": 0.25,
+      "cgroup_memory_peak_bytes": 84877312,
+      "cgroup_oom": 0,
+      "cgroup_oom_kill": 0,
+      "health": "healthy",
+      "running": true
+    }
+  ],
+  "memory": {
+    "sum_limits_bytes": 3590324224,
+    "sum_limits_mib": 3424.0,
+    "vm_headroom_beyond_service_limits_bytes": 516214784,
+    "conservative_sum_individual_cgroup_peak_bytes": 2557079552,
+    "first_run_sampled_simultaneous_active_peak_bytes_approx": 1959977287,
+    "all_oom_counters_zero": true,
+    "before": "Worker peak 1185828864 bytes left only about 21 MiB under its initial 1152 MiB limit.",
+    "after": "API limit reduced to 1152 MiB; worker increased to 1408 MiB; DB384/frontend384/Caddy96 retained. Repeated OCR plus embeddings passed with worker peak1225428992 bytes."
+  },
+  "cpu": {
+    "peak_native_cpu_percent": null,
+    "raw_docker_stats_peak_percent": 1503.87,
+    "raw_peak_valid": false,
+    "reason": "Docker stats reports percentages incompatible with verified CPU quotas/cpuset on this emulated VM (for example PostgreSQL exceeds its 0.5-core quota). These values are not a certified native CPU measurement. Use host-side raw /proc and cgroup rate profiling during AWS E2E.",
+    "quota_and_cpuset_verified": true
+  },
+  "sampling": {
+    "first_run_samples": 57,
+    "steady_final_samples": 19,
+    "steady_final_probe_errors": 0,
+    "final_cgroup_samples": 4,
+    "final_cgroup_probe_errors": 0,
+    "interrupted_rebalanced_attempt_preserved": "/private/tmp/rag-aws-capacity-sampler-balanced.log",
+    "sampler_fix": "Checkpoint new run identity; retain Docker-stats replacement/timeout errors explicitly without substituting zero usage. Two focused regression tests passed."
+  },
+  "gateway": {
+    "local_https_login": 200,
+    "valid_origin_invalid_registration_body": 422,
+    "foreign_origin": 403,
+    "foreign_host": 404,
+    "caddy_health": "healthy",
+    "production_validation": "PASS; one explicit shortlived Let\u2019s Encrypt policy; only configured host3.109.17.151; no on-demand certificate policy",
+    "before_failures": [
+      "Test-only local Caddy one-line syntax error caused initial TLS failure; preserved and corrected.",
+      "Local origin403 exposed missing public origin configuration and stripped nondefault TLS port; strict configured origin and full authority forwarding fixed.",
+      "Local TLS health probe needed fallback SNI; explicit unknown-host404 retained."
+    ]
+  },
+  "verification": {
+    "frontend_linux_build": "PASS Node24.22.3/Next16.4.6 standalone; npm lock preserved",
+    "backend_linux_install": "PASS 80 hash-locked binary dependencies; pip check passed",
+    "scratch_migration": "PASS rag_aws_scratch, six reviewed migrations, nine FORCE RLS tables, restricted rag_v2_app role",
+    "profile_regression_command": "python3 -B -m unittest deploy.aws.image.test_profile_capacity -q",
+    "profile_regression_result": "2/2 PASS",
+    "actual_browser": "Agent4 fresh local attempt04 PASS1/1: native/scanned PDF ingestion, real OCR, PDF canvas, two-user session and resource404 isolation, deletion. No chat POST/provider calls."
+  },
+  "limitations": [
+    "Linux x86_64 execution was emulated; native AWS CPU/latency must be measured.",
+    "The workload uses small synthetic PDFs and bounded embedding/reranking batches; it does not certify sustained adversarial 25 MB/100-page concurrent uploads.",
+    "Synthetic model profiles add processes inside idle service containers. The ordinary indexing queue was kept idle until those processes exited; subsequent browser tests used only the normal worker.",
+    "A transient documents503 was observed under the initial concurrency4/keepalive5 deployment; the lead changed keepalive to0 while retaining concurrency4; final native/browser follow-up belongs to the lead."
+  ],
+  "provider_calls": 0,
+  "database": "rag_aws_scratch only",
+  "raw_evidence_sha256": {
+    "rag-aws-backend-build-export-final.log": "0ee73596b988b19e787bda2632a5234a80651df2faf7ddd6e2ddac0264f5e641",
+    "rag-aws-frontend-build-origin-fixed.log": "b2c989f00d78ca20df0c81b9e02b9e8d2cdfb90762eaa7280e677fc8e4723067",
+    "rag-aws-capacity-api-balanced.log": "72ca657ed46c82ea97130d1d6936ca2756af862ec4ef2953f094678327fc0bb5",
+    "rag-aws-capacity-worker-balanced.log": "cf9e8bc4c533b1eba0acf31cec2ef335204b3ef7cab295a48048636cde613e08",
+    "rag-aws-capacity-samples-final.json": "5ba3d4394b32772061f75961d9109d2306453e87739ca3362a25ca9189dd02c8",
+    "rag-aws-capacity-samples-final-steady.json": "5df57cb0263186f274ddf4ef29da6e3834848e3fd84d436abeb4280f25f27933",
+    "rag-aws-capacity-cgroups-final.json": "f0147ca5d71a0c0d02ac4270d8fcfefd502a2ed7fd297a2691d1d51c675b4e0f",
+    "rag-aws-caddy-production-final-adapt.json": "ccf89a94baf43260688f8366ffa7be196b980775abf43d3e5c99bdbdbfea8cf6",
+    "rag-aws-final-backend-image-verification-v3.json": "0f0aa1fcb592fb82fdde3a08cf6bea542f2080009692dad90b7334b53328bc6e"
+  }
+}

@@ -3,8 +3,9 @@ import argparse
 import os
 import sys
 from pathlib import Path
-import time
 import uuid
+import signal
+import threading
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 
 
@@ -20,6 +21,26 @@ def active_owner_batch(after=None, limit=100):
     with auth_system_context(),get_connection() as conn:
         rows=conn.execute("SELECT id FROM users WHERE status='active' AND (%s::uuid IS NULL OR id>%s::uuid) ORDER BY id LIMIT %s",(after,after,limit)).fetchall()
     return [str(row[0]) for row in rows]
+
+
+def work_loop(args, wid, stopped):
+    """Drain an in-flight attempt on SIGTERM; never claim another after stop."""
+    from services.v2_worker import process_one
+    cursor=None
+    while not stopped.is_set():
+        owners=[str(args.owner)] if args.owner else active_owner_batch(cursor)
+        if not owners:
+            cursor=None
+            if args.once:return 0
+            stopped.wait(1);continue
+        handled=False
+        for owner in owners:
+            if stopped.is_set():return 0
+            handled=process_one(owner,wid,lease_seconds=args.lease_seconds) or handled
+        cursor=owners[-1] if not args.owner else None
+        if args.once:return 0
+        if not handled:stopped.wait(1)
+    return 0
 
 
 def main():
@@ -46,17 +67,10 @@ def main():
             row=conn.execute("SELECT 1 FROM users WHERE id=%s AND status='active'",(args.owner,)).fetchone()
             if not row:parser.error('owner is not active')
     wid=f'{os.getpid()}-{uuid.uuid4().hex[:12]}'
-    cursor=None
-    while True:
-        owners=[str(args.owner)] if args.owner else active_owner_batch(cursor)
-        if not owners:
-            cursor=None
-            if args.once:return 0
-            time.sleep(1);continue
-        handled=False
-        for owner in owners:
-            handled=process_one(owner,wid,lease_seconds=args.lease_seconds) or handled
-        cursor=owners[-1] if not args.owner else None
-        if args.once:return 0
-        if not handled:time.sleep(1)
+    stopped=threading.Event()
+    previous={sig:signal.getsignal(sig) for sig in (signal.SIGTERM,signal.SIGINT)}
+    for sig in previous:signal.signal(sig,lambda _sig,_frame:stopped.set())
+    try:return work_loop(args,wid,stopped)
+    finally:
+        for sig,handler in previous.items():signal.signal(sig,handler)
 if __name__=='__main__':raise SystemExit(main())

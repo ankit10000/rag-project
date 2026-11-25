@@ -1,0 +1,85 @@
+sha256:fc743e239ebb45318f9d7e24b1d4c5799746fce7e3d05b02a8788501fd062cde
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 316B 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/rag-v2-backend:aws-20261123-01
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 20.34kB done
+#4 DONE 0.1s
+
+#5 [1/2] FROM docker.io/library/rag-v2-backend:aws-20261123-01@sha256:fc743e239ebb45318f9d7e24b1d4c5799746fce7e3d05b02a8788501fd062cde
+#5 resolve docker.io/library/rag-v2-backend:aws-20261123-01@sha256:fc743e239ebb45318f9d7e24b1d4c5799746fce7e3d05b02a8788501fd062cde 0.0s done
+#5 DONE 0.4s
+
+#5 [1/2] FROM docker.io/library/rag-v2-backend:aws-20261123-01@sha256:fc743e239ebb45318f9d7e24b1d4c5799746fce7e3d05b02a8788501fd062cde
+#5 extracting sha256:dd051e1b8c92ff101fa3071ab97ea4924885942f15644e01c3dc095764e863e3
+#5 extracting sha256:dd051e1b8c92ff101fa3071ab97ea4924885942f15644e01c3dc095764e863e3 1.3s done
+#5 DONE 1.7s
+
+#5 [1/2] FROM docker.io/library/rag-v2-backend:aws-20261123-01@sha256:fc743e239ebb45318f9d7e24b1d4c5799746fce7e3d05b02a8788501fd062cde
+#5 extracting sha256:dafbb7c7e67755f2c23dbcaff495bda6f6547c52cafc055e38b4a3f579236ed0 0.1s done
+#5 DONE 1.8s
+
+#5 [1/2] FROM docker.io/library/rag-v2-backend:aws-20261123-01@sha256:fc743e239ebb45318f9d7e24b1d4c5799746fce7e3d05b02a8788501fd062cde
+#5 extracting sha256:3d3ec61710abd366b8e7645686b9c82187905a3955f07b0bcefbaa0cf9a6257b
+#5 extracting sha256:3d3ec61710abd366b8e7645686b9c82187905a3955f07b0bcefbaa0cf9a6257b 0.6s done
+#5 DONE 2.4s
+
+#5 [1/2] FROM docker.io/library/rag-v2-backend:aws-20261123-01@sha256:fc743e239ebb45318f9d7e24b1d4c5799746fce7e3d05b02a8788501fd062cde
+#5 extracting sha256:19b26c2dd3ba317984bc361f7307cc4169e54ab7fd4d89f45fce27526c474034 0.0s done
+#5 extracting sha256:4015ed6186de7eff0671f0191134d491261d839241a66556df01d1590760ea65 0.0s done
+#5 extracting sha256:d54905ae7bfe274d3e3e7be35f8509128feb3cc300636a18b86f64d7f671ab0c
+#5 extracting sha256:d54905ae7bfe274d3e3e7be35f8509128feb3cc300636a18b86f64d7f671ab0c 17.8s done
+#5 DONE 20.2s
+
+#5 [1/2] FROM docker.io/library/rag-v2-backend:aws-20261123-01@sha256:fc743e239ebb45318f9d7e24b1d4c5799746fce7e3d05b02a8788501fd062cde
+#5 extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 0.0s done
+#5 extracting sha256:548fed74b2ecaa68af0811b469504a4f29c1e0cf1d3d9211b7e95723806fcc64 0.0s done
+#5 extracting sha256:4a8bc90953b3a041e29b9552317c9f56a37224d488ed11ec58d3e1af0ef32254 0.1s done
+#5 extracting sha256:4b4cef17873523585bcf15ccbb5b117bdd04e47e919b099e8908ccf9c4ac3df6 0.0s done
+#5 DONE 20.4s
+
+#5 [1/2] FROM docker.io/library/rag-v2-backend:aws-20261123-01@sha256:fc743e239ebb45318f9d7e24b1d4c5799746fce7e3d05b02a8788501fd062cde
+#5 extracting sha256:69dfae5b5bd2af070b27102533d0c99ecf72dd704e11b6298545a15296a7f513 0.0s done
+#5 extracting sha256:0234ccc1ac251f109502ab35efd177b21526d2190a6461d6be09157cfb46597e 0.0s done
+#5 extracting sha256:5f4b9468c21b102d9b648e19b9c02bc47211b9b4528606f91d35b5fa46906539 0.0s done
+#5 extracting sha256:f7e3a6f3d33b22a50f58ed24d4e60549bd335a4231ebc0853d28012db69668dc 0.0s done
+#5 DONE 20.5s
+
+#6 [2/2] COPY --chown=10001:10001 app.py /app/backend/v2/app.py
+#6 DONE 0.4s
+
+#7 exporting to image
+#7 exporting layers 0.1s done
+#7 exporting manifest sha256:49594c73d2baa05b0638f02058fcbfe6a11f361d18da51a989aa930e7844f479
+#7 exporting manifest sha256:49594c73d2baa05b0638f02058fcbfe6a11f361d18da51a989aa930e7844f479 0.0s done
+#7 exporting config sha256:865d7c66397d8efd413e1d065595d3127dedc7b6304f2a8454f3475f5a4afa3b 0.0s done
+#7 exporting attestation manifest sha256:9507802cd18a2b2d9c7c42cbe259046ad774c1cfd59806ebfd9d72455589a710 0.0s done
+#7 exporting manifest list sha256:da2a0081ffe0798068ad600fae4c2466382f9d44a1c9c2fb0913c58fe71e856e 0.0s done
+#7 naming to docker.io/library/rag-v2-backend:aws-20261123-02
+#7 naming to docker.io/library/rag-v2-backend:aws-20261123-02 done
+#7 unpacking to docker.io/library/rag-v2-backend:aws-20261123-02 0.0s done
+#7 DONE 0.3s
+ Container rag-demo-api-1 Recreate 
+ Container rag-demo-worker-1 Recreate 
+ Container rag-demo-api-1 Recreated 
+ Container rag-demo-worker-1 Recreated 
+ Container rag-demo-worker-1 Starting 
+ Container rag-demo-api-1 Starting 
+ Container rag-demo-worker-1 Started 
+ Container rag-demo-api-1 Started 
+ Container rag-demo-api-1 Waiting 
+ Container rag-demo-worker-1 Waiting 
+ Container rag-demo-worker-1 Healthy 
+ Container rag-demo-api-1 Healthy 
+SDK_DISABLED_AND_SERIAL_GENERATION
+0376b222da0c27b90da95faf9972ad7d1911b88b580a17216ed639963afbdfd4  /app/backend/v2/app.py

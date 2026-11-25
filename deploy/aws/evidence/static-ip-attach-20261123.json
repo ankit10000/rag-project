@@ -1,0 +1,34 @@
+{
+    "operations": [
+        {
+            "id": "fd2a09ba-f097-4cf7-b78b-82e737a1f6ac",
+            "resourceName": "rag-v2-demo-ip-20261123",
+            "resourceType": "StaticIp",
+            "createdAt": "2026-11-23T16:37:49.095000+05:30",
+            "location": {
+                "availabilityZone": "all",
+                "regionName": "ap-south-1"
+            },
+            "isTerminal": true,
+            "operationDetails": "rag-v2-demo-app-20261123",
+            "operationType": "AttachStaticIp",
+            "status": "Succeeded",
+            "statusChangedAt": "2026-11-23T16:37:49.095000+05:30"
+        },
+        {
+            "id": "8741044b-ae64-4515-a97e-042538397915",
+            "resourceName": "rag-v2-demo-app-20261123",
+            "resourceType": "Instance",
+            "createdAt": "2026-11-23T16:37:49.093000+05:30",
+            "location": {
+                "availabilityZone": "ap-south-1a",
+                "regionName": "ap-south-1"
+            },
+            "isTerminal": true,
+            "operationDetails": "rag-v2-demo-ip-20261123",
+            "operationType": "AttachStaticIp",
+            "status": "Succeeded",
+            "statusChangedAt": "2026-11-23T16:37:49.093000+05:30"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+rag-demo-api-1 rag-v2-backend:aws-20261123-02 Up 3 minutes (healthy) 8000/tcp
+rag-demo-worker-1 rag-v2-backend:aws-20261123-02 Up 13 minutes (healthy) 8000/tcp
+rag-demo-caddy-1 caddy:2.11.9-alpine Up About a minute (healthy) 0.0.0.0:80->80/tcp, [::]:80->80/tcp, 0.0.0.0:443->443/tcp, [::]:443->443/tcp, 443/udp, 2019/tcp
+rag-demo-frontend-1 rag-v2-frontend:aws-20261123-01 Up 36 minutes (healthy) 3000/tcp
+rag-demo-db-1 pgvector/pgvector:pg18 Up 37 minutes (healthy) 5432/tcp
+enabled
+enabled
+enabled
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root        77G  7.8G   69G  11% /

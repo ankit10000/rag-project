@@ -1,0 +1,151 @@
+images-20261123-01.tar.gz: OK
+release-20261123-01.tar.gz: OK
+models-20261123-01.tar.gz: OK
+Loaded image: rag-v2-backend:aws-20261123-01
+Loaded image: rag-v2-frontend:aws-20261123-01
+ Image pgvector/pgvector:pg18@sha256:38681dc6eaf55308e2a4c6de392d131652dcfac70e1263e35cd9b5ea3fe39782 Pulling 
+ b76ba81720dd Pulling fs layer 0B
+ 21fdcf06a0cd Pulling fs layer 0B
+ dd051e1b8c92 Pulling fs layer 0B
+ 424dfb07ec5a Pulling fs layer 0B
+ ef7c52393888 Pulling fs layer 0B
+ 5544e769d401 Pulling fs layer 0B
+ 93f2138a6b59 Pulling fs layer 0B
+ 09767bdec9b6 Pulling fs layer 0B
+ bfcf7f3ebed0 Pulling fs layer 0B
+ 2b30de92d186 Pulling fs layer 0B
+ 37a4c26fa7e0 Pulling fs layer 0B
+ cb966a665541 Pulling fs layer 0B
+ c522c10deb9e Pulling fs layer 0B
+ 97113491bb9a Pulling fs layer 0B
+ 4b020327faf7 Pulling fs layer 0B
+ dd051e1b8c92 Already exists 0B
+ b76ba81720dd Downloading 1.049MB
+ b76ba81720dd Download complete 0B
+ 09767bdec9b6 Download complete 0B
+ 21fdcf06a0cd Downloading 116B
+ 21fdcf06a0cd Download complete 0B
+ bfcf7f3ebed0 Download complete 0B
+ 424dfb07ec5a Download complete 0B
+ 2b30de92d186 Download complete 0B
+ 424dfb07ec5a Extracting 1B
+ 37a4c26fa7e0 Downloading 3.146MB
+ 424dfb07ec5a Extracting 1B
+ ef7c52393888 Downloading 1.049MB
+ cb966a665541 Download complete 0B
+ 37a4c26fa7e0 Downloading 13.63MB
+ 424dfb07ec5a Extracting 1B
+ ef7c52393888 Download complete 0B
+ 37a4c26fa7e0 Downloading 23.07MB
+ 424dfb07ec5a Extracting 1B
+ c522c10deb9e Download complete 0B
+ 37a4c26fa7e0 Downloading 33.55MB
+ 424dfb07ec5a Extracting 1B
+ 5544e769d401 Download complete 0B
+ 37a4c26fa7e0 Downloading 44.04MB
+ 424dfb07ec5a Extracting 1B
+ 37a4c26fa7e0 Downloading 55.57MB
+ 97113491bb9a Download complete 0B
+ 424dfb07ec5a Extracting 1B
+ 37a4c26fa7e0 Downloading 66.06MB
+ 4b020327faf7 Download complete 0B
+ 424dfb07ec5a Extracting 1B
+ 93f2138a6b59 Downloading 2.097MB
+ 37a4c26fa7e0 Downloading 75.5MB
+ 424dfb07ec5a Extracting 1B
+ 93f2138a6b59 Downloading 8.066MB
+ 37a4c26fa7e0 Downloading 82.84MB
+ 424dfb07ec5a Pull complete 0B
+ 37a4c26fa7e0 Downloading 90.18MB
+ 93f2138a6b59 Download complete 0B
+ ef7c52393888 Extracting 1B
+ 37a4c26fa7e0 Downloading 97.52MB
+ ef7c52393888 Extracting 1B
+ 37a4c26fa7e0 Downloading 103.8MB
+ d87512a60544 Download complete 0B
+ ef7c52393888 Pull complete 0B
+ 5544e769d401 Extracting 1B
+ 37a4c26fa7e0 Downloading 112.2MB
+ 5544e769d401 Pull complete 0B
+ 93f2138a6b59 Extracting 1B
+ 37a4c26fa7e0 Downloading 118.5MB
+ 93f2138a6b59 Extracting 1B
+ 37a4c26fa7e0 Downloading 120.3MB
+ 93f2138a6b59 Extracting 1B
+ 37a4c26fa7e0 Downloading 120.3MB
+ 93f2138a6b59 Extracting 1B
+ 37a4c26fa7e0 Download complete 0B
+ 09767bdec9b6 Extracting 1B
+ 93f2138a6b59 Pull complete 0B
+ 09767bdec9b6 Pull complete 0B
+ 21fdcf06a0cd Pull complete 0B
+ 2b30de92d186 Pull complete 0B
+ 37a4c26fa7e0 Extracting 1B
+ 37a4c26fa7e0 Extracting 1B
+ 37a4c26fa7e0 Extracting 1B
+ 37a4c26fa7e0 Extracting 1B
+ 37a4c26fa7e0 Extracting 1B
+ 37a4c26fa7e0 Extracting 1B
+ 37a4c26fa7e0 Extracting 1B
+ 37a4c26fa7e0 Extracting 1B
+ 37a4c26fa7e0 Extracting 1B
+ 37a4c26fa7e0 Extracting 1B
+ 37a4c26fa7e0 Extracting 1B
+ 37a4c26fa7e0 Extracting 2B
+ 37a4c26fa7e0 Extracting 2B
+ 37a4c26fa7e0 Extracting 2B
+ 37a4c26fa7e0 Extracting 2B
+ 37a4c26fa7e0 Extracting 2B
+ 37a4c26fa7e0 Extracting 2B
+ 37a4c26fa7e0 Extracting 2B
+ 37a4c26fa7e0 Extracting 2B
+ 37a4c26fa7e0 Extracting 2B
+ 37a4c26fa7e0 Extracting 2B
+ 37a4c26fa7e0 Extracting 3B
+ 37a4c26fa7e0 Extracting 3B
+ 37a4c26fa7e0 Extracting 3B
+ 37a4c26fa7e0 Extracting 3B
+ 37a4c26fa7e0 Extracting 3B
+ 37a4c26fa7e0 Extracting 3B
+ 37a4c26fa7e0 Extracting 3B
+ 37a4c26fa7e0 Extracting 3B
+ 37a4c26fa7e0 Extracting 3B
+ 37a4c26fa7e0 Extracting 3B
+ 37a4c26fa7e0 Extracting 4B
+ 37a4c26fa7e0 Extracting 4B
+ 37a4c26fa7e0 Extracting 4B
+ 37a4c26fa7e0 Extracting 4B
+ 37a4c26fa7e0 Extracting 4B
+ 37a4c26fa7e0 Extracting 4B
+ bfcf7f3ebed0 Pull complete 0B
+ cb966a665541 Pull complete 0B
+ 97113491bb9a Pull complete 0B
+ 37a4c26fa7e0 Pull complete 0B
+ b76ba81720dd Extracting 1B
+ c522c10deb9e Pull complete 0B
+ 4b020327faf7 Pull complete 0B
+ b76ba81720dd Pull complete 0B
+ Image pgvector/pgvector:pg18@sha256:38681dc6eaf55308e2a4c6de392d131652dcfac70e1263e35cd9b5ea3fe39782 Pulled 
+ Network rag-demo_internal Creating 
+ Network rag-demo_internal Created 
+ Container rag-demo-db-1 Creating 
+ Container rag-demo-db-1 Created 
+ Container rag-demo-db-1 Starting 
+ Container rag-demo-db-1 Started 
+ Container rag-demo-db-1 Waiting 
+ Container rag-demo-db-1 Healthy 
+ Container rag-demo-db-1 Running 
+ Network rag-demo_egress Creating 
+ Network rag-demo_egress Created 
+ Container rag-demo-db-1 Waiting 
+ Container rag-demo-db-1 Healthy 
+ Container rag-demo-migrate-run-be0cd0bca1ff Creating 
+ Container rag-demo-migrate-run-be0cd0bca1ff Created 
+{"status": "PASS", "database": "rag_v2_demo", "applied": ["000_base_schema.sql", "001_add_messages_context_excluded.sql", "002_add_memory_sources.sql", "003_memory_sources_provenance.sql", "007_v2_identity_jobs.sql", "008_v2_turn_results.sql"], "force_rls_tables": 9, "role": "rag_v2_app"}
+Created symlink /etc/systemd/system/multi-user.target.wants/rag-compose.service → /etc/systemd/system/rag-compose.service.
+NAME                  IMAGE                                                                                            COMMAND                  SERVICE    CREATED          STATUS                    PORTS
+rag-demo-api-1        rag-v2-backend:aws-20261123-01                                                                   "python /app/deploy/…"   api        27 seconds ago   Up 26 seconds (healthy)   8000/tcp
+rag-demo-caddy-1      caddy:2.11.9-alpine@sha256:003a97808e781aa9f7e75cc2f43d34d461099031faf5e20faefb9f61126836f0      "caddy run --config …"   caddy      27 seconds ago   Up 11 seconds (healthy)   0.0.0.0:80->80/tcp, [::]:80->80/tcp, 0.0.0.0:443->443/tcp, [::]:443->443/tcp, 443/udp, 2019/tcp
+rag-demo-db-1         pgvector/pgvector:pg18@sha256:38681dc6eaf55308e2a4c6de392d131652dcfac70e1263e35cd9b5ea3fe39782   "docker-entrypoint.s…"   db         42 seconds ago   Up 40 seconds (healthy)   5432/tcp
+rag-demo-frontend-1   rag-v2-frontend:aws-20261123-01                                                                  "docker-entrypoint.s…"   frontend   27 seconds ago   Up 17 seconds (healthy)   3000/tcp
+rag-demo-worker-1     rag-v2-backend:aws-20261123-01                                                                   "python /app/deploy/…"   worker     27 seconds ago   Up 26 seconds (healthy)   8000/tcp

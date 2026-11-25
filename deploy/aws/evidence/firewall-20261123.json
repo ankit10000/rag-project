@@ -1,0 +1,17 @@
+{
+    "operation": {
+        "id": "6cd94bbb-c52f-41c8-a7ae-e6c7aa2bc14c",
+        "resourceName": "rag-v2-demo-app-20261123",
+        "resourceType": "Instance",
+        "createdAt": "2026-11-23T16:37:45.643000+05:30",
+        "location": {
+            "availabilityZone": "ap-south-1a",
+            "regionName": "ap-south-1"
+        },
+        "isTerminal": true,
+        "operationDetails": "22/tcp(110.235.229.220/32),80/tcp,443/tcp",
+        "operationType": "PutInstancePublicPorts",
+        "status": "Succeeded",
+        "statusChangedAt": "2026-11-23T16:37:45.643000+05:30"
+    }
+}

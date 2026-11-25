@@ -1,0 +1,18 @@
+[
+    {
+        "price": 24.0,
+        "cpuCount": 2,
+        "diskSizeInGb": 80,
+        "bundleId": "medium_3_1",
+        "instanceType": "medium",
+        "isActive": true,
+        "name": "Medium",
+        "power": 2000,
+        "ramSizeInGb": 4.0,
+        "transferPerMonthInGb": 2048,
+        "supportedPlatforms": [
+            "LINUX_UNIX"
+        ],
+        "publicIpv4AddressCount": 1
+    }
+]

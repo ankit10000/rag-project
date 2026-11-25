@@ -1,0 +1,16 @@
+{
+    "staticIp": {
+        "name": "rag-v2-demo-ip-20261123",
+        "arn": "arn:aws:lightsail:ap-south-1:163927391684:StaticIp/9230eb83-9758-4383-a00a-39cf2e7a7b90",
+        "supportCode": "179938128225/3.109.17.151",
+        "createdAt": "2026-11-23T16:37:46.311000+05:30",
+        "location": {
+            "availabilityZone": "all",
+            "regionName": "ap-south-1"
+        },
+        "resourceType": "StaticIp",
+        "ipAddress": "3.109.17.151",
+        "attachedTo": "rag-v2-demo-app-20261123",
+        "isAttached": true
+    }
+}

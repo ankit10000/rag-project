@@ -1,0 +1,28 @@
+{
+  "status": "BUDGET_PREFLIGHT_PASS",
+  "bundle_id": "medium_3_1",
+  "monthly_usd": "24.00",
+  "start_utc": "2026-11-23T10:50:45.762452+00:00",
+  "end_utc": "2027-03-10T10:50:45.762452+00:00",
+  "days": "107",
+  "hours": "2568",
+  "account_plan": "FREE",
+  "remaining_credits_usd": "100.00",
+  "contingency_usd": "10.00",
+  "usable_credits_usd": "90.00",
+  "compute_estimate_usd": "84.43",
+  "other_consumption_usd": "0.02",
+  "total_estimate_usd": "84.45",
+  "headroom_after_reserve_usd": "5.56",
+  "rate_basis": "monthly price / 730 hours (estimate)",
+  "blockers": [],
+  "limits": [
+    "Taxes are not covered by promotional credits; billing jurisdiction must be checked separately.",
+    "Transfer overage, extra services, Gemini billing and unattached static IPs are excluded unless supplied as other consumption.",
+    "Stopped Lightsail instances remain billable; deleting disposable containers does not stop host charges.",
+    "This calculation is not an automatic spending cap or deployment approval."
+  ],
+  "planned_export_before": "2027-03-10T00:00:00Z",
+  "price_source": "https://aws.amazon.com/lightsail/pricing/",
+  "eligibility_source": "https://aws.amazon.com/free/compute/lightsail/"
+}

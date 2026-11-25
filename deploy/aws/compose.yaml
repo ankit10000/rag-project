@@ -1,0 +1,212 @@
+name: ${COMPOSE_PROJECT_NAME:-rag-demo}
+
+x-logging: &bounded-logs
+  driver: local
+  options: {max-size: "5m", max-file: "3"}
+
+x-backend-env: &backend-env
+  RAG_V2: "1"
+  RAG_V2_COMPAT: "0"
+  RAG_DATABASE_NAME: ${RAG_DATABASE_NAME:?dedicated database required}
+  RAG_DATABASE_HOST: db
+  RAG_ADMIN_ROLE: ${RAG_ADMIN_ROLE:-rag_admin}
+  RAG_APP_PASSWORD_FILE: /run/secrets/db_app_password
+  RAG_V2_UPLOAD_DIR: /data/uploads
+  RAG_V2_SECURE_COOKIES: "1"
+  RAG_V2_ORIGINS: https://${RAG_DOMAIN:?public domain required}
+  RAG_V2_ALLOWED_HOSTS: localhost,127.0.0.1,api
+  RAG_V2_CHAT_CONCURRENCY: "1"
+  HF_HOME: /models/huggingface
+  HF_HUB_OFFLINE: "1"
+  TRANSFORMERS_OFFLINE: "1"
+  RAG_OCR_TESSDATA: /models/tessdata
+  TOKENIZERS_PARALLELISM: "false"
+  OMP_NUM_THREADS: "1"
+  MKL_NUM_THREADS: "1"
+  OPENBLAS_NUM_THREADS: "1"
+  MALLOC_ARENA_MAX: "2"
+  EMBEDDING_MODEL: all-MiniLM-L6-v2
+  EMBEDDING_DIM: "384"
+  RERANK_MODEL: cross-encoder/ms-marco-MiniLM-L-6-v2
+  RERANK_ENABLED: "true"
+  LOCAL_V1_REQUEST_TIMEOUT_SECONDS: "90"
+  DB_CONNECT_TIMEOUT_SECONDS: "5"
+  DB_STATEMENT_TIMEOUT_MS: "15000"
+  DB_LOCK_TIMEOUT_MS: "5000"
+  MAX_PDF_SIZE_MB: "25"
+  MAX_PDF_PAGES: "100"
+  EMBEDDING_QUERY_CACHE_SIZE: "64"
+  BM25_CACHE_MAX_ENTRIES: "2"
+  GEMINI_MODEL: ${GEMINI_MODEL:-gemini-3.5-flash-lite}
+  GEMINI_FALLBACK_MODELS: ${GEMINI_FALLBACK_MODELS-}
+
+x-backend: &backend
+  image: ${RAG_BACKEND_IMAGE:-rag-v2-backend:local}
+  init: true
+  restart: unless-stopped
+  user: "10001:10001"
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  environment: *backend-env
+  entrypoint: [python, /app/deploy/aws/data/runtime.py]
+  volumes:
+    - ${RAG_STATE_DIR:?persistent state directory required}/uploads:/data/uploads
+    - ${RAG_MODELS_DIR:?verified model directory required}:/models:ro
+  tmpfs: ["/tmp:rw,noexec,nosuid,size=192m,uid=10001,gid=10001"]
+  secrets: [db_app_password]
+  networks: [internal, egress]
+  logging: *bounded-logs
+  stop_grace_period: 105s
+  pids_limit: 128
+
+services:
+  db:
+    image: pgvector/pgvector:pg18@sha256:38681dc6eaf55308e2a4c6de392d131652dcfac70e1263e35cd9b5ea3fe39782
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${RAG_DATABASE_NAME:?dedicated database required}
+      POSTGRES_USER: ${RAG_ADMIN_ROLE:-rag_admin}
+      POSTGRES_PASSWORD_FILE: /run/secrets/db_admin_password
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256 --auth-local=scram-sha-256
+    command: [postgres, -c, max_connections=32, -c, shared_buffers=128MB, -c, work_mem=4MB, -c, maintenance_work_mem=64MB, -c, log_statement=none, -c, log_min_error_statement=panic, -c, idle_in_transaction_session_timeout=30000]
+    volumes:
+      # PostgreSQL18 uses a versioned PGDATA beneath /var/lib/postgresql.
+      - ${RAG_STATE_DIR:?persistent state directory required}/postgres:/var/lib/postgresql
+    secrets: [db_admin_password]
+    networks: [internal]
+    shm_size: 128m
+    mem_limit: 384m
+    memswap_limit: 384m
+    cpus: 0.5
+    pids_limit: 96
+    security_opt: [no-new-privileges:true]
+    logging: *bounded-logs
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"']
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+    stop_grace_period: 60s
+
+  migrate:
+    <<: *backend
+    profiles: [tools]
+    restart: "no"
+    entrypoint: [python, /app/deploy/aws/data/migrate.py]
+    command: []
+    environment:
+      <<: *backend-env
+      RAG_ADMIN_PASSWORD_FILE: /run/secrets/db_admin_password
+    secrets: [db_admin_password, db_app_password]
+    mem_limit: 256m
+    memswap_limit: 256m
+    cpus: 0.5
+    depends_on: {db: {condition: service_healthy}}
+
+  api:
+    <<: *backend
+    command: [python, -m, uvicorn, backend.v2.app:app, --host, 0.0.0.0, --port, "8000", --workers, "1", --limit-concurrency, "12", --timeout-keep-alive, "0", --timeout-graceful-shutdown, "100", --no-access-log]
+    environment:
+      <<: *backend-env
+      RAG_GEMINI_KEY_FILE: /run/secrets/gemini_api_key
+    secrets: [db_app_password, gemini_api_key]
+    depends_on: {db: {condition: service_healthy}}
+    mem_limit: 1152m
+    memswap_limit: 1152m
+    cpus: 1.25
+    healthcheck:
+      test: [CMD, python, /app/deploy/aws/data/healthcheck.py, api]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  worker:
+    <<: *backend
+    command: [python, /app/deploy/aws/data/worker_supervisor.py]
+    depends_on: {db: {condition: service_healthy}}
+    mem_limit: 1408m
+    memswap_limit: 1408m
+    cpus: 1.0
+    stop_grace_period: 360s
+    healthcheck:
+      test: [CMD, python, /app/deploy/aws/data/healthcheck.py, worker]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  frontend:
+    image: ${RAG_FRONTEND_IMAGE:-rag-v2-frontend:local}
+    init: true
+    restart: unless-stopped
+    user: "10001:10001"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    environment:
+      HOSTNAME: 0.0.0.0
+      PORT: "3000"
+      RAG_BACKEND_ORIGIN: http://api:8000
+      RAG_PUBLIC_ORIGIN: https://${RAG_DOMAIN:?public domain required}
+      NODE_OPTIONS: --max-old-space-size=256
+      NEXT_TELEMETRY_DISABLED: "1"
+    tmpfs: ["/tmp:rw,noexec,nosuid,size=32m,uid=10001,gid=10001"]
+    networks: [internal]
+    depends_on: {api: {condition: service_healthy}}
+    mem_limit: 384m
+    memswap_limit: 384m
+    cpus: 0.5
+    pids_limit: 64
+    logging: *bounded-logs
+    stop_grace_period: 105s
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://127.0.0.1:3000/login').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  caddy:
+    image: ${RAG_CADDY_IMAGE:-caddy:2.11.9-alpine@sha256:003a97808e781aa9f7e75cc2f43d34d461099031faf5e20faefb9f61126836f0}
+    init: true
+    restart: unless-stopped
+    environment:
+      RAG_DOMAIN: ${RAG_DOMAIN:?public domain required}
+      RAG_STATIC_IP: ${RAG_STATIC_IP:-}
+      ACME_EMAIL: ${ACME_EMAIL:?certificate email required}
+    ports: ["80:80", "443:443"]
+    volumes:
+      - ./${RAG_CADDY_CONFIG:-Caddyfile}:/etc/caddy/Caddyfile:ro
+      - ${RAG_STATE_DIR:?persistent state directory required}/caddy-data:/data
+      - ${RAG_STATE_DIR:?persistent state directory required}/caddy-config:/config
+    networks: [internal, egress]
+    depends_on: {frontend: {condition: service_healthy}}
+    mem_limit: 96m
+    memswap_limit: 96m
+    cpus: 0.25
+    pids_limit: 64
+    cap_drop: [ALL]
+    cap_add: [NET_BIND_SERVICE]
+    security_opt: [no-new-privileges:true]
+    logging: *bounded-logs
+    stop_grace_period: 15s
+    healthcheck:
+      # Local TLS/upstream readiness only. Public CA trust and IP identity are
+      # separately verified without certificate bypass during acceptance.
+      test: [CMD-SHELL, 'wget --no-check-certificate -q --spider -T 5 --header "Host: $${RAG_DOMAIN}" https://127.0.0.1/login']
+      interval: 30s
+      timeout: 10s
+      retries: 4
+      start_period: 60s
+
+networks:
+  internal: {internal: true}
+  egress: {}
+
+secrets:
+  db_admin_password: {file: '${RAG_SECRETS_DIR:?secret directory required}/db_admin_password'}
+  db_app_password: {file: '${RAG_SECRETS_DIR:?secret directory required}/db_app_password'}
+  gemini_api_key: {file: '${RAG_SECRETS_DIR:?secret directory required}/gemini_api_key'}

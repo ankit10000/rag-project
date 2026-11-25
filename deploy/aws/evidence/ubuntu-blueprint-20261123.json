@@ -1,0 +1,16 @@
+[
+    {
+        "blueprintId": "ubuntu_24_04",
+        "name": "Ubuntu",
+        "group": "ubuntu_24",
+        "type": "os",
+        "description": "Ubuntu 24.04 LTS - Noble. Ubuntu Server delivers services reliably, predictably and economically. It is the perfect base on which to build your instances. Ubuntu is free and always will be, and you have the option to get support and Landscape from Canonical.",
+        "isActive": true,
+        "minPower": 0,
+        "version": "24.04 LTS",
+        "versionCode": "1",
+        "productUrl": "https://aws.amazon.com/marketplace/pp/prodview-s4zvkzmlirbga",
+        "licenseUrl": "https://aws.amazon.com/marketplace/pp/prodview-s4zvkzmlirbga#pdp-usage",
+        "platform": "LINUX_UNIX"
+    }
+]

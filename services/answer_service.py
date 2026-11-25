@@ -179,6 +179,43 @@ def _parse(raw):
     return None, text
 
 
+def _render_verified_duration(body, calculation, sources):
+    """Only the deterministic renderer may add derived numbers, never the model."""
+    if calculation is None:
+        return body
+    from services.citation_service import split_sentences
+    kept=[]
+    for sentence in split_sentences(body):
+        missing,facts=evidence_profile(sentence,sources)
+        duration_gap=(missing and not facts
+                      and re.search(r'\b(?:calculation|calculate[ds]?|duration|tenure|how long)\b',sentence,re.I)
+                      and not re.search(r'\b(?:degree|education|institution|phone|telephone|salary|fax|budget|email|project|milestone|position|skills|team|cost)\b',sentence,re.I))
+        if not duration_gap:
+            kept.append(sentence)
+    return ' '.join(kept+[calculation['answer']])
+
+
+def _with_verified_duration(result, calculation, sources, question):
+    if calculation is None or result['status'] in {'error','unverified'}:
+        return result
+    body=_render_verified_duration(result['answer'],calculation,sources)
+    validation=validate_answer_citations(body,sources,require_citations=True)
+    if not validation['valid']:
+        return result
+    checked=answer_with_citations(body,sources)
+    # Month precision is a disclosed calculation limit, not an unanswered part
+    # of a question that requested years/months. Other evidence gaps still count.
+    status_calculation=calculation
+    if not re.search(r'\bdays?\b',question,re.I):
+        status_calculation={**calculation,'answer':calculation['answer'].replace('; exact days are not specified','')}
+    status_body=_render_verified_duration(result['answer'],status_calculation,sources)
+    return {**result,'answer':checked['text'],'citations':checked['citations'],
+            'sources':[{'document':c['document'],'page':c['page'],'chunk_id':c['chunk_id'],'ref':c['ref']}
+                       for c in checked['citations']],
+            'status':classify_status(status_body,{c['document'] for c in checked['citations']},True,sources),
+            'validation':validation,'calculation':calculation['calculation']}
+
+
 def generate_grounded_answer(
     question: str,
     bundle: dict,
@@ -189,6 +226,10 @@ def generate_grounded_answer(
 ) -> dict:
     sources = bundle.get("sources", [])
     context_text = bundle.get("context_text", "")
+    calculation=None
+    if os.getenv('RAG_V2')=='1' and question_type!='MEMORY':
+        from services.tenure_calculation import calculation_from_sources
+        calculation=calculation_from_sources(question,sources,history)
 
     # Nothing retrieved for a document question: never ask the model to
     # "answer anyway" (that is where general knowledge leaks in).
@@ -203,7 +244,8 @@ def generate_grounded_answer(
     for attempt in range(1, attempts + 1):
         check_deadline()
         prompt = build_answer_prompt(
-            question, sources, context_text, history, memory_summary, feedback
+            question, sources, context_text, history, memory_summary, feedback,
+            calculation_managed=calculation is not None,
         )
         from services.evidence_trace import trace_event
         trace_event('generation_request', {
@@ -269,7 +311,7 @@ def generate_grounded_answer(
             validation = {**validation, "valid": False,
                           "issues": validation["issues"] + ["unsupported_number"]}
 
-        coverage = _coverage(question, sources, body) if question_type != 'MEMORY' else None
+        coverage = _coverage(question, sources, _render_verified_duration(body,calculation,sources)) if question_type != 'MEMORY' else None
         coverage_missing = coverage.get('concrete_missing', []) if coverage else []
         if coverage_missing:
             validation = {**validation, 'valid': False,
@@ -286,6 +328,7 @@ def generate_grounded_answer(
             final_tag = tag or ("DOCUMENT" if checked["citations"] else "MEMORY")
             result = _result(checked["text"], status, final_tag,
                              checked["citations"], validation, attempt)
+            result = _with_verified_duration(result,calculation,sources,question)
             return _with_coverage(result, question, sources) if question_type != 'MEMORY' else result
 
         last_issues = validation["issues"]
@@ -315,6 +358,7 @@ def generate_grounded_answer(
             if comparison is not None:
                 return _with_coverage(comparison, question, sources)
         result = _fallback(last_body, last_tag, last_issues, sources, question, attempts)
+        result = _with_verified_duration(result,calculation,sources,question)
         return _with_coverage(result, question, sources) if question_type != 'MEMORY' else result
 
     return _result(ERROR_MESSAGE, "error", None, [], None, attempts, last_issues)

@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "branch": "main",
+  "head": "3edf2db7e7661465c2565adf196a94183668cfbb",
+  "modified_tracked": 4,
+  "untracked": 104,
+  "protected_assets_unchanged": 44,
+  "git_index_preserved": true,
+  "all_other_preexisting_files_preserved": true,
+  "diff_check": "PASS",
+  "private_evidence_and_credentials_ignored": true
+}

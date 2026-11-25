@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "deterministic_tests": 5,
+  "database": "rag_aws_scratch",
+  "migrations": [
+    "000",
+    "001",
+    "002",
+    "003",
+    "007",
+    "008"
+  ],
+  "repeat_migration_applied": [],
+  "force_rls_tables": 9,
+  "restricted_role_rls": {
+    "status": "PASS",
+    "owned_documents": 1,
+    "owned_provenance_links": 1,
+    "other_tenant_documents": 0,
+    "other_tenant_links": 0
+  },
+  "backup_restore": {
+    "status": "PASS",
+    "backup": {
+      "status": "PASS",
+      "encrypted_export": "/private/tmp/rag-aws-data-20261123/exports/rag-export-a4d266024db546b08f6c40b6ac878ba9.tar.cms",
+      "sha256": "df0653c72e2cf5e4974126962709774c508e8277dc031f5cb669eba84e2037fc",
+      "bytes": 72256,
+      "off_host_copy_required": true,
+      "retention": 3
+    },
+    "restore": {
+      "status": "PASS",
+      "restored_database": "rag_aws_restore_81b8f1507b384b5dbe8f3410acc1fa60",
+      "force_rls_tables": 9,
+      "upload_files": 1,
+      "restore_uploads": "/private/tmp/rag-aws-data-20261123/restore-uploads",
+      "table_counts": {
+        "users": 1,
+        "documents": 1,
+        "jobs": 1,
+        "job_events": 1,
+        "conversations": 1,
+        "messages": 1,
+        "conversation_memories": 1,
+        "memory_sources": 1,
+        "document_chunks": 1,
+        "v2_turn_receipts": 1
+      },
+      "source_database_untouched": true
+    },
+    "synthetic_owner": "ec396a5a-224c-4739-996f-aeae93e3efd0",
+    "source_database": "rag_aws_scratch",
+    "source_container": "rag-aws-data-check-db-1",
+    "provider_calls": 0,
+    "off_host_simulation": "Docker Linux server -> encrypted archive on Mac host; private decrypt key never mounted inside server container"
+  },
+  "models": {
+    "path": "/private/tmp/rag-aws-models-20261123",
+    "files": 20,
+    "bytes": 187507341
+  },
+  "limitations": [
+    "AWS off-host transfer not executed; no instance provisioned by Agent3",
+    "Initial PG startup connection refusal and unquoted tmpfs parsing failure corrected; original command outcomes preserved in tool history",
+    "Private synthetic scratch secrets0600 initially tested then0444 inside0700parent; Linuxhostdeploymentmustchown10001:10001mode0400"
+  ],
+  "provider_calls": 0
+}

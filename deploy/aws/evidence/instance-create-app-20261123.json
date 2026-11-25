@@ -1,0 +1,18 @@
+{
+    "operations": [
+        {
+            "id": "dc1a192d-ba5e-40c0-a397-d790045bed64",
+            "resourceName": "rag-v2-demo-app-20261123",
+            "resourceType": "Instance",
+            "createdAt": "2026-11-23T16:37:19.515000+05:30",
+            "location": {
+                "availabilityZone": "ap-south-1a",
+                "regionName": "ap-south-1"
+            },
+            "isTerminal": false,
+            "operationType": "CreateInstance",
+            "status": "Started",
+            "statusChangedAt": "2026-11-23T16:37:19.515000+05:30"
+        }
+    ]
+}

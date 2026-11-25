@@ -1,0 +1,23 @@
+{
+    "name": "rag-v2-demo-app-20261123",
+    "state": "running",
+    "bundle": "medium_3_1",
+    "ip": "13.206.241.77",
+    "ipv6": [],
+    "hardware": {
+        "cpuCount": 2,
+        "disks": [
+            {
+                "createdAt": "2026-11-23T16:37:19.515000+05:30",
+                "sizeInGb": 80,
+                "isSystemDisk": true,
+                "iops": 3000,
+                "path": "/dev/sda1",
+                "attachedTo": "rag-v2-demo-app-20261123",
+                "attachmentState": "attached"
+            }
+        ],
+        "ramSizeInGb": 4.0
+    },
+    "createdAt": "2026-11-23T16:37:19.515000+05:30"
+}

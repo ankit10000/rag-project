@@ -1,0 +1,30 @@
+{
+  "source": "https://download.docker.com/linux/ubuntu/dists/noble/stable/binary-amd64/Packages.gz",
+  "packages": {
+    "containerd.io": {
+      "version": "2.4.2-4~ubuntu.24.04~noble",
+      "sha256": "15cc3d6c64422ed278f60cb3c9a5df760a3de38055affc335c6ee40c12411b75",
+      "filename": "dists/noble/pool/stable/amd64/containerd.io_2.4.2-4~ubuntu.24.04~noble_amd64.deb"
+    },
+    "docker-buildx-plugin": {
+      "version": "0.39.1-1~ubuntu.24.04~noble",
+      "sha256": "a9ecd4ab59dbd52f395d07712a840bc7d145c5f8bec4880d5531e0443aeceba5",
+      "filename": "dists/noble/pool/stable/amd64/docker-buildx-plugin_0.39.1-1~ubuntu.24.04~noble_amd64.deb"
+    },
+    "docker-ce-cli": {
+      "version": "5:29.9.3-1~ubuntu.24.04~noble",
+      "sha256": "24f78a893cece8d345c4e90b5163907c047b996b747265f873743e8b0b0546d4",
+      "filename": "dists/noble/pool/stable/amd64/docker-ce-cli_29.9.3-1~ubuntu.24.04~noble_amd64.deb"
+    },
+    "docker-ce": {
+      "version": "5:29.9.3-1~ubuntu.24.04~noble",
+      "sha256": "c546181f0bc5f1d19085d764a3219aa86069468dbee4743fae420ee8a31809a4",
+      "filename": "dists/noble/pool/stable/amd64/docker-ce_29.9.3-1~ubuntu.24.04~noble_amd64.deb"
+    },
+    "docker-compose-plugin": {
+      "version": "5.8.0-1~ubuntu.24.04~noble",
+      "sha256": "ca5130d92e95f3e27901d8d9916e388d7ddde0b6ba94798a6877dfa0a14714d8",
+      "filename": "dists/noble/pool/stable/amd64/docker-compose-plugin_5.8.0-1~ubuntu.24.04~noble_amd64.deb"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "restarted_services": [
+    "api",
+    "worker"
+  ],
+  "method": "quiesced encrypted backup: real stop/up",
+  "before": {
+    "api": {
+      "container_id": "9155def4fd65445f173fb24231afecef21f0b27cbdbd049d2d2a96ff4be08814",
+      "pid": 40394,
+      "started_at": "2026-11-23T11:44:27.933418474Z"
+    },
+    "worker": {
+      "container_id": "e46db495ac928b70395cff5ab5698a79d32d65b6973d9d17d968f2bbb421a391",
+      "pid": 40325,
+      "started_at": "2026-11-23T11:44:27.732093136Z"
+    }
+  },
+  "after": {
+    "api": {
+      "container_id": "9155def4fd65445f173fb24231afecef21f0b27cbdbd049d2d2a96ff4be08814",
+      "pid": 44831,
+      "started_at": "2026-11-23T11:52:15.050535219Z"
+    },
+    "worker": {
+      "container_id": "e46db495ac928b70395cff5ab5698a79d32d65b6973d9d17d968f2bbb421a391",
+      "pid": 44760,
+      "started_at": "2026-11-23T11:52:14.846079091Z"
+    }
+  },
+  "provider_disabled": true
+}

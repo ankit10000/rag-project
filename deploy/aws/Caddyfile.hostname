@@ -1,0 +1,60 @@
+{
+	email {$ACME_EMAIL}
+	admin off
+	grace_period 30s
+	# IP clients commonly omit SNI. Keep their existing IP certificate usable.
+	default_sni {$RAG_STATIC_IP}
+	fallback_sni {$RAG_STATIC_IP}
+	servers {
+		protocols h1 h2
+		max_header_size 32KB
+		timeouts {
+			read_header 10s
+			read_body 60s
+			idle 60s
+		}
+	}
+}
+
+(rag_tls) {
+	tls {
+		issuer acme https://acme-v02.api.letsencrypt.org/directory {
+			profile shortlived
+		}
+	}
+}
+
+https://{$RAG_DOMAIN} {
+	import rag_tls
+	encode zstd gzip
+	request_body {
+		max_size 32MiB
+	}
+	header {
+		-Server
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "same-origin"
+		X-Frame-Options "SAMEORIGIN"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+	}
+	reverse_proxy frontend:3000 {
+		header_up Host {http.request.hostport}
+		header_up X-Forwarded-Host {http.request.hostport}
+		header_up X-Forwarded-Proto https
+		transport http {
+			dial_timeout 5s
+			response_header_timeout 125s
+		}
+	}
+}
+
+https://{$RAG_STATIC_IP} {
+	import rag_tls
+	redir https://{$RAG_DOMAIN}{uri} 308
+}
+
+https://:443 {
+	import rag_tls
+	respond 404
+}

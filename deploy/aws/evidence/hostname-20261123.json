@@ -1,0 +1,97 @@
+{
+  "at_utc": "2026-11-23T13:33:26.662790+00:00",
+  "hostname": "rag-demo.3-109-17-151.sslip.io",
+  "public_ip": "3.109.17.151",
+  "release": "20261123-03",
+  "tls_verification": "enabled; no certificate bypass",
+  "checks": {
+    "GET /login": {
+      "status": 200,
+      "pass": true
+    },
+    "GET /register": {
+      "status": 200,
+      "pass": true
+    },
+    "GET /api/v2/health": {
+      "status": 200,
+      "pass": true
+    },
+    "IP redirect /login?from=old-ip": {
+      "status": 308,
+      "location": "https://rag-demo.3-109-17-151.sslip.io/login?from=old-ip",
+      "pass": true
+    },
+    "IP redirect /documents": {
+      "status": 308,
+      "location": "https://rag-demo.3-109-17-151.sslip.io/documents",
+      "pass": true
+    },
+    "canonical origin validation": {
+      "status": 422,
+      "pass": true
+    },
+    "foreign origin rejected": {
+      "status": 403,
+      "pass": true
+    },
+    "foreign host rejected": {
+      "status": 404,
+      "pass": true
+    },
+    "synthetic account login": {
+      "status": 200,
+      "pass": true
+    },
+    "secure session cookie": {
+      "pass": true
+    },
+    "authenticated session": {
+      "status": 200,
+      "pass": true
+    },
+    "logout": {
+      "status": 200,
+      "pass": true
+    },
+    "logged-out session rejected": {
+      "status": 401,
+      "pass": true
+    }
+  },
+  "gemini_calls": 0,
+  "new_aws_resources": 0,
+  "passed": 13,
+  "total": 13,
+  "proxy_health": {
+    "before_change": {
+      "healthy": false,
+      "zombie_ssl_client_processes": 52,
+      "pids_current": 60,
+      "pids_max": 64
+    },
+    "correction": "Docker init: true; task and memory limits unchanged",
+    "readiness_probes_passed": 12,
+    "readiness_probes_total": 12,
+    "before_probes": {
+      "pids_current": 8,
+      "zombies": 0
+    },
+    "after_probes": {
+      "pids_current": 8,
+      "zombies": 0
+    },
+    "all_five_services_healthy": true
+  },
+  "index_preserved": true,
+  "head_preserved": true,
+  "existing_source_files_preserved": {
+    "frontend/app/api/v2/[...path]/route.ts": true,
+    "backend/v2/tenant.py": true,
+    "deploy/aws/Caddyfile": true
+  },
+  "config_sha256": {
+    "compose.yaml": "ab1c873f286462565bfdce37430b0c1a039c56e09ce2a3c05e15be33af9bc4fb",
+    "Caddyfile.hostname": "4c19e28130acdf13f2f253301da26d51c04cef703dfe2fad5d4bf2d0d0b46c98"
+  }
+}

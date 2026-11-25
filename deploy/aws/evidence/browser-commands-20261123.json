@@ -1,0 +1,17 @@
+{
+  "cwd": "/Volumes/Storage/rag-project/frontend",
+  "commands": [
+    {
+      "command": "RAG_E2E_EXTERNAL=1 RAG_E2E_URL=https://3.109.17.151 RAG_AWS_E2E_PHASE=isolation RAG_AWS_FAILED_FROM=/private/tmp/rag-aws-cloud-live-20261123-01-continuation-01 RAG_AWS_EVIDENCE_DIR=/private/tmp/rag-aws-cloud-live-20261123-01-isolation-02 node_modules/.bin/playwright test tests/browser/aws-deployment.spec.ts --grep 'AWS zero-provider isolation continuation' --project=desktop-chromium --output=/private/tmp/rag-aws-cloud-live-20261123-01-isolation-02/playwright",
+      "result": "1 PASS",
+      "case_seconds": 36.9,
+      "provider_calls": 0
+    },
+    {
+      "command": "RAG_E2E_EXTERNAL=1 RAG_E2E_URL=https://3.109.17.151 RAG_AWS_E2E_PHASE=persistence RAG_AWS_FIXTURES_DIR=/private/tmp/rag-aws-agent4-fixtures-20261123 RAG_AWS_EVIDENCE_DIR=/private/tmp/rag-aws-cloud-live-20261123-01-isolation-02 RAG_AWS_RESTART_RECEIPT=/Volumes/Storage/rag-project/deploy/aws/evidence/cloud-restart-20261123.json node_modules/.bin/playwright test tests/browser/aws-deployment.spec.ts --grep 'AWS restart persistence and deletion' --project=desktop-chromium --output=/private/tmp/rag-aws-cloud-live-20261123-01-isolation-02/persistence-playwright",
+      "result": "1 PASS",
+      "case_seconds": 46.5,
+      "provider_calls": 0
+    }
+  ]
+}

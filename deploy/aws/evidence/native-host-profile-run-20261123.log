@@ -1,0 +1,1 @@
+{"status": "MEASURED", "cpu_count": 2, "samples": 342, "minimum_host_available_bytes": 2052050944, "peak_host_cpu_percent": 99.65, "peak_host_steal_percent": 15.22, "peak_container_working_bytes": 1452531712, "oom_observed": false}

@@ -1,0 +1,82 @@
+{
+  "run_id": "aws-demo-20261123-live-01",
+  "status": "FIVE_CANONICAL_ANSWER_CASES_PASS",
+  "answers": [
+    {
+      "id": "ocr-facts",
+      "expected_status": "answered",
+      "answer_status": "answered",
+      "conversation_id": "472b6809-a61d-471e-be41-f9239a8090ed",
+      "turn_id": "f1563aee-98e7-4f59-b607-705ff7fdc789",
+      "citations": [
+        {
+          "ref": "S1",
+          "document": "Aster_Harbor_Policy.pdf",
+          "document_id": "64ba689d-0fd5-454e-ba7d-f0403bff1aec",
+          "page": 1,
+          "chunk_id": 1
+        }
+      ]
+    },
+    {
+      "id": "memory-followup",
+      "expected_status": "answered",
+      "answer_status": "answered",
+      "conversation_id": "472b6809-a61d-471e-be41-f9239a8090ed",
+      "turn_id": "0c54686b-8052-4d8b-acd7-a0a4246ef49d",
+      "citations": []
+    },
+    {
+      "id": "education-general",
+      "expected_status": "answered",
+      "answer_status": "answered",
+      "conversation_id": "c0cab237-aa1f-4ec6-830f-d61d0bbf3c73",
+      "turn_id": "88f15438-1deb-4ba9-87e1-efd3730c8186",
+      "citations": [
+        {
+          "ref": "S1",
+          "document": "Browser_Check_Morgan_Vale.pdf",
+          "document_id": "15eeca53-11ca-431a-9df3-7e0502a51b57",
+          "page": 2,
+          "chunk_id": 3
+        }
+      ]
+    },
+    {
+      "id": "education-explicit",
+      "expected_status": "answered",
+      "answer_status": "answered",
+      "conversation_id": "1ef4f0f3-a4ca-4b47-aebd-61e06929cd25",
+      "turn_id": "7c81d5f6-e793-4cb6-88f2-f1995ec507fa",
+      "citations": [
+        {
+          "ref": "S1",
+          "document": "Browser_Check_Morgan_Vale.pdf",
+          "document_id": "15eeca53-11ca-431a-9df3-7e0502a51b57",
+          "page": 2,
+          "chunk_id": 3
+        }
+      ]
+    },
+    {
+      "id": "partial-project-phone",
+      "expected_status": "partial",
+      "answer_status": "partial",
+      "conversation_id": "3e2d1039-c298-4fea-ae43-1e8b06e63d9e",
+      "turn_id": "92858091-493f-49d4-91f2-aad0856dfd0b",
+      "citations": [
+        {
+          "ref": "S1",
+          "document": "Browser_Check_Morgan_Vale.pdf",
+          "document_id": "15eeca53-11ca-431a-9df3-7e0502a51b57",
+          "page": 1,
+          "chunk_id": 2
+        }
+      ]
+    }
+  ],
+  "original_browser_result": "FAIL: follow-up wait race",
+  "continuation_browser_result": "FAIL: API admission 503 during later isolation, after five answers passed",
+  "policy_unchanged": true,
+  "additional_provider_calls_permitted": 0
+}

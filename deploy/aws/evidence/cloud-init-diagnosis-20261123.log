@@ -1,0 +1,94 @@
+ci-info: +++++++++++++++++++Route IPv6 info+++++++++++++++++++
+ci-info: +-------+-------------+---------+-----------+-------+
+ci-info: | Route | Destination | Gateway | Interface | Flags |
+ci-info: +-------+-------------+---------+-----------+-------+
+ci-info: |   0   |  fe80::/64  |    ::   |    ens5   |   U   |
+ci-info: |   2   |    local    |    ::   |    ens5   |   U   |
+ci-info: |   3   |  multicast  |    ::   |    ens5   |   U   |
+ci-info: +-------+-------------+---------+-----------+-------+
+Generating public/private rsa key pair.
+Your identification has been saved in /etc/ssh/ssh_host_rsa_key
+Your public key has been saved in /etc/ssh/ssh_host_rsa_key.pub
+The key fingerprint is:
+SHA256:dCw4bBM08DUPTdW11EcCDcsDnn44Fpz18F/PmGEPT5A root@ip-172-26-15-22
+The key's randomart image is:
++---[RSA 3072]----+
+|    .o+ +oo.*=o=+|
+|     o = B.* =Eo+|
+|      B o X + *.+|
+|     . + + o o @o|
+|        S = . o *|
+|         . o     |
+|                 |
+|                 |
+|                 |
++----[SHA256]-----+
+Generating public/private ecdsa key pair.
+Your identification has been saved in /etc/ssh/ssh_host_ecdsa_key
+Your public key has been saved in /etc/ssh/ssh_host_ecdsa_key.pub
+The key fingerprint is:
+SHA256:0PT9h1ph8f0Z7gmlDeMPtxG8ilh6geIQxy8DfH75j5Y root@ip-172-26-15-22
+The key's randomart image is:
++---[ECDSA 256]---+
+|        .     .  |
+|    . .o . .  .o.|
+|     +.+. . .oo=o|
+|      *.. o .oBo*|
+|     . =S= o =+Bo|
+|      o = = ooB.+|
+|       . o +o. = |
+|          .Eo    |
+|          .. .   |
++----[SHA256]-----+
+Generating public/private ed25519 key pair.
+Your identification has been saved in /etc/ssh/ssh_host_ed25519_key
+Your public key has been saved in /etc/ssh/ssh_host_ed25519_key.pub
+The key fingerprint is:
+SHA256:/QqKrBUFrwv5RPAO8isl4zQCWdxvMHPBThZo2b65Knc root@ip-172-26-15-22
+The key's randomart image is:
++--[ED25519 256]--+
+| .o..=oo         |
+| o.oOo*          |
+|+ ..o@o          |
+|.o = o=  .       |
+|+o= =. oS .      |
+|++.= oo    .     |
+|... +  ..   .    |
+| ..o..E. . .     |
+|  .++o.   .      |
++----[SHA256]-----+
+Cloud-init v. 26.2-0ubuntu1~24.04.2 running 'modules:config' at Mon, 23 Nov 2026 11:07:36 +0000. Up 12.58 seconds.
+Cloud-init v. 26.2-0ubuntu1~24.04.2 running 'modules:final' at Mon, 23 Nov 2026 11:07:40 +0000. Up 15.91 seconds.
+Lightsail: Starting Instance Initialization.
+Lightsail: SSH CA Public Key created.
+Lightsail: SSH CA Public Key registered.
+Failed to restart sshd.service: Unit sshd.service not found.
+Lightsail: sshd restarted.
+/var/lib/cloud/instance/scripts/part-001: 17: set: Illegal option -o pipefail
+2026-11-23 11:07:40,270 - cc_scripts_user.py[WARNING]: Failed to run module scripts_user (scripts in /var/lib/cloud/instance/scripts)
+2026-11-23 11:07:40,270 - log_util.py[WARNING]: Running module scripts_user (<module 'cloudinit.config.cc_scripts_user' from '/usr/lib/python3/dist-packages/cloudinit/config/cc_scripts_user.py'>) failed
+Cloud-init v. 26.2-0ubuntu1~24.04.2 finished at Mon, 23 Nov 2026 11:07:40 +0000. Datasource DataSourceEc2Local.  Up 16.17 seconds
+status: error
+extended_status: error - done
+boot_status_code: enabled-by-generator
+last_update: Thu, 01 Jan 1970 00:00:16 +0000
+detail: DataSourceEc2Local
+errors:
+	- ('scripts_user', RuntimeError('Runparts: 1 failures (part-001) in 1 attempted commands'))
+recoverable_errors:
+WARNING:
+	- Failed to run module scripts_user (scripts in /var/lib/cloud/instance/scripts)
+	- Running module scripts_user (<module 'cloudinit.config.cc_scripts_user' from '/usr/lib/python3/dist-packages/cloudinit/config/cc_scripts_user.py'>) failed
+Mon Nov 23 11:10:10 UTC 2026
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root        77G  2.1G   75G   3% /
+Netid State  Recv-Q Send-Q     Local Address:Port Peer Address:PortProcess                                                 
+udp   UNCONN 0      0             127.0.0.54:53        0.0.0.0:*    users:(("systemd-resolve",pid=346,fd=16))              
+udp   UNCONN 0      0          127.0.0.53%lo:53        0.0.0.0:*    users:(("systemd-resolve",pid=346,fd=14))              
+udp   UNCONN 0      0      172.26.15.22%ens5:68        0.0.0.0:*    users:(("systemd-network",pid=539,fd=21))              
+udp   UNCONN 0      0              127.0.0.1:323       0.0.0.0:*    users:(("chronyd",pid=817,fd=5))                       
+udp   UNCONN 0      0                  [::1]:323          [::]:*    users:(("chronyd",pid=817,fd=6))                       
+tcp   LISTEN 0      4096             0.0.0.0:22        0.0.0.0:*    users:(("sshd",pid=1149,fd=3),("systemd",pid=1,fd=233))
+tcp   LISTEN 0      4096          127.0.0.54:53        0.0.0.0:*    users:(("systemd-resolve",pid=346,fd=17))              
+tcp   LISTEN 0      4096       127.0.0.53%lo:53        0.0.0.0:*    users:(("systemd-resolve",pid=346,fd=15))              
+tcp   LISTEN 0      4096                [::]:22           [::]:*    users:(("sshd",pid=1149,fd=4),("systemd",pid=1,fd=234))

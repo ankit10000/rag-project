@@ -1,0 +1,17 @@
+{
+  "version": "aws-demo-development-acceptance/1",
+  "scope": "Synthetic deployment checks; not official or held-out acceptance",
+  "maximum_sdk_calls": 18,
+  "allowed_models": ["gemini-3.5-flash-lite"],
+  "questions": [
+    {"id":"ocr-facts","question":"I prefer concise answers. According to the Aster Harbor visitor policy, how many credits does a day pass cost, and for how many days is it valid?","status":"answered","required_facts":["83","17"],"document":"Aster_Harbor_Policy.pdf","page":1},
+    {"id":"memory-followup","question":"What answer style do I prefer?","status":"answered","required_facts":["concise"],"memory_provenance_required":true},
+    {"id":"education-general","question":"What is the qualifications of Morgan Vale?","status":"answered","required_facts":["Bachelor of Engineering","Computer Engineering","Sample Institute of Technology","2016","2020"],"document":"Browser_Check_Morgan_Vale.pdf","page":2},
+    {"id":"education-explicit","question":"In Browser_Check_Morgan_Vale.pdf, what is listed under EDUCATION? Please give the degree, institute and study dates.","status":"answered","required_facts":["Bachelor of Engineering","Computer Engineering","Sample Institute of Technology","2016","2020"],"document":"Browser_Check_Morgan_Vale.pdf","page":2},
+    {"id":"partial-project-phone","question":"According to Morgan Vale’s resume, how did the Atlas project change report preparation time? Also, what telephone number is listed for Morgan?","status":"partial","required_facts":["40","12"],"required_gap":"telephone|phone","document":"Browser_Check_Morgan_Vale.pdf","page":1}
+  ],
+  "transport_failure_case": "partial-project-phone",
+  "transport_failure_method": "A real committed POST response is replaced with HTTP504 in the test browser; committed GET remains a real API response",
+  "historical_results": "Never read as current outcomes or overwritten",
+  "provider_budget": "One fixed run directory and exclusive call slots across API restarts and failures; no automatic retry of this experiment"
+}

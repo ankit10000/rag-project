@@ -1,0 +1,33 @@
+{
+  "checked_date": "2026-11-23",
+  "public_bundle": {"os": "Linux/Unix", "ip": "dual-stack", "ram_gb": 4, "vcpus": 2, "ssd_gb": 80, "monthly_usd": "24", "mumbai_transfer_gb": 2048},
+  "sources": [
+    {"url": "https://aws.amazon.com/lightsail/pricing/", "supports": "4 GB / 2 vCPU / 80 GB public IPv4 bundle is $24/month; Mumbai has half the standard transfer allowance"},
+    {"url": "https://aws.amazon.com/free/compute/lightsail/", "supports": "Current Lightsail-specific Free Tier table allows VPS credits in both Free and Paid plans"},
+    {"url": "https://aws.amazon.com/free/compute/lightsail-vs-ec2/", "supports": "Current comparison explicitly allows Lightsail credits in both Free and Paid plans"},
+    {"url": "https://docs.aws.amazon.com/lightsail/latest/userguide/document-history.html", "supports": "August 4 2026 replaced old short-term Lightsail trials with credit-based Free Tier"},
+    {"url": "https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-frequently-asked-questions-faq-billing-and-account-management.html", "supports": "Hourly billing capped monthly; stopped instances remain billable until deleted; attached static IPv4 no extra charge, unattached beyond one hour $0.005/hour"},
+    {"url": "https://docs.aws.amazon.com/lightsail/latest/userguide/baseline-cpu-performance.html", "supports": "4 GB / 2 vCPU has 20% baseline CPU and burst credits"},
+    {"url": "https://aws.amazon.com/awscredits/", "supports": "Promotional credit terms exclude applicable transaction taxes"},
+    {"url": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_freetier_GetAccountPlanState.html", "supports": "Read-only API exposes plan status, type, remaining credits and expiry"},
+    {"url": "https://docs.docker.com/engine/install/ubuntu/", "supports": "Official Ubuntu apt repository, Docker CE version selection and Compose plugin installation"}
+  ],
+  "direct_ip_https": {
+    "caddy_version": "2.11.9-alpine",
+    "image_digest_verified": "sha256:003a97808e781aa9f7e75cc2f43d34d461099031faf5e20faefb9f61126836f0",
+    "sources": ["https://letsencrypt.org/2026/01/15/6day-and-ip-general-availability", "https://caddyserver.com/docs/caddyfile/directives/tls", "https://github.com/caddyserver/caddy/issues/7526"],
+    "configuration": "Explicit Let's Encrypt ACME issuer with shortlived profile plus default_sni for public IPv4 behind Docker NAT. No purchased DNS domain or third-party dynamic DNS required.",
+    "verification": "Caddy validate passed in isolated --network none container with a documentation IPv4. Actual public certificate issuance remains a cloud acceptance check."
+  },
+  "account_eligibility": "Lead verifies account-specific authorization and credit state; public documentation alone is not account confirmation.",
+  "docker_signing_key": {
+    "verified_date": "2026-11-23",
+    "source": "https://download.docker.com/linux/ubuntu/gpg",
+    "sha256": "1500c1f56fa9e26b9b8f42452a553675796ade0807cdce11975eb98170b3a570",
+    "primary_fingerprint": "9DC858229FC7DD38854AE2D88D81803C0EBFCD88",
+    "host_enforcement": "provision_host.sh checks the downloaded primary fingerprint with gpg before installing the apt signing key"
+  },
+  "stale_sources": "Generic AWS compute/webapps pages still contain old Paid-plan-only trial language. The current Lightsail-specific page and dated product change history supersede that old trial description.",
+  "cost_exclusions": ["Applicable taxes", "Gemini billing", "Transfer overage", "Unattached static IPv4", "Extra snapshots/disks/services"],
+  "guardrails": ["No account upgrade", "No automatic snapshots or additional paid AWS services", "Reserve $10", "Budget alerts are not a hard cap", "Export before credit expiry; stopped Lightsail is still billed"]
+}

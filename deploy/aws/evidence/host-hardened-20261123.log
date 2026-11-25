@@ -1,0 +1,15 @@
+170M	/home/ubuntu/rag-staging-20261123-01
+29.9.3
+permitrootlogin no
+passwordauthentication no
+kbdinteractiveauthentication no
+Status: active
+
+To                         Action      From
+--                         ------      ----
+22/tcp                     ALLOW       110.235.229.220           
+80/tcp                     ALLOW       Anywhere                  
+443/tcp                    ALLOW       Anywhere                  
+80/tcp (v6)                ALLOW       Anywhere (v6)             
+443/tcp (v6)               ALLOW       Anywhere (v6)             
+

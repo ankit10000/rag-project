@@ -1,0 +1,48 @@
+Hit:1 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu noble InRelease
+Hit:2 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu noble-updates InRelease
+Hit:3 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu noble-backports InRelease
+Hit:4 https://download.docker.com/linux/ubuntu noble InRelease
+Hit:5 https://security.ubuntu.com/ubuntu noble-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ca-certificates is already the newest version (20260816ubuntu0.24.04.2).
+curl is already the newest version (8.5.0-2ubuntu10.16).
+gnupg is already the newest version (2.4.4-2ubuntu17.6).
+openssl is already the newest version (3.0.13-0ubuntu3.16).
+ufw is already the newest version (0.36.2-6).
+0 upgraded, 0 newly installed, 0 to remove and 30 not upgraded.
+gpg: keybox '/tmp/tmp.z3M620cGpO/pubring.kbx' created
+gpg: /tmp/tmp.z3M620cGpO/trustdb.gpg: trustdb created
+Hit:1 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu noble InRelease
+Hit:2 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu noble-updates InRelease
+Hit:3 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu noble-backports InRelease
+Hit:4 https://download.docker.com/linux/ubuntu noble InRelease
+Hit:5 https://security.ubuntu.com/ubuntu noble-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+docker-ce is already the newest version (5:29.9.3-1~ubuntu.24.04~noble).
+docker-ce-cli is already the newest version (5:29.9.3-1~ubuntu.24.04~noble).
+containerd.io is already the newest version (2.4.2-4~ubuntu.24.04~noble).
+docker-buildx-plugin is already the newest version (0.39.1-1~ubuntu.24.04~noble).
+docker-compose-plugin is already the newest version (5.8.0-1~ubuntu.24.04~noble).
+0 upgraded, 0 newly installed, 0 to remove and 28 not upgraded.
+Synchronizing state of docker.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable docker
+Docker Compose version v5.8.0
+Default incoming policy changed to 'deny'
+(be sure to update your rules accordingly)
+Default outgoing policy changed to 'allow'
+(be sure to update your rules accordingly)
+Rules updated
+Rules updated
+Rules updated (v6)
+Rules updated
+Rules updated (v6)
+Firewall is active and enabled on system startup
+Created symlink /etc/systemd/system/timers.target.wants/rag-host-health.timer → /etc/systemd/system/rag-host-health.timer.
+Created symlink /etc/systemd/system/timers.target.wants/rag-encrypted-backup.timer → /etc/systemd/system/rag-encrypted-backup.timer.
+Host preparation finished. Verify Lightsail firewall, Compose port publication, DNS and HTTPS independently.

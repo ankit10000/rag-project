@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "database": "rag_v2_demo",
+  "role": "rag_v2_app",
+  "read_only": true,
+  "force_rls_tables": 9,
+  "after_deletion": false,
+  "counts": {
+    "owner": {
+      "documents": 2,
+      "jobs": 2,
+      "job_events": 6,
+      "document_chunks": 3,
+      "conversations": 4,
+      "messages": 10,
+      "conversation_memories": 1,
+      "memory_sources": 1,
+      "v2_turn_receipts": 5
+    },
+    "other": {
+      "documents": 0,
+      "jobs": 0,
+      "job_events": 0,
+      "document_chunks": 0,
+      "conversations": 0,
+      "messages": 0,
+      "conversation_memories": 0,
+      "memory_sources": 0,
+      "v2_turn_receipts": 0
+    }
+  },
+  "providers": 0,
+  "raw_content_logged": false
+}

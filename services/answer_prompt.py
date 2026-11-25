@@ -53,6 +53,7 @@ def build_answer_prompt(
     history: list | None = None,
     memory_summary: str = "",
     feedback: str | None = None,
+    calculation_managed: bool = False,
 ) -> str:
     refs = ", ".join(s["ref"] for s in sources) or "none"
     history_block = build_history_block(history)
@@ -77,6 +78,11 @@ CORRECTION REQUIRED (your previous attempt was rejected):
         checklist = coverage_prompt(request_coverage(question, sources))
         if checklist:
             focus += checklist + '\n'
+        if calculation_managed:
+            focus += ('- The application has verified the employment date arithmetic and will '
+                      'append that calculation with its source citation. Answer the other '
+                      'requested parts, including education when requested. Do not calculate '
+                      'a duration yourself or claim that it cannot be calculated.\n')
 
     return f"""
 You are a careful, document-grounded assistant.

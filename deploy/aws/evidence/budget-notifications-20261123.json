@@ -1,0 +1,32 @@
+{
+    "Notifications": [
+        {
+            "NotificationType": "ACTUAL",
+            "ComparisonOperator": "GREATER_THAN",
+            "Threshold": 25.0,
+            "ThresholdType": "ABSOLUTE_VALUE",
+            "NotificationState": "OK"
+        },
+        {
+            "NotificationType": "ACTUAL",
+            "ComparisonOperator": "GREATER_THAN",
+            "Threshold": 50.0,
+            "ThresholdType": "ABSOLUTE_VALUE",
+            "NotificationState": "OK"
+        },
+        {
+            "NotificationType": "ACTUAL",
+            "ComparisonOperator": "GREATER_THAN",
+            "Threshold": 75.0,
+            "ThresholdType": "ABSOLUTE_VALUE",
+            "NotificationState": "OK"
+        },
+        {
+            "NotificationType": "ACTUAL",
+            "ComparisonOperator": "GREATER_THAN",
+            "Threshold": 90.0,
+            "ThresholdType": "ABSOLUTE_VALUE",
+            "NotificationState": "OK"
+        }
+    ]
+}

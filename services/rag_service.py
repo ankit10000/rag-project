@@ -50,8 +50,8 @@ def ask_question(
     history = history or []
     trace_event('question', metadata={'history_messages': len(history)}, raw={'question': query})
     if os.getenv("RAG_V2") == "1":
-        from services.tenure_calculation import answer_employment_duration
-        calculation = answer_employment_duration(query, history)
+        from services.tenure_calculation import answer_employment_duration, has_additional_requests
+        calculation = None if has_additional_requests(query) else answer_employment_duration(query, history)
         if calculation is not None:
             return calculation
         from services.v2_routing import single_source_overview_query, OVERVIEW_POLICY
@@ -278,6 +278,8 @@ def _answer_from_route(query, search_query, question_type, history, memory_summa
     }
     if 'coverage' in outcome:
         result['coverage'] = outcome['coverage']
+    if 'calculation' in outcome:
+        result['calculation'] = outcome['calculation']
     coverage_metadata = result.get('coverage') or {}
     trace_event('answer_result', metadata={'status': result['status'], 'issues': result['issues'],
                 'citations': result['citations'],

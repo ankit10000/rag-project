@@ -24,9 +24,31 @@ async function gateway(
   // Next normalizes loopback URLs internally; use the actual request Host, never
   // client-supplied forwarded-host/proto headers, to retain the browser origin.
   const host = request.headers.get("host");
-  const browserOrigin = host
+  let browserOrigin = host
     ? `${request.nextUrl.protocol}//${host}`
     : request.nextUrl.origin;
+  // A TLS-terminating deployment explicitly declares its public origin. Never
+  // derive this trust boundary from client-controlled forwarded headers.
+  const publicOrigin = process.env.RAG_PUBLIC_ORIGIN;
+  if (publicOrigin !== undefined) {
+    try {
+      const configured = new URL(publicOrigin);
+      if (
+        configured.protocol !== "https:" ||
+        configured.username || configured.password ||
+        configured.pathname !== "/" || configured.search || configured.hash
+      ) throw new Error("invalid public origin");
+      if (host?.toLowerCase() !== configured.host)
+        return Response.json(
+          { error: { code: "origin_rejected" } }, { status: 403 },
+        );
+      browserOrigin = configured.origin;
+    } catch {
+      return Response.json(
+        { error: { code: "gateway_configuration" } }, { status: 503 },
+      );
+    }
+  }
   if (isWrite && request.headers.get("origin") !== browserOrigin)
     return Response.json(
       { error: { code: "origin_rejected" } },

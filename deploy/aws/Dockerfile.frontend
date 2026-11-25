@@ -1,0 +1,23 @@
+# syntax=docker/dockerfile:1.7
+ARG NODE_IMAGE=node:24.22.3-bookworm-slim@sha256:dc26ae92c9fb15cf6b1d63e20f0944b2efe0f115b20e00be48fb23fceb061c54
+FROM ${NODE_IMAGE} AS dependencies
+WORKDIR /app
+ENV NEXT_TELEMETRY_DISABLED=1
+COPY frontend/package.json frontend/package-lock.json ./
+RUN npm ci --no-audit --no-fund
+
+FROM dependencies AS build
+COPY frontend .
+ENV NODE_ENV=production
+RUN npm run build
+
+FROM ${NODE_IMAGE} AS runtime
+WORKDIR /app
+ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 HOSTNAME=0.0.0.0 PORT=3000 \
+    NODE_OPTIONS=--max-old-space-size=256
+RUN groupadd --gid 10001 rag && useradd --uid 10001 --gid 10001 --no-create-home --shell /usr/sbin/nologin rag
+COPY --from=build --chown=10001:10001 /app/.next/standalone ./
+COPY --from=build --chown=10001:10001 /app/.next/static ./.next/static
+USER 10001:10001
+EXPOSE 3000
+CMD ["node", "server.js"]

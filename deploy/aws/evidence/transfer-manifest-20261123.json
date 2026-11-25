@@ -1,0 +1,14 @@
+{
+  "images-20261123-01.tar.gz": {
+    "bytes": 529653563,
+    "sha256": "278b495bee36f15175900a72899fae235663c77f5e840fc1f2ad2eda8f4bdb49"
+  },
+  "release-20261123-01.tar.gz": {
+    "bytes": 23205,
+    "sha256": "412fa1d1e78115266976afa3ba2166a53cf634cbbea484c014fc6951ccc5379b"
+  },
+  "models-20261123-01.tar.gz": {
+    "bytes": 168976412,
+    "sha256": "dcec1cf032d371ff5033cd922eae627fce2433e61576bf2cd803adc8a6b8ef0d"
+  }
+}

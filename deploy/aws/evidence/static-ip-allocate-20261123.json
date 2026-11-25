@@ -1,0 +1,18 @@
+{
+    "operations": [
+        {
+            "id": "109dd2e1-0865-4578-8d69-e29cded567cd",
+            "resourceName": "rag-v2-demo-ip-20261123",
+            "resourceType": "StaticIp",
+            "createdAt": "2026-11-23T16:37:46.311000+05:30",
+            "location": {
+                "availabilityZone": "all",
+                "regionName": "ap-south-1"
+            },
+            "isTerminal": true,
+            "operationType": "AllocateStaticIp",
+            "status": "Succeeded",
+            "statusChangedAt": "2026-11-23T16:37:46.700000+05:30"
+        }
+    ]
+}

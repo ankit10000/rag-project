@@ -1,0 +1,66 @@
+{
+	email {$ACME_EMAIL}
+	admin off
+	grace_period 30s
+	# Public IP clients often omit SNI; Docker NAT would otherwise select its
+	# private container IP. The site address remains the authorized public host.
+	default_sni {$RAG_DOMAIN}
+	fallback_sni {$RAG_DOMAIN}
+	servers {
+		protocols h1 h2
+		max_header_size 32KB
+		timeouts {
+			read_header 10s
+			read_body 60s
+			idle 60s
+		}
+	}
+}
+
+# Use the attached public IPv4 directly, or an owned hostname resolving to it.
+# The persisted /data volume contains certificates and automatic-renewal state.
+{$RAG_DOMAIN} {
+	# LE IP certificates require this profile. It is also valid for DNS names.
+	# Do not silently fall back to a locally trusted/self-signed IP certificate.
+	tls {
+		issuer acme https://acme-v02.api.letsencrypt.org/directory {
+			profile shortlived
+		}
+	}
+	encode zstd gzip
+	request_body {
+		max_size 32MiB
+	}
+	header {
+		-Server
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "same-origin"
+		X-Frame-Options "SAMEORIGIN"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+	}
+	# No access log: URLs, PDF names, query text, cookies and tokens stay private.
+	# Default Caddy runtime logs still report certificate and upstream failures.
+	# Keep the public Host for the existing BFF's strict browser-Origin check.
+	# Do not retry POST/PATCH/DELETE; stable-turn reconciliation belongs to the app.
+	reverse_proxy frontend:3000 {
+		header_up Host {http.request.hostport}
+		header_up X-Forwarded-Host {http.request.hostport}
+		header_up X-Forwarded-Proto https
+		transport http {
+			dial_timeout 5s
+			response_header_timeout 125s
+		}
+	}
+}
+
+# Reject unmatched HTTP hosts after TLS selection. This does not add a
+# certificate subject or relax the public site's exact hostname matcher.
+https://:443 {
+	tls {
+		issuer acme https://acme-v02.api.letsencrypt.org/directory {
+			profile shortlived
+		}
+	}
+	respond 404
+}

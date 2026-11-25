@@ -1,0 +1,13 @@
+HTTP/2 200 
+cache-control: no-store
+content-type: application/json
+date: Mon, 23 Nov 2026 12:02:14 GMT
+permissions-policy: camera=(), microphone=(), geolocation=()
+referrer-policy: same-origin
+strict-transport-security: max-age=31536000
+vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding
+via: 1.1 Caddy
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+x-request-id: 951019fd951f4e52b24066ea4b612dbe
+

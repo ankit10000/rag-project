@@ -1,0 +1,13 @@
+   1540    1539       03:03 sudo env ADMIN_CIDR=110.235.229.220/32 DOCKER_VERSION=5:29.9.3-1~ubuntu.24.04~noble CONTAINERD_VERSION=2.4.2-4~ubuntu.24.04~noble BUILDX_VERSION=0.39.1-1~ubuntu.24.04~noble COMPOSE_VERSION=5.8.0-1~ubuntu.24.04~noble bash /tmp/rag-provision-host-20261123.sh
+   1541    1540       03:03 bash /tmp/rag-provision-host-20261123.sh
+   1557    1541       03:03 apt-get update
+   1566    1557       03:03 /usr/lib/apt/methods/http
+   1567    1557       03:03 /usr/lib/apt/methods/http
+   1569    1557       03:03 /usr/lib/apt/methods/gpgv
+   1677    1557       03:02 /usr/lib/apt/methods/store
+   1856    1855       00:00 bash -c ps -eo pid,ppid,etime,args | grep -E "apt-get|rag-provision|/usr/lib/apt/methods"; curl -4 -I --max-time 10 -sS https://security.ubuntu.com/ubuntu/dists/noble-security/InRelease | head -3; date -u
+   1858    1856       00:00 grep -E apt-get|rag-provision|/usr/lib/apt/methods
+HTTP/1.1 200 OK
+Date: Mon, 23 Nov 2026 11:14:02 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Mon Nov 23 11:14:03 UTC 2026

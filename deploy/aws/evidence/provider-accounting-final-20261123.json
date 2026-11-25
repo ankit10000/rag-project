@@ -1,0 +1,21 @@
+{
+  "run_id": "aws-demo-20261123-live-01",
+  "actual_sdk_calls": 12,
+  "successful_sdk_calls": 12,
+  "reported_total_tokens": 5282,
+  "requested_models": [
+    "gemini-3.5-flash-lite"
+  ],
+  "additional_test_provider_calls_after_spend_stop": 0,
+  "original_policy_unchanged": true,
+  "no_new_paid_aws_services": true,
+  "one_lightsail_bundle_monthly_usd": 24,
+  "original_authorized_allowance_usd": 100,
+  "reserve_usd": 10,
+  "budget_alerts_usd": [
+    25,
+    50,
+    75,
+    90
+  ]
+}

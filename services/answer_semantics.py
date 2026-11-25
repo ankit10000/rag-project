@@ -70,6 +70,8 @@ def _information_object(text):
         noun_phrase = re.sub(r'\s+(?:listed|recorded|given|provided|specified|stated|mentioned)$',
                              '', noun_phrase, flags=re.I)
     words = noun_phrase.split()
+    if os.getenv('RAG_V2') == '1' and words and words[-1].casefold() in {'calculation','calculations'}:
+        return True
     return bool(words and (_INFORMATION.fullmatch(words[-1]) or noun_phrase.lower().endswith('notice period')))
 
 
@@ -110,6 +112,11 @@ def is_insufficiency_clause(text, cited_contents=()):
             _information_object(core[:passive.start()]) or _DOC_LOCATION.search(core))):
         return True
     if re.match(r"^not (?:available|provided|stated|mentioned|specified)\b", core, re.I) and _DOC_LOCATION.search(core):
+        return True
+    # "Unavailable in the documents" reports a missing attribute, whereas
+    # "fax service is unavailable" can be a literal, cited negative fact.
+    unavailable=re.search(r'\b(?:is|are|was|were)\s+unavailable\b',core,re.I)
+    if unavailable and _DOC_LOCATION.search(core) and _information_object(core[:unavailable.start()]):
         return True
 
     # A cited literal negative fact wins over older broad phrase heuristics,

@@ -1,0 +1,5 @@
+# A small source-only patch over the locally prebuilt, hash-verified release.
+# No dependency install, model download, external network or frontend rebuild.
+ARG BASE_IMAGE=rag-v2-backend:aws-20261123-01
+FROM ${BASE_IMAGE}
+COPY --chown=10001:10001 app.py /app/backend/v2/app.py

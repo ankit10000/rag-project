@@ -1,0 +1,23 @@
+{
+    "name": "rag-v2-demo-credit-guard-20261123",
+    "limit": {
+        "Amount": "90.0",
+        "Unit": "USD"
+    },
+    "unit": "CUSTOM",
+    "start": "2026-11-23T05:30:00+05:30",
+    "end": "2027-03-11T05:30:00+05:30",
+    "costTypes": {
+        "IncludeTax": true,
+        "IncludeSubscription": true,
+        "UseBlended": false,
+        "IncludeRefund": false,
+        "IncludeCredit": false,
+        "IncludeUpfront": true,
+        "IncludeRecurring": true,
+        "IncludeOtherSubscription": true,
+        "IncludeSupport": true,
+        "IncludeDiscount": true,
+        "UseAmortized": false
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "operation": {
+        "id": "baa38fdf-6659-4c3c-8383-cf87350b041e",
+        "resourceName": "rag-v2-demo-20261123",
+        "resourceType": "KeyPair",
+        "createdAt": "2026-11-23T16:36:39.067000+05:30",
+        "location": {
+            "availabilityZone": "all",
+            "regionName": "ap-south-1"
+        },
+        "isTerminal": true,
+        "operationType": "ImportKeyPair",
+        "status": "Succeeded",
+        "statusChangedAt": "2026-11-23T16:36:39.211000+05:30"
+    }
+}

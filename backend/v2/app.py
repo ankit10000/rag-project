@@ -5,7 +5,9 @@ import time
 import logging
 import uuid
 import pathlib
-from contextlib import asynccontextmanager
+import re
+import threading
+from contextlib import asynccontextmanager,nullcontext
 from uuid import UUID
 from fastapi import FastAPI,Depends,Request,Response,UploadFile,File,Query
 from fastapi.responses import FileResponse
@@ -22,6 +24,29 @@ from services.request_budget import request_budget
 from services import v2_jobs as jobs
 
 PREFIX='/api/v2'
+
+def _allowed_hosts():
+    """Exact hostnames only; private container names can be explicitly enabled."""
+    hosts=[host.strip() for host in os.getenv(
+        'RAG_V2_ALLOWED_HOSTS','localhost,127.0.0.1,[::1],testserver').split(',')]
+    if not hosts or any(not host or (host!='[::1]' and not re.fullmatch(
+            r'[A-Za-z0-9](?:[A-Za-z0-9.-]*[A-Za-z0-9])?',host)) for host in hosts):
+        raise ValueError('RAG_V2_ALLOWED_HOSTS requires exact hostnames without ports or wildcards')
+    return list(dict.fromkeys(hosts))
+
+def _chat_generation_slots():
+    value=os.getenv('RAG_V2_CHAT_CONCURRENCY','0')
+    if not value.isdecimal() or not 0<=int(value)<=4:
+        raise ValueError('RAG_V2_CHAT_CONCURRENCY must be between 0 and 4')
+    return threading.BoundedSemaphore(int(value)) if int(value) else None
+
+def _run_limited_turn(conversation_id,message,slots):
+    from services.request_budget import budgeted_lock
+    # Queued generation uses the existing total deadline. History/recovery and
+    # authentication requests remain independent of this model-memory limit.
+    with budgeted_lock(slots) if slots is not None else nullcontext():
+        import main
+        return main.run_turn(conversation_id,message)
 
 def _storage():
     return pathlib.Path(os.getenv('RAG_V2_UPLOAD_DIR','data/v2_uploads')).resolve()
@@ -55,9 +80,10 @@ async def lifespan(app):
     yield
 
 def create_app():
+    generation_slots=_chat_generation_slots()
     app=FastAPI(title='RAG v2',version='2.0.0',lifespan=lifespan,openapi_url=PREFIX+'/openapi.json',docs_url=PREFIX+'/docs')
     errors.install(app)
-    app.add_middleware(TrustedHostMiddleware,allowed_hosts=['localhost','127.0.0.1','[::1]','testserver'])
+    app.add_middleware(TrustedHostMiddleware,allowed_hosts=_allowed_hosts())
 
     @app.middleware('http')
     async def bounded_body(request,call_next):
@@ -262,9 +288,8 @@ def create_app():
             require_owned_conversation(user,str(body.conversation_id))
             existing=committed_result(str(body.conversation_id),turn,body.message)
             if existing is not None:return existing
-            import main
             with turn_identity(turn):
-                result=main.run_turn(str(body.conversation_id),body.message)
+                result=_run_limited_turn(str(body.conversation_id),body.message,generation_slots)
             # Ordinary answers were atomically committed before memory work.
             saved=committed_result(str(body.conversation_id),turn,body.message)
             if saved is not None:return saved
